@@ -62,6 +62,7 @@ $std::device_of (!)
     parameter stat: the status-object to be queried
 
     see also: std::stat
+
 $std::inode_of (!)
   #
     returns the inode no. of a file
@@ -71,6 +72,7 @@ $std::inode_of (!)
     parameter stat: the status-object to be queried
 
     see also: std::stat
+
 $std::mode_of (!)
   #
     returns the mode of a file
@@ -83,6 +85,7 @@ $std::mode_of (!)
     see also: std::stat,
     std::UNKNOWN, std::FIFO, std::CHARACTER_DEVICE, std::DIRECTORY,
     std::BLOCK_DEVICE, std::REGULAR_FILE, std::LINK, std::SOCKET
+
 $std::link_count_of (!)
   #
     returns the link count of a file
@@ -93,6 +96,7 @@ $std::link_count_of (!)
     parameter stat: the status-object to be queried
 
     see also: std::stat
+
 $std::user_id_of (!)
   #
     returns the user id of a file
@@ -102,6 +106,7 @@ $std::user_id_of (!)
     parameter stat: the status-object to be queried
 
     see also: std::stat
+
 $std::group_id_of (!)
   #
     returns the group id of a file
@@ -111,6 +116,7 @@ $std::group_id_of (!)
     parameter stat: the status-object to be queried
 
     see also: std::stat
+
 $std::size_of (!)
   #
     returns the size (of a file)
@@ -120,6 +126,7 @@ $std::size_of (!)
     parameter stat: the status-object to be queried
 
     see also: std::stat, sector_count_of
+
 $std::block_size_of (!)
   #
     returns the block size (of a file)
@@ -134,6 +141,7 @@ $std::block_size_of (!)
     parameter stat: the status-object to be queried
 
     see also: std::stat
+
 $std::sector_count_of (!)
   #
     returns the sector count of a file
@@ -145,6 +153,7 @@ $std::sector_count_of (!)
     parameter stat: the status-object to be queried
 
     see also: std::stat, std::size_of
+
 $std::access_time_of (!)
   #
     returns the access time of a file
@@ -160,6 +169,7 @@ $std::access_time_of (!)
 
     see also: std::stat,
     std::modification_time_of, std::status_change_time_of
+
 $std::modification_time_of (!)
   #
     returns the modification time of a file
@@ -172,6 +182,7 @@ $std::modification_time_of (!)
     parameter stat: the status-object to be queried
 
     see also: std::stat, std::access_time_of, std::status_change_time_of
+
 $std::status_change_time_of (!)
   #
     returns the change time of a file
@@ -185,6 +196,7 @@ $std::status_change_time_of (!)
     parameter stat: the status-object to be queried
 
     see also: std::stat, std::access_time_of, std::modification_time_of
+
 $std::creation_time_of (!)
   #
     returns the creation time of a file
@@ -199,6 +211,7 @@ $std::creation_time_of (!)
     parameter stat: the status-object to be queried
 
     see also: std::stat, std::modification_time_of
+
 $std::filename_of (!)
   #
     returns the name of a file
@@ -277,6 +290,7 @@ $std::connect ()
   <argument O_RDONLY>
 
   // used for opening files
+
 }
 
 {
@@ -286,6 +300,7 @@ $std::connect ()
   <argument O_WRONLY>
 
   // used for opening files
+
 }
 
 {
@@ -295,6 +310,7 @@ $std::connect ()
   <argument O_RDWR>
 
   // used for opening files
+
 }
 
 {
@@ -304,6 +320,7 @@ $std::connect ()
   <argument O_CREAT>
 
   // used for opening files
+
 }
 
 {
@@ -313,6 +330,7 @@ $std::connect ()
   <argument O_EXCL>
 
   // used for opening files
+
 }
 
 {
@@ -322,6 +340,7 @@ $std::connect ()
   <argument O_NOCTTY>
 
   // used for opening files
+
 }
 
 {
@@ -331,6 +350,7 @@ $std::connect ()
   <argument O_TRUNC>
 
   // used for opening files
+
 }
 
 {
@@ -340,6 +360,7 @@ $std::connect ()
   <argument O_APPEND>
 
   // used for opening files
+
 }
 
 {
@@ -349,9 +370,11 @@ $std::connect ()
   <argument O_NONBLOCK>
 
   // used for opening files
+
 }
 
 # not supported by Cygwin
+
 #{
   <kind object>
   <name std::O_ASYNC>
@@ -368,6 +391,7 @@ $std::connect ()
   // a directory entry of unknown type
   //
   // See also: file_type_of
+
 }
 
 # pipe
@@ -381,6 +405,7 @@ $std::connect ()
   // a directory entry that is a pipe
   //
   // See also: file_type_of
+
 }
 
 {
@@ -392,6 +417,7 @@ $std::connect ()
   // a directory entry that is a character device
   //
   // See also: file_type_of
+
 }
 
 {
@@ -403,6 +429,7 @@ $std::connect ()
   // a directory entry that is itself a directory
   //
   // See also: file_type_of
+
 }
 
 {
@@ -414,6 +441,7 @@ $std::connect ()
   // a directory entry that is a block device
   //
   // See also: file_type_of
+
 }
 
 {
@@ -425,6 +453,7 @@ $std::connect ()
   // a directory entry that is a regular file
   //
   // See also: file_type_of
+
 }
 
 {
@@ -436,6 +465,7 @@ $std::connect ()
   // a directory entry that is a symbolic link
   //
   // See also: file_type_of
+
 }
 
 {
@@ -447,6 +477,7 @@ $std::connect ()
   // a directory entry that is a socket
   //
   // See also: file_type_of
+
 }
 
 {
@@ -458,6 +489,7 @@ $std::connect ()
   // Operation not permitted
   //
   // See also: errno
+
 }
 
 {
@@ -469,6 +501,7 @@ $std::connect ()
   // No such file or directory
   //
   // See also: errno
+
 }
 
 {
@@ -480,6 +513,7 @@ $std::connect ()
   // No such process
   //
   // See also: errno
+
 }
 
 {
@@ -491,6 +525,7 @@ $std::connect ()
   // Interrupted system call
   //
   // See also: errno
+
 }
 
 {
@@ -502,6 +537,7 @@ $std::connect ()
   // I/O error
   //
   // See also: errno
+
 }
 
 {
@@ -513,6 +549,7 @@ $std::connect ()
   // No such device or address
   //
   // See also: errno
+
 }
 
 {
@@ -524,6 +561,7 @@ $std::connect ()
   // Argument list too long
   //
   // See also: errno
+
 }
 
 {
@@ -535,6 +573,7 @@ $std::connect ()
   // Exec format error
   //
   // See also: errno
+
 }
 
 {
@@ -546,6 +585,7 @@ $std::connect ()
   // Bad file number
   //
   // See also: errno
+
 }
 
 {
@@ -557,6 +597,7 @@ $std::connect ()
   // No child processes
   //
   // See also: errno
+
 }
 
 {
@@ -568,6 +609,7 @@ $std::connect ()
   // Try again
   //
   // See also: errno
+
 }
 
 {
@@ -579,6 +621,7 @@ $std::connect ()
   // Out of memory
   //
   // See also: errno
+
 }
 
 {
@@ -590,6 +633,7 @@ $std::connect ()
   // Permission denied
   //
   // See also: errno
+
 }
 
 {
@@ -601,6 +645,7 @@ $std::connect ()
   // Bad address
   //
   // See also: errno
+
 }
 
 {
@@ -612,6 +657,7 @@ $std::connect ()
   // Block device required
   //
   // See also: errno
+
 }
 
 {
@@ -623,6 +669,7 @@ $std::connect ()
   // Device or resource busy
   //
   // See also: errno
+
 }
 
 {
@@ -634,6 +681,7 @@ $std::connect ()
   // File exists
   //
   // See also: errno
+
 }
 
 {
@@ -645,6 +693,7 @@ $std::connect ()
   // Cross-device link
   //
   // See also: errno
+
 }
 
 {
@@ -656,6 +705,7 @@ $std::connect ()
   // No such device
   //
   // See also: errno
+
 }
 
 {
@@ -667,6 +717,7 @@ $std::connect ()
   // Not a directory
   //
   // See also: errno
+
 }
 
 {
@@ -678,6 +729,7 @@ $std::connect ()
   // Is a directory
   //
   // See also: errno
+
 }
 
 {
@@ -689,6 +741,7 @@ $std::connect ()
   // Invalid argument
   //
   // See also: errno
+
 }
 
 {
@@ -700,6 +753,7 @@ $std::connect ()
   // File table overflow
   //
   // See also: errno
+
 }
 
 {
@@ -711,6 +765,7 @@ $std::connect ()
   // Too many open files
   //
   // See also: errno
+
 }
 
 {
@@ -722,6 +777,7 @@ $std::connect ()
   // Not a typewriter
   //
   // See also: errno
+
 }
 
 {
@@ -733,6 +789,7 @@ $std::connect ()
   // Text file busy
   //
   // See also: errno
+
 }
 
 {
@@ -744,6 +801,7 @@ $std::connect ()
   // File too large
   //
   // See also: errno
+
 }
 
 {
@@ -755,6 +813,7 @@ $std::connect ()
   // No space left on device
   //
   // See also: errno
+
 }
 
 {
@@ -766,6 +825,7 @@ $std::connect ()
   // Illegal seek
   //
   // See also: errno
+
 }
 
 {
@@ -777,6 +837,7 @@ $std::connect ()
   // Read-only file system
   //
   // See also: errno
+
 }
 
 {
@@ -788,6 +849,7 @@ $std::connect ()
   // Too many links
   //
   // See also: errno
+
 }
 
 {
@@ -799,6 +861,7 @@ $std::connect ()
   // Broken pipe
   //
   // See also: errno
+
 }
 
 {
@@ -810,6 +873,7 @@ $std::connect ()
   // Math argument out of domain of func
   //
   // See also: errno
+
 }
 
 {
@@ -821,6 +885,7 @@ $std::connect ()
   // Math result not representable
   //
   // See also: errno
+
 }
 
 $std::raise_error:
@@ -958,7 +1023,6 @@ $std::stat
     std::access_time_of, std::modification_time_of,
     std::status_change_time_of,
     std::is_a_directory, std::is_a_regular_file, std::is_a_link
-
   {
     CHECK_ARGUMENTS(1)
     char *filename = to_c_string(ARGUMENTS(0));
@@ -980,7 +1044,6 @@ $std::file_exists
     parameter filename: the name of the file to check
 
     See also: stat
-
   {
     CHECK_ARGUMENTS(1)
     char *filename = to_c_string(ARGUMENTS(0));
@@ -1197,6 +1260,7 @@ $types::stat/is_a_link
   <argument STDIN_FILENO>
 
   // the file descriptor object for *stdin*
+
 }
 
 {
@@ -1206,6 +1270,7 @@ $types::stat/is_a_link
   <argument STDOUT_FILENO>
 
   // the file descriptor object for *stdout*
+
 }
 
 {
@@ -1215,6 +1280,7 @@ $types::stat/is_a_link
   <argument STDERR_FILENO>
 
   // the file descriptor object for *stderr*
+
 }
 
 $std::create_file_descriptor
@@ -1298,7 +1364,7 @@ $std::open_file:
     opens a file
 
     See also: close, O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, O_APPEND, O_TRUNC,
-	      O_EXCL, O_NOCTTY, O_NONBLOCK
+              O_EXCL, O_NOCTTY, O_NONBLOCK
   (
     filename # the name of the file
     mode # the mode to use for opening the file
@@ -1393,8 +1459,8 @@ $std::create_file:
     be no buffering.
 
     see also: std::open, std::open_file_for_reading,
-	      std::open_file_for_writing,
-	      std::open_file_for_reading_and_writing,
+              std::open_file_for_writing,
+              std::open_file_for_reading_and_writing,
               std::close, std::read, std::write
   (
     filename # the name of the file to create
@@ -1412,7 +1478,7 @@ $types::file_descriptor/close
       struct stat statbuf;
       fstat(fd, &statbuf);
       if (S_ISSOCK(statbuf.st_mode)) {
-	shutdown(fd, SHUT_RDWR); // fail silent
+        shutdown(fd, SHUT_RDWR); // fail silent
       }
       do {
         err = close(fd);
@@ -1436,7 +1502,7 @@ $types::file_descriptor/read_some_bytes_from
     This is a low-level function!
 
     See also: types::file_descriptor/read_from,
-	      types::file_descriptor/write_some_bytes_to
+              types::file_descriptor/write_some_bytes_to
   {
     CHECK_ARGUMENTS(2)
     int fd = ARGUMENTS(0)->file_descriptor.fd;
@@ -1500,7 +1566,7 @@ $types::file_descriptor/write_some_bytes_to
     This is a low-level function!
 
     See also: types::file_descriptor/write_to,
-	      types::file_descriptor/read_some_bytes_from
+              types::file_descriptor/read_some_bytes_from
   {
     CHECK_ARGUMENTS(2)
     int fd = ARGUMENTS(0)->file_descriptor.fd;
@@ -1523,19 +1589,18 @@ $types::file_descriptor/write_some_bytes_to
 
 $file_description: (fd)
   $filename filename_of(fd)
-  if
-    filename.is_defined
-    -> "@quot;@(filename)@quot;"
-    :
-      $num fd.to_integer
-      case num
-	0 -> "<stdin>"
-	1 -> "<stdout>"
-	2 -> "<stderr>"
-        -> "<file descriptor @(num)>"
+  if filename.is_defined (-> "@quot;@(filename)@quot;"):
+    $num fd.to_integer
+    case num
+      0
+      -> "<stdin>"
+      1
+      -> "<stdout>"
+      2
+      -> "<stderr>"
+      -> "<file descriptor @(num)>"
 
-$WriteError: (fd)
-  raise_error "Writing to file @(file_description(fd))"
+$WriteError: (fd) raise_error "Writing to file @(file_description(fd))"
 
 $types::file_descriptor/write_to:
   #
@@ -1940,7 +2005,6 @@ $std::wait_pid
     ARGUMENTS:
       pid     # the pid of the process (or -1) for all children
       no_hang # if true the call returns immediately
-
   {
     CHECK_ARGUMENTS(2)
     int pid = to_int(ARGUMENTS(0));
@@ -2059,9 +2123,7 @@ $std::mkdir:
     options*
     $path
   )
-
-  extract_options
-    options
+  extract_options options
     MODE = 0o755
     $mode
     PARENTS = false
@@ -2110,7 +2172,8 @@ $std::fullname:
   do: (-> break)
     forever:
       $orig_pathname pathname
-      replace_all &pathname
+      replace_all
+	&pathname
 	'/', many(not_followed_by('/'), ANY_CHARACTER), "/../" = "/"
       if pathname == orig_pathname break
   unless pathname == "/": range &pathname 1 -2
@@ -2330,7 +2393,8 @@ $std::directory:
       unless entry.is_defined break
       case
 	filename_of(entry)
-	".", "..":
+	".", ".."
+	:
 	  pass
 	:
 	  push &entries entry

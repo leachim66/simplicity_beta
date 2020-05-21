@@ -35,6 +35,7 @@ $types::insert_order_set.index_table_of empty_table
     the prototype object for all insert-order sets
 
 $types::insert_order_set.keys_of empty_list
+
 $types::insert_order_set types::generic_set
   #
     the prototype object for all insert-order sets
@@ -48,8 +49,7 @@ $types::insert_order_set/:
     value = NONE
   )
   $idx index_table_of(myself)(key)
-  case
-    value
+  case value
     NONE
     -> idx.is_defined
     true:
@@ -65,8 +65,7 @@ $types::insert_order_set/:
     :
       Error "Attempt to set a set element to a nonboolean value!"
 
-$types::insert_order_set.serialization_tag_of "insert_order_set"
-  # obvious
+$types::insert_order_set.serialization_tag_of "insert_order_set" # obvious
 
 $types::insert_order_set/is_empty:
   #

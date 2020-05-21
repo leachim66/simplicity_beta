@@ -307,7 +307,12 @@ $types::insert_order_table/for_each_from_to:
   )
   $tree tree_of(self)
   if tree.is_defined:
-    $$key if(first.is_defined (-> first) -> first_of(self))
+    $$key
+      if
+	first.is_defined
+	-> first
+	-> first_of(self)
+
     while -> key.is_defined:
       $item retrieve_item(tree key)
       if
@@ -330,7 +335,12 @@ $types::insert_order_table/for_each_from_down_to:
   )
   $tree tree_of(self)
   if tree.is_defined:
-    $$key if(last.is_defined (-> last) -> last_of(self))
+    $$key
+      if
+	last.is_defined
+	-> last
+	-> last_of(self)
+
     while -> key.is_defined:
       $item retrieve_item(tree key)
       if
@@ -368,7 +378,12 @@ $types::insert_order_table/update_each_from_to:
   )
   $$tree tree_of(self)
   if tree.is_defined:
-    $$key if(first.is_defined (-> first) -> first_of(self))
+    $$key
+      if
+	first.is_defined
+	-> first
+	-> first_of(self)
+
     do: (-> break)
       while -> key.is_defined:
 	update_item &tree key: (&item)
@@ -388,7 +403,12 @@ $types::insert_order_table/update_each_from_down_to:
   )
   $$tree tree_of(self)
   if tree.is_defined:
-    $$key if(last.is_defined (-> last) -> last_of(self))
+    $$key
+      if
+	last.is_defined
+	-> last
+	-> last_of(self)
+
     do: (-> break)
       while -> key.is_defined:
 	update_item &tree key: (&item)

@@ -190,6 +190,7 @@ IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *create_closure(FUNC type, int par_count);
 IMPORT NODE *create_future(void);
+IMPORT void too_few_arguments_error(void);
 IMPORT NODE *get_attribute(NODE *node, int idx);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -197,7 +198,6 @@ IMPORT void set_attribute_value(ATTRIBUTES *attributes, int idx, void *attr);
 IMPORT NODE *create_continuation(void);
 IMPORT NODE *undefined;
 IMPORT NODE *create_cell(void);
-IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT NODE *create_cell_with_contents(NODE *contents);
 typedef struct CELL {
@@ -214,6 +214,7 @@ IMPORT void terminate(int exit_code);
 IMPORT NODE *create_continuation_with_exit(FUNC exit_func);
 IMPORT void continuation_type_function(void);
 IMPORT void initialize_maybe_future(NODE *var, NODE *val);
+IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT void define_polymorphic_function(
@@ -628,8 +629,6 @@ static NODE_GETTER get__not;
 static NODE_GETTER get_value_or_future__not;
 static NODE_GETTER get__outdent_marker;
 static NODE_GETTER get_value_or_future__outdent_marker;
-static int poly_idx__output_arguments_of;
-static NODE_GETTER get__output_arguments_of;
 static NODE_GETTER get__parse_meta_instruction;
 static NODE_GETTER get_value_or_future__parse_meta_instruction;
 static NODE_GETTER get__parse_statement;
@@ -809,7 +808,7 @@ static NODE *string__7fb24a3fca4aa852;
 static NODE *string__66ccbf91860d092a;
 static void cont__compiler__generate_dispatcher_function_4(void);
 static void cont__compiler__generate_dispatcher_function_5(void);
-static NODE *string__fc8c36a84adb366f;
+static NODE *string__949b16e1d9f7528;
 static void cont__compiler__generate_dispatcher_function_7(void);
 static void cont__compiler__generate_dispatcher_function_8(void);
 static void cont__compiler__generate_dispatcher_function_9(void);
@@ -1378,578 +1377,577 @@ static FRAME_INFO frame__compiler__sim2c_277 = {1, {"def"}};
 static void cont__compiler__sim2c_278(void);
 static void cont__compiler__sim2c_279(void);
 static void cont__compiler__sim2c_280(void);
-static void cont__compiler__sim2c_281(void);
-static NODE *func__compiler__sim2c_282;
-static void entry__compiler__sim2c_282(void);
-static FRAME_INFO frame__compiler__sim2c_282 = {1, {"def"}};
+static NODE *func__compiler__sim2c_281;
+static void entry__compiler__sim2c_281(void);
+static FRAME_INFO frame__compiler__sim2c_281 = {1, {"def"}};
 static NODE *string__7c84ae5484fdf7e0;
-static NODE *func__compiler__sim2c_284;
-static void entry__compiler__sim2c_284(void);
-static FRAME_INFO frame__compiler__sim2c_284 = {0, {}};
-static void cont__compiler__sim2c_285(void);
-static NODE *func__compiler__sim2c_286;
-static void entry__compiler__sim2c_286(void);
-static FRAME_INFO frame__compiler__sim2c_286 = {1, {"stmts"}};
+static NODE *func__compiler__sim2c_283;
+static void entry__compiler__sim2c_283(void);
+static FRAME_INFO frame__compiler__sim2c_283 = {0, {}};
+static void cont__compiler__sim2c_284(void);
+static NODE *func__compiler__sim2c_285;
+static void entry__compiler__sim2c_285(void);
+static FRAME_INFO frame__compiler__sim2c_285 = {1, {"stmts"}};
+static void cont__compiler__sim2c_286(void);
 static void cont__compiler__sim2c_287(void);
-static void cont__compiler__sim2c_288(void);
+static NODE *func__compiler__sim2c_288;
+static void entry__compiler__sim2c_288(void);
+static FRAME_INFO frame__compiler__sim2c_288 = {2, {"used_names", "need"}};
 static NODE *func__compiler__sim2c_289;
 static void entry__compiler__sim2c_289(void);
-static FRAME_INFO frame__compiler__sim2c_289 = {2, {"used_names", "need"}};
-static NODE *func__compiler__sim2c_290;
-static void entry__compiler__sim2c_290(void);
-static FRAME_INFO frame__compiler__sim2c_290 = {3, {"mangled_name", "info", "need"}};
-static void cont__compiler__sim2c_291(void);
-static NODE *func__compiler__sim2c_292;
-static void entry__compiler__sim2c_292(void);
-static FRAME_INFO frame__compiler__sim2c_292 = {1, {"filenames"}};
-static void cont__compiler__sim2c_293(void);
+static FRAME_INFO frame__compiler__sim2c_289 = {3, {"mangled_name", "info", "need"}};
+static void cont__compiler__sim2c_290(void);
+static NODE *func__compiler__sim2c_291;
+static void entry__compiler__sim2c_291(void);
+static FRAME_INFO frame__compiler__sim2c_291 = {1, {"filenames"}};
+static void cont__compiler__sim2c_292(void);
 static NODE *string__7690af9104a5e1e7;
+static void cont__compiler__sim2c_294(void);
 static void cont__compiler__sim2c_295(void);
-static void cont__compiler__sim2c_296(void);
-static NODE *func__compiler__sim2c_297;
-static void entry__compiler__sim2c_297(void);
-static FRAME_INFO frame__compiler__sim2c_297 = {3, {"args", "generated_declarations", "txt"}};
-static void cont__compiler__sim2c_298(void);
-static NODE *func__compiler__sim2c_299;
-static void entry__compiler__sim2c_299(void);
-static FRAME_INFO frame__compiler__sim2c_299 = {2, {"generated_declarations", "txt"}};
+static NODE *func__compiler__sim2c_296;
+static void entry__compiler__sim2c_296(void);
+static FRAME_INFO frame__compiler__sim2c_296 = {3, {"args", "generated_declarations", "txt"}};
+static void cont__compiler__sim2c_297(void);
+static NODE *func__compiler__sim2c_298;
+static void entry__compiler__sim2c_298(void);
+static FRAME_INFO frame__compiler__sim2c_298 = {2, {"generated_declarations", "txt"}};
+static void cont__compiler__sim2c_299(void);
 static void cont__compiler__sim2c_300(void);
-static void cont__compiler__sim2c_301(void);
-static NODE *func__compiler__sim2c_302;
-static void entry__compiler__sim2c_302(void);
-static FRAME_INFO frame__compiler__sim2c_302 = {3, {"args", "generated_top_level_variable_names", "txt"}};
-static void cont__compiler__sim2c_303(void);
-static NODE *func__compiler__sim2c_304;
-static void entry__compiler__sim2c_304(void);
-static FRAME_INFO frame__compiler__sim2c_304 = {2, {"generated_top_level_variable_names", "txt"}};
+static NODE *func__compiler__sim2c_301;
+static void entry__compiler__sim2c_301(void);
+static FRAME_INFO frame__compiler__sim2c_301 = {3, {"args", "generated_top_level_variable_names", "txt"}};
+static void cont__compiler__sim2c_302(void);
+static NODE *func__compiler__sim2c_303;
+static void entry__compiler__sim2c_303(void);
+static FRAME_INFO frame__compiler__sim2c_303 = {2, {"generated_top_level_variable_names", "txt"}};
+static void cont__compiler__sim2c_304(void);
 static void cont__compiler__sim2c_305(void);
-static void cont__compiler__sim2c_306(void);
-static NODE *func__compiler__sim2c_307;
-static void entry__compiler__sim2c_307(void);
-static FRAME_INFO frame__compiler__sim2c_307 = {3, {"args", "generated_top_level_variable_declarations", "txt"}};
-static void cont__compiler__sim2c_308(void);
-static NODE *func__compiler__sim2c_309;
-static void entry__compiler__sim2c_309(void);
-static FRAME_INFO frame__compiler__sim2c_309 = {2, {"generated_top_level_variable_declarations", "txt"}};
+static NODE *func__compiler__sim2c_306;
+static void entry__compiler__sim2c_306(void);
+static FRAME_INFO frame__compiler__sim2c_306 = {3, {"args", "generated_top_level_variable_declarations", "txt"}};
+static void cont__compiler__sim2c_307(void);
+static NODE *func__compiler__sim2c_308;
+static void entry__compiler__sim2c_308(void);
+static FRAME_INFO frame__compiler__sim2c_308 = {2, {"generated_top_level_variable_declarations", "txt"}};
+static void cont__compiler__sim2c_309(void);
 static void cont__compiler__sim2c_310(void);
-static void cont__compiler__sim2c_311(void);
-static NODE *func__compiler__sim2c_312;
-static void entry__compiler__sim2c_312(void);
-static FRAME_INFO frame__compiler__sim2c_312 = {3, {"args", "generated_global_variable_declarations", "txt"}};
-static void cont__compiler__sim2c_313(void);
-static NODE *func__compiler__sim2c_314;
-static void entry__compiler__sim2c_314(void);
-static FRAME_INFO frame__compiler__sim2c_314 = {2, {"generated_global_variable_declarations", "txt"}};
+static NODE *func__compiler__sim2c_311;
+static void entry__compiler__sim2c_311(void);
+static FRAME_INFO frame__compiler__sim2c_311 = {3, {"args", "generated_global_variable_declarations", "txt"}};
+static void cont__compiler__sim2c_312(void);
+static NODE *func__compiler__sim2c_313;
+static void entry__compiler__sim2c_313(void);
+static FRAME_INFO frame__compiler__sim2c_313 = {2, {"generated_global_variable_declarations", "txt"}};
+static void cont__compiler__sim2c_314(void);
 static void cont__compiler__sim2c_315(void);
-static void cont__compiler__sim2c_316(void);
-static NODE *func__compiler__sim2c_317;
-static void entry__compiler__sim2c_317(void);
-static FRAME_INFO frame__compiler__sim2c_317 = {3, {"args", "generated_continuation_table", "txt"}};
-static void cont__compiler__sim2c_318(void);
-static NODE *func__compiler__sim2c_319;
-static void entry__compiler__sim2c_319(void);
-static FRAME_INFO frame__compiler__sim2c_319 = {2, {"generated_continuation_table", "txt"}};
+static NODE *func__compiler__sim2c_316;
+static void entry__compiler__sim2c_316(void);
+static FRAME_INFO frame__compiler__sim2c_316 = {3, {"args", "generated_continuation_table", "txt"}};
+static void cont__compiler__sim2c_317(void);
+static NODE *func__compiler__sim2c_318;
+static void entry__compiler__sim2c_318(void);
+static FRAME_INFO frame__compiler__sim2c_318 = {2, {"generated_continuation_table", "txt"}};
+static void cont__compiler__sim2c_319(void);
 static void cont__compiler__sim2c_320(void);
-static void cont__compiler__sim2c_321(void);
-static NODE *func__compiler__sim2c_322;
-static void entry__compiler__sim2c_322(void);
-static FRAME_INFO frame__compiler__sim2c_322 = {3, {"args", "generated_delayed_continuation_table", "txt"}};
-static void cont__compiler__sim2c_323(void);
-static NODE *func__compiler__sim2c_324;
-static void entry__compiler__sim2c_324(void);
-static FRAME_INFO frame__compiler__sim2c_324 = {2, {"generated_delayed_continuation_table", "txt"}};
+static NODE *func__compiler__sim2c_321;
+static void entry__compiler__sim2c_321(void);
+static FRAME_INFO frame__compiler__sim2c_321 = {3, {"args", "generated_delayed_continuation_table", "txt"}};
+static void cont__compiler__sim2c_322(void);
+static NODE *func__compiler__sim2c_323;
+static void entry__compiler__sim2c_323(void);
+static FRAME_INFO frame__compiler__sim2c_323 = {2, {"generated_delayed_continuation_table", "txt"}};
+static void cont__compiler__sim2c_324(void);
 static void cont__compiler__sim2c_325(void);
-static void cont__compiler__sim2c_326(void);
-static NODE *func__compiler__sim2c_327;
-static void entry__compiler__sim2c_327(void);
-static FRAME_INFO frame__compiler__sim2c_327 = {3, {"args", "generated_functions", "txt"}};
-static void cont__compiler__sim2c_328(void);
-static NODE *func__compiler__sim2c_329;
-static void entry__compiler__sim2c_329(void);
-static FRAME_INFO frame__compiler__sim2c_329 = {2, {"generated_functions", "txt"}};
+static NODE *func__compiler__sim2c_326;
+static void entry__compiler__sim2c_326(void);
+static FRAME_INFO frame__compiler__sim2c_326 = {3, {"args", "generated_functions", "txt"}};
+static void cont__compiler__sim2c_327(void);
+static NODE *func__compiler__sim2c_328;
+static void entry__compiler__sim2c_328(void);
+static FRAME_INFO frame__compiler__sim2c_328 = {2, {"generated_functions", "txt"}};
+static void cont__compiler__sim2c_329(void);
 static void cont__compiler__sim2c_330(void);
-static void cont__compiler__sim2c_331(void);
-static NODE *func__compiler__sim2c_332;
-static void entry__compiler__sim2c_332(void);
-static FRAME_INFO frame__compiler__sim2c_332 = {3, {"args", "generated_phase_1", "txt"}};
-static void cont__compiler__sim2c_333(void);
-static NODE *func__compiler__sim2c_334;
-static void entry__compiler__sim2c_334(void);
-static FRAME_INFO frame__compiler__sim2c_334 = {2, {"generated_phase_1", "txt"}};
+static NODE *func__compiler__sim2c_331;
+static void entry__compiler__sim2c_331(void);
+static FRAME_INFO frame__compiler__sim2c_331 = {3, {"args", "generated_phase_1", "txt"}};
+static void cont__compiler__sim2c_332(void);
+static NODE *func__compiler__sim2c_333;
+static void entry__compiler__sim2c_333(void);
+static FRAME_INFO frame__compiler__sim2c_333 = {2, {"generated_phase_1", "txt"}};
+static void cont__compiler__sim2c_334(void);
 static void cont__compiler__sim2c_335(void);
-static void cont__compiler__sim2c_336(void);
-static NODE *func__compiler__sim2c_337;
-static void entry__compiler__sim2c_337(void);
-static FRAME_INFO frame__compiler__sim2c_337 = {3, {"args", "generated_phase_2", "txt"}};
-static void cont__compiler__sim2c_338(void);
-static NODE *func__compiler__sim2c_339;
-static void entry__compiler__sim2c_339(void);
-static FRAME_INFO frame__compiler__sim2c_339 = {2, {"generated_phase_2", "txt"}};
+static NODE *func__compiler__sim2c_336;
+static void entry__compiler__sim2c_336(void);
+static FRAME_INFO frame__compiler__sim2c_336 = {3, {"args", "generated_phase_2", "txt"}};
+static void cont__compiler__sim2c_337(void);
+static NODE *func__compiler__sim2c_338;
+static void entry__compiler__sim2c_338(void);
+static FRAME_INFO frame__compiler__sim2c_338 = {2, {"generated_phase_2", "txt"}};
+static void cont__compiler__sim2c_339(void);
 static void cont__compiler__sim2c_340(void);
-static void cont__compiler__sim2c_341(void);
-static NODE *func__compiler__sim2c_342;
-static void entry__compiler__sim2c_342(void);
-static FRAME_INFO frame__compiler__sim2c_342 = {3, {"args", "generated_phase_3", "txt"}};
-static void cont__compiler__sim2c_343(void);
-static NODE *func__compiler__sim2c_344;
-static void entry__compiler__sim2c_344(void);
-static FRAME_INFO frame__compiler__sim2c_344 = {2, {"generated_phase_3", "txt"}};
+static NODE *func__compiler__sim2c_341;
+static void entry__compiler__sim2c_341(void);
+static FRAME_INFO frame__compiler__sim2c_341 = {3, {"args", "generated_phase_3", "txt"}};
+static void cont__compiler__sim2c_342(void);
+static NODE *func__compiler__sim2c_343;
+static void entry__compiler__sim2c_343(void);
+static FRAME_INFO frame__compiler__sim2c_343 = {2, {"generated_phase_3", "txt"}};
+static void cont__compiler__sim2c_344(void);
 static void cont__compiler__sim2c_345(void);
-static void cont__compiler__sim2c_346(void);
-static NODE *func__compiler__sim2c_347;
-static void entry__compiler__sim2c_347(void);
-static FRAME_INFO frame__compiler__sim2c_347 = {3, {"args", "generated_phase_4", "txt"}};
-static void cont__compiler__sim2c_348(void);
-static NODE *func__compiler__sim2c_349;
-static void entry__compiler__sim2c_349(void);
-static FRAME_INFO frame__compiler__sim2c_349 = {2, {"generated_phase_4", "txt"}};
+static NODE *func__compiler__sim2c_346;
+static void entry__compiler__sim2c_346(void);
+static FRAME_INFO frame__compiler__sim2c_346 = {3, {"args", "generated_phase_4", "txt"}};
+static void cont__compiler__sim2c_347(void);
+static NODE *func__compiler__sim2c_348;
+static void entry__compiler__sim2c_348(void);
+static FRAME_INFO frame__compiler__sim2c_348 = {2, {"generated_phase_4", "txt"}};
+static void cont__compiler__sim2c_349(void);
 static void cont__compiler__sim2c_350(void);
-static void cont__compiler__sim2c_351(void);
-static NODE *func__compiler__sim2c_352;
-static void entry__compiler__sim2c_352(void);
-static FRAME_INFO frame__compiler__sim2c_352 = {3, {"args", "generated_phase_5", "txt"}};
-static void cont__compiler__sim2c_353(void);
-static NODE *func__compiler__sim2c_354;
-static void entry__compiler__sim2c_354(void);
-static FRAME_INFO frame__compiler__sim2c_354 = {2, {"generated_phase_5", "txt"}};
+static NODE *func__compiler__sim2c_351;
+static void entry__compiler__sim2c_351(void);
+static FRAME_INFO frame__compiler__sim2c_351 = {3, {"args", "generated_phase_5", "txt"}};
+static void cont__compiler__sim2c_352(void);
+static NODE *func__compiler__sim2c_353;
+static void entry__compiler__sim2c_353(void);
+static FRAME_INFO frame__compiler__sim2c_353 = {2, {"generated_phase_5", "txt"}};
+static void cont__compiler__sim2c_354(void);
 static void cont__compiler__sim2c_355(void);
-static void cont__compiler__sim2c_356(void);
-static NODE *func__compiler__sim2c_357;
-static void entry__compiler__sim2c_357(void);
-static FRAME_INFO frame__compiler__sim2c_357 = {3, {"args", "generated_phase_6", "txt"}};
-static void cont__compiler__sim2c_358(void);
-static NODE *func__compiler__sim2c_359;
-static void entry__compiler__sim2c_359(void);
-static FRAME_INFO frame__compiler__sim2c_359 = {2, {"generated_phase_6", "txt"}};
+static NODE *func__compiler__sim2c_356;
+static void entry__compiler__sim2c_356(void);
+static FRAME_INFO frame__compiler__sim2c_356 = {3, {"args", "generated_phase_6", "txt"}};
+static void cont__compiler__sim2c_357(void);
+static NODE *func__compiler__sim2c_358;
+static void entry__compiler__sim2c_358(void);
+static FRAME_INFO frame__compiler__sim2c_358 = {2, {"generated_phase_6", "txt"}};
+static void cont__compiler__sim2c_359(void);
 static void cont__compiler__sim2c_360(void);
-static void cont__compiler__sim2c_361(void);
+static NODE *func__compiler__sim2c_361;
+static void entry__compiler__sim2c_361(void);
+static FRAME_INFO frame__compiler__sim2c_361 = {3, {"name", "literal", "used_literals"}};
 static NODE *func__compiler__sim2c_362;
 static void entry__compiler__sim2c_362(void);
-static FRAME_INFO frame__compiler__sim2c_362 = {3, {"name", "literal", "used_literals"}};
-static NODE *func__compiler__sim2c_363;
-static void entry__compiler__sim2c_363(void);
-static FRAME_INFO frame__compiler__sim2c_363 = {3, {"used_literals", "name", "literal"}};
+static FRAME_INFO frame__compiler__sim2c_362 = {3, {"used_literals", "name", "literal"}};
+static void cont__compiler__sim2c_363(void);
 static void cont__compiler__sim2c_364(void);
-static void cont__compiler__sim2c_365(void);
-static NODE *func__compiler__sim2c_366;
-static void entry__compiler__sim2c_366(void);
-static FRAME_INFO frame__compiler__sim2c_366 = {3, {"args", "generated_collections", "txt"}};
-static void cont__compiler__sim2c_367(void);
-static NODE *func__compiler__sim2c_368;
-static void entry__compiler__sim2c_368(void);
-static FRAME_INFO frame__compiler__sim2c_368 = {2, {"generated_collections", "txt"}};
+static NODE *func__compiler__sim2c_365;
+static void entry__compiler__sim2c_365(void);
+static FRAME_INFO frame__compiler__sim2c_365 = {3, {"args", "generated_collections", "txt"}};
+static void cont__compiler__sim2c_366(void);
+static NODE *func__compiler__sim2c_367;
+static void entry__compiler__sim2c_367(void);
+static FRAME_INFO frame__compiler__sim2c_367 = {2, {"generated_collections", "txt"}};
+static void cont__compiler__sim2c_368(void);
 static void cont__compiler__sim2c_369(void);
-static void cont__compiler__sim2c_370(void);
-static NODE *func__compiler__sim2c_371;
-static void entry__compiler__sim2c_371(void);
-static FRAME_INFO frame__compiler__sim2c_371 = {3, {"args", "delayed_statements", "txt"}};
-static void cont__compiler__sim2c_372(void);
-static NODE *func__compiler__sim2c_373;
-static void entry__compiler__sim2c_373(void);
-static FRAME_INFO frame__compiler__sim2c_373 = {2, {"delayed_statements", "txt"}};
+static NODE *func__compiler__sim2c_370;
+static void entry__compiler__sim2c_370(void);
+static FRAME_INFO frame__compiler__sim2c_370 = {3, {"args", "delayed_statements", "txt"}};
+static void cont__compiler__sim2c_371(void);
+static NODE *func__compiler__sim2c_372;
+static void entry__compiler__sim2c_372(void);
+static FRAME_INFO frame__compiler__sim2c_372 = {2, {"delayed_statements", "txt"}};
+static void cont__compiler__sim2c_373(void);
 static void cont__compiler__sim2c_374(void);
-static void cont__compiler__sim2c_375(void);
-static NODE *func__compiler__sim2c_376;
-static void entry__compiler__sim2c_376(void);
-static FRAME_INFO frame__compiler__sim2c_376 = {2, {"ident", "need"}};
+static NODE *func__compiler__sim2c_375;
+static void entry__compiler__sim2c_375(void);
+static FRAME_INFO frame__compiler__sim2c_375 = {2, {"ident", "need"}};
 static NODE *string__405aee03eb306008;
-static void cont__compiler__sim2c_378(void);
-static NODE *func__compiler__sim2c_379;
-static void entry__compiler__sim2c_379(void);
-static FRAME_INFO frame__compiler__sim2c_379 = {3, {"ident", "need", "name"}};
+static void cont__compiler__sim2c_377(void);
+static NODE *func__compiler__sim2c_378;
+static void entry__compiler__sim2c_378(void);
+static FRAME_INFO frame__compiler__sim2c_378 = {3, {"ident", "need", "name"}};
+static void cont__compiler__sim2c_379(void);
 static void cont__compiler__sim2c_380(void);
-static void cont__compiler__sim2c_381(void);
 static NODE *string__c44673b4643f1172;
-static void cont__compiler__sim2c_383(void);
+static void cont__compiler__sim2c_382(void);
+static NODE *func__compiler__sim2c_383;
+static void entry__compiler__sim2c_383(void);
+static FRAME_INFO frame__compiler__sim2c_383 = {5, {"defs", "return__6", "generated_code", "all_actions", "code"}};
 static NODE *func__compiler__sim2c_384;
 static void entry__compiler__sim2c_384(void);
-static FRAME_INFO frame__compiler__sim2c_384 = {6, {"stmt_idx", "defs", "return__6", "generated_code", "all_actions", "code"}};
+static FRAME_INFO frame__compiler__sim2c_384 = {1, {"defs"}};
 static NODE *func__compiler__sim2c_385;
 static void entry__compiler__sim2c_385(void);
-static FRAME_INFO frame__compiler__sim2c_385 = {1, {"defs"}};
-static NODE *func__compiler__sim2c_386;
-static void entry__compiler__sim2c_386(void);
-static FRAME_INFO frame__compiler__sim2c_386 = {2, {"definition", "source"}};
-static void cont__compiler__sim2c_387(void);
-static NODE *func__compiler__sim2c_388;
-static void entry__compiler__sim2c_388(void);
-static FRAME_INFO frame__compiler__sim2c_388 = {2, {"source", "definition"}};
+static FRAME_INFO frame__compiler__sim2c_385 = {2, {"definition", "source"}};
+static void cont__compiler__sim2c_386(void);
+static NODE *func__compiler__sim2c_387;
+static void entry__compiler__sim2c_387(void);
+static FRAME_INFO frame__compiler__sim2c_387 = {2, {"source", "definition"}};
+static void cont__compiler__sim2c_388(void);
 static void cont__compiler__sim2c_389(void);
 static void cont__compiler__sim2c_390(void);
 static void cont__compiler__sim2c_391(void);
-static void cont__compiler__sim2c_392(void);
+static NODE *func__compiler__sim2c_392;
+static void entry__compiler__sim2c_392(void);
+static FRAME_INFO frame__compiler__sim2c_392 = {1, {"definition"}};
 static NODE *func__compiler__sim2c_393;
 static void entry__compiler__sim2c_393(void);
-static FRAME_INFO frame__compiler__sim2c_393 = {1, {"definition"}};
-static NODE *func__compiler__sim2c_394;
-static void entry__compiler__sim2c_394(void);
-static FRAME_INFO frame__compiler__sim2c_394 = {5, {"return__5", "definition", "source", "name", "attribute"}};
+static FRAME_INFO frame__compiler__sim2c_393 = {5, {"return__5", "definition", "source", "name", "attribute"}};
+static void cont__compiler__sim2c_394(void);
 static void cont__compiler__sim2c_395(void);
 static void cont__compiler__sim2c_396(void);
 static void cont__compiler__sim2c_397(void);
-static void cont__compiler__sim2c_398(void);
-static NODE *func__compiler__sim2c_399;
-static void entry__compiler__sim2c_399(void);
-static FRAME_INFO frame__compiler__sim2c_399 = {2, {"name", "attribute"}};
+static NODE *func__compiler__sim2c_398;
+static void entry__compiler__sim2c_398(void);
+static FRAME_INFO frame__compiler__sim2c_398 = {2, {"name", "attribute"}};
+static void cont__compiler__sim2c_399(void);
 static void cont__compiler__sim2c_400(void);
 static void cont__compiler__sim2c_401(void);
 static void cont__compiler__sim2c_402(void);
 static void cont__compiler__sim2c_403(void);
 static void cont__compiler__sim2c_404(void);
-static void cont__compiler__sim2c_405(void);
-static NODE *func__compiler__sim2c_406;
-static void entry__compiler__sim2c_406(void);
-static FRAME_INFO frame__compiler__sim2c_406 = {1, {"source"}};
+static NODE *func__compiler__sim2c_405;
+static void entry__compiler__sim2c_405(void);
+static FRAME_INFO frame__compiler__sim2c_405 = {1, {"source"}};
+static void cont__compiler__sim2c_406(void);
 static void cont__compiler__sim2c_407(void);
-static void cont__compiler__sim2c_408(void);
-static NODE *func__compiler__sim2c_409;
-static void entry__compiler__sim2c_409(void);
-static FRAME_INFO frame__compiler__sim2c_409 = {2, {"definition", "source"}};
-static void cont__compiler__sim2c_410(void);
-static NODE *func__compiler__sim2c_411;
-static void entry__compiler__sim2c_411(void);
-static FRAME_INFO frame__compiler__sim2c_411 = {2, {"definition", "source"}};
-static void cont__compiler__sim2c_412(void);
+static NODE *func__compiler__sim2c_408;
+static void entry__compiler__sim2c_408(void);
+static FRAME_INFO frame__compiler__sim2c_408 = {2, {"definition", "source"}};
+static void cont__compiler__sim2c_409(void);
+static NODE *func__compiler__sim2c_410;
+static void entry__compiler__sim2c_410(void);
+static FRAME_INFO frame__compiler__sim2c_410 = {2, {"definition", "source"}};
+static void cont__compiler__sim2c_411(void);
+static NODE *func__compiler__sim2c_412;
+static void entry__compiler__sim2c_412(void);
+static FRAME_INFO frame__compiler__sim2c_412 = {2, {"definition", "source"}};
 static NODE *func__compiler__sim2c_413;
 static void entry__compiler__sim2c_413(void);
 static FRAME_INFO frame__compiler__sim2c_413 = {2, {"definition", "source"}};
-static NODE *func__compiler__sim2c_414;
-static void entry__compiler__sim2c_414(void);
-static FRAME_INFO frame__compiler__sim2c_414 = {2, {"definition", "source"}};
+static void cont__compiler__sim2c_414(void);
 static void cont__compiler__sim2c_415(void);
-static void cont__compiler__sim2c_416(void);
+static NODE *func__compiler__sim2c_416;
+static void entry__compiler__sim2c_416(void);
+static FRAME_INFO frame__compiler__sim2c_416 = {2, {"definition", "source"}};
 static NODE *func__compiler__sim2c_417;
 static void entry__compiler__sim2c_417(void);
 static FRAME_INFO frame__compiler__sim2c_417 = {2, {"definition", "source"}};
 static NODE *func__compiler__sim2c_418;
 static void entry__compiler__sim2c_418(void);
 static FRAME_INFO frame__compiler__sim2c_418 = {2, {"definition", "source"}};
-static NODE *func__compiler__sim2c_419;
-static void entry__compiler__sim2c_419(void);
-static FRAME_INFO frame__compiler__sim2c_419 = {2, {"definition", "source"}};
+static void cont__compiler__sim2c_419(void);
 static void cont__compiler__sim2c_420(void);
 static void cont__compiler__sim2c_421(void);
 static void cont__compiler__sim2c_422(void);
-static void cont__compiler__sim2c_423(void);
-static NODE *func__compiler__sim2c_424;
-static void entry__compiler__sim2c_424(void);
-static FRAME_INFO frame__compiler__sim2c_424 = {0, {}};
-static void cont__compiler__sim2c_425(void);
-static NODE *func__compiler__sim2c_426;
-static void entry__compiler__sim2c_426(void);
-static FRAME_INFO frame__compiler__sim2c_426 = {2, {"generated_code", "code"}};
+static NODE *func__compiler__sim2c_423;
+static void entry__compiler__sim2c_423(void);
+static FRAME_INFO frame__compiler__sim2c_423 = {0, {}};
+static void cont__compiler__sim2c_424(void);
+static NODE *func__compiler__sim2c_425;
+static void entry__compiler__sim2c_425(void);
+static FRAME_INFO frame__compiler__sim2c_425 = {2, {"generated_code", "code"}};
+static void cont__compiler__sim2c_426(void);
 static void cont__compiler__sim2c_427(void);
 static void cont__compiler__sim2c_428(void);
 static void cont__compiler__sim2c_429(void);
-static void cont__compiler__sim2c_430(void);
 static NODE *string__c050814d5faecc7a;
-static void cont__compiler__sim2c_432(void);
+static void cont__compiler__sim2c_431(void);
+static NODE *func__compiler__sim2c_432;
+static void entry__compiler__sim2c_432(void);
+static FRAME_INFO frame__compiler__sim2c_432 = {7, {"return__7", "is_main", "max_temp_idx", "mangle_filename", "generated_code", "all_actions", "code"}};
 static NODE *func__compiler__sim2c_433;
 static void entry__compiler__sim2c_433(void);
-static FRAME_INFO frame__compiler__sim2c_433 = {7, {"return__7", "is_main", "max_temp_idx", "mangle_filename", "generated_code", "all_actions", "code"}};
+static FRAME_INFO frame__compiler__sim2c_433 = {3, {"is_main", "max_temp_idx", "mangle_filename"}};
 static NODE *func__compiler__sim2c_434;
 static void entry__compiler__sim2c_434(void);
-static FRAME_INFO frame__compiler__sim2c_434 = {3, {"is_main", "max_temp_idx", "mangle_filename"}};
-static NODE *func__compiler__sim2c_435;
-static void entry__compiler__sim2c_435(void);
-static FRAME_INFO frame__compiler__sim2c_435 = {1, {"max_temp_idx"}};
+static FRAME_INFO frame__compiler__sim2c_434 = {1, {"max_temp_idx"}};
 static NODE *string__295c7d0427bb24d8;
+static void cont__compiler__sim2c_436(void);
 static void cont__compiler__sim2c_437(void);
-static void cont__compiler__sim2c_438(void);
-static NODE *func__compiler__sim2c_439;
-static void entry__compiler__sim2c_439(void);
-static FRAME_INFO frame__compiler__sim2c_439 = {1, {"max_temp_idx"}};
+static NODE *func__compiler__sim2c_438;
+static void entry__compiler__sim2c_438(void);
+static FRAME_INFO frame__compiler__sim2c_438 = {1, {"max_temp_idx"}};
 static NODE *string__41028e5a9545c479;
 static NODE *string__2d7981f4e6402bfe;
-static void cont__compiler__sim2c_442(void);
-static NODE *func__compiler__sim2c_443;
-static void entry__compiler__sim2c_443(void);
-static FRAME_INFO frame__compiler__sim2c_443 = {1, {"max_temp_idx"}};
+static void cont__compiler__sim2c_441(void);
+static NODE *func__compiler__sim2c_442;
+static void entry__compiler__sim2c_442(void);
+static FRAME_INFO frame__compiler__sim2c_442 = {1, {"max_temp_idx"}};
 static NODE *string__4594ae5b852cb87f;
 static NODE *string__3794a6c106b6c980;
+static void cont__compiler__sim2c_445(void);
 static void cont__compiler__sim2c_446(void);
-static void cont__compiler__sim2c_447(void);
 static NODE *string__8eebb379fdb22853;
 static NODE *string__bbab7a959fd798d;
+static void cont__compiler__sim2c_449(void);
 static void cont__compiler__sim2c_450(void);
-static void cont__compiler__sim2c_451(void);
-static NODE *func__compiler__sim2c_452;
-static void entry__compiler__sim2c_452(void);
-static FRAME_INFO frame__compiler__sim2c_452 = {4, {"name", "info", "mangle_filename", "continuation"}};
+static NODE *func__compiler__sim2c_451;
+static void entry__compiler__sim2c_451(void);
+static FRAME_INFO frame__compiler__sim2c_451 = {4, {"name", "info", "mangle_filename", "continuation"}};
+static void cont__compiler__sim2c_452(void);
 static void cont__compiler__sim2c_453(void);
 static void cont__compiler__sim2c_454(void);
-static void cont__compiler__sim2c_455(void);
 static NODE *string__ca75d5c2b6ab3b0c;
 static NODE *string__3fab381eeea84c47;
 static NODE *string__b40af3cb5d887d33;
+static void cont__compiler__sim2c_458(void);
 static void cont__compiler__sim2c_459(void);
 static void cont__compiler__sim2c_460(void);
-static void cont__compiler__sim2c_461(void);
 static NODE *string__6a214ac420f089ff;
+static void cont__compiler__sim2c_462(void);
 static void cont__compiler__sim2c_463(void);
-static void cont__compiler__sim2c_464(void);
-static NODE *func__compiler__sim2c_465;
-static void entry__compiler__sim2c_465(void);
-static FRAME_INFO frame__compiler__sim2c_465 = {2, {"generated_code", "code"}};
+static NODE *func__compiler__sim2c_464;
+static void entry__compiler__sim2c_464(void);
+static FRAME_INFO frame__compiler__sim2c_464 = {2, {"generated_code", "code"}};
+static void cont__compiler__sim2c_465(void);
 static void cont__compiler__sim2c_466(void);
 static void cont__compiler__sim2c_467(void);
 static void cont__compiler__sim2c_468(void);
 static void cont__compiler__sim2c_469(void);
-static void cont__compiler__sim2c_470(void);
-static NODE *func__compiler__sim2c_471;
-static void entry__compiler__sim2c_471(void);
-static FRAME_INFO frame__compiler__sim2c_471 = {7, {"stmt_idx", "stmts", "return__8", "def_count", "generated_code", "all_actions", "code"}};
+static NODE *func__compiler__sim2c_470;
+static void entry__compiler__sim2c_470(void);
+static FRAME_INFO frame__compiler__sim2c_470 = {7, {"stmt_idx", "stmts", "return__8", "def_count", "generated_code", "all_actions", "code"}};
+static void cont__compiler__sim2c_471(void);
 static void cont__compiler__sim2c_472(void);
-static void cont__compiler__sim2c_473(void);
+static NODE *func__compiler__sim2c_473;
+static void entry__compiler__sim2c_473(void);
+static FRAME_INFO frame__compiler__sim2c_473 = {1, {"stmts"}};
 static NODE *func__compiler__sim2c_474;
 static void entry__compiler__sim2c_474(void);
-static FRAME_INFO frame__compiler__sim2c_474 = {1, {"stmts"}};
-static NODE *func__compiler__sim2c_475;
-static void entry__compiler__sim2c_475(void);
-static FRAME_INFO frame__compiler__sim2c_475 = {1, {"stmt"}};
+static FRAME_INFO frame__compiler__sim2c_474 = {1, {"stmt"}};
+static void cont__compiler__sim2c_475(void);
 static void cont__compiler__sim2c_476(void);
 static void cont__compiler__sim2c_477(void);
-static void cont__compiler__sim2c_478(void);
-static NODE *func__compiler__sim2c_479;
-static void entry__compiler__sim2c_479(void);
-static FRAME_INFO frame__compiler__sim2c_479 = {0, {}};
-static void cont__compiler__sim2c_480(void);
-static NODE *func__compiler__sim2c_481;
-static void entry__compiler__sim2c_481(void);
-static FRAME_INFO frame__compiler__sim2c_481 = {2, {"generated_code", "code"}};
+static NODE *func__compiler__sim2c_478;
+static void entry__compiler__sim2c_478(void);
+static FRAME_INFO frame__compiler__sim2c_478 = {0, {}};
+static void cont__compiler__sim2c_479(void);
+static NODE *func__compiler__sim2c_480;
+static void entry__compiler__sim2c_480(void);
+static FRAME_INFO frame__compiler__sim2c_480 = {2, {"generated_code", "code"}};
+static void cont__compiler__sim2c_481(void);
 static void cont__compiler__sim2c_482(void);
 static void cont__compiler__sim2c_483(void);
 static void cont__compiler__sim2c_484(void);
-static void cont__compiler__sim2c_485(void);
+static NODE *func__compiler__sim2c_485;
+static void entry__compiler__sim2c_485(void);
+static FRAME_INFO frame__compiler__sim2c_485 = {5, {"return__9", "is_main", "generated_code", "all_actions", "code"}};
 static NODE *func__compiler__sim2c_486;
 static void entry__compiler__sim2c_486(void);
-static FRAME_INFO frame__compiler__sim2c_486 = {5, {"return__9", "is_main", "generated_code", "all_actions", "code"}};
+static FRAME_INFO frame__compiler__sim2c_486 = {1, {"is_main"}};
 static NODE *func__compiler__sim2c_487;
 static void entry__compiler__sim2c_487(void);
-static FRAME_INFO frame__compiler__sim2c_487 = {1, {"is_main"}};
-static NODE *func__compiler__sim2c_488;
-static void entry__compiler__sim2c_488(void);
-static FRAME_INFO frame__compiler__sim2c_488 = {0, {}};
+static FRAME_INFO frame__compiler__sim2c_487 = {0, {}};
 static NODE *string__5c9d8231ad282235;
-static NODE *func__compiler__sim2c_490;
-static void entry__compiler__sim2c_490(void);
-static FRAME_INFO frame__compiler__sim2c_490 = {0, {}};
+static NODE *func__compiler__sim2c_489;
+static void entry__compiler__sim2c_489(void);
+static FRAME_INFO frame__compiler__sim2c_489 = {0, {}};
 static NODE *string__a61426acc3f10dab;
+static void cont__compiler__sim2c_491(void);
 static void cont__compiler__sim2c_492(void);
-static void cont__compiler__sim2c_493(void);
-static NODE *func__compiler__sim2c_494;
-static void entry__compiler__sim2c_494(void);
-static FRAME_INFO frame__compiler__sim2c_494 = {2, {"generated_code", "code"}};
+static NODE *func__compiler__sim2c_493;
+static void entry__compiler__sim2c_493(void);
+static FRAME_INFO frame__compiler__sim2c_493 = {2, {"generated_code", "code"}};
+static void cont__compiler__sim2c_494(void);
 static void cont__compiler__sim2c_495(void);
 static void cont__compiler__sim2c_496(void);
 static void cont__compiler__sim2c_497(void);
-static void cont__compiler__sim2c_498(void);
+static NODE *func__compiler__sim2c_498;
+static void entry__compiler__sim2c_498(void);
+static FRAME_INFO frame__compiler__sim2c_498 = {1, {"stmt_actions"}};
 static NODE *func__compiler__sim2c_499;
 static void entry__compiler__sim2c_499(void);
-static FRAME_INFO frame__compiler__sim2c_499 = {1, {"stmt_actions"}};
-static NODE *func__compiler__sim2c_500;
-static void entry__compiler__sim2c_500(void);
-static FRAME_INFO frame__compiler__sim2c_500 = {1, {"action"}};
-static void cont__compiler__sim2c_501(void);
-static NODE *func__compiler__sim2c_502;
-static void entry__compiler__sim2c_502(void);
-static FRAME_INFO frame__compiler__sim2c_502 = {2, {"name", "info"}};
+static FRAME_INFO frame__compiler__sim2c_499 = {1, {"action"}};
+static void cont__compiler__sim2c_500(void);
+static NODE *func__compiler__sim2c_501;
+static void entry__compiler__sim2c_501(void);
+static FRAME_INFO frame__compiler__sim2c_501 = {2, {"name", "info"}};
 static NODE *string__58cb04c59ab3549a;
+static void cont__compiler__sim2c_503(void);
 static void cont__compiler__sim2c_504(void);
-static void cont__compiler__sim2c_505(void);
-static NODE *func__compiler__sim2c_506;
-static void entry__compiler__sim2c_506(void);
-static FRAME_INFO frame__compiler__sim2c_506 = {1, {"name"}};
+static NODE *func__compiler__sim2c_505;
+static void entry__compiler__sim2c_505(void);
+static FRAME_INFO frame__compiler__sim2c_505 = {1, {"name"}};
 static NODE *string__7d8c250ccd5bbd65;
+static void cont__compiler__sim2c_507(void);
 static void cont__compiler__sim2c_508(void);
-static void cont__compiler__sim2c_509(void);
-static NODE *func__compiler__sim2c_510;
-static void entry__compiler__sim2c_510(void);
-static FRAME_INFO frame__compiler__sim2c_510 = {1, {"filemask"}};
+static NODE *func__compiler__sim2c_509;
+static void entry__compiler__sim2c_509(void);
+static FRAME_INFO frame__compiler__sim2c_509 = {1, {"filemask"}};
 static NODE *string__6d8c238ccd0b3d65;
+static void cont__compiler__sim2c_511(void);
 static void cont__compiler__sim2c_512(void);
 static void cont__compiler__sim2c_513(void);
 static void cont__compiler__sim2c_514(void);
-static void cont__compiler__sim2c_515(void);
 static NODE *string__3ae3b0d72c49c8db;
-static void cont__compiler__sim2c_517(void);
-static NODE *func__compiler__sim2c_518;
-static void entry__compiler__sim2c_518(void);
-static FRAME_INFO frame__compiler__sim2c_518 = {0, {}};
+static void cont__compiler__sim2c_516(void);
+static NODE *func__compiler__sim2c_517;
+static void entry__compiler__sim2c_517(void);
+static FRAME_INFO frame__compiler__sim2c_517 = {0, {}};
 static NODE *string__72c4a8d406a50228;
-static void cont__compiler__sim2c_520(void);
+static void cont__compiler__sim2c_519(void);
 static NODE *string__7cc4ad5406a55228;
+static void cont__compiler__sim2c_521(void);
 static void cont__compiler__sim2c_522(void);
-static void cont__compiler__sim2c_523(void);
-static NODE *func__compiler__sim2c_524;
-static void entry__compiler__sim2c_524(void);
-static FRAME_INFO frame__compiler__sim2c_524 = {1, {"name"}};
+static NODE *func__compiler__sim2c_523;
+static void entry__compiler__sim2c_523(void);
+static FRAME_INFO frame__compiler__sim2c_523 = {1, {"name"}};
 static NODE *string__3d6a095dad2a247d;
 static NODE *string__578a5af303e9cdf;
+static void cont__compiler__sim2c_526(void);
 static void cont__compiler__sim2c_527(void);
 static void cont__compiler__sim2c_528(void);
 static void cont__compiler__sim2c_529(void);
-static void cont__compiler__sim2c_530(void);
 static NODE *string__36e833feb0906b55;
+static void cont__compiler__sim2c_531(void);
 static void cont__compiler__sim2c_532(void);
-static void cont__compiler__sim2c_533(void);
-static NODE *func__compiler__sim2c_534;
-static void entry__compiler__sim2c_534(void);
-static FRAME_INFO frame__compiler__sim2c_534 = {0, {}};
+static NODE *func__compiler__sim2c_533;
+static void entry__compiler__sim2c_533(void);
+static FRAME_INFO frame__compiler__sim2c_533 = {0, {}};
 static NODE *string__a047b2b18829c385;
+static void cont__compiler__sim2c_535(void);
 static void cont__compiler__sim2c_536(void);
-static void cont__compiler__sim2c_537(void);
-static NODE *func__compiler__sim2c_538;
-static void entry__compiler__sim2c_538(void);
-static FRAME_INFO frame__compiler__sim2c_538 = {0, {}};
+static NODE *func__compiler__sim2c_537;
+static void entry__compiler__sim2c_537(void);
+static FRAME_INFO frame__compiler__sim2c_537 = {0, {}};
 static NODE *string__64c4ac5406a5d228;
+static void cont__compiler__sim2c_539(void);
 static void cont__compiler__sim2c_540(void);
-static void cont__compiler__sim2c_541(void);
-static NODE *func__compiler__sim2c_542;
-static void entry__compiler__sim2c_542(void);
-static FRAME_INFO frame__compiler__sim2c_542 = {0, {}};
+static NODE *func__compiler__sim2c_541;
+static void entry__compiler__sim2c_541(void);
+static FRAME_INFO frame__compiler__sim2c_541 = {0, {}};
 static NODE *string__b0f44c3748f83ed0;
-static void cont__compiler__sim2c_544(void);
+static void cont__compiler__sim2c_543(void);
 static NODE *string__96a80854500bbe37;
-static void cont__compiler__sim2c_546(void);
-static NODE *func__compiler__sim2c_547;
-static void entry__compiler__sim2c_547(void);
-static FRAME_INFO frame__compiler__sim2c_547 = {2, {"name", "info"}};
+static void cont__compiler__sim2c_545(void);
+static NODE *func__compiler__sim2c_546;
+static void entry__compiler__sim2c_546(void);
+static FRAME_INFO frame__compiler__sim2c_546 = {2, {"name", "info"}};
+static void cont__compiler__sim2c_547(void);
 static void cont__compiler__sim2c_548(void);
-static void cont__compiler__sim2c_549(void);
-static NODE *func__compiler__sim2c_550;
-static void entry__compiler__sim2c_550(void);
-static FRAME_INFO frame__compiler__sim2c_550 = {1, {"name"}};
+static NODE *func__compiler__sim2c_549;
+static void entry__compiler__sim2c_549(void);
+static FRAME_INFO frame__compiler__sim2c_549 = {1, {"name"}};
 static NODE *string__dd59fa996655f7be;
 static NODE *string__578a5af303e9cda;
+static void cont__compiler__sim2c_552(void);
 static void cont__compiler__sim2c_553(void);
-static void cont__compiler__sim2c_554(void);
 static NODE *string__7bc4c42d1b67ee3a;
+static void cont__compiler__sim2c_555(void);
 static void cont__compiler__sim2c_556(void);
 static void cont__compiler__sim2c_557(void);
 static void cont__compiler__sim2c_558(void);
-static void cont__compiler__sim2c_559(void);
-static NODE *func__compiler__sim2c_560;
-static void entry__compiler__sim2c_560(void);
-static FRAME_INFO frame__compiler__sim2c_560 = {1, {"name"}};
+static NODE *func__compiler__sim2c_559;
+static void entry__compiler__sim2c_559(void);
+static FRAME_INFO frame__compiler__sim2c_559 = {1, {"name"}};
 static NODE *string__f144f4e2b96df7e3;
+static void cont__compiler__sim2c_561(void);
 static void cont__compiler__sim2c_562(void);
 static void cont__compiler__sim2c_563(void);
 static void cont__compiler__sim2c_564(void);
-static void cont__compiler__sim2c_565(void);
-static NODE *func__compiler__sim2c_566;
-static void entry__compiler__sim2c_566(void);
-static FRAME_INFO frame__compiler__sim2c_566 = {1, {"name"}};
+static NODE *func__compiler__sim2c_565;
+static void entry__compiler__sim2c_565(void);
+static FRAME_INFO frame__compiler__sim2c_565 = {1, {"name"}};
 static NODE *string__7bc4c42d1b4eae3a;
+static void cont__compiler__sim2c_567(void);
 static void cont__compiler__sim2c_568(void);
 static void cont__compiler__sim2c_569(void);
 static void cont__compiler__sim2c_570(void);
-static void cont__compiler__sim2c_571(void);
-static NODE *func__compiler__sim2c_572;
-static void entry__compiler__sim2c_572(void);
-static FRAME_INFO frame__compiler__sim2c_572 = {1, {"name"}};
+static NODE *func__compiler__sim2c_571;
+static void entry__compiler__sim2c_571(void);
+static FRAME_INFO frame__compiler__sim2c_571 = {1, {"name"}};
 static NODE *string__16f790c158cdffe3;
+static void cont__compiler__sim2c_573(void);
 static void cont__compiler__sim2c_574(void);
-static void cont__compiler__sim2c_575(void);
 static NODE *string__ff4edce8b0a2fa27;
+static void cont__compiler__sim2c_576(void);
 static void cont__compiler__sim2c_577(void);
 static void cont__compiler__sim2c_578(void);
-static void cont__compiler__sim2c_579(void);
 static NODE *string__b07009729763a0f0;
-static void cont__compiler__sim2c_581(void);
+static void cont__compiler__sim2c_580(void);
 static NODE *string__75573d7e471fdc32;
+static void cont__compiler__sim2c_582(void);
 static void cont__compiler__sim2c_583(void);
 static void cont__compiler__sim2c_584(void);
-static void cont__compiler__sim2c_585(void);
-static NODE *func__compiler__sim2c_586;
-static void entry__compiler__sim2c_586(void);
-static FRAME_INFO frame__compiler__sim2c_586 = {1, {"generated_top_level_variable_names"}};
+static NODE *func__compiler__sim2c_585;
+static void entry__compiler__sim2c_585(void);
+static FRAME_INFO frame__compiler__sim2c_585 = {1, {"generated_top_level_variable_names"}};
+static void cont__compiler__sim2c_586(void);
 static void cont__compiler__sim2c_587(void);
 static void cont__compiler__sim2c_588(void);
-static void cont__compiler__sim2c_589(void);
 static NODE *string__fa727015ff16bc6;
+static void cont__compiler__sim2c_590(void);
 static void cont__compiler__sim2c_591(void);
-static void cont__compiler__sim2c_592(void);
-static NODE *func__compiler__sim2c_593;
-static void entry__compiler__sim2c_593(void);
-static FRAME_INFO frame__compiler__sim2c_593 = {0, {}};
+static NODE *func__compiler__sim2c_592;
+static void entry__compiler__sim2c_592(void);
+static FRAME_INFO frame__compiler__sim2c_592 = {0, {}};
 static NODE *string__c3452dad239e6464;
-static NODE *func__compiler__sim2c_595;
-static void entry__compiler__sim2c_595(void);
-static FRAME_INFO frame__compiler__sim2c_595 = {0, {}};
+static NODE *func__compiler__sim2c_594;
+static void entry__compiler__sim2c_594(void);
+static FRAME_INFO frame__compiler__sim2c_594 = {0, {}};
 static NODE *string__1f74a3bba8d254fe;
 static NODE *string__a1240cd997f230c1;
+static void cont__compiler__sim2c_597(void);
 static void cont__compiler__sim2c_598(void);
-static void cont__compiler__sim2c_599(void);
 static NODE *string__b4688827b8af4941;
+static void cont__compiler__sim2c_600(void);
 static void cont__compiler__sim2c_601(void);
 static void cont__compiler__sim2c_602(void);
 static void cont__compiler__sim2c_603(void);
-static void cont__compiler__sim2c_604(void);
-static NODE *func__compiler__sim2c_605;
-static void entry__compiler__sim2c_605(void);
-static FRAME_INFO frame__compiler__sim2c_605 = {1, {"generated_continuation_table"}};
+static NODE *func__compiler__sim2c_604;
+static void entry__compiler__sim2c_604(void);
+static FRAME_INFO frame__compiler__sim2c_604 = {1, {"generated_continuation_table"}};
+static void cont__compiler__sim2c_605(void);
 static void cont__compiler__sim2c_606(void);
 static void cont__compiler__sim2c_607(void);
-static void cont__compiler__sim2c_608(void);
 static NODE *string__380aff8b5e307d33;
-static void cont__compiler__sim2c_610(void);
+static void cont__compiler__sim2c_609(void);
 static NODE *string__817a259dab23f435;
-static void cont__compiler__sim2c_612(void);
+static void cont__compiler__sim2c_611(void);
+static NODE *func__compiler__sim2c_612;
+static void entry__compiler__sim2c_612(void);
+static FRAME_INFO frame__compiler__sim2c_612 = {0, {}};
 static NODE *func__compiler__sim2c_613;
 static void entry__compiler__sim2c_613(void);
-static FRAME_INFO frame__compiler__sim2c_613 = {0, {}};
-static NODE *func__compiler__sim2c_614;
-static void entry__compiler__sim2c_614(void);
-static FRAME_INFO frame__compiler__sim2c_614 = {2, {"name", "node"}};
-static void cont__compiler__sim2c_615(void);
+static FRAME_INFO frame__compiler__sim2c_613 = {2, {"name", "node"}};
+static void cont__compiler__sim2c_614(void);
 static NODE *string__2d7981f4e6082be5;
 static NODE *string__578a5af303e9cc1;
 static NODE *string__2d7981f4e6d02bcf;
+static void cont__compiler__sim2c_618(void);
 static void cont__compiler__sim2c_619(void);
 static void cont__compiler__sim2c_620(void);
 static void cont__compiler__sim2c_621(void);
-static void cont__compiler__sim2c_622(void);
-static NODE *func__compiler__sim2c_623;
-static void entry__compiler__sim2c_623(void);
-static FRAME_INFO frame__compiler__sim2c_623 = {2, {"name", "literal"}};
+static NODE *func__compiler__sim2c_622;
+static void entry__compiler__sim2c_622(void);
+static FRAME_INFO frame__compiler__sim2c_622 = {2, {"name", "literal"}};
 static NODE *string__cb6a78473f66a6a1;
+static void cont__compiler__sim2c_624(void);
 static void cont__compiler__sim2c_625(void);
-static void cont__compiler__sim2c_626(void);
 static NODE *string__44a800d7e66fda5b;
-static void cont__compiler__sim2c_628(void);
-static NODE *func__compiler__sim2c_629;
-static void entry__compiler__sim2c_629(void);
-static FRAME_INFO frame__compiler__sim2c_629 = {1, {"name"}};
+static void cont__compiler__sim2c_627(void);
+static NODE *func__compiler__sim2c_628;
+static void entry__compiler__sim2c_628(void);
+static FRAME_INFO frame__compiler__sim2c_628 = {1, {"name"}};
 static NODE *string__fa730415f296bee;
 static NODE *string__fa730c15f496bc6;
+static void cont__compiler__sim2c_631(void);
 static void cont__compiler__sim2c_632(void);
-static void cont__compiler__sim2c_633(void);
 static NODE *string__5e3d918a06749390;
 static NODE *string__b90701ef69cd6166;
+static void cont__compiler__sim2c_635(void);
 static void cont__compiler__sim2c_636(void);
 static void cont__compiler__sim2c_637(void);
-static void cont__compiler__sim2c_638(void);
-static NODE *func__compiler__sim2c_639;
-static void entry__compiler__sim2c_639(void);
-static FRAME_INFO frame__compiler__sim2c_639 = {2, {"filename", "depth"}};
+static NODE *func__compiler__sim2c_638;
+static void entry__compiler__sim2c_638(void);
+static FRAME_INFO frame__compiler__sim2c_638 = {2, {"filename", "depth"}};
+static void cont__compiler__sim2c_639(void);
 static void cont__compiler__sim2c_640(void);
 static void cont__compiler__sim2c_641(void);
-static void cont__compiler__sim2c_642(void);
 static NODE *string__9c11f7a3e8641900;
 static NODE *string__2d7981f4e6182bec;
-static void cont__compiler__sim2c_645(void);
-static NODE *func__compiler__sim2c_646;
-static void entry__compiler__sim2c_646(void);
-static FRAME_INFO frame__compiler__sim2c_646 = {0, {}};
+static void cont__compiler__sim2c_644(void);
+static NODE *func__compiler__sim2c_645;
+static void entry__compiler__sim2c_645(void);
+static FRAME_INFO frame__compiler__sim2c_645 = {0, {}};
 static NODE *string__2d7981f4e6682be5;
-static void cont__compiler__sim2c_648(void);
+static void cont__compiler__sim2c_647(void);
 static NODE *string__d1bc6cafcb964c0d;
-static void cont__compiler__sim2c_650(void);
-static NODE *func__compiler__sim2c_651;
-static void entry__compiler__sim2c_651(void);
-static FRAME_INFO frame__compiler__sim2c_651 = {4, {"name", "info", "mangle_filename", "fname"}};
-static void cont__compiler__sim2c_652(void);
+static void cont__compiler__sim2c_649(void);
+static NODE *func__compiler__sim2c_650;
+static void entry__compiler__sim2c_650(void);
+static FRAME_INFO frame__compiler__sim2c_650 = {4, {"name", "info", "mangle_filename", "fname"}};
+static void cont__compiler__sim2c_651(void);
 static NODE *string__7cb40b96062f3614;
 static NODE *string__4b1f5385e2b9ec5c;
 static NODE *string__4b1f5345e2b9ec5c;
@@ -1958,11 +1956,12 @@ static NODE *string__4b1f52c5e2b9ec5c;
 static NODE *string__4b1f5285e2b9ec5c;
 static NODE *string__4b1f5245e2b9ec5c;
 static NODE *string__fa3f5235fd3e2424;
+static void cont__compiler__sim2c_660(void);
 static void cont__compiler__sim2c_661(void);
 static void cont__compiler__sim2c_662(void);
 static void cont__compiler__sim2c_663(void);
-static void cont__compiler__sim2c_664(void);
 static NODE *string__bcb42196062f3614;
+static NODE *string__fc8c36a84adb366f;
 static void cont__compiler__sim2c_666(void);
 static void cont__compiler__sim2c_667(void);
 static void cont__compiler__sim2c_668(void);
@@ -2267,54 +2266,54 @@ static void cont__10_15(void);
 void run__sim2c(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {run__sim2c, NULL, 57, 57, 5, 17},
-  {cont__10_2, NULL, 58, 58, 5, 25},
-  {cont__10_4, NULL, 59, 59, 5, 20},
-  {cont__10_6, NULL, 60, 60, 5, 19},
-  {cont__10_8, NULL, 61, 61, 5, 24},
-  {cont__10_10, NULL, 62, 62, 5, 23},
-  {cont__10_12, NULL, 63, 63, 5, 21},
-  {cont__10_14, NULL, 55, 63, 1, 22},
+  {run__sim2c, NULL, 55, 55, 5, 17},
+  {cont__10_2, NULL, 56, 56, 5, 25},
+  {cont__10_4, NULL, 57, 57, 5, 20},
+  {cont__10_6, NULL, 58, 58, 5, 19},
+  {cont__10_8, NULL, 59, 59, 5, 24},
+  {cont__10_10, NULL, 60, 60, 5, 23},
+  {cont__10_12, NULL, 61, 61, 5, 21},
+  {cont__10_14, NULL, 53, 61, 1, 22},
   {cont__10_15, NULL, },
-  {entry__compiler__print_source_3, NULL, 40, 40, 9, 17},
-  {entry__compiler__print_source_4, NULL, 34, 34, 9, 27},
-  {entry__compiler__print_source_6, NULL, 36, 36, 9, 33},
-  {entry__compiler__print_source_8, NULL, 38, 38, 9, 34},
-  {entry__compiler__print_source_2, NULL, 31, 40, 5, 18},
-  {entry__compiler__print_source_1, NULL, 30, 40, 3, 19},
-  {entry__compiler__eprint_source_3, NULL, 53, 53, 9, 18},
-  {entry__compiler__eprint_source_4, NULL, 47, 47, 9, 28},
-  {entry__compiler__eprint_source_5, NULL, 49, 49, 9, 34},
-  {entry__compiler__eprint_source_6, NULL, 51, 51, 9, 35},
-  {entry__compiler__eprint_source_2, NULL, 44, 53, 5, 19},
-  {entry__compiler__eprint_source_1, NULL, 43, 53, 3, 20},
-  {entry__compiler__generate_dispatcher_function_11, NULL, 87, 90, 26, 18},
-  {cont__compiler__generate_dispatcher_function_15, &frame__compiler__generate_dispatcher_function_11, 87, 90, 7, 18},
-  {entry__compiler__generate_dispatcher_function_16, NULL, 93, 93, 9, 79},
-  {cont__compiler__generate_dispatcher_function_18, &frame__compiler__generate_dispatcher_function_16, 92, 93, 7, 79},
-  {entry__compiler__generate_dispatcher_function_1, NULL, 66, 67, 25, 36},
-  {cont__compiler__generate_dispatcher_function_4, &frame__compiler__generate_dispatcher_function_1, 66, 67, 3, 36},
-  {cont__compiler__generate_dispatcher_function_5, &frame__compiler__generate_dispatcher_function_1, 68, 69, 22, 37},
-  {cont__compiler__generate_dispatcher_function_7, &frame__compiler__generate_dispatcher_function_1, 68, 69, 3, 37},
-  {cont__compiler__generate_dispatcher_function_8, &frame__compiler__generate_dispatcher_function_1, 70, 70, 3, 44},
-  {cont__compiler__generate_dispatcher_function_9, &frame__compiler__generate_dispatcher_function_1, 72, 72, 5, 17},
-  {cont__compiler__generate_dispatcher_function_10, &frame__compiler__generate_dispatcher_function_1, 71, 93, 3, 81},
-  {cont__compiler__generate_dispatcher_function_19, &frame__compiler__generate_dispatcher_function_1, 98, 118, 22, 5},
-  {cont__compiler__generate_dispatcher_function_22, &frame__compiler__generate_dispatcher_function_1, 98, 118, 3, 5},
-  {entry__demangled_1, NULL, 120, 120, 40, 50},
-  {cont__demangled_4, &frame__demangled_1, 120, 120, 23, 51},
-  {cont__demangled_5, &frame__demangled_1, 120, 120, 20, 51},
-  {entry__compiler__update_info_8, NULL, 137, 137, 15, 30},
-  {entry__compiler__update_info_9, NULL, 140, 140, 31, 44},
-  {cont__compiler__update_info_10, &frame__compiler__update_info_9, 139, 141, 21, 55},
-  {cont__compiler__update_info_13, &frame__compiler__update_info_9, 139, 141, 15, 55},
-  {entry__compiler__update_info_5, NULL, 135, 135, 13, 34},
-  {cont__compiler__update_info_6, &frame__compiler__update_info_5, 136, 136, 13, 38},
-  {cont__compiler__update_info_7, &frame__compiler__update_info_5, 134, 141, 11, 57},
-  {entry__compiler__update_info_16, NULL, 146, 146, 15, 30},
-  {entry__compiler__update_info_17, NULL, 148, 148, 15, 25},
-  {entry__compiler__update_info_14, NULL, 144, 144, 13, 34},
-  {cont__compiler__update_info_15, &frame__compiler__update_info_14, 143, 148, 11, 26},
+  {entry__compiler__print_source_3, NULL, 39, 39, 9, 17},
+  {entry__compiler__print_source_4, NULL, 33, 33, 9, 27},
+  {entry__compiler__print_source_6, NULL, 35, 35, 9, 33},
+  {entry__compiler__print_source_8, NULL, 37, 37, 9, 34},
+  {entry__compiler__print_source_2, NULL, 31, 39, 5, 18},
+  {entry__compiler__print_source_1, NULL, 30, 39, 3, 19},
+  {entry__compiler__eprint_source_3, NULL, 51, 51, 9, 18},
+  {entry__compiler__eprint_source_4, NULL, 45, 45, 9, 28},
+  {entry__compiler__eprint_source_5, NULL, 47, 47, 9, 34},
+  {entry__compiler__eprint_source_6, NULL, 49, 49, 9, 35},
+  {entry__compiler__eprint_source_2, NULL, 43, 51, 5, 19},
+  {entry__compiler__eprint_source_1, NULL, 42, 51, 3, 20},
+  {entry__compiler__generate_dispatcher_function_11, NULL, 89, 92, 26, 18},
+  {cont__compiler__generate_dispatcher_function_15, &frame__compiler__generate_dispatcher_function_11, 89, 92, 7, 18},
+  {entry__compiler__generate_dispatcher_function_16, NULL, 95, 95, 9, 79},
+  {cont__compiler__generate_dispatcher_function_18, &frame__compiler__generate_dispatcher_function_16, 94, 95, 7, 79},
+  {entry__compiler__generate_dispatcher_function_1, NULL, 64, 65, 25, 36},
+  {cont__compiler__generate_dispatcher_function_4, &frame__compiler__generate_dispatcher_function_1, 64, 65, 3, 36},
+  {cont__compiler__generate_dispatcher_function_5, &frame__compiler__generate_dispatcher_function_1, 66, 71, 22, 9},
+  {cont__compiler__generate_dispatcher_function_7, &frame__compiler__generate_dispatcher_function_1, 66, 71, 3, 9},
+  {cont__compiler__generate_dispatcher_function_8, &frame__compiler__generate_dispatcher_function_1, 72, 72, 3, 44},
+  {cont__compiler__generate_dispatcher_function_9, &frame__compiler__generate_dispatcher_function_1, 74, 74, 5, 17},
+  {cont__compiler__generate_dispatcher_function_10, &frame__compiler__generate_dispatcher_function_1, 73, 95, 3, 81},
+  {cont__compiler__generate_dispatcher_function_19, &frame__compiler__generate_dispatcher_function_1, 100, 120, 22, 5},
+  {cont__compiler__generate_dispatcher_function_22, &frame__compiler__generate_dispatcher_function_1, 100, 120, 3, 5},
+  {entry__demangled_1, NULL, 122, 122, 40, 50},
+  {cont__demangled_4, &frame__demangled_1, 122, 122, 23, 51},
+  {cont__demangled_5, &frame__demangled_1, 122, 122, 20, 51},
+  {entry__compiler__update_info_8, NULL, 138, 138, 15, 30},
+  {entry__compiler__update_info_9, NULL, 141, 141, 31, 44},
+  {cont__compiler__update_info_10, &frame__compiler__update_info_9, 140, 142, 21, 55},
+  {cont__compiler__update_info_13, &frame__compiler__update_info_9, 140, 142, 15, 55},
+  {entry__compiler__update_info_5, NULL, 136, 136, 13, 34},
+  {cont__compiler__update_info_6, &frame__compiler__update_info_5, 137, 137, 13, 38},
+  {cont__compiler__update_info_7, &frame__compiler__update_info_5, 135, 142, 11, 57},
+  {entry__compiler__update_info_16, NULL, 147, 147, 15, 30},
+  {entry__compiler__update_info_17, NULL, 149, 149, 15, 25},
+  {entry__compiler__update_info_14, NULL, 145, 145, 13, 34},
+  {cont__compiler__update_info_15, &frame__compiler__update_info_14, 144, 149, 11, 26},
   {entry__compiler__update_info_20, NULL, 154, 154, 31, 44},
   {cont__compiler__update_info_21, &frame__compiler__update_info_20, 153, 155, 21, 45},
   {cont__compiler__update_info_23, &frame__compiler__update_info_20, 153, 155, 15, 45},
@@ -2323,156 +2322,156 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__update_info_27, &frame__compiler__update_info_26, 159, 161, 21, 44},
   {cont__compiler__update_info_29, &frame__compiler__update_info_26, 159, 161, 15, 44},
   {entry__compiler__update_info_30, NULL, 163, 163, 15, 25},
-  {entry__compiler__update_info_18, NULL, 151, 151, 13, 34},
+  {entry__compiler__update_info_18, NULL, 151, 151, 16, 37},
   {cont__compiler__update_info_19, &frame__compiler__update_info_18, 156, 156, 13, 39},
-  {cont__compiler__update_info_24, &frame__compiler__update_info_18, 150, 163, 11, 26},
-  {entry__compiler__update_info_33, NULL, 169, 169, 31, 44},
-  {cont__compiler__update_info_34, &frame__compiler__update_info_33, 168, 170, 21, 57},
-  {cont__compiler__update_info_36, &frame__compiler__update_info_33, 168, 170, 15, 57},
-  {entry__compiler__update_info_38, NULL, 172, 172, 15, 30},
-  {entry__compiler__update_info_39, NULL, 175, 175, 31, 44},
-  {cont__compiler__update_info_40, &frame__compiler__update_info_39, 174, 176, 21, 44},
-  {cont__compiler__update_info_41, &frame__compiler__update_info_39, 174, 176, 15, 44},
-  {entry__compiler__update_info_42, NULL, 179, 179, 31, 44},
-  {cont__compiler__update_info_43, &frame__compiler__update_info_42, 178, 180, 21, 55},
-  {cont__compiler__update_info_45, &frame__compiler__update_info_42, 178, 180, 15, 55},
-  {entry__compiler__update_info_31, NULL, 166, 166, 13, 34},
-  {cont__compiler__update_info_32, &frame__compiler__update_info_31, 171, 171, 13, 41},
-  {cont__compiler__update_info_37, &frame__compiler__update_info_31, 165, 180, 11, 57},
-  {entry__compiler__update_info_48, NULL, 186, 186, 31, 44},
-  {cont__compiler__update_info_49, &frame__compiler__update_info_48, 185, 187, 21, 56},
-  {cont__compiler__update_info_51, &frame__compiler__update_info_48, 185, 187, 15, 56},
-  {entry__compiler__update_info_53, NULL, 189, 189, 15, 30},
-  {entry__compiler__update_info_54, NULL, 192, 192, 31, 44},
-  {cont__compiler__update_info_55, &frame__compiler__update_info_54, 191, 193, 21, 55},
-  {cont__compiler__update_info_56, &frame__compiler__update_info_54, 191, 193, 15, 55},
-  {entry__compiler__update_info_57, NULL, 195, 195, 15, 25},
-  {entry__compiler__update_info_46, NULL, 183, 183, 13, 34},
-  {cont__compiler__update_info_47, &frame__compiler__update_info_46, 188, 188, 13, 54},
-  {cont__compiler__update_info_52, &frame__compiler__update_info_46, 182, 195, 11, 26},
-  {entry__compiler__update_info_3, NULL, 132, 132, 9, 35},
-  {cont__compiler__update_info_4, &frame__compiler__update_info_3, 131, 195, 7, 28},
-  {entry__compiler__update_info_58, NULL, 197, 197, 7, 17},
-  {entry__compiler__update_info_1, NULL, 130, 130, 5, 24},
-  {cont__compiler__update_info_2, &frame__compiler__update_info_1, 129, 197, 3, 18},
-  {cont__compiler__update_info_59, &frame__compiler__update_info_1, 197, 197, 18, 18},
-  {entry__compiler__sim2c_7, NULL, 214, 214, 42, 42},
-  {cont__compiler__sim2c_8, &frame__compiler__sim2c_7, 214, 214, 17, 43},
-  {cont__compiler__sim2c_9, &frame__compiler__sim2c_7, 214, 214, 68, 68},
-  {cont__compiler__sim2c_10, &frame__compiler__sim2c_7, 214, 214, 54, 69},
-  {cont__compiler__sim2c_11, &frame__compiler__sim2c_7, 214, 214, 11, 69},
-  {cont__compiler__sim2c_12, &frame__compiler__sim2c_7, 214, 214, 69, 69},
-  {entry__compiler__sim2c_13, NULL, 216, 216, 31, 31},
-  {cont__compiler__sim2c_14, &frame__compiler__sim2c_13, 216, 216, 11, 32},
-  {cont__compiler__sim2c_15, &frame__compiler__sim2c_13, 216, 216, 32, 32},
-  {entry__compiler__sim2c_5, NULL, 213, 213, 9, 35},
-  {cont__compiler__sim2c_6, &frame__compiler__sim2c_5, 212, 216, 7, 33},
-  {entry__compiler__sim2c_2, NULL, 211, 211, 8, 29},
-  {cont__compiler__sim2c_4, &frame__compiler__sim2c_2, 211, 216, 5, 34},
-  {cont__compiler__sim2c_16, &frame__compiler__sim2c_2, 217, 217, 25, 34},
-  {cont__compiler__sim2c_17, &frame__compiler__sim2c_2, 217, 217, 8, 35},
-  {cont__compiler__sim2c_18, &frame__compiler__sim2c_2, 217, 217, 5, 35},
-  {entry__compiler__sim2c_26, NULL, 414, 414, 37, 57},
-  {cont__compiler__sim2c_27, &frame__compiler__sim2c_26, 414, 414, 37, 68},
-  {cont__compiler__sim2c_28, &frame__compiler__sim2c_26, 414, 414, 37, 68},
-  {entry__compiler__sim2c_21, NULL, 411, 411, 9, 45},
-  {cont__compiler__sim2c_22, &frame__compiler__sim2c_21, 412, 412, 9, 40},
-  {cont__compiler__sim2c_23, &frame__compiler__sim2c_21, 413, 413, 9, 40},
-  {cont__compiler__sim2c_24, &frame__compiler__sim2c_21, 414, 414, 12, 32},
-  {cont__compiler__sim2c_25, &frame__compiler__sim2c_21, 414, 414, 12, 68},
-  {cont__compiler__sim2c_29, &frame__compiler__sim2c_21, 414, 414, 9, 75},
-  {entry__compiler__sim2c_33, NULL, 418, 418, 11, 50},
-  {cont__compiler__sim2c_34, &frame__compiler__sim2c_33, 419, 419, 11, 16},
-  {entry__compiler__sim2c_30, NULL, 416, 416, 9, 46},
-  {cont__compiler__sim2c_31, &frame__compiler__sim2c_30, 417, 417, 12, 32},
-  {cont__compiler__sim2c_32, &frame__compiler__sim2c_30, 417, 419, 9, 16},
-  {entry__compiler__sim2c_39, NULL, 421, 421, 33, 59},
-  {cont__compiler__sim2c_40, &frame__compiler__sim2c_39, 421, 421, 72, 72},
-  {entry__compiler__sim2c_19, NULL, 410, 410, 7, 34},
-  {cont__compiler__sim2c_20, &frame__compiler__sim2c_19, 409, 419, 5, 18},
-  {cont__compiler__sim2c_35, &frame__compiler__sim2c_19, 420, 420, 44, 69},
-  {cont__compiler__sim2c_36, &frame__compiler__sim2c_19, 420, 420, 5, 75},
-  {cont__compiler__sim2c_37, &frame__compiler__sim2c_19, 421, 421, 8, 30},
-  {cont__compiler__sim2c_38, &frame__compiler__sim2c_19, 421, 421, 5, 72},
-  {cont__compiler__sim2c_41, &frame__compiler__sim2c_19, 421, 421, 72, 72},
-  {entry__compiler__sim2c_49, NULL, 244, 244, 9, 22},
-  {cont__compiler__sim2c_50, &frame__compiler__sim2c_49, 244, 244, 22, 22},
-  {entry__compiler__sim2c_51, NULL, 246, 246, 9, 61},
-  {entry__compiler__sim2c_54, NULL, 248, 249, 14, 31},
-  {cont__compiler__sim2c_57, &frame__compiler__sim2c_54, 248, 249, 7, 31},
-  {entry__compiler__sim2c_59, NULL, 250, 250, 24, 59},
-  {entry__compiler__sim2c_64, NULL, 251, 251, 29, 54},
-  {entry__compiler__sim2c_70, NULL, 252, 252, 23, 65},
-  {entry__compiler__sim2c_77, NULL, 253, 253, 28, 73},
-  {entry__compiler__sim2c_82, NULL, 254, 254, 43, 43},
-  {entry__compiler__sim2c_86, NULL, 257, 257, 24, 63},
-  {entry__compiler__sim2c_89, NULL, 258, 258, 51, 68},
-  {cont__compiler__sim2c_90, &frame__compiler__sim2c_89, 258, 258, 68, 68},
-  {entry__compiler__sim2c_92, NULL, 259, 259, 24, 62},
-  {entry__compiler__sim2c_99, NULL, 266, 266, 13, 28},
-  {cont__compiler__sim2c_100, &frame__compiler__sim2c_99, 267, 267, 25, 49},
-  {cont__compiler__sim2c_101, &frame__compiler__sim2c_99, 267, 267, 13, 49},
-  {cont__compiler__sim2c_102, &frame__compiler__sim2c_99, 267, 267, 49, 49},
-  {entry__compiler__sim2c_103, NULL, 269, 269, 13, 28},
-  {cont__compiler__sim2c_104, &frame__compiler__sim2c_103, 270, 270, 25, 56},
-  {cont__compiler__sim2c_105, &frame__compiler__sim2c_103, 270, 270, 13, 56},
-  {cont__compiler__sim2c_106, &frame__compiler__sim2c_103, 270, 270, 56, 56},
-  {entry__compiler__sim2c_107, NULL, 272, 272, 13, 16},
-  {entry__compiler__sim2c_96, NULL, 264, 264, 11, 29},
-  {cont__compiler__sim2c_97, &frame__compiler__sim2c_96, 264, 264, 11, 32},
-  {cont__compiler__sim2c_98, &frame__compiler__sim2c_96, 263, 272, 9, 17},
-  {entry__compiler__sim2c_95, NULL, 262, 272, 7, 18},
-  {cont__compiler__sim2c_108, &frame__compiler__sim2c_95, 272, 272, 18, 18},
-  {entry__compiler__sim2c_47, NULL, 241, 241, 5, 24},
-  {cont__compiler__sim2c_48, &frame__compiler__sim2c_47, 242, 246, 5, 62},
-  {cont__compiler__sim2c_53, &frame__compiler__sim2c_47, 247, 249, 5, 32},
-  {cont__compiler__sim2c_58, &frame__compiler__sim2c_47, 250, 250, 5, 59},
-  {cont__compiler__sim2c_61, &frame__compiler__sim2c_47, 251, 251, 8, 21},
-  {cont__compiler__sim2c_62, &frame__compiler__sim2c_47, 251, 251, 8, 26},
-  {cont__compiler__sim2c_63, &frame__compiler__sim2c_47, 251, 251, 5, 54},
-  {cont__compiler__sim2c_66, &frame__compiler__sim2c_47, 252, 252, 8, 13},
-  {cont__compiler__sim2c_67, &frame__compiler__sim2c_47, 252, 252, 8, 20},
-  {cont__compiler__sim2c_68, &frame__compiler__sim2c_47, 252, 252, 8, 20},
-  {cont__compiler__sim2c_69, &frame__compiler__sim2c_47, 252, 252, 5, 65},
-  {cont__compiler__sim2c_72, &frame__compiler__sim2c_47, 253, 253, 13, 13},
-  {cont__compiler__sim2c_73, &frame__compiler__sim2c_47, 253, 253, 8, 14},
-  {cont__compiler__sim2c_74, &frame__compiler__sim2c_47, 253, 253, 8, 25},
-  {cont__compiler__sim2c_75, &frame__compiler__sim2c_47, 253, 253, 8, 25},
-  {cont__compiler__sim2c_76, &frame__compiler__sim2c_47, 253, 253, 5, 73},
-  {cont__compiler__sim2c_79, &frame__compiler__sim2c_47, 254, 254, 8, 28},
-  {cont__compiler__sim2c_81, &frame__compiler__sim2c_47, 254, 254, 5, 43},
-  {cont__compiler__sim2c_83, &frame__compiler__sim2c_47, 255, 255, 5, 32},
-  {cont__compiler__sim2c_84, &frame__compiler__sim2c_47, 256, 256, 5, 49},
-  {cont__compiler__sim2c_85, &frame__compiler__sim2c_47, 257, 257, 5, 63},
-  {cont__compiler__sim2c_88, &frame__compiler__sim2c_47, 258, 258, 5, 68},
-  {cont__compiler__sim2c_91, &frame__compiler__sim2c_47, 259, 259, 5, 62},
-  {cont__compiler__sim2c_94, &frame__compiler__sim2c_47, 261, 272, 5, 19},
-  {cont__compiler__sim2c_109, &frame__compiler__sim2c_47, 273, 273, 60, 60},
-  {cont__compiler__sim2c_110, &frame__compiler__sim2c_47, 273, 273, 23, 61},
-  {cont__compiler__sim2c_111, &frame__compiler__sim2c_47, 273, 273, 5, 61},
+  {cont__compiler__update_info_24, &frame__compiler__update_info_18, 151, 163, 11, 26},
+  {entry__compiler__update_info_33, NULL, 168, 168, 31, 44},
+  {cont__compiler__update_info_34, &frame__compiler__update_info_33, 167, 169, 21, 57},
+  {cont__compiler__update_info_36, &frame__compiler__update_info_33, 167, 169, 15, 57},
+  {entry__compiler__update_info_38, NULL, 171, 171, 15, 30},
+  {entry__compiler__update_info_39, NULL, 174, 174, 31, 44},
+  {cont__compiler__update_info_40, &frame__compiler__update_info_39, 173, 175, 21, 44},
+  {cont__compiler__update_info_41, &frame__compiler__update_info_39, 173, 175, 15, 44},
+  {entry__compiler__update_info_42, NULL, 178, 178, 31, 44},
+  {cont__compiler__update_info_43, &frame__compiler__update_info_42, 177, 179, 21, 55},
+  {cont__compiler__update_info_45, &frame__compiler__update_info_42, 177, 179, 15, 55},
+  {entry__compiler__update_info_31, NULL, 165, 165, 16, 37},
+  {cont__compiler__update_info_32, &frame__compiler__update_info_31, 170, 170, 13, 41},
+  {cont__compiler__update_info_37, &frame__compiler__update_info_31, 165, 179, 11, 57},
+  {entry__compiler__update_info_48, NULL, 184, 184, 31, 44},
+  {cont__compiler__update_info_49, &frame__compiler__update_info_48, 183, 185, 21, 56},
+  {cont__compiler__update_info_51, &frame__compiler__update_info_48, 183, 185, 15, 56},
+  {entry__compiler__update_info_53, NULL, 187, 187, 15, 30},
+  {entry__compiler__update_info_54, NULL, 190, 190, 31, 44},
+  {cont__compiler__update_info_55, &frame__compiler__update_info_54, 189, 191, 21, 55},
+  {cont__compiler__update_info_56, &frame__compiler__update_info_54, 189, 191, 15, 55},
+  {entry__compiler__update_info_57, NULL, 193, 193, 15, 25},
+  {entry__compiler__update_info_46, NULL, 181, 181, 16, 37},
+  {cont__compiler__update_info_47, &frame__compiler__update_info_46, 186, 186, 13, 54},
+  {cont__compiler__update_info_52, &frame__compiler__update_info_46, 181, 193, 11, 26},
+  {entry__compiler__update_info_3, NULL, 133, 133, 12, 38},
+  {cont__compiler__update_info_4, &frame__compiler__update_info_3, 133, 193, 7, 28},
+  {entry__compiler__update_info_58, NULL, 195, 195, 7, 17},
+  {entry__compiler__update_info_1, NULL, 132, 132, 5, 24},
+  {cont__compiler__update_info_2, &frame__compiler__update_info_1, 131, 195, 3, 18},
+  {cont__compiler__update_info_59, &frame__compiler__update_info_1, 195, 195, 18, 18},
+  {entry__compiler__sim2c_7, NULL, 212, 212, 42, 42},
+  {cont__compiler__sim2c_8, &frame__compiler__sim2c_7, 212, 212, 17, 43},
+  {cont__compiler__sim2c_9, &frame__compiler__sim2c_7, 212, 212, 68, 68},
+  {cont__compiler__sim2c_10, &frame__compiler__sim2c_7, 212, 212, 54, 69},
+  {cont__compiler__sim2c_11, &frame__compiler__sim2c_7, 212, 212, 11, 69},
+  {cont__compiler__sim2c_12, &frame__compiler__sim2c_7, 212, 212, 69, 69},
+  {entry__compiler__sim2c_13, NULL, 214, 214, 31, 31},
+  {cont__compiler__sim2c_14, &frame__compiler__sim2c_13, 214, 214, 11, 32},
+  {cont__compiler__sim2c_15, &frame__compiler__sim2c_13, 214, 214, 32, 32},
+  {entry__compiler__sim2c_5, NULL, 211, 211, 9, 35},
+  {cont__compiler__sim2c_6, &frame__compiler__sim2c_5, 210, 214, 7, 33},
+  {entry__compiler__sim2c_2, NULL, 209, 209, 8, 29},
+  {cont__compiler__sim2c_4, &frame__compiler__sim2c_2, 209, 214, 5, 34},
+  {cont__compiler__sim2c_16, &frame__compiler__sim2c_2, 215, 215, 25, 34},
+  {cont__compiler__sim2c_17, &frame__compiler__sim2c_2, 215, 215, 8, 35},
+  {cont__compiler__sim2c_18, &frame__compiler__sim2c_2, 215, 215, 5, 35},
+  {entry__compiler__sim2c_26, NULL, 409, 409, 37, 57},
+  {cont__compiler__sim2c_27, &frame__compiler__sim2c_26, 409, 409, 37, 68},
+  {cont__compiler__sim2c_28, &frame__compiler__sim2c_26, 409, 409, 37, 68},
+  {entry__compiler__sim2c_21, NULL, 406, 406, 9, 45},
+  {cont__compiler__sim2c_22, &frame__compiler__sim2c_21, 407, 407, 9, 40},
+  {cont__compiler__sim2c_23, &frame__compiler__sim2c_21, 408, 408, 9, 40},
+  {cont__compiler__sim2c_24, &frame__compiler__sim2c_21, 409, 409, 12, 32},
+  {cont__compiler__sim2c_25, &frame__compiler__sim2c_21, 409, 409, 12, 68},
+  {cont__compiler__sim2c_29, &frame__compiler__sim2c_21, 409, 409, 9, 75},
+  {entry__compiler__sim2c_33, NULL, 413, 413, 11, 50},
+  {cont__compiler__sim2c_34, &frame__compiler__sim2c_33, 414, 414, 11, 16},
+  {entry__compiler__sim2c_30, NULL, 411, 411, 9, 46},
+  {cont__compiler__sim2c_31, &frame__compiler__sim2c_30, 412, 412, 12, 32},
+  {cont__compiler__sim2c_32, &frame__compiler__sim2c_30, 412, 414, 9, 16},
+  {entry__compiler__sim2c_39, NULL, 416, 416, 33, 59},
+  {cont__compiler__sim2c_40, &frame__compiler__sim2c_39, 416, 416, 72, 72},
+  {entry__compiler__sim2c_19, NULL, 405, 405, 7, 34},
+  {cont__compiler__sim2c_20, &frame__compiler__sim2c_19, 404, 414, 5, 18},
+  {cont__compiler__sim2c_35, &frame__compiler__sim2c_19, 415, 415, 44, 69},
+  {cont__compiler__sim2c_36, &frame__compiler__sim2c_19, 415, 415, 5, 75},
+  {cont__compiler__sim2c_37, &frame__compiler__sim2c_19, 416, 416, 8, 30},
+  {cont__compiler__sim2c_38, &frame__compiler__sim2c_19, 416, 416, 5, 72},
+  {cont__compiler__sim2c_41, &frame__compiler__sim2c_19, 416, 416, 72, 72},
+  {entry__compiler__sim2c_49, NULL, 242, 242, 9, 22},
+  {cont__compiler__sim2c_50, &frame__compiler__sim2c_49, 242, 242, 22, 22},
+  {entry__compiler__sim2c_51, NULL, 244, 244, 9, 61},
+  {entry__compiler__sim2c_54, NULL, 246, 247, 14, 31},
+  {cont__compiler__sim2c_57, &frame__compiler__sim2c_54, 246, 247, 7, 31},
+  {entry__compiler__sim2c_59, NULL, 248, 248, 24, 59},
+  {entry__compiler__sim2c_64, NULL, 249, 249, 29, 54},
+  {entry__compiler__sim2c_70, NULL, 250, 250, 23, 65},
+  {entry__compiler__sim2c_77, NULL, 251, 251, 28, 73},
+  {entry__compiler__sim2c_82, NULL, 252, 252, 43, 43},
+  {entry__compiler__sim2c_86, NULL, 255, 255, 24, 63},
+  {entry__compiler__sim2c_89, NULL, 256, 256, 51, 68},
+  {cont__compiler__sim2c_90, &frame__compiler__sim2c_89, 256, 256, 68, 68},
+  {entry__compiler__sim2c_92, NULL, 257, 257, 24, 62},
+  {entry__compiler__sim2c_99, NULL, 263, 263, 13, 28},
+  {cont__compiler__sim2c_100, &frame__compiler__sim2c_99, 264, 264, 25, 49},
+  {cont__compiler__sim2c_101, &frame__compiler__sim2c_99, 264, 264, 13, 49},
+  {cont__compiler__sim2c_102, &frame__compiler__sim2c_99, 264, 264, 49, 49},
+  {entry__compiler__sim2c_103, NULL, 266, 266, 13, 28},
+  {cont__compiler__sim2c_104, &frame__compiler__sim2c_103, 267, 267, 25, 56},
+  {cont__compiler__sim2c_105, &frame__compiler__sim2c_103, 267, 267, 13, 56},
+  {cont__compiler__sim2c_106, &frame__compiler__sim2c_103, 267, 267, 56, 56},
+  {entry__compiler__sim2c_107, NULL, 269, 269, 13, 16},
+  {entry__compiler__sim2c_96, NULL, 261, 261, 14, 32},
+  {cont__compiler__sim2c_97, &frame__compiler__sim2c_96, 261, 261, 14, 35},
+  {cont__compiler__sim2c_98, &frame__compiler__sim2c_96, 261, 269, 9, 17},
+  {entry__compiler__sim2c_95, NULL, 260, 269, 7, 18},
+  {cont__compiler__sim2c_108, &frame__compiler__sim2c_95, 269, 269, 18, 18},
+  {entry__compiler__sim2c_47, NULL, 239, 239, 5, 24},
+  {cont__compiler__sim2c_48, &frame__compiler__sim2c_47, 240, 244, 5, 62},
+  {cont__compiler__sim2c_53, &frame__compiler__sim2c_47, 245, 247, 5, 32},
+  {cont__compiler__sim2c_58, &frame__compiler__sim2c_47, 248, 248, 5, 59},
+  {cont__compiler__sim2c_61, &frame__compiler__sim2c_47, 249, 249, 8, 21},
+  {cont__compiler__sim2c_62, &frame__compiler__sim2c_47, 249, 249, 8, 26},
+  {cont__compiler__sim2c_63, &frame__compiler__sim2c_47, 249, 249, 5, 54},
+  {cont__compiler__sim2c_66, &frame__compiler__sim2c_47, 250, 250, 8, 13},
+  {cont__compiler__sim2c_67, &frame__compiler__sim2c_47, 250, 250, 8, 20},
+  {cont__compiler__sim2c_68, &frame__compiler__sim2c_47, 250, 250, 8, 20},
+  {cont__compiler__sim2c_69, &frame__compiler__sim2c_47, 250, 250, 5, 65},
+  {cont__compiler__sim2c_72, &frame__compiler__sim2c_47, 251, 251, 13, 13},
+  {cont__compiler__sim2c_73, &frame__compiler__sim2c_47, 251, 251, 8, 14},
+  {cont__compiler__sim2c_74, &frame__compiler__sim2c_47, 251, 251, 8, 25},
+  {cont__compiler__sim2c_75, &frame__compiler__sim2c_47, 251, 251, 8, 25},
+  {cont__compiler__sim2c_76, &frame__compiler__sim2c_47, 251, 251, 5, 73},
+  {cont__compiler__sim2c_79, &frame__compiler__sim2c_47, 252, 252, 8, 28},
+  {cont__compiler__sim2c_81, &frame__compiler__sim2c_47, 252, 252, 5, 43},
+  {cont__compiler__sim2c_83, &frame__compiler__sim2c_47, 253, 253, 5, 32},
+  {cont__compiler__sim2c_84, &frame__compiler__sim2c_47, 254, 254, 5, 49},
+  {cont__compiler__sim2c_85, &frame__compiler__sim2c_47, 255, 255, 5, 63},
+  {cont__compiler__sim2c_88, &frame__compiler__sim2c_47, 256, 256, 5, 68},
+  {cont__compiler__sim2c_91, &frame__compiler__sim2c_47, 257, 257, 5, 62},
+  {cont__compiler__sim2c_94, &frame__compiler__sim2c_47, 259, 269, 5, 19},
+  {cont__compiler__sim2c_109, &frame__compiler__sim2c_47, 270, 270, 60, 60},
+  {cont__compiler__sim2c_110, &frame__compiler__sim2c_47, 270, 270, 23, 61},
+  {cont__compiler__sim2c_111, &frame__compiler__sim2c_47, 270, 270, 5, 61},
   {cont__compiler__sim2c_112, &frame__compiler__sim2c_47, },
-  {entry__compiler__sim2c_114, NULL, 274, 274, 46, 70},
-  {cont__compiler__sim2c_115, &frame__compiler__sim2c_114, 274, 274, 34, 70},
-  {cont__compiler__sim2c_116, &frame__compiler__sim2c_114, 274, 274, 70, 70},
-  {entry__compiler__sim2c_118, NULL, 275, 275, 50, 61},
-  {cont__compiler__sim2c_119, &frame__compiler__sim2c_118, 275, 275, 22, 61},
-  {entry__compiler__sim2c_122, NULL, 285, 285, 5, 21},
-  {cont__compiler__sim2c_123, &frame__compiler__sim2c_122, 286, 286, 5, 13},
-  {entry__compiler__sim2c_125, NULL, 288, 288, 44, 70},
-  {cont__compiler__sim2c_127, &frame__compiler__sim2c_125, 288, 288, 5, 71},
-  {cont__compiler__sim2c_128, &frame__compiler__sim2c_125, 288, 288, 71, 71},
-  {entry__compiler__sim2c_130, NULL, 291, 291, 5, 26},
+  {entry__compiler__sim2c_114, NULL, 271, 271, 46, 70},
+  {cont__compiler__sim2c_115, &frame__compiler__sim2c_114, 271, 271, 34, 70},
+  {cont__compiler__sim2c_116, &frame__compiler__sim2c_114, 271, 271, 70, 70},
+  {entry__compiler__sim2c_118, NULL, 272, 272, 50, 61},
+  {cont__compiler__sim2c_119, &frame__compiler__sim2c_118, 272, 272, 22, 61},
+  {entry__compiler__sim2c_122, NULL, 282, 282, 5, 21},
+  {cont__compiler__sim2c_123, &frame__compiler__sim2c_122, 283, 283, 5, 13},
+  {entry__compiler__sim2c_125, NULL, 285, 285, 44, 70},
+  {cont__compiler__sim2c_127, &frame__compiler__sim2c_125, 285, 285, 5, 71},
+  {cont__compiler__sim2c_128, &frame__compiler__sim2c_125, 285, 285, 71, 71},
+  {entry__compiler__sim2c_130, NULL, 288, 288, 5, 26},
   {cont__compiler__sim2c_131, &frame__compiler__sim2c_130, },
-  {entry__compiler__sim2c_133, NULL, 292, 292, 52, 63},
-  {cont__compiler__sim2c_134, &frame__compiler__sim2c_133, 292, 292, 22, 63},
-  {entry__compiler__sim2c_137, NULL, 297, 297, 5, 28},
-  {cont__compiler__sim2c_138, &frame__compiler__sim2c_137, 298, 298, 5, 51},
-  {cont__compiler__sim2c_139, &frame__compiler__sim2c_137, 299, 299, 5, 45},
+  {entry__compiler__sim2c_133, NULL, 289, 289, 52, 63},
+  {cont__compiler__sim2c_134, &frame__compiler__sim2c_133, 289, 289, 22, 63},
+  {entry__compiler__sim2c_137, NULL, 294, 294, 5, 28},
+  {cont__compiler__sim2c_138, &frame__compiler__sim2c_137, 295, 295, 5, 51},
+  {cont__compiler__sim2c_139, &frame__compiler__sim2c_137, 296, 296, 5, 45},
   {cont__compiler__sim2c_140, &frame__compiler__sim2c_137, },
-  {entry__compiler__sim2c_142, NULL, 300, 300, 53, 64},
-  {cont__compiler__sim2c_143, &frame__compiler__sim2c_142, 300, 300, 22, 64},
-  {entry__compiler__sim2c_146, NULL, 304, 304, 27, 53},
-  {entry__compiler__sim2c_147, NULL, 304, 304, 56, 69},
+  {entry__compiler__sim2c_142, NULL, 297, 297, 53, 64},
+  {cont__compiler__sim2c_143, &frame__compiler__sim2c_142, 297, 297, 22, 64},
+  {entry__compiler__sim2c_146, NULL, 303, 303, 7, 33},
+  {entry__compiler__sim2c_147, NULL, 304, 304, 7, 20},
   {entry__compiler__sim2c_150, NULL, 306, 306, 35, 41},
   {entry__compiler__sim2c_152, NULL, 307, 307, 5, 37},
   {cont__compiler__sim2c_154, &frame__compiler__sim2c_152, 308, 308, 5, 38},
@@ -2570,276 +2569,275 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__compiler__sim2c_266, NULL, 380, 380, 40, 77},
   {entry__compiler__sim2c_269, NULL, 382, 382, 54, 65},
   {cont__compiler__sim2c_270, &frame__compiler__sim2c_269, 382, 382, 22, 65},
-  {entry__compiler__sim2c_277, NULL, 394, 394, 45, 55},
-  {cont__compiler__sim2c_278, &frame__compiler__sim2c_277, 394, 394, 40, 56},
-  {cont__compiler__sim2c_279, &frame__compiler__sim2c_277, 395, 395, 38, 55},
-  {cont__compiler__sim2c_280, &frame__compiler__sim2c_277, 395, 395, 33, 56},
-  {cont__compiler__sim2c_281, &frame__compiler__sim2c_277, 392, 395, 15, 57},
-  {entry__compiler__sim2c_282, NULL, 397, 397, 15, 36},
-  {entry__compiler__sim2c_275, NULL, 391, 391, 13, 35},
-  {cont__compiler__sim2c_276, &frame__compiler__sim2c_275, 390, 397, 11, 37},
-  {entry__compiler__sim2c_274, NULL, 389, 397, 9, 38},
-  {entry__compiler__sim2c_284, NULL, 399, 399, 9, 15},
-  {entry__compiler__sim2c_286, NULL, 400, 400, 38, 54},
-  {entry__compiler__sim2c_273, NULL, 384, 399, 5, 16},
-  {cont__compiler__sim2c_285, &frame__compiler__sim2c_273, 400, 400, 5, 54},
-  {cont__compiler__sim2c_287, &frame__compiler__sim2c_273, 401, 401, 5, 13},
-  {entry__compiler__sim2c_290, NULL, 424, 424, 46, 67},
-  {entry__compiler__sim2c_289, NULL, 424, 424, 5, 67},
-  {entry__compiler__sim2c_292, NULL, 425, 425, 51, 62},
-  {cont__compiler__sim2c_293, &frame__compiler__sim2c_292, 425, 425, 22, 62},
-  {entry__compiler__sim2c_299, NULL, 503, 503, 20, 53},
-  {cont__compiler__sim2c_300, &frame__compiler__sim2c_299, 503, 503, 53, 53},
-  {entry__compiler__sim2c_297, NULL, 502, 502, 5, 22},
-  {cont__compiler__sim2c_298, &frame__compiler__sim2c_297, 503, 503, 5, 53},
-  {cont__compiler__sim2c_301, &frame__compiler__sim2c_297, 503, 503, 53, 53},
-  {entry__compiler__sim2c_304, NULL, 507, 507, 20, 65},
-  {cont__compiler__sim2c_305, &frame__compiler__sim2c_304, 507, 507, 65, 65},
-  {entry__compiler__sim2c_302, NULL, 506, 506, 5, 22},
-  {cont__compiler__sim2c_303, &frame__compiler__sim2c_302, 507, 507, 5, 65},
-  {cont__compiler__sim2c_306, &frame__compiler__sim2c_302, 507, 507, 65, 65},
-  {entry__compiler__sim2c_309, NULL, 511, 511, 20, 72},
-  {cont__compiler__sim2c_310, &frame__compiler__sim2c_309, 511, 511, 72, 72},
-  {entry__compiler__sim2c_307, NULL, 510, 510, 5, 22},
-  {cont__compiler__sim2c_308, &frame__compiler__sim2c_307, 511, 511, 5, 72},
-  {cont__compiler__sim2c_311, &frame__compiler__sim2c_307, 511, 511, 72, 72},
-  {entry__compiler__sim2c_314, NULL, 515, 515, 20, 69},
-  {cont__compiler__sim2c_315, &frame__compiler__sim2c_314, 515, 515, 69, 69},
-  {entry__compiler__sim2c_312, NULL, 514, 514, 5, 22},
-  {cont__compiler__sim2c_313, &frame__compiler__sim2c_312, 515, 515, 5, 69},
-  {cont__compiler__sim2c_316, &frame__compiler__sim2c_312, 515, 515, 69, 69},
-  {entry__compiler__sim2c_319, NULL, 519, 519, 20, 59},
-  {cont__compiler__sim2c_320, &frame__compiler__sim2c_319, 519, 519, 59, 59},
-  {entry__compiler__sim2c_317, NULL, 518, 518, 5, 22},
-  {cont__compiler__sim2c_318, &frame__compiler__sim2c_317, 519, 519, 5, 59},
-  {cont__compiler__sim2c_321, &frame__compiler__sim2c_317, 519, 519, 59, 59},
-  {entry__compiler__sim2c_324, NULL, 523, 523, 20, 67},
-  {cont__compiler__sim2c_325, &frame__compiler__sim2c_324, 523, 523, 67, 67},
-  {entry__compiler__sim2c_322, NULL, 522, 522, 5, 22},
-  {cont__compiler__sim2c_323, &frame__compiler__sim2c_322, 523, 523, 5, 67},
-  {cont__compiler__sim2c_326, &frame__compiler__sim2c_322, 523, 523, 67, 67},
-  {entry__compiler__sim2c_329, NULL, 527, 527, 20, 50},
-  {cont__compiler__sim2c_330, &frame__compiler__sim2c_329, 527, 527, 50, 50},
-  {entry__compiler__sim2c_327, NULL, 526, 526, 5, 22},
-  {cont__compiler__sim2c_328, &frame__compiler__sim2c_327, 527, 527, 5, 50},
-  {cont__compiler__sim2c_331, &frame__compiler__sim2c_327, 527, 527, 50, 50},
-  {entry__compiler__sim2c_334, NULL, 531, 531, 20, 48},
-  {cont__compiler__sim2c_335, &frame__compiler__sim2c_334, 531, 531, 48, 48},
-  {entry__compiler__sim2c_332, NULL, 530, 530, 5, 22},
-  {cont__compiler__sim2c_333, &frame__compiler__sim2c_332, 531, 531, 5, 48},
-  {cont__compiler__sim2c_336, &frame__compiler__sim2c_332, 531, 531, 48, 48},
-  {entry__compiler__sim2c_339, NULL, 535, 535, 20, 48},
-  {cont__compiler__sim2c_340, &frame__compiler__sim2c_339, 535, 535, 48, 48},
-  {entry__compiler__sim2c_337, NULL, 534, 534, 5, 22},
-  {cont__compiler__sim2c_338, &frame__compiler__sim2c_337, 535, 535, 5, 48},
-  {cont__compiler__sim2c_341, &frame__compiler__sim2c_337, 535, 535, 48, 48},
-  {entry__compiler__sim2c_344, NULL, 539, 539, 20, 48},
-  {cont__compiler__sim2c_345, &frame__compiler__sim2c_344, 539, 539, 48, 48},
-  {entry__compiler__sim2c_342, NULL, 538, 538, 5, 22},
-  {cont__compiler__sim2c_343, &frame__compiler__sim2c_342, 539, 539, 5, 48},
-  {cont__compiler__sim2c_346, &frame__compiler__sim2c_342, 539, 539, 48, 48},
-  {entry__compiler__sim2c_349, NULL, 543, 543, 20, 48},
-  {cont__compiler__sim2c_350, &frame__compiler__sim2c_349, 543, 543, 48, 48},
-  {entry__compiler__sim2c_347, NULL, 542, 542, 5, 22},
-  {cont__compiler__sim2c_348, &frame__compiler__sim2c_347, 543, 543, 5, 48},
-  {cont__compiler__sim2c_351, &frame__compiler__sim2c_347, 543, 543, 48, 48},
-  {entry__compiler__sim2c_354, NULL, 547, 547, 20, 48},
-  {cont__compiler__sim2c_355, &frame__compiler__sim2c_354, 547, 547, 48, 48},
-  {entry__compiler__sim2c_352, NULL, 546, 546, 5, 22},
-  {cont__compiler__sim2c_353, &frame__compiler__sim2c_352, 547, 547, 5, 48},
-  {cont__compiler__sim2c_356, &frame__compiler__sim2c_352, 547, 547, 48, 48},
-  {entry__compiler__sim2c_359, NULL, 551, 551, 20, 48},
-  {cont__compiler__sim2c_360, &frame__compiler__sim2c_359, 551, 551, 48, 48},
-  {entry__compiler__sim2c_357, NULL, 550, 550, 5, 22},
-  {cont__compiler__sim2c_358, &frame__compiler__sim2c_357, 551, 551, 5, 48},
-  {cont__compiler__sim2c_361, &frame__compiler__sim2c_357, 551, 551, 48, 48},
-  {entry__compiler__sim2c_363, NULL, 554, 554, 20, 39},
-  {cont__compiler__sim2c_364, &frame__compiler__sim2c_363, 554, 554, 47, 47},
-  {entry__compiler__sim2c_362, NULL, 554, 554, 5, 47},
-  {cont__compiler__sim2c_365, &frame__compiler__sim2c_362, 554, 554, 47, 47},
-  {entry__compiler__sim2c_368, NULL, 558, 558, 20, 52},
-  {cont__compiler__sim2c_369, &frame__compiler__sim2c_368, 558, 558, 52, 52},
-  {entry__compiler__sim2c_366, NULL, 557, 557, 5, 22},
-  {cont__compiler__sim2c_367, &frame__compiler__sim2c_366, 558, 558, 5, 52},
-  {cont__compiler__sim2c_370, &frame__compiler__sim2c_366, 558, 558, 52, 52},
-  {entry__compiler__sim2c_373, NULL, 562, 562, 20, 49},
-  {cont__compiler__sim2c_374, &frame__compiler__sim2c_373, 562, 562, 49, 49},
-  {entry__compiler__sim2c_371, NULL, 561, 561, 5, 22},
-  {cont__compiler__sim2c_372, &frame__compiler__sim2c_371, 562, 562, 5, 49},
-  {cont__compiler__sim2c_375, &frame__compiler__sim2c_371, 562, 562, 49, 49},
-  {entry__compiler__sim2c_379, NULL, 566, 566, 28, 28},
-  {cont__compiler__sim2c_380, &frame__compiler__sim2c_379, 566, 566, 7, 29},
-  {cont__compiler__sim2c_381, &frame__compiler__sim2c_379, 567, 567, 7, 68},
-  {entry__compiler__sim2c_376, NULL, 565, 565, 8, 33},
-  {cont__compiler__sim2c_378, &frame__compiler__sim2c_376, 565, 567, 5, 68},
-  {entry__compiler__sim2c_388, NULL, 578, 578, 11, 43},
-  {cont__compiler__sim2c_389, &frame__compiler__sim2c_388, 579, 579, 11, 40},
-  {cont__compiler__sim2c_390, &frame__compiler__sim2c_388, 579, 579, 40, 40},
-  {entry__compiler__sim2c_393, NULL, 582, 582, 13, 36},
-  {entry__compiler__sim2c_399, NULL, 587, 587, 15, 31},
-  {cont__compiler__sim2c_400, &frame__compiler__sim2c_399, 588, 588, 28, 53},
-  {cont__compiler__sim2c_401, &frame__compiler__sim2c_399, 588, 588, 15, 53},
-  {cont__compiler__sim2c_402, &frame__compiler__sim2c_399, 588, 588, 53, 53},
-  {entry__compiler__sim2c_406, NULL, 591, 591, 36, 76},
-  {cont__compiler__sim2c_407, &frame__compiler__sim2c_406, 591, 591, 36, 76},
-  {entry__compiler__sim2c_409, NULL, 592, 592, 56, 73},
-  {cont__compiler__sim2c_410, &frame__compiler__sim2c_409, 592, 592, 17, 73},
-  {entry__compiler__sim2c_413, NULL, 597, 597, 21, 54},
-  {entry__compiler__sim2c_417, NULL, 601, 601, 25, 55},
-  {entry__compiler__sim2c_418, NULL, 603, 603, 25, 62},
-  {entry__compiler__sim2c_414, NULL, 600, 600, 23, 46},
-  {cont__compiler__sim2c_415, &frame__compiler__sim2c_414, 600, 600, 23, 57},
-  {cont__compiler__sim2c_416, &frame__compiler__sim2c_414, 599, 603, 21, 63},
-  {entry__compiler__sim2c_419, NULL, 605, 605, 21, 53},
-  {entry__compiler__sim2c_411, NULL, 595, 595, 19, 47},
-  {cont__compiler__sim2c_412, &frame__compiler__sim2c_411, 594, 605, 17, 54},
-  {entry__compiler__sim2c_394, NULL, 584, 584, 36, 60},
-  {cont__compiler__sim2c_395, &frame__compiler__sim2c_394, 584, 584, 13, 61},
-  {cont__compiler__sim2c_396, &frame__compiler__sim2c_394, 585, 585, 13, 47},
-  {cont__compiler__sim2c_397, &frame__compiler__sim2c_394, 586, 586, 16, 35},
-  {cont__compiler__sim2c_398, &frame__compiler__sim2c_394, 586, 588, 13, 53},
-  {cont__compiler__sim2c_403, &frame__compiler__sim2c_394, 589, 589, 13, 47},
-  {cont__compiler__sim2c_404, &frame__compiler__sim2c_394, 591, 591, 15, 31},
-  {cont__compiler__sim2c_405, &frame__compiler__sim2c_394, 591, 591, 15, 76},
-  {cont__compiler__sim2c_408, &frame__compiler__sim2c_394, 590, 605, 13, 56},
-  {cont__compiler__sim2c_420, &frame__compiler__sim2c_394, 605, 605, 56, 56},
-  {entry__compiler__sim2c_386, NULL, 577, 577, 12, 41},
-  {cont__compiler__sim2c_387, &frame__compiler__sim2c_386, 577, 579, 9, 40},
-  {cont__compiler__sim2c_391, &frame__compiler__sim2c_386, 581, 581, 11, 30},
-  {cont__compiler__sim2c_392, &frame__compiler__sim2c_386, 580, 605, 9, 58},
-  {entry__compiler__sim2c_385, NULL, 575, 605, 7, 59},
-  {entry__compiler__sim2c_424, NULL, 606, 606, 28, 67},
-  {entry__compiler__sim2c_426, NULL, 607, 607, 20, 46},
-  {cont__compiler__sim2c_427, &frame__compiler__sim2c_426, 607, 607, 46, 46},
-  {entry__compiler__sim2c_384, NULL, 574, 605, 5, 60},
-  {cont__compiler__sim2c_421, &frame__compiler__sim2c_384, 606, 606, 8, 25},
-  {cont__compiler__sim2c_422, &frame__compiler__sim2c_384, 606, 606, 8, 25},
-  {cont__compiler__sim2c_423, &frame__compiler__sim2c_384, 606, 606, 5, 67},
-  {cont__compiler__sim2c_425, &frame__compiler__sim2c_384, 607, 607, 5, 46},
-  {cont__compiler__sim2c_428, &frame__compiler__sim2c_384, 608, 608, 5, 29},
-  {cont__compiler__sim2c_429, &frame__compiler__sim2c_384, },
-  {entry__compiler__sim2c_439, NULL, 619, 619, 21, 74},
-  {cont__compiler__sim2c_442, &frame__compiler__sim2c_439, 619, 619, 13, 74},
-  {entry__compiler__sim2c_435, NULL, 617, 617, 11, 41},
-  {cont__compiler__sim2c_437, &frame__compiler__sim2c_435, 618, 618, 14, 29},
-  {cont__compiler__sim2c_438, &frame__compiler__sim2c_435, 618, 619, 11, 74},
-  {entry__compiler__sim2c_443, NULL, 621, 621, 39, 70},
-  {cont__compiler__sim2c_446, &frame__compiler__sim2c_443, 621, 621, 11, 70},
-  {cont__compiler__sim2c_447, &frame__compiler__sim2c_443, 622, 632, 17, 66},
-  {cont__compiler__sim2c_450, &frame__compiler__sim2c_443, 622, 632, 11, 66},
-  {entry__compiler__sim2c_452, NULL, 634, 634, 9, 35},
-  {cont__compiler__sim2c_453, &frame__compiler__sim2c_452, 636, 636, 29, 49},
-  {cont__compiler__sim2c_454, &frame__compiler__sim2c_452, 637, 637, 42, 62},
-  {cont__compiler__sim2c_455, &frame__compiler__sim2c_452, 635, 638, 15, 11},
-  {cont__compiler__sim2c_459, &frame__compiler__sim2c_452, 635, 638, 9, 11},
-  {cont__compiler__sim2c_460, &frame__compiler__sim2c_452, 639, 639, 37, 57},
-  {cont__compiler__sim2c_461, &frame__compiler__sim2c_452, 639, 639, 9, 59},
-  {cont__compiler__sim2c_463, &frame__compiler__sim2c_452, 640, 640, 9, 38},
-  {entry__compiler__sim2c_434, NULL, 615, 632, 7, 68},
-  {cont__compiler__sim2c_451, &frame__compiler__sim2c_434, 633, 640, 7, 38},
-  {entry__compiler__sim2c_465, NULL, 641, 641, 20, 46},
-  {cont__compiler__sim2c_466, &frame__compiler__sim2c_465, 641, 641, 46, 46},
-  {entry__compiler__sim2c_433, NULL, 614, 640, 5, 39},
-  {cont__compiler__sim2c_464, &frame__compiler__sim2c_433, 641, 641, 5, 46},
-  {cont__compiler__sim2c_467, &frame__compiler__sim2c_433, 642, 642, 5, 29},
-  {cont__compiler__sim2c_468, &frame__compiler__sim2c_433, },
-  {entry__compiler__sim2c_475, NULL, 649, 649, 50, 72},
-  {entry__compiler__sim2c_474, NULL, 649, 649, 27, 72},
-  {entry__compiler__sim2c_479, NULL, 650, 650, 28, 67},
-  {entry__compiler__sim2c_481, NULL, 651, 651, 20, 46},
-  {cont__compiler__sim2c_482, &frame__compiler__sim2c_481, 651, 651, 46, 46},
-  {entry__compiler__sim2c_471, NULL, 647, 647, 35, 52},
-  {cont__compiler__sim2c_472, &frame__compiler__sim2c_471, 647, 647, 5, 53},
-  {cont__compiler__sim2c_473, &frame__compiler__sim2c_471, 649, 649, 5, 72},
-  {cont__compiler__sim2c_476, &frame__compiler__sim2c_471, 650, 650, 8, 25},
-  {cont__compiler__sim2c_477, &frame__compiler__sim2c_471, 650, 650, 8, 25},
-  {cont__compiler__sim2c_478, &frame__compiler__sim2c_471, 650, 650, 5, 67},
-  {cont__compiler__sim2c_480, &frame__compiler__sim2c_471, 651, 651, 5, 46},
-  {cont__compiler__sim2c_483, &frame__compiler__sim2c_471, 652, 652, 5, 29},
-  {cont__compiler__sim2c_484, &frame__compiler__sim2c_471, },
-  {entry__compiler__sim2c_488, NULL, 658, 660, 11, 13},
-  {entry__compiler__sim2c_490, NULL, 662, 666, 11, 13},
-  {entry__compiler__sim2c_487, NULL, 656, 666, 7, 15},
-  {cont__compiler__sim2c_492, &frame__compiler__sim2c_487, 667, 667, 7, 22},
-  {entry__compiler__sim2c_494, NULL, 668, 668, 20, 46},
-  {cont__compiler__sim2c_495, &frame__compiler__sim2c_494, 668, 668, 46, 46},
-  {entry__compiler__sim2c_486, NULL, 655, 667, 5, 22},
-  {cont__compiler__sim2c_493, &frame__compiler__sim2c_486, 668, 668, 5, 46},
-  {cont__compiler__sim2c_496, &frame__compiler__sim2c_486, 669, 669, 5, 29},
-  {cont__compiler__sim2c_497, &frame__compiler__sim2c_486, },
-  {entry__compiler__sim2c_500, NULL, 670, 670, 72, 77},
-  {entry__compiler__sim2c_499, NULL, 670, 670, 40, 77},
-  {entry__compiler__sim2c_502, NULL, 671, 671, 51, 71},
-  {cont__compiler__sim2c_504, &frame__compiler__sim2c_502, 671, 671, 43, 71},
-  {entry__compiler__sim2c_506, NULL, 672, 672, 45, 62},
-  {cont__compiler__sim2c_508, &frame__compiler__sim2c_506, 672, 672, 37, 62},
-  {entry__compiler__sim2c_510, NULL, 673, 673, 47, 68},
-  {cont__compiler__sim2c_512, &frame__compiler__sim2c_510, 673, 673, 39, 68},
-  {entry__compiler__sim2c_518, NULL, 677, 677, 5, 31},
-  {cont__compiler__sim2c_520, &frame__compiler__sim2c_518, 678, 678, 5, 31},
-  {cont__compiler__sim2c_522, &frame__compiler__sim2c_518, 678, 678, 36, 36},
-  {entry__compiler__sim2c_524, NULL, 679, 679, 43, 62},
-  {cont__compiler__sim2c_527, &frame__compiler__sim2c_524, 679, 679, 35, 62},
-  {entry__compiler__sim2c_534, NULL, 700, 735, 5, 12},
-  {entry__compiler__sim2c_538, NULL, 736, 736, 40, 65},
-  {cont__compiler__sim2c_540, &frame__compiler__sim2c_538, 736, 736, 40, 65},
-  {entry__compiler__sim2c_542, NULL, 737, 738, 5, 35},
-  {entry__compiler__sim2c_550, NULL, 785, 785, 15, 45},
-  {cont__compiler__sim2c_553, &frame__compiler__sim2c_550, 785, 785, 7, 45},
-  {entry__compiler__sim2c_560, NULL, 788, 788, 15, 64},
-  {cont__compiler__sim2c_562, &frame__compiler__sim2c_560, 788, 788, 7, 64},
-  {entry__compiler__sim2c_566, NULL, 790, 790, 15, 48},
-  {cont__compiler__sim2c_568, &frame__compiler__sim2c_566, 790, 790, 7, 48},
-  {entry__compiler__sim2c_572, NULL, 792, 792, 15, 51},
-  {cont__compiler__sim2c_574, &frame__compiler__sim2c_572, 792, 792, 7, 51},
-  {entry__compiler__sim2c_547, NULL, 784, 784, 8, 29},
-  {cont__compiler__sim2c_548, &frame__compiler__sim2c_547, 784, 784, 8, 44},
-  {cont__compiler__sim2c_549, &frame__compiler__sim2c_547, 784, 785, 5, 45},
-  {cont__compiler__sim2c_554, &frame__compiler__sim2c_547, 786, 786, 13, 46},
-  {cont__compiler__sim2c_556, &frame__compiler__sim2c_547, 786, 786, 5, 46},
-  {cont__compiler__sim2c_557, &frame__compiler__sim2c_547, 787, 787, 8, 29},
-  {cont__compiler__sim2c_558, &frame__compiler__sim2c_547, 787, 787, 8, 46},
-  {cont__compiler__sim2c_559, &frame__compiler__sim2c_547, 787, 788, 5, 64},
-  {cont__compiler__sim2c_563, &frame__compiler__sim2c_547, 789, 789, 10, 31},
-  {cont__compiler__sim2c_564, &frame__compiler__sim2c_547, 789, 789, 33, 59},
-  {cont__compiler__sim2c_565, &frame__compiler__sim2c_547, 789, 790, 5, 48},
-  {cont__compiler__sim2c_569, &frame__compiler__sim2c_547, 791, 791, 10, 31},
-  {cont__compiler__sim2c_570, &frame__compiler__sim2c_547, 791, 791, 33, 61},
-  {cont__compiler__sim2c_571, &frame__compiler__sim2c_547, 791, 792, 5, 51},
-  {entry__compiler__sim2c_586, NULL, 802, 802, 57, 57},
-  {cont__compiler__sim2c_587, &frame__compiler__sim2c_586, 802, 802, 13, 58},
-  {cont__compiler__sim2c_588, &frame__compiler__sim2c_586, 802, 802, 5, 58},
-  {entry__compiler__sim2c_593, NULL, 814, 814, 7, 45},
-  {entry__compiler__sim2c_595, NULL, 816, 816, 15, 47},
-  {cont__compiler__sim2c_598, &frame__compiler__sim2c_595, 816, 816, 7, 47},
-  {entry__compiler__sim2c_605, NULL, 822, 822, 51, 51},
-  {cont__compiler__sim2c_606, &frame__compiler__sim2c_605, 822, 822, 13, 52},
-  {cont__compiler__sim2c_607, &frame__compiler__sim2c_605, 822, 822, 5, 52},
-  {entry__compiler__sim2c_614, NULL, 836, 836, 26, 43},
-  {cont__compiler__sim2c_615, &frame__compiler__sim2c_614, 836, 836, 13, 50},
-  {cont__compiler__sim2c_619, &frame__compiler__sim2c_614, 836, 836, 7, 50},
-  {entry__compiler__sim2c_613, NULL, 835, 836, 5, 50},
-  {entry__compiler__sim2c_623, NULL, 839, 839, 49, 75},
-  {cont__compiler__sim2c_625, &frame__compiler__sim2c_623, 839, 839, 43, 75},
-  {entry__compiler__sim2c_629, NULL, 843, 843, 42, 69},
-  {cont__compiler__sim2c_632, &frame__compiler__sim2c_629, 843, 843, 36, 69},
-  {entry__compiler__sim2c_639, NULL, 861, 861, 38, 44},
-  {cont__compiler__sim2c_640, &frame__compiler__sim2c_639, 861, 861, 38, 45},
-  {cont__compiler__sim2c_641, &frame__compiler__sim2c_639, 861, 861, 7, 45},
-  {cont__compiler__sim2c_642, &frame__compiler__sim2c_639, 862, 863, 13, 43},
-  {cont__compiler__sim2c_645, &frame__compiler__sim2c_639, 862, 863, 7, 43},
-  {entry__compiler__sim2c_646, NULL, 865, 865, 7, 16},
-  {entry__compiler__sim2c_651, NULL, 875, 875, 5, 32},
-  {cont__compiler__sim2c_652, &frame__compiler__sim2c_651, 876, 884, 11, 38},
-  {cont__compiler__sim2c_661, &frame__compiler__sim2c_651, 876, 884, 5, 38},
-  {entry__compiler__sim2c_671, NULL, 893, 901, 7, 10},
-  {entry__compiler__sim2c_673, NULL, 903, 909, 13, 39},
-  {cont__compiler__sim2c_676, &frame__compiler__sim2c_673, 903, 909, 7, 39},
-  {entry__compiler__sim2c_678, NULL, 911, 911, 5, 39},
-  {cont__compiler__sim2c_679, &frame__compiler__sim2c_678, 912, 912, 13, 43},
-  {cont__compiler__sim2c_682, &frame__compiler__sim2c_678, 912, 912, 5, 43},
-  {entry__compiler__sim2c_686, NULL, 918, 920, 11, 43},
-  {cont__compiler__sim2c_689, &frame__compiler__sim2c_686, 918, 920, 5, 43},
+  {entry__compiler__sim2c_277, NULL, 390, 390, 47, 57},
+  {cont__compiler__sim2c_278, &frame__compiler__sim2c_277, 390, 390, 59, 76},
+  {cont__compiler__sim2c_279, &frame__compiler__sim2c_277, 390, 390, 42, 77},
+  {cont__compiler__sim2c_280, &frame__compiler__sim2c_277, 389, 390, 15, 78},
+  {entry__compiler__sim2c_281, NULL, 392, 392, 15, 36},
+  {entry__compiler__sim2c_275, NULL, 388, 388, 13, 35},
+  {cont__compiler__sim2c_276, &frame__compiler__sim2c_275, 387, 392, 11, 37},
+  {entry__compiler__sim2c_274, NULL, 386, 392, 9, 38},
+  {entry__compiler__sim2c_283, NULL, 394, 394, 9, 15},
+  {entry__compiler__sim2c_285, NULL, 395, 395, 38, 54},
+  {entry__compiler__sim2c_273, NULL, 384, 394, 5, 16},
+  {cont__compiler__sim2c_284, &frame__compiler__sim2c_273, 395, 395, 5, 54},
+  {cont__compiler__sim2c_286, &frame__compiler__sim2c_273, 396, 396, 5, 13},
+  {entry__compiler__sim2c_289, NULL, 419, 419, 46, 67},
+  {entry__compiler__sim2c_288, NULL, 419, 419, 5, 67},
+  {entry__compiler__sim2c_291, NULL, 420, 420, 51, 62},
+  {cont__compiler__sim2c_292, &frame__compiler__sim2c_291, 420, 420, 22, 62},
+  {entry__compiler__sim2c_298, NULL, 505, 505, 20, 53},
+  {cont__compiler__sim2c_299, &frame__compiler__sim2c_298, 505, 505, 53, 53},
+  {entry__compiler__sim2c_296, NULL, 504, 504, 5, 22},
+  {cont__compiler__sim2c_297, &frame__compiler__sim2c_296, 505, 505, 5, 53},
+  {cont__compiler__sim2c_300, &frame__compiler__sim2c_296, 505, 505, 53, 53},
+  {entry__compiler__sim2c_303, NULL, 509, 509, 20, 65},
+  {cont__compiler__sim2c_304, &frame__compiler__sim2c_303, 509, 509, 65, 65},
+  {entry__compiler__sim2c_301, NULL, 508, 508, 5, 22},
+  {cont__compiler__sim2c_302, &frame__compiler__sim2c_301, 509, 509, 5, 65},
+  {cont__compiler__sim2c_305, &frame__compiler__sim2c_301, 509, 509, 65, 65},
+  {entry__compiler__sim2c_308, NULL, 513, 513, 20, 72},
+  {cont__compiler__sim2c_309, &frame__compiler__sim2c_308, 513, 513, 72, 72},
+  {entry__compiler__sim2c_306, NULL, 512, 512, 5, 22},
+  {cont__compiler__sim2c_307, &frame__compiler__sim2c_306, 513, 513, 5, 72},
+  {cont__compiler__sim2c_310, &frame__compiler__sim2c_306, 513, 513, 72, 72},
+  {entry__compiler__sim2c_313, NULL, 517, 517, 20, 69},
+  {cont__compiler__sim2c_314, &frame__compiler__sim2c_313, 517, 517, 69, 69},
+  {entry__compiler__sim2c_311, NULL, 516, 516, 5, 22},
+  {cont__compiler__sim2c_312, &frame__compiler__sim2c_311, 517, 517, 5, 69},
+  {cont__compiler__sim2c_315, &frame__compiler__sim2c_311, 517, 517, 69, 69},
+  {entry__compiler__sim2c_318, NULL, 521, 521, 20, 59},
+  {cont__compiler__sim2c_319, &frame__compiler__sim2c_318, 521, 521, 59, 59},
+  {entry__compiler__sim2c_316, NULL, 520, 520, 5, 22},
+  {cont__compiler__sim2c_317, &frame__compiler__sim2c_316, 521, 521, 5, 59},
+  {cont__compiler__sim2c_320, &frame__compiler__sim2c_316, 521, 521, 59, 59},
+  {entry__compiler__sim2c_323, NULL, 525, 525, 20, 67},
+  {cont__compiler__sim2c_324, &frame__compiler__sim2c_323, 525, 525, 67, 67},
+  {entry__compiler__sim2c_321, NULL, 524, 524, 5, 22},
+  {cont__compiler__sim2c_322, &frame__compiler__sim2c_321, 525, 525, 5, 67},
+  {cont__compiler__sim2c_325, &frame__compiler__sim2c_321, 525, 525, 67, 67},
+  {entry__compiler__sim2c_328, NULL, 529, 529, 20, 50},
+  {cont__compiler__sim2c_329, &frame__compiler__sim2c_328, 529, 529, 50, 50},
+  {entry__compiler__sim2c_326, NULL, 528, 528, 5, 22},
+  {cont__compiler__sim2c_327, &frame__compiler__sim2c_326, 529, 529, 5, 50},
+  {cont__compiler__sim2c_330, &frame__compiler__sim2c_326, 529, 529, 50, 50},
+  {entry__compiler__sim2c_333, NULL, 533, 533, 20, 48},
+  {cont__compiler__sim2c_334, &frame__compiler__sim2c_333, 533, 533, 48, 48},
+  {entry__compiler__sim2c_331, NULL, 532, 532, 5, 22},
+  {cont__compiler__sim2c_332, &frame__compiler__sim2c_331, 533, 533, 5, 48},
+  {cont__compiler__sim2c_335, &frame__compiler__sim2c_331, 533, 533, 48, 48},
+  {entry__compiler__sim2c_338, NULL, 537, 537, 20, 48},
+  {cont__compiler__sim2c_339, &frame__compiler__sim2c_338, 537, 537, 48, 48},
+  {entry__compiler__sim2c_336, NULL, 536, 536, 5, 22},
+  {cont__compiler__sim2c_337, &frame__compiler__sim2c_336, 537, 537, 5, 48},
+  {cont__compiler__sim2c_340, &frame__compiler__sim2c_336, 537, 537, 48, 48},
+  {entry__compiler__sim2c_343, NULL, 541, 541, 20, 48},
+  {cont__compiler__sim2c_344, &frame__compiler__sim2c_343, 541, 541, 48, 48},
+  {entry__compiler__sim2c_341, NULL, 540, 540, 5, 22},
+  {cont__compiler__sim2c_342, &frame__compiler__sim2c_341, 541, 541, 5, 48},
+  {cont__compiler__sim2c_345, &frame__compiler__sim2c_341, 541, 541, 48, 48},
+  {entry__compiler__sim2c_348, NULL, 545, 545, 20, 48},
+  {cont__compiler__sim2c_349, &frame__compiler__sim2c_348, 545, 545, 48, 48},
+  {entry__compiler__sim2c_346, NULL, 544, 544, 5, 22},
+  {cont__compiler__sim2c_347, &frame__compiler__sim2c_346, 545, 545, 5, 48},
+  {cont__compiler__sim2c_350, &frame__compiler__sim2c_346, 545, 545, 48, 48},
+  {entry__compiler__sim2c_353, NULL, 549, 549, 20, 48},
+  {cont__compiler__sim2c_354, &frame__compiler__sim2c_353, 549, 549, 48, 48},
+  {entry__compiler__sim2c_351, NULL, 548, 548, 5, 22},
+  {cont__compiler__sim2c_352, &frame__compiler__sim2c_351, 549, 549, 5, 48},
+  {cont__compiler__sim2c_355, &frame__compiler__sim2c_351, 549, 549, 48, 48},
+  {entry__compiler__sim2c_358, NULL, 553, 553, 20, 48},
+  {cont__compiler__sim2c_359, &frame__compiler__sim2c_358, 553, 553, 48, 48},
+  {entry__compiler__sim2c_356, NULL, 552, 552, 5, 22},
+  {cont__compiler__sim2c_357, &frame__compiler__sim2c_356, 553, 553, 5, 48},
+  {cont__compiler__sim2c_360, &frame__compiler__sim2c_356, 553, 553, 48, 48},
+  {entry__compiler__sim2c_362, NULL, 556, 556, 20, 39},
+  {cont__compiler__sim2c_363, &frame__compiler__sim2c_362, 556, 556, 47, 47},
+  {entry__compiler__sim2c_361, NULL, 556, 556, 5, 47},
+  {cont__compiler__sim2c_364, &frame__compiler__sim2c_361, 556, 556, 47, 47},
+  {entry__compiler__sim2c_367, NULL, 560, 560, 20, 52},
+  {cont__compiler__sim2c_368, &frame__compiler__sim2c_367, 560, 560, 52, 52},
+  {entry__compiler__sim2c_365, NULL, 559, 559, 5, 22},
+  {cont__compiler__sim2c_366, &frame__compiler__sim2c_365, 560, 560, 5, 52},
+  {cont__compiler__sim2c_369, &frame__compiler__sim2c_365, 560, 560, 52, 52},
+  {entry__compiler__sim2c_372, NULL, 564, 564, 20, 49},
+  {cont__compiler__sim2c_373, &frame__compiler__sim2c_372, 564, 564, 49, 49},
+  {entry__compiler__sim2c_370, NULL, 563, 563, 5, 22},
+  {cont__compiler__sim2c_371, &frame__compiler__sim2c_370, 564, 564, 5, 49},
+  {cont__compiler__sim2c_374, &frame__compiler__sim2c_370, 564, 564, 49, 49},
+  {entry__compiler__sim2c_378, NULL, 568, 568, 28, 28},
+  {cont__compiler__sim2c_379, &frame__compiler__sim2c_378, 568, 568, 7, 29},
+  {cont__compiler__sim2c_380, &frame__compiler__sim2c_378, 569, 569, 7, 68},
+  {entry__compiler__sim2c_375, NULL, 567, 567, 8, 33},
+  {cont__compiler__sim2c_377, &frame__compiler__sim2c_375, 567, 569, 5, 68},
+  {entry__compiler__sim2c_387, NULL, 580, 580, 11, 43},
+  {cont__compiler__sim2c_388, &frame__compiler__sim2c_387, 581, 581, 11, 40},
+  {cont__compiler__sim2c_389, &frame__compiler__sim2c_387, 581, 581, 40, 40},
+  {entry__compiler__sim2c_392, NULL, 584, 584, 13, 36},
+  {entry__compiler__sim2c_398, NULL, 589, 589, 15, 31},
+  {cont__compiler__sim2c_399, &frame__compiler__sim2c_398, 590, 590, 28, 53},
+  {cont__compiler__sim2c_400, &frame__compiler__sim2c_398, 590, 590, 15, 53},
+  {cont__compiler__sim2c_401, &frame__compiler__sim2c_398, 590, 590, 53, 53},
+  {entry__compiler__sim2c_405, NULL, 593, 593, 36, 76},
+  {cont__compiler__sim2c_406, &frame__compiler__sim2c_405, 593, 593, 36, 76},
+  {entry__compiler__sim2c_408, NULL, 594, 594, 56, 73},
+  {cont__compiler__sim2c_409, &frame__compiler__sim2c_408, 594, 594, 17, 73},
+  {entry__compiler__sim2c_412, NULL, 598, 598, 21, 54},
+  {entry__compiler__sim2c_416, NULL, 602, 602, 25, 55},
+  {entry__compiler__sim2c_417, NULL, 604, 604, 25, 62},
+  {entry__compiler__sim2c_413, NULL, 601, 601, 23, 46},
+  {cont__compiler__sim2c_414, &frame__compiler__sim2c_413, 601, 601, 23, 57},
+  {cont__compiler__sim2c_415, &frame__compiler__sim2c_413, 600, 604, 21, 63},
+  {entry__compiler__sim2c_418, NULL, 606, 606, 21, 53},
+  {entry__compiler__sim2c_410, NULL, 596, 596, 22, 50},
+  {cont__compiler__sim2c_411, &frame__compiler__sim2c_410, 596, 606, 17, 54},
+  {entry__compiler__sim2c_393, NULL, 586, 586, 36, 60},
+  {cont__compiler__sim2c_394, &frame__compiler__sim2c_393, 586, 586, 13, 61},
+  {cont__compiler__sim2c_395, &frame__compiler__sim2c_393, 587, 587, 13, 47},
+  {cont__compiler__sim2c_396, &frame__compiler__sim2c_393, 588, 588, 16, 35},
+  {cont__compiler__sim2c_397, &frame__compiler__sim2c_393, 588, 590, 13, 53},
+  {cont__compiler__sim2c_402, &frame__compiler__sim2c_393, 591, 591, 13, 47},
+  {cont__compiler__sim2c_403, &frame__compiler__sim2c_393, 593, 593, 15, 31},
+  {cont__compiler__sim2c_404, &frame__compiler__sim2c_393, 593, 593, 15, 76},
+  {cont__compiler__sim2c_407, &frame__compiler__sim2c_393, 592, 606, 13, 56},
+  {cont__compiler__sim2c_419, &frame__compiler__sim2c_393, 606, 606, 56, 56},
+  {entry__compiler__sim2c_385, NULL, 579, 579, 12, 41},
+  {cont__compiler__sim2c_386, &frame__compiler__sim2c_385, 579, 581, 9, 40},
+  {cont__compiler__sim2c_390, &frame__compiler__sim2c_385, 583, 583, 11, 30},
+  {cont__compiler__sim2c_391, &frame__compiler__sim2c_385, 582, 606, 9, 58},
+  {entry__compiler__sim2c_384, NULL, 577, 606, 7, 59},
+  {entry__compiler__sim2c_423, NULL, 607, 607, 28, 67},
+  {entry__compiler__sim2c_425, NULL, 608, 608, 20, 46},
+  {cont__compiler__sim2c_426, &frame__compiler__sim2c_425, 608, 608, 46, 46},
+  {entry__compiler__sim2c_383, NULL, 576, 606, 5, 60},
+  {cont__compiler__sim2c_420, &frame__compiler__sim2c_383, 607, 607, 8, 25},
+  {cont__compiler__sim2c_421, &frame__compiler__sim2c_383, 607, 607, 8, 25},
+  {cont__compiler__sim2c_422, &frame__compiler__sim2c_383, 607, 607, 5, 67},
+  {cont__compiler__sim2c_424, &frame__compiler__sim2c_383, 608, 608, 5, 46},
+  {cont__compiler__sim2c_427, &frame__compiler__sim2c_383, 609, 609, 5, 29},
+  {cont__compiler__sim2c_428, &frame__compiler__sim2c_383, },
+  {entry__compiler__sim2c_438, NULL, 620, 620, 21, 74},
+  {cont__compiler__sim2c_441, &frame__compiler__sim2c_438, 620, 620, 13, 74},
+  {entry__compiler__sim2c_434, NULL, 618, 618, 11, 41},
+  {cont__compiler__sim2c_436, &frame__compiler__sim2c_434, 619, 619, 14, 29},
+  {cont__compiler__sim2c_437, &frame__compiler__sim2c_434, 619, 620, 11, 74},
+  {entry__compiler__sim2c_442, NULL, 622, 622, 39, 70},
+  {cont__compiler__sim2c_445, &frame__compiler__sim2c_442, 622, 622, 11, 70},
+  {cont__compiler__sim2c_446, &frame__compiler__sim2c_442, 623, 633, 17, 66},
+  {cont__compiler__sim2c_449, &frame__compiler__sim2c_442, 623, 633, 11, 66},
+  {entry__compiler__sim2c_451, NULL, 635, 635, 9, 35},
+  {cont__compiler__sim2c_452, &frame__compiler__sim2c_451, 637, 637, 29, 49},
+  {cont__compiler__sim2c_453, &frame__compiler__sim2c_451, 638, 638, 42, 62},
+  {cont__compiler__sim2c_454, &frame__compiler__sim2c_451, 636, 639, 15, 11},
+  {cont__compiler__sim2c_458, &frame__compiler__sim2c_451, 636, 639, 9, 11},
+  {cont__compiler__sim2c_459, &frame__compiler__sim2c_451, 640, 640, 37, 57},
+  {cont__compiler__sim2c_460, &frame__compiler__sim2c_451, 640, 640, 9, 59},
+  {cont__compiler__sim2c_462, &frame__compiler__sim2c_451, 641, 641, 9, 38},
+  {entry__compiler__sim2c_433, NULL, 616, 633, 7, 68},
+  {cont__compiler__sim2c_450, &frame__compiler__sim2c_433, 634, 641, 7, 38},
+  {entry__compiler__sim2c_464, NULL, 642, 642, 20, 46},
+  {cont__compiler__sim2c_465, &frame__compiler__sim2c_464, 642, 642, 46, 46},
+  {entry__compiler__sim2c_432, NULL, 615, 641, 5, 39},
+  {cont__compiler__sim2c_463, &frame__compiler__sim2c_432, 642, 642, 5, 46},
+  {cont__compiler__sim2c_466, &frame__compiler__sim2c_432, 643, 643, 5, 29},
+  {cont__compiler__sim2c_467, &frame__compiler__sim2c_432, },
+  {entry__compiler__sim2c_474, NULL, 650, 650, 50, 72},
+  {entry__compiler__sim2c_473, NULL, 650, 650, 27, 72},
+  {entry__compiler__sim2c_478, NULL, 651, 651, 28, 67},
+  {entry__compiler__sim2c_480, NULL, 652, 652, 20, 46},
+  {cont__compiler__sim2c_481, &frame__compiler__sim2c_480, 652, 652, 46, 46},
+  {entry__compiler__sim2c_470, NULL, 648, 648, 35, 52},
+  {cont__compiler__sim2c_471, &frame__compiler__sim2c_470, 648, 648, 5, 53},
+  {cont__compiler__sim2c_472, &frame__compiler__sim2c_470, 650, 650, 5, 72},
+  {cont__compiler__sim2c_475, &frame__compiler__sim2c_470, 651, 651, 8, 25},
+  {cont__compiler__sim2c_476, &frame__compiler__sim2c_470, 651, 651, 8, 25},
+  {cont__compiler__sim2c_477, &frame__compiler__sim2c_470, 651, 651, 5, 67},
+  {cont__compiler__sim2c_479, &frame__compiler__sim2c_470, 652, 652, 5, 46},
+  {cont__compiler__sim2c_482, &frame__compiler__sim2c_470, 653, 653, 5, 29},
+  {cont__compiler__sim2c_483, &frame__compiler__sim2c_470, },
+  {entry__compiler__sim2c_487, NULL, 659, 661, 11, 13},
+  {entry__compiler__sim2c_489, NULL, 663, 667, 11, 13},
+  {entry__compiler__sim2c_486, NULL, 657, 667, 7, 15},
+  {cont__compiler__sim2c_491, &frame__compiler__sim2c_486, 668, 668, 7, 22},
+  {entry__compiler__sim2c_493, NULL, 669, 669, 20, 46},
+  {cont__compiler__sim2c_494, &frame__compiler__sim2c_493, 669, 669, 46, 46},
+  {entry__compiler__sim2c_485, NULL, 656, 668, 5, 22},
+  {cont__compiler__sim2c_492, &frame__compiler__sim2c_485, 669, 669, 5, 46},
+  {cont__compiler__sim2c_495, &frame__compiler__sim2c_485, 670, 670, 5, 29},
+  {cont__compiler__sim2c_496, &frame__compiler__sim2c_485, },
+  {entry__compiler__sim2c_499, NULL, 671, 671, 72, 77},
+  {entry__compiler__sim2c_498, NULL, 671, 671, 40, 77},
+  {entry__compiler__sim2c_501, NULL, 672, 672, 51, 71},
+  {cont__compiler__sim2c_503, &frame__compiler__sim2c_501, 672, 672, 43, 71},
+  {entry__compiler__sim2c_505, NULL, 673, 673, 45, 62},
+  {cont__compiler__sim2c_507, &frame__compiler__sim2c_505, 673, 673, 37, 62},
+  {entry__compiler__sim2c_509, NULL, 674, 674, 47, 68},
+  {cont__compiler__sim2c_511, &frame__compiler__sim2c_509, 674, 674, 39, 68},
+  {entry__compiler__sim2c_517, NULL, 678, 678, 5, 31},
+  {cont__compiler__sim2c_519, &frame__compiler__sim2c_517, 679, 679, 5, 31},
+  {cont__compiler__sim2c_521, &frame__compiler__sim2c_517, 679, 679, 36, 36},
+  {entry__compiler__sim2c_523, NULL, 680, 680, 43, 62},
+  {cont__compiler__sim2c_526, &frame__compiler__sim2c_523, 680, 680, 35, 62},
+  {entry__compiler__sim2c_533, NULL, 701, 736, 5, 12},
+  {entry__compiler__sim2c_537, NULL, 737, 737, 40, 65},
+  {cont__compiler__sim2c_539, &frame__compiler__sim2c_537, 737, 737, 40, 65},
+  {entry__compiler__sim2c_541, NULL, 738, 739, 5, 35},
+  {entry__compiler__sim2c_549, NULL, 787, 787, 15, 45},
+  {cont__compiler__sim2c_552, &frame__compiler__sim2c_549, 787, 787, 7, 45},
+  {entry__compiler__sim2c_559, NULL, 790, 790, 15, 64},
+  {cont__compiler__sim2c_561, &frame__compiler__sim2c_559, 790, 790, 7, 64},
+  {entry__compiler__sim2c_565, NULL, 792, 792, 15, 48},
+  {cont__compiler__sim2c_567, &frame__compiler__sim2c_565, 792, 792, 7, 48},
+  {entry__compiler__sim2c_571, NULL, 794, 794, 15, 51},
+  {cont__compiler__sim2c_573, &frame__compiler__sim2c_571, 794, 794, 7, 51},
+  {entry__compiler__sim2c_546, NULL, 786, 786, 8, 29},
+  {cont__compiler__sim2c_547, &frame__compiler__sim2c_546, 786, 786, 8, 44},
+  {cont__compiler__sim2c_548, &frame__compiler__sim2c_546, 786, 787, 5, 45},
+  {cont__compiler__sim2c_553, &frame__compiler__sim2c_546, 788, 788, 13, 46},
+  {cont__compiler__sim2c_555, &frame__compiler__sim2c_546, 788, 788, 5, 46},
+  {cont__compiler__sim2c_556, &frame__compiler__sim2c_546, 789, 789, 8, 29},
+  {cont__compiler__sim2c_557, &frame__compiler__sim2c_546, 789, 789, 8, 46},
+  {cont__compiler__sim2c_558, &frame__compiler__sim2c_546, 789, 790, 5, 64},
+  {cont__compiler__sim2c_562, &frame__compiler__sim2c_546, 791, 791, 10, 31},
+  {cont__compiler__sim2c_563, &frame__compiler__sim2c_546, 791, 791, 33, 59},
+  {cont__compiler__sim2c_564, &frame__compiler__sim2c_546, 791, 792, 5, 48},
+  {cont__compiler__sim2c_568, &frame__compiler__sim2c_546, 793, 793, 10, 31},
+  {cont__compiler__sim2c_569, &frame__compiler__sim2c_546, 793, 793, 33, 61},
+  {cont__compiler__sim2c_570, &frame__compiler__sim2c_546, 793, 794, 5, 51},
+  {entry__compiler__sim2c_585, NULL, 804, 804, 57, 57},
+  {cont__compiler__sim2c_586, &frame__compiler__sim2c_585, 804, 804, 13, 58},
+  {cont__compiler__sim2c_587, &frame__compiler__sim2c_585, 804, 804, 5, 58},
+  {entry__compiler__sim2c_592, NULL, 816, 816, 7, 45},
+  {entry__compiler__sim2c_594, NULL, 818, 818, 15, 47},
+  {cont__compiler__sim2c_597, &frame__compiler__sim2c_594, 818, 818, 7, 47},
+  {entry__compiler__sim2c_604, NULL, 824, 824, 51, 51},
+  {cont__compiler__sim2c_605, &frame__compiler__sim2c_604, 824, 824, 13, 52},
+  {cont__compiler__sim2c_606, &frame__compiler__sim2c_604, 824, 824, 5, 52},
+  {entry__compiler__sim2c_613, NULL, 838, 838, 26, 43},
+  {cont__compiler__sim2c_614, &frame__compiler__sim2c_613, 838, 838, 13, 50},
+  {cont__compiler__sim2c_618, &frame__compiler__sim2c_613, 838, 838, 7, 50},
+  {entry__compiler__sim2c_612, NULL, 837, 838, 5, 50},
+  {entry__compiler__sim2c_622, NULL, 841, 841, 49, 75},
+  {cont__compiler__sim2c_624, &frame__compiler__sim2c_622, 841, 841, 43, 75},
+  {entry__compiler__sim2c_628, NULL, 845, 845, 42, 69},
+  {cont__compiler__sim2c_631, &frame__compiler__sim2c_628, 845, 845, 36, 69},
+  {entry__compiler__sim2c_638, NULL, 863, 863, 38, 44},
+  {cont__compiler__sim2c_639, &frame__compiler__sim2c_638, 863, 863, 38, 45},
+  {cont__compiler__sim2c_640, &frame__compiler__sim2c_638, 863, 863, 7, 45},
+  {cont__compiler__sim2c_641, &frame__compiler__sim2c_638, 864, 865, 13, 43},
+  {cont__compiler__sim2c_644, &frame__compiler__sim2c_638, 864, 865, 7, 43},
+  {entry__compiler__sim2c_645, NULL, 867, 867, 7, 16},
+  {entry__compiler__sim2c_650, NULL, 877, 877, 5, 32},
+  {cont__compiler__sim2c_651, &frame__compiler__sim2c_650, 878, 886, 11, 38},
+  {cont__compiler__sim2c_660, &frame__compiler__sim2c_650, 878, 886, 5, 38},
+  {entry__compiler__sim2c_671, NULL, 895, 903, 7, 10},
+  {entry__compiler__sim2c_673, NULL, 905, 911, 13, 39},
+  {cont__compiler__sim2c_676, &frame__compiler__sim2c_673, 905, 911, 7, 39},
+  {entry__compiler__sim2c_678, NULL, 913, 913, 5, 39},
+  {cont__compiler__sim2c_679, &frame__compiler__sim2c_678, 914, 914, 13, 43},
+  {cont__compiler__sim2c_682, &frame__compiler__sim2c_678, 914, 914, 5, 43},
+  {entry__compiler__sim2c_686, NULL, 919, 921, 11, 43},
+  {cont__compiler__sim2c_689, &frame__compiler__sim2c_686, 919, 921, 5, 43},
   {entry__compiler__sim2c_692, NULL, 925, 928, 7, 37},
   {entry__compiler__sim2c_694, NULL, 930, 937, 13, 39},
   {cont__compiler__sim2c_697, &frame__compiler__sim2c_694, 930, 937, 7, 39},
@@ -2899,53 +2897,53 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__sim2c_791, &frame__compiler__sim2c_790, 1019, 1019, 14, 57},
   {cont__compiler__sim2c_792, &frame__compiler__sim2c_790, 1019, 1019, 11, 57},
   {entry__compiler__sim2c_793, NULL, 1020, 1020, 11, 19},
-  {entry__compiler__sim2c_798, NULL, 1026, 1029, 17, 47},
-  {cont__compiler__sim2c_803, &frame__compiler__sim2c_798, 1026, 1029, 11, 47},
-  {entry__compiler__sim2c_804, NULL, 1031, 1034, 17, 43},
-  {cont__compiler__sim2c_807, &frame__compiler__sim2c_804, 1031, 1034, 11, 43},
-  {entry__compiler__sim2c_808, NULL, 1036, 1039, 17, 27},
-  {cont__compiler__sim2c_811, &frame__compiler__sim2c_808, 1036, 1039, 11, 27},
-  {entry__compiler__sim2c_812, NULL, 1041, 1044, 17, 45},
-  {cont__compiler__sim2c_815, &frame__compiler__sim2c_812, 1041, 1044, 11, 45},
-  {entry__compiler__sim2c_816, NULL, 1046, 1049, 17, 60},
-  {cont__compiler__sim2c_818, &frame__compiler__sim2c_816, 1046, 1049, 11, 60},
+  {entry__compiler__sim2c_798, NULL, 1025, 1028, 17, 47},
+  {cont__compiler__sim2c_803, &frame__compiler__sim2c_798, 1025, 1028, 11, 47},
+  {entry__compiler__sim2c_804, NULL, 1030, 1033, 17, 43},
+  {cont__compiler__sim2c_807, &frame__compiler__sim2c_804, 1030, 1033, 11, 43},
+  {entry__compiler__sim2c_808, NULL, 1035, 1038, 17, 27},
+  {cont__compiler__sim2c_811, &frame__compiler__sim2c_808, 1035, 1038, 11, 27},
+  {entry__compiler__sim2c_812, NULL, 1040, 1043, 17, 45},
+  {cont__compiler__sim2c_815, &frame__compiler__sim2c_812, 1040, 1043, 11, 45},
+  {entry__compiler__sim2c_816, NULL, 1045, 1048, 17, 60},
+  {cont__compiler__sim2c_818, &frame__compiler__sim2c_816, 1045, 1048, 11, 60},
   {entry__compiler__sim2c_788, NULL, 1018, 1018, 11, 30},
   {cont__compiler__sim2c_789, &frame__compiler__sim2c_788, 1016, 1020, 7, 20},
   {cont__compiler__sim2c_795, &frame__compiler__sim2c_788, 1022, 1022, 7, 42},
-  {cont__compiler__sim2c_796, &frame__compiler__sim2c_788, 1024, 1024, 9, 30},
-  {cont__compiler__sim2c_797, &frame__compiler__sim2c_788, 1023, 1049, 7, 62},
+  {cont__compiler__sim2c_796, &frame__compiler__sim2c_788, 1023, 1023, 12, 33},
+  {cont__compiler__sim2c_797, &frame__compiler__sim2c_788, 1023, 1048, 7, 62},
   {entry__compiler__sim2c_785, NULL, 1015, 1015, 12, 29},
   {cont__compiler__sim2c_786, &frame__compiler__sim2c_785, 1015, 1015, 12, 40},
-  {cont__compiler__sim2c_787, &frame__compiler__sim2c_785, 1015, 1049, 5, 63},
-  {entry__compiler__sim2c_821, NULL, 1052, 1054, 5, 31},
-  {entry__compiler__sim2c_824, NULL, 1057, 1060, 7, 10},
-  {entry__compiler__sim2c_826, NULL, 1062, 1069, 13, 39},
-  {cont__compiler__sim2c_829, &frame__compiler__sim2c_826, 1062, 1069, 7, 39},
-  {entry__compiler__sim2c_831, NULL, 1071, 1071, 27, 47},
-  {cont__compiler__sim2c_832, &frame__compiler__sim2c_831, 1071, 1071, 13, 52},
-  {cont__compiler__sim2c_834, &frame__compiler__sim2c_831, 1071, 1071, 5, 52},
-  {entry__compiler__sim2c_837, NULL, 1075, 1079, 7, 10},
-  {entry__compiler__sim2c_839, NULL, 1081, 1088, 13, 39},
-  {cont__compiler__sim2c_842, &frame__compiler__sim2c_839, 1081, 1088, 7, 39},
-  {entry__compiler__sim2c_844, NULL, 1090, 1090, 27, 47},
-  {cont__compiler__sim2c_845, &frame__compiler__sim2c_844, 1090, 1090, 13, 52},
-  {cont__compiler__sim2c_847, &frame__compiler__sim2c_844, 1090, 1090, 5, 52},
-  {entry__compiler__sim2c_853, NULL, 1094, 1096, 5, 30},
-  {entry__compiler__sim2c_857, NULL, 1098, 1098, 53, 64},
-  {cont__compiler__sim2c_858, &frame__compiler__sim2c_857, 1098, 1098, 22, 64},
-  {entry__compiler__sim2c_1, NULL, 232, 232, 3, 41},
-  {cont__compiler__sim2c_43, &frame__compiler__sim2c_1, 233, 233, 35, 71},
-  {cont__compiler__sim2c_45, &frame__compiler__sim2c_1, 233, 233, 3, 72},
-  {cont__compiler__sim2c_46, &frame__compiler__sim2c_1, 240, 273, 3, 61},
-  {cont__compiler__sim2c_113, &frame__compiler__sim2c_1, 274, 274, 3, 70},
-  {cont__compiler__sim2c_117, &frame__compiler__sim2c_1, 275, 275, 3, 61},
-  {cont__compiler__sim2c_121, &frame__compiler__sim2c_1, 276, 286, 3, 13},
-  {cont__compiler__sim2c_124, &frame__compiler__sim2c_1, 287, 288, 3, 71},
-  {cont__compiler__sim2c_129, &frame__compiler__sim2c_1, 289, 291, 3, 26},
-  {cont__compiler__sim2c_132, &frame__compiler__sim2c_1, 292, 292, 3, 63},
-  {cont__compiler__sim2c_136, &frame__compiler__sim2c_1, 293, 299, 3, 45},
-  {cont__compiler__sim2c_141, &frame__compiler__sim2c_1, 300, 300, 3, 64},
-  {cont__compiler__sim2c_145, &frame__compiler__sim2c_1, 303, 304, 3, 70},
+  {cont__compiler__sim2c_787, &frame__compiler__sim2c_785, 1015, 1048, 5, 63},
+  {entry__compiler__sim2c_821, NULL, 1051, 1053, 5, 31},
+  {entry__compiler__sim2c_824, NULL, 1056, 1059, 7, 10},
+  {entry__compiler__sim2c_826, NULL, 1061, 1068, 13, 39},
+  {cont__compiler__sim2c_829, &frame__compiler__sim2c_826, 1061, 1068, 7, 39},
+  {entry__compiler__sim2c_831, NULL, 1070, 1070, 27, 47},
+  {cont__compiler__sim2c_832, &frame__compiler__sim2c_831, 1070, 1070, 13, 52},
+  {cont__compiler__sim2c_834, &frame__compiler__sim2c_831, 1070, 1070, 5, 52},
+  {entry__compiler__sim2c_837, NULL, 1074, 1078, 7, 10},
+  {entry__compiler__sim2c_839, NULL, 1080, 1087, 13, 39},
+  {cont__compiler__sim2c_842, &frame__compiler__sim2c_839, 1080, 1087, 7, 39},
+  {entry__compiler__sim2c_844, NULL, 1089, 1089, 27, 47},
+  {cont__compiler__sim2c_845, &frame__compiler__sim2c_844, 1089, 1089, 13, 52},
+  {cont__compiler__sim2c_847, &frame__compiler__sim2c_844, 1089, 1089, 5, 52},
+  {entry__compiler__sim2c_853, NULL, 1093, 1095, 5, 30},
+  {entry__compiler__sim2c_857, NULL, 1097, 1097, 53, 64},
+  {cont__compiler__sim2c_858, &frame__compiler__sim2c_857, 1097, 1097, 22, 64},
+  {entry__compiler__sim2c_1, NULL, 230, 230, 3, 41},
+  {cont__compiler__sim2c_43, &frame__compiler__sim2c_1, 231, 231, 35, 71},
+  {cont__compiler__sim2c_45, &frame__compiler__sim2c_1, 231, 231, 3, 72},
+  {cont__compiler__sim2c_46, &frame__compiler__sim2c_1, 238, 270, 3, 61},
+  {cont__compiler__sim2c_113, &frame__compiler__sim2c_1, 271, 271, 3, 70},
+  {cont__compiler__sim2c_117, &frame__compiler__sim2c_1, 272, 272, 3, 61},
+  {cont__compiler__sim2c_121, &frame__compiler__sim2c_1, 273, 283, 3, 13},
+  {cont__compiler__sim2c_124, &frame__compiler__sim2c_1, 284, 285, 3, 71},
+  {cont__compiler__sim2c_129, &frame__compiler__sim2c_1, 286, 288, 3, 26},
+  {cont__compiler__sim2c_132, &frame__compiler__sim2c_1, 289, 289, 3, 63},
+  {cont__compiler__sim2c_136, &frame__compiler__sim2c_1, 290, 296, 3, 45},
+  {cont__compiler__sim2c_141, &frame__compiler__sim2c_1, 297, 297, 3, 64},
+  {cont__compiler__sim2c_145, &frame__compiler__sim2c_1, 300, 304, 3, 21},
   {cont__compiler__sim2c_148, &frame__compiler__sim2c_1, 306, 306, 6, 30},
   {cont__compiler__sim2c_149, &frame__compiler__sim2c_1, 306, 306, 6, 41},
   {cont__compiler__sim2c_151, &frame__compiler__sim2c_1, 306, 308, 3, 58},
@@ -2960,76 +2958,76 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__sim2c_251, &frame__compiler__sim2c_1, 367, 379, 3, 32},
   {cont__compiler__sim2c_265, &frame__compiler__sim2c_1, 380, 380, 3, 77},
   {cont__compiler__sim2c_268, &frame__compiler__sim2c_1, 382, 382, 3, 65},
-  {cont__compiler__sim2c_272, &frame__compiler__sim2c_1, 383, 401, 3, 13},
-  {cont__compiler__sim2c_288, &frame__compiler__sim2c_1, 423, 424, 3, 67},
-  {cont__compiler__sim2c_291, &frame__compiler__sim2c_1, 425, 425, 3, 62},
-  {cont__compiler__sim2c_295, &frame__compiler__sim2c_1, 426, 426, 3, 28},
-  {cont__compiler__sim2c_296, &frame__compiler__sim2c_1, 569, 569, 3, 49},
-  {cont__compiler__sim2c_383, &frame__compiler__sim2c_1, 570, 608, 3, 29},
-  {cont__compiler__sim2c_430, &frame__compiler__sim2c_1, 609, 609, 3, 48},
-  {cont__compiler__sim2c_432, &frame__compiler__sim2c_1, 611, 642, 3, 29},
-  {cont__compiler__sim2c_469, &frame__compiler__sim2c_1, 643, 643, 3, 39},
-  {cont__compiler__sim2c_470, &frame__compiler__sim2c_1, 644, 652, 3, 29},
-  {cont__compiler__sim2c_485, &frame__compiler__sim2c_1, 653, 669, 3, 29},
-  {cont__compiler__sim2c_498, &frame__compiler__sim2c_1, 670, 670, 3, 77},
-  {cont__compiler__sim2c_501, &frame__compiler__sim2c_1, 671, 671, 3, 71},
-  {cont__compiler__sim2c_505, &frame__compiler__sim2c_1, 672, 672, 3, 62},
-  {cont__compiler__sim2c_509, &frame__compiler__sim2c_1, 673, 673, 3, 68},
-  {cont__compiler__sim2c_513, &frame__compiler__sim2c_1, 674, 674, 10, 34},
-  {cont__compiler__sim2c_514, &frame__compiler__sim2c_1, 674, 674, 3, 42},
-  {cont__compiler__sim2c_515, &frame__compiler__sim2c_1, 675, 675, 3, 39},
-  {cont__compiler__sim2c_517, &frame__compiler__sim2c_1, 676, 678, 3, 36},
-  {cont__compiler__sim2c_523, &frame__compiler__sim2c_1, 679, 679, 3, 62},
-  {cont__compiler__sim2c_528, &frame__compiler__sim2c_1, 680, 680, 10, 32},
-  {cont__compiler__sim2c_529, &frame__compiler__sim2c_1, 680, 680, 3, 40},
-  {cont__compiler__sim2c_530, &frame__compiler__sim2c_1, 681, 698, 3, 18},
-  {cont__compiler__sim2c_532, &frame__compiler__sim2c_1, 699, 699, 10, 35},
-  {cont__compiler__sim2c_533, &frame__compiler__sim2c_1, 699, 735, 3, 13},
-  {cont__compiler__sim2c_536, &frame__compiler__sim2c_1, 736, 736, 10, 35},
-  {cont__compiler__sim2c_537, &frame__compiler__sim2c_1, 736, 736, 10, 65},
-  {cont__compiler__sim2c_541, &frame__compiler__sim2c_1, 736, 738, 3, 36},
-  {cont__compiler__sim2c_544, &frame__compiler__sim2c_1, 739, 782, 3, 10},
-  {cont__compiler__sim2c_546, &frame__compiler__sim2c_1, 783, 792, 3, 52},
-  {cont__compiler__sim2c_575, &frame__compiler__sim2c_1, 793, 794, 3, 19},
-  {cont__compiler__sim2c_577, &frame__compiler__sim2c_1, 795, 795, 3, 49},
-  {cont__compiler__sim2c_578, &frame__compiler__sim2c_1, 796, 796, 3, 46},
-  {cont__compiler__sim2c_579, &frame__compiler__sim2c_1, 797, 798, 3, 10},
-  {cont__compiler__sim2c_581, &frame__compiler__sim2c_1, 799, 800, 3, 38},
-  {cont__compiler__sim2c_583, &frame__compiler__sim2c_1, 801, 801, 6, 45},
-  {cont__compiler__sim2c_584, &frame__compiler__sim2c_1, 801, 801, 6, 45},
-  {cont__compiler__sim2c_585, &frame__compiler__sim2c_1, 801, 802, 3, 58},
-  {cont__compiler__sim2c_589, &frame__compiler__sim2c_1, 803, 803, 3, 16},
-  {cont__compiler__sim2c_591, &frame__compiler__sim2c_1, 804, 804, 3, 30},
-  {cont__compiler__sim2c_592, &frame__compiler__sim2c_1, 812, 816, 3, 48},
-  {cont__compiler__sim2c_599, &frame__compiler__sim2c_1, 817, 819, 3, 52},
-  {cont__compiler__sim2c_601, &frame__compiler__sim2c_1, 820, 820, 3, 75},
-  {cont__compiler__sim2c_602, &frame__compiler__sim2c_1, 821, 821, 6, 39},
-  {cont__compiler__sim2c_603, &frame__compiler__sim2c_1, 821, 821, 6, 39},
-  {cont__compiler__sim2c_604, &frame__compiler__sim2c_1, 821, 822, 3, 52},
-  {cont__compiler__sim2c_608, &frame__compiler__sim2c_1, 823, 825, 3, 6},
-  {cont__compiler__sim2c_610, &frame__compiler__sim2c_1, 826, 833, 3, 24},
-  {cont__compiler__sim2c_612, &frame__compiler__sim2c_1, 834, 836, 3, 51},
-  {cont__compiler__sim2c_620, &frame__compiler__sim2c_1, 837, 837, 3, 16},
-  {cont__compiler__sim2c_621, &frame__compiler__sim2c_1, 838, 838, 3, 27},
-  {cont__compiler__sim2c_622, &frame__compiler__sim2c_1, 839, 839, 3, 75},
-  {cont__compiler__sim2c_626, &frame__compiler__sim2c_1, 840, 842, 3, 44},
-  {cont__compiler__sim2c_628, &frame__compiler__sim2c_1, 843, 843, 3, 69},
-  {cont__compiler__sim2c_633, &frame__compiler__sim2c_1, 844, 857, 9, 10},
-  {cont__compiler__sim2c_636, &frame__compiler__sim2c_1, 844, 857, 3, 10},
-  {cont__compiler__sim2c_637, &frame__compiler__sim2c_1, 858, 858, 3, 44},
-  {cont__compiler__sim2c_638, &frame__compiler__sim2c_1, 859, 865, 3, 17},
-  {cont__compiler__sim2c_648, &frame__compiler__sim2c_1, 866, 873, 3, 6},
-  {cont__compiler__sim2c_650, &frame__compiler__sim2c_1, 874, 884, 3, 39},
-  {cont__compiler__sim2c_662, &frame__compiler__sim2c_1, 885, 885, 3, 22},
-  {cont__compiler__sim2c_663, &frame__compiler__sim2c_1, 886, 886, 3, 26},
-  {cont__compiler__sim2c_664, &frame__compiler__sim2c_1, 887, 888, 9, 47},
-  {cont__compiler__sim2c_666, &frame__compiler__sim2c_1, 887, 888, 3, 47},
-  {cont__compiler__sim2c_667, &frame__compiler__sim2c_1, 889, 889, 3, 29},
-  {cont__compiler__sim2c_668, &frame__compiler__sim2c_1, 890, 890, 3, 15},
-  {cont__compiler__sim2c_670, &frame__compiler__sim2c_1, 891, 909, 3, 41},
-  {cont__compiler__sim2c_677, &frame__compiler__sim2c_1, 910, 912, 3, 43},
-  {cont__compiler__sim2c_683, &frame__compiler__sim2c_1, 913, 915, 3, 43},
-  {cont__compiler__sim2c_685, &frame__compiler__sim2c_1, 917, 920, 3, 44},
+  {cont__compiler__sim2c_272, &frame__compiler__sim2c_1, 383, 396, 3, 13},
+  {cont__compiler__sim2c_287, &frame__compiler__sim2c_1, 418, 419, 3, 67},
+  {cont__compiler__sim2c_290, &frame__compiler__sim2c_1, 420, 420, 3, 62},
+  {cont__compiler__sim2c_294, &frame__compiler__sim2c_1, 421, 421, 3, 28},
+  {cont__compiler__sim2c_295, &frame__compiler__sim2c_1, 571, 571, 3, 49},
+  {cont__compiler__sim2c_382, &frame__compiler__sim2c_1, 572, 609, 3, 29},
+  {cont__compiler__sim2c_429, &frame__compiler__sim2c_1, 610, 610, 3, 48},
+  {cont__compiler__sim2c_431, &frame__compiler__sim2c_1, 612, 643, 3, 29},
+  {cont__compiler__sim2c_468, &frame__compiler__sim2c_1, 644, 644, 3, 39},
+  {cont__compiler__sim2c_469, &frame__compiler__sim2c_1, 645, 653, 3, 29},
+  {cont__compiler__sim2c_484, &frame__compiler__sim2c_1, 654, 670, 3, 29},
+  {cont__compiler__sim2c_497, &frame__compiler__sim2c_1, 671, 671, 3, 77},
+  {cont__compiler__sim2c_500, &frame__compiler__sim2c_1, 672, 672, 3, 71},
+  {cont__compiler__sim2c_504, &frame__compiler__sim2c_1, 673, 673, 3, 62},
+  {cont__compiler__sim2c_508, &frame__compiler__sim2c_1, 674, 674, 3, 68},
+  {cont__compiler__sim2c_512, &frame__compiler__sim2c_1, 675, 675, 10, 34},
+  {cont__compiler__sim2c_513, &frame__compiler__sim2c_1, 675, 675, 3, 42},
+  {cont__compiler__sim2c_514, &frame__compiler__sim2c_1, 676, 676, 3, 39},
+  {cont__compiler__sim2c_516, &frame__compiler__sim2c_1, 677, 679, 3, 36},
+  {cont__compiler__sim2c_522, &frame__compiler__sim2c_1, 680, 680, 3, 62},
+  {cont__compiler__sim2c_527, &frame__compiler__sim2c_1, 681, 681, 10, 32},
+  {cont__compiler__sim2c_528, &frame__compiler__sim2c_1, 681, 681, 3, 40},
+  {cont__compiler__sim2c_529, &frame__compiler__sim2c_1, 682, 699, 3, 18},
+  {cont__compiler__sim2c_531, &frame__compiler__sim2c_1, 700, 700, 10, 35},
+  {cont__compiler__sim2c_532, &frame__compiler__sim2c_1, 700, 736, 3, 13},
+  {cont__compiler__sim2c_535, &frame__compiler__sim2c_1, 737, 737, 10, 35},
+  {cont__compiler__sim2c_536, &frame__compiler__sim2c_1, 737, 737, 10, 65},
+  {cont__compiler__sim2c_540, &frame__compiler__sim2c_1, 737, 739, 3, 36},
+  {cont__compiler__sim2c_543, &frame__compiler__sim2c_1, 740, 784, 3, 10},
+  {cont__compiler__sim2c_545, &frame__compiler__sim2c_1, 785, 794, 3, 52},
+  {cont__compiler__sim2c_574, &frame__compiler__sim2c_1, 795, 796, 3, 19},
+  {cont__compiler__sim2c_576, &frame__compiler__sim2c_1, 797, 797, 3, 49},
+  {cont__compiler__sim2c_577, &frame__compiler__sim2c_1, 798, 798, 3, 46},
+  {cont__compiler__sim2c_578, &frame__compiler__sim2c_1, 799, 800, 3, 10},
+  {cont__compiler__sim2c_580, &frame__compiler__sim2c_1, 801, 802, 3, 38},
+  {cont__compiler__sim2c_582, &frame__compiler__sim2c_1, 803, 803, 6, 45},
+  {cont__compiler__sim2c_583, &frame__compiler__sim2c_1, 803, 803, 6, 45},
+  {cont__compiler__sim2c_584, &frame__compiler__sim2c_1, 803, 804, 3, 58},
+  {cont__compiler__sim2c_588, &frame__compiler__sim2c_1, 805, 805, 3, 16},
+  {cont__compiler__sim2c_590, &frame__compiler__sim2c_1, 806, 806, 3, 30},
+  {cont__compiler__sim2c_591, &frame__compiler__sim2c_1, 814, 818, 3, 48},
+  {cont__compiler__sim2c_598, &frame__compiler__sim2c_1, 819, 821, 3, 52},
+  {cont__compiler__sim2c_600, &frame__compiler__sim2c_1, 822, 822, 3, 75},
+  {cont__compiler__sim2c_601, &frame__compiler__sim2c_1, 823, 823, 6, 39},
+  {cont__compiler__sim2c_602, &frame__compiler__sim2c_1, 823, 823, 6, 39},
+  {cont__compiler__sim2c_603, &frame__compiler__sim2c_1, 823, 824, 3, 52},
+  {cont__compiler__sim2c_607, &frame__compiler__sim2c_1, 825, 827, 3, 6},
+  {cont__compiler__sim2c_609, &frame__compiler__sim2c_1, 828, 835, 3, 24},
+  {cont__compiler__sim2c_611, &frame__compiler__sim2c_1, 836, 838, 3, 51},
+  {cont__compiler__sim2c_619, &frame__compiler__sim2c_1, 839, 839, 3, 16},
+  {cont__compiler__sim2c_620, &frame__compiler__sim2c_1, 840, 840, 3, 27},
+  {cont__compiler__sim2c_621, &frame__compiler__sim2c_1, 841, 841, 3, 75},
+  {cont__compiler__sim2c_625, &frame__compiler__sim2c_1, 842, 844, 3, 44},
+  {cont__compiler__sim2c_627, &frame__compiler__sim2c_1, 845, 845, 3, 69},
+  {cont__compiler__sim2c_632, &frame__compiler__sim2c_1, 846, 859, 9, 10},
+  {cont__compiler__sim2c_635, &frame__compiler__sim2c_1, 846, 859, 3, 10},
+  {cont__compiler__sim2c_636, &frame__compiler__sim2c_1, 860, 860, 3, 44},
+  {cont__compiler__sim2c_637, &frame__compiler__sim2c_1, 861, 867, 3, 17},
+  {cont__compiler__sim2c_647, &frame__compiler__sim2c_1, 868, 875, 3, 6},
+  {cont__compiler__sim2c_649, &frame__compiler__sim2c_1, 876, 886, 3, 39},
+  {cont__compiler__sim2c_661, &frame__compiler__sim2c_1, 887, 887, 3, 22},
+  {cont__compiler__sim2c_662, &frame__compiler__sim2c_1, 888, 888, 3, 26},
+  {cont__compiler__sim2c_663, &frame__compiler__sim2c_1, 889, 890, 9, 47},
+  {cont__compiler__sim2c_666, &frame__compiler__sim2c_1, 889, 890, 3, 47},
+  {cont__compiler__sim2c_667, &frame__compiler__sim2c_1, 891, 891, 3, 29},
+  {cont__compiler__sim2c_668, &frame__compiler__sim2c_1, 892, 892, 3, 15},
+  {cont__compiler__sim2c_670, &frame__compiler__sim2c_1, 893, 911, 3, 41},
+  {cont__compiler__sim2c_677, &frame__compiler__sim2c_1, 912, 914, 3, 43},
+  {cont__compiler__sim2c_683, &frame__compiler__sim2c_1, 915, 917, 3, 43},
+  {cont__compiler__sim2c_685, &frame__compiler__sim2c_1, 918, 921, 3, 44},
   {cont__compiler__sim2c_690, &frame__compiler__sim2c_1, 922, 922, 3, 25},
   {cont__compiler__sim2c_691, &frame__compiler__sim2c_1, 923, 937, 3, 41},
   {cont__compiler__sim2c_698, &frame__compiler__sim2c_1, 938, 939, 3, 52},
@@ -3046,21 +3044,21 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__sim2c_777, &frame__compiler__sim2c_1, 1008, 1009, 3, 52},
   {cont__compiler__sim2c_782, &frame__compiler__sim2c_1, 1010, 1013, 9, 45},
   {cont__compiler__sim2c_783, &frame__compiler__sim2c_1, 1010, 1013, 3, 45},
-  {cont__compiler__sim2c_784, &frame__compiler__sim2c_1, 1014, 1049, 3, 64},
-  {cont__compiler__sim2c_819, &frame__compiler__sim2c_1, 1050, 1050, 3, 25},
-  {cont__compiler__sim2c_820, &frame__compiler__sim2c_1, 1051, 1054, 3, 32},
-  {cont__compiler__sim2c_823, &frame__compiler__sim2c_1, 1055, 1069, 3, 41},
-  {cont__compiler__sim2c_830, &frame__compiler__sim2c_1, 1070, 1071, 3, 52},
-  {cont__compiler__sim2c_835, &frame__compiler__sim2c_1, 1072, 1072, 3, 25},
-  {cont__compiler__sim2c_836, &frame__compiler__sim2c_1, 1073, 1088, 3, 41},
-  {cont__compiler__sim2c_843, &frame__compiler__sim2c_1, 1089, 1090, 3, 52},
-  {cont__compiler__sim2c_848, &frame__compiler__sim2c_1, 1091, 1091, 3, 25},
-  {cont__compiler__sim2c_849, &frame__compiler__sim2c_1, 1092, 1092, 11, 58},
-  {cont__compiler__sim2c_851, &frame__compiler__sim2c_1, 1092, 1092, 3, 58},
-  {cont__compiler__sim2c_852, &frame__compiler__sim2c_1, 1093, 1096, 3, 31},
-  {cont__compiler__sim2c_855, &frame__compiler__sim2c_1, 1097, 1097, 3, 15},
-  {cont__compiler__sim2c_856, &frame__compiler__sim2c_1, 1098, 1098, 3, 64},
-  {cont__compiler__sim2c_860, &frame__compiler__sim2c_1, 1098, 1098, 64, 64}
+  {cont__compiler__sim2c_784, &frame__compiler__sim2c_1, 1014, 1048, 3, 64},
+  {cont__compiler__sim2c_819, &frame__compiler__sim2c_1, 1049, 1049, 3, 25},
+  {cont__compiler__sim2c_820, &frame__compiler__sim2c_1, 1050, 1053, 3, 32},
+  {cont__compiler__sim2c_823, &frame__compiler__sim2c_1, 1054, 1068, 3, 41},
+  {cont__compiler__sim2c_830, &frame__compiler__sim2c_1, 1069, 1070, 3, 52},
+  {cont__compiler__sim2c_835, &frame__compiler__sim2c_1, 1071, 1071, 3, 25},
+  {cont__compiler__sim2c_836, &frame__compiler__sim2c_1, 1072, 1087, 3, 41},
+  {cont__compiler__sim2c_843, &frame__compiler__sim2c_1, 1088, 1089, 3, 52},
+  {cont__compiler__sim2c_848, &frame__compiler__sim2c_1, 1090, 1090, 3, 25},
+  {cont__compiler__sim2c_849, &frame__compiler__sim2c_1, 1091, 1091, 11, 58},
+  {cont__compiler__sim2c_851, &frame__compiler__sim2c_1, 1091, 1091, 3, 58},
+  {cont__compiler__sim2c_852, &frame__compiler__sim2c_1, 1092, 1095, 3, 31},
+  {cont__compiler__sim2c_855, &frame__compiler__sim2c_1, 1096, 1096, 3, 15},
+  {cont__compiler__sim2c_856, &frame__compiler__sim2c_1, 1097, 1097, 3, 64},
+  {cont__compiler__sim2c_860, &frame__compiler__sim2c_1, 1097, 1097, 64, 64}
 };
 
 union NODE {
@@ -3124,7 +3122,7 @@ EXPORT void run__sim2c(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 7);
-  // 57: "std__if" = 0
+  // 55: "std__if" = 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__cc48021895f2809c;
@@ -3140,7 +3138,7 @@ static void cont__10_2(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 58: "std__is_defined" = 1
+  // 56: "std__is_defined" = 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__cb05e9320ae22386;
@@ -3156,7 +3154,7 @@ static void cont__10_4(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 59: "std__equal" = 2
+  // 57: "std__equal" = 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__17988d443223256d;
@@ -3172,7 +3170,7 @@ static void cont__10_6(void) {
     return;
   }
   frame->slots[2] /* temp__3 */ = arguments->slots[0];
-  // 60: "std__less" = 3
+  // 58: "std__less" = 3
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__76a027f311988656;
@@ -3188,7 +3186,7 @@ static void cont__10_8(void) {
     return;
   }
   frame->slots[3] /* temp__4 */ = arguments->slots[0];
-  // 61: "std__length_of" = 4
+  // 59: "std__length_of" = 4
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__58b854e1382f539f;
@@ -3204,7 +3202,7 @@ static void cont__10_10(void) {
     return;
   }
   frame->slots[4] /* temp__5 */ = arguments->slots[0];
-  // 62: "std__is_empty" = 5
+  // 60: "std__is_empty" = 5
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__d8272d0f8bc407b3;
@@ -3220,7 +3218,7 @@ static void cont__10_12(void) {
     return;
   }
   frame->slots[5] /* temp__6 */ = arguments->slots[0];
-  // 63: "std__unless" = 6
+  // 61: "std__unless" = 6
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__582190112b914cb7;
@@ -3236,15 +3234,15 @@ static void cont__10_14(void) {
     return;
   }
   frame->slots[6] /* temp__7 */ = arguments->slots[0];
-  // 55: $compiler::privileged_polymorphic_functions
-  // 56:   table
-  // 57:     "std__if" = 0
-  // 58:     "std__is_defined" = 1
-  // 59:     "std__equal" = 2
-  // 60:     "std__less" = 3
-  // 61:     "std__length_of" = 4
-  // 62:     "std__is_empty" = 5
-  // 63:     "std__unless" = 6
+  // 53: $compiler::privileged_polymorphic_functions
+  // 54:   table
+  // 55:     "std__if" = 0
+  // 56:     "std__is_defined" = 1
+  // 57:     "std__equal" = 2
+  // 58:     "std__less" = 3
+  // 59:     "std__length_of" = 4
+  // 60:     "std__is_empty" = 5
+  // 61:     "std__unless" = 6
   argument_count = 7;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -3278,7 +3276,7 @@ static void entry__compiler__print_source_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 40: write chr
+  // 39: write chr
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -3294,7 +3292,7 @@ static void entry__compiler__print_source_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 34: writeln "<newline>"
+  // 33: writeln "<newline>"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__7ca425275e2bb55b;
@@ -3310,7 +3308,7 @@ static void entry__compiler__print_source_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 36: writeln "<indent_marker>"
+  // 35: writeln "<indent_marker>"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__41a1d3500d2c5fd2;
@@ -3326,7 +3324,7 @@ static void entry__compiler__print_source_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 38: writeln "<outdent_marker>"
+  // 37: writeln "<outdent_marker>"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__4b30bdab57f18372;
@@ -3343,19 +3341,18 @@ static void entry__compiler__print_source_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 39: :
-  // 40:   write chr
+  // 38: :
+  // 39:   write chr
   frame->slots[1] /* temp__1 */ = create_closure(entry__compiler__print_source_3, 0);
-  // 31: case
-  // 32:   chr
-  // 33:   newline:
-  // 34:     writeln "<newline>"
-  // 35:   indent_marker:
-  // 36:     writeln "<indent_marker>"
-  // 37:   outdent_marker:
-  // 38:     writeln "<outdent_marker>"
-  // 39:   :
-  // 40:     write chr
+  // 31: case chr
+  // 32:   newline:
+  // 33:     writeln "<newline>"
+  // 34:   indent_marker:
+  // 35:     writeln "<indent_marker>"
+  // 36:   outdent_marker:
+  // 37:     writeln "<outdent_marker>"
+  // 38:   :
+  // 39:     write chr
   argument_count = 8;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -3380,16 +3377,15 @@ static void entry__compiler__print_source_1(void) {
     return;
   }
   // 30: for_each source: (chr)
-  // 31:   case
-  // 32:     chr
-  // 33:     newline:
-  // 34:       writeln "<newline>"
-  // 35:     indent_marker:
-  // 36:       writeln "<indent_marker>"
-  // 37:     outdent_marker:
-  // 38:       writeln "<outdent_marker>"
-  // 39:     :
-  // ...
+  // 31:   case chr
+  // 32:     newline:
+  // 33:       writeln "<newline>"
+  // 34:     indent_marker:
+  // 35:       writeln "<indent_marker>"
+  // 36:     outdent_marker:
+  // 37:       writeln "<outdent_marker>"
+  // 38:     :
+  // 39:       write chr
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* source */;
@@ -3408,7 +3404,7 @@ static void entry__compiler__eprint_source_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 53: ewrite chr
+  // 51: ewrite chr
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -3424,7 +3420,7 @@ static void entry__compiler__eprint_source_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 47: ewriteln "<newline>"
+  // 45: ewriteln "<newline>"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__7ca425275e2bb55b;
@@ -3440,7 +3436,7 @@ static void entry__compiler__eprint_source_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 49: ewriteln "<indent_marker>"
+  // 47: ewriteln "<indent_marker>"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__41a1d3500d2c5fd2;
@@ -3456,7 +3452,7 @@ static void entry__compiler__eprint_source_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 51: ewriteln "<outdent_marker>"
+  // 49: ewriteln "<outdent_marker>"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__4b30bdab57f18372;
@@ -3473,19 +3469,18 @@ static void entry__compiler__eprint_source_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 52: :
-  // 53:   ewrite chr
+  // 50: :
+  // 51:   ewrite chr
   frame->slots[1] /* temp__1 */ = create_closure(entry__compiler__eprint_source_3, 0);
-  // 44: case
-  // 45:   chr
-  // 46:   newline:
-  // 47:     ewriteln "<newline>"
-  // 48:   indent_marker:
-  // 49:     ewriteln "<indent_marker>"
-  // 50:   outdent_marker:
-  // 51:     ewriteln "<outdent_marker>"
-  // 52:   :
-  // 53:     ewrite chr
+  // 43: case chr
+  // 44:   newline:
+  // 45:     ewriteln "<newline>"
+  // 46:   indent_marker:
+  // 47:     ewriteln "<indent_marker>"
+  // 48:   outdent_marker:
+  // 49:     ewriteln "<outdent_marker>"
+  // 50:   :
+  // 51:     ewrite chr
   argument_count = 8;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -3509,17 +3504,16 @@ static void entry__compiler__eprint_source_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 43: for_each source: (chr)
-  // 44:   case
-  // 45:     chr
-  // 46:     newline:
-  // 47:       ewriteln "<newline>"
-  // 48:     indent_marker:
-  // 49:       ewriteln "<indent_marker>"
-  // 50:     outdent_marker:
-  // 51:       ewriteln "<outdent_marker>"
-  // 52:     :
-  // ...
+  // 42: for_each source: (chr)
+  // 43:   case chr
+  // 44:     newline:
+  // 45:       ewriteln "<newline>"
+  // 46:     indent_marker:
+  // 47:       ewriteln "<indent_marker>"
+  // 48:     outdent_marker:
+  // 49:       ewriteln "<outdent_marker>"
+  // 50:     :
+  // 51:       ewrite chr
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* source */;
@@ -3539,8 +3533,8 @@ static void entry__compiler__generate_dispatcher_function_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 66: ... "
-  // 67:   static void type__@(name)(void);
+  // 64: ... "
+  // 65:   static void type__@(name)(void);
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__7fb24a3fca4aa852;
@@ -3557,8 +3551,8 @@ static void cont__compiler__generate_dispatcher_function_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 66: write_to_declarations "
-  // 67:   static void type__@(name)(void);
+  // 64: write_to_declarations "
+  // 65:   static void type__@(name)(void);
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3572,13 +3566,17 @@ static void cont__compiler__generate_dispatcher_function_5(void) {
     invalid_results_error();
     return;
   }
-  // 68: ... "
-  // 69:   static void type__@(name)(void) {
+  // 66: ... "
+  // 67:   static void type__@(name)(void) {
+  // 68:     if (argument_count < 1) {
+  // 69:       too_few_arguments_error();
+  // 70:       return;
+  // 71:     }
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__7fb24a3fca4aa852;
   arguments->slots[1] = frame->slots[0] /* name */;
-  arguments->slots[2] = string__fc8c36a84adb366f;
+  arguments->slots[2] = string__949b16e1d9f7528;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
@@ -3590,8 +3588,12 @@ static void cont__compiler__generate_dispatcher_function_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 68: write_to_functions "
-  // 69:   static void type__@(name)(void) {
+  // 66: write_to_functions "
+  // 67:   static void type__@(name)(void) {
+  // 68:     if (argument_count < 1) {
+  // 69:       too_few_arguments_error();
+  // 70:       return;
+  // 71:     }
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3605,7 +3607,7 @@ static void cont__compiler__generate_dispatcher_function_8(void) {
     invalid_results_error();
     return;
   }
-  // 70: $id privileged_polymorphic_functions(name)
+  // 72: $id privileged_polymorphic_functions(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -3620,7 +3622,7 @@ static void cont__compiler__generate_dispatcher_function_9(void) {
     return;
   }
   initialize_future(frame->slots[1] /* id */, arguments->slots[0]);
-  // 72: id.is_defined
+  // 74: id.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* id */;
@@ -3635,32 +3637,32 @@ static void cont__compiler__generate_dispatcher_function_10(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 72: ... :
-  // 73:   # ATTENTION: do not optimize to get better error messages
-  // 74:   
-  // 75:   #if
-  // 76:     id < 8:
-  // 77:       write_to_functions "
-  // 78:         @
-  // 79:           myself = (NODE @
-  // 80:         *)arguments->slots[0]->attributes->nodes[0]->nodes[@(id)];
-  // 81:     :
+  // 74: ... :
+  // 75:   # ATTENTION: do not optimize to get better error messages
+  // 76:   
+  // 77:   #if
+  // 78:     id < 8:
+  // 79:       write_to_functions "
+  // 80:         @
+  // 81:           myself = (NODE @
+  // 82:         *)arguments->slots[0]->attributes->nodes[0]->nodes[@(id)];
+  // 83:     :
   // ...
   frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__generate_dispatcher_function_11, 0);
-  // 91: :
-  // 92:   write_to_functions
-  // 93:     "  myself = get_attribute(arguments->slots[0], poly_idx__@(name));@nl;"
+  // 93: :
+  // 94:   write_to_functions
+  // 95:     "  myself = get_attribute(arguments->slots[0], poly_idx__@(name));@nl;"
   frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__generate_dispatcher_function_16, 0);
-  // 71: if
-  // 72:   id.is_defined:
-  // 73:     # ATTENTION: do not optimize to get better error messages
-  // 74:     
-  // 75:     #if
-  // 76:       id < 8:
-  // 77:         write_to_functions "
-  // 78:           @
-  // 79:             myself = (NODE @
-  // 80:           *)arguments->slots[0]->attributes->nodes[0]->nodes[@(id)];
+  // 73: if
+  // 74:   id.is_defined:
+  // 75:     # ATTENTION: do not optimize to get better error messages
+  // 76:     
+  // 77:     #if
+  // 78:       id < 8:
+  // 79:         write_to_functions "
+  // 80:           @
+  // 81:             myself = (NODE @
+  // 82:           *)arguments->slots[0]->attributes->nodes[0]->nodes[@(id)];
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -3683,10 +3685,10 @@ static void entry__compiler__generate_dispatcher_function_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 87: ... "
-  // 88:   @
-  // 89:     myself = get_attribute(arguments->slots[0], poly_idx__@(name)); // @
-  // 90:   @(id)@nl;@
+  // 89: ... "
+  // 90:   @
+  // 91:     myself = get_attribute(arguments->slots[0], poly_idx__@(name)); // @
+  // 92:   @(id)@nl;@
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = string__75f4eb726550b6de;
@@ -3705,10 +3707,10 @@ static void cont__compiler__generate_dispatcher_function_15(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 87: write_to_functions "
-  // 88:   @
-  // 89:     myself = get_attribute(arguments->slots[0], poly_idx__@(name)); // @
-  // 90:   @(id)@nl;@
+  // 89: write_to_functions "
+  // 90:   @
+  // 91:     myself = get_attribute(arguments->slots[0], poly_idx__@(name)); // @
+  // 92:   @(id)@nl;@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3726,7 +3728,7 @@ static void entry__compiler__generate_dispatcher_function_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 93: "  myself = get_attribute(arguments->slots[0], poly_idx__@(name));@nl;"
+  // 95: "  myself = get_attribute(arguments->slots[0], poly_idx__@(name));@nl;"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__75f4eb726550b6de;
@@ -3743,8 +3745,8 @@ static void cont__compiler__generate_dispatcher_function_18(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 92: write_to_functions
-  // 93:   "  myself = get_attribute(arguments->slots[0], poly_idx__@(name));@nl;"
+  // 94: write_to_functions
+  // 95:   "  myself = get_attribute(arguments->slots[0], poly_idx__@(name));@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3758,16 +3760,16 @@ static void cont__compiler__generate_dispatcher_function_19(void) {
     invalid_results_error();
     return;
   }
-  //  98: ... "
-  //  99:     if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
-  // 100:       if (argument_count != 1) {
-  // 101:         if (argument_count != 2) invalid_arguments_error();
-  // 102:         NODE *attr = arguments->slots[1];
-  // 103:         NODE *temp = clone_object_and_attributes(arguments->slots[0]);
-  // 104:         update_start_p = node_p;
-  // 105:         set_attribute_value(temp->attributes, poly_idx__@(name), attr);
-  // 106:         arguments = node_p;
-  // 107:         argument_count = 1;
+  // 100: ... "
+  // 101:     if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
+  // 102:       if (argument_count != 1) {
+  // 103:         if (argument_count != 2) invalid_arguments_error();
+  // 104:         NODE *attr = arguments->slots[1];
+  // 105:         NODE *temp = clone_object_and_attributes(arguments->slots[0]);
+  // 106:         update_start_p = node_p;
+  // 107:         set_attribute_value(temp->attributes, poly_idx__@(name), attr);
+  // 108:         arguments = node_p;
+  // 109:         argument_count = 1;
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -3785,16 +3787,16 @@ static void cont__compiler__generate_dispatcher_function_22(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  //  98: write_to_functions "
-  //  99:     if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
-  // 100:       if (argument_count != 1) {
-  // 101:         if (argument_count != 2) invalid_arguments_error();
-  // 102:         NODE *attr = arguments->slots[1];
-  // 103:         NODE *temp = clone_object_and_attributes(arguments->slots[0]);
-  // 104:         update_start_p = node_p;
-  // 105:         set_attribute_value(temp->attributes, poly_idx__@(name), attr);
-  // 106:         arguments = node_p;
-  // 107:         argument_count = 1;
+  // 100: write_to_functions "
+  // 101:     if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
+  // 102:       if (argument_count != 1) {
+  // 103:         if (argument_count != 2) invalid_arguments_error();
+  // 104:         NODE *attr = arguments->slots[1];
+  // 105:         NODE *temp = clone_object_and_attributes(arguments->slots[0]);
+  // 106:         update_start_p = node_p;
+  // 107:         set_attribute_value(temp->attributes, poly_idx__@(name), attr);
+  // 108:         arguments = node_p;
+  // 109:         argument_count = 1;
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -3812,7 +3814,7 @@ static void entry__demangled_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 120: ... "__" = "::"
+  // 122: ... "__" = "::"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e5f02b9a;
@@ -3828,7 +3830,7 @@ static void cont__demangled_4(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 120: ... replace_all(name "__" = "::")
+  // 122: ... replace_all(name "__" = "::")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -3844,7 +3846,7 @@ static void cont__demangled_5(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 120: ... -> replace_all(name "__" = "::")
+  // 122: ... -> replace_all(name "__" = "::")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3864,7 +3866,7 @@ static void entry__compiler__update_info_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 130: curr_info.is_defined
+  // 132: curr_info.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* curr_info */;
@@ -3879,31 +3881,31 @@ static void cont__compiler__update_info_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 130: ... :
-  // 131:   case
-  // 132:     variable_kind_of(curr_info)
-  // 133:     POLYMORPHIC:
-  // 134:       case
-  // 135:         variable_kind_of(info)
-  // 136:         POLYMORPHIC, STATIC_SINGLE:
-  // 137:           return undefined
-  // 138:         :
-  // 139:           Error "
+  // 132: ... :
+  // 133:   case variable_kind_of(curr_info)
+  // 134:     POLYMORPHIC:
+  // 135:       case
+  // 136:         variable_kind_of(info)
+  // 137:         POLYMORPHIC, STATIC_SINGLE:
+  // 138:           return undefined
+  // 139:         :
+  // 140:           Error "
+  // 141:             The symbol "@(name.demangled)" is used as a polymorphic @
   // ...
   frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__update_info_3, 0);
-  // 196: :
-  // 197:   return info
+  // 194: :
+  // 195:   return info
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__update_info_58, 0);
-  // 129: if
-  // 130:   curr_info.is_defined:
-  // 131:     case
-  // 132:       variable_kind_of(curr_info)
-  // 133:       POLYMORPHIC:
-  // 134:         case
-  // 135:           variable_kind_of(info)
-  // 136:           POLYMORPHIC, STATIC_SINGLE:
-  // 137:             return undefined
-  // 138:           :
+  // 131: if
+  // 132:   curr_info.is_defined:
+  // 133:     case variable_kind_of(curr_info)
+  // 134:       POLYMORPHIC:
+  // 135:         case
+  // 136:           variable_kind_of(info)
+  // 137:           POLYMORPHIC, STATIC_SINGLE:
+  // 138:             return undefined
+  // 139:           :
+  // 140:             Error "
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -3924,7 +3926,7 @@ static void entry__compiler__update_info_53(void) {
     invalid_arguments_error();
     return;
   }
-  // 189: return undefined
+  // 187: return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -3942,7 +3944,7 @@ static void entry__compiler__update_info_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 192: ... name.demangled
+  // 190: ... name.demangled
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -3957,9 +3959,9 @@ static void cont__compiler__update_info_55(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 191: ... "
-  // 192:   The symbol "@(name.demangled)" is used as a single-assign @
-  // 193:   dynamic and as a multi-assign dynamic!@
+  // 189: ... "
+  // 190:   The symbol "@(name.demangled)" is used as a single-assign @
+  // 191:   dynamic and as a multi-assign dynamic!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__94b9534b986c24a9;
@@ -3976,9 +3978,9 @@ static void cont__compiler__update_info_56(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 191: Error "
-  // 192:   The symbol "@(name.demangled)" is used as a single-assign @
-  // 193:   dynamic and as a multi-assign dynamic!@
+  // 189: Error "
+  // 190:   The symbol "@(name.demangled)" is used as a single-assign @
+  // 191:   dynamic and as a multi-assign dynamic!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3998,7 +4000,7 @@ static void entry__compiler__update_info_57(void) {
     invalid_arguments_error();
     return;
   }
-  // 195: return info
+  // 193: return info
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* info */;
@@ -4016,7 +4018,7 @@ static void entry__compiler__update_info_38(void) {
     invalid_arguments_error();
     return;
   }
-  // 172: return undefined
+  // 171: return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -4034,7 +4036,7 @@ static void entry__compiler__update_info_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 175: ... name.demangled
+  // 174: ... name.demangled
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -4049,9 +4051,9 @@ static void cont__compiler__update_info_40(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 174: ... "
-  // 175:   The symbol "@(name.demangled)" is used as a single-assign @
-  // 176:   dynamic and is assigned to!@
+  // 173: ... "
+  // 174:   The symbol "@(name.demangled)" is used as a single-assign @
+  // 175:   dynamic and is assigned to!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__94b9534b986c24a9;
@@ -4068,9 +4070,9 @@ static void cont__compiler__update_info_41(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 174: Error "
-  // 175:   The symbol "@(name.demangled)" is used as a single-assign @
-  // 176:   dynamic and is assigned to!@
+  // 173: Error "
+  // 174:   The symbol "@(name.demangled)" is used as a single-assign @
+  // 175:   dynamic and is assigned to!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4088,7 +4090,7 @@ static void entry__compiler__update_info_42(void) {
     invalid_arguments_error();
     return;
   }
-  // 179: ... name.demangled
+  // 178: ... name.demangled
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -4103,9 +4105,9 @@ static void cont__compiler__update_info_43(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 178: ... "
-  // 179:   The symbol "@(name.demangled)" is used as a single-assign @
-  // 180:   dynamic and as a multi-assign dynamic!@
+  // 177: ... "
+  // 178:   The symbol "@(name.demangled)" is used as a single-assign @
+  // 179:   dynamic and as a multi-assign dynamic!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__94b9534b986c24a9;
@@ -4122,9 +4124,9 @@ static void cont__compiler__update_info_45(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 178: Error "
-  // 179:   The symbol "@(name.demangled)" is used as a single-assign @
-  // 180:   dynamic and as a multi-assign dynamic!@
+  // 177: Error "
+  // 178:   The symbol "@(name.demangled)" is used as a single-assign @
+  // 179:   dynamic and as a multi-assign dynamic!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4234,7 +4236,7 @@ static void entry__compiler__update_info_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 146: return undefined
+  // 147: return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -4254,7 +4256,7 @@ static void entry__compiler__update_info_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 148: return info
+  // 149: return info
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* info */;
@@ -4272,7 +4274,7 @@ static void entry__compiler__update_info_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 137: return undefined
+  // 138: return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -4290,7 +4292,7 @@ static void entry__compiler__update_info_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 140: ... name.demangled
+  // 141: ... name.demangled
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -4305,9 +4307,9 @@ static void cont__compiler__update_info_10(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 139: ... "
-  // 140:   The symbol "@(name.demangled)" is used as a polymorphic @
-  // 141:   function and cannot be used otherwise!@
+  // 140: ... "
+  // 141:   The symbol "@(name.demangled)" is used as a polymorphic @
+  // 142:   function and cannot be used otherwise!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__94b9534b986c24a9;
@@ -4324,9 +4326,9 @@ static void cont__compiler__update_info_13(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 139: Error "
-  // 140:   The symbol "@(name.demangled)" is used as a polymorphic @
-  // 141:   function and cannot be used otherwise!@
+  // 140: Error "
+  // 141:   The symbol "@(name.demangled)" is used as a polymorphic @
+  // 142:   function and cannot be used otherwise!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4348,7 +4350,7 @@ static void entry__compiler__update_info_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 135: variable_kind_of(info)
+  // 136: variable_kind_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* info */;
@@ -4363,7 +4365,7 @@ static void cont__compiler__update_info_6(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 136: POLYMORPHIC, STATIC_SINGLE
+  // 137: POLYMORPHIC, STATIC_SINGLE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__POLYMORPHIC();
@@ -4379,22 +4381,22 @@ static void cont__compiler__update_info_7(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 136: ... :
-  // 137:   return undefined
+  // 137: ... :
+  // 138:   return undefined
   frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__update_info_8, 0);
-  // 138: :
-  // 139:   Error "
-  // 140:     The symbol "@(name.demangled)" is used as a polymorphic @
-  // 141:     function and cannot be used otherwise!@
+  // 139: :
+  // 140:   Error "
+  // 141:     The symbol "@(name.demangled)" is used as a polymorphic @
+  // 142:     function and cannot be used otherwise!@
   frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__update_info_9, 0);
-  // 134: case
-  // 135:   variable_kind_of(info)
-  // 136:   POLYMORPHIC, STATIC_SINGLE:
-  // 137:     return undefined
-  // 138:   :
-  // 139:     Error "
-  // 140:       The symbol "@(name.demangled)" is used as a polymorphic @
-  // 141:       function and cannot be used otherwise!@
+  // 135: case
+  // 136:   variable_kind_of(info)
+  // 137:   POLYMORPHIC, STATIC_SINGLE:
+  // 138:     return undefined
+  // 139:   :
+  // 140:     Error "
+  // 141:       The symbol "@(name.demangled)" is used as a polymorphic @
+  // 142:       function and cannot be used otherwise!@
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -4417,7 +4419,7 @@ static void entry__compiler__update_info_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 144: variable_kind_of(info)
+  // 145: variable_kind_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* info */;
@@ -4432,18 +4434,18 @@ static void cont__compiler__update_info_15(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 145: ... :
-  // 146:   return undefined
+  // 146: ... :
+  // 147:   return undefined
   frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__update_info_16, 0);
-  // 147: :
-  // 148:   return info
+  // 148: :
+  // 149:   return info
   frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__update_info_17, 0);
-  // 143: case
-  // 144:   variable_kind_of(info)
-  // 145:   STATIC_SINGLE:
-  // 146:     return undefined
-  // 147:   :
-  // 148:     return info
+  // 144: case
+  // 145:   variable_kind_of(info)
+  // 146:   STATIC_SINGLE:
+  // 147:     return undefined
+  // 148:   :
+  // 149:     return info
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4468,7 +4470,7 @@ static void entry__compiler__update_info_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 151: variable_kind_of(info)
+  // 151: ... variable_kind_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* info */;
@@ -4569,8 +4571,7 @@ static void cont__compiler__update_info_24(void) {
   // 162: ... :
   // 163:   return info
   frame->slots[8] /* temp__6 */ = create_closure(entry__compiler__update_info_30, 0);
-  // 150: case
-  // 151:   variable_kind_of(info)
+  // 151: case variable_kind_of(info)
   // 152:   POLYMORPHIC:
   // 153:     Error "
   // 154:       The symbol "@(name.demangled)" is used as a polymorphic @
@@ -4579,6 +4580,7 @@ static void cont__compiler__update_info_24(void) {
   // 157:     return undefined
   // 158:   DYNAMIC_SINGLE:
   // 159:     Error "
+  // 160:       The symbol "@(name.demangled)" is used as a single-assign @
   // ...
   argument_count = 9;
   arguments = node_p;
@@ -4609,7 +4611,7 @@ static void entry__compiler__update_info_31(void) {
     invalid_arguments_error();
     return;
   }
-  // 166: variable_kind_of(info)
+  // 165: ... variable_kind_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* info */;
@@ -4624,12 +4626,12 @@ static void cont__compiler__update_info_32(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 167: ... :
-  // 168:   Error "
-  // 169:     The symbol "@(name.demangled)" is used as a polymorphic @
-  // 170:     function and as a single-assign dynamic!@
+  // 166: ... :
+  // 167:   Error "
+  // 168:     The symbol "@(name.demangled)" is used as a polymorphic @
+  // 169:     function and as a single-assign dynamic!@
   frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__update_info_33, 0);
-  // 171: STATIC_SINGLE, DYNAMIC_SINGLE
+  // 170: STATIC_SINGLE, DYNAMIC_SINGLE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__STATIC_SINGLE();
@@ -4648,7 +4650,7 @@ static void entry__compiler__update_info_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 169: ... name.demangled
+  // 168: ... name.demangled
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -4663,9 +4665,9 @@ static void cont__compiler__update_info_34(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 168: ... "
-  // 169:   The symbol "@(name.demangled)" is used as a polymorphic @
-  // 170:   function and as a single-assign dynamic!@
+  // 167: ... "
+  // 168:   The symbol "@(name.demangled)" is used as a polymorphic @
+  // 169:   function and as a single-assign dynamic!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__94b9534b986c24a9;
@@ -4682,9 +4684,9 @@ static void cont__compiler__update_info_36(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 168: Error "
-  // 169:   The symbol "@(name.demangled)" is used as a polymorphic @
-  // 170:   function and as a single-assign dynamic!@
+  // 167: Error "
+  // 168:   The symbol "@(name.demangled)" is used as a polymorphic @
+  // 169:   function and as a single-assign dynamic!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4699,29 +4701,29 @@ static void cont__compiler__update_info_37(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 171: ... :
-  // 172:   return undefined
+  // 170: ... :
+  // 171:   return undefined
   frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__update_info_38, 0);
-  // 173: ... :
-  // 174:   Error "
-  // 175:     The symbol "@(name.demangled)" is used as a single-assign @
-  // 176:     dynamic and is assigned to!@
+  // 172: ... :
+  // 173:   Error "
+  // 174:     The symbol "@(name.demangled)" is used as a single-assign @
+  // 175:     dynamic and is assigned to!@
   frame->slots[7] /* temp__5 */ = create_closure(entry__compiler__update_info_39, 0);
-  // 177: ... :
-  // 178:   Error "
-  // 179:     The symbol "@(name.demangled)" is used as a single-assign @
-  // 180:     dynamic and as a multi-assign dynamic!@
+  // 176: ... :
+  // 177:   Error "
+  // 178:     The symbol "@(name.demangled)" is used as a single-assign @
+  // 179:     dynamic and as a multi-assign dynamic!@
   frame->slots[8] /* temp__6 */ = create_closure(entry__compiler__update_info_42, 0);
-  // 165: case
-  // 166:   variable_kind_of(info)
-  // 167:   POLYMORPHIC:
-  // 168:     Error "
-  // 169:       The symbol "@(name.demangled)" is used as a polymorphic @
-  // 170:       function and as a single-assign dynamic!@
-  // 171:   STATIC_SINGLE, DYNAMIC_SINGLE:
-  // 172:     return undefined
-  // 173:   STATIC_MULTI:
-  // 174:     Error "
+  // 165: case variable_kind_of(info)
+  // 166:   POLYMORPHIC:
+  // 167:     Error "
+  // 168:       The symbol "@(name.demangled)" is used as a polymorphic @
+  // 169:       function and as a single-assign dynamic!@
+  // 170:   STATIC_SINGLE, DYNAMIC_SINGLE:
+  // 171:     return undefined
+  // 172:   STATIC_MULTI:
+  // 173:     Error "
+  // 174:       The symbol "@(name.demangled)" is used as a single-assign @
   // ...
   argument_count = 9;
   arguments = node_p;
@@ -4752,7 +4754,7 @@ static void entry__compiler__update_info_46(void) {
     invalid_arguments_error();
     return;
   }
-  // 183: variable_kind_of(info)
+  // 181: ... variable_kind_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* info */;
@@ -4767,12 +4769,12 @@ static void cont__compiler__update_info_47(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 184: ... :
-  // 185:   Error "
-  // 186:     The symbol "@(name.demangled)" is used as a polymorphic @
-  // 187:     function and as a multi-assign dynamic!@
+  // 182: ... :
+  // 183:   Error "
+  // 184:     The symbol "@(name.demangled)" is used as a polymorphic @
+  // 185:     function and as a multi-assign dynamic!@
   frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__update_info_48, 0);
-  // 188: STATIC_SINGLE, STATIC_MULTI, DYNAMIC_MULTI
+  // 186: STATIC_SINGLE, STATIC_MULTI, DYNAMIC_MULTI
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__STATIC_SINGLE();
@@ -4792,7 +4794,7 @@ static void entry__compiler__update_info_48(void) {
     invalid_arguments_error();
     return;
   }
-  // 186: ... name.demangled
+  // 184: ... name.demangled
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -4807,9 +4809,9 @@ static void cont__compiler__update_info_49(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 185: ... "
-  // 186:   The symbol "@(name.demangled)" is used as a polymorphic @
-  // 187:   function and as a multi-assign dynamic!@
+  // 183: ... "
+  // 184:   The symbol "@(name.demangled)" is used as a polymorphic @
+  // 185:   function and as a multi-assign dynamic!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__94b9534b986c24a9;
@@ -4826,9 +4828,9 @@ static void cont__compiler__update_info_51(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 185: Error "
-  // 186:   The symbol "@(name.demangled)" is used as a polymorphic @
-  // 187:   function and as a multi-assign dynamic!@
+  // 183: Error "
+  // 184:   The symbol "@(name.demangled)" is used as a polymorphic @
+  // 185:   function and as a multi-assign dynamic!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4843,27 +4845,27 @@ static void cont__compiler__update_info_52(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 188: ... :
-  // 189:   return undefined
+  // 186: ... :
+  // 187:   return undefined
   frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__update_info_53, 0);
-  // 190: ... :
-  // 191:   Error "
-  // 192:     The symbol "@(name.demangled)" is used as a single-assign @
-  // 193:     dynamic and as a multi-assign dynamic!@
+  // 188: ... :
+  // 189:   Error "
+  // 190:     The symbol "@(name.demangled)" is used as a single-assign @
+  // 191:     dynamic and as a multi-assign dynamic!@
   frame->slots[7] /* temp__5 */ = create_closure(entry__compiler__update_info_54, 0);
-  // 194: :
-  // 195:   return info
+  // 192: :
+  // 193:   return info
   frame->slots[8] /* temp__6 */ = create_closure(entry__compiler__update_info_57, 0);
-  // 182: case
-  // 183:   variable_kind_of(info)
-  // 184:   POLYMORPHIC:
-  // 185:     Error "
-  // 186:       The symbol "@(name.demangled)" is used as a polymorphic @
-  // 187:       function and as a multi-assign dynamic!@
-  // 188:   STATIC_SINGLE, STATIC_MULTI, DYNAMIC_MULTI:
-  // 189:     return undefined
-  // 190:   DYNAMIC_SINGLE:
-  // 191:     Error "
+  // 181: case variable_kind_of(info)
+  // 182:   POLYMORPHIC:
+  // 183:     Error "
+  // 184:       The symbol "@(name.demangled)" is used as a polymorphic @
+  // 185:       function and as a multi-assign dynamic!@
+  // 186:   STATIC_SINGLE, STATIC_MULTI, DYNAMIC_MULTI:
+  // 187:     return undefined
+  // 188:   DYNAMIC_SINGLE:
+  // 189:     Error "
+  // 190:       The symbol "@(name.demangled)" is used as a single-assign @
   // ...
   argument_count = 8;
   arguments = node_p;
@@ -4895,7 +4897,7 @@ static void entry__compiler__update_info_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 132: variable_kind_of(curr_info)
+  // 133: ... variable_kind_of(curr_info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* curr_info */;
@@ -4910,27 +4912,26 @@ static void cont__compiler__update_info_4(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 133: ... :
-  // 134:   case
-  // 135:     variable_kind_of(info)
-  // 136:     POLYMORPHIC, STATIC_SINGLE:
-  // 137:       return undefined
-  // 138:     :
-  // 139:       Error "
-  // 140:         The symbol "@(name.demangled)" is used as a polymorphic @
-  // 141:         function and cannot be used otherwise!@
+  // 134: ... :
+  // 135:   case
+  // 136:     variable_kind_of(info)
+  // 137:     POLYMORPHIC, STATIC_SINGLE:
+  // 138:       return undefined
+  // 139:     :
+  // 140:       Error "
+  // 141:         The symbol "@(name.demangled)" is used as a polymorphic @
+  // 142:         function and cannot be used otherwise!@
   frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__update_info_5, 0);
-  // 142: ... :
-  // 143:   case
-  // 144:     variable_kind_of(info)
-  // 145:     STATIC_SINGLE:
-  // 146:       return undefined
-  // 147:     :
-  // 148:       return info
+  // 143: ... :
+  // 144:   case
+  // 145:     variable_kind_of(info)
+  // 146:     STATIC_SINGLE:
+  // 147:       return undefined
+  // 148:     :
+  // 149:       return info
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__update_info_14, 0);
-  // 149: ... :
-  // 150:   case
-  // 151:     variable_kind_of(info)
+  // 150: ... :
+  // 151:   case variable_kind_of(info)
   // 152:     POLYMORPHIC:
   // 153:       Error "
   // 154:         The symbol "@(name.demangled)" is used as a polymorphic @
@@ -4938,42 +4939,43 @@ static void cont__compiler__update_info_4(void) {
   // 156:     STATIC_SINGLE, STATIC_MULTI:
   // 157:       return undefined
   // 158:     DYNAMIC_SINGLE:
+  // 159:       Error "
   // ...
   frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__update_info_18, 0);
   // 164: ... :
-  // 165:   case
-  // 166:     variable_kind_of(info)
-  // 167:     POLYMORPHIC:
-  // 168:       Error "
-  // 169:         The symbol "@(name.demangled)" is used as a polymorphic @
-  // 170:         function and as a single-assign dynamic!@
-  // 171:     STATIC_SINGLE, DYNAMIC_SINGLE:
-  // 172:       return undefined
-  // 173:     STATIC_MULTI:
+  // 165:   case variable_kind_of(info)
+  // 166:     POLYMORPHIC:
+  // 167:       Error "
+  // 168:         The symbol "@(name.demangled)" is used as a polymorphic @
+  // 169:         function and as a single-assign dynamic!@
+  // 170:     STATIC_SINGLE, DYNAMIC_SINGLE:
+  // 171:       return undefined
+  // 172:     STATIC_MULTI:
+  // 173:       Error "
   // ...
   frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__update_info_31, 0);
-  // 181: ... :
-  // 182:   case
-  // 183:     variable_kind_of(info)
-  // 184:     POLYMORPHIC:
-  // 185:       Error "
-  // 186:         The symbol "@(name.demangled)" is used as a polymorphic @
-  // 187:         function and as a multi-assign dynamic!@
-  // 188:     STATIC_SINGLE, STATIC_MULTI, DYNAMIC_MULTI:
-  // 189:       return undefined
-  // 190:     DYNAMIC_SINGLE:
+  // 180: ... :
+  // 181:   case variable_kind_of(info)
+  // 182:     POLYMORPHIC:
+  // 183:       Error "
+  // 184:         The symbol "@(name.demangled)" is used as a polymorphic @
+  // 185:         function and as a multi-assign dynamic!@
+  // 186:     STATIC_SINGLE, STATIC_MULTI, DYNAMIC_MULTI:
+  // 187:       return undefined
+  // 188:     DYNAMIC_SINGLE:
+  // 189:       Error "
   // ...
   frame->slots[9] /* temp__6 */ = create_closure(entry__compiler__update_info_46, 0);
-  // 131: case
-  // 132:   variable_kind_of(curr_info)
-  // 133:   POLYMORPHIC:
-  // 134:     case
-  // 135:       variable_kind_of(info)
-  // 136:       POLYMORPHIC, STATIC_SINGLE:
-  // 137:         return undefined
-  // 138:       :
-  // 139:         Error "
-  // 140:           The symbol "@(name.demangled)" is used as a polymorphic @
+  // 133: case variable_kind_of(curr_info)
+  // 134:   POLYMORPHIC:
+  // 135:     case
+  // 136:       variable_kind_of(info)
+  // 137:       POLYMORPHIC, STATIC_SINGLE:
+  // 138:         return undefined
+  // 139:       :
+  // 140:         Error "
+  // 141:           The symbol "@(name.demangled)" is used as a polymorphic @
+  // 142:           function and cannot be used otherwise!@
   // ...
   argument_count = 11;
   arguments = node_p;
@@ -5004,7 +5006,7 @@ static void entry__compiler__update_info_58(void) {
     invalid_arguments_error();
     return;
   }
-  // 197: return info
+  // 195: return info
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* info */;
@@ -5057,27 +5059,27 @@ static void entry__compiler__sim2c_1(void) {
   frame->slots[2] /* return__10 */ = create_continuation();
   // _define $mangle_filename 
   // : ($name)
-  //   has_prefix temp__1 name "./"
+  //   has_prefix !temp__1 name "./"
   // 
-  //   temp__2:
-  //     contains temp__1 module_name "__"
+  //   !temp__2:
+  //     contains !temp__1 module_name "__"
   // 
-  //     temp__2:
-  //       std::negate temp__2 1
-  //       before temp__1 module_name "__" temp__2
-  //       std::negate temp__4 1
-  //       range temp__3 name 2 temp__4
-  //       append temp__1 temp__3 !name
+  //     !temp__2:
+  //       std::negate !temp__2 1
+  //       before !temp__1 module_name "__" temp__2
+  //       std::negate !temp__4 1
+  //       range !temp__3 name 2 temp__4
+  //       append !name temp__1 temp__3
   // 
-  //     temp__3:
-  //       std::negate temp__1 1
+  //     !temp__3:
+  //       std::negate !temp__1 1
   //       range !name name 3 temp__1
   // 
   //     if temp__1 temp__2 temp__3
   // 
   //   if temp__1 temp__2
-  //   std::key_value_pair temp__2 '/' "__"
-  //   replace_all temp__1 name temp__2
+  //   std::key_value_pair !temp__2 '/' "__"
+  //   replace_all !temp__1 name temp__2
   //   -> temp__1
   frame->slots[3] /* mangle_filename */ = func__compiler__sim2c_2;
   // _define $need 
@@ -5087,40 +5089,38 @@ static void entry__compiler__sim2c_1(void) {
   //     info
   //     -> return
   //   )
-  //   contains temp__1 mangled_name "__"
+  //   contains !temp__1 mangled_name "__"
   // 
-  //   temp__2:
+  //   !temp__2:
   //     before $namespace mangled_name "__"
   //     behind $name mangled_name "__"
   //     exported_names $namespaces name
-  //     is_defined temp__2 namespaces
+  //     is_defined !temp__2 namespaces
   // 
-  //     temp__3:
-  //       namespaces temp__2 namespace
-  //       is_defined temp__1 temp__2
+  //     !temp__3:
+  //       namespaces !temp__2 namespace
+  //       is_defined !temp__1 temp__2
   //       -> temp__1
   // 
-  //     std::and temp__1 temp__2 temp__3
+  //     std::and !temp__1 temp__2 temp__3
   //     if temp__1 return
   // 
-  //   temp__3:
+  //   !temp__3:
   //     global_names $definition mangled_name
-  //     is_defined temp__1 definition
+  //     is_defined !temp__1 definition
   // 
-  //     temp__2:
+  //     !temp__2:
   //       check_usage mangled_name definition info
   //       return
   // 
   //     if temp__1 temp__2
   // 
   //   if temp__1 temp__2 temp__3
-  //   needed_names temp__1 mangled_name
+  //   needed_names !temp__1 mangled_name
   //   update_info $updated_info mangled_name temp__1 info
-  //   is_defined temp__1 updated_info
+  //   is_defined !temp__1 updated_info
   // 
-  //   temp__2:
-  //     temp__1 updated_info
-  //     needed_names !needed_names mangled_name temp__1
+  //   !temp__2: needed_names !needed_names mangled_name updated_info
   // 
   //   if temp__1 temp__2
   frame->slots[13] /* need */ = func__compiler__sim2c_19;
@@ -5203,33 +5203,33 @@ static void entry__compiler__sim2c_1(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* is_main */ = create_cell_with_contents(get__false());
   }
-  // 219: %%compiler::required_modules empty_insert_order_table
+  // 217: %%compiler::required_modules empty_insert_order_table
   set__compiler__required_modules(get__empty_insert_order_table());
-  // 220: %%compiler::used_namespaces empty_insert_order_set
+  // 218: %%compiler::used_namespaces empty_insert_order_set
   set__compiler__used_namespaces(get__empty_insert_order_set());
-  // 221: %%compiler::defined_namespaces empty_insert_order_set
+  // 219: %%compiler::defined_namespaces empty_insert_order_set
   set__compiler__defined_namespaces(get__empty_insert_order_set());
-  // 222: %%compiler::namespace_mappings empty_insert_order_table
+  // 220: %%compiler::namespace_mappings empty_insert_order_table
   set__compiler__namespace_mappings(get__empty_insert_order_table());
-  // 223: %%compiler::included_files empty_insert_order_set
+  // 221: %%compiler::included_files empty_insert_order_set
   set__compiler__included_files(get__empty_insert_order_set());
-  // 224: %%compiler::linked_libraries empty_insert_order_set
+  // 222: %%compiler::linked_libraries empty_insert_order_set
   set__compiler__linked_libraries(get__empty_insert_order_set());
-  // 225: %%compiler::dependent_data empty_insert_order_set
+  // 223: %%compiler::dependent_data empty_insert_order_set
   set__compiler__dependent_data(get__empty_insert_order_set());
-  // 226: %%compiler::global_names empty_key_order_table
+  // 224: %%compiler::global_names empty_key_order_table
   set__compiler__global_names(get__empty_key_order_table());
-  // 227: %%compiler::exported_names empty_key_order_table
+  // 225: %%compiler::exported_names empty_key_order_table
   set__compiler__exported_names(get__empty_key_order_table());
-  // 228: %%compiler::needed_names empty_key_order_table
+  // 226: %%compiler::needed_names empty_key_order_table
   set__compiler__needed_names(get__empty_key_order_table());
-  // 229: %%compiler::assigned_names empty_set
+  // 227: %%compiler::assigned_names empty_set
   set__compiler__assigned_names(get__empty_set());
-  // 230: %%compiler::string_literals empty_table
+  // 228: %%compiler::string_literals empty_table
   set__compiler__string_literals(get__empty_table());
-  // 231: %%compiler::use_inline_c false # set, if an inline-C expression is encountered
+  // 229: %%compiler::use_inline_c false # set, if an inline-C expression is encountered
   set__compiler__use_inline_c(get__false());
-  // 232: %%compiler::defined_structs set("NODE")
+  // 230: %%compiler::defined_structs set("NODE")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__5e0ae28b5c407d7c;
@@ -5247,7 +5247,7 @@ static void entry__compiler__sim2c_2(void) {
     return;
   }
   frame->slots[0] /* name */ = create_cell_with_contents(arguments->slots[0]);
-  // 211: ... name .has_prefix. "./"
+  // 209: ... name .has_prefix. "./"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* name */;
@@ -5263,19 +5263,19 @@ static void cont__compiler__sim2c_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 211: ... :
-  // 212:   if
-  // 213:     module_name .contains. "__":
-  // 214:       !name before(module_name "__" -1) .append. range(name 2 -1)
-  // 215:     :
-  // 216:       !name range(name 3 -1)
+  // 209: ... :
+  // 210:   if
+  // 211:     module_name .contains. "__":
+  // 212:       !name before(module_name "__" -1) .append. range(name 2 -1)
+  // 213:     :
+  // 214:       !name range(name 3 -1)
   frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__sim2c_5, 0);
-  // 211: if name .has_prefix. "./":
-  // 212:   if
-  // 213:     module_name .contains. "__":
-  // 214:       !name before(module_name "__" -1) .append. range(name 2 -1)
-  // 215:     :
-  // 216:       !name range(name 3 -1)
+  // 209: if name .has_prefix. "./":
+  // 210:   if
+  // 211:     module_name .contains. "__":
+  // 212:       !name before(module_name "__" -1) .append. range(name 2 -1)
+  // 213:     :
+  // 214:       !name range(name 3 -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -5294,7 +5294,7 @@ static void entry__compiler__sim2c_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 214: ... 1
+  // 212: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5309,7 +5309,7 @@ static void cont__compiler__sim2c_8(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 214: ... before(module_name "__" -1)
+  // 212: ... before(module_name "__" -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__module_name();
@@ -5326,7 +5326,7 @@ static void cont__compiler__sim2c_9(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 214: ... 1
+  // 212: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5341,7 +5341,7 @@ static void cont__compiler__sim2c_10(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 214: ... range(name 2 -1)
+  // 212: ... range(name 2 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* name */;
@@ -5358,7 +5358,7 @@ static void cont__compiler__sim2c_11(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 214: !name before(module_name "__" -1) .append. range(name 2 -1)
+  // 212: !name before(module_name "__" -1) .append. range(name 2 -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -5389,7 +5389,7 @@ static void entry__compiler__sim2c_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 216: ... 1
+  // 214: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5404,7 +5404,7 @@ static void cont__compiler__sim2c_14(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 216: !name range(name 3 -1)
+  // 214: !name range(name 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* name */;
@@ -5436,7 +5436,7 @@ static void entry__compiler__sim2c_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 213: module_name .contains. "__"
+  // 211: module_name .contains. "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__module_name();
@@ -5452,17 +5452,17 @@ static void cont__compiler__sim2c_6(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 213: ... :
-  // 214:   !name before(module_name "__" -1) .append. range(name 2 -1)
+  // 211: ... :
+  // 212:   !name before(module_name "__" -1) .append. range(name 2 -1)
   frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__sim2c_7, 0);
-  // 215: :
-  // 216:   !name range(name 3 -1)
+  // 213: :
+  // 214:   !name range(name 3 -1)
   frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__sim2c_13, 0);
-  // 212: if
-  // 213:   module_name .contains. "__":
-  // 214:     !name before(module_name "__" -1) .append. range(name 2 -1)
-  // 215:   :
-  // 216:     !name range(name 3 -1)
+  // 210: if
+  // 211:   module_name .contains. "__":
+  // 212:     !name before(module_name "__" -1) .append. range(name 2 -1)
+  // 213:   :
+  // 214:     !name range(name 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -5478,7 +5478,7 @@ static void cont__compiler__sim2c_16(void) {
     invalid_results_error();
     return;
   }
-  // 217: ... '/' = "__"
+  // 215: ... '/' = "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__47;
@@ -5494,7 +5494,7 @@ static void cont__compiler__sim2c_17(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 217: ... replace_all(name '/' = "__")
+  // 215: ... replace_all(name '/' = "__")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* name */;
@@ -5510,7 +5510,7 @@ static void cont__compiler__sim2c_18(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 217: -> replace_all(name '/' = "__")
+  // 215: -> replace_all(name '/' = "__")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -5531,7 +5531,7 @@ static void entry__compiler__sim2c_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 410: mangled_name .contains. "__"
+  // 405: mangled_name .contains. "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mangled_name */;
@@ -5547,28 +5547,28 @@ static void cont__compiler__sim2c_20(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 410: ... :
-  // 411:   $namespace mangled_name .before. "__"
-  // 412:   $name mangled_name .behind. "__"
-  // 413:   $namespaces exported_names(name)
-  // 414:   if namespaces.is_defined && namespaces(namespace).is_defined return
+  // 405: ... :
+  // 406:   $namespace mangled_name .before. "__"
+  // 407:   $name mangled_name .behind. "__"
+  // 408:   $namespaces exported_names(name)
+  // 409:   if namespaces.is_defined && namespaces(namespace).is_defined return
   frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__sim2c_21, 0);
-  // 415: :
-  // 416:   $definition global_names(mangled_name)
-  // 417:   if definition.is_defined:
-  // 418:     check_usage mangled_name definition info
-  // 419:     return
+  // 410: :
+  // 411:   $definition global_names(mangled_name)
+  // 412:   if definition.is_defined:
+  // 413:     check_usage mangled_name definition info
+  // 414:     return
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__sim2c_30, 0);
-  // 409: if
-  // 410:   mangled_name .contains. "__":
-  // 411:     $namespace mangled_name .before. "__"
-  // 412:     $name mangled_name .behind. "__"
-  // 413:     $namespaces exported_names(name)
-  // 414:     if namespaces.is_defined && namespaces(namespace).is_defined return
-  // 415:   :
-  // 416:     $definition global_names(mangled_name)
-  // 417:     if definition.is_defined:
-  // 418:       check_usage mangled_name definition info
+  // 404: if
+  // 405:   mangled_name .contains. "__":
+  // 406:     $namespace mangled_name .before. "__"
+  // 407:     $name mangled_name .behind. "__"
+  // 408:     $namespaces exported_names(name)
+  // 409:     if namespaces.is_defined && namespaces(namespace).is_defined return
+  // 410:   :
+  // 411:     $definition global_names(mangled_name)
+  // 412:     if definition.is_defined:
+  // 413:       check_usage mangled_name definition info
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -5595,7 +5595,7 @@ static void entry__compiler__sim2c_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 418: check_usage mangled_name definition info
+  // 413: check_usage mangled_name definition info
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mangled_name */;
@@ -5611,7 +5611,7 @@ static void cont__compiler__sim2c_34(void) {
     invalid_results_error();
     return;
   }
-  // 419: return
+  // 414: return
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -5636,7 +5636,7 @@ static void entry__compiler__sim2c_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 411: $namespace mangled_name .before. "__"
+  // 406: $namespace mangled_name .before. "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mangled_name */;
@@ -5652,7 +5652,7 @@ static void cont__compiler__sim2c_22(void) {
     return;
   }
   initialize_future(frame->slots[2] /* namespace */, arguments->slots[0]);
-  // 412: $name mangled_name .behind. "__"
+  // 407: $name mangled_name .behind. "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mangled_name */;
@@ -5668,7 +5668,7 @@ static void cont__compiler__sim2c_23(void) {
     return;
   }
   initialize_future(frame->slots[3] /* name */, arguments->slots[0]);
-  // 413: $namespaces exported_names(name)
+  // 408: $namespaces exported_names(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* name */;
@@ -5683,7 +5683,7 @@ static void cont__compiler__sim2c_24(void) {
     return;
   }
   initialize_future(frame->slots[4] /* namespaces */, arguments->slots[0]);
-  // 414: ... namespaces.is_defined
+  // 409: ... namespaces.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* namespaces */;
@@ -5698,9 +5698,9 @@ static void cont__compiler__sim2c_25(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 414: ... namespaces(namespace).is_defined
+  // 409: ... namespaces(namespace).is_defined
   frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__sim2c_26, 0);
-  // 414: ... namespaces.is_defined && namespaces(namespace).is_defined
+  // 409: ... namespaces.is_defined && namespaces(namespace).is_defined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -5721,7 +5721,7 @@ static void entry__compiler__sim2c_26(void) {
     invalid_arguments_error();
     return;
   }
-  // 414: ... namespaces(namespace)
+  // 409: ... namespaces(namespace)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* namespace */;
@@ -5736,7 +5736,7 @@ static void cont__compiler__sim2c_27(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 414: ... namespaces(namespace).is_defined
+  // 409: ... namespaces(namespace).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -5751,7 +5751,7 @@ static void cont__compiler__sim2c_28(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 414: ... namespaces(namespace).is_defined
+  // 409: ... namespaces(namespace).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5765,7 +5765,7 @@ static void cont__compiler__sim2c_29(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 414: if namespaces.is_defined && namespaces(namespace).is_defined return
+  // 409: if namespaces.is_defined && namespaces(namespace).is_defined return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -5790,7 +5790,7 @@ static void entry__compiler__sim2c_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 416: $definition global_names(mangled_name)
+  // 411: $definition global_names(mangled_name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mangled_name */;
@@ -5805,7 +5805,7 @@ static void cont__compiler__sim2c_31(void) {
     return;
   }
   initialize_future(frame->slots[3] /* definition */, arguments->slots[0]);
-  // 417: ... definition.is_defined
+  // 412: ... definition.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* definition */;
@@ -5820,13 +5820,13 @@ static void cont__compiler__sim2c_32(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 417: ... :
-  // 418:   check_usage mangled_name definition info
-  // 419:   return
+  // 412: ... :
+  // 413:   check_usage mangled_name definition info
+  // 414:   return
   frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__sim2c_33, 0);
-  // 417: if definition.is_defined:
-  // 418:   check_usage mangled_name definition info
-  // 419:   return
+  // 412: if definition.is_defined:
+  // 413:   check_usage mangled_name definition info
+  // 414:   return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5841,7 +5841,7 @@ static void cont__compiler__sim2c_35(void) {
     invalid_results_error();
     return;
   }
-  // 420: ... needed_names(mangled_name)
+  // 415: ... needed_names(mangled_name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mangled_name */;
@@ -5856,7 +5856,7 @@ static void cont__compiler__sim2c_36(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 420: $updated_info update_info(mangled_name needed_names(mangled_name) info)
+  // 415: $updated_info update_info(mangled_name needed_names(mangled_name) info)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mangled_name */;
@@ -5873,7 +5873,7 @@ static void cont__compiler__sim2c_37(void) {
     return;
   }
   initialize_future(frame->slots[3] /* updated_info */, arguments->slots[0]);
-  // 421: ... updated_info.is_defined
+  // 416: ... updated_info.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* updated_info */;
@@ -5888,9 +5888,9 @@ static void cont__compiler__sim2c_38(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 421: ... : !needed_names(mangled_name) updated_info
+  // 416: ... : !needed_names(mangled_name) updated_info
   frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__sim2c_39, 0);
-  // 421: if updated_info.is_defined: !needed_names(mangled_name) updated_info
+  // 416: if updated_info.is_defined: !needed_names(mangled_name) updated_info
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5901,7 +5901,7 @@ static void cont__compiler__sim2c_38(void) {
   frame->cont = cont__compiler__sim2c_41;
 }
 static void entry__compiler__sim2c_39(void) {
-  allocate_initialized_frame_gc(2, 3);
+  allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // mangled_name: 0
   // updated_info: 1
@@ -5911,13 +5911,11 @@ static void entry__compiler__sim2c_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 421: ... !needed_names(mangled_name) updated_info
-  frame->slots[2] /* temp__1 */ = frame->slots[1] /* updated_info */;
-  // 421: ... !needed_names(mangled_name)
+  // 416: ... !needed_names(mangled_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mangled_name */;
-  arguments->slots[1] = frame->slots[2] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* updated_info */;
   result_count = 1;
   myself = get__needed_names();
   func = myself->type;
@@ -5946,7 +5944,7 @@ static void cont__compiler__sim2c_43(void) {
     return;
   }
   set__compiler__defined_structs(arguments->slots[0]);
-  // 233: ... c_code(.source_of "")
+  // 231: ... c_code(.source_of "")
   {
     NODE *temp = clone_object_and_attributes(get__c_code());
     update_start_p = node_p;
@@ -5954,7 +5952,7 @@ static void cont__compiler__sim2c_43(void) {
     frame->slots[34] /* temp__2 */ = temp;
 
   }
-  // 233: ... "SIMPLE_NODE" = c_code(.source_of "")
+  // 231: ... "SIMPLE_NODE" = c_code(.source_of "")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__1c6c7289032a5d69;
@@ -5970,7 +5968,7 @@ static void cont__compiler__sim2c_45(void) {
     return;
   }
   frame->slots[33] /* temp__1 */ = arguments->slots[0];
-  // 233: %%compiler::defined_nodes table("SIMPLE_NODE" = c_code(.source_of ""))
+  // 231: %%compiler::defined_nodes table("SIMPLE_NODE" = c_code(.source_of ""))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[33] /* temp__1 */;
@@ -5985,40 +5983,40 @@ static void cont__compiler__sim2c_46(void) {
     return;
   }
   set__compiler__defined_nodes(arguments->slots[0]);
-  // 234: %%compiler::defined_functions empty_set
+  // 232: %%compiler::defined_functions empty_set
   set__compiler__defined_functions(get__empty_set());
-  // 235: %%compiler::enumeration_count 0
+  // 233: %%compiler::enumeration_count 0
   set__compiler__enumeration_count(number__0);
-  // 236: $$fragments empty_list
+  // 234: $$fragments empty_list
   ((CELL *)frame->slots[4])->contents /* fragments */ = get__empty_list();
-  // 237: $$trees empty_list
+  // 235: $$trees empty_list
   ((CELL *)frame->slots[5])->contents /* trees */ = get__empty_list();
-  // 238: $$all_defined_names empty_list
+  // 236: $$all_defined_names empty_list
   ((CELL *)frame->slots[6])->contents /* all_defined_names */ = get__empty_list();
-  // 239: $$all_used_names empty_list
+  // 237: $$all_used_names empty_list
   ((CELL *)frame->slots[7])->contents /* all_used_names */ = get__empty_list();
-  // 240: ... : (no filename)
-  // 241:   $$buf load(filename)
-  // 242:   try
+  // 238: ... : (no filename)
+  // 239:   $$buf load(filename)
+  // 240:   try
+  // 241:     :
+  // 242:       from_utf8 &buf
   // 243:     :
-  // 244:       from_utf8 &buf
-  // 245:     :
-  // 246:       Error "Source file is not in a valid utf-8-encoding!"
-  // 247:   if do_show_debug_infos:
-  // 248:     ewrite "
-  // 249:       load "@(filename)@quot;
+  // 244:       Error "Source file is not in a valid utf-8-encoding!"
+  // 245:   if do_show_debug_infos:
+  // 246:     ewrite "
+  // 247:       load "@(filename)@quot;
   // ...
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_47, 2);
-  // 240: for_each filenames: (no filename)
-  // 241:   $$buf load(filename)
-  // 242:   try
+  // 238: for_each filenames: (no filename)
+  // 239:   $$buf load(filename)
+  // 240:   try
+  // 241:     :
+  // 242:       from_utf8 &buf
   // 243:     :
-  // 244:       from_utf8 &buf
-  // 245:     :
-  // 246:       Error "Source file is not in a valid utf-8-encoding!"
-  // 247:   if do_show_debug_infos:
-  // 248:     ewrite "
-  // 249:       load "@(filename)@quot;
+  // 244:       Error "Source file is not in a valid utf-8-encoding!"
+  // 245:   if do_show_debug_infos:
+  // 246:     ewrite "
+  // 247:       load "@(filename)@quot;
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -6053,7 +6051,7 @@ static void entry__compiler__sim2c_47(void) {
     invalid_arguments_error();
     return;
   }
-  // 241: $$buf load(filename)
+  // 239: $$buf load(filename)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* filename */;
@@ -6068,14 +6066,14 @@ static void cont__compiler__sim2c_48(void) {
     return;
   }
   ((CELL *)frame->slots[6])->contents /* buf */ = arguments->slots[0];
-  // 243: :
-  // 244:   from_utf8 &buf
+  // 241: :
+  // 242:   from_utf8 &buf
   frame->slots[9] /* temp__1 */ = create_closure(entry__compiler__sim2c_49, 0);
-  // 242: try
+  // 240: try
+  // 241:   :
+  // 242:     from_utf8 &buf
   // 243:   :
-  // 244:     from_utf8 &buf
-  // 245:   :
-  // 246:     Error "Source file is not in a valid utf-8-encoding!"
+  // 244:     Error "Source file is not in a valid utf-8-encoding!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -6094,7 +6092,7 @@ static void entry__compiler__sim2c_49(void) {
     invalid_arguments_error();
     return;
   }
-  // 244: from_utf8 &buf
+  // 242: from_utf8 &buf
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -6122,7 +6120,7 @@ static void entry__compiler__sim2c_51(void) {
     invalid_arguments_error();
     return;
   }
-  // 246: Error "Source file is not in a valid utf-8-encoding!"
+  // 244: Error "Source file is not in a valid utf-8-encoding!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__38b3477328e1d61b;
@@ -6136,13 +6134,13 @@ static void cont__compiler__sim2c_53(void) {
     invalid_results_error();
     return;
   }
-  // 247: ... :
-  // 248:   ewrite "
-  // 249:     load "@(filename)@quot;
+  // 245: ... :
+  // 246:   ewrite "
+  // 247:     load "@(filename)@quot;
   frame->slots[9] /* temp__1 */ = create_closure(entry__compiler__sim2c_54, 0);
-  // 247: if do_show_debug_infos:
-  // 248:   ewrite "
-  // 249:     load "@(filename)@quot;
+  // 245: if do_show_debug_infos:
+  // 246:   ewrite "
+  // 247:     load "@(filename)@quot;
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_show_debug_infos();
@@ -6161,8 +6159,8 @@ static void entry__compiler__sim2c_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 248: ... "
-  // 249:   load "@(filename)@quot;
+  // 246: ... "
+  // 247:   load "@(filename)@quot;
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__5a1f574683baa2f5;
@@ -6179,8 +6177,8 @@ static void cont__compiler__sim2c_57(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 248: ewrite "
-  // 249:   load "@(filename)@quot;
+  // 246: ewrite "
+  // 247:   load "@(filename)@quot;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6194,9 +6192,9 @@ static void cont__compiler__sim2c_58(void) {
     invalid_results_error();
     return;
   }
-  // 250: ... : write_timing_info "loading" filename
+  // 248: ... : write_timing_info "loading" filename
   frame->slots[9] /* temp__1 */ = create_closure(entry__compiler__sim2c_59, 0);
-  // 250: if do_time_passes: write_timing_info "loading" filename
+  // 248: if do_time_passes: write_timing_info "loading" filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -6215,7 +6213,7 @@ static void entry__compiler__sim2c_59(void) {
     invalid_arguments_error();
     return;
   }
-  // 250: ... write_timing_info "loading" filename
+  // 248: ... write_timing_info "loading" filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__ba340f9515cad09d;
@@ -6230,7 +6228,7 @@ static void cont__compiler__sim2c_61(void) {
     invalid_results_error();
     return;
   }
-  // 251: ... length_of(buf)
+  // 249: ... length_of(buf)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[6])->contents /* buf */;
@@ -6245,7 +6243,7 @@ static void cont__compiler__sim2c_62(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 251: ... length_of(buf) == 0
+  // 249: ... length_of(buf) == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
@@ -6261,7 +6259,7 @@ static void cont__compiler__sim2c_63(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 251: if length_of(buf) == 0: Error "Empty source text!"
+  // 249: if length_of(buf) == 0: Error "Empty source text!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -6278,7 +6276,7 @@ static void entry__compiler__sim2c_64(void) {
     invalid_arguments_error();
     return;
   }
-  // 251: ... Error "Empty source text!"
+  // 249: ... Error "Empty source text!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__1cbf9967f0b4797a;
@@ -6292,7 +6290,7 @@ static void cont__compiler__sim2c_66(void) {
     invalid_results_error();
     return;
   }
-  // 252: ... buf(1)
+  // 250: ... buf(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6307,7 +6305,7 @@ static void cont__compiler__sim2c_67(void) {
     return;
   }
   frame->slots[11] /* temp__3 */ = arguments->slots[0];
-  // 252: ... buf(1) <= ' '
+  // 250: ... buf(1) <= ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__32;
@@ -6323,7 +6321,7 @@ static void cont__compiler__sim2c_68(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 252: ... buf(1) <= ' '
+  // 250: ... buf(1) <= ' '
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
@@ -6338,7 +6336,7 @@ static void cont__compiler__sim2c_69(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 252: if buf(1) <= ' ': Error "Whitespace at start of source text!"
+  // 250: if buf(1) <= ' ': Error "Whitespace at start of source text!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -6355,7 +6353,7 @@ static void entry__compiler__sim2c_70(void) {
     invalid_arguments_error();
     return;
   }
-  // 252: ... Error "Whitespace at start of source text!"
+  // 250: ... Error "Whitespace at start of source text!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__cdb2cfe249b97e8f;
@@ -6369,7 +6367,7 @@ static void cont__compiler__sim2c_72(void) {
     invalid_results_error();
     return;
   }
-  // 253: ... 1
+  // 251: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6384,7 +6382,7 @@ static void cont__compiler__sim2c_73(void) {
     return;
   }
   frame->slots[12] /* temp__4 */ = arguments->slots[0];
-  // 253: ... buf(-1)
+  // 251: ... buf(-1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[12] /* temp__4 */;
@@ -6399,7 +6397,7 @@ static void cont__compiler__sim2c_74(void) {
     return;
   }
   frame->slots[11] /* temp__3 */ = arguments->slots[0];
-  // 253: ... buf(-1) != newline
+  // 251: ... buf(-1) != newline
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__3 */;
@@ -6415,7 +6413,7 @@ static void cont__compiler__sim2c_75(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 253: ... buf(-1) != newline
+  // 251: ... buf(-1) != newline
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
@@ -6430,7 +6428,7 @@ static void cont__compiler__sim2c_76(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 253: if buf(-1) != newline: Error "Missing newline at end of source text!"
+  // 251: if buf(-1) != newline: Error "Missing newline at end of source text!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -6447,7 +6445,7 @@ static void entry__compiler__sim2c_77(void) {
     invalid_arguments_error();
     return;
   }
-  // 253: ... Error "Missing newline at end of source text!"
+  // 251: ... Error "Missing newline at end of source text!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__f5ba012e5873af55;
@@ -6461,7 +6459,7 @@ static void cont__compiler__sim2c_79(void) {
     invalid_results_error();
     return;
   }
-  // 254: ... buf .has_prefix. "#!"
+  // 252: ... buf .has_prefix. "#!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[6])->contents /* buf */;
@@ -6477,9 +6475,9 @@ static void cont__compiler__sim2c_81(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 254: ... : !is_main true
+  // 252: ... : !is_main true
   frame->slots[10] /* temp__2 */ = create_closure(entry__compiler__sim2c_82, 0);
-  // 254: if buf .has_prefix. "#!": !is_main true
+  // 252: if buf .has_prefix. "#!": !is_main true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -6498,7 +6496,7 @@ static void entry__compiler__sim2c_82(void) {
     invalid_arguments_error();
     return;
   }
-  // 254: ... !is_main true
+  // 252: ... !is_main true
   ((CELL *)frame->slots[0])->contents /* is_main */ = get__true();
   argument_count = 0;
   arguments = node_p;
@@ -6511,7 +6509,7 @@ static void cont__compiler__sim2c_83(void) {
     invalid_results_error();
     return;
   }
-  // 255: %compiler::submodule_no no-1
+  // 253: %compiler::submodule_no no-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* no */;
@@ -6527,7 +6525,7 @@ static void cont__compiler__sim2c_84(void) {
     return;
   }
   initialize_future(get__compiler__submodule_no(), arguments->slots[0]);
-  // 256: $$submodule_fragments cut_into_fragments(buf)
+  // 254: $$submodule_fragments cut_into_fragments(buf)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[6])->contents /* buf */;
@@ -6542,9 +6540,9 @@ static void cont__compiler__sim2c_85(void) {
     return;
   }
   ((CELL *)frame->slots[7])->contents /* submodule_fragments */ = arguments->slots[0];
-  // 257: ... : write_timing_info "fragmenting" filename
+  // 255: ... : write_timing_info "fragmenting" filename
   frame->slots[9] /* temp__1 */ = create_closure(entry__compiler__sim2c_86, 0);
-  // 257: if do_time_passes: write_timing_info "fragmenting" filename
+  // 255: if do_time_passes: write_timing_info "fragmenting" filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -6563,7 +6561,7 @@ static void entry__compiler__sim2c_86(void) {
     invalid_arguments_error();
     return;
   }
-  // 257: ... write_timing_info "fragmenting" filename
+  // 255: ... write_timing_info "fragmenting" filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__28e9a3192e794ba6;
@@ -6578,7 +6576,7 @@ static void cont__compiler__sim2c_88(void) {
     invalid_results_error();
     return;
   }
-  // 258: update_each &submodule_fragments: (&fragment) tokenize &fragment
+  // 256: update_each &submodule_fragments: (&fragment) tokenize &fragment
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[7])->contents /* submodule_fragments */;
@@ -6597,7 +6595,7 @@ static void entry__compiler__sim2c_89(void) {
     return;
   }
   frame->slots[0] /* fragment */ = create_cell_with_contents(arguments->slots[0]);
-  // 258: ... tokenize &fragment
+  // 256: ... tokenize &fragment
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* fragment */;
@@ -6625,9 +6623,9 @@ static void cont__compiler__sim2c_91(void) {
     return;
   }
   ((CELL *)frame->slots[7])->contents /* submodule_fragments */ = arguments->slots[0];
-  // 259: ... : write_timing_info "tokenizing" filename
+  // 257: ... : write_timing_info "tokenizing" filename
   frame->slots[9] /* temp__1 */ = create_closure(entry__compiler__sim2c_92, 0);
-  // 259: if do_time_passes: write_timing_info "tokenizing" filename
+  // 257: if do_time_passes: write_timing_info "tokenizing" filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -6646,7 +6644,7 @@ static void entry__compiler__sim2c_92(void) {
     invalid_arguments_error();
     return;
   }
-  // 259: ... write_timing_info "tokenizing" filename
+  // 257: ... write_timing_info "tokenizing" filename
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__170b25ca95be486;
@@ -6661,30 +6659,30 @@ static void cont__compiler__sim2c_94(void) {
     invalid_results_error();
     return;
   }
-  // 260: $$first_idx 1
+  // 258: $$first_idx 1
   ((CELL *)frame->slots[8])->contents /* first_idx */ = number__1;
-  // 261: ... : (-> done)
-  // 262:   for_each submodule_fragments: (idx fragment)
-  // 263:     case
-  // 264:       source_of(fragment)(1)
-  // 265:       '#':
+  // 259: ... : (-> done)
+  // 260:   for_each submodule_fragments: (idx fragment)
+  // 261:     case source_of(fragment)(1)
+  // 262:       '#':
+  // 263:         !first_idx idx+1
+  // 264:         push &trees parse_statement(fragment)
+  // 265:       '<':
   // 266:         !first_idx idx+1
-  // 267:         push &trees parse_statement(fragment)
-  // 268:       '<':
-  // 269:         !first_idx idx+1
-  // 270:         push &trees parse_meta_instruction(fragment)
+  // 267:         push &trees parse_meta_instruction(fragment)
+  // 268:       :
   // ...
   frame->slots[9] /* temp__1 */ = create_closure(entry__compiler__sim2c_95, 0);
-  // 261: do: (-> done)
-  // 262:   for_each submodule_fragments: (idx fragment)
-  // 263:     case
-  // 264:       source_of(fragment)(1)
-  // 265:       '#':
+  // 259: do: (-> done)
+  // 260:   for_each submodule_fragments: (idx fragment)
+  // 261:     case source_of(fragment)(1)
+  // 262:       '#':
+  // 263:         !first_idx idx+1
+  // 264:         push &trees parse_statement(fragment)
+  // 265:       '<':
   // 266:         !first_idx idx+1
-  // 267:         push &trees parse_statement(fragment)
-  // 268:       '<':
-  // 269:         !first_idx idx+1
-  // 270:         push &trees parse_meta_instruction(fragment)
+  // 267:         push &trees parse_meta_instruction(fragment)
+  // 268:       :
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -6709,29 +6707,27 @@ static void entry__compiler__sim2c_95(void) {
     invalid_arguments_error();
     return;
   }
-  // 262: ... : (idx fragment)
-  // 263:   case
-  // 264:     source_of(fragment)(1)
-  // 265:     '#':
+  // 260: ... : (idx fragment)
+  // 261:   case source_of(fragment)(1)
+  // 262:     '#':
+  // 263:       !first_idx idx+1
+  // 264:       push &trees parse_statement(fragment)
+  // 265:     '<':
   // 266:       !first_idx idx+1
-  // 267:       push &trees parse_statement(fragment)
-  // 268:     '<':
-  // 269:       !first_idx idx+1
-  // 270:       push &trees parse_meta_instruction(fragment)
-  // 271:     :
-  // ...
+  // 267:       push &trees parse_meta_instruction(fragment)
+  // 268:     :
+  // 269:       done
   frame->slots[4] /* temp__1 */ = create_closure(entry__compiler__sim2c_96, 2);
-  // 262: for_each submodule_fragments: (idx fragment)
-  // 263:   case
-  // 264:     source_of(fragment)(1)
-  // 265:     '#':
+  // 260: for_each submodule_fragments: (idx fragment)
+  // 261:   case source_of(fragment)(1)
+  // 262:     '#':
+  // 263:       !first_idx idx+1
+  // 264:       push &trees parse_statement(fragment)
+  // 265:     '<':
   // 266:       !first_idx idx+1
-  // 267:       push &trees parse_statement(fragment)
-  // 268:     '<':
-  // 269:       !first_idx idx+1
-  // 270:       push &trees parse_meta_instruction(fragment)
-  // 271:     :
-  // ...
+  // 267:       push &trees parse_meta_instruction(fragment)
+  // 268:     :
+  // 269:       done
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* submodule_fragments */;
@@ -6756,7 +6752,7 @@ static void entry__compiler__sim2c_99(void) {
     invalid_arguments_error();
     return;
   }
-  // 266: !first_idx idx+1
+  // 263: !first_idx idx+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* idx */;
@@ -6772,7 +6768,7 @@ static void cont__compiler__sim2c_100(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* first_idx */ = arguments->slots[0];
-  // 267: ... parse_statement(fragment)
+  // 264: ... parse_statement(fragment)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* fragment */;
@@ -6787,7 +6783,7 @@ static void cont__compiler__sim2c_101(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 267: push &trees parse_statement(fragment)
+  // 264: push &trees parse_statement(fragment)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* trees */;
@@ -6824,7 +6820,7 @@ static void entry__compiler__sim2c_103(void) {
     invalid_arguments_error();
     return;
   }
-  // 269: !first_idx idx+1
+  // 266: !first_idx idx+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* idx */;
@@ -6840,7 +6836,7 @@ static void cont__compiler__sim2c_104(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* first_idx */ = arguments->slots[0];
-  // 270: ... parse_meta_instruction(fragment)
+  // 267: ... parse_meta_instruction(fragment)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* fragment */;
@@ -6855,7 +6851,7 @@ static void cont__compiler__sim2c_105(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 270: push &trees parse_meta_instruction(fragment)
+  // 267: push &trees parse_meta_instruction(fragment)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* trees */;
@@ -6886,7 +6882,7 @@ static void entry__compiler__sim2c_107(void) {
     invalid_arguments_error();
     return;
   }
-  // 272: done
+  // 269: done
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -6909,7 +6905,7 @@ static void entry__compiler__sim2c_96(void) {
     invalid_arguments_error();
     return;
   }
-  // 264: source_of(fragment)
+  // 261: ... source_of(fragment)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* fragment */;
@@ -6924,7 +6920,7 @@ static void cont__compiler__sim2c_97(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 264: source_of(fragment)(1)
+  // 261: ... source_of(fragment)(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6939,27 +6935,26 @@ static void cont__compiler__sim2c_98(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
+  // 262: ... :
+  // 263:   !first_idx idx+1
+  // 264:   push &trees parse_statement(fragment)
+  frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__sim2c_99, 0);
   // 265: ... :
   // 266:   !first_idx idx+1
-  // 267:   push &trees parse_statement(fragment)
-  frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__sim2c_99, 0);
-  // 268: ... :
-  // 269:   !first_idx idx+1
-  // 270:   push &trees parse_meta_instruction(fragment)
+  // 267:   push &trees parse_meta_instruction(fragment)
   frame->slots[8] /* temp__4 */ = create_closure(entry__compiler__sim2c_103, 0);
-  // 271: :
-  // 272:   done
+  // 268: :
+  // 269:   done
   frame->slots[9] /* temp__5 */ = create_closure(entry__compiler__sim2c_107, 0);
-  // 263: case
-  // 264:   source_of(fragment)(1)
-  // 265:   '#':
+  // 261: case source_of(fragment)(1)
+  // 262:   '#':
+  // 263:     !first_idx idx+1
+  // 264:     push &trees parse_statement(fragment)
+  // 265:   '<':
   // 266:     !first_idx idx+1
-  // 267:     push &trees parse_statement(fragment)
-  // 268:   '<':
-  // 269:     !first_idx idx+1
-  // 270:     push &trees parse_meta_instruction(fragment)
-  // 271:   :
-  // 272:     done
+  // 267:     push &trees parse_meta_instruction(fragment)
+  // 268:   :
+  // 269:     done
   argument_count = 6;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -6983,7 +6978,7 @@ static void cont__compiler__sim2c_109(void) {
     invalid_results_error();
     return;
   }
-  // 273: ... 1
+  // 270: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6998,7 +6993,7 @@ static void cont__compiler__sim2c_110(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 273: ... range(submodule_fragments first_idx -1)
+  // 270: ... range(submodule_fragments first_idx -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[7])->contents /* submodule_fragments */;
@@ -7015,7 +7010,7 @@ static void cont__compiler__sim2c_111(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 273: append &fragments range(submodule_fragments first_idx -1)
+  // 270: append &fragments range(submodule_fragments first_idx -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* fragments */;
@@ -7042,9 +7037,9 @@ static void cont__compiler__sim2c_113(void) {
     invalid_results_error();
     return;
   }
-  // 274: ... : (fragment) push &trees parse_statement(fragment)
+  // 271: ... : (fragment) push &trees parse_statement(fragment)
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_114, 1);
-  // 274: for_each fragments: (fragment) push &trees parse_statement(fragment)
+  // 271: for_each fragments: (fragment) push &trees parse_statement(fragment)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* fragments */;
@@ -7064,7 +7059,7 @@ static void entry__compiler__sim2c_114(void) {
     invalid_arguments_error();
     return;
   }
-  // 274: ... parse_statement(fragment)
+  // 271: ... parse_statement(fragment)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fragment */;
@@ -7079,7 +7074,7 @@ static void cont__compiler__sim2c_115(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 274: ... push &trees parse_statement(fragment)
+  // 271: ... push &trees parse_statement(fragment)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* trees */;
@@ -7106,9 +7101,9 @@ static void cont__compiler__sim2c_117(void) {
     invalid_results_error();
     return;
   }
-  // 275: ... : write_timing_info "parsing" filenames(1)
+  // 272: ... : write_timing_info "parsing" filenames(1)
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_118, 0);
-  // 275: if do_time_passes: write_timing_info "parsing" filenames(1)
+  // 272: if do_time_passes: write_timing_info "parsing" filenames(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -7127,7 +7122,7 @@ static void entry__compiler__sim2c_118(void) {
     invalid_arguments_error();
     return;
   }
-  // 275: ... filenames(1)
+  // 272: ... filenames(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7142,7 +7137,7 @@ static void cont__compiler__sim2c_119(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 275: ... write_timing_info "parsing" filenames(1)
+  // 272: ... write_timing_info "parsing" filenames(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__94440f9215cbe09d;
@@ -7157,28 +7152,28 @@ static void cont__compiler__sim2c_121(void) {
     invalid_results_error();
     return;
   }
-  // 276: ... :
-  // 277:   #if do_show_compiler_debug_infos:
-  // 278:     $$header_printed false
-  // 279:     for_each global_names: (name type)
-  // 280:       unless header_printed:
-  // 281:         print_line "# Global variables"
-  // 282:         !header_printed true
-  // 283:       print_line "  " name
-  // 284:   
-  // 285:   print_trees trees
+  // 273: ... :
+  // 274:   #if do_show_compiler_debug_infos:
+  // 275:     $$header_printed false
+  // 276:     for_each global_names: (name type)
+  // 277:       unless header_printed:
+  // 278:         print_line "# Global variables"
+  // 279:         !header_printed true
+  // 280:       print_line "  " name
+  // 281:   
+  // 282:   print_trees trees
   // ...
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_122, 0);
-  // 276: if do_pretty_print:
-  // 277:   #if do_show_compiler_debug_infos:
-  // 278:     $$header_printed false
-  // 279:     for_each global_names: (name type)
-  // 280:       unless header_printed:
-  // 281:         print_line "# Global variables"
-  // 282:         !header_printed true
-  // 283:       print_line "  " name
-  // 284:   
-  // 285:   print_trees trees
+  // 273: if do_pretty_print:
+  // 274:   #if do_show_compiler_debug_infos:
+  // 275:     $$header_printed false
+  // 276:     for_each global_names: (name type)
+  // 277:       unless header_printed:
+  // 278:         print_line "# Global variables"
+  // 279:         !header_printed true
+  // 280:       print_line "  " name
+  // 281:   
+  // 282:   print_trees trees
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -7198,7 +7193,7 @@ static void entry__compiler__sim2c_122(void) {
     invalid_arguments_error();
     return;
   }
-  // 285: print_trees trees
+  // 282: print_trees trees
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* trees */;
@@ -7212,7 +7207,7 @@ static void cont__compiler__sim2c_123(void) {
     invalid_results_error();
     return;
   }
-  // 286: terminate
+  // 283: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -7225,11 +7220,11 @@ static void cont__compiler__sim2c_124(void) {
     invalid_results_error();
     return;
   }
-  // 287: ... : # the main program should terminate cleanly
-  // 288:   push &trees procedure_call(.functor_of std_identifier("terminate"))
+  // 284: ... :
+  // 285:   push &trees procedure_call(.functor_of std_identifier("terminate"))
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_125, 0);
-  // 287: if is_main: # the main program should terminate cleanly
-  // 288:   push &trees procedure_call(.functor_of std_identifier("terminate"))
+  // 284: if is_main:
+  // 285:   push &trees procedure_call(.functor_of std_identifier("terminate"))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* is_main */;
@@ -7248,7 +7243,7 @@ static void entry__compiler__sim2c_125(void) {
     invalid_arguments_error();
     return;
   }
-  // 288: ... std_identifier("terminate")
+  // 285: ... std_identifier("terminate")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__72f826ea16a3e460;
@@ -7263,7 +7258,7 @@ static void cont__compiler__sim2c_127(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 288: ... procedure_call(.functor_of std_identifier("terminate"))
+  // 285: ... procedure_call(.functor_of std_identifier("terminate"))
   {
     NODE *temp = clone_object_and_attributes(get__procedure_call());
     update_start_p = node_p;
@@ -7271,7 +7266,7 @@ static void cont__compiler__sim2c_127(void) {
     frame->slots[1] /* temp__1 */ = temp;
 
   }
-  // 288: push &trees procedure_call(.functor_of std_identifier("terminate"))
+  // 285: push &trees procedure_call(.functor_of std_identifier("terminate"))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* trees */;
@@ -7298,9 +7293,9 @@ static void cont__compiler__sim2c_129(void) {
     invalid_results_error();
     return;
   }
-  // 289: update_each &trees: (&tree)
-  // 290:   %%compiler::index 1
-  // 291:   expand_statement &tree
+  // 286: update_each &trees: (&tree)
+  // 287:   %%compiler::index 1
+  // 288:   expand_statement &tree
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* trees */;
@@ -7322,9 +7317,9 @@ static void entry__compiler__sim2c_130(void) {
     return;
   }
   frame->slots[0] /* tree */ = create_cell_with_contents(arguments->slots[0]);
-  // 290: %%compiler::index 1
+  // 287: %%compiler::index 1
   set__compiler__index(number__1);
-  // 291: expand_statement &tree
+  // 288: expand_statement &tree
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* tree */;
@@ -7361,9 +7356,9 @@ static void cont__compiler__sim2c_132(void) {
     return;
   }
   ((CELL *)frame->slots[5])->contents /* trees */ = arguments->slots[0];
-  // 292: ... : write_timing_info "expanding" filenames(1)
+  // 289: ... : write_timing_info "expanding" filenames(1)
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_133, 0);
-  // 292: if do_time_passes: write_timing_info "expanding" filenames(1)
+  // 289: if do_time_passes: write_timing_info "expanding" filenames(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -7382,7 +7377,7 @@ static void entry__compiler__sim2c_133(void) {
     invalid_arguments_error();
     return;
   }
-  // 292: ... filenames(1)
+  // 289: ... filenames(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7397,7 +7392,7 @@ static void cont__compiler__sim2c_134(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 292: ... write_timing_info "expanding" filenames(1)
+  // 289: ... write_timing_info "expanding" filenames(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__66f024ec077397c2;
@@ -7412,21 +7407,21 @@ static void cont__compiler__sim2c_136(void) {
     invalid_results_error();
     return;
   }
-  // 293: ... : (&tree)
-  // 294:   %%compiler::defined_names empty_list
-  // 295:   %%compiler::used_names empty_insert_order_table
-  // 296:   %%compiler::index 1
-  // 297:   annotate_statement &tree
-  // 298:   push &all_defined_names compiler::defined_names
-  // 299:   push &all_used_names compiler::used_names
+  // 290: ... : (&tree)
+  // 291:   %%compiler::defined_names empty_list
+  // 292:   %%compiler::used_names empty_insert_order_table
+  // 293:   %%compiler::index 1
+  // 294:   annotate_statement &tree
+  // 295:   push &all_defined_names compiler::defined_names
+  // 296:   push &all_used_names compiler::used_names
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_137, 1);
-  // 293: update_each &trees: (&tree)
-  // 294:   %%compiler::defined_names empty_list
-  // 295:   %%compiler::used_names empty_insert_order_table
-  // 296:   %%compiler::index 1
-  // 297:   annotate_statement &tree
-  // 298:   push &all_defined_names compiler::defined_names
-  // 299:   push &all_used_names compiler::used_names
+  // 290: update_each &trees: (&tree)
+  // 291:   %%compiler::defined_names empty_list
+  // 292:   %%compiler::used_names empty_insert_order_table
+  // 293:   %%compiler::index 1
+  // 294:   annotate_statement &tree
+  // 295:   push &all_defined_names compiler::defined_names
+  // 296:   push &all_used_names compiler::used_names
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* trees */;
@@ -7454,13 +7449,13 @@ static void entry__compiler__sim2c_137(void) {
     return;
   }
   frame->slots[0] /* tree */ = create_cell_with_contents(arguments->slots[0]);
-  // 294: %%compiler::defined_names empty_list
+  // 291: %%compiler::defined_names empty_list
   set__compiler__defined_names(get__empty_list());
-  // 295: %%compiler::used_names empty_insert_order_table
+  // 292: %%compiler::used_names empty_insert_order_table
   set__compiler__used_names(get__empty_insert_order_table());
-  // 296: %%compiler::index 1
+  // 293: %%compiler::index 1
   set__compiler__index(number__1);
-  // 297: annotate_statement &tree
+  // 294: annotate_statement &tree
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* tree */;
@@ -7475,7 +7470,7 @@ static void cont__compiler__sim2c_138(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* tree */ = arguments->slots[0];
-  // 298: push &all_defined_names compiler::defined_names
+  // 295: push &all_defined_names compiler::defined_names
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* all_defined_names */;
@@ -7491,7 +7486,7 @@ static void cont__compiler__sim2c_139(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* all_defined_names */ = arguments->slots[0];
-  // 299: push &all_used_names compiler::used_names
+  // 296: push &all_used_names compiler::used_names
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* all_used_names */;
@@ -7529,9 +7524,9 @@ static void cont__compiler__sim2c_141(void) {
     return;
   }
   ((CELL *)frame->slots[5])->contents /* trees */ = arguments->slots[0];
-  // 300: ... : write_timing_info "annotating" filenames(1)
+  // 297: ... : write_timing_info "annotating" filenames(1)
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_142, 0);
-  // 300: if do_time_passes: write_timing_info "annotating" filenames(1)
+  // 297: if do_time_passes: write_timing_info "annotating" filenames(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -7550,7 +7545,7 @@ static void entry__compiler__sim2c_142(void) {
     invalid_arguments_error();
     return;
   }
-  // 300: ... filenames(1)
+  // 297: ... filenames(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7565,7 +7560,7 @@ static void cont__compiler__sim2c_143(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 300: ... write_timing_info "annotating" filenames(1)
+  // 297: ... write_timing_info "annotating" filenames(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__1d581a51a85b6426;
@@ -7580,10 +7575,13 @@ static void cont__compiler__sim2c_145(void) {
     invalid_results_error();
     return;
   }
-  // 301: $$all_actions empty_list
+  // 298: $$all_actions empty_list
   ((CELL *)frame->slots[8])->contents /* all_actions */ = get__empty_list();
-  // 303: $$top_level_names
-  // 304:   if(do_print_warnings (-> empty_insert_order_table) -> empty_table)
+  // 300: $$top_level_names
+  // 301:   if
+  // 302:     do_print_warnings
+  // 303:     -> empty_insert_order_table
+  // 304:     -> empty_table
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__do_print_warnings();
@@ -7601,7 +7599,7 @@ static void entry__compiler__sim2c_146(void) {
     invalid_arguments_error();
     return;
   }
-  // 304: ... -> empty_insert_order_table
+  // 303: -> empty_insert_order_table
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__empty_insert_order_table();
@@ -7616,7 +7614,7 @@ static void entry__compiler__sim2c_147(void) {
     invalid_arguments_error();
     return;
   }
-  // 304: ... -> empty_table
+  // 304: -> empty_table
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__empty_table();
@@ -7693,19 +7691,17 @@ static void cont__compiler__sim2c_151(void) {
   frame->cont = cont__compiler__sim2c_157;
 }
 static void entry__compiler__sim2c_152(void) {
-  allocate_initialized_frame_gc(0, 1);
+  allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 307: !required_modules("basic/stdlib") types::grammar_node
-  frame->slots[0] /* temp__1 */ = get__types__grammar_node();
   // 307: !required_modules("basic/stdlib")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__c3e1e344d34946eb;
-  arguments->slots[1] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = get__types__grammar_node();
   result_count = 1;
   myself = get__required_modules();
   func = myself->type;
@@ -7717,13 +7713,11 @@ static void cont__compiler__sim2c_154(void) {
     return;
   }
   set__required_modules(arguments->slots[0]);
-  // 308: !required_modules("system/stdlib") types::grammar_node
-  frame->slots[0] /* temp__1 */ = get__types__grammar_node();
   // 308: !required_modules("system/stdlib")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__b567219b137172d;
-  arguments->slots[1] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = get__types__grammar_node();
   result_count = 1;
   myself = get__required_modules();
   func = myself->type;
@@ -7746,13 +7740,11 @@ static void cont__compiler__sim2c_157(void) {
     invalid_results_error();
     return;
   }
-  // 309: !required_modules("nothing") undefined
-  frame->slots[33] /* temp__1 */ = get__undefined();
   // 309: !required_modules("nothing")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__a23c0f9515cb809d;
-  arguments->slots[1] = frame->slots[33] /* temp__1 */;
+  arguments->slots[1] = get__undefined();
   result_count = 1;
   myself = get__required_modules();
   func = myself->type;
@@ -7790,19 +7782,17 @@ static void cont__compiler__sim2c_160(void) {
   frame->cont = cont__compiler__sim2c_164;
 }
 static void entry__compiler__sim2c_161(void) {
-  allocate_initialized_frame_gc(0, 1);
+  allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 310: ... !used_namespaces("std") true
-  frame->slots[0] /* temp__1 */ = get__true();
   // 310: ... !used_namespaces("std")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__fa724815d896ba8;
-  arguments->slots[1] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = get__true();
   result_count = 1;
   myself = get__used_namespaces();
   func = myself->type;
@@ -7825,13 +7815,11 @@ static void cont__compiler__sim2c_164(void) {
     invalid_results_error();
     return;
   }
-  // 311: !used_namespaces("nothing") false
-  frame->slots[33] /* temp__1 */ = get__false();
   // 311: !used_namespaces("nothing")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__a23c0f9515cb809d;
-  arguments->slots[1] = frame->slots[33] /* temp__1 */;
+  arguments->slots[1] = get__false();
   result_count = 1;
   myself = get__used_namespaces();
   func = myself->type;
@@ -8416,13 +8404,11 @@ static void cont__compiler__sim2c_212(void) {
     invalid_results_error();
     return;
   }
-  // 338: !top_level_names(name) info
-  frame->slots[5] /* temp__1 */ = frame->slots[1] /* info */;
   // 338: !top_level_names(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
-  arguments->slots[1] = frame->slots[5] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* info */;
   result_count = 1;
   myself = ((CELL *)frame->slots[3])->contents /* top_level_names */;
   func = myself->type;
@@ -8445,13 +8431,11 @@ static void cont__compiler__sim2c_214(void) {
     invalid_results_error();
     return;
   }
-  // 339: !namespaces(namespace) info
-  frame->slots[5] /* temp__1 */ = frame->slots[2] /* info */;
   // 339: !namespaces(namespace)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* namespace */;
-  arguments->slots[1] = frame->slots[5] /* temp__1 */;
+  arguments->slots[1] = frame->slots[2] /* info */;
   result_count = 1;
   myself = ((CELL *)frame->slots[4])->contents /* namespaces */;
   func = myself->type;
@@ -8463,13 +8447,11 @@ static void cont__compiler__sim2c_215(void) {
     return;
   }
   ((CELL *)frame->slots[4])->contents /* namespaces */ = arguments->slots[0];
-  // 340: !exported_names(name) namespaces
-  frame->slots[5] /* temp__1 */ = ((CELL *)frame->slots[4])->contents /* namespaces */;
   // 340: !exported_names(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
-  arguments->slots[1] = frame->slots[5] /* temp__1 */;
+  arguments->slots[1] = ((CELL *)frame->slots[4])->contents /* namespaces */;
   result_count = 1;
   myself = get__exported_names();
   func = myself->type;
@@ -8807,13 +8789,11 @@ static void cont__compiler__sim2c_232(void) {
     invalid_results_error();
     return;
   }
-  // 352: !global_names(name) info
-  frame->slots[4] /* temp__1 */ = frame->slots[1] /* info */;
   // 352: !global_names(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
-  arguments->slots[1] = frame->slots[4] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* info */;
   result_count = 1;
   myself = get__global_names();
   func = myself->type;
@@ -8825,13 +8805,11 @@ static void cont__compiler__sim2c_233(void) {
     return;
   }
   set__global_names(arguments->slots[0]);
-  // 353: !top_level_names(name) info
-  frame->slots[4] /* temp__1 */ = frame->slots[1] /* info */;
   // 353: !top_level_names(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
-  arguments->slots[1] = frame->slots[4] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* info */;
   result_count = 1;
   myself = ((CELL *)frame->slots[2])->contents /* top_level_names */;
   func = myself->type;
@@ -9196,7 +9174,7 @@ static void entry__compiler__sim2c_236(void) {
   frame->cont = cont__compiler__sim2c_240;
 }
 static void entry__compiler__sim2c_238(void) {
-  allocate_initialized_frame_gc(3, 4);
+  allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // mangled_name: 0
   // info: 1
@@ -9206,13 +9184,11 @@ static void entry__compiler__sim2c_238(void) {
     invalid_arguments_error();
     return;
   }
-  // 358: !top_level_used_names(mangled_name) info
-  frame->slots[3] /* temp__1 */ = frame->slots[1] /* info */;
   // 358: !top_level_used_names(mangled_name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mangled_name */;
-  arguments->slots[1] = frame->slots[3] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* info */;
   result_count = 1;
   myself = ((CELL *)frame->slots[2])->contents /* top_level_used_names */;
   func = myself->type;
@@ -9849,27 +9825,27 @@ static void cont__compiler__sim2c_272(void) {
     return;
   }
   // 383: ... :
-  // 384:   for_each all_definitions
-  // 385:     :
-  // 386:       (
-  // 387:         defs
-  // 388:       )
-  // 389:       for_each defs: (def)
-  // 390:         if
-  // 391:           def.is_a_key_value_pair:
-  // 392:             writeln
+  // 384:   for_each
+  // 385:     all_definitions: (defs)
+  // 386:       for_each defs: (def)
+  // 387:         if
+  // 388:           def.is_a_key_value_pair:
+  // 389:             writeln
+  // 390:               assignment(.arguments_of list(key_of(def) std::value_of(def)))
+  // 391:           :
+  // 392:             writeln "_define " def
   // ...
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_273, 0);
   // 383: if do_print_simplified_source:
-  // 384:   for_each all_definitions
-  // 385:     :
-  // 386:       (
-  // 387:         defs
-  // 388:       )
-  // 389:       for_each defs: (def)
-  // 390:         if
-  // 391:           def.is_a_key_value_pair:
-  // 392:             writeln
+  // 384:   for_each
+  // 385:     all_definitions: (defs)
+  // 386:       for_each defs: (def)
+  // 387:         if
+  // 388:           def.is_a_key_value_pair:
+  // 389:             writeln
+  // 390:               assignment(.arguments_of list(key_of(def) std::value_of(def)))
+  // 391:           :
+  // 392:             writeln "_define " def
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -9878,7 +9854,7 @@ static void cont__compiler__sim2c_272(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_288;
+  frame->cont = cont__compiler__sim2c_287;
 }
 static void entry__compiler__sim2c_273(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -9891,29 +9867,29 @@ static void entry__compiler__sim2c_273(void) {
     invalid_arguments_error();
     return;
   }
-  // 384: for_each all_definitions
-  // 385:   :
-  // 386:     (
-  // 387:       defs
-  // 388:     )
-  // 389:     for_each defs: (def)
-  // 390:       if
-  // 391:         def.is_a_key_value_pair:
-  // 392:           writeln
-  // 393:             assignment
+  // 384: for_each
+  // 385:   all_definitions: (defs)
+  // 386:     for_each defs: (def)
+  // 387:       if
+  // 388:         def.is_a_key_value_pair:
+  // 389:           writeln
+  // 390:             assignment(.arguments_of list(key_of(def) std::value_of(def)))
+  // 391:         :
+  // 392:           writeln "_define " def
+  // 393:   :
   // ...
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* all_definitions */;
   arguments->slots[1] = func__compiler__sim2c_274;
-  arguments->slots[2] = func__compiler__sim2c_284;
+  arguments->slots[2] = func__compiler__sim2c_283;
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_285;
+  frame->cont = cont__compiler__sim2c_284;
 }
 static void entry__compiler__sim2c_277(void) {
-  allocate_initialized_frame_gc(1, 6);
+  allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // def: 0
   frame->slots[0] = myself->closure.frame->slots[0]; /* def */
@@ -9921,7 +9897,7 @@ static void entry__compiler__sim2c_277(void) {
     invalid_arguments_error();
     return;
   }
-  // 394: ... key_of(def)
+  // 390: ... key_of(def)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* def */;
@@ -9936,12 +9912,12 @@ static void cont__compiler__sim2c_278(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 394: ... list(key_of(def))
+  // 390: ... std::value_of(def)
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[3] /* temp__3 */;
+  arguments->slots[0] = frame->slots[0] /* def */;
   result_count = 1;
-  myself = get__list();
+  myself = get__std__value_of();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_279;
 }
@@ -9950,13 +9926,14 @@ static void cont__compiler__sim2c_279(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 395: ... std::value_of(def)
-  argument_count = 1;
+  frame->slots[4] /* temp__4 */ = arguments->slots[0];
+  // 390: ... list(key_of(def) std::value_of(def))
+  argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[0] /* def */;
+  arguments->slots[0] = frame->slots[3] /* temp__3 */;
+  arguments->slots[1] = frame->slots[4] /* temp__4 */;
   result_count = 1;
-  myself = get__std__value_of();
+  myself = get__list();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_280;
 }
@@ -9965,37 +9942,17 @@ static void cont__compiler__sim2c_280(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[5] /* temp__5 */ = arguments->slots[0];
-  // 395: ... list(std::value_of(def))
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[5] /* temp__5 */;
-  result_count = 1;
-  myself = get__list();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_281;
-}
-static void cont__compiler__sim2c_281(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 393: assignment
-  // 394:   .output_arguments_of list(key_of(def))
-  // 395:   .arguments_of list(std::value_of(def))
+  frame->slots[2] /* temp__2 */ = arguments->slots[0];
+  // 390: assignment(.arguments_of list(key_of(def) std::value_of(def)))
   {
     NODE *temp = clone_object_and_attributes(get__assignment());
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__output_arguments_of, frame->slots[2] /* temp__2 */);
-    set_attribute_value(temp->attributes, poly_idx__arguments_of, frame->slots[4] /* temp__4 */);
+    set_attribute_value(temp->attributes, poly_idx__arguments_of, frame->slots[2] /* temp__2 */);
     frame->slots[1] /* temp__1 */ = temp;
 
   }
-  // 392: writeln
-  // 393:   assignment
-  // 394:     .output_arguments_of list(key_of(def))
-  // 395:     .arguments_of list(std::value_of(def))
+  // 389: writeln
+  // 390:   assignment(.arguments_of list(key_of(def) std::value_of(def)))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10004,7 +9961,7 @@ static void cont__compiler__sim2c_281(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_282(void) {
+static void entry__compiler__sim2c_281(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // def: 0
@@ -10013,7 +9970,7 @@ static void entry__compiler__sim2c_282(void) {
     invalid_arguments_error();
     return;
   }
-  // 397: writeln "_define " def
+  // 392: writeln "_define " def
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__7c84ae5484fdf7e0;
@@ -10031,7 +9988,7 @@ static void entry__compiler__sim2c_275(void) {
     invalid_arguments_error();
     return;
   }
-  // 391: def.is_a_key_value_pair
+  // 388: def.is_a_key_value_pair
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* def */;
@@ -10046,23 +10003,19 @@ static void cont__compiler__sim2c_276(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 391: ... :
-  // 392:   writeln
-  // 393:     assignment
-  // 394:       .output_arguments_of list(key_of(def))
-  // 395:       .arguments_of list(std::value_of(def))
+  // 388: ... :
+  // 389:   writeln
+  // 390:     assignment(.arguments_of list(key_of(def) std::value_of(def)))
   frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__sim2c_277, 0);
-  // 396: :
-  // 397:   writeln "_define " def
-  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__sim2c_282, 0);
-  // 390: if
-  // 391:   def.is_a_key_value_pair:
-  // 392:     writeln
-  // 393:       assignment
-  // 394:         .output_arguments_of list(key_of(def))
-  // 395:         .arguments_of list(std::value_of(def))
-  // 396:   :
-  // 397:     writeln "_define " def
+  // 391: :
+  // 392:   writeln "_define " def
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__sim2c_281, 0);
+  // 387: if
+  // 388:   def.is_a_key_value_pair:
+  // 389:     writeln
+  // 390:       assignment(.arguments_of list(key_of(def) std::value_of(def)))
+  // 391:   :
+  // 392:     writeln "_define " def
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10081,15 +10034,13 @@ static void entry__compiler__sim2c_274(void) {
     invalid_arguments_error();
     return;
   }
-  // 389: for_each defs: (def)
-  // 390:   if
-  // 391:     def.is_a_key_value_pair:
-  // 392:       writeln
-  // 393:         assignment
-  // 394:           .output_arguments_of list(key_of(def))
-  // 395:           .arguments_of list(std::value_of(def))
-  // 396:     :
-  // 397:       writeln "_define " def
+  // 386: for_each defs: (def)
+  // 387:   if
+  // 388:     def.is_a_key_value_pair:
+  // 389:       writeln
+  // 390:         assignment(.arguments_of list(key_of(def) std::value_of(def)))
+  // 391:     :
+  // 392:       writeln "_define " def
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* defs */;
@@ -10099,14 +10050,14 @@ static void entry__compiler__sim2c_274(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_284(void) {
+static void entry__compiler__sim2c_283(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 399: writeln
+  // 394: writeln
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -10114,22 +10065,22 @@ static void entry__compiler__sim2c_284(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_285(void) {
+static void cont__compiler__sim2c_284(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 400: for_each all_statements: (stmts) print_trees stmts
+  // 395: for_each all_statements: (stmts) print_trees stmts
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* all_statements */;
-  arguments->slots[1] = func__compiler__sim2c_286;
+  arguments->slots[1] = func__compiler__sim2c_285;
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_287;
+  frame->cont = cont__compiler__sim2c_286;
 }
-static void entry__compiler__sim2c_286(void) {
+static void entry__compiler__sim2c_285(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // stmts: 0
@@ -10137,7 +10088,7 @@ static void entry__compiler__sim2c_286(void) {
     invalid_arguments_error();
     return;
   }
-  // 400: ... print_trees stmts
+  // 395: ... print_trees stmts
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stmts */;
@@ -10146,12 +10097,12 @@ static void entry__compiler__sim2c_286(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_287(void) {
+static void cont__compiler__sim2c_286(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 401: terminate
+  // 396: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -10159,16 +10110,16 @@ static void cont__compiler__sim2c_287(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_288(void) {
+static void cont__compiler__sim2c_287(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 423: ... : (used_names)
-  // 424:   for_each used_names: (mangled_name info) need mangled_name info
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_289, 1);
-  // 423: for_each all_used_names: (used_names)
-  // 424:   for_each used_names: (mangled_name info) need mangled_name info
+  // 418: ... : (used_names)
+  // 419:   for_each used_names: (mangled_name info) need mangled_name info
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_288, 1);
+  // 418: for_each all_used_names: (used_names)
+  // 419:   for_each used_names: (mangled_name info) need mangled_name info
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[7])->contents /* all_used_names */;
@@ -10176,9 +10127,9 @@ static void cont__compiler__sim2c_288(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_291;
+  frame->cont = cont__compiler__sim2c_290;
 }
-static void entry__compiler__sim2c_290(void) {
+static void entry__compiler__sim2c_289(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // mangled_name: 0
@@ -10189,7 +10140,7 @@ static void entry__compiler__sim2c_290(void) {
     invalid_arguments_error();
     return;
   }
-  // 424: ... need mangled_name info
+  // 419: ... need mangled_name info
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* mangled_name */;
@@ -10199,7 +10150,7 @@ static void entry__compiler__sim2c_290(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_289(void) {
+static void entry__compiler__sim2c_288(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // used_names: 0
@@ -10209,9 +10160,9 @@ static void entry__compiler__sim2c_289(void) {
     invalid_arguments_error();
     return;
   }
-  // 424: ... : (mangled_name info) need mangled_name info
-  frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__sim2c_290, 2);
-  // 424: for_each used_names: (mangled_name info) need mangled_name info
+  // 419: ... : (mangled_name info) need mangled_name info
+  frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__sim2c_289, 2);
+  // 419: for_each used_names: (mangled_name info) need mangled_name info
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* used_names */;
@@ -10221,14 +10172,14 @@ static void entry__compiler__sim2c_289(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_291(void) {
+static void cont__compiler__sim2c_290(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 425: ... : write_timing_info "mangling" filenames(1)
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_292, 0);
-  // 425: if do_time_passes: write_timing_info "mangling" filenames(1)
+  // 420: ... : write_timing_info "mangling" filenames(1)
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_291, 0);
+  // 420: if do_time_passes: write_timing_info "mangling" filenames(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -10236,9 +10187,9 @@ static void cont__compiler__sim2c_291(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_295;
+  frame->cont = cont__compiler__sim2c_294;
 }
-static void entry__compiler__sim2c_292(void) {
+static void entry__compiler__sim2c_291(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // filenames: 0
@@ -10247,22 +10198,22 @@ static void entry__compiler__sim2c_292(void) {
     invalid_arguments_error();
     return;
   }
-  // 425: ... filenames(1)
+  // 420: ... filenames(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
   result_count = 1;
   myself = frame->slots[0] /* filenames */;
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_293;
+  frame->cont = cont__compiler__sim2c_292;
 }
-static void cont__compiler__sim2c_293(void) {
+static void cont__compiler__sim2c_292(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 425: ... write_timing_info "mangling" filenames(1)
+  // 420: ... write_timing_info "mangling" filenames(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__7690af9104a5e1e7;
@@ -10272,12 +10223,12 @@ static void cont__compiler__sim2c_293(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_295(void) {
+static void cont__compiler__sim2c_294(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 426: if do_check_only terminate
+  // 421: if do_check_only terminate
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_check_only();
@@ -10285,195 +10236,239 @@ static void cont__compiler__sim2c_295(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_296;
+  frame->cont = cont__compiler__sim2c_295;
 }
-static void cont__compiler__sim2c_296(void) {
+static void cont__compiler__sim2c_295(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 427: $$generated_declarations ""
+  // 422: $$generated_declarations ""
   ((CELL *)frame->slots[14])->contents /* generated_declarations */ = empty_string;
-  // 428: $$generated_top_level_variable_names ""
+  // 423: $$generated_top_level_variable_names ""
   ((CELL *)frame->slots[15])->contents /* generated_top_level_variable_names */ = empty_string;
-  // 429: $$generated_top_level_variable_declarations ""
+  // 424: $$generated_top_level_variable_declarations ""
   ((CELL *)frame->slots[16])->contents /* generated_top_level_variable_declarations */ = empty_string;
-  // 430: $$generated_global_variable_declarations ""
+  // 425: $$generated_global_variable_declarations ""
   ((CELL *)frame->slots[17])->contents /* generated_global_variable_declarations */ = empty_string;
-  // 431: $$generated_continuation_table ""
+  // 426: $$generated_continuation_table ""
   ((CELL *)frame->slots[18])->contents /* generated_continuation_table */ = empty_string;
-  // 432: $$generated_delayed_continuation_table ""
+  // 427: $$generated_delayed_continuation_table ""
   ((CELL *)frame->slots[19])->contents /* generated_delayed_continuation_table */ = empty_string;
-  // 433: $$generated_functions ""
+  // 428: $$generated_functions ""
   ((CELL *)frame->slots[20])->contents /* generated_functions */ = empty_string;
-  // 434: $$generated_phase_1 ""
+  // 430: $$generated_phase_1 ""
+  // 431:   #
+  // 432:     register module information
+  // 433:     define polymorphic functions
+  // 434:     define privileged polymorphic functions (with short access paths)
+  // 435:     define C functions
+  // 436:     register (use) polymorphic functions
   ((CELL *)frame->slots[21])->contents /* generated_phase_1 */ = empty_string;
-  // 441: $$generated_phase_2 ""
+  // 438: $$generated_phase_2 ""
+  // 439:   #
+  // 440:     define non-garbage-collected objects:
+  // 441:       numeric literals
+  // 442:       character literals
+  // 443:       function literals
+  // 444:       inline-C functions
   ((CELL *)frame->slots[22])->contents /* generated_phase_2 */ = empty_string;
-  // 448: $$generated_phase_3 ""
+  // 446: $$generated_phase_3 ""
+  // 447:   #
+  // 448:     reassign memory pool to save literals from garbage collection
+  // 449:     create futures
+  // 450:     create futures with prototypes
+  // 451:     define garbage-collectec objects:
+  // 452:       string literals
+  // 453:       single-assign static variables
+  // 454:       multi-assign static variables
+  // 455:       single-assign dynamic variables
+  // ...
   ((CELL *)frame->slots[23])->contents /* generated_phase_3 */ = empty_string;
-  // 459: $$generated_phase_4 ""
+  // 458: $$generated_phase_4 ""
+  // 459:   #
+  // 460:     define attributes
+  // 461:     define methods
+  // 462:     define type functions
+  // 463:     
+  // 464:     attributes and methods are not directly added to the type-objects, but to
+  // 465:     the symbol tree
+  // 466:     
+  // 467:     at the end of phase 3 <resolve attributes> is called and for every object
+  // ...
   ((CELL *)frame->slots[24])->contents /* generated_phase_4 */ = empty_string;
   // 477: $$generated_phase_5 ""
+  // 478:   #
+  // 479:     create functions
+  // 480:     define constants
+  // 481:     assign values # inherit attributes
+  // 482:     assign variables
+  // 483:     initialize futures
+  // 484:     maybe initialize futures
+  // 485:     
+  // 486:     <assign_value> is responsible for attribute and method inheritance
+  // ...
   ((CELL *)frame->slots[25])->contents /* generated_phase_5 */ = empty_string;
-  // 492: $$generated_phase_6 ""
+  // 493: $$generated_phase_6 ""
+  // 494:   #
+  // 495:     assign values
   ((CELL *)frame->slots[26])->contents /* generated_phase_6 */ = empty_string;
-  // 495: $$generated_code ""
+  // 497: $$generated_code ""
   ((CELL *)frame->slots[27])->contents /* generated_code */ = empty_string;
-  // 496: $$generated_collections ""
+  // 498: $$generated_collections ""
   ((CELL *)frame->slots[28])->contents /* generated_collections */ = empty_string;
-  // 497: $$delayed_statements ""
+  // 499: $$delayed_statements ""
   ((CELL *)frame->slots[29])->contents /* delayed_statements */ = empty_string;
-  // 498: $$used_literals empty_table
+  // 500: $$used_literals empty_table
   ((CELL *)frame->slots[30])->contents /* used_literals */ = get__empty_table();
-  // 499: %%used_string_literals empty_table
+  // 501: %%used_string_literals empty_table
   set__used_string_literals(get__empty_table());
-  // 501: ... : (args*)
-  // 502:   $txt string(args*)
-  // 503:   push &actions: append &generated_declarations txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_297, -1);
-  // 501: %compiler::write_to_declarations: (args*)
-  // 502:   $txt string(args*)
-  // 503:   push &actions: append &generated_declarations txt
+  // 503: ... : (args*)
+  // 504:   $txt string(args*)
+  // 505:   push &actions: append &generated_declarations txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_296, -1);
+  // 503: %compiler::write_to_declarations: (args*)
+  // 504:   $txt string(args*)
+  // 505:   push &actions: append &generated_declarations txt
   initialize_future(get__compiler__write_to_declarations(), frame->slots[33] /* temp__1 */);
-  // 505: ... : (args*)
-  // 506:   $txt string(args*)
-  // 507:   push &actions: append &generated_top_level_variable_names txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_302, -1);
-  // 505: %compiler::write_to_top_level_variable_names: (args*)
-  // 506:   $txt string(args*)
-  // 507:   push &actions: append &generated_top_level_variable_names txt
+  // 507: ... : (args*)
+  // 508:   $txt string(args*)
+  // 509:   push &actions: append &generated_top_level_variable_names txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_301, -1);
+  // 507: %compiler::write_to_top_level_variable_names: (args*)
+  // 508:   $txt string(args*)
+  // 509:   push &actions: append &generated_top_level_variable_names txt
   initialize_future(get__compiler__write_to_top_level_variable_names(), frame->slots[33] /* temp__1 */);
-  // 509: ... : (args*)
-  // 510:   $txt string(args*)
-  // 511:   push &actions: append &generated_top_level_variable_declarations txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_307, -1);
-  // 509: %compiler::write_to_top_level_variable_declarations: (args*)
-  // 510:   $txt string(args*)
-  // 511:   push &actions: append &generated_top_level_variable_declarations txt
+  // 511: ... : (args*)
+  // 512:   $txt string(args*)
+  // 513:   push &actions: append &generated_top_level_variable_declarations txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_306, -1);
+  // 511: %compiler::write_to_top_level_variable_declarations: (args*)
+  // 512:   $txt string(args*)
+  // 513:   push &actions: append &generated_top_level_variable_declarations txt
   initialize_future(get__compiler__write_to_top_level_variable_declarations(), frame->slots[33] /* temp__1 */);
-  // 513: ... : (args*)
-  // 514:   $txt string(args*)
-  // 515:   push &actions: append &generated_global_variable_declarations txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_312, -1);
-  // 513: %compiler::write_to_global_variable_declarations: (args*)
-  // 514:   $txt string(args*)
-  // 515:   push &actions: append &generated_global_variable_declarations txt
+  // 515: ... : (args*)
+  // 516:   $txt string(args*)
+  // 517:   push &actions: append &generated_global_variable_declarations txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_311, -1);
+  // 515: %compiler::write_to_global_variable_declarations: (args*)
+  // 516:   $txt string(args*)
+  // 517:   push &actions: append &generated_global_variable_declarations txt
   initialize_future(get__compiler__write_to_global_variable_declarations(), frame->slots[33] /* temp__1 */);
-  // 517: ... : (args*)
-  // 518:   $txt string(args*)
-  // 519:   push &actions: append &generated_continuation_table txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_317, -1);
-  // 517: %compiler::write_to_continuation_table: (args*)
-  // 518:   $txt string(args*)
-  // 519:   push &actions: append &generated_continuation_table txt
+  // 519: ... : (args*)
+  // 520:   $txt string(args*)
+  // 521:   push &actions: append &generated_continuation_table txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_316, -1);
+  // 519: %compiler::write_to_continuation_table: (args*)
+  // 520:   $txt string(args*)
+  // 521:   push &actions: append &generated_continuation_table txt
   initialize_future(get__compiler__write_to_continuation_table(), frame->slots[33] /* temp__1 */);
-  // 521: ... : (args*)
-  // 522:   $txt string(args*)
-  // 523:   push &actions: append &generated_delayed_continuation_table txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_322, -1);
-  // 521: %compiler::write_to_delayed_continuation_table: (args*)
-  // 522:   $txt string(args*)
-  // 523:   push &actions: append &generated_delayed_continuation_table txt
+  // 523: ... : (args*)
+  // 524:   $txt string(args*)
+  // 525:   push &actions: append &generated_delayed_continuation_table txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_321, -1);
+  // 523: %compiler::write_to_delayed_continuation_table: (args*)
+  // 524:   $txt string(args*)
+  // 525:   push &actions: append &generated_delayed_continuation_table txt
   initialize_future(get__compiler__write_to_delayed_continuation_table(), frame->slots[33] /* temp__1 */);
-  // 525: ... : (args*)
-  // 526:   $txt string(args*)
-  // 527:   push &actions: append &generated_functions txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_327, -1);
-  // 525: %compiler::write_to_functions: (args*)
-  // 526:   $txt string(args*)
-  // 527:   push &actions: append &generated_functions txt
+  // 527: ... : (args*)
+  // 528:   $txt string(args*)
+  // 529:   push &actions: append &generated_functions txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_326, -1);
+  // 527: %compiler::write_to_functions: (args*)
+  // 528:   $txt string(args*)
+  // 529:   push &actions: append &generated_functions txt
   initialize_future(get__compiler__write_to_functions(), frame->slots[33] /* temp__1 */);
-  // 529: ... : (args*)
-  // 530:   $txt string(args*)
-  // 531:   push &actions: append &generated_phase_1 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_332, -1);
-  // 529: %compiler::write_to_phase_1: (args*)
-  // 530:   $txt string(args*)
-  // 531:   push &actions: append &generated_phase_1 txt
+  // 531: ... : (args*)
+  // 532:   $txt string(args*)
+  // 533:   push &actions: append &generated_phase_1 txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_331, -1);
+  // 531: %compiler::write_to_phase_1: (args*)
+  // 532:   $txt string(args*)
+  // 533:   push &actions: append &generated_phase_1 txt
   initialize_future(get__compiler__write_to_phase_1(), frame->slots[33] /* temp__1 */);
-  // 533: ... : (args*)
-  // 534:   $txt string(args*)
-  // 535:   push &actions: append &generated_phase_2 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_337, -1);
-  // 533: %compiler::write_to_phase_2: (args*)
-  // 534:   $txt string(args*)
-  // 535:   push &actions: append &generated_phase_2 txt
+  // 535: ... : (args*)
+  // 536:   $txt string(args*)
+  // 537:   push &actions: append &generated_phase_2 txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_336, -1);
+  // 535: %compiler::write_to_phase_2: (args*)
+  // 536:   $txt string(args*)
+  // 537:   push &actions: append &generated_phase_2 txt
   initialize_future(get__compiler__write_to_phase_2(), frame->slots[33] /* temp__1 */);
-  // 537: ... : (args*)
-  // 538:   $txt string(args*)
-  // 539:   push &actions: append &generated_phase_3 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_342, -1);
-  // 537: %compiler::write_to_phase_3: (args*)
-  // 538:   $txt string(args*)
-  // 539:   push &actions: append &generated_phase_3 txt
+  // 539: ... : (args*)
+  // 540:   $txt string(args*)
+  // 541:   push &actions: append &generated_phase_3 txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_341, -1);
+  // 539: %compiler::write_to_phase_3: (args*)
+  // 540:   $txt string(args*)
+  // 541:   push &actions: append &generated_phase_3 txt
   initialize_future(get__compiler__write_to_phase_3(), frame->slots[33] /* temp__1 */);
-  // 541: ... : (args*)
-  // 542:   $txt string(args*)
-  // 543:   push &actions: append &generated_phase_4 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_347, -1);
-  // 541: %compiler::write_to_phase_4: (args*)
-  // 542:   $txt string(args*)
-  // 543:   push &actions: append &generated_phase_4 txt
+  // 543: ... : (args*)
+  // 544:   $txt string(args*)
+  // 545:   push &actions: append &generated_phase_4 txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_346, -1);
+  // 543: %compiler::write_to_phase_4: (args*)
+  // 544:   $txt string(args*)
+  // 545:   push &actions: append &generated_phase_4 txt
   initialize_future(get__compiler__write_to_phase_4(), frame->slots[33] /* temp__1 */);
-  // 545: ... : (args*)
-  // 546:   $txt string(args*)
-  // 547:   push &actions: append &generated_phase_5 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_352, -1);
-  // 545: %compiler::write_to_phase_5: (args*)
-  // 546:   $txt string(args*)
-  // 547:   push &actions: append &generated_phase_5 txt
+  // 547: ... : (args*)
+  // 548:   $txt string(args*)
+  // 549:   push &actions: append &generated_phase_5 txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_351, -1);
+  // 547: %compiler::write_to_phase_5: (args*)
+  // 548:   $txt string(args*)
+  // 549:   push &actions: append &generated_phase_5 txt
   initialize_future(get__compiler__write_to_phase_5(), frame->slots[33] /* temp__1 */);
-  // 549: ... : (args*)
-  // 550:   $txt string(args*)
-  // 551:   push &actions: append &generated_phase_6 txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_357, -1);
-  // 549: %compiler::write_to_phase_6: (args*)
-  // 550:   $txt string(args*)
-  // 551:   push &actions: append &generated_phase_6 txt
+  // 551: ... : (args*)
+  // 552:   $txt string(args*)
+  // 553:   push &actions: append &generated_phase_6 txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_356, -1);
+  // 551: %compiler::write_to_phase_6: (args*)
+  // 552:   $txt string(args*)
+  // 553:   push &actions: append &generated_phase_6 txt
   initialize_future(get__compiler__write_to_phase_6(), frame->slots[33] /* temp__1 */);
-  // 553: ... : (name literal)
-  // 554:   push &actions: !used_literals(name) literal
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_362, 2);
-  // 553: %compiler::use_literal: (name literal)
-  // 554:   push &actions: !used_literals(name) literal
+  // 555: ... : (name literal)
+  // 556:   push &actions: !used_literals(name) literal
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_361, 2);
+  // 555: %compiler::use_literal: (name literal)
+  // 556:   push &actions: !used_literals(name) literal
   initialize_future(get__compiler__use_literal(), frame->slots[33] /* temp__1 */);
-  // 556: ... : (args*)
-  // 557:   $txt string(args*)
-  // 558:   push &actions: append &generated_collections txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_366, -1);
-  // 556: %compiler::write_to_generated_collections: (args*)
-  // 557:   $txt string(args*)
-  // 558:   push &actions: append &generated_collections txt
+  // 558: ... : (args*)
+  // 559:   $txt string(args*)
+  // 560:   push &actions: append &generated_collections txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_365, -1);
+  // 558: %compiler::write_to_generated_collections: (args*)
+  // 559:   $txt string(args*)
+  // 560:   push &actions: append &generated_collections txt
   initialize_future(get__compiler__write_to_generated_collections(), frame->slots[33] /* temp__1 */);
-  // 560: ... : (args*)
-  // 561:   $txt string(args*)
-  // 562:   push &actions: append &delayed_statements txt
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_371, -1);
-  // 560: %compiler::write_to_delayed_statements: (args*)
-  // 561:   $txt string(args*)
-  // 562:   push &actions: append &delayed_statements txt
+  // 562: ... : (args*)
+  // 563:   $txt string(args*)
+  // 564:   push &actions: append &delayed_statements txt
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_370, -1);
+  // 562: %compiler::write_to_delayed_statements: (args*)
+  // 563:   $txt string(args*)
+  // 564:   push &actions: append &delayed_statements txt
   initialize_future(get__compiler__write_to_delayed_statements(), frame->slots[33] /* temp__1 */);
-  // 564: ... : (ident)
-  // 565:   if ident .has_prefix. "get__":
-  // 566:     $name range(ident 6 -1)
-  // 567:     need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_376, 1);
-  // 564: %compiler::use_identifier: (ident)
-  // 565:   if ident .has_prefix. "get__":
-  // 566:     $name range(ident 6 -1)
-  // 567:     need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
+  // 566: ... : (ident)
+  // 567:   if ident .has_prefix. "get__":
+  // 568:     $name range(ident 6 -1)
+  // 569:     need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_375, 1);
+  // 566: %compiler::use_identifier: (ident)
+  // 567:   if ident .has_prefix. "get__":
+  // 568:     $name range(ident 6 -1)
+  // 569:     need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
   initialize_future(get__compiler__use_identifier(), frame->slots[33] /* temp__1 */);
-  // 569: show_compiler_debug_info "GENERATE DEFINITIONS"
+  // 571: show_compiler_debug_info "GENERATE DEFINITIONS"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__c44673b4643f1172;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_383;
+  frame->cont = cont__compiler__sim2c_382;
 }
-static void entry__compiler__sim2c_379(void) {
+static void entry__compiler__sim2c_378(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // ident: 0
@@ -10486,22 +10481,22 @@ static void entry__compiler__sim2c_379(void) {
     invalid_arguments_error();
     return;
   }
-  // 566: ... 1
+  // 568: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_380;
+  frame->cont = cont__compiler__sim2c_379;
 }
-static void cont__compiler__sim2c_380(void) {
+static void cont__compiler__sim2c_379(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 566: $name range(ident 6 -1)
+  // 568: $name range(ident 6 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* ident */;
@@ -10510,15 +10505,15 @@ static void cont__compiler__sim2c_380(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_381;
+  frame->cont = cont__compiler__sim2c_380;
 }
-static void cont__compiler__sim2c_381(void) {
+static void cont__compiler__sim2c_380(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* name */, arguments->slots[0]);
-  // 567: ... types::grammar_node(.variable_kind_of STATIC_SINGLE)
+  // 569: ... types::grammar_node(.variable_kind_of STATIC_SINGLE)
   {
     NODE *temp = clone_object_and_attributes(get__types__grammar_node());
     update_start_p = node_p;
@@ -10526,7 +10521,7 @@ static void cont__compiler__sim2c_381(void) {
     frame->slots[3] /* temp__1 */ = temp;
 
   }
-  // 567: need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
+  // 569: need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* name */;
@@ -10536,7 +10531,7 @@ static void cont__compiler__sim2c_381(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_297(void) {
+static void entry__compiler__sim2c_296(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10546,24 +10541,24 @@ static void entry__compiler__sim2c_297(void) {
   frame->slots[1] = myself->closure.frame->slots[14]; /* generated_declarations */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 502: $txt string(args*)
+  // 504: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_298;
+  frame->cont = cont__compiler__sim2c_297;
 }
-static void cont__compiler__sim2c_298(void) {
+static void cont__compiler__sim2c_297(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 503: ... : append &generated_declarations txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_299, 0);
-  // 503: push &actions: append &generated_declarations txt
+  // 505: ... : append &generated_declarations txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_298, 0);
+  // 505: push &actions: append &generated_declarations txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10571,9 +10566,9 @@ static void cont__compiler__sim2c_298(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_301;
+  frame->cont = cont__compiler__sim2c_300;
 }
-static void entry__compiler__sim2c_299(void) {
+static void entry__compiler__sim2c_298(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_declarations: 0
@@ -10584,7 +10579,7 @@ static void entry__compiler__sim2c_299(void) {
     invalid_arguments_error();
     return;
   }
-  // 503: ... append &generated_declarations txt
+  // 505: ... append &generated_declarations txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_declarations */;
@@ -10592,9 +10587,9 @@ static void entry__compiler__sim2c_299(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_300;
+  frame->cont = cont__compiler__sim2c_299;
 }
-static void cont__compiler__sim2c_300(void) {
+static void cont__compiler__sim2c_299(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10606,7 +10601,7 @@ static void cont__compiler__sim2c_300(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_301(void) {
+static void cont__compiler__sim2c_300(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10618,7 +10613,7 @@ static void cont__compiler__sim2c_301(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_302(void) {
+static void entry__compiler__sim2c_301(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10628,24 +10623,24 @@ static void entry__compiler__sim2c_302(void) {
   frame->slots[1] = myself->closure.frame->slots[15]; /* generated_top_level_variable_names */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 506: $txt string(args*)
+  // 508: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_303;
+  frame->cont = cont__compiler__sim2c_302;
 }
-static void cont__compiler__sim2c_303(void) {
+static void cont__compiler__sim2c_302(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 507: ... : append &generated_top_level_variable_names txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_304, 0);
-  // 507: push &actions: append &generated_top_level_variable_names txt
+  // 509: ... : append &generated_top_level_variable_names txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_303, 0);
+  // 509: push &actions: append &generated_top_level_variable_names txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10653,9 +10648,9 @@ static void cont__compiler__sim2c_303(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_306;
+  frame->cont = cont__compiler__sim2c_305;
 }
-static void entry__compiler__sim2c_304(void) {
+static void entry__compiler__sim2c_303(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_top_level_variable_names: 0
@@ -10666,7 +10661,7 @@ static void entry__compiler__sim2c_304(void) {
     invalid_arguments_error();
     return;
   }
-  // 507: ... append &generated_top_level_variable_names txt
+  // 509: ... append &generated_top_level_variable_names txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_top_level_variable_names */;
@@ -10674,9 +10669,9 @@ static void entry__compiler__sim2c_304(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_305;
+  frame->cont = cont__compiler__sim2c_304;
 }
-static void cont__compiler__sim2c_305(void) {
+static void cont__compiler__sim2c_304(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10688,7 +10683,7 @@ static void cont__compiler__sim2c_305(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_306(void) {
+static void cont__compiler__sim2c_305(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10700,7 +10695,7 @@ static void cont__compiler__sim2c_306(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_307(void) {
+static void entry__compiler__sim2c_306(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10710,24 +10705,24 @@ static void entry__compiler__sim2c_307(void) {
   frame->slots[1] = myself->closure.frame->slots[16]; /* generated_top_level_variable_declarations */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 510: $txt string(args*)
+  // 512: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_308;
+  frame->cont = cont__compiler__sim2c_307;
 }
-static void cont__compiler__sim2c_308(void) {
+static void cont__compiler__sim2c_307(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 511: ... : append &generated_top_level_variable_declarations txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_309, 0);
-  // 511: push &actions: append &generated_top_level_variable_declarations txt
+  // 513: ... : append &generated_top_level_variable_declarations txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_308, 0);
+  // 513: push &actions: append &generated_top_level_variable_declarations txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10735,9 +10730,9 @@ static void cont__compiler__sim2c_308(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_311;
+  frame->cont = cont__compiler__sim2c_310;
 }
-static void entry__compiler__sim2c_309(void) {
+static void entry__compiler__sim2c_308(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_top_level_variable_declarations: 0
@@ -10748,7 +10743,7 @@ static void entry__compiler__sim2c_309(void) {
     invalid_arguments_error();
     return;
   }
-  // 511: ... append &generated_top_level_variable_declarations txt
+  // 513: ... append &generated_top_level_variable_declarations txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_top_level_variable_declarations */;
@@ -10756,9 +10751,9 @@ static void entry__compiler__sim2c_309(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_310;
+  frame->cont = cont__compiler__sim2c_309;
 }
-static void cont__compiler__sim2c_310(void) {
+static void cont__compiler__sim2c_309(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10770,7 +10765,7 @@ static void cont__compiler__sim2c_310(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_311(void) {
+static void cont__compiler__sim2c_310(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10782,7 +10777,7 @@ static void cont__compiler__sim2c_311(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_312(void) {
+static void entry__compiler__sim2c_311(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10792,24 +10787,24 @@ static void entry__compiler__sim2c_312(void) {
   frame->slots[1] = myself->closure.frame->slots[17]; /* generated_global_variable_declarations */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 514: $txt string(args*)
+  // 516: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_313;
+  frame->cont = cont__compiler__sim2c_312;
 }
-static void cont__compiler__sim2c_313(void) {
+static void cont__compiler__sim2c_312(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 515: ... : append &generated_global_variable_declarations txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_314, 0);
-  // 515: push &actions: append &generated_global_variable_declarations txt
+  // 517: ... : append &generated_global_variable_declarations txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_313, 0);
+  // 517: push &actions: append &generated_global_variable_declarations txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10817,9 +10812,9 @@ static void cont__compiler__sim2c_313(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_316;
+  frame->cont = cont__compiler__sim2c_315;
 }
-static void entry__compiler__sim2c_314(void) {
+static void entry__compiler__sim2c_313(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_global_variable_declarations: 0
@@ -10830,7 +10825,7 @@ static void entry__compiler__sim2c_314(void) {
     invalid_arguments_error();
     return;
   }
-  // 515: ... append &generated_global_variable_declarations txt
+  // 517: ... append &generated_global_variable_declarations txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_global_variable_declarations */;
@@ -10838,9 +10833,9 @@ static void entry__compiler__sim2c_314(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_315;
+  frame->cont = cont__compiler__sim2c_314;
 }
-static void cont__compiler__sim2c_315(void) {
+static void cont__compiler__sim2c_314(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10852,7 +10847,7 @@ static void cont__compiler__sim2c_315(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_316(void) {
+static void cont__compiler__sim2c_315(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10864,7 +10859,7 @@ static void cont__compiler__sim2c_316(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_317(void) {
+static void entry__compiler__sim2c_316(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10874,24 +10869,24 @@ static void entry__compiler__sim2c_317(void) {
   frame->slots[1] = myself->closure.frame->slots[18]; /* generated_continuation_table */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 518: $txt string(args*)
+  // 520: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_318;
+  frame->cont = cont__compiler__sim2c_317;
 }
-static void cont__compiler__sim2c_318(void) {
+static void cont__compiler__sim2c_317(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 519: ... : append &generated_continuation_table txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_319, 0);
-  // 519: push &actions: append &generated_continuation_table txt
+  // 521: ... : append &generated_continuation_table txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_318, 0);
+  // 521: push &actions: append &generated_continuation_table txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10899,9 +10894,9 @@ static void cont__compiler__sim2c_318(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_321;
+  frame->cont = cont__compiler__sim2c_320;
 }
-static void entry__compiler__sim2c_319(void) {
+static void entry__compiler__sim2c_318(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_continuation_table: 0
@@ -10912,7 +10907,7 @@ static void entry__compiler__sim2c_319(void) {
     invalid_arguments_error();
     return;
   }
-  // 519: ... append &generated_continuation_table txt
+  // 521: ... append &generated_continuation_table txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_continuation_table */;
@@ -10920,9 +10915,9 @@ static void entry__compiler__sim2c_319(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_320;
+  frame->cont = cont__compiler__sim2c_319;
 }
-static void cont__compiler__sim2c_320(void) {
+static void cont__compiler__sim2c_319(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10934,7 +10929,7 @@ static void cont__compiler__sim2c_320(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_321(void) {
+static void cont__compiler__sim2c_320(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10946,7 +10941,7 @@ static void cont__compiler__sim2c_321(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_322(void) {
+static void entry__compiler__sim2c_321(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -10956,24 +10951,24 @@ static void entry__compiler__sim2c_322(void) {
   frame->slots[1] = myself->closure.frame->slots[19]; /* generated_delayed_continuation_table */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 522: $txt string(args*)
+  // 524: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_323;
+  frame->cont = cont__compiler__sim2c_322;
 }
-static void cont__compiler__sim2c_323(void) {
+static void cont__compiler__sim2c_322(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 523: ... : append &generated_delayed_continuation_table txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_324, 0);
-  // 523: push &actions: append &generated_delayed_continuation_table txt
+  // 525: ... : append &generated_delayed_continuation_table txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_323, 0);
+  // 525: push &actions: append &generated_delayed_continuation_table txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10981,9 +10976,9 @@ static void cont__compiler__sim2c_323(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_326;
+  frame->cont = cont__compiler__sim2c_325;
 }
-static void entry__compiler__sim2c_324(void) {
+static void entry__compiler__sim2c_323(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_delayed_continuation_table: 0
@@ -10994,7 +10989,7 @@ static void entry__compiler__sim2c_324(void) {
     invalid_arguments_error();
     return;
   }
-  // 523: ... append &generated_delayed_continuation_table txt
+  // 525: ... append &generated_delayed_continuation_table txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_delayed_continuation_table */;
@@ -11002,9 +10997,9 @@ static void entry__compiler__sim2c_324(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_325;
+  frame->cont = cont__compiler__sim2c_324;
 }
-static void cont__compiler__sim2c_325(void) {
+static void cont__compiler__sim2c_324(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11016,7 +11011,7 @@ static void cont__compiler__sim2c_325(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_326(void) {
+static void cont__compiler__sim2c_325(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11028,7 +11023,7 @@ static void cont__compiler__sim2c_326(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_327(void) {
+static void entry__compiler__sim2c_326(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11038,24 +11033,24 @@ static void entry__compiler__sim2c_327(void) {
   frame->slots[1] = myself->closure.frame->slots[20]; /* generated_functions */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 526: $txt string(args*)
+  // 528: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_328;
+  frame->cont = cont__compiler__sim2c_327;
 }
-static void cont__compiler__sim2c_328(void) {
+static void cont__compiler__sim2c_327(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 527: ... : append &generated_functions txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_329, 0);
-  // 527: push &actions: append &generated_functions txt
+  // 529: ... : append &generated_functions txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_328, 0);
+  // 529: push &actions: append &generated_functions txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11063,9 +11058,9 @@ static void cont__compiler__sim2c_328(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_331;
+  frame->cont = cont__compiler__sim2c_330;
 }
-static void entry__compiler__sim2c_329(void) {
+static void entry__compiler__sim2c_328(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_functions: 0
@@ -11076,7 +11071,7 @@ static void entry__compiler__sim2c_329(void) {
     invalid_arguments_error();
     return;
   }
-  // 527: ... append &generated_functions txt
+  // 529: ... append &generated_functions txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_functions */;
@@ -11084,9 +11079,9 @@ static void entry__compiler__sim2c_329(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_330;
+  frame->cont = cont__compiler__sim2c_329;
 }
-static void cont__compiler__sim2c_330(void) {
+static void cont__compiler__sim2c_329(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11098,7 +11093,7 @@ static void cont__compiler__sim2c_330(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_331(void) {
+static void cont__compiler__sim2c_330(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11110,7 +11105,7 @@ static void cont__compiler__sim2c_331(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_332(void) {
+static void entry__compiler__sim2c_331(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11120,24 +11115,24 @@ static void entry__compiler__sim2c_332(void) {
   frame->slots[1] = myself->closure.frame->slots[21]; /* generated_phase_1 */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 530: $txt string(args*)
+  // 532: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_333;
+  frame->cont = cont__compiler__sim2c_332;
 }
-static void cont__compiler__sim2c_333(void) {
+static void cont__compiler__sim2c_332(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 531: ... : append &generated_phase_1 txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_334, 0);
-  // 531: push &actions: append &generated_phase_1 txt
+  // 533: ... : append &generated_phase_1 txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_333, 0);
+  // 533: push &actions: append &generated_phase_1 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11145,9 +11140,9 @@ static void cont__compiler__sim2c_333(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_336;
+  frame->cont = cont__compiler__sim2c_335;
 }
-static void entry__compiler__sim2c_334(void) {
+static void entry__compiler__sim2c_333(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_phase_1: 0
@@ -11158,7 +11153,7 @@ static void entry__compiler__sim2c_334(void) {
     invalid_arguments_error();
     return;
   }
-  // 531: ... append &generated_phase_1 txt
+  // 533: ... append &generated_phase_1 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_phase_1 */;
@@ -11166,9 +11161,9 @@ static void entry__compiler__sim2c_334(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_335;
+  frame->cont = cont__compiler__sim2c_334;
 }
-static void cont__compiler__sim2c_335(void) {
+static void cont__compiler__sim2c_334(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11180,7 +11175,7 @@ static void cont__compiler__sim2c_335(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_336(void) {
+static void cont__compiler__sim2c_335(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11192,7 +11187,7 @@ static void cont__compiler__sim2c_336(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_337(void) {
+static void entry__compiler__sim2c_336(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11202,24 +11197,24 @@ static void entry__compiler__sim2c_337(void) {
   frame->slots[1] = myself->closure.frame->slots[22]; /* generated_phase_2 */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 534: $txt string(args*)
+  // 536: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_338;
+  frame->cont = cont__compiler__sim2c_337;
 }
-static void cont__compiler__sim2c_338(void) {
+static void cont__compiler__sim2c_337(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 535: ... : append &generated_phase_2 txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_339, 0);
-  // 535: push &actions: append &generated_phase_2 txt
+  // 537: ... : append &generated_phase_2 txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_338, 0);
+  // 537: push &actions: append &generated_phase_2 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11227,9 +11222,9 @@ static void cont__compiler__sim2c_338(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_341;
+  frame->cont = cont__compiler__sim2c_340;
 }
-static void entry__compiler__sim2c_339(void) {
+static void entry__compiler__sim2c_338(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_phase_2: 0
@@ -11240,7 +11235,7 @@ static void entry__compiler__sim2c_339(void) {
     invalid_arguments_error();
     return;
   }
-  // 535: ... append &generated_phase_2 txt
+  // 537: ... append &generated_phase_2 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_phase_2 */;
@@ -11248,9 +11243,9 @@ static void entry__compiler__sim2c_339(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_340;
+  frame->cont = cont__compiler__sim2c_339;
 }
-static void cont__compiler__sim2c_340(void) {
+static void cont__compiler__sim2c_339(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11262,7 +11257,7 @@ static void cont__compiler__sim2c_340(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_341(void) {
+static void cont__compiler__sim2c_340(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11274,7 +11269,7 @@ static void cont__compiler__sim2c_341(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_342(void) {
+static void entry__compiler__sim2c_341(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11284,24 +11279,24 @@ static void entry__compiler__sim2c_342(void) {
   frame->slots[1] = myself->closure.frame->slots[23]; /* generated_phase_3 */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 538: $txt string(args*)
+  // 540: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_343;
+  frame->cont = cont__compiler__sim2c_342;
 }
-static void cont__compiler__sim2c_343(void) {
+static void cont__compiler__sim2c_342(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 539: ... : append &generated_phase_3 txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_344, 0);
-  // 539: push &actions: append &generated_phase_3 txt
+  // 541: ... : append &generated_phase_3 txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_343, 0);
+  // 541: push &actions: append &generated_phase_3 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11309,9 +11304,9 @@ static void cont__compiler__sim2c_343(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_346;
+  frame->cont = cont__compiler__sim2c_345;
 }
-static void entry__compiler__sim2c_344(void) {
+static void entry__compiler__sim2c_343(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_phase_3: 0
@@ -11322,7 +11317,7 @@ static void entry__compiler__sim2c_344(void) {
     invalid_arguments_error();
     return;
   }
-  // 539: ... append &generated_phase_3 txt
+  // 541: ... append &generated_phase_3 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_phase_3 */;
@@ -11330,9 +11325,9 @@ static void entry__compiler__sim2c_344(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_345;
+  frame->cont = cont__compiler__sim2c_344;
 }
-static void cont__compiler__sim2c_345(void) {
+static void cont__compiler__sim2c_344(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11344,7 +11339,7 @@ static void cont__compiler__sim2c_345(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_346(void) {
+static void cont__compiler__sim2c_345(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11356,7 +11351,7 @@ static void cont__compiler__sim2c_346(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_347(void) {
+static void entry__compiler__sim2c_346(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11366,24 +11361,24 @@ static void entry__compiler__sim2c_347(void) {
   frame->slots[1] = myself->closure.frame->slots[24]; /* generated_phase_4 */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 542: $txt string(args*)
+  // 544: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_348;
+  frame->cont = cont__compiler__sim2c_347;
 }
-static void cont__compiler__sim2c_348(void) {
+static void cont__compiler__sim2c_347(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 543: ... : append &generated_phase_4 txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_349, 0);
-  // 543: push &actions: append &generated_phase_4 txt
+  // 545: ... : append &generated_phase_4 txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_348, 0);
+  // 545: push &actions: append &generated_phase_4 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11391,9 +11386,9 @@ static void cont__compiler__sim2c_348(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_351;
+  frame->cont = cont__compiler__sim2c_350;
 }
-static void entry__compiler__sim2c_349(void) {
+static void entry__compiler__sim2c_348(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_phase_4: 0
@@ -11404,7 +11399,7 @@ static void entry__compiler__sim2c_349(void) {
     invalid_arguments_error();
     return;
   }
-  // 543: ... append &generated_phase_4 txt
+  // 545: ... append &generated_phase_4 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_phase_4 */;
@@ -11412,9 +11407,9 @@ static void entry__compiler__sim2c_349(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_350;
+  frame->cont = cont__compiler__sim2c_349;
 }
-static void cont__compiler__sim2c_350(void) {
+static void cont__compiler__sim2c_349(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11426,7 +11421,7 @@ static void cont__compiler__sim2c_350(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_351(void) {
+static void cont__compiler__sim2c_350(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11438,7 +11433,7 @@ static void cont__compiler__sim2c_351(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_352(void) {
+static void entry__compiler__sim2c_351(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11448,24 +11443,24 @@ static void entry__compiler__sim2c_352(void) {
   frame->slots[1] = myself->closure.frame->slots[25]; /* generated_phase_5 */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 546: $txt string(args*)
+  // 548: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_353;
+  frame->cont = cont__compiler__sim2c_352;
 }
-static void cont__compiler__sim2c_353(void) {
+static void cont__compiler__sim2c_352(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 547: ... : append &generated_phase_5 txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_354, 0);
-  // 547: push &actions: append &generated_phase_5 txt
+  // 549: ... : append &generated_phase_5 txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_353, 0);
+  // 549: push &actions: append &generated_phase_5 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11473,9 +11468,9 @@ static void cont__compiler__sim2c_353(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_356;
+  frame->cont = cont__compiler__sim2c_355;
 }
-static void entry__compiler__sim2c_354(void) {
+static void entry__compiler__sim2c_353(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_phase_5: 0
@@ -11486,7 +11481,7 @@ static void entry__compiler__sim2c_354(void) {
     invalid_arguments_error();
     return;
   }
-  // 547: ... append &generated_phase_5 txt
+  // 549: ... append &generated_phase_5 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_phase_5 */;
@@ -11494,9 +11489,9 @@ static void entry__compiler__sim2c_354(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_355;
+  frame->cont = cont__compiler__sim2c_354;
 }
-static void cont__compiler__sim2c_355(void) {
+static void cont__compiler__sim2c_354(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11508,7 +11503,7 @@ static void cont__compiler__sim2c_355(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_356(void) {
+static void cont__compiler__sim2c_355(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11520,7 +11515,7 @@ static void cont__compiler__sim2c_356(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_357(void) {
+static void entry__compiler__sim2c_356(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11530,24 +11525,24 @@ static void entry__compiler__sim2c_357(void) {
   frame->slots[1] = myself->closure.frame->slots[26]; /* generated_phase_6 */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 550: $txt string(args*)
+  // 552: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_358;
+  frame->cont = cont__compiler__sim2c_357;
 }
-static void cont__compiler__sim2c_358(void) {
+static void cont__compiler__sim2c_357(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 551: ... : append &generated_phase_6 txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_359, 0);
-  // 551: push &actions: append &generated_phase_6 txt
+  // 553: ... : append &generated_phase_6 txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_358, 0);
+  // 553: push &actions: append &generated_phase_6 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11555,9 +11550,9 @@ static void cont__compiler__sim2c_358(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_361;
+  frame->cont = cont__compiler__sim2c_360;
 }
-static void entry__compiler__sim2c_359(void) {
+static void entry__compiler__sim2c_358(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_phase_6: 0
@@ -11568,7 +11563,7 @@ static void entry__compiler__sim2c_359(void) {
     invalid_arguments_error();
     return;
   }
-  // 551: ... append &generated_phase_6 txt
+  // 553: ... append &generated_phase_6 txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_phase_6 */;
@@ -11576,9 +11571,9 @@ static void entry__compiler__sim2c_359(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_360;
+  frame->cont = cont__compiler__sim2c_359;
 }
-static void cont__compiler__sim2c_360(void) {
+static void cont__compiler__sim2c_359(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11590,7 +11585,7 @@ static void cont__compiler__sim2c_360(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_361(void) {
+static void cont__compiler__sim2c_360(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11602,7 +11597,7 @@ static void cont__compiler__sim2c_361(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_362(void) {
+static void entry__compiler__sim2c_361(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // name: 0
@@ -11613,9 +11608,9 @@ static void entry__compiler__sim2c_362(void) {
     invalid_arguments_error();
     return;
   }
-  // 554: ... : !used_literals(name) literal
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_363, 0);
-  // 554: push &actions: !used_literals(name) literal
+  // 556: ... : !used_literals(name) literal
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_362, 0);
+  // 556: push &actions: !used_literals(name) literal
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11623,10 +11618,10 @@ static void entry__compiler__sim2c_362(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_365;
+  frame->cont = cont__compiler__sim2c_364;
 }
-static void entry__compiler__sim2c_363(void) {
-  allocate_initialized_frame_gc(3, 4);
+static void entry__compiler__sim2c_362(void) {
+  allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // used_literals: 0
   // name: 1
@@ -11638,19 +11633,17 @@ static void entry__compiler__sim2c_363(void) {
     invalid_arguments_error();
     return;
   }
-  // 554: ... !used_literals(name) literal
-  frame->slots[3] /* temp__1 */ = frame->slots[2] /* literal */;
-  // 554: ... !used_literals(name)
+  // 556: ... !used_literals(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* name */;
-  arguments->slots[1] = frame->slots[3] /* temp__1 */;
+  arguments->slots[1] = frame->slots[2] /* literal */;
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* used_literals */;
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_364;
+  frame->cont = cont__compiler__sim2c_363;
 }
-static void cont__compiler__sim2c_364(void) {
+static void cont__compiler__sim2c_363(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11662,7 +11655,7 @@ static void cont__compiler__sim2c_364(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_365(void) {
+static void cont__compiler__sim2c_364(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11674,7 +11667,7 @@ static void cont__compiler__sim2c_365(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_366(void) {
+static void entry__compiler__sim2c_365(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11684,24 +11677,24 @@ static void entry__compiler__sim2c_366(void) {
   frame->slots[1] = myself->closure.frame->slots[28]; /* generated_collections */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 557: $txt string(args*)
+  // 559: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_367;
+  frame->cont = cont__compiler__sim2c_366;
 }
-static void cont__compiler__sim2c_367(void) {
+static void cont__compiler__sim2c_366(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 558: ... : append &generated_collections txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_368, 0);
-  // 558: push &actions: append &generated_collections txt
+  // 560: ... : append &generated_collections txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_367, 0);
+  // 560: push &actions: append &generated_collections txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11709,9 +11702,9 @@ static void cont__compiler__sim2c_367(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_370;
+  frame->cont = cont__compiler__sim2c_369;
 }
-static void entry__compiler__sim2c_368(void) {
+static void entry__compiler__sim2c_367(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_collections: 0
@@ -11722,7 +11715,7 @@ static void entry__compiler__sim2c_368(void) {
     invalid_arguments_error();
     return;
   }
-  // 558: ... append &generated_collections txt
+  // 560: ... append &generated_collections txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_collections */;
@@ -11730,9 +11723,9 @@ static void entry__compiler__sim2c_368(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_369;
+  frame->cont = cont__compiler__sim2c_368;
 }
-static void cont__compiler__sim2c_369(void) {
+static void cont__compiler__sim2c_368(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11744,7 +11737,7 @@ static void cont__compiler__sim2c_369(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_370(void) {
+static void cont__compiler__sim2c_369(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11756,7 +11749,7 @@ static void cont__compiler__sim2c_370(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_371(void) {
+static void entry__compiler__sim2c_370(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -11766,24 +11759,24 @@ static void entry__compiler__sim2c_371(void) {
   frame->slots[1] = myself->closure.frame->slots[29]; /* delayed_statements */
   frame->slots[2] /* txt */ = create_future();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 561: $txt string(args*)
+  // 563: $txt string(args*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* args */);
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_372;
+  frame->cont = cont__compiler__sim2c_371;
 }
-static void cont__compiler__sim2c_372(void) {
+static void cont__compiler__sim2c_371(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[2] /* txt */, arguments->slots[0]);
-  // 562: ... : append &delayed_statements txt
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_373, 0);
-  // 562: push &actions: append &delayed_statements txt
+  // 564: ... : append &delayed_statements txt
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_372, 0);
+  // 564: push &actions: append &delayed_statements txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11791,9 +11784,9 @@ static void cont__compiler__sim2c_372(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_375;
+  frame->cont = cont__compiler__sim2c_374;
 }
-static void entry__compiler__sim2c_373(void) {
+static void entry__compiler__sim2c_372(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // delayed_statements: 0
@@ -11804,7 +11797,7 @@ static void entry__compiler__sim2c_373(void) {
     invalid_arguments_error();
     return;
   }
-  // 562: ... append &delayed_statements txt
+  // 564: ... append &delayed_statements txt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* delayed_statements */;
@@ -11812,9 +11805,9 @@ static void entry__compiler__sim2c_373(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_374;
+  frame->cont = cont__compiler__sim2c_373;
 }
-static void cont__compiler__sim2c_374(void) {
+static void cont__compiler__sim2c_373(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11826,7 +11819,7 @@ static void cont__compiler__sim2c_374(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_375(void) {
+static void cont__compiler__sim2c_374(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11838,7 +11831,7 @@ static void cont__compiler__sim2c_375(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_376(void) {
+static void entry__compiler__sim2c_375(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // ident: 0
@@ -11848,7 +11841,7 @@ static void entry__compiler__sim2c_376(void) {
     invalid_arguments_error();
     return;
   }
-  // 565: ... ident .has_prefix. "get__"
+  // 567: ... ident .has_prefix. "get__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* ident */;
@@ -11856,21 +11849,21 @@ static void entry__compiler__sim2c_376(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_378;
+  frame->cont = cont__compiler__sim2c_377;
 }
-static void cont__compiler__sim2c_378(void) {
+static void cont__compiler__sim2c_377(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 565: ... :
-  // 566:   $name range(ident 6 -1)
-  // 567:   need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
-  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__sim2c_379, 0);
-  // 565: if ident .has_prefix. "get__":
-  // 566:   $name range(ident 6 -1)
-  // 567:   need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
+  // 567: ... :
+  // 568:   $name range(ident 6 -1)
+  // 569:   need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__sim2c_378, 0);
+  // 567: if ident .has_prefix. "get__":
+  // 568:   $name range(ident 6 -1)
+  // 569:   need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -11880,33 +11873,33 @@ static void cont__compiler__sim2c_378(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_383(void) {
+static void cont__compiler__sim2c_382(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 570: ... : (stmt_idx defs)
-  // 571:   %%compiler::actions empty_list
-  // 572:   %%compiler::delayed_code ""
-  // 573:   %%compiler::index 0
-  // 574:   collect_output $code:
-  // 575:     for_each defs: ($definition)
-  // 576:       $$source undefined
-  // 577:       if definition.is_a_key_value_pair:
-  // 578:         !source std::value_of(definition)
-  // 579:         !definition key_of(definition)
+  // 572: ... : (defs)
+  // 573:   %%compiler::actions empty_list
+  // 574:   %%compiler::delayed_code ""
+  // 575:   %%compiler::index 0
+  // 576:   collect_output $code:
+  // 577:     for_each defs: ($definition)
+  // 578:       $$source undefined
+  // 579:       if definition.is_a_key_value_pair:
+  // 580:         !source std::value_of(definition)
+  // 581:         !definition key_of(definition)
   // ...
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_384, 2);
-  // 570: for_each all_definitions: (stmt_idx defs)
-  // 571:   %%compiler::actions empty_list
-  // 572:   %%compiler::delayed_code ""
-  // 573:   %%compiler::index 0
-  // 574:   collect_output $code:
-  // 575:     for_each defs: ($definition)
-  // 576:       $$source undefined
-  // 577:       if definition.is_a_key_value_pair:
-  // 578:         !source std::value_of(definition)
-  // 579:         !definition key_of(definition)
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_383, 1);
+  // 572: for_each all_definitions: (defs)
+  // 573:   %%compiler::actions empty_list
+  // 574:   %%compiler::delayed_code ""
+  // 575:   %%compiler::index 0
+  // 576:   collect_output $code:
+  // 577:     for_each defs: ($definition)
+  // 578:       $$source undefined
+  // 579:       if definition.is_a_key_value_pair:
+  // 580:         !source std::value_of(definition)
+  // 581:         !definition key_of(definition)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -11915,66 +11908,65 @@ static void cont__compiler__sim2c_383(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_430;
+  frame->cont = cont__compiler__sim2c_429;
 }
-static void entry__compiler__sim2c_384(void) {
-  allocate_initialized_frame_gc(5, 8);
+static void entry__compiler__sim2c_383(void) {
+  allocate_initialized_frame_gc(4, 7);
   // slot allocations:
-  // stmt_idx: 0
-  // defs: 1
-  // return__6: 2
-  // generated_code: 3
-  // all_actions: 4
-  // code: 5
-  frame->slots[2] /* return__6 */ = create_continuation();
-  frame->slots[3] = myself->closure.frame->slots[27]; /* generated_code */
-  frame->slots[4] = myself->closure.frame->slots[8]; /* all_actions */
+  // defs: 0
+  // return__6: 1
+  // generated_code: 2
+  // all_actions: 3
+  // code: 4
+  frame->slots[1] /* return__6 */ = create_continuation();
+  frame->slots[2] = myself->closure.frame->slots[27]; /* generated_code */
+  frame->slots[3] = myself->closure.frame->slots[8]; /* all_actions */
   define__compiler__actions(undefined);
   define__compiler__delayed_code(undefined);
   define__compiler__index(undefined);
-  frame->slots[5] /* code */ = create_future();
-  if (argument_count != 2) {
+  frame->slots[4] /* code */ = create_future();
+  if (argument_count != 1) {
     invalid_arguments_error();
     return;
   }
-  // 571: %%compiler::actions empty_list
+  // 573: %%compiler::actions empty_list
   set__compiler__actions(get__empty_list());
-  // 572: %%compiler::delayed_code ""
+  // 574: %%compiler::delayed_code ""
   set__compiler__delayed_code(empty_string);
-  // 573: %%compiler::index 0
+  // 575: %%compiler::index 0
   set__compiler__index(number__0);
-  // 574: ... :
-  // 575:   for_each defs: ($definition)
-  // 576:     $$source undefined
-  // 577:     if definition.is_a_key_value_pair:
-  // 578:       !source std::value_of(definition)
-  // 579:       !definition key_of(definition)
-  // 580:     if
-  // 581:       definition.is_c_code:
-  // 582:         define_c_code definition
-  // 583:       :
+  // 576: ... :
+  // 577:   for_each defs: ($definition)
+  // 578:     $$source undefined
+  // 579:     if definition.is_a_key_value_pair:
+  // 580:       !source std::value_of(definition)
+  // 581:       !definition key_of(definition)
+  // 582:     if
+  // 583:       definition.is_c_code:
+  // 584:         define_c_code definition
+  // 585:       :
   // ...
-  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__sim2c_385, 0);
-  // 574: collect_output $code:
-  // 575:   for_each defs: ($definition)
-  // 576:     $$source undefined
-  // 577:     if definition.is_a_key_value_pair:
-  // 578:       !source std::value_of(definition)
-  // 579:       !definition key_of(definition)
-  // 580:     if
-  // 581:       definition.is_c_code:
-  // 582:         define_c_code definition
-  // 583:       :
+  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__sim2c_384, 0);
+  // 576: collect_output $code:
+  // 577:   for_each defs: ($definition)
+  // 578:     $$source undefined
+  // 579:     if definition.is_a_key_value_pair:
+  // 580:       !source std::value_of(definition)
+  // 581:       !definition key_of(definition)
+  // 582:     if
+  // 583:       definition.is_c_code:
+  // 584:         define_c_code definition
+  // 585:       :
   // ...
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[6] /* temp__1 */;
+  arguments->slots[0] = frame->slots[5] /* temp__1 */;
   result_count = 1;
   myself = get__collect_output();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_421;
+  frame->cont = cont__compiler__sim2c_420;
 }
-static void entry__compiler__sim2c_393(void) {
+static void entry__compiler__sim2c_392(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // definition: 0
@@ -11983,7 +11975,7 @@ static void entry__compiler__sim2c_393(void) {
     invalid_arguments_error();
     return;
   }
-  // 582: define_c_code definition
+  // 584: define_c_code definition
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
@@ -11992,7 +11984,7 @@ static void entry__compiler__sim2c_393(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_394(void) {
+static void entry__compiler__sim2c_393(void) {
   allocate_initialized_frame_gc(3, 10);
   // slot allocations:
   // return__5: 0
@@ -12010,12 +12002,27 @@ static void entry__compiler__sim2c_394(void) {
     invalid_arguments_error();
     return;
   }
-  // 584: ... identifier_of(definition)
+  // 586: ... identifier_of(definition)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* definition */;
   result_count = 1;
   myself = get__identifier_of();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_394;
+}
+static void cont__compiler__sim2c_394(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[5] /* temp__1 */ = arguments->slots[0];
+  // 586: $$name mangled_name_of(identifier_of(definition))
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[5] /* temp__1 */;
+  result_count = 1;
+  myself = get__mangled_name_of();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_395;
 }
@@ -12024,13 +12031,13 @@ static void cont__compiler__sim2c_395(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 584: $$name mangled_name_of(identifier_of(definition))
+  ((CELL *)frame->slots[3])->contents /* name */ = arguments->slots[0];
+  // 587: $attribute attribute_of(definition)
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[5] /* temp__1 */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* definition */;
   result_count = 1;
-  myself = get__mangled_name_of();
+  myself = get__attribute_of();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_396;
 }
@@ -12039,13 +12046,13 @@ static void cont__compiler__sim2c_396(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[3])->contents /* name */ = arguments->slots[0];
-  // 585: $attribute attribute_of(definition)
+  initialize_future(frame->slots[4] /* attribute */, arguments->slots[0]);
+  // 588: ... attribute.is_defined
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* definition */;
+  arguments->slots[0] = frame->slots[4] /* attribute */;
   result_count = 1;
-  myself = get__attribute_of();
+  myself = get__is_defined();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_397;
 }
@@ -12054,29 +12061,14 @@ static void cont__compiler__sim2c_397(void) {
     invalid_results_error();
     return;
   }
-  initialize_future(frame->slots[4] /* attribute */, arguments->slots[0]);
-  // 586: ... attribute.is_defined
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[4] /* attribute */;
-  result_count = 1;
-  myself = get__is_defined();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_398;
-}
-static void cont__compiler__sim2c_398(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 586: ... :
-  // 587:   append &name "__"
-  // 588:   append &name mangled_name_of(attribute)
-  frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__sim2c_399, 0);
-  // 586: if attribute.is_defined:
-  // 587:   append &name "__"
-  // 588:   append &name mangled_name_of(attribute)
+  // 588: ... :
+  // 589:   append &name "__"
+  // 590:   append &name mangled_name_of(attribute)
+  frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__sim2c_398, 0);
+  // 588: if attribute.is_defined:
+  // 589:   append &name "__"
+  // 590:   append &name mangled_name_of(attribute)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -12084,9 +12076,9 @@ static void cont__compiler__sim2c_398(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_403;
+  frame->cont = cont__compiler__sim2c_402;
 }
-static void entry__compiler__sim2c_399(void) {
+static void entry__compiler__sim2c_398(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -12097,13 +12089,28 @@ static void entry__compiler__sim2c_399(void) {
     invalid_arguments_error();
     return;
   }
-  // 587: append &name "__"
+  // 589: append &name "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* name */;
   arguments->slots[1] = string__2d7981f4e5f02b9a;
   result_count = 1;
   myself = get__append();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_399;
+}
+static void cont__compiler__sim2c_399(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  ((CELL *)frame->slots[0])->contents /* name */ = arguments->slots[0];
+  // 590: ... mangled_name_of(attribute)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* attribute */;
+  result_count = 1;
+  myself = get__mangled_name_of();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_400;
 }
@@ -12112,23 +12119,8 @@ static void cont__compiler__sim2c_400(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[0])->contents /* name */ = arguments->slots[0];
-  // 588: ... mangled_name_of(attribute)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* attribute */;
-  result_count = 1;
-  myself = get__mangled_name_of();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_401;
-}
-static void cont__compiler__sim2c_401(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 588: append &name mangled_name_of(attribute)
+  // 590: append &name mangled_name_of(attribute)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* name */;
@@ -12136,9 +12128,9 @@ static void cont__compiler__sim2c_401(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_402;
+  frame->cont = cont__compiler__sim2c_401;
 }
-static void cont__compiler__sim2c_402(void) {
+static void cont__compiler__sim2c_401(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12150,18 +12142,33 @@ static void cont__compiler__sim2c_402(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_403(void) {
+static void cont__compiler__sim2c_402(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 589: %compiler::suffix string("__" name)
+  // 591: %compiler::suffix string("__" name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e5f02b9a;
   arguments->slots[1] = ((CELL *)frame->slots[3])->contents /* name */;
   result_count = 1;
   myself = get__string();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_403;
+}
+static void cont__compiler__sim2c_403(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  initialize_future(get__compiler__suffix(), arguments->slots[0]);
+  // 593: source.is_defined
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* source */;
+  result_count = 1;
+  myself = get__is_defined();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_404;
 }
@@ -12170,25 +12177,10 @@ static void cont__compiler__sim2c_404(void) {
     invalid_results_error();
     return;
   }
-  initialize_future(get__compiler__suffix(), arguments->slots[0]);
-  // 591: source.is_defined
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* source */;
-  result_count = 1;
-  myself = get__is_defined();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_405;
-}
-static void cont__compiler__sim2c_405(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 591: ... source.is_a_polymorphic_function_constant
-  frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__sim2c_406, 0);
-  // 591: source.is_defined && source.is_a_polymorphic_function_constant
+  // 593: ... source.is_a_polymorphic_function_constant
+  frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__sim2c_405, 0);
+  // 593: source.is_defined && source.is_a_polymorphic_function_constant
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -12196,9 +12188,9 @@ static void cont__compiler__sim2c_405(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_408;
+  frame->cont = cont__compiler__sim2c_407;
 }
-static void entry__compiler__sim2c_406(void) {
+static void entry__compiler__sim2c_405(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // source: 0
@@ -12207,22 +12199,22 @@ static void entry__compiler__sim2c_406(void) {
     invalid_arguments_error();
     return;
   }
-  // 591: ... source.is_a_polymorphic_function_constant
+  // 593: ... source.is_a_polymorphic_function_constant
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* source */;
   result_count = 1;
   myself = get__is_a_polymorphic_function_constant();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_407;
+  frame->cont = cont__compiler__sim2c_406;
 }
-static void cont__compiler__sim2c_407(void) {
+static void cont__compiler__sim2c_406(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 591: ... source.is_a_polymorphic_function_constant
+  // 593: ... source.is_a_polymorphic_function_constant
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -12230,37 +12222,37 @@ static void cont__compiler__sim2c_407(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_408(void) {
+static void cont__compiler__sim2c_407(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 591: ... :
-  // 592:   define_polymorphic_function definition source.is_a_setter
-  frame->slots[8] /* temp__4 */ = create_closure(entry__compiler__sim2c_409, 0);
-  // 593: :
-  // 594:   case
-  // 595:     attribute_kind_of(definition)
-  // 596:     ATTRIBUTE_KIND:
-  // 597:       define_attribute definition source
-  // 598:     METHOD_KIND:
-  // 599:       if
-  // 600:         attribute_of(definition).is_defined:
-  // 601:           define_method definition source
-  // 602:         :
+  // 593: ... :
+  // 594:   define_polymorphic_function definition source.is_a_setter
+  frame->slots[8] /* temp__4 */ = create_closure(entry__compiler__sim2c_408, 0);
+  // 595: :
+  // 596:   case attribute_kind_of(definition)
+  // 597:     ATTRIBUTE_KIND:
+  // 598:       define_attribute definition source
+  // 599:     METHOD_KIND:
+  // 600:       if
+  // 601:         attribute_of(definition).is_defined:
+  // 602:           define_method definition source
+  // 603:         :
+  // 604:           define_type_function definition source
   // ...
-  frame->slots[9] /* temp__5 */ = create_closure(entry__compiler__sim2c_411, 0);
-  // 590: if
-  // 591:   source.is_defined && source.is_a_polymorphic_function_constant:
-  // 592:     define_polymorphic_function definition source.is_a_setter
-  // 593:   :
-  // 594:     case
-  // 595:       attribute_kind_of(definition)
-  // 596:       ATTRIBUTE_KIND:
-  // 597:         define_attribute definition source
-  // 598:       METHOD_KIND:
-  // 599:         if
+  frame->slots[9] /* temp__5 */ = create_closure(entry__compiler__sim2c_410, 0);
+  // 592: if
+  // 593:   source.is_defined && source.is_a_polymorphic_function_constant:
+  // 594:     define_polymorphic_function definition source.is_a_setter
+  // 595:   :
+  // 596:     case attribute_kind_of(definition)
+  // 597:       ATTRIBUTE_KIND:
+  // 598:         define_attribute definition source
+  // 599:       METHOD_KIND:
+  // 600:         if
+  // 601:           attribute_of(definition).is_defined:
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -12270,7 +12262,28 @@ static void cont__compiler__sim2c_408(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_420;
+  frame->cont = cont__compiler__sim2c_419;
+}
+static void entry__compiler__sim2c_416(void) {
+  allocate_initialized_frame_gc(2, 2);
+  // slot allocations:
+  // definition: 0
+  // source: 1
+  frame->slots[0] = myself->closure.frame->slots[0]; /* definition */
+  frame->slots[1] = myself->closure.frame->slots[1]; /* source */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 602: define_method definition source
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
+  arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* source */;
+  result_count = frame->caller_result_count;
+  myself = get__define_method();
+  func = myself->type;
+  frame = frame->caller_frame;
 }
 static void entry__compiler__sim2c_417(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -12283,13 +12296,96 @@ static void entry__compiler__sim2c_417(void) {
     invalid_arguments_error();
     return;
   }
-  // 601: define_method definition source
+  // 604: define_type_function definition source
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
   arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* source */;
   result_count = frame->caller_result_count;
-  myself = get__define_method();
+  myself = get__define_type_function();
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void entry__compiler__sim2c_412(void) {
+  allocate_initialized_frame_gc(2, 2);
+  // slot allocations:
+  // definition: 0
+  // source: 1
+  frame->slots[0] = myself->closure.frame->slots[0]; /* definition */
+  frame->slots[1] = myself->closure.frame->slots[1]; /* source */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 598: define_attribute definition source
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
+  arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* source */;
+  result_count = frame->caller_result_count;
+  myself = get__define_attribute();
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void entry__compiler__sim2c_413(void) {
+  allocate_initialized_frame_gc(2, 6);
+  // slot allocations:
+  // definition: 0
+  // source: 1
+  frame->slots[0] = myself->closure.frame->slots[0]; /* definition */
+  frame->slots[1] = myself->closure.frame->slots[1]; /* source */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 601: attribute_of(definition)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
+  result_count = 1;
+  myself = get__attribute_of();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_414;
+}
+static void cont__compiler__sim2c_414(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[3] /* temp__2 */ = arguments->slots[0];
+  // 601: attribute_of(definition).is_defined
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[3] /* temp__2 */;
+  result_count = 1;
+  myself = get__is_defined();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_415;
+}
+static void cont__compiler__sim2c_415(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__1 */ = arguments->slots[0];
+  // 601: ... :
+  // 602:   define_method definition source
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_416, 0);
+  // 603: :
+  // 604:   define_type_function definition source
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__sim2c_417, 0);
+  // 600: if
+  // 601:   attribute_of(definition).is_defined:
+  // 602:     define_method definition source
+  // 603:   :
+  // 604:     define_type_function definition source
+  argument_count = 3;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__1 */;
+  arguments->slots[1] = frame->slots[4] /* temp__3 */;
+  arguments->slots[2] = frame->slots[5] /* temp__4 */;
+  result_count = frame->caller_result_count;
+  myself = get__if();
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -12304,111 +12400,7 @@ static void entry__compiler__sim2c_418(void) {
     invalid_arguments_error();
     return;
   }
-  // 603: define_type_function definition source
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
-  arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* source */;
-  result_count = frame->caller_result_count;
-  myself = get__define_type_function();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void entry__compiler__sim2c_413(void) {
-  allocate_initialized_frame_gc(2, 2);
-  // slot allocations:
-  // definition: 0
-  // source: 1
-  frame->slots[0] = myself->closure.frame->slots[0]; /* definition */
-  frame->slots[1] = myself->closure.frame->slots[1]; /* source */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 597: define_attribute definition source
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
-  arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* source */;
-  result_count = frame->caller_result_count;
-  myself = get__define_attribute();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void entry__compiler__sim2c_414(void) {
-  allocate_initialized_frame_gc(2, 6);
-  // slot allocations:
-  // definition: 0
-  // source: 1
-  frame->slots[0] = myself->closure.frame->slots[0]; /* definition */
-  frame->slots[1] = myself->closure.frame->slots[1]; /* source */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 600: attribute_of(definition)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
-  result_count = 1;
-  myself = get__attribute_of();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_415;
-}
-static void cont__compiler__sim2c_415(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 600: attribute_of(definition).is_defined
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[3] /* temp__2 */;
-  result_count = 1;
-  myself = get__is_defined();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_416;
-}
-static void cont__compiler__sim2c_416(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 600: ... :
-  // 601:   define_method definition source
-  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_417, 0);
-  // 602: :
-  // 603:   define_type_function definition source
-  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__sim2c_418, 0);
-  // 599: if
-  // 600:   attribute_of(definition).is_defined:
-  // 601:     define_method definition source
-  // 602:   :
-  // 603:     define_type_function definition source
-  argument_count = 3;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* temp__1 */;
-  arguments->slots[1] = frame->slots[4] /* temp__3 */;
-  arguments->slots[2] = frame->slots[5] /* temp__4 */;
-  result_count = frame->caller_result_count;
-  myself = get__if();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void entry__compiler__sim2c_419(void) {
-  allocate_initialized_frame_gc(2, 2);
-  // slot allocations:
-  // definition: 0
-  // source: 1
-  frame->slots[0] = myself->closure.frame->slots[0]; /* definition */
-  frame->slots[1] = myself->closure.frame->slots[1]; /* source */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 605: define_variable definition source
+  // 606: define_variable definition source
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
@@ -12418,7 +12410,7 @@ static void entry__compiler__sim2c_419(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_409(void) {
+static void entry__compiler__sim2c_408(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // definition: 0
@@ -12429,22 +12421,22 @@ static void entry__compiler__sim2c_409(void) {
     invalid_arguments_error();
     return;
   }
-  // 592: ... source.is_a_setter
+  // 594: ... source.is_a_setter
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* source */;
   result_count = 1;
   myself = get__is_a_setter();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_410;
+  frame->cont = cont__compiler__sim2c_409;
 }
-static void cont__compiler__sim2c_410(void) {
+static void cont__compiler__sim2c_409(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 592: define_polymorphic_function definition source.is_a_setter
+  // 594: define_polymorphic_function definition source.is_a_setter
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
@@ -12454,7 +12446,7 @@ static void cont__compiler__sim2c_410(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_411(void) {
+static void entry__compiler__sim2c_410(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // definition: 0
@@ -12465,44 +12457,44 @@ static void entry__compiler__sim2c_411(void) {
     invalid_arguments_error();
     return;
   }
-  // 595: attribute_kind_of(definition)
+  // 596: ... attribute_kind_of(definition)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
   result_count = 1;
   myself = get__attribute_kind_of();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_412;
+  frame->cont = cont__compiler__sim2c_411;
 }
-static void cont__compiler__sim2c_412(void) {
+static void cont__compiler__sim2c_411(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 596: ... :
-  // 597:   define_attribute definition source
-  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__sim2c_413, 0);
-  // 598: ... :
-  // 599:   if
-  // 600:     attribute_of(definition).is_defined:
-  // 601:       define_method definition source
-  // 602:     :
-  // 603:       define_type_function definition source
-  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_414, 0);
-  // 604: :
-  // 605:   define_variable definition source
-  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__sim2c_419, 0);
-  // 594: case
-  // 595:   attribute_kind_of(definition)
-  // 596:   ATTRIBUTE_KIND:
-  // 597:     define_attribute definition source
-  // 598:   METHOD_KIND:
-  // 599:     if
-  // 600:       attribute_of(definition).is_defined:
-  // 601:         define_method definition source
-  // 602:       :
-  // 603:         define_type_function definition source
+  // 597: ... :
+  // 598:   define_attribute definition source
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__sim2c_412, 0);
+  // 599: ... :
+  // 600:   if
+  // 601:     attribute_of(definition).is_defined:
+  // 602:       define_method definition source
+  // 603:     :
+  // 604:       define_type_function definition source
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_413, 0);
+  // 605: :
+  // 606:   define_variable definition source
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__sim2c_418, 0);
+  // 596: case attribute_kind_of(definition)
+  // 597:   ATTRIBUTE_KIND:
+  // 598:     define_attribute definition source
+  // 599:   METHOD_KIND:
+  // 600:     if
+  // 601:       attribute_of(definition).is_defined:
+  // 602:         define_method definition source
+  // 603:       :
+  // 604:         define_type_function definition source
+  // 605:   :
   // ...
   argument_count = 6;
   arguments = node_p;
@@ -12517,12 +12509,12 @@ static void cont__compiler__sim2c_412(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_420(void) {
+static void cont__compiler__sim2c_419(void) {
   myself = frame->slots[0] /* return__5 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__sim2c_386(void) {
+static void entry__compiler__sim2c_385(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // definition: 0
@@ -12533,30 +12525,30 @@ static void entry__compiler__sim2c_386(void) {
     return;
   }
   frame->slots[0] /* definition */ = create_cell_with_contents(arguments->slots[0]);
-  // 576: $$source undefined
+  // 578: $$source undefined
   ((CELL *)frame->slots[1])->contents /* source */ = get__undefined();
-  // 577: ... definition.is_a_key_value_pair
+  // 579: ... definition.is_a_key_value_pair
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
   result_count = 1;
   myself = get__is_a_key_value_pair();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_387;
+  frame->cont = cont__compiler__sim2c_386;
 }
-static void cont__compiler__sim2c_387(void) {
+static void cont__compiler__sim2c_386(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 577: ... :
-  // 578:   !source std::value_of(definition)
-  // 579:   !definition key_of(definition)
-  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__sim2c_388, 0);
-  // 577: if definition.is_a_key_value_pair:
-  // 578:   !source std::value_of(definition)
-  // 579:   !definition key_of(definition)
+  // 579: ... :
+  // 580:   !source std::value_of(definition)
+  // 581:   !definition key_of(definition)
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__sim2c_387, 0);
+  // 579: if definition.is_a_key_value_pair:
+  // 580:   !source std::value_of(definition)
+  // 581:   !definition key_of(definition)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -12564,9 +12556,9 @@ static void cont__compiler__sim2c_387(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_391;
+  frame->cont = cont__compiler__sim2c_390;
 }
-static void entry__compiler__sim2c_388(void) {
+static void entry__compiler__sim2c_387(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // source: 0
@@ -12577,31 +12569,31 @@ static void entry__compiler__sim2c_388(void) {
     invalid_arguments_error();
     return;
   }
-  // 578: !source std::value_of(definition)
+  // 580: !source std::value_of(definition)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* definition */;
   result_count = 1;
   myself = get__std__value_of();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_389;
+  frame->cont = cont__compiler__sim2c_388;
 }
-static void cont__compiler__sim2c_389(void) {
+static void cont__compiler__sim2c_388(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[0])->contents /* source */ = arguments->slots[0];
-  // 579: !definition key_of(definition)
+  // 581: !definition key_of(definition)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* definition */;
   result_count = 1;
   myself = get__key_of();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_390;
+  frame->cont = cont__compiler__sim2c_389;
 }
-static void cont__compiler__sim2c_390(void) {
+static void cont__compiler__sim2c_389(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12613,51 +12605,51 @@ static void cont__compiler__sim2c_390(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_391(void) {
+static void cont__compiler__sim2c_390(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 581: definition.is_c_code
+  // 583: definition.is_c_code
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* definition */;
   result_count = 1;
   myself = get__is_c_code();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_392;
+  frame->cont = cont__compiler__sim2c_391;
 }
-static void cont__compiler__sim2c_392(void) {
+static void cont__compiler__sim2c_391(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 581: ... :
-  // 582:   define_c_code definition
-  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__sim2c_393, 0);
-  // 583: :
-  // 584:   $$name mangled_name_of(identifier_of(definition))
-  // 585:   $attribute attribute_of(definition)
-  // 586:   if attribute.is_defined:
-  // 587:     append &name "__"
-  // 588:     append &name mangled_name_of(attribute)
-  // 589:   %compiler::suffix string("__" name)
-  // 590:   if
-  // 591:     source.is_defined && source.is_a_polymorphic_function_constant:
-  // 592:       define_polymorphic_function definition source.is_a_setter
+  // 583: ... :
+  // 584:   define_c_code definition
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__sim2c_392, 0);
+  // 585: :
+  // 586:   $$name mangled_name_of(identifier_of(definition))
+  // 587:   $attribute attribute_of(definition)
+  // 588:   if attribute.is_defined:
+  // 589:     append &name "__"
+  // 590:     append &name mangled_name_of(attribute)
+  // 591:   %compiler::suffix string("__" name)
+  // 592:   if
+  // 593:     source.is_defined && source.is_a_polymorphic_function_constant:
+  // 594:       define_polymorphic_function definition source.is_a_setter
   // ...
-  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_394, 0);
-  // 580: if
-  // 581:   definition.is_c_code:
-  // 582:     define_c_code definition
-  // 583:   :
-  // 584:     $$name mangled_name_of(identifier_of(definition))
-  // 585:     $attribute attribute_of(definition)
-  // 586:     if attribute.is_defined:
-  // 587:       append &name "__"
-  // 588:       append &name mangled_name_of(attribute)
-  // 589:     %compiler::suffix string("__" name)
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_393, 0);
+  // 582: if
+  // 583:   definition.is_c_code:
+  // 584:     define_c_code definition
+  // 585:   :
+  // 586:     $$name mangled_name_of(identifier_of(definition))
+  // 587:     $attribute attribute_of(definition)
+  // 588:     if attribute.is_defined:
+  // 589:       append &name "__"
+  // 590:       append &name mangled_name_of(attribute)
+  // 591:     %compiler::suffix string("__" name)
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -12669,48 +12661,63 @@ static void cont__compiler__sim2c_392(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_385(void) {
+static void entry__compiler__sim2c_384(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // defs: 0
-  frame->slots[0] = myself->closure.frame->slots[1]; /* defs */
+  frame->slots[0] = myself->closure.frame->slots[0]; /* defs */
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 575: for_each defs: ($definition)
-  // 576:   $$source undefined
-  // 577:   if definition.is_a_key_value_pair:
-  // 578:     !source std::value_of(definition)
-  // 579:     !definition key_of(definition)
-  // 580:   if
-  // 581:     definition.is_c_code:
-  // 582:       define_c_code definition
-  // 583:     :
-  // 584:       $$name mangled_name_of(identifier_of(definition))
+  // 577: for_each defs: ($definition)
+  // 578:   $$source undefined
+  // 579:   if definition.is_a_key_value_pair:
+  // 580:     !source std::value_of(definition)
+  // 581:     !definition key_of(definition)
+  // 582:   if
+  // 583:     definition.is_c_code:
+  // 584:       define_c_code definition
+  // 585:     :
+  // 586:       $$name mangled_name_of(identifier_of(definition))
   // ...
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* defs */;
-  arguments->slots[1] = func__compiler__sim2c_386;
+  arguments->slots[1] = func__compiler__sim2c_385;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_421(void) {
+static void cont__compiler__sim2c_420(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
-  initialize_future(frame->slots[5] /* code */, arguments->slots[0]);
-  // 606: ... delayed_code != ""
+  initialize_future(frame->slots[4] /* code */, arguments->slots[0]);
+  // 607: ... delayed_code != ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__delayed_code();
   arguments->slots[1] = empty_string;
   result_count = 1;
   myself = get__std__equal();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_421;
+}
+static void cont__compiler__sim2c_421(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[6] /* temp__2 */ = arguments->slots[0];
+  // 607: ... delayed_code != ""
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[6] /* temp__2 */;
+  result_count = 1;
+  myself = get__std__not();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_422;
 }
@@ -12719,40 +12726,25 @@ static void cont__compiler__sim2c_422(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 606: ... delayed_code != ""
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[7] /* temp__2 */;
-  result_count = 1;
-  myself = get__std__not();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_423;
-}
-static void cont__compiler__sim2c_423(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 606: if delayed_code != "": write_to_delayed_statements delayed_code
+  frame->slots[5] /* temp__1 */ = arguments->slots[0];
+  // 607: if delayed_code != "": write_to_delayed_statements delayed_code
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[6] /* temp__1 */;
-  arguments->slots[1] = func__compiler__sim2c_424;
+  arguments->slots[0] = frame->slots[5] /* temp__1 */;
+  arguments->slots[1] = func__compiler__sim2c_423;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_425;
+  frame->cont = cont__compiler__sim2c_424;
 }
-static void entry__compiler__sim2c_424(void) {
+static void entry__compiler__sim2c_423(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 606: ... write_to_delayed_statements delayed_code
+  // 607: ... write_to_delayed_statements delayed_code
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__delayed_code();
@@ -12761,35 +12753,35 @@ static void entry__compiler__sim2c_424(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_425(void) {
+static void cont__compiler__sim2c_424(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 607: ... : append &generated_code code
-  frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__sim2c_426, 0);
-  // 607: push &actions: append &generated_code code
+  // 608: ... : append &generated_code code
+  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__sim2c_425, 0);
+  // 608: push &actions: append &generated_code code
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
-  arguments->slots[1] = frame->slots[6] /* temp__1 */;
+  arguments->slots[1] = frame->slots[5] /* temp__1 */;
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_428;
+  frame->cont = cont__compiler__sim2c_427;
 }
-static void entry__compiler__sim2c_426(void) {
+static void entry__compiler__sim2c_425(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_code: 0
   // code: 1
-  frame->slots[0] = myself->closure.frame->slots[3]; /* generated_code */
-  frame->slots[1] = myself->closure.frame->slots[5]; /* code */
+  frame->slots[0] = myself->closure.frame->slots[2]; /* generated_code */
+  frame->slots[1] = myself->closure.frame->slots[4]; /* code */
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 607: ... append &generated_code code
+  // 608: ... append &generated_code code
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_code */;
@@ -12797,9 +12789,9 @@ static void entry__compiler__sim2c_426(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_427;
+  frame->cont = cont__compiler__sim2c_426;
 }
-static void cont__compiler__sim2c_427(void) {
+static void cont__compiler__sim2c_426(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12811,77 +12803,77 @@ static void cont__compiler__sim2c_427(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_428(void) {
+static void cont__compiler__sim2c_427(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   set__actions(arguments->slots[0]);
-  // 608: push &all_actions actions
+  // 609: push &all_actions actions
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* all_actions */;
+  arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* all_actions */;
   arguments->slots[1] = get__actions();
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_429;
+  frame->cont = cont__compiler__sim2c_428;
 }
-static void cont__compiler__sim2c_429(void) {
+static void cont__compiler__sim2c_428(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[4])->contents /* all_actions */ = arguments->slots[0];
+  ((CELL *)frame->slots[3])->contents /* all_actions */ = arguments->slots[0];
   argument_count = 0;
   arguments = node_p;
-  myself = frame->slots[2] /* return__6 */;
+  myself = frame->slots[1] /* return__6 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_430(void) {
+static void cont__compiler__sim2c_429(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 609: show_compiler_debug_info "GENERATE STATEMENTS"
+  // 610: show_compiler_debug_info "GENERATE STATEMENTS"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__c050814d5faecc7a;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_432;
+  frame->cont = cont__compiler__sim2c_431;
 }
-static void cont__compiler__sim2c_432(void) {
+static void cont__compiler__sim2c_431(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 610: %%compiler::current_continuation_info undefined
+  // 611: %%compiler::current_continuation_info undefined
   set__compiler__current_continuation_info(get__undefined());
-  // 611: ... :
-  // 612:   %%compiler::actions empty_list
-  // 613:   %%compiler::delayed_code ""
-  // 614:   collect_output $code:
-  // 615:     if
-  // 616:       is_main:
-  // 617:         begin_continuation "main_entry"
-  // 618:         if max_temp_idx > 0:
-  // 619:           writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
-  // 620:       :
+  // 612: ... :
+  // 613:   %%compiler::actions empty_list
+  // 614:   %%compiler::delayed_code ""
+  // 615:   collect_output $code:
+  // 616:     if
+  // 617:       is_main:
+  // 618:         begin_continuation "main_entry"
+  // 619:         if max_temp_idx > 0:
+  // 620:           writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
+  // 621:       :
   // ...
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_433, 0);
-  // 611: do:
-  // 612:   %%compiler::actions empty_list
-  // 613:   %%compiler::delayed_code ""
-  // 614:   collect_output $code:
-  // 615:     if
-  // 616:       is_main:
-  // 617:         begin_continuation "main_entry"
-  // 618:         if max_temp_idx > 0:
-  // 619:           writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
-  // 620:       :
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_432, 0);
+  // 612: do:
+  // 613:   %%compiler::actions empty_list
+  // 614:   %%compiler::delayed_code ""
+  // 615:   collect_output $code:
+  // 616:     if
+  // 617:       is_main:
+  // 618:         begin_continuation "main_entry"
+  // 619:         if max_temp_idx > 0:
+  // 620:           writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
+  // 621:       :
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -12889,9 +12881,9 @@ static void cont__compiler__sim2c_432(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_469;
+  frame->cont = cont__compiler__sim2c_468;
 }
-static void entry__compiler__sim2c_433(void) {
+static void entry__compiler__sim2c_432(void) {
   allocate_initialized_frame_gc(6, 8);
   // slot allocations:
   // return__7: 0
@@ -12914,32 +12906,32 @@ static void entry__compiler__sim2c_433(void) {
     invalid_arguments_error();
     return;
   }
-  // 612: %%compiler::actions empty_list
+  // 613: %%compiler::actions empty_list
   set__compiler__actions(get__empty_list());
-  // 613: %%compiler::delayed_code ""
+  // 614: %%compiler::delayed_code ""
   set__compiler__delayed_code(empty_string);
-  // 614: ... :
-  // 615:   if
-  // 616:     is_main:
-  // 617:       begin_continuation "main_entry"
-  // 618:       if max_temp_idx > 0:
-  // 619:         writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
-  // 620:     :
-  // 621:       write_to_continuation_table "  {run__@(module_name), NULL, "
-  // 622:       write "
-  // 623:         static int already_run = false;
+  // 615: ... :
+  // 616:   if
+  // 617:     is_main:
+  // 618:       begin_continuation "main_entry"
+  // 619:       if max_temp_idx > 0:
+  // 620:         writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
+  // 621:     :
+  // 622:       write_to_continuation_table "  {run__@(module_name), NULL, "
+  // 623:       write "
+  // 624:         static int already_run = false;
   // ...
-  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__sim2c_434, 0);
-  // 614: collect_output $code:
-  // 615:   if
-  // 616:     is_main:
-  // 617:       begin_continuation "main_entry"
-  // 618:       if max_temp_idx > 0:
-  // 619:         writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
-  // 620:     :
-  // 621:       write_to_continuation_table "  {run__@(module_name), NULL, "
-  // 622:       write "
-  // 623:         static int already_run = false;
+  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__sim2c_433, 0);
+  // 615: collect_output $code:
+  // 616:   if
+  // 617:     is_main:
+  // 618:       begin_continuation "main_entry"
+  // 619:       if max_temp_idx > 0:
+  // 620:         writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
+  // 621:     :
+  // 622:       write_to_continuation_table "  {run__@(module_name), NULL, "
+  // 623:       write "
+  // 624:         static int already_run = false;
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -12947,9 +12939,9 @@ static void entry__compiler__sim2c_433(void) {
   result_count = 1;
   myself = get__collect_output();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_464;
+  frame->cont = cont__compiler__sim2c_463;
 }
-static void entry__compiler__sim2c_452(void) {
+static void entry__compiler__sim2c_451(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // name: 0
@@ -12962,21 +12954,36 @@ static void entry__compiler__sim2c_452(void) {
     invalid_arguments_error();
     return;
   }
-  // 634: write_source_as_remark info
+  // 635: write_source_as_remark info
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* info */;
   result_count = 0;
   myself = get__write_source_as_remark();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_453;
+  frame->cont = cont__compiler__sim2c_452;
 }
-static void cont__compiler__sim2c_453(void) {
+static void cont__compiler__sim2c_452(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 636: ... mangle_filename(name)
+  // 637: ... mangle_filename(name)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* name */;
+  result_count = 1;
+  myself = frame->slots[2] /* mangle_filename */;
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_453;
+}
+static void cont__compiler__sim2c_453(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[5] /* temp__2 */ = arguments->slots[0];
+  // 638: ... mangle_filename(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -12990,26 +12997,11 @@ static void cont__compiler__sim2c_454(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 637: ... mangle_filename(name)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[0] /* name */;
-  result_count = 1;
-  myself = frame->slots[2] /* mangle_filename */;
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_455;
-}
-static void cont__compiler__sim2c_455(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 635: ... "
-  // 636:     func = run__@(mangle_filename(name));
-  // 637:     frame->cont = cont__run__@(mangle_filename(name));
-  // 638:   }
+  // 636: ... "
+  // 637:     func = run__@(mangle_filename(name));
+  // 638:     frame->cont = cont__run__@(mangle_filename(name));
+  // 639:   }
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = string__ca75d5c2b6ab3b0c;
@@ -13020,47 +13012,47 @@ static void cont__compiler__sim2c_455(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_459;
+  frame->cont = cont__compiler__sim2c_458;
 }
-static void cont__compiler__sim2c_459(void) {
+static void cont__compiler__sim2c_458(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 635: write "
-  // 636:     func = run__@(mangle_filename(name));
-  // 637:     frame->cont = cont__run__@(mangle_filename(name));
-  // 638:   }
+  // 636: write "
+  // 637:     func = run__@(mangle_filename(name));
+  // 638:     frame->cont = cont__run__@(mangle_filename(name));
+  // 639:   }
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_460;
+  frame->cont = cont__compiler__sim2c_459;
 }
-static void cont__compiler__sim2c_460(void) {
+static void cont__compiler__sim2c_459(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 639: ... mangle_filename(name)
+  // 640: ... mangle_filename(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
   result_count = 1;
   myself = frame->slots[2] /* mangle_filename */;
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_461;
+  frame->cont = cont__compiler__sim2c_460;
 }
-static void cont__compiler__sim2c_461(void) {
+static void cont__compiler__sim2c_460(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 639: $continuation "cont__run__@(mangle_filename(name))"
+  // 640: $continuation "cont__run__@(mangle_filename(name))"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__6a214ac420f089ff;
@@ -13068,15 +13060,15 @@ static void cont__compiler__sim2c_461(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_463;
+  frame->cont = cont__compiler__sim2c_462;
 }
-static void cont__compiler__sim2c_463(void) {
+static void cont__compiler__sim2c_462(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[3] /* continuation */, arguments->slots[0]);
-  // 640: next_continuation continuation
+  // 641: next_continuation continuation
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* continuation */;
@@ -13085,7 +13077,7 @@ static void cont__compiler__sim2c_463(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_434(void) {
+static void entry__compiler__sim2c_433(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // is_main: 0
@@ -13098,33 +13090,33 @@ static void entry__compiler__sim2c_434(void) {
     invalid_arguments_error();
     return;
   }
-  // 616: ... :
-  // 617:   begin_continuation "main_entry"
-  // 618:   if max_temp_idx > 0:
-  // 619:     writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_435, 0);
-  // 620: :
-  // 621:   write_to_continuation_table "  {run__@(module_name), NULL, "
-  // 622:   write "
-  // 623:     static int already_run = false;
-  // 624:     
-  // 625:     EXPORT void run__@(module_name)(void) {
-  // 626:       if (already_run) {
-  // 627:         func = frame->cont;
-  // 628:         frame->cont = invalid_continuation;
-  // 629:         return;
+  // 617: ... :
+  // 618:   begin_continuation "main_entry"
+  // 619:   if max_temp_idx > 0:
+  // 620:     writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_434, 0);
+  // 621: :
+  // 622:   write_to_continuation_table "  {run__@(module_name), NULL, "
+  // 623:   write "
+  // 624:     static int already_run = false;
+  // 625:     
+  // 626:     EXPORT void run__@(module_name)(void) {
+  // 627:       if (already_run) {
+  // 628:         func = frame->cont;
+  // 629:         frame->cont = invalid_continuation;
+  // 630:         return;
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__sim2c_443, 0);
-  // 615: if
-  // 616:   is_main:
-  // 617:     begin_continuation "main_entry"
-  // 618:     if max_temp_idx > 0:
-  // 619:       writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
-  // 620:   :
-  // 621:     write_to_continuation_table "  {run__@(module_name), NULL, "
-  // 622:     write "
-  // 623:       static int already_run = false;
-  // 624:       
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__sim2c_442, 0);
+  // 616: if
+  // 617:   is_main:
+  // 618:     begin_continuation "main_entry"
+  // 619:     if max_temp_idx > 0:
+  // 620:       writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
+  // 621:   :
+  // 622:     write_to_continuation_table "  {run__@(module_name), NULL, "
+  // 623:     write "
+  // 624:       static int already_run = false;
+  // 625:       
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -13134,9 +13126,9 @@ static void entry__compiler__sim2c_434(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_451;
+  frame->cont = cont__compiler__sim2c_450;
 }
-static void entry__compiler__sim2c_439(void) {
+static void entry__compiler__sim2c_438(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // max_temp_idx: 0
@@ -13145,7 +13137,7 @@ static void entry__compiler__sim2c_439(void) {
     invalid_arguments_error();
     return;
   }
-  // 619: ... "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
+  // 620: ... "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__41028e5a9545c479;
@@ -13154,15 +13146,15 @@ static void entry__compiler__sim2c_439(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_442;
+  frame->cont = cont__compiler__sim2c_441;
 }
-static void cont__compiler__sim2c_442(void) {
+static void cont__compiler__sim2c_441(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 619: writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
+  // 620: writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -13171,7 +13163,7 @@ static void cont__compiler__sim2c_442(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_435(void) {
+static void entry__compiler__sim2c_434(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // max_temp_idx: 0
@@ -13180,21 +13172,21 @@ static void entry__compiler__sim2c_435(void) {
     invalid_arguments_error();
     return;
   }
-  // 617: begin_continuation "main_entry"
+  // 618: begin_continuation "main_entry"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__295c7d0427bb24d8;
   result_count = 0;
   myself = get__begin_continuation();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_437;
+  frame->cont = cont__compiler__sim2c_436;
 }
-static void cont__compiler__sim2c_437(void) {
+static void cont__compiler__sim2c_436(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 618: ... max_temp_idx > 0
+  // 619: ... max_temp_idx > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -13202,19 +13194,19 @@ static void cont__compiler__sim2c_437(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_438;
+  frame->cont = cont__compiler__sim2c_437;
 }
-static void cont__compiler__sim2c_438(void) {
+static void cont__compiler__sim2c_437(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 618: ... :
-  // 619:   writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
-  frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__sim2c_439, 0);
-  // 618: if max_temp_idx > 0:
-  // 619:   writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
+  // 619: ... :
+  // 620:   writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
+  frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__sim2c_438, 0);
+  // 619: if max_temp_idx > 0:
+  // 620:   writeln "  allocate_initialized_frame_gc(0, @(max_temp_idx));"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -13224,7 +13216,7 @@ static void cont__compiler__sim2c_438(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_443(void) {
+static void entry__compiler__sim2c_442(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // max_temp_idx: 0
@@ -13233,7 +13225,7 @@ static void entry__compiler__sim2c_443(void) {
     invalid_arguments_error();
     return;
   }
-  // 621: ... "  {run__@(module_name), NULL, "
+  // 622: ... "  {run__@(module_name), NULL, "
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__4594ae5b852cb87f;
@@ -13242,38 +13234,38 @@ static void entry__compiler__sim2c_443(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_446;
+  frame->cont = cont__compiler__sim2c_445;
 }
-static void cont__compiler__sim2c_446(void) {
+static void cont__compiler__sim2c_445(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 621: write_to_continuation_table "  {run__@(module_name), NULL, "
+  // 622: write_to_continuation_table "  {run__@(module_name), NULL, "
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   result_count = 0;
   myself = get__write_to_continuation_table();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_447;
+  frame->cont = cont__compiler__sim2c_446;
 }
-static void cont__compiler__sim2c_447(void) {
+static void cont__compiler__sim2c_446(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 622: ... "
-  // 623:   static int already_run = false;
-  // 624:   
-  // 625:   EXPORT void run__@(module_name)(void) {
-  // 626:     if (already_run) {
-  // 627:       func = frame->cont;
-  // 628:       frame->cont = invalid_continuation;
-  // 629:       return;
-  // 630:     }
-  // 631:     already_run = true;
+  // 623: ... "
+  // 624:   static int already_run = false;
+  // 625:   
+  // 626:   EXPORT void run__@(module_name)(void) {
+  // 627:     if (already_run) {
+  // 628:       func = frame->cont;
+  // 629:       frame->cont = invalid_continuation;
+  // 630:       return;
+  // 631:     }
+  // 632:     already_run = true;
   // ...
   argument_count = 5;
   arguments = node_p;
@@ -13285,24 +13277,24 @@ static void cont__compiler__sim2c_447(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_450;
+  frame->cont = cont__compiler__sim2c_449;
 }
-static void cont__compiler__sim2c_450(void) {
+static void cont__compiler__sim2c_449(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 622: write "
-  // 623:   static int already_run = false;
-  // 624:   
-  // 625:   EXPORT void run__@(module_name)(void) {
-  // 626:     if (already_run) {
-  // 627:       func = frame->cont;
-  // 628:       frame->cont = invalid_continuation;
-  // 629:       return;
-  // 630:     }
-  // 631:     already_run = true;
+  // 623: write "
+  // 624:   static int already_run = false;
+  // 625:   
+  // 626:   EXPORT void run__@(module_name)(void) {
+  // 627:     if (already_run) {
+  // 628:       func = frame->cont;
+  // 629:       frame->cont = invalid_continuation;
+  // 630:       return;
+  // 631:     }
+  // 632:     already_run = true;
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -13312,28 +13304,28 @@ static void cont__compiler__sim2c_450(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_451(void) {
+static void cont__compiler__sim2c_450(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 633: ... : (name info)
-  // 634:   write_source_as_remark info
-  // 635:   write "
-  // 636:       func = run__@(mangle_filename(name));
-  // 637:       frame->cont = cont__run__@(mangle_filename(name));
-  // 638:     }
-  // 639:   $continuation "cont__run__@(mangle_filename(name))"
-  // 640:   next_continuation continuation
-  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_452, 2);
-  // 633: for_each required_modules: (name info)
-  // 634:   write_source_as_remark info
-  // 635:   write "
-  // 636:       func = run__@(mangle_filename(name));
-  // 637:       frame->cont = cont__run__@(mangle_filename(name));
-  // 638:     }
-  // 639:   $continuation "cont__run__@(mangle_filename(name))"
-  // 640:   next_continuation continuation
+  // 634: ... : (name info)
+  // 635:   write_source_as_remark info
+  // 636:   write "
+  // 637:       func = run__@(mangle_filename(name));
+  // 638:       frame->cont = cont__run__@(mangle_filename(name));
+  // 639:     }
+  // 640:   $continuation "cont__run__@(mangle_filename(name))"
+  // 641:   next_continuation continuation
+  frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__sim2c_451, 2);
+  // 634: for_each required_modules: (name info)
+  // 635:   write_source_as_remark info
+  // 636:   write "
+  // 637:       func = run__@(mangle_filename(name));
+  // 638:       frame->cont = cont__run__@(mangle_filename(name));
+  // 639:     }
+  // 640:   $continuation "cont__run__@(mangle_filename(name))"
+  // 641:   next_continuation continuation
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__required_modules();
@@ -13343,15 +13335,15 @@ static void cont__compiler__sim2c_451(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_464(void) {
+static void cont__compiler__sim2c_463(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[6] /* code */, arguments->slots[0]);
-  // 641: ... : append &generated_code code
-  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__sim2c_465, 0);
-  // 641: push &actions: append &generated_code code
+  // 642: ... : append &generated_code code
+  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__sim2c_464, 0);
+  // 642: push &actions: append &generated_code code
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -13359,9 +13351,9 @@ static void cont__compiler__sim2c_464(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_467;
+  frame->cont = cont__compiler__sim2c_466;
 }
-static void entry__compiler__sim2c_465(void) {
+static void entry__compiler__sim2c_464(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_code: 0
@@ -13372,7 +13364,7 @@ static void entry__compiler__sim2c_465(void) {
     invalid_arguments_error();
     return;
   }
-  // 641: ... append &generated_code code
+  // 642: ... append &generated_code code
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_code */;
@@ -13380,9 +13372,9 @@ static void entry__compiler__sim2c_465(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_466;
+  frame->cont = cont__compiler__sim2c_465;
 }
-static void cont__compiler__sim2c_466(void) {
+static void cont__compiler__sim2c_465(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13394,13 +13386,13 @@ static void cont__compiler__sim2c_466(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_467(void) {
+static void cont__compiler__sim2c_466(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   set__actions(arguments->slots[0]);
-  // 642: push &all_actions actions
+  // 643: push &all_actions actions
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* all_actions */;
@@ -13408,9 +13400,9 @@ static void cont__compiler__sim2c_467(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_468;
+  frame->cont = cont__compiler__sim2c_467;
 }
-static void cont__compiler__sim2c_468(void) {
+static void cont__compiler__sim2c_467(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13422,45 +13414,45 @@ static void cont__compiler__sim2c_468(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_469(void) {
+static void cont__compiler__sim2c_468(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 643: $def_count length_of(all_definitions)
+  // 644: $def_count length_of(all_definitions)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[10])->contents /* all_definitions */;
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_470;
+  frame->cont = cont__compiler__sim2c_469;
 }
-static void cont__compiler__sim2c_470(void) {
+static void cont__compiler__sim2c_469(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[31] /* def_count */, arguments->slots[0]);
-  // 644: ... : (stmt_idx stmts)
-  // 645:   %%compiler::actions empty_list
-  // 646:   %%compiler::delayed_code ""
-  // 647:   %compiler::suffix string("__" stmt_idx+def_count)
-  // 648:   %%compiler::index 0
-  // 649:   collect_output $code: for_each stmts: (stmt) generate_statement stmt
-  // 650:   if delayed_code != "": write_to_delayed_statements delayed_code
-  // 651:   push &actions: append &generated_code code
-  // 652:   push &all_actions actions
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_471, 2);
-  // 644: for_each all_statements: (stmt_idx stmts)
-  // 645:   %%compiler::actions empty_list
-  // 646:   %%compiler::delayed_code ""
-  // 647:   %compiler::suffix string("__" stmt_idx+def_count)
-  // 648:   %%compiler::index 0
-  // 649:   collect_output $code: for_each stmts: (stmt) generate_statement stmt
-  // 650:   if delayed_code != "": write_to_delayed_statements delayed_code
-  // 651:   push &actions: append &generated_code code
-  // 652:   push &all_actions actions
+  // 645: ... : (stmt_idx stmts)
+  // 646:   %%compiler::actions empty_list
+  // 647:   %%compiler::delayed_code ""
+  // 648:   %compiler::suffix string("__" stmt_idx+def_count)
+  // 649:   %%compiler::index 0
+  // 650:   collect_output $code: for_each stmts: (stmt) generate_statement stmt
+  // 651:   if delayed_code != "": write_to_delayed_statements delayed_code
+  // 652:   push &actions: append &generated_code code
+  // 653:   push &all_actions actions
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_470, 2);
+  // 645: for_each all_statements: (stmt_idx stmts)
+  // 646:   %%compiler::actions empty_list
+  // 647:   %%compiler::delayed_code ""
+  // 648:   %compiler::suffix string("__" stmt_idx+def_count)
+  // 649:   %%compiler::index 0
+  // 650:   collect_output $code: for_each stmts: (stmt) generate_statement stmt
+  // 651:   if delayed_code != "": write_to_delayed_statements delayed_code
+  // 652:   push &actions: append &generated_code code
+  // 653:   push &all_actions actions
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[11])->contents /* all_statements */;
@@ -13468,9 +13460,9 @@ static void cont__compiler__sim2c_470(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_485;
+  frame->cont = cont__compiler__sim2c_484;
 }
-static void entry__compiler__sim2c_471(void) {
+static void entry__compiler__sim2c_470(void) {
   allocate_initialized_frame_gc(6, 9);
   // slot allocations:
   // stmt_idx: 0
@@ -13493,17 +13485,33 @@ static void entry__compiler__sim2c_471(void) {
     invalid_arguments_error();
     return;
   }
-  // 645: %%compiler::actions empty_list
+  // 646: %%compiler::actions empty_list
   set__compiler__actions(get__empty_list());
-  // 646: %%compiler::delayed_code ""
+  // 647: %%compiler::delayed_code ""
   set__compiler__delayed_code(empty_string);
-  // 647: ... stmt_idx+def_count
+  // 648: ... stmt_idx+def_count
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stmt_idx */;
   arguments->slots[1] = frame->slots[3] /* def_count */;
   result_count = 1;
   myself = get__std__plus();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_471;
+}
+static void cont__compiler__sim2c_471(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[7] /* temp__1 */ = arguments->slots[0];
+  // 648: %compiler::suffix string("__" stmt_idx+def_count)
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = string__2d7981f4e5f02b9a;
+  arguments->slots[1] = frame->slots[7] /* temp__1 */;
+  result_count = 1;
+  myself = get__string();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_472;
 }
@@ -13512,37 +13520,21 @@ static void cont__compiler__sim2c_472(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 647: %compiler::suffix string("__" stmt_idx+def_count)
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = string__2d7981f4e5f02b9a;
-  arguments->slots[1] = frame->slots[7] /* temp__1 */;
-  result_count = 1;
-  myself = get__string();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_473;
-}
-static void cont__compiler__sim2c_473(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   initialize_future(get__compiler__suffix(), arguments->slots[0]);
-  // 648: %%compiler::index 0
+  // 649: %%compiler::index 0
   set__compiler__index(number__0);
-  // 649: ... : for_each stmts: (stmt) generate_statement stmt
-  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__sim2c_474, 0);
-  // 649: collect_output $code: for_each stmts: (stmt) generate_statement stmt
+  // 650: ... : for_each stmts: (stmt) generate_statement stmt
+  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__sim2c_473, 0);
+  // 650: collect_output $code: for_each stmts: (stmt) generate_statement stmt
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
   result_count = 1;
   myself = get__collect_output();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_476;
+  frame->cont = cont__compiler__sim2c_475;
 }
-static void entry__compiler__sim2c_475(void) {
+static void entry__compiler__sim2c_474(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // stmt: 0
@@ -13550,7 +13542,7 @@ static void entry__compiler__sim2c_475(void) {
     invalid_arguments_error();
     return;
   }
-  // 649: ... generate_statement stmt
+  // 650: ... generate_statement stmt
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stmt */;
@@ -13559,7 +13551,7 @@ static void entry__compiler__sim2c_475(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_474(void) {
+static void entry__compiler__sim2c_473(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // stmts: 0
@@ -13568,29 +13560,44 @@ static void entry__compiler__sim2c_474(void) {
     invalid_arguments_error();
     return;
   }
-  // 649: ... for_each stmts: (stmt) generate_statement stmt
+  // 650: ... for_each stmts: (stmt) generate_statement stmt
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stmts */;
-  arguments->slots[1] = func__compiler__sim2c_475;
+  arguments->slots[1] = func__compiler__sim2c_474;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_476(void) {
+static void cont__compiler__sim2c_475(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[6] /* code */, arguments->slots[0]);
-  // 650: ... delayed_code != ""
+  // 651: ... delayed_code != ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__delayed_code();
   arguments->slots[1] = empty_string;
   result_count = 1;
   myself = get__std__equal();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_476;
+}
+static void cont__compiler__sim2c_476(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[8] /* temp__2 */ = arguments->slots[0];
+  // 651: ... delayed_code != ""
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[8] /* temp__2 */;
+  result_count = 1;
+  myself = get__std__not();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_477;
 }
@@ -13599,40 +13606,25 @@ static void cont__compiler__sim2c_477(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 650: ... delayed_code != ""
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[8] /* temp__2 */;
-  result_count = 1;
-  myself = get__std__not();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_478;
-}
-static void cont__compiler__sim2c_478(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 650: if delayed_code != "": write_to_delayed_statements delayed_code
+  // 651: if delayed_code != "": write_to_delayed_statements delayed_code
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
-  arguments->slots[1] = func__compiler__sim2c_479;
+  arguments->slots[1] = func__compiler__sim2c_478;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_480;
+  frame->cont = cont__compiler__sim2c_479;
 }
-static void entry__compiler__sim2c_479(void) {
+static void entry__compiler__sim2c_478(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 650: ... write_to_delayed_statements delayed_code
+  // 651: ... write_to_delayed_statements delayed_code
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__delayed_code();
@@ -13641,14 +13633,14 @@ static void entry__compiler__sim2c_479(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_480(void) {
+static void cont__compiler__sim2c_479(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 651: ... : append &generated_code code
-  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__sim2c_481, 0);
-  // 651: push &actions: append &generated_code code
+  // 652: ... : append &generated_code code
+  frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__sim2c_480, 0);
+  // 652: push &actions: append &generated_code code
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -13656,9 +13648,9 @@ static void cont__compiler__sim2c_480(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_483;
+  frame->cont = cont__compiler__sim2c_482;
 }
-static void entry__compiler__sim2c_481(void) {
+static void entry__compiler__sim2c_480(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_code: 0
@@ -13669,7 +13661,7 @@ static void entry__compiler__sim2c_481(void) {
     invalid_arguments_error();
     return;
   }
-  // 651: ... append &generated_code code
+  // 652: ... append &generated_code code
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_code */;
@@ -13677,9 +13669,9 @@ static void entry__compiler__sim2c_481(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_482;
+  frame->cont = cont__compiler__sim2c_481;
 }
-static void cont__compiler__sim2c_482(void) {
+static void cont__compiler__sim2c_481(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13691,13 +13683,13 @@ static void cont__compiler__sim2c_482(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_483(void) {
+static void cont__compiler__sim2c_482(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   set__actions(arguments->slots[0]);
-  // 652: push &all_actions actions
+  // 653: push &all_actions actions
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* all_actions */;
@@ -13705,9 +13697,9 @@ static void cont__compiler__sim2c_483(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_484;
+  frame->cont = cont__compiler__sim2c_483;
 }
-static void cont__compiler__sim2c_484(void) {
+static void cont__compiler__sim2c_483(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13719,33 +13711,33 @@ static void cont__compiler__sim2c_484(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_485(void) {
+static void cont__compiler__sim2c_484(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 653: ... :
-  // 654:   %%compiler::actions empty_list
-  // 655:   collect_output $code:
-  // 656:     if
-  // 657:       is_main:
-  // 658:         write "
-  // 659:             terminate(0); // should never be reached
-  // 660:           }
-  // 661:       :
-  // 662:         write "
+  // 654: ... :
+  // 655:   %%compiler::actions empty_list
+  // 656:   collect_output $code:
+  // 657:     if
+  // 658:       is_main:
+  // 659:         write "
+  // 660:             terminate(0); // should never be reached
+  // 661:           }
+  // 662:       :
+  // 663:         write "
   // ...
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_486, 0);
-  // 653: do:
-  // 654:   %%compiler::actions empty_list
-  // 655:   collect_output $code:
-  // 656:     if
-  // 657:       is_main:
-  // 658:         write "
-  // 659:             terminate(0); // should never be reached
-  // 660:           }
-  // 661:       :
-  // 662:         write "
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_485, 0);
+  // 654: do:
+  // 655:   %%compiler::actions empty_list
+  // 656:   collect_output $code:
+  // 657:     if
+  // 658:       is_main:
+  // 659:         write "
+  // 660:             terminate(0); // should never be reached
+  // 661:           }
+  // 662:       :
+  // 663:         write "
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -13753,9 +13745,9 @@ static void cont__compiler__sim2c_485(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_498;
+  frame->cont = cont__compiler__sim2c_497;
 }
-static void entry__compiler__sim2c_486(void) {
+static void entry__compiler__sim2c_485(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // return__9: 0
@@ -13773,30 +13765,30 @@ static void entry__compiler__sim2c_486(void) {
     invalid_arguments_error();
     return;
   }
-  // 654: %%compiler::actions empty_list
+  // 655: %%compiler::actions empty_list
   set__compiler__actions(get__empty_list());
-  // 655: ... :
-  // 656:   if
-  // 657:     is_main:
-  // 658:       write "
-  // 659:           terminate(0); // should never be reached
-  // 660:         }
-  // 661:     :
-  // 662:       write "
-  // 663:           frame = frame->caller_frame;
-  // 664:           func = frame->cont;
+  // 656: ... :
+  // 657:   if
+  // 658:     is_main:
+  // 659:       write "
+  // 660:           terminate(0); // should never be reached
+  // 661:         }
+  // 662:     :
+  // 663:       write "
+  // 664:           frame = frame->caller_frame;
+  // 665:           func = frame->cont;
   // ...
-  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__sim2c_487, 0);
-  // 655: collect_output $code:
-  // 656:   if
-  // 657:     is_main:
-  // 658:       write "
-  // 659:           terminate(0); // should never be reached
-  // 660:         }
-  // 661:     :
-  // 662:       write "
-  // 663:           frame = frame->caller_frame;
-  // 664:           func = frame->cont;
+  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__sim2c_486, 0);
+  // 656: collect_output $code:
+  // 657:   if
+  // 658:     is_main:
+  // 659:       write "
+  // 660:           terminate(0); // should never be reached
+  // 661:         }
+  // 662:     :
+  // 663:       write "
+  // 664:           frame = frame->caller_frame;
+  // 665:           func = frame->cont;
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -13804,9 +13796,9 @@ static void entry__compiler__sim2c_486(void) {
   result_count = 1;
   myself = get__collect_output();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_493;
+  frame->cont = cont__compiler__sim2c_492;
 }
-static void entry__compiler__sim2c_487(void) {
+static void entry__compiler__sim2c_486(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // is_main: 0
@@ -13815,37 +13807,37 @@ static void entry__compiler__sim2c_487(void) {
     invalid_arguments_error();
     return;
   }
-  // 656: if
-  // 657:   is_main:
-  // 658:     write "
-  // 659:         terminate(0); // should never be reached
-  // 660:       }
-  // 661:   :
-  // 662:     write "
-  // 663:         frame = frame->caller_frame;
-  // 664:         func = frame->cont;
-  // 665:         frame->cont = invalid_continuation;
+  // 657: if
+  // 658:   is_main:
+  // 659:     write "
+  // 660:         terminate(0); // should never be reached
+  // 661:       }
+  // 662:   :
+  // 663:     write "
+  // 664:         frame = frame->caller_frame;
+  // 665:         func = frame->cont;
+  // 666:         frame->cont = invalid_continuation;
   // ...
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* is_main */;
-  arguments->slots[1] = func__compiler__sim2c_488;
-  arguments->slots[2] = func__compiler__sim2c_490;
+  arguments->slots[1] = func__compiler__sim2c_487;
+  arguments->slots[2] = func__compiler__sim2c_489;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_492;
+  frame->cont = cont__compiler__sim2c_491;
 }
-static void entry__compiler__sim2c_488(void) {
+static void entry__compiler__sim2c_487(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 658: write "
-  // 659:     terminate(0); // should never be reached
-  // 660:   }
+  // 659: write "
+  // 660:     terminate(0); // should never be reached
+  // 661:   }
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__5c9d8231ad282235;
@@ -13854,18 +13846,18 @@ static void entry__compiler__sim2c_488(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_490(void) {
+static void entry__compiler__sim2c_489(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 662: write "
-  // 663:     frame = frame->caller_frame;
-  // 664:     func = frame->cont;
-  // 665:     frame->cont = invalid_continuation;
-  // 666:   }
+  // 663: write "
+  // 664:     frame = frame->caller_frame;
+  // 665:     func = frame->cont;
+  // 666:     frame->cont = invalid_continuation;
+  // 667:   }
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__a61426acc3f10dab;
@@ -13874,12 +13866,12 @@ static void entry__compiler__sim2c_490(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_492(void) {
+static void cont__compiler__sim2c_491(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 667: end_continuation
+  // 668: end_continuation
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -13887,15 +13879,15 @@ static void cont__compiler__sim2c_492(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_493(void) {
+static void cont__compiler__sim2c_492(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[4] /* code */, arguments->slots[0]);
-  // 668: ... : append &generated_code code
-  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__sim2c_494, 0);
-  // 668: push &actions: append &generated_code code
+  // 669: ... : append &generated_code code
+  frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__sim2c_493, 0);
+  // 669: push &actions: append &generated_code code
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -13903,9 +13895,9 @@ static void cont__compiler__sim2c_493(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_496;
+  frame->cont = cont__compiler__sim2c_495;
 }
-static void entry__compiler__sim2c_494(void) {
+static void entry__compiler__sim2c_493(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // generated_code: 0
@@ -13916,7 +13908,7 @@ static void entry__compiler__sim2c_494(void) {
     invalid_arguments_error();
     return;
   }
-  // 668: ... append &generated_code code
+  // 669: ... append &generated_code code
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_code */;
@@ -13924,9 +13916,9 @@ static void entry__compiler__sim2c_494(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_495;
+  frame->cont = cont__compiler__sim2c_494;
 }
-static void cont__compiler__sim2c_495(void) {
+static void cont__compiler__sim2c_494(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13938,13 +13930,13 @@ static void cont__compiler__sim2c_495(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_496(void) {
+static void cont__compiler__sim2c_495(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   set__actions(arguments->slots[0]);
-  // 669: push &all_actions actions
+  // 670: push &all_actions actions
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* all_actions */;
@@ -13952,9 +13944,9 @@ static void cont__compiler__sim2c_496(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_497;
+  frame->cont = cont__compiler__sim2c_496;
 }
-static void cont__compiler__sim2c_497(void) {
+static void cont__compiler__sim2c_496(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13966,22 +13958,22 @@ static void cont__compiler__sim2c_497(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_498(void) {
+static void cont__compiler__sim2c_497(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 670: for_each all_actions: (stmt_actions) for_each stmt_actions: (action) action
+  // 671: for_each all_actions: (stmt_actions) for_each stmt_actions: (action) action
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[8])->contents /* all_actions */;
-  arguments->slots[1] = func__compiler__sim2c_499;
+  arguments->slots[1] = func__compiler__sim2c_498;
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_501;
+  frame->cont = cont__compiler__sim2c_500;
 }
-static void entry__compiler__sim2c_500(void) {
+static void entry__compiler__sim2c_499(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // action: 0
@@ -13989,7 +13981,7 @@ static void entry__compiler__sim2c_500(void) {
     invalid_arguments_error();
     return;
   }
-  // 670: ... action
+  // 671: ... action
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -13997,7 +13989,7 @@ static void entry__compiler__sim2c_500(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_499(void) {
+static void entry__compiler__sim2c_498(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // stmt_actions: 0
@@ -14005,32 +13997,32 @@ static void entry__compiler__sim2c_499(void) {
     invalid_arguments_error();
     return;
   }
-  // 670: ... for_each stmt_actions: (action) action
+  // 671: ... for_each stmt_actions: (action) action
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* stmt_actions */;
-  arguments->slots[1] = func__compiler__sim2c_500;
+  arguments->slots[1] = func__compiler__sim2c_499;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_501(void) {
+static void cont__compiler__sim2c_500(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 671: for_each required_modules: (name _info) writeln "/// require @(name)"
+  // 672: for_each required_modules: (name _info) writeln "/// require @(name)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__required_modules();
-  arguments->slots[1] = func__compiler__sim2c_502;
+  arguments->slots[1] = func__compiler__sim2c_501;
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_505;
+  frame->cont = cont__compiler__sim2c_504;
 }
-static void entry__compiler__sim2c_502(void) {
+static void entry__compiler__sim2c_501(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -14039,7 +14031,7 @@ static void entry__compiler__sim2c_502(void) {
     invalid_arguments_error();
     return;
   }
-  // 671: ... "/// require @(name)"
+  // 672: ... "/// require @(name)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__58cb04c59ab3549a;
@@ -14047,15 +14039,15 @@ static void entry__compiler__sim2c_502(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_504;
+  frame->cont = cont__compiler__sim2c_503;
 }
-static void cont__compiler__sim2c_504(void) {
+static void cont__compiler__sim2c_503(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 671: ... writeln "/// require @(name)"
+  // 672: ... writeln "/// require @(name)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -14064,22 +14056,22 @@ static void cont__compiler__sim2c_504(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_505(void) {
+static void cont__compiler__sim2c_504(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 672: for_each linked_libraries: (name) writeln "/// link @(name)"
+  // 673: for_each linked_libraries: (name) writeln "/// link @(name)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__linked_libraries();
-  arguments->slots[1] = func__compiler__sim2c_506;
+  arguments->slots[1] = func__compiler__sim2c_505;
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_509;
+  frame->cont = cont__compiler__sim2c_508;
 }
-static void entry__compiler__sim2c_506(void) {
+static void entry__compiler__sim2c_505(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // name: 0
@@ -14087,7 +14079,7 @@ static void entry__compiler__sim2c_506(void) {
     invalid_arguments_error();
     return;
   }
-  // 672: ... "/// link @(name)"
+  // 673: ... "/// link @(name)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__7d8c250ccd5bbd65;
@@ -14095,15 +14087,15 @@ static void entry__compiler__sim2c_506(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_508;
+  frame->cont = cont__compiler__sim2c_507;
 }
-static void cont__compiler__sim2c_508(void) {
+static void cont__compiler__sim2c_507(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 672: ... writeln "/// link @(name)"
+  // 673: ... writeln "/// link @(name)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14112,22 +14104,22 @@ static void cont__compiler__sim2c_508(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_509(void) {
+static void cont__compiler__sim2c_508(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 673: for_each dependent_data: (filemask) writeln "/// data @(filemask)"
+  // 674: for_each dependent_data: (filemask) writeln "/// data @(filemask)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__dependent_data();
-  arguments->slots[1] = func__compiler__sim2c_510;
+  arguments->slots[1] = func__compiler__sim2c_509;
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_513;
+  frame->cont = cont__compiler__sim2c_512;
 }
-static void entry__compiler__sim2c_510(void) {
+static void entry__compiler__sim2c_509(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // filemask: 0
@@ -14135,7 +14127,7 @@ static void entry__compiler__sim2c_510(void) {
     invalid_arguments_error();
     return;
   }
-  // 673: ... "/// data @(filemask)"
+  // 674: ... "/// data @(filemask)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__6d8c238ccd0b3d65;
@@ -14143,15 +14135,15 @@ static void entry__compiler__sim2c_510(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_512;
+  frame->cont = cont__compiler__sim2c_511;
 }
-static void cont__compiler__sim2c_512(void) {
+static void cont__compiler__sim2c_511(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 673: ... writeln "/// data @(filemask)"
+  // 674: ... writeln "/// data @(filemask)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14160,27 +14152,27 @@ static void cont__compiler__sim2c_512(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_513(void) {
+static void cont__compiler__sim2c_512(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 674: ... required_modules.is_empty
+  // 675: ... required_modules.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__required_modules();
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_514;
+  frame->cont = cont__compiler__sim2c_513;
 }
-static void cont__compiler__sim2c_514(void) {
+static void cont__compiler__sim2c_513(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[33] /* temp__1 */ = arguments->slots[0];
-  // 674: unless required_modules.is_empty writeln
+  // 675: unless required_modules.is_empty writeln
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[33] /* temp__1 */;
@@ -14188,81 +14180,75 @@ static void cont__compiler__sim2c_514(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_515;
+  frame->cont = cont__compiler__sim2c_514;
 }
-static void cont__compiler__sim2c_515(void) {
+static void cont__compiler__sim2c_514(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 675: !included_files("runtime/platform.h") true
-  frame->slots[33] /* temp__1 */ = get__true();
-  // 675: !included_files("runtime/platform.h")
+  // 676: !included_files("runtime/platform.h")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__3ae3b0d72c49c8db;
-  arguments->slots[1] = frame->slots[33] /* temp__1 */;
+  arguments->slots[1] = get__true();
   result_count = 1;
   myself = get__included_files();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_517;
+  frame->cont = cont__compiler__sim2c_516;
 }
-static void cont__compiler__sim2c_517(void) {
+static void cont__compiler__sim2c_516(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   set__included_files(arguments->slots[0]);
-  // 676: if use_inline_c:
-  // 677:   !included_files("stdint.h") true
-  // 678:   !included_files("stdlib.h") true
+  // 677: if use_inline_c:
+  // 678:   !included_files("stdint.h") true
+  // 679:   !included_files("stdlib.h") true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__use_inline_c();
-  arguments->slots[1] = func__compiler__sim2c_518;
+  arguments->slots[1] = func__compiler__sim2c_517;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_523;
+  frame->cont = cont__compiler__sim2c_522;
 }
-static void entry__compiler__sim2c_518(void) {
-  allocate_initialized_frame_gc(0, 1);
+static void entry__compiler__sim2c_517(void) {
+  allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 677: !included_files("stdint.h") true
-  frame->slots[0] /* temp__1 */ = get__true();
-  // 677: !included_files("stdint.h")
+  // 678: !included_files("stdint.h")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__72c4a8d406a50228;
-  arguments->slots[1] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = get__true();
   result_count = 1;
   myself = get__included_files();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_520;
+  frame->cont = cont__compiler__sim2c_519;
 }
-static void cont__compiler__sim2c_520(void) {
+static void cont__compiler__sim2c_519(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   set__included_files(arguments->slots[0]);
-  // 678: !included_files("stdlib.h") true
-  frame->slots[0] /* temp__1 */ = get__true();
-  // 678: !included_files("stdlib.h")
+  // 679: !included_files("stdlib.h")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__7cc4ad5406a55228;
-  arguments->slots[1] = frame->slots[0] /* temp__1 */;
+  arguments->slots[1] = get__true();
   result_count = 1;
   myself = get__included_files();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_522;
+  frame->cont = cont__compiler__sim2c_521;
 }
-static void cont__compiler__sim2c_522(void) {
+static void cont__compiler__sim2c_521(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -14274,22 +14260,22 @@ static void cont__compiler__sim2c_522(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_523(void) {
+static void cont__compiler__sim2c_522(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 679: for_each included_files: (name) writeln "#include <@(name)>"
+  // 680: for_each included_files: (name) writeln "#include <@(name)>"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__included_files();
-  arguments->slots[1] = func__compiler__sim2c_524;
+  arguments->slots[1] = func__compiler__sim2c_523;
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_528;
+  frame->cont = cont__compiler__sim2c_527;
 }
-static void entry__compiler__sim2c_524(void) {
+static void entry__compiler__sim2c_523(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // name: 0
@@ -14297,7 +14283,7 @@ static void entry__compiler__sim2c_524(void) {
     invalid_arguments_error();
     return;
   }
-  // 679: ... "#include <@(name)>"
+  // 680: ... "#include <@(name)>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__3d6a095dad2a247d;
@@ -14306,15 +14292,15 @@ static void entry__compiler__sim2c_524(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_527;
+  frame->cont = cont__compiler__sim2c_526;
 }
-static void cont__compiler__sim2c_527(void) {
+static void cont__compiler__sim2c_526(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 679: ... writeln "#include <@(name)>"
+  // 680: ... writeln "#include <@(name)>"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14323,27 +14309,27 @@ static void cont__compiler__sim2c_527(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_528(void) {
+static void cont__compiler__sim2c_527(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 680: ... included_files.is_empty
+  // 681: ... included_files.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__included_files();
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_529;
+  frame->cont = cont__compiler__sim2c_528;
 }
-static void cont__compiler__sim2c_529(void) {
+static void cont__compiler__sim2c_528(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[33] /* temp__1 */ = arguments->slots[0];
-  // 680: unless included_files.is_empty writeln
+  // 681: unless included_files.is_empty writeln
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[33] /* temp__1 */;
@@ -14351,23 +14337,23 @@ static void cont__compiler__sim2c_529(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_530;
+  frame->cont = cont__compiler__sim2c_529;
 }
-static void cont__compiler__sim2c_530(void) {
+static void cont__compiler__sim2c_529(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 681: write "
-  // 682:   /**********************
-  // 683:   D E C L A R A T I O N S
-  // 684:   **********************/
-  // 685:   
-  // 686:   #ifndef IMPORT
-  // 687:     #define IMPORT extern
-  // 688:   #endif
-  // 689:   
-  // 690:   #ifndef EXPORT
+  // 682: write "
+  // 683:   /**********************
+  // 684:   D E C L A R A T I O N S
+  // 685:   **********************/
+  // 686:   
+  // 687:   #ifndef IMPORT
+  // 688:     #define IMPORT extern
+  // 689:   #endif
+  // 690:   
+  // 691:   #ifndef EXPORT
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -14375,65 +14361,65 @@ static void cont__compiler__sim2c_530(void) {
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_532;
+  frame->cont = cont__compiler__sim2c_531;
 }
-static void cont__compiler__sim2c_532(void) {
+static void cont__compiler__sim2c_531(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 699: ... included_files("stdint.h")
+  // 700: ... included_files("stdint.h")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__72c4a8d406a50228;
   result_count = 1;
   myself = get__included_files();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_533;
+  frame->cont = cont__compiler__sim2c_532;
 }
-static void cont__compiler__sim2c_533(void) {
+static void cont__compiler__sim2c_532(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[33] /* temp__1 */ = arguments->slots[0];
-  // 699: unless included_files("stdint.h"):
-  // 700:   write "
-  // 701:     typedef __INT8_TYPE__ int8_t;
-  // 702:     typedef __INT16_TYPE__ int16_t;
-  // 703:     typedef __INT32_TYPE__ int32_t;
-  // 704:     typedef __INT64_TYPE__ int64_t;
-  // 705:     typedef __INTPTR_TYPE__ intptr_t;
-  // 706:     
-  // 707:     #ifdef __UINT8_TYPE__
-  // 708:       typedef __UINT8_TYPE__ uint8_t;
+  // 700: unless included_files("stdint.h"):
+  // 701:   write "
+  // 702:     typedef __INT8_TYPE__ int8_t;
+  // 703:     typedef __INT16_TYPE__ int16_t;
+  // 704:     typedef __INT32_TYPE__ int32_t;
+  // 705:     typedef __INT64_TYPE__ int64_t;
+  // 706:     typedef __INTPTR_TYPE__ intptr_t;
+  // 707:     
+  // 708:     #ifdef __UINT8_TYPE__
+  // 709:       typedef __UINT8_TYPE__ uint8_t;
   // ...
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[33] /* temp__1 */;
-  arguments->slots[1] = func__compiler__sim2c_534;
+  arguments->slots[1] = func__compiler__sim2c_533;
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_536;
+  frame->cont = cont__compiler__sim2c_535;
 }
-static void entry__compiler__sim2c_534(void) {
+static void entry__compiler__sim2c_533(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 700: write "
-  // 701:   typedef __INT8_TYPE__ int8_t;
-  // 702:   typedef __INT16_TYPE__ int16_t;
-  // 703:   typedef __INT32_TYPE__ int32_t;
-  // 704:   typedef __INT64_TYPE__ int64_t;
-  // 705:   typedef __INTPTR_TYPE__ intptr_t;
-  // 706:   
-  // 707:   #ifdef __UINT8_TYPE__
-  // 708:     typedef __UINT8_TYPE__ uint8_t;
-  // 709:   #else
+  // 701: write "
+  // 702:   typedef __INT8_TYPE__ int8_t;
+  // 703:   typedef __INT16_TYPE__ int16_t;
+  // 704:   typedef __INT32_TYPE__ int32_t;
+  // 705:   typedef __INT64_TYPE__ int64_t;
+  // 706:   typedef __INTPTR_TYPE__ intptr_t;
+  // 707:   
+  // 708:   #ifdef __UINT8_TYPE__
+  // 709:     typedef __UINT8_TYPE__ uint8_t;
+  // 710:   #else
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -14443,59 +14429,59 @@ static void entry__compiler__sim2c_534(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_536(void) {
+static void cont__compiler__sim2c_535(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 736: ... included_files("stdlib.h")
+  // 737: ... included_files("stdlib.h")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__7cc4ad5406a55228;
   result_count = 1;
   myself = get__included_files();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_537;
+  frame->cont = cont__compiler__sim2c_536;
 }
-static void cont__compiler__sim2c_537(void) {
+static void cont__compiler__sim2c_536(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[34] /* temp__2 */ = arguments->slots[0];
-  // 736: ... included_files("stdlib.h") || included_files("stddef.h")
+  // 737: ... included_files("stdlib.h") || included_files("stddef.h")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[34] /* temp__2 */;
-  arguments->slots[1] = func__compiler__sim2c_538;
+  arguments->slots[1] = func__compiler__sim2c_537;
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_541;
+  frame->cont = cont__compiler__sim2c_540;
 }
-static void entry__compiler__sim2c_538(void) {
+static void entry__compiler__sim2c_537(void) {
   allocate_initialized_frame_gc(0, 1);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 736: ... included_files("stddef.h")
+  // 737: ... included_files("stddef.h")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__64c4ac5406a5d228;
   result_count = 1;
   myself = get__included_files();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_540;
+  frame->cont = cont__compiler__sim2c_539;
 }
-static void cont__compiler__sim2c_540(void) {
+static void cont__compiler__sim2c_539(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 736: ... included_files("stddef.h")
+  // 737: ... included_files("stddef.h")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -14503,33 +14489,33 @@ static void cont__compiler__sim2c_540(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__sim2c_541(void) {
+static void cont__compiler__sim2c_540(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[33] /* temp__1 */ = arguments->slots[0];
-  // 736: unless included_files("stdlib.h") || included_files("stddef.h"):
-  // 737:   write "
-  // 738:     typedef __SIZE_TYPE__ size_t;
+  // 737: unless included_files("stdlib.h") || included_files("stddef.h"):
+  // 738:   write "
+  // 739:     typedef __SIZE_TYPE__ size_t;
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[33] /* temp__1 */;
-  arguments->slots[1] = func__compiler__sim2c_542;
+  arguments->slots[1] = func__compiler__sim2c_541;
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_544;
+  frame->cont = cont__compiler__sim2c_543;
 }
-static void entry__compiler__sim2c_542(void) {
+static void entry__compiler__sim2c_541(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 737: write "
-  // 738:   typedef __SIZE_TYPE__ size_t;
+  // 738: write "
+  // 739:   typedef __SIZE_TYPE__ size_t;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__b0f44c3748f83ed0;
@@ -14538,21 +14524,21 @@ static void entry__compiler__sim2c_542(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_544(void) {
+static void cont__compiler__sim2c_543(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 739: write "
-  // 740:   // INSERT HERE //
-  // 741:   
-  // 742:   #if UINTPTR_MAX == 0xffffffffffffffff
-  // 743:     #define FIRST_INVALID_ADDRESS 0xc000000000000000UL
-  // 744:     #define SAMPLE_POINTER ((void *)0x123456789abcdef0UL)
-  // 745:   #else
-  // 746:     #define FIRST_INVALID_ADDRESS 0xc0000000
-  // 747:     #define SAMPLE_POINTER ((void *)0x12345678)
-  // 748:   #endif
+  // 740: write "
+  // 741:   // INSERT HERE //
+  // 742:   
+  // 743:   #if UINTPTR_MAX == 0xffffffffffffffff
+  // 744:     #define FIRST_INVALID_ADDRESS 0xc000000000000000UL
+  // 745:     #define SAMPLE_POINTER ((void *)0x123456789abcdef0UL)
+  // 746:   #else
+  // 747:     #define FIRST_INVALID_ADDRESS 0xc0000000
+  // 748:     #define SAMPLE_POINTER ((void *)0x12345678)
+  // 749:   #endif
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -14560,33 +14546,33 @@ static void cont__compiler__sim2c_544(void) {
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_546;
+  frame->cont = cont__compiler__sim2c_545;
 }
-static void cont__compiler__sim2c_546(void) {
+static void cont__compiler__sim2c_545(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 783: for_each needed_names: (name info)
-  // 784:   if variable_kind_of(info) == POLYMORPHIC:
-  // 785:     writeln "static int poly_idx__@(name);"
-  // 786:   writeln "static NODE_GETTER get__@(name);"
-  // 787:   if variable_kind_of(info) == STATIC_SINGLE:
-  // 788:     writeln "static NODE_GETTER get_value_or_future__@(name);"
-  // 789:   case variable_kind_of(info) STATIC_MULTI, DYNAMIC_MULTI:
-  // 790:     writeln "static NODE_SETTER set__@(name);"
-  // 791:   case variable_kind_of(info) DYNAMIC_SINGLE, DYNAMIC_MULTI:
-  // 792:     writeln "static NODE_SETTER define__@(name);"
+  // 785: for_each needed_names: (name info)
+  // 786:   if variable_kind_of(info) == POLYMORPHIC:
+  // 787:     writeln "static int poly_idx__@(name);"
+  // 788:   writeln "static NODE_GETTER get__@(name);"
+  // 789:   if variable_kind_of(info) == STATIC_SINGLE:
+  // 790:     writeln "static NODE_GETTER get_value_or_future__@(name);"
+  // 791:   case variable_kind_of(info) STATIC_MULTI, DYNAMIC_MULTI:
+  // 792:     writeln "static NODE_SETTER set__@(name);"
+  // 793:   case variable_kind_of(info) DYNAMIC_SINGLE, DYNAMIC_MULTI:
+  // 794:     writeln "static NODE_SETTER define__@(name);"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__needed_names();
-  arguments->slots[1] = func__compiler__sim2c_547;
+  arguments->slots[1] = func__compiler__sim2c_546;
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_575;
+  frame->cont = cont__compiler__sim2c_574;
 }
-static void entry__compiler__sim2c_572(void) {
+static void entry__compiler__sim2c_571(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // name: 0
@@ -14595,7 +14581,7 @@ static void entry__compiler__sim2c_572(void) {
     invalid_arguments_error();
     return;
   }
-  // 792: ... "static NODE_SETTER define__@(name);"
+  // 794: ... "static NODE_SETTER define__@(name);"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__16f790c158cdffe3;
@@ -14604,15 +14590,15 @@ static void entry__compiler__sim2c_572(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_574;
+  frame->cont = cont__compiler__sim2c_573;
 }
-static void cont__compiler__sim2c_574(void) {
+static void cont__compiler__sim2c_573(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 792: writeln "static NODE_SETTER define__@(name);"
+  // 794: writeln "static NODE_SETTER define__@(name);"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14621,7 +14607,7 @@ static void cont__compiler__sim2c_574(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_547(void) {
+static void entry__compiler__sim2c_546(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // name: 0
@@ -14630,12 +14616,28 @@ static void entry__compiler__sim2c_547(void) {
     invalid_arguments_error();
     return;
   }
-  // 784: ... variable_kind_of(info)
+  // 786: ... variable_kind_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* info */;
   result_count = 1;
   myself = get__variable_kind_of();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_547;
+}
+static void cont__compiler__sim2c_547(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[3] /* temp__2 */ = arguments->slots[0];
+  // 786: ... variable_kind_of(info) == POLYMORPHIC
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[3] /* temp__2 */;
+  arguments->slots[1] = get__POLYMORPHIC();
+  result_count = 1;
+  myself = get__std__equal();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_548;
 }
@@ -14644,28 +14646,12 @@ static void cont__compiler__sim2c_548(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 784: ... variable_kind_of(info) == POLYMORPHIC
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[3] /* temp__2 */;
-  arguments->slots[1] = get__POLYMORPHIC();
-  result_count = 1;
-  myself = get__std__equal();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_549;
-}
-static void cont__compiler__sim2c_549(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 784: ... :
-  // 785:   writeln "static int poly_idx__@(name);"
-  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_550, 0);
-  // 784: if variable_kind_of(info) == POLYMORPHIC:
-  // 785:   writeln "static int poly_idx__@(name);"
+  // 786: ... :
+  // 787:   writeln "static int poly_idx__@(name);"
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_549, 0);
+  // 786: if variable_kind_of(info) == POLYMORPHIC:
+  // 787:   writeln "static int poly_idx__@(name);"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -14673,9 +14659,9 @@ static void cont__compiler__sim2c_549(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_554;
+  frame->cont = cont__compiler__sim2c_553;
 }
-static void entry__compiler__sim2c_550(void) {
+static void entry__compiler__sim2c_549(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // name: 0
@@ -14684,7 +14670,7 @@ static void entry__compiler__sim2c_550(void) {
     invalid_arguments_error();
     return;
   }
-  // 785: ... "static int poly_idx__@(name);"
+  // 787: ... "static int poly_idx__@(name);"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__dd59fa996655f7be;
@@ -14693,15 +14679,15 @@ static void entry__compiler__sim2c_550(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_553;
+  frame->cont = cont__compiler__sim2c_552;
 }
-static void cont__compiler__sim2c_553(void) {
+static void cont__compiler__sim2c_552(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 785: writeln "static int poly_idx__@(name);"
+  // 787: writeln "static int poly_idx__@(name);"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14710,12 +14696,12 @@ static void cont__compiler__sim2c_553(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_554(void) {
+static void cont__compiler__sim2c_553(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 786: ... "static NODE_GETTER get__@(name);"
+  // 788: ... "static NODE_GETTER get__@(name);"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__7bc4c42d1b67ee3a;
@@ -14724,109 +14710,24 @@ static void cont__compiler__sim2c_554(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
+  frame->cont = cont__compiler__sim2c_555;
+}
+static void cont__compiler__sim2c_555(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__1 */ = arguments->slots[0];
+  // 788: writeln "static NODE_GETTER get__@(name);"
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__1 */;
+  result_count = 0;
+  myself = get__writeln();
+  func = myself->type;
   frame->cont = cont__compiler__sim2c_556;
 }
 static void cont__compiler__sim2c_556(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 786: writeln "static NODE_GETTER get__@(name);"
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* temp__1 */;
-  result_count = 0;
-  myself = get__writeln();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_557;
-}
-static void cont__compiler__sim2c_557(void) {
-  if (argument_count != 0) {
-    invalid_results_error();
-    return;
-  }
-  // 787: ... variable_kind_of(info)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* info */;
-  result_count = 1;
-  myself = get__variable_kind_of();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_558;
-}
-static void cont__compiler__sim2c_558(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 787: ... variable_kind_of(info) == STATIC_SINGLE
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[3] /* temp__2 */;
-  arguments->slots[1] = get__STATIC_SINGLE();
-  result_count = 1;
-  myself = get__std__equal();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_559;
-}
-static void cont__compiler__sim2c_559(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 787: ... :
-  // 788:   writeln "static NODE_GETTER get_value_or_future__@(name);"
-  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_560, 0);
-  // 787: if variable_kind_of(info) == STATIC_SINGLE:
-  // 788:   writeln "static NODE_GETTER get_value_or_future__@(name);"
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* temp__1 */;
-  arguments->slots[1] = frame->slots[4] /* temp__3 */;
-  result_count = 0;
-  myself = get__if();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_563;
-}
-static void entry__compiler__sim2c_560(void) {
-  allocate_initialized_frame_gc(1, 2);
-  // slot allocations:
-  // name: 0
-  frame->slots[0] = myself->closure.frame->slots[0]; /* name */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 788: ... "static NODE_GETTER get_value_or_future__@(name);"
-  argument_count = 3;
-  arguments = node_p;
-  arguments->slots[0] = string__f144f4e2b96df7e3;
-  arguments->slots[1] = frame->slots[0] /* name */;
-  arguments->slots[2] = string__578a5af303e9cda;
-  result_count = 1;
-  myself = get__std__string();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_562;
-}
-static void cont__compiler__sim2c_562(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 788: writeln "static NODE_GETTER get_value_or_future__@(name);"
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  result_count = frame->caller_result_count;
-  myself = get__writeln();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void cont__compiler__sim2c_563(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -14838,46 +14739,45 @@ static void cont__compiler__sim2c_563(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_564;
+  frame->cont = cont__compiler__sim2c_557;
 }
-static void cont__compiler__sim2c_564(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 789: ... STATIC_MULTI, DYNAMIC_MULTI
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = get__STATIC_MULTI();
-  arguments->slots[1] = get__DYNAMIC_MULTI();
-  result_count = 1;
-  myself = get__std__sequence();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_565;
-}
-static void cont__compiler__sim2c_565(void) {
+static void cont__compiler__sim2c_557(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
+  // 789: ... variable_kind_of(info) == STATIC_SINGLE
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[3] /* temp__2 */;
+  arguments->slots[1] = get__STATIC_SINGLE();
+  result_count = 1;
+  myself = get__std__equal();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_558;
+}
+static void cont__compiler__sim2c_558(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 789: ... :
-  // 790:   writeln "static NODE_SETTER set__@(name);"
-  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_566, 0);
-  // 789: case variable_kind_of(info) STATIC_MULTI, DYNAMIC_MULTI:
-  // 790:   writeln "static NODE_SETTER set__@(name);"
-  argument_count = 3;
+  // 790:   writeln "static NODE_GETTER get_value_or_future__@(name);"
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_559, 0);
+  // 789: if variable_kind_of(info) == STATIC_SINGLE:
+  // 790:   writeln "static NODE_GETTER get_value_or_future__@(name);"
+  argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
-  arguments->slots[1] = frame->slots[3] /* temp__2 */;
-  arguments->slots[2] = frame->slots[4] /* temp__3 */;
+  arguments->slots[1] = frame->slots[4] /* temp__3 */;
   result_count = 0;
-  myself = get__case();
+  myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_569;
+  frame->cont = cont__compiler__sim2c_562;
 }
-static void entry__compiler__sim2c_566(void) {
+static void entry__compiler__sim2c_559(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // name: 0
@@ -14886,24 +14786,24 @@ static void entry__compiler__sim2c_566(void) {
     invalid_arguments_error();
     return;
   }
-  // 790: ... "static NODE_SETTER set__@(name);"
+  // 790: ... "static NODE_GETTER get_value_or_future__@(name);"
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = string__7bc4c42d1b4eae3a;
+  arguments->slots[0] = string__f144f4e2b96df7e3;
   arguments->slots[1] = frame->slots[0] /* name */;
   arguments->slots[2] = string__578a5af303e9cda;
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_568;
+  frame->cont = cont__compiler__sim2c_561;
 }
-static void cont__compiler__sim2c_568(void) {
+static void cont__compiler__sim2c_561(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 790: writeln "static NODE_SETTER set__@(name);"
+  // 790: writeln "static NODE_GETTER get_value_or_future__@(name);"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -14912,7 +14812,7 @@ static void cont__compiler__sim2c_568(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_569(void) {
+static void cont__compiler__sim2c_562(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -14924,15 +14824,101 @@ static void cont__compiler__sim2c_569(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_570;
+  frame->cont = cont__compiler__sim2c_563;
 }
-static void cont__compiler__sim2c_570(void) {
+static void cont__compiler__sim2c_563(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 791: ... DYNAMIC_SINGLE, DYNAMIC_MULTI
+  // 791: ... STATIC_MULTI, DYNAMIC_MULTI
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = get__STATIC_MULTI();
+  arguments->slots[1] = get__DYNAMIC_MULTI();
+  result_count = 1;
+  myself = get__std__sequence();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_564;
+}
+static void cont__compiler__sim2c_564(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[3] /* temp__2 */ = arguments->slots[0];
+  // 791: ... :
+  // 792:   writeln "static NODE_SETTER set__@(name);"
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_565, 0);
+  // 791: case variable_kind_of(info) STATIC_MULTI, DYNAMIC_MULTI:
+  // 792:   writeln "static NODE_SETTER set__@(name);"
+  argument_count = 3;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__1 */;
+  arguments->slots[1] = frame->slots[3] /* temp__2 */;
+  arguments->slots[2] = frame->slots[4] /* temp__3 */;
+  result_count = 0;
+  myself = get__case();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_568;
+}
+static void entry__compiler__sim2c_565(void) {
+  allocate_initialized_frame_gc(1, 2);
+  // slot allocations:
+  // name: 0
+  frame->slots[0] = myself->closure.frame->slots[0]; /* name */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 792: ... "static NODE_SETTER set__@(name);"
+  argument_count = 3;
+  arguments = node_p;
+  arguments->slots[0] = string__7bc4c42d1b4eae3a;
+  arguments->slots[1] = frame->slots[0] /* name */;
+  arguments->slots[2] = string__578a5af303e9cda;
+  result_count = 1;
+  myself = get__std__string();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_567;
+}
+static void cont__compiler__sim2c_567(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 792: writeln "static NODE_SETTER set__@(name);"
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  result_count = frame->caller_result_count;
+  myself = get__writeln();
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void cont__compiler__sim2c_568(void) {
+  if (argument_count != 0) {
+    invalid_results_error();
+    return;
+  }
+  // 793: ... variable_kind_of(info)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* info */;
+  result_count = 1;
+  myself = get__variable_kind_of();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_569;
+}
+static void cont__compiler__sim2c_569(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__1 */ = arguments->slots[0];
+  // 793: ... DYNAMIC_SINGLE, DYNAMIC_MULTI
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__DYNAMIC_SINGLE();
@@ -14940,19 +14926,19 @@ static void cont__compiler__sim2c_570(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_571;
+  frame->cont = cont__compiler__sim2c_570;
 }
-static void cont__compiler__sim2c_571(void) {
+static void cont__compiler__sim2c_570(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 791: ... :
-  // 792:   writeln "static NODE_SETTER define__@(name);"
-  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_572, 0);
-  // 791: case variable_kind_of(info) DYNAMIC_SINGLE, DYNAMIC_MULTI:
-  // 792:   writeln "static NODE_SETTER define__@(name);"
+  // 793: ... :
+  // 794:   writeln "static NODE_SETTER define__@(name);"
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_571, 0);
+  // 793: case variable_kind_of(info) DYNAMIC_SINGLE, DYNAMIC_MULTI:
+  // 794:   writeln "static NODE_SETTER define__@(name);"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -14963,16 +14949,30 @@ static void cont__compiler__sim2c_571(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_575(void) {
+static void cont__compiler__sim2c_574(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 793: write "
-  // 794:   static struct {
+  // 795: write "
+  // 796:   static struct {
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__ff4edce8b0a2fa27;
+  result_count = 0;
+  myself = get__write();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_576;
+}
+static void cont__compiler__sim2c_576(void) {
+  if (argument_count != 0) {
+    invalid_results_error();
+    return;
+  }
+  // 797: write generated_top_level_variable_declarations
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[16])->contents /* generated_top_level_variable_declarations */;
   result_count = 0;
   myself = get__write();
   func = myself->type;
@@ -14983,10 +14983,10 @@ static void cont__compiler__sim2c_577(void) {
     invalid_results_error();
     return;
   }
-  // 795: write generated_top_level_variable_declarations
+  // 798: write generated_global_variable_declarations
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[16])->contents /* generated_top_level_variable_declarations */;
+  arguments->slots[0] = ((CELL *)frame->slots[17])->contents /* generated_global_variable_declarations */;
   result_count = 0;
   myself = get__write();
   func = myself->type;
@@ -14997,57 +14997,58 @@ static void cont__compiler__sim2c_578(void) {
     invalid_results_error();
     return;
   }
-  // 796: write generated_global_variable_declarations
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[17])->contents /* generated_global_variable_declarations */;
-  result_count = 0;
-  myself = get__write();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_579;
-}
-static void cont__compiler__sim2c_579(void) {
-  if (argument_count != 0) {
-    invalid_results_error();
-    return;
-  }
-  // 797: write "
-  // 798:   } var;
+  // 799: write "
+  // 800:   } var;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__b07009729763a0f0;
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_581;
+  frame->cont = cont__compiler__sim2c_580;
 }
-static void cont__compiler__sim2c_581(void) {
+static void cont__compiler__sim2c_580(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 799: write "
-  // 800:   static const char *var_names[] = {
+  // 801: write "
+  // 802:   static const char *var_names[] = {
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__75573d7e471fdc32;
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_583;
+  frame->cont = cont__compiler__sim2c_582;
 }
-static void cont__compiler__sim2c_583(void) {
+static void cont__compiler__sim2c_582(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 801: ... generated_top_level_variable_names != ""
+  // 803: ... generated_top_level_variable_names != ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[15])->contents /* generated_top_level_variable_names */;
   arguments->slots[1] = empty_string;
   result_count = 1;
   myself = get__std__equal();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_583;
+}
+static void cont__compiler__sim2c_583(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[34] /* temp__2 */ = arguments->slots[0];
+  // 803: ... generated_top_level_variable_names != ""
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[34] /* temp__2 */;
+  result_count = 1;
+  myself = get__std__not();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_584;
 }
@@ -15056,27 +15057,12 @@ static void cont__compiler__sim2c_584(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[34] /* temp__2 */ = arguments->slots[0];
-  // 801: ... generated_top_level_variable_names != ""
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[34] /* temp__2 */;
-  result_count = 1;
-  myself = get__std__not();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_585;
-}
-static void cont__compiler__sim2c_585(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[33] /* temp__1 */ = arguments->slots[0];
-  // 801: ... :
-  // 802:   writeln range(generated_top_level_variable_names 1 -3)
-  frame->slots[35] /* temp__3 */ = create_closure(entry__compiler__sim2c_586, 0);
-  // 801: if generated_top_level_variable_names != "":
-  // 802:   writeln range(generated_top_level_variable_names 1 -3)
+  // 803: ... :
+  // 804:   writeln range(generated_top_level_variable_names 1 -3)
+  frame->slots[35] /* temp__3 */ = create_closure(entry__compiler__sim2c_585, 0);
+  // 803: if generated_top_level_variable_names != "":
+  // 804:   writeln range(generated_top_level_variable_names 1 -3)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[33] /* temp__1 */;
@@ -15084,9 +15070,9 @@ static void cont__compiler__sim2c_585(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_589;
+  frame->cont = cont__compiler__sim2c_588;
 }
-static void entry__compiler__sim2c_586(void) {
+static void entry__compiler__sim2c_585(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // generated_top_level_variable_names: 0
@@ -15095,22 +15081,22 @@ static void entry__compiler__sim2c_586(void) {
     invalid_arguments_error();
     return;
   }
-  // 802: ... 3
+  // 804: ... 3
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__3;
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_587;
+  frame->cont = cont__compiler__sim2c_586;
 }
-static void cont__compiler__sim2c_587(void) {
+static void cont__compiler__sim2c_586(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 802: ... range(generated_top_level_variable_names 1 -3)
+  // 804: ... range(generated_top_level_variable_names 1 -3)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_top_level_variable_names */;
@@ -15119,15 +15105,15 @@ static void cont__compiler__sim2c_587(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_588;
+  frame->cont = cont__compiler__sim2c_587;
 }
-static void cont__compiler__sim2c_588(void) {
+static void cont__compiler__sim2c_587(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 802: writeln range(generated_top_level_variable_names 1 -3)
+  // 804: writeln range(generated_top_level_variable_names 1 -3)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -15136,15 +15122,29 @@ static void cont__compiler__sim2c_588(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_589(void) {
+static void cont__compiler__sim2c_588(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 803: write "};@nl;"
+  // 805: write "};@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__fa727015ff16bc6;
+  result_count = 0;
+  myself = get__write();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_590;
+}
+static void cont__compiler__sim2c_590(void) {
+  if (argument_count != 0) {
+    invalid_results_error();
+    return;
+  }
+  // 806: write generated_declarations
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[14])->contents /* generated_declarations */;
   result_count = 0;
   myself = get__write();
   func = myself->type;
@@ -15155,43 +15155,29 @@ static void cont__compiler__sim2c_591(void) {
     invalid_results_error();
     return;
   }
-  // 804: write generated_declarations
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[14])->contents /* generated_declarations */;
-  result_count = 0;
-  myself = get__write();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_592;
-}
-static void cont__compiler__sim2c_592(void) {
-  if (argument_count != 0) {
-    invalid_results_error();
-    return;
-  }
-  // 812: if
-  // 813:   is_main:
-  // 814:     writeln "static void main_entry(void);"
-  // 815:   :
-  // 816:     writeln "void run__@(module_name)(void);"
+  // 814: if
+  // 815:   is_main:
+  // 816:     writeln "static void main_entry(void);"
+  // 817:   :
+  // 818:     writeln "void run__@(module_name)(void);"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* is_main */;
-  arguments->slots[1] = func__compiler__sim2c_593;
-  arguments->slots[2] = func__compiler__sim2c_595;
+  arguments->slots[1] = func__compiler__sim2c_592;
+  arguments->slots[2] = func__compiler__sim2c_594;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_599;
+  frame->cont = cont__compiler__sim2c_598;
 }
-static void entry__compiler__sim2c_593(void) {
+static void entry__compiler__sim2c_592(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 814: writeln "static void main_entry(void);"
+  // 816: writeln "static void main_entry(void);"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__c3452dad239e6464;
@@ -15200,14 +15186,14 @@ static void entry__compiler__sim2c_593(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_595(void) {
+static void entry__compiler__sim2c_594(void) {
   allocate_initialized_frame_gc(0, 1);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 816: ... "void run__@(module_name)(void);"
+  // 818: ... "void run__@(module_name)(void);"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__1f74a3bba8d254fe;
@@ -15216,15 +15202,15 @@ static void entry__compiler__sim2c_595(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_598;
+  frame->cont = cont__compiler__sim2c_597;
 }
-static void cont__compiler__sim2c_598(void) {
+static void cont__compiler__sim2c_597(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 816: writeln "void run__@(module_name)(void);"
+  // 818: writeln "void run__@(module_name)(void);"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -15233,34 +15219,50 @@ static void cont__compiler__sim2c_598(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_599(void) {
+static void cont__compiler__sim2c_598(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 817: write "
-  // 818:   
-  // 819:   static CONTINUATION_INFO continuation_info[] = {
+  // 819: write "
+  // 820:   
+  // 821:   static CONTINUATION_INFO continuation_info[] = {
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__b4688827b8af4941;
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_601;
+  frame->cont = cont__compiler__sim2c_600;
 }
-static void cont__compiler__sim2c_601(void) {
+static void cont__compiler__sim2c_600(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 820: append &generated_continuation_table generated_delayed_continuation_table
+  // 822: append &generated_continuation_table generated_delayed_continuation_table
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[18])->contents /* generated_continuation_table */;
   arguments->slots[1] = ((CELL *)frame->slots[19])->contents /* generated_delayed_continuation_table */;
   result_count = 1;
   myself = get__append();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_601;
+}
+static void cont__compiler__sim2c_601(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  ((CELL *)frame->slots[18])->contents /* generated_continuation_table */ = arguments->slots[0];
+  // 823: ... generated_continuation_table != ""
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[18])->contents /* generated_continuation_table */;
+  arguments->slots[1] = empty_string;
+  result_count = 1;
+  myself = get__std__equal();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_602;
 }
@@ -15269,14 +15271,13 @@ static void cont__compiler__sim2c_602(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[18])->contents /* generated_continuation_table */ = arguments->slots[0];
-  // 821: ... generated_continuation_table != ""
-  argument_count = 2;
+  frame->slots[34] /* temp__2 */ = arguments->slots[0];
+  // 823: ... generated_continuation_table != ""
+  argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[18])->contents /* generated_continuation_table */;
-  arguments->slots[1] = empty_string;
+  arguments->slots[0] = frame->slots[34] /* temp__2 */;
   result_count = 1;
-  myself = get__std__equal();
+  myself = get__std__not();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_603;
 }
@@ -15285,27 +15286,12 @@ static void cont__compiler__sim2c_603(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[34] /* temp__2 */ = arguments->slots[0];
-  // 821: ... generated_continuation_table != ""
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[34] /* temp__2 */;
-  result_count = 1;
-  myself = get__std__not();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_604;
-}
-static void cont__compiler__sim2c_604(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[33] /* temp__1 */ = arguments->slots[0];
-  // 821: ... :
-  // 822:   writeln range(generated_continuation_table 1 -3)
-  frame->slots[35] /* temp__3 */ = create_closure(entry__compiler__sim2c_605, 0);
-  // 821: if generated_continuation_table != "":
-  // 822:   writeln range(generated_continuation_table 1 -3)
+  // 823: ... :
+  // 824:   writeln range(generated_continuation_table 1 -3)
+  frame->slots[35] /* temp__3 */ = create_closure(entry__compiler__sim2c_604, 0);
+  // 823: if generated_continuation_table != "":
+  // 824:   writeln range(generated_continuation_table 1 -3)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[33] /* temp__1 */;
@@ -15313,9 +15299,9 @@ static void cont__compiler__sim2c_604(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_608;
+  frame->cont = cont__compiler__sim2c_607;
 }
-static void entry__compiler__sim2c_605(void) {
+static void entry__compiler__sim2c_604(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // generated_continuation_table: 0
@@ -15324,22 +15310,22 @@ static void entry__compiler__sim2c_605(void) {
     invalid_arguments_error();
     return;
   }
-  // 822: ... 3
+  // 824: ... 3
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__3;
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_606;
+  frame->cont = cont__compiler__sim2c_605;
 }
-static void cont__compiler__sim2c_606(void) {
+static void cont__compiler__sim2c_605(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 822: ... range(generated_continuation_table 1 -3)
+  // 824: ... range(generated_continuation_table 1 -3)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* generated_continuation_table */;
@@ -15348,15 +15334,15 @@ static void cont__compiler__sim2c_606(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_607;
+  frame->cont = cont__compiler__sim2c_606;
 }
-static void cont__compiler__sim2c_607(void) {
+static void cont__compiler__sim2c_606(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 822: writeln range(generated_continuation_table 1 -3)
+  // 824: writeln range(generated_continuation_table 1 -3)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -15365,61 +15351,61 @@ static void cont__compiler__sim2c_607(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_608(void) {
+static void cont__compiler__sim2c_607(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 823: write "
-  // 824:   };
-  // 825:   @;
+  // 825: write "
+  // 826:   };
+  // 827:   @;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__380aff8b5e307d33;
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_610;
+  frame->cont = cont__compiler__sim2c_609;
 }
-static void cont__compiler__sim2c_610(void) {
+static void cont__compiler__sim2c_609(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 826: write "
-  // 827:   union NODE {
-  // 828:     struct {
-  // 829:       FUNC type;
-  // 830:       ATTRIBUTES *attributes;
-  // 831:     };
-  // 832:     CONTINUATION continuation;
-  // 833:     CLOSURE closure;
+  // 828: write "
+  // 829:   union NODE {
+  // 830:     struct {
+  // 831:       FUNC type;
+  // 832:       ATTRIBUTES *attributes;
+  // 833:     };
+  // 834:     CONTINUATION continuation;
+  // 835:     CLOSURE closure;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__817a259dab23f435;
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_612;
+  frame->cont = cont__compiler__sim2c_611;
 }
-static void cont__compiler__sim2c_612(void) {
+static void cont__compiler__sim2c_611(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 834: if use_inline_c:
-  // 835:   for_each defined_nodes: (name _node)
-  // 836:     write "  @(name) @(name.to_lower_case);@nl;"
+  // 836: if use_inline_c:
+  // 837:   for_each defined_nodes: (name _node)
+  // 838:     write "  @(name) @(name.to_lower_case);@nl;"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__use_inline_c();
-  arguments->slots[1] = func__compiler__sim2c_613;
+  arguments->slots[1] = func__compiler__sim2c_612;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_620;
+  frame->cont = cont__compiler__sim2c_619;
 }
-static void entry__compiler__sim2c_614(void) {
+static void entry__compiler__sim2c_613(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // name: 0
@@ -15428,22 +15414,22 @@ static void entry__compiler__sim2c_614(void) {
     invalid_arguments_error();
     return;
   }
-  // 836: ... name.to_lower_case
+  // 838: ... name.to_lower_case
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
   result_count = 1;
   myself = get__to_lower_case();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_615;
+  frame->cont = cont__compiler__sim2c_614;
 }
-static void cont__compiler__sim2c_615(void) {
+static void cont__compiler__sim2c_614(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 836: ... "  @(name) @(name.to_lower_case);@nl;"
+  // 838: ... "  @(name) @(name.to_lower_case);@nl;"
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e6082be5;
@@ -15454,15 +15440,15 @@ static void cont__compiler__sim2c_615(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_619;
+  frame->cont = cont__compiler__sim2c_618;
 }
-static void cont__compiler__sim2c_619(void) {
+static void cont__compiler__sim2c_618(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 836: write "  @(name) @(name.to_lower_case);@nl;"
+  // 838: write "  @(name) @(name.to_lower_case);@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -15471,33 +15457,47 @@ static void cont__compiler__sim2c_619(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_613(void) {
+static void entry__compiler__sim2c_612(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 835: for_each defined_nodes: (name _node)
-  // 836:   write "  @(name) @(name.to_lower_case);@nl;"
+  // 837: for_each defined_nodes: (name _node)
+  // 838:   write "  @(name) @(name.to_lower_case);@nl;"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__defined_nodes();
-  arguments->slots[1] = func__compiler__sim2c_614;
+  arguments->slots[1] = func__compiler__sim2c_613;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
+}
+static void cont__compiler__sim2c_619(void) {
+  if (argument_count != 0) {
+    invalid_results_error();
+    return;
+  }
+  // 839: write "};@nl;"
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = string__fa727015ff16bc6;
+  result_count = 0;
+  myself = get__write();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_620;
 }
 static void cont__compiler__sim2c_620(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 837: write "};@nl;"
+  // 840: write generated_functions
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = string__fa727015ff16bc6;
+  arguments->slots[0] = ((CELL *)frame->slots[20])->contents /* generated_functions */;
   result_count = 0;
   myself = get__write();
   func = myself->type;
@@ -15508,31 +15508,17 @@ static void cont__compiler__sim2c_621(void) {
     invalid_results_error();
     return;
   }
-  // 838: write generated_functions
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[20])->contents /* generated_functions */;
-  result_count = 0;
-  myself = get__write();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_622;
-}
-static void cont__compiler__sim2c_622(void) {
-  if (argument_count != 0) {
-    invalid_results_error();
-    return;
-  }
-  // 839: for_each used_literals: (name _literal) write "static NODE *@(name);@nl;"
+  // 841: for_each used_literals: (name _literal) write "static NODE *@(name);@nl;"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[30])->contents /* used_literals */;
-  arguments->slots[1] = func__compiler__sim2c_623;
+  arguments->slots[1] = func__compiler__sim2c_622;
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_626;
+  frame->cont = cont__compiler__sim2c_625;
 }
-static void entry__compiler__sim2c_623(void) {
+static void entry__compiler__sim2c_622(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -15541,7 +15527,7 @@ static void entry__compiler__sim2c_623(void) {
     invalid_arguments_error();
     return;
   }
-  // 839: ... "static NODE *@(name);@nl;"
+  // 841: ... "static NODE *@(name);@nl;"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__cb6a78473f66a6a1;
@@ -15550,15 +15536,15 @@ static void entry__compiler__sim2c_623(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_625;
+  frame->cont = cont__compiler__sim2c_624;
 }
-static void cont__compiler__sim2c_625(void) {
+static void cont__compiler__sim2c_624(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 839: ... write "static NODE *@(name);@nl;"
+  // 841: ... write "static NODE *@(name);@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -15567,38 +15553,38 @@ static void cont__compiler__sim2c_625(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_626(void) {
+static void cont__compiler__sim2c_625(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 840: write "
-  // 841:   
-  // 842:   static const char *used_namespaces[] = {
+  // 842: write "
+  // 843:   
+  // 844:   static const char *used_namespaces[] = {
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__44a800d7e66fda5b;
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_628;
+  frame->cont = cont__compiler__sim2c_627;
 }
-static void cont__compiler__sim2c_628(void) {
+static void cont__compiler__sim2c_627(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 843: for_each used_namespaces: (name) write "  @quot;@(name)@quot;,@nl;"
+  // 845: for_each used_namespaces: (name) write "  @quot;@(name)@quot;,@nl;"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__used_namespaces();
-  arguments->slots[1] = func__compiler__sim2c_629;
+  arguments->slots[1] = func__compiler__sim2c_628;
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_633;
+  frame->cont = cont__compiler__sim2c_632;
 }
-static void entry__compiler__sim2c_629(void) {
+static void entry__compiler__sim2c_628(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // name: 0
@@ -15606,7 +15592,7 @@ static void entry__compiler__sim2c_629(void) {
     invalid_arguments_error();
     return;
   }
-  // 843: ... "  @quot;@(name)@quot;,@nl;"
+  // 845: ... "  @quot;@(name)@quot;,@nl;"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__fa730415f296bee;
@@ -15615,15 +15601,15 @@ static void entry__compiler__sim2c_629(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_632;
+  frame->cont = cont__compiler__sim2c_631;
 }
-static void cont__compiler__sim2c_632(void) {
+static void cont__compiler__sim2c_631(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 843: ... write "  @quot;@(name)@quot;,@nl;"
+  // 845: ... write "  @quot;@(name)@quot;,@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -15632,21 +15618,21 @@ static void cont__compiler__sim2c_632(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_633(void) {
+static void cont__compiler__sim2c_632(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 844: ... "
-  // 845:     NULL
-  // 846:   };
-  // 847:   
-  // 848:   static MODULE_INFO module_info = {
-  // 849:     NULL,
-  // 850:     "@(module_name)",
-  // 851:     continuation_info,
-  // 852:     sizeof(continuation_info)/sizeof(CONTINUATION_INFO),
-  // 853:     (NODE **)&var,
+  // 846: ... "
+  // 847:     NULL
+  // 848:   };
+  // 849:   
+  // 850:   static MODULE_INFO module_info = {
+  // 851:     NULL,
+  // 852:     "@(module_name)",
+  // 853:     continuation_info,
+  // 854:     sizeof(continuation_info)/sizeof(CONTINUATION_INFO),
+  // 855:     (NODE **)&var,
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -15656,24 +15642,24 @@ static void cont__compiler__sim2c_633(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_636;
+  frame->cont = cont__compiler__sim2c_635;
 }
-static void cont__compiler__sim2c_636(void) {
+static void cont__compiler__sim2c_635(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[33] /* temp__1 */ = arguments->slots[0];
-  // 844: write "
-  // 845:     NULL
-  // 846:   };
-  // 847:   
-  // 848:   static MODULE_INFO module_info = {
-  // 849:     NULL,
-  // 850:     "@(module_name)",
-  // 851:     continuation_info,
-  // 852:     sizeof(continuation_info)/sizeof(CONTINUATION_INFO),
-  // 853:     (NODE **)&var,
+  // 846: write "
+  // 847:     NULL
+  // 848:   };
+  // 849:   
+  // 850:   static MODULE_INFO module_info = {
+  // 851:     NULL,
+  // 852:     "@(module_name)",
+  // 853:     continuation_info,
+  // 854:     sizeof(continuation_info)/sizeof(CONTINUATION_INFO),
+  // 855:     (NODE **)&var,
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -15681,14 +15667,14 @@ static void cont__compiler__sim2c_636(void) {
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_637;
+  frame->cont = cont__compiler__sim2c_636;
 }
-static void cont__compiler__sim2c_637(void) {
+static void cont__compiler__sim2c_636(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 858: $depth count_occurrences(module_name "__")
+  // 860: $depth count_occurrences(module_name "__")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__module_name();
@@ -15696,37 +15682,37 @@ static void cont__compiler__sim2c_637(void) {
   result_count = 1;
   myself = get__count_occurrences();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_638;
+  frame->cont = cont__compiler__sim2c_637;
 }
-static void cont__compiler__sim2c_638(void) {
+static void cont__compiler__sim2c_637(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[32] /* depth */, arguments->slots[0]);
-  // 860: ... : ($filename)
-  // 861:   truncate_until &filename '/' -(depth+1)
-  // 862:   write "
-  // 863:     DEBUG_FILENAME("@(filename)@quot;)@
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_639, 1);
-  // 859: for_each
-  // 860:   filenames: ($filename)
-  // 861:     truncate_until &filename '/' -(depth+1)
-  // 862:     write "
-  // 863:       DEBUG_FILENAME("@(filename)@quot;)@
-  // 864:   :
-  // 865:     write ", "
+  // 862: ... : ($filename)
+  // 863:   truncate_until &filename '/' -(depth+1)
+  // 864:   write "
+  // 865:     DEBUG_FILENAME("@(filename)@quot;)@
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_638, 1);
+  // 861: for_each
+  // 862:   filenames: ($filename)
+  // 863:     truncate_until &filename '/' -(depth+1)
+  // 864:     write "
+  // 865:       DEBUG_FILENAME("@(filename)@quot;)@
+  // 866:   :
+  // 867:     write ", "
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filenames */;
   arguments->slots[1] = frame->slots[33] /* temp__1 */;
-  arguments->slots[2] = func__compiler__sim2c_646;
+  arguments->slots[2] = func__compiler__sim2c_645;
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_648;
+  frame->cont = cont__compiler__sim2c_647;
 }
-static void entry__compiler__sim2c_639(void) {
+static void entry__compiler__sim2c_638(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // filename: 0
@@ -15737,13 +15723,28 @@ static void entry__compiler__sim2c_639(void) {
     return;
   }
   frame->slots[0] /* filename */ = create_cell_with_contents(arguments->slots[0]);
-  // 861: ... depth+1
+  // 863: ... depth+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* depth */;
   arguments->slots[1] = number__1;
   result_count = 1;
   myself = get__std__plus();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_639;
+}
+static void cont__compiler__sim2c_639(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[3] /* temp__2 */ = arguments->slots[0];
+  // 863: ... depth+1)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[3] /* temp__2 */;
+  result_count = 1;
+  myself = get__std__negate();
   func = myself->type;
   frame->cont = cont__compiler__sim2c_640;
 }
@@ -15752,23 +15753,8 @@ static void cont__compiler__sim2c_640(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 861: ... depth+1)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[3] /* temp__2 */;
-  result_count = 1;
-  myself = get__std__negate();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_641;
-}
-static void cont__compiler__sim2c_641(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 861: truncate_until &filename '/' -(depth+1)
+  // 863: truncate_until &filename '/' -(depth+1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* filename */;
@@ -15777,16 +15763,16 @@ static void cont__compiler__sim2c_641(void) {
   result_count = 1;
   myself = get__truncate_until();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_642;
+  frame->cont = cont__compiler__sim2c_641;
 }
-static void cont__compiler__sim2c_642(void) {
+static void cont__compiler__sim2c_641(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[0])->contents /* filename */ = arguments->slots[0];
-  // 862: ... "
-  // 863:   DEBUG_FILENAME("@(filename)@quot;)@
+  // 864: ... "
+  // 865:   DEBUG_FILENAME("@(filename)@quot;)@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__9c11f7a3e8641900;
@@ -15795,16 +15781,16 @@ static void cont__compiler__sim2c_642(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_645;
+  frame->cont = cont__compiler__sim2c_644;
 }
-static void cont__compiler__sim2c_645(void) {
+static void cont__compiler__sim2c_644(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 862: write "
-  // 863:   DEBUG_FILENAME("@(filename)@quot;)@
+  // 864: write "
+  // 865:   DEBUG_FILENAME("@(filename)@quot;)@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -15813,14 +15799,14 @@ static void cont__compiler__sim2c_645(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__sim2c_646(void) {
+static void entry__compiler__sim2c_645(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 865: write ", "
+  // 867: write ", "
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e6682be5;
@@ -15829,54 +15815,54 @@ static void entry__compiler__sim2c_646(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__sim2c_648(void) {
+static void cont__compiler__sim2c_647(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 866: write "
-  // 867:   }
-  // 868:   };
-  // 869:   
-  // 870:   /******
-  // 871:   C O D E
-  // 872:   ******/
-  // 873:   @;
+  // 868: write "
+  // 869:   }
+  // 870:   };
+  // 871:   
+  // 872:   /******
+  // 873:   C O D E
+  // 874:   ******/
+  // 875:   @;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__d1bc6cafcb964c0d;
   result_count = 0;
   myself = get__write();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_650;
+  frame->cont = cont__compiler__sim2c_649;
 }
-static void cont__compiler__sim2c_650(void) {
+static void cont__compiler__sim2c_649(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 874: ... : (name _info)
-  // 875:   $fname mangle_filename(name)
-  // 876:   write "
-  // 877:     IMPORT void collect__@(fname)(void);
-  // 878:     IMPORT void phase_1__@(fname)(void);
-  // 879:     IMPORT void phase_2__@(fname)(void);
-  // 880:     IMPORT void phase_3__@(fname)(void);
-  // 881:     IMPORT void phase_4__@(fname)(void);
-  // 882:     IMPORT void phase_5__@(fname)(void);
-  // 883:     IMPORT void phase_6__@(fname)(void);
+  // 876: ... : (name _info)
+  // 877:   $fname mangle_filename(name)
+  // 878:   write "
+  // 879:     IMPORT void collect__@(fname)(void);
+  // 880:     IMPORT void phase_1__@(fname)(void);
+  // 881:     IMPORT void phase_2__@(fname)(void);
+  // 882:     IMPORT void phase_3__@(fname)(void);
+  // 883:     IMPORT void phase_4__@(fname)(void);
+  // 884:     IMPORT void phase_5__@(fname)(void);
+  // 885:     IMPORT void phase_6__@(fname)(void);
   // ...
-  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_651, 2);
-  // 874: for_each required_modules: (name _info)
-  // 875:   $fname mangle_filename(name)
-  // 876:   write "
-  // 877:     IMPORT void collect__@(fname)(void);
-  // 878:     IMPORT void phase_1__@(fname)(void);
-  // 879:     IMPORT void phase_2__@(fname)(void);
-  // 880:     IMPORT void phase_3__@(fname)(void);
-  // 881:     IMPORT void phase_4__@(fname)(void);
-  // 882:     IMPORT void phase_5__@(fname)(void);
-  // 883:     IMPORT void phase_6__@(fname)(void);
+  frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_650, 2);
+  // 876: for_each required_modules: (name _info)
+  // 877:   $fname mangle_filename(name)
+  // 878:   write "
+  // 879:     IMPORT void collect__@(fname)(void);
+  // 880:     IMPORT void phase_1__@(fname)(void);
+  // 881:     IMPORT void phase_2__@(fname)(void);
+  // 882:     IMPORT void phase_3__@(fname)(void);
+  // 883:     IMPORT void phase_4__@(fname)(void);
+  // 884:     IMPORT void phase_5__@(fname)(void);
+  // 885:     IMPORT void phase_6__@(fname)(void);
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -15885,9 +15871,9 @@ static void cont__compiler__sim2c_650(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_662;
+  frame->cont = cont__compiler__sim2c_661;
 }
-static void entry__compiler__sim2c_651(void) {
+static void entry__compiler__sim2c_650(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // name: 0
@@ -15900,30 +15886,30 @@ static void entry__compiler__sim2c_651(void) {
     invalid_arguments_error();
     return;
   }
-  // 875: $fname mangle_filename(name)
+  // 877: $fname mangle_filename(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
   result_count = 1;
   myself = frame->slots[2] /* mangle_filename */;
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_652;
+  frame->cont = cont__compiler__sim2c_651;
 }
-static void cont__compiler__sim2c_652(void) {
+static void cont__compiler__sim2c_651(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[3] /* fname */, arguments->slots[0]);
-  // 876: ... "
-  // 877:   IMPORT void collect__@(fname)(void);
-  // 878:   IMPORT void phase_1__@(fname)(void);
-  // 879:   IMPORT void phase_2__@(fname)(void);
-  // 880:   IMPORT void phase_3__@(fname)(void);
-  // 881:   IMPORT void phase_4__@(fname)(void);
-  // 882:   IMPORT void phase_5__@(fname)(void);
-  // 883:   IMPORT void phase_6__@(fname)(void);
-  // 884:   IMPORT void run__@(fname)(void);
+  // 878: ... "
+  // 879:   IMPORT void collect__@(fname)(void);
+  // 880:   IMPORT void phase_1__@(fname)(void);
+  // 881:   IMPORT void phase_2__@(fname)(void);
+  // 882:   IMPORT void phase_3__@(fname)(void);
+  // 883:   IMPORT void phase_4__@(fname)(void);
+  // 884:   IMPORT void phase_5__@(fname)(void);
+  // 885:   IMPORT void phase_6__@(fname)(void);
+  // 886:   IMPORT void run__@(fname)(void);
   argument_count = 17;
   arguments = node_p;
   arguments->slots[0] = string__7cb40b96062f3614;
@@ -15946,23 +15932,23 @@ static void cont__compiler__sim2c_652(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__sim2c_661;
+  frame->cont = cont__compiler__sim2c_660;
 }
-static void cont__compiler__sim2c_661(void) {
+static void cont__compiler__sim2c_660(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 876: write "
-  // 877:   IMPORT void collect__@(fname)(void);
-  // 878:   IMPORT void phase_1__@(fname)(void);
-  // 879:   IMPORT void phase_2__@(fname)(void);
-  // 880:   IMPORT void phase_3__@(fname)(void);
-  // 881:   IMPORT void phase_4__@(fname)(void);
-  // 882:   IMPORT void phase_5__@(fname)(void);
-  // 883:   IMPORT void phase_6__@(fname)(void);
-  // 884:   IMPORT void run__@(fname)(void);
+  // 878: write "
+  // 879:   IMPORT void collect__@(fname)(void);
+  // 880:   IMPORT void phase_1__@(fname)(void);
+  // 881:   IMPORT void phase_2__@(fname)(void);
+  // 882:   IMPORT void phase_3__@(fname)(void);
+  // 883:   IMPORT void phase_4__@(fname)(void);
+  // 884:   IMPORT void phase_5__@(fname)(void);
+  // 885:   IMPORT void phase_6__@(fname)(void);
+  // 886:   IMPORT void run__@(fname)(void);
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -15971,15 +15957,29 @@ static void cont__compiler__sim2c_661(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
+static void cont__compiler__sim2c_661(void) {
+  if (argument_count != 0) {
+    invalid_results_error();
+    return;
+  }
+  // 887: write generated_code
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[27])->contents /* generated_code */;
+  result_count = 0;
+  myself = get__write();
+  func = myself->type;
+  frame->cont = cont__compiler__sim2c_662;
+}
 static void cont__compiler__sim2c_662(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 885: write generated_code
+  // 888: write delayed_statements
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[27])->contents /* generated_code */;
+  arguments->slots[0] = ((CELL *)frame->slots[29])->contents /* delayed_statements */;
   result_count = 0;
   myself = get__write();
   func = myself->type;
@@ -15990,22 +15990,8 @@ static void cont__compiler__sim2c_663(void) {
     invalid_results_error();
     return;
   }
-  // 886: write delayed_statements
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[29])->contents /* delayed_statements */;
-  result_count = 0;
-  myself = get__write();
-  func = myself->type;
-  frame->cont = cont__compiler__sim2c_664;
-}
-static void cont__compiler__sim2c_664(void) {
-  if (argument_count != 0) {
-    invalid_results_error();
-    return;
-  }
-  // 887: ... "
-  // 888:   EXPORT void collect__@(module_name)(void) {
+  // 889: ... "
+  // 890:   EXPORT void collect__@(module_name)(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__bcb42196062f3614;
@@ -16022,8 +16008,8 @@ static void cont__compiler__sim2c_666(void) {
     return;
   }
   frame->slots[33] /* temp__1 */ = arguments->slots[0];
-  // 887: write "
-  // 888:   EXPORT void collect__@(module_name)(void) {
+  // 889: write "
+  // 890:   EXPORT void collect__@(module_name)(void) {
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[33] /* temp__1 */;
@@ -16037,7 +16023,7 @@ static void cont__compiler__sim2c_667(void) {
     invalid_results_error();
     return;
   }
-  // 889: write generated_collections
+  // 891: write generated_collections
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[28])->contents /* generated_collections */;
@@ -16051,7 +16037,7 @@ static void cont__compiler__sim2c_668(void) {
     invalid_results_error();
     return;
   }
-  // 890: write "}@nl;"
+  // 892: write "}@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e4e02bcf;
@@ -16065,16 +16051,16 @@ static void cont__compiler__sim2c_670(void) {
     invalid_results_error();
     return;
   }
-  // 891: if
-  // 892:   is_main:
-  // 893:     write "
-  // 894:       
-  // 895:       int main(int argc, char **argv) {
-  // 896:         main_argc = argc;
-  // 897:         main_argv = argv;
-  // 898:         initialize_runtime();
-  // 899:       
-  // 900:         // initialization phase 1
+  // 893: if
+  // 894:   is_main:
+  // 895:     write "
+  // 896:       
+  // 897:       int main(int argc, char **argv) {
+  // 898:         main_argc = argc;
+  // 899:         main_argv = argv;
+  // 900:         initialize_runtime();
+  // 901:       
+  // 902:         // initialization phase 1
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -16093,15 +16079,15 @@ static void entry__compiler__sim2c_671(void) {
     invalid_arguments_error();
     return;
   }
-  // 893: write "
-  // 894:   
-  // 895:   int main(int argc, char **argv) {
-  // 896:     main_argc = argc;
-  // 897:     main_argv = argv;
-  // 898:     initialize_runtime();
-  // 899:   
-  // 900:     // initialization phase 1
-  // 901:   @;
+  // 895: write "
+  // 896:   
+  // 897:   int main(int argc, char **argv) {
+  // 898:     main_argc = argc;
+  // 899:     main_argv = argv;
+  // 900:     initialize_runtime();
+  // 901:   
+  // 902:     // initialization phase 1
+  // 903:   @;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__25aa47136a75b74b;
@@ -16117,13 +16103,13 @@ static void entry__compiler__sim2c_673(void) {
     invalid_arguments_error();
     return;
   }
-  // 903: ... "
-  // 904:   
-  // 905:   static int already_run_phase_1 = false;
+  // 905: ... "
   // 906:   
-  // 907:   EXPORT void phase_1__@(module_name)(void) {
-  // 908:     if (already_run_phase_1) return;
-  // 909:     already_run_phase_1 = true;
+  // 907:   static int already_run_phase_1 = false;
+  // 908:   
+  // 909:   EXPORT void phase_1__@(module_name)(void) {
+  // 910:     if (already_run_phase_1) return;
+  // 911:     already_run_phase_1 = true;
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__1aafb345f496a1;
@@ -16140,13 +16126,13 @@ static void cont__compiler__sim2c_676(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 903: write "
-  // 904:   
-  // 905:   static int already_run_phase_1 = false;
+  // 905: write "
   // 906:   
-  // 907:   EXPORT void phase_1__@(module_name)(void) {
-  // 908:     if (already_run_phase_1) return;
-  // 909:     already_run_phase_1 = true;
+  // 907:   static int already_run_phase_1 = false;
+  // 908:   
+  // 909:   EXPORT void phase_1__@(module_name)(void) {
+  // 910:     if (already_run_phase_1) return;
+  // 911:     already_run_phase_1 = true;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -16160,13 +16146,13 @@ static void cont__compiler__sim2c_677(void) {
     invalid_results_error();
     return;
   }
-  // 910: ... : (name _info)
-  // 911:   $mangled_name mangle_filename(name)
-  // 912:   writeln "  phase_1__@(mangled_name)();"
+  // 912: ... : (name _info)
+  // 913:   $mangled_name mangle_filename(name)
+  // 914:   writeln "  phase_1__@(mangled_name)();"
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_678, 2);
-  // 910: for_each required_modules: (name _info)
-  // 911:   $mangled_name mangle_filename(name)
-  // 912:   writeln "  phase_1__@(mangled_name)();"
+  // 912: for_each required_modules: (name _info)
+  // 913:   $mangled_name mangle_filename(name)
+  // 914:   writeln "  phase_1__@(mangled_name)();"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__required_modules();
@@ -16189,7 +16175,7 @@ static void entry__compiler__sim2c_678(void) {
     invalid_arguments_error();
     return;
   }
-  // 911: $mangled_name mangle_filename(name)
+  // 913: $mangled_name mangle_filename(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -16204,7 +16190,7 @@ static void cont__compiler__sim2c_679(void) {
     return;
   }
   initialize_future(frame->slots[3] /* mangled_name */, arguments->slots[0]);
-  // 912: ... "  phase_1__@(mangled_name)();"
+  // 914: ... "  phase_1__@(mangled_name)();"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__fedb25123ef1fa6f;
@@ -16221,7 +16207,7 @@ static void cont__compiler__sim2c_682(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 912: writeln "  phase_1__@(mangled_name)();"
+  // 914: writeln "  phase_1__@(mangled_name)();"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -16235,9 +16221,9 @@ static void cont__compiler__sim2c_683(void) {
     invalid_results_error();
     return;
   }
-  // 913: write "
-  // 914:   @
-  // 915:     register_module_info(&module_info);
+  // 915: write "
+  // 916:   @
+  // 917:     register_module_info(&module_info);
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__6759f0f7c95235d;
@@ -16251,10 +16237,10 @@ static void cont__compiler__sim2c_685(void) {
     invalid_results_error();
     return;
   }
-  // 917: for_each defined_namespaces: (namespace)
-  // 918:   write "
-  // 919:     @
-  // 920:       define_namespace("@(namespace)");
+  // 918: for_each defined_namespaces: (namespace)
+  // 919:   write "
+  // 920:     @
+  // 921:       define_namespace("@(namespace)");
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__defined_namespaces();
@@ -16272,9 +16258,9 @@ static void entry__compiler__sim2c_686(void) {
     invalid_arguments_error();
     return;
   }
-  // 918: ... "
-  // 919:   @
-  // 920:     define_namespace("@(namespace)");
+  // 919: ... "
+  // 920:   @
+  // 921:     define_namespace("@(namespace)");
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__d93952e55b2e5d9;
@@ -16291,9 +16277,9 @@ static void cont__compiler__sim2c_689(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 918: write "
-  // 919:   @
-  // 920:     define_namespace("@(namespace)");
+  // 919: write "
+  // 920:   @
+  // 921:     define_namespace("@(namespace)");
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -17725,7 +17711,7 @@ static void cont__compiler__sim2c_784(void) {
   // 1020:         -> "NULL"
   // 1021:     
   // 1022:     $basename name .truncate_until. "__"
-  // 1023:     case
+  // 1023:     case variable_kind_of(info)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -17749,10 +17735,10 @@ static void entry__compiler__sim2c_798(void) {
     invalid_arguments_error();
     return;
   }
-  // 1026: ... "
-  // 1027:   @
-  // 1028:     use_polymorphic_function(@(namespace), @quot;@(basename)", @
-  // 1029:   &get__@(name), &poly_idx__@(name));
+  // 1025: ... "
+  // 1026:   @
+  // 1027:     use_polymorphic_function(@(namespace), @quot;@(basename)", @
+  // 1028:   &get__@(name), &poly_idx__@(name));
   argument_count = 9;
   arguments = node_p;
   arguments->slots[0] = string__82877bb737e0bc50;
@@ -17775,10 +17761,10 @@ static void cont__compiler__sim2c_803(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1026: write "
-  // 1027:   @
-  // 1028:     use_polymorphic_function(@(namespace), @quot;@(basename)", @
-  // 1029:   &get__@(name), &poly_idx__@(name));
+  // 1025: write "
+  // 1026:   @
+  // 1027:     use_polymorphic_function(@(namespace), @quot;@(basename)", @
+  // 1028:   &get__@(name), &poly_idx__@(name));
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -17800,10 +17786,10 @@ static void entry__compiler__sim2c_804(void) {
     invalid_arguments_error();
     return;
   }
-  // 1031: ... "
-  // 1032:   @
-  // 1033:     use_read_only(@(namespace), @quot;@(basename)", &get__@(name), @
-  // 1034:   &get_value_or_future__@(name));
+  // 1030: ... "
+  // 1031:   @
+  // 1032:     use_read_only(@(namespace), @quot;@(basename)", &get__@(name), @
+  // 1033:   &get_value_or_future__@(name));
   argument_count = 9;
   arguments = node_p;
   arguments->slots[0] = string__c1145f87c6ab68aa;
@@ -17826,10 +17812,10 @@ static void cont__compiler__sim2c_807(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1031: write "
-  // 1032:   @
-  // 1033:     use_read_only(@(namespace), @quot;@(basename)", &get__@(name), @
-  // 1034:   &get_value_or_future__@(name));
+  // 1030: write "
+  // 1031:   @
+  // 1032:     use_read_only(@(namespace), @quot;@(basename)", &get__@(name), @
+  // 1033:   &get_value_or_future__@(name));
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -17851,10 +17837,10 @@ static void entry__compiler__sim2c_808(void) {
     invalid_arguments_error();
     return;
   }
-  // 1036: ... "
-  // 1037:   @
-  // 1038:     use_read_write(@(namespace), @quot;@(basename)", &get__@(name), @
-  // 1039:   &set__@(name));
+  // 1035: ... "
+  // 1036:   @
+  // 1037:     use_read_write(@(namespace), @quot;@(basename)", &get__@(name), @
+  // 1038:   &set__@(name));
   argument_count = 9;
   arguments = node_p;
   arguments->slots[0] = string__f63e3617473fc88a;
@@ -17877,10 +17863,10 @@ static void cont__compiler__sim2c_811(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1036: write "
-  // 1037:   @
-  // 1038:     use_read_write(@(namespace), @quot;@(basename)", &get__@(name), @
-  // 1039:   &set__@(name));
+  // 1035: write "
+  // 1036:   @
+  // 1037:     use_read_write(@(namespace), @quot;@(basename)", &get__@(name), @
+  // 1038:   &set__@(name));
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -17902,10 +17888,10 @@ static void entry__compiler__sim2c_812(void) {
     invalid_arguments_error();
     return;
   }
-  // 1041: ... "
-  // 1042:   @
-  // 1043:     use_single_assign_dynamic(@(namespace), @quot;@(basename)", @
-  // 1044:   &get__@(name), &define__@(name));
+  // 1040: ... "
+  // 1041:   @
+  // 1042:     use_single_assign_dynamic(@(namespace), @quot;@(basename)", @
+  // 1043:   &get__@(name), &define__@(name));
   argument_count = 9;
   arguments = node_p;
   arguments->slots[0] = string__b45bfb6d6d495155;
@@ -17928,10 +17914,10 @@ static void cont__compiler__sim2c_815(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1041: write "
-  // 1042:   @
-  // 1043:     use_single_assign_dynamic(@(namespace), @quot;@(basename)", @
-  // 1044:   &get__@(name), &define__@(name));
+  // 1040: write "
+  // 1041:   @
+  // 1042:     use_single_assign_dynamic(@(namespace), @quot;@(basename)", @
+  // 1043:   &get__@(name), &define__@(name));
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -17953,10 +17939,10 @@ static void entry__compiler__sim2c_816(void) {
     invalid_arguments_error();
     return;
   }
-  // 1046: ... "
-  // 1047:   @
-  // 1048:     use_multi_assign_dynamic(@(namespace), @quot;@(basename)", @
-  // 1049:   &get__@(name), &set__@(name), &define__@(name));
+  // 1045: ... "
+  // 1046:   @
+  // 1047:     use_multi_assign_dynamic(@(namespace), @quot;@(basename)", @
+  // 1048:   &get__@(name), &set__@(name), &define__@(name));
   argument_count = 11;
   arguments = node_p;
   arguments->slots[0] = string__5b5ec7878e89a218;
@@ -17981,10 +17967,10 @@ static void cont__compiler__sim2c_818(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1046: write "
-  // 1047:   @
-  // 1048:     use_multi_assign_dynamic(@(namespace), @quot;@(basename)", @
-  // 1049:   &get__@(name), &set__@(name), &define__@(name));
+  // 1045: write "
+  // 1046:   @
+  // 1047:     use_multi_assign_dynamic(@(namespace), @quot;@(basename)", @
+  // 1048:   &get__@(name), &set__@(name), &define__@(name));
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -18128,7 +18114,7 @@ static void cont__compiler__sim2c_796(void) {
     return;
   }
   initialize_future(frame->slots[3] /* basename */, arguments->slots[0]);
-  // 1024: variable_kind_of(info)
+  // 1023: ... variable_kind_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* info */;
@@ -18143,46 +18129,46 @@ static void cont__compiler__sim2c_797(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1025: ... :
-  // 1026:   write "
-  // 1027:     @
-  // 1028:       use_polymorphic_function(@(namespace), @quot;@(basename)", @
-  // 1029:     &get__@(name), &poly_idx__@(name));
+  // 1024: ... :
+  // 1025:   write "
+  // 1026:     @
+  // 1027:       use_polymorphic_function(@(namespace), @quot;@(basename)", @
+  // 1028:     &get__@(name), &poly_idx__@(name));
   frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__sim2c_798, 0);
-  // 1030: ... :
-  // 1031:   write "
-  // 1032:     @
-  // 1033:       use_read_only(@(namespace), @quot;@(basename)", &get__@(name), @
-  // 1034:     &get_value_or_future__@(name));
+  // 1029: ... :
+  // 1030:   write "
+  // 1031:     @
+  // 1032:       use_read_only(@(namespace), @quot;@(basename)", &get__@(name), @
+  // 1033:     &get_value_or_future__@(name));
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__sim2c_804, 0);
-  // 1035: ... :
-  // 1036:   write "
-  // 1037:     @
-  // 1038:       use_read_write(@(namespace), @quot;@(basename)", &get__@(name), @
-  // 1039:     &set__@(name));
+  // 1034: ... :
+  // 1035:   write "
+  // 1036:     @
+  // 1037:       use_read_write(@(namespace), @quot;@(basename)", &get__@(name), @
+  // 1038:     &set__@(name));
   frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__sim2c_808, 0);
-  // 1040: ... :
-  // 1041:   write "
-  // 1042:     @
-  // 1043:       use_single_assign_dynamic(@(namespace), @quot;@(basename)", @
-  // 1044:     &get__@(name), &define__@(name));
+  // 1039: ... :
+  // 1040:   write "
+  // 1041:     @
+  // 1042:       use_single_assign_dynamic(@(namespace), @quot;@(basename)", @
+  // 1043:     &get__@(name), &define__@(name));
   frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__sim2c_812, 0);
-  // 1045: ... :
-  // 1046:   write "
-  // 1047:     @
-  // 1048:       use_multi_assign_dynamic(@(namespace), @quot;@(basename)", @
-  // 1049:     &get__@(name), &set__@(name), &define__@(name));
+  // 1044: ... :
+  // 1045:   write "
+  // 1046:     @
+  // 1047:       use_multi_assign_dynamic(@(namespace), @quot;@(basename)", @
+  // 1048:     &get__@(name), &set__@(name), &define__@(name));
   frame->slots[9] /* temp__6 */ = create_closure(entry__compiler__sim2c_816, 0);
-  // 1023: case
-  // 1024:   variable_kind_of(info)
-  // 1025:   POLYMORPHIC:
-  // 1026:     write "
-  // 1027:       @
-  // 1028:         use_polymorphic_function(@(namespace), @quot;@(basename)", @
-  // 1029:       &get__@(name), &poly_idx__@(name));
-  // 1030:   STATIC_SINGLE:
-  // 1031:     write "
-  // 1032:       @
+  // 1023: case variable_kind_of(info)
+  // 1024:   POLYMORPHIC:
+  // 1025:     write "
+  // 1026:       @
+  // 1027:         use_polymorphic_function(@(namespace), @quot;@(basename)", @
+  // 1028:       &get__@(name), &poly_idx__@(name));
+  // 1029:   STATIC_SINGLE:
+  // 1030:     write "
+  // 1031:       @
+  // 1032:         use_read_only(@(namespace), @quot;@(basename)", &get__@(name), @
   // ...
   argument_count = 11;
   arguments = node_p;
@@ -18249,8 +18235,8 @@ static void cont__compiler__sim2c_787(void) {
   // 1020:       -> "NULL"
   // 1021:   
   // 1022:   $basename name .truncate_until. "__"
-  // 1023:   case
-  // 1024:     variable_kind_of(info)
+  // 1023:   case variable_kind_of(info)
+  // 1024:     POLYMORPHIC:
   // ...
   frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__sim2c_788, 0);
   // 1015: unless global_names(name).is_defined:
@@ -18261,8 +18247,8 @@ static void cont__compiler__sim2c_787(void) {
   // 1020:       -> "NULL"
   // 1021:   
   // 1022:   $basename name .truncate_until. "__"
-  // 1023:   case
-  // 1024:     variable_kind_of(info)
+  // 1023:   case variable_kind_of(info)
+  // 1024:     POLYMORPHIC:
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -18278,7 +18264,7 @@ static void cont__compiler__sim2c_819(void) {
     invalid_results_error();
     return;
   }
-  // 1050: write generated_phase_4
+  // 1049: write generated_phase_4
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[24])->contents /* generated_phase_4 */;
@@ -18292,10 +18278,10 @@ static void cont__compiler__sim2c_820(void) {
     invalid_results_error();
     return;
   }
-  // 1051: if is_main:
-  // 1052:   write "
-  // 1053:     @
-  // 1054:       resolve_attributes();
+  // 1050: if is_main:
+  // 1051:   write "
+  // 1052:     @
+  // 1053:       resolve_attributes();
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* is_main */;
@@ -18312,9 +18298,9 @@ static void entry__compiler__sim2c_821(void) {
     invalid_arguments_error();
     return;
   }
-  // 1052: write "
-  // 1053:   @
-  // 1054:     resolve_attributes();
+  // 1051: write "
+  // 1052:   @
+  // 1053:     resolve_attributes();
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__29050caaed294603;
@@ -18328,16 +18314,16 @@ static void cont__compiler__sim2c_823(void) {
     invalid_results_error();
     return;
   }
-  // 1055: if
-  // 1056:   is_main:
-  // 1057:     write "
-  // 1058:       
-  // 1059:         // initialization phase 5
-  // 1060:       @;
-  // 1061:   :
-  // 1062:     write "
-  // 1063:       }
-  // 1064:       
+  // 1054: if
+  // 1055:   is_main:
+  // 1056:     write "
+  // 1057:       
+  // 1058:         // initialization phase 5
+  // 1059:       @;
+  // 1060:   :
+  // 1061:     write "
+  // 1062:       }
+  // 1063:       
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -18356,10 +18342,10 @@ static void entry__compiler__sim2c_824(void) {
     invalid_arguments_error();
     return;
   }
-  // 1057: write "
-  // 1058:   
-  // 1059:     // initialization phase 5
-  // 1060:   @;
+  // 1056: write "
+  // 1057:   
+  // 1058:     // initialization phase 5
+  // 1059:   @;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__a9896ddd6eafadae;
@@ -18375,14 +18361,14 @@ static void entry__compiler__sim2c_826(void) {
     invalid_arguments_error();
     return;
   }
-  // 1062: ... "
-  // 1063:   }
-  // 1064:   
-  // 1065:   static int already_run_phase_5 = false;
-  // 1066:   
-  // 1067:   EXPORT void phase_5__@(module_name)(void) {
-  // 1068:     if (already_run_phase_5) return;
-  // 1069:     already_run_phase_5 = true;
+  // 1061: ... "
+  // 1062:   }
+  // 1063:   
+  // 1064:   static int already_run_phase_5 = false;
+  // 1065:   
+  // 1066:   EXPORT void phase_5__@(module_name)(void) {
+  // 1067:     if (already_run_phase_5) return;
+  // 1068:     already_run_phase_5 = true;
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__b9a3b16bf1dfe8ab;
@@ -18399,14 +18385,14 @@ static void cont__compiler__sim2c_829(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1062: write "
-  // 1063:   }
-  // 1064:   
-  // 1065:   static int already_run_phase_5 = false;
-  // 1066:   
-  // 1067:   EXPORT void phase_5__@(module_name)(void) {
-  // 1068:     if (already_run_phase_5) return;
-  // 1069:     already_run_phase_5 = true;
+  // 1061: write "
+  // 1062:   }
+  // 1063:   
+  // 1064:   static int already_run_phase_5 = false;
+  // 1065:   
+  // 1066:   EXPORT void phase_5__@(module_name)(void) {
+  // 1067:     if (already_run_phase_5) return;
+  // 1068:     already_run_phase_5 = true;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -18420,11 +18406,11 @@ static void cont__compiler__sim2c_830(void) {
     invalid_results_error();
     return;
   }
-  // 1070: ... : (name _info)
-  // 1071:   writeln "  phase_5__@(mangle_filename(name))();"
+  // 1069: ... : (name _info)
+  // 1070:   writeln "  phase_5__@(mangle_filename(name))();"
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_831, 2);
-  // 1070: for_each required_modules: (name _info)
-  // 1071:   writeln "  phase_5__@(mangle_filename(name))();"
+  // 1069: for_each required_modules: (name _info)
+  // 1070:   writeln "  phase_5__@(mangle_filename(name))();"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__required_modules();
@@ -18445,7 +18431,7 @@ static void entry__compiler__sim2c_831(void) {
     invalid_arguments_error();
     return;
   }
-  // 1071: ... mangle_filename(name)
+  // 1070: ... mangle_filename(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -18460,7 +18446,7 @@ static void cont__compiler__sim2c_832(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1071: ... "  phase_5__@(mangle_filename(name))();"
+  // 1070: ... "  phase_5__@(mangle_filename(name))();"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__fedb24123ef1fa6f;
@@ -18477,7 +18463,7 @@ static void cont__compiler__sim2c_834(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1071: writeln "  phase_5__@(mangle_filename(name))();"
+  // 1070: writeln "  phase_5__@(mangle_filename(name))();"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -18491,7 +18477,7 @@ static void cont__compiler__sim2c_835(void) {
     invalid_results_error();
     return;
   }
-  // 1072: write generated_phase_5
+  // 1071: write generated_phase_5
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[25])->contents /* generated_phase_5 */;
@@ -18505,16 +18491,16 @@ static void cont__compiler__sim2c_836(void) {
     invalid_results_error();
     return;
   }
-  // 1073: if
-  // 1074:   is_main:
-  // 1075:     write "
-  // 1076:         initialize_function_attributes();
-  // 1077:       
-  // 1078:         // initialization phase 6
-  // 1079:       @;
-  // 1080:   :
-  // 1081:     write "
-  // 1082:       }
+  // 1072: if
+  // 1073:   is_main:
+  // 1074:     write "
+  // 1075:         initialize_function_attributes();
+  // 1076:       
+  // 1077:         // initialization phase 6
+  // 1078:       @;
+  // 1079:   :
+  // 1080:     write "
+  // 1081:       }
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -18533,11 +18519,11 @@ static void entry__compiler__sim2c_837(void) {
     invalid_arguments_error();
     return;
   }
-  // 1075: write "
-  // 1076:     initialize_function_attributes();
-  // 1077:   
-  // 1078:     // initialization phase 6
-  // 1079:   @;
+  // 1074: write "
+  // 1075:     initialize_function_attributes();
+  // 1076:   
+  // 1077:     // initialization phase 6
+  // 1078:   @;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__1cd8a7b21f5517c3;
@@ -18553,14 +18539,14 @@ static void entry__compiler__sim2c_839(void) {
     invalid_arguments_error();
     return;
   }
-  // 1081: ... "
-  // 1082:   }
-  // 1083:   
-  // 1084:   static int already_run_phase_6 = false;
-  // 1085:   
-  // 1086:   EXPORT void phase_6__@(module_name)(void) {
-  // 1087:     if (already_run_phase_6) return;
-  // 1088:     already_run_phase_6 = true;
+  // 1080: ... "
+  // 1081:   }
+  // 1082:   
+  // 1083:   static int already_run_phase_6 = false;
+  // 1084:   
+  // 1085:   EXPORT void phase_6__@(module_name)(void) {
+  // 1086:     if (already_run_phase_6) return;
+  // 1087:     already_run_phase_6 = true;
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__b9a3b1a8f1dfe8ab;
@@ -18577,14 +18563,14 @@ static void cont__compiler__sim2c_842(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1081: write "
-  // 1082:   }
-  // 1083:   
-  // 1084:   static int already_run_phase_6 = false;
-  // 1085:   
-  // 1086:   EXPORT void phase_6__@(module_name)(void) {
-  // 1087:     if (already_run_phase_6) return;
-  // 1088:     already_run_phase_6 = true;
+  // 1080: write "
+  // 1081:   }
+  // 1082:   
+  // 1083:   static int already_run_phase_6 = false;
+  // 1084:   
+  // 1085:   EXPORT void phase_6__@(module_name)(void) {
+  // 1086:     if (already_run_phase_6) return;
+  // 1087:     already_run_phase_6 = true;
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -18598,11 +18584,11 @@ static void cont__compiler__sim2c_843(void) {
     invalid_results_error();
     return;
   }
-  // 1089: ... : (name _info)
-  // 1090:   writeln "  phase_6__@(mangle_filename(name))();"
+  // 1088: ... : (name _info)
+  // 1089:   writeln "  phase_6__@(mangle_filename(name))();"
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_844, 2);
-  // 1089: for_each required_modules: (name _info)
-  // 1090:   writeln "  phase_6__@(mangle_filename(name))();"
+  // 1088: for_each required_modules: (name _info)
+  // 1089:   writeln "  phase_6__@(mangle_filename(name))();"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__required_modules();
@@ -18623,7 +18609,7 @@ static void entry__compiler__sim2c_844(void) {
     invalid_arguments_error();
     return;
   }
-  // 1090: ... mangle_filename(name)
+  // 1089: ... mangle_filename(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -18638,7 +18624,7 @@ static void cont__compiler__sim2c_845(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1090: ... "  phase_6__@(mangle_filename(name))();"
+  // 1089: ... "  phase_6__@(mangle_filename(name))();"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__fedb24d23ef1fa6f;
@@ -18655,7 +18641,7 @@ static void cont__compiler__sim2c_847(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1090: writeln "  phase_6__@(mangle_filename(name))();"
+  // 1089: writeln "  phase_6__@(mangle_filename(name))();"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -18669,7 +18655,7 @@ static void cont__compiler__sim2c_848(void) {
     invalid_results_error();
     return;
   }
-  // 1091: write generated_phase_6
+  // 1090: write generated_phase_6
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[26])->contents /* generated_phase_6 */;
@@ -18683,7 +18669,7 @@ static void cont__compiler__sim2c_849(void) {
     invalid_results_error();
     return;
   }
-  // 1092: ... "  register_collector(collect__@(module_name));"
+  // 1091: ... "  register_collector(collect__@(module_name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__476ac52a7f81f4a0;
@@ -18700,7 +18686,7 @@ static void cont__compiler__sim2c_851(void) {
     return;
   }
   frame->slots[33] /* temp__1 */ = arguments->slots[0];
-  // 1092: writeln "  register_collector(collect__@(module_name));"
+  // 1091: writeln "  register_collector(collect__@(module_name));"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[33] /* temp__1 */;
@@ -18714,10 +18700,10 @@ static void cont__compiler__sim2c_852(void) {
     invalid_results_error();
     return;
   }
-  // 1093: if is_main:
-  // 1094:   write "
-  // 1095:     @
-  // 1096:       execute(main_entry);
+  // 1092: if is_main:
+  // 1093:   write "
+  // 1094:     @
+  // 1095:       execute(main_entry);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* is_main */;
@@ -18734,9 +18720,9 @@ static void entry__compiler__sim2c_853(void) {
     invalid_arguments_error();
     return;
   }
-  // 1094: write "
-  // 1095:   @
-  // 1096:     execute(main_entry);
+  // 1093: write "
+  // 1094:   @
+  // 1095:     execute(main_entry);
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__3734ffa0d2ae2d12;
@@ -18750,7 +18736,7 @@ static void cont__compiler__sim2c_855(void) {
     invalid_results_error();
     return;
   }
-  // 1097: write "}@nl;"
+  // 1096: write "}@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e4e02bcf;
@@ -18764,9 +18750,9 @@ static void cont__compiler__sim2c_856(void) {
     invalid_results_error();
     return;
   }
-  // 1098: ... : write_timing_info "generating" filenames(1)
+  // 1097: ... : write_timing_info "generating" filenames(1)
   frame->slots[33] /* temp__1 */ = create_closure(entry__compiler__sim2c_857, 0);
-  // 1098: if do_time_passes: write_timing_info "generating" filenames(1)
+  // 1097: if do_time_passes: write_timing_info "generating" filenames(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__do_time_passes();
@@ -18785,7 +18771,7 @@ static void entry__compiler__sim2c_857(void) {
     invalid_arguments_error();
     return;
   }
-  // 1098: ... filenames(1)
+  // 1097: ... filenames(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -18800,7 +18786,7 @@ static void cont__compiler__sim2c_858(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1098: ... write_timing_info "generating" filenames(1)
+  // 1097: ... write_timing_info "generating" filenames(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__1d702a52a35b6426;
@@ -18873,7 +18859,13 @@ EXPORT void phase_2__sim2c(void) {
   func__compiler__eprint_source_1 = create_function(entry__compiler__eprint_source_1, 1);
   string__7fb24a3fca4aa852 = from_latin_1_string("static void type__", 18);
   string__66ccbf91860d092a = from_latin_1_string("(void);\012", 8);
-  string__fc8c36a84adb366f = from_latin_1_string("(void) {\012", 9);
+  string__949b16e1d9f7528 = from_latin_1_string(
+    "(void) {\n"
+    "  if (argument_count < 1) {\n"
+    "    too_few_arguments_error();\n"
+    "    return;\n"
+    "  }\n",
+    84);
   string__75f4eb726550b6de = from_latin_1_string("  myself = get_attribute(arguments->slots[0], poly_idx__", 56);
   string__d81f45a403c7e2f7 = from_latin_1_string("); // ", 6);
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
@@ -18963,13 +18955,13 @@ EXPORT void phase_2__sim2c(void) {
   string__7c84ae5484fdf7e0 = from_latin_1_string("_define ", 8);
   func__compiler__sim2c_275 = create_function(entry__compiler__sim2c_275, 1);
   func__compiler__sim2c_274 = create_function(entry__compiler__sim2c_274, 1);
-  func__compiler__sim2c_284 = create_function(entry__compiler__sim2c_284, 0);
-  func__compiler__sim2c_286 = create_function(entry__compiler__sim2c_286, 1);
+  func__compiler__sim2c_283 = create_function(entry__compiler__sim2c_283, 0);
+  func__compiler__sim2c_285 = create_function(entry__compiler__sim2c_285, 1);
   string__7690af9104a5e1e7 = from_latin_1_string("mangling", 8);
   string__405aee03eb306008 = from_latin_1_string("get__", 5);
   string__c44673b4643f1172 = from_latin_1_string("GENERATE DEFINITIONS", 20);
-  func__compiler__sim2c_386 = create_function(entry__compiler__sim2c_386, 1);
-  func__compiler__sim2c_424 = create_function(entry__compiler__sim2c_424, 0);
+  func__compiler__sim2c_385 = create_function(entry__compiler__sim2c_385, 1);
+  func__compiler__sim2c_423 = create_function(entry__compiler__sim2c_423, 0);
   string__c050814d5faecc7a = from_latin_1_string("GENERATE STATEMENTS", 19);
   string__295c7d0427bb24d8 = from_latin_1_string("main_entry", 10);
   string__41028e5a9545c479 = from_latin_1_string("  allocate_initialized_frame_gc(0, ", 35);
@@ -19001,35 +18993,35 @@ EXPORT void phase_2__sim2c(void) {
     "}\n",
     4);
   string__6a214ac420f089ff = from_latin_1_string("cont__run__", 11);
-  func__compiler__sim2c_475 = create_function(entry__compiler__sim2c_475, 1);
-  func__compiler__sim2c_479 = create_function(entry__compiler__sim2c_479, 0);
+  func__compiler__sim2c_474 = create_function(entry__compiler__sim2c_474, 1);
+  func__compiler__sim2c_478 = create_function(entry__compiler__sim2c_478, 0);
   string__5c9d8231ad282235 = from_latin_1_string(
     "  terminate(0); // should never be reached\n"
     "}\n",
     45);
-  func__compiler__sim2c_488 = create_function(entry__compiler__sim2c_488, 0);
+  func__compiler__sim2c_487 = create_function(entry__compiler__sim2c_487, 0);
   string__a61426acc3f10dab = from_latin_1_string(
     "  frame = frame->caller_frame;\n"
     "  func = frame->cont;\n"
     "  frame->cont = invalid_continuation;\n"
     "}\n",
     93);
-  func__compiler__sim2c_490 = create_function(entry__compiler__sim2c_490, 0);
-  func__compiler__sim2c_500 = create_function(entry__compiler__sim2c_500, 1);
+  func__compiler__sim2c_489 = create_function(entry__compiler__sim2c_489, 0);
   func__compiler__sim2c_499 = create_function(entry__compiler__sim2c_499, 1);
+  func__compiler__sim2c_498 = create_function(entry__compiler__sim2c_498, 1);
   string__58cb04c59ab3549a = from_latin_1_string("/// require ", 12);
-  func__compiler__sim2c_502 = create_function(entry__compiler__sim2c_502, 2);
+  func__compiler__sim2c_501 = create_function(entry__compiler__sim2c_501, 2);
   string__7d8c250ccd5bbd65 = from_latin_1_string("/// link ", 9);
-  func__compiler__sim2c_506 = create_function(entry__compiler__sim2c_506, 1);
+  func__compiler__sim2c_505 = create_function(entry__compiler__sim2c_505, 1);
   string__6d8c238ccd0b3d65 = from_latin_1_string("/// data ", 9);
-  func__compiler__sim2c_510 = create_function(entry__compiler__sim2c_510, 1);
+  func__compiler__sim2c_509 = create_function(entry__compiler__sim2c_509, 1);
   string__3ae3b0d72c49c8db = from_latin_1_string("runtime/platform.h", 18);
   string__72c4a8d406a50228 = from_latin_1_string("stdint.h", 8);
   string__7cc4ad5406a55228 = from_latin_1_string("stdlib.h", 8);
-  func__compiler__sim2c_518 = create_function(entry__compiler__sim2c_518, 0);
+  func__compiler__sim2c_517 = create_function(entry__compiler__sim2c_517, 0);
   string__3d6a095dad2a247d = from_latin_1_string("#include <", 10);
   string__578a5af303e9cdf = from_latin_1_string(">", 1);
-  func__compiler__sim2c_524 = create_function(entry__compiler__sim2c_524, 1);
+  func__compiler__sim2c_523 = create_function(entry__compiler__sim2c_523, 1);
   string__36e833feb0906b55 = from_latin_1_string(
     "/**********************\n"
     "D E C L A R A T I O N S\n"
@@ -19086,11 +19078,11 @@ EXPORT void phase_2__sim2c(void) {
     "  typedef unsigned __INTPTR_TYPE__ uintptr_t;\n"
     "#endif\n",
     745);
-  func__compiler__sim2c_534 = create_function(entry__compiler__sim2c_534, 0);
+  func__compiler__sim2c_533 = create_function(entry__compiler__sim2c_533, 0);
   string__64c4ac5406a5d228 = from_latin_1_string("stddef.h", 8);
-  func__compiler__sim2c_538 = create_function(entry__compiler__sim2c_538, 0);
+  func__compiler__sim2c_537 = create_function(entry__compiler__sim2c_537, 0);
   string__b0f44c3748f83ed0 = from_latin_1_string("typedef __SIZE_TYPE__ size_t;\012", 30);
-  func__compiler__sim2c_542 = create_function(entry__compiler__sim2c_542, 0);
+  func__compiler__sim2c_541 = create_function(entry__compiler__sim2c_541, 0);
   string__96a80854500bbe37 = from_latin_1_string(
     "// INSERT HERE //\n"
     "\n"
@@ -19141,16 +19133,16 @@ EXPORT void phase_2__sim2c(void) {
   string__f144f4e2b96df7e3 = from_latin_1_string("static NODE_GETTER get_value_or_future__", 40);
   string__7bc4c42d1b4eae3a = from_latin_1_string("static NODE_SETTER set__", 24);
   string__16f790c158cdffe3 = from_latin_1_string("static NODE_SETTER define__", 27);
-  func__compiler__sim2c_547 = create_function(entry__compiler__sim2c_547, 2);
+  func__compiler__sim2c_546 = create_function(entry__compiler__sim2c_546, 2);
   string__ff4edce8b0a2fa27 = from_latin_1_string("static struct {\012", 16);
   string__b07009729763a0f0 = from_latin_1_string("} var;\012", 7);
   string__75573d7e471fdc32 = from_latin_1_string("static const char *var_names[] = {\012", 35);
   string__fa727015ff16bc6 = from_latin_1_string("};\012", 3);
   string__c3452dad239e6464 = from_latin_1_string("static void main_entry(void);", 29);
-  func__compiler__sim2c_593 = create_function(entry__compiler__sim2c_593, 0);
+  func__compiler__sim2c_592 = create_function(entry__compiler__sim2c_592, 0);
   string__1f74a3bba8d254fe = from_latin_1_string("void run__", 10);
   string__a1240cd997f230c1 = from_latin_1_string("(void);", 7);
-  func__compiler__sim2c_595 = create_function(entry__compiler__sim2c_595, 0);
+  func__compiler__sim2c_594 = create_function(entry__compiler__sim2c_594, 0);
   string__b4688827b8af4941 = from_latin_1_string(
     "\n"
     "static CONTINUATION_INFO continuation_info[] = {\n",
@@ -19171,17 +19163,17 @@ EXPORT void phase_2__sim2c(void) {
   string__2d7981f4e6082be5 = from_latin_1_string("  ", 2);
   string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
   string__2d7981f4e6d02bcf = from_latin_1_string(";\012", 2);
-  func__compiler__sim2c_614 = create_function(entry__compiler__sim2c_614, 2);
-  func__compiler__sim2c_613 = create_function(entry__compiler__sim2c_613, 0);
+  func__compiler__sim2c_613 = create_function(entry__compiler__sim2c_613, 2);
+  func__compiler__sim2c_612 = create_function(entry__compiler__sim2c_612, 0);
   string__cb6a78473f66a6a1 = from_latin_1_string("static NODE *", 13);
-  func__compiler__sim2c_623 = create_function(entry__compiler__sim2c_623, 2);
+  func__compiler__sim2c_622 = create_function(entry__compiler__sim2c_622, 2);
   string__44a800d7e66fda5b = from_latin_1_string(
     "\n"
     "static const char *used_namespaces[] = {\n",
     42);
   string__fa730415f296bee = from_latin_1_string("  \042", 3);
   string__fa730c15f496bc6 = from_latin_1_string("\042,\012", 3);
-  func__compiler__sim2c_629 = create_function(entry__compiler__sim2c_629, 1);
+  func__compiler__sim2c_628 = create_function(entry__compiler__sim2c_628, 1);
   string__5e3d918a06749390 = from_latin_1_string(
     "  NULL\n"
     "};\n"
@@ -19203,7 +19195,7 @@ EXPORT void phase_2__sim2c(void) {
   string__9c11f7a3e8641900 = from_latin_1_string("DEBUG_FILENAME(\042", 16);
   string__2d7981f4e6182bec = from_latin_1_string("\042)", 2);
   string__2d7981f4e6682be5 = from_latin_1_string(", ", 2);
-  func__compiler__sim2c_646 = create_function(entry__compiler__sim2c_646, 0);
+  func__compiler__sim2c_645 = create_function(entry__compiler__sim2c_645, 0);
   string__d1bc6cafcb964c0d = from_latin_1_string(
     "}\n"
     "};\n"
@@ -19243,6 +19235,7 @@ EXPORT void phase_2__sim2c(void) {
     "IMPORT void run__",
     25);
   string__bcb42196062f3614 = from_latin_1_string("EXPORT void collect__", 21);
+  string__fc8c36a84adb366f = from_latin_1_string("(void) {\012", 9);
   string__2d7981f4e4e02bcf = from_latin_1_string("}\012", 2);
   string__25aa47136a75b74b = from_latin_1_string(
     "\n"
@@ -19585,7 +19578,6 @@ EXPORT void phase_4__sim2c(void) {
   use_read_only("node", "value_of", &get__node__value_of, &get_value_or_future__node__value_of);
   use_read_only(NULL, "not", &get__not, &get_value_or_future__not);
   use_read_only(NULL, "outdent_marker", &get__outdent_marker, &get_value_or_future__outdent_marker);
-  use_polymorphic_function(NULL, "output_arguments_of", &get__output_arguments_of, &poly_idx__output_arguments_of);
   use_read_only(NULL, "parse_meta_instruction", &get__parse_meta_instruction, &get_value_or_future__parse_meta_instruction);
   use_read_only(NULL, "parse_statement", &get__parse_statement, &get_value_or_future__parse_statement);
   use_read_only(NULL, "print_trees", &get__print_trees, &get_value_or_future__print_trees);

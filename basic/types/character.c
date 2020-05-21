@@ -136,10 +136,11 @@ typedef struct SIMPLE_NODE {
 #else
   #define ASM(x)
 #endif
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 REGISTER NODE *myself ASM("r13");
 IMPORT NODE *get_attribute(NODE *node, int idx);
 REGISTER FRAME *arguments ASM("r12");
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -182,7 +183,6 @@ IMPORT void invalid_results_error(void);
 IMPORT NODE *create_closure(FUNC type, int par_count);
 IMPORT NODE *create_continuation(void);
 IMPORT NODE *create_cell(void);
-IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT NODE *undefined;
 typedef struct CELL {
@@ -785,7 +785,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__is_a_lower_case_letter_character_1, NULL, 284, 284, 7, 16},
   {cont__std__is_a_lower_case_letter_character_2, &frame__std__is_a_lower_case_letter_character_1, 284, 284, 7, 16},
   {cont__std__is_a_lower_case_letter_character_3, &frame__std__is_a_lower_case_letter_character_1, 284, 284, 7, 30},
-  {cont__std__is_a_lower_case_letter_character_7, &frame__std__is_a_lower_case_letter_character_1, 283, 285, 5, 57},
+  {cont__std__is_a_lower_case_letter_character_7, &frame__std__is_a_lower_case_letter_character_1, 283, 285, 5, 58},
   {cont__std__is_a_lower_case_letter_character_23, &frame__std__is_a_lower_case_letter_character_1, 282, 285, 3, 59},
   {entry__std__is_an_upper_case_letter_character_4, NULL, 301, 301, 21, 30},
   {cont__std__is_an_upper_case_letter_character_5, &frame__std__is_an_upper_case_letter_character_4, 301, 301, 21, 30},
@@ -808,7 +808,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__is_an_upper_case_letter_character_1, NULL, 301, 301, 7, 16},
   {cont__std__is_an_upper_case_letter_character_2, &frame__std__is_an_upper_case_letter_character_1, 301, 301, 7, 16},
   {cont__std__is_an_upper_case_letter_character_3, &frame__std__is_an_upper_case_letter_character_1, 301, 301, 7, 30},
-  {cont__std__is_an_upper_case_letter_character_7, &frame__std__is_an_upper_case_letter_character_1, 300, 302, 5, 57},
+  {cont__std__is_an_upper_case_letter_character_7, &frame__std__is_an_upper_case_letter_character_1, 300, 302, 5, 58},
   {cont__std__is_an_upper_case_letter_character_23, &frame__std__is_an_upper_case_letter_character_1, 299, 302, 3, 59},
   {entry__types__character__to_lower_case_3, NULL, 318, 318, 14, 21},
   {cont__types__character__to_lower_case_4, &frame__types__character__to_lower_case_3, 318, 318, 7, 21},
@@ -862,6 +862,10 @@ union NODE {
   CHARACTER character;
 };
 static void type__std__is_a_character(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_a_character);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {

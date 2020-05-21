@@ -371,8 +371,7 @@ $get_event_handler:
     event
     -> return
   )
-  case
-    type_of(event)
+  case type_of(event)
     READ_FROM:
       $fd file_descriptor_of(event)
       $reader readers(fd)
@@ -470,8 +469,7 @@ $std::wait_to:
     for_each args: (arg)
       $type key_of(arg)
       $value value_of(arg)
-      case
-	type
+      case type
 	READ_FROM:
 	  want_to_read_from value
 	  !readers(value) continuation
@@ -487,8 +485,7 @@ $std::wait_to:
   for_each args: (arg)
     $type key_of(arg)
     $value value_of(arg)
-    case
-      type
+    case type
       READ_FROM:
 	no_longer_want_to_read_from value
 	!readers(value) undefined

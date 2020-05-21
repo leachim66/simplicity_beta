@@ -181,10 +181,13 @@ $std::scroll_left:
     delta = 1 # the amount of columns to scroll
   )
   $right_text spaces(delta)
+
   $right_text_colours
     dup(current_text_colour_of(current_screen).to_string delta)
+
   $right_background_colours
     dup(current_background_colour_of(current_screen).to_string delta)
+
   update_each &current_screen.characters_of: (line)
     append range(line 1+delta -1) right_text
   update_each &current_screen.text_colours_of: (line)
@@ -484,9 +487,7 @@ $std::draw_text:
   $height height_of(current_screen)
   $$row current_row_of(current_screen)
   $$column current_column_of(current_screen)
-
   $$row_is_valid row >= 1 || row <= height
-
   $current_text_colour current_text_colour_of(current_screen)
   $current_background_colour current_background_colour_of(current_screen)
   for_each text: (chr)
@@ -547,15 +548,13 @@ $std::draw_line:
 
 	$prev_chr current_screen.characters_of(y)(x)
 	$$chr '@0x2502;'
-	case
-	  prev_chr
+	case prev_chr
 	  '@0x2500;':
 	    $left character_left()
 	    $right character_right()
 	    cond
 	      -> left == '@0x2500;' && right != '@0x2500;':
-		case
-		  crossing
+		case crossing
 		  '@0x253c;':
 		    !chr '@0x2524;'
 		  '@0x252c;':
@@ -563,8 +562,7 @@ $std::draw_line:
 		  '@0x2534;':
 		    !chr '@0x2518;'
 	      -> right == '@0x2500;' && left != '@0x2500;':
-		case
-		  crossing
+		case crossing
 		  '@0x253c;':
 		    !chr '@0x251c;'
 		  '@0x252c;':
@@ -634,15 +632,13 @@ $std::draw_line:
 
 	$prev_chr current_screen.characters_of(y)(x)
 	$$chr '@0x2500;'
-	case
-	  prev_chr
+	case prev_chr
 	  '@0x2502;':
 	    $above character_above()
 	    $below character_below()
 	    cond
 	      -> above == '@0x2502;' && below != '@0x2502;':
-		case
-		  crossing
+		case crossing
 		  '@0x253c;':
 		    !chr '@0x2534;'
 		  '@0x251c;':
@@ -650,8 +646,7 @@ $std::draw_line:
 		  '@0x2524;':
 		    !chr '@0x2518;'
 	      -> below == '@0x2502;' && above != '@0x2502;':
-		case
-		  crossing
+		case crossing
 		  '@0x253c;':
 		    !chr '@0x252c;'
 		  '@0x251c;':
@@ -824,7 +819,7 @@ $std::rgb_character:
     Topic: Terminal
 
     See also: colour_mixture,
-	      red_component_of, green_component_of, blue_component_of
+              red_component_of, green_component_of, blue_component_of
   (
     red
     green
@@ -839,11 +834,11 @@ $types::character/red_component_of:
     Topic: Terminal
 
     See also: green_component_of, blue_component_of, rgb_character,
-	      colour_mixture
+              colour_mixture
   (
     chr
   )
-  -> (chr.to_integer >> 16) & 0xff
+  -> chr.to_integer >> 16 & 0xff
 
 $types::character/green_component_of:
   #
@@ -852,11 +847,11 @@ $types::character/green_component_of:
     Topic: Terminal
 
     See also: red_component_of, blue_component_of, rgb_character,
-	      colour_mixture
+              colour_mixture
   (
     chr
   )
-  -> (chr.to_integer >> 8) & 0xff
+  -> chr.to_integer >> 8 & 0xff
 
 $types::character/blue_component_of:
   #
@@ -865,7 +860,7 @@ $types::character/blue_component_of:
     Topic: Terminal
 
     See also: red_component_of, green_component_of, rgb_character,
-	      colour_mixture
+              colour_mixture
   (
     chr
   )
@@ -883,7 +878,7 @@ $std::colour_mixture:
     Topic: Terminal
 
     See also: rgb_character,
-	      red_component_of, green_component_of, blue_component_of
+              red_component_of, green_component_of, blue_component_of
 
     Example:
 
@@ -898,7 +893,6 @@ $std::colour_mixture:
   $$red 0
   $$green 0
   $$blue 0
-
   for_each args: (arg)
     if
       arg.is_a_key_value_pair:
@@ -942,4 +936,3 @@ $std::rows_and_columns:
     extend_to &longest length
     inc &rows
   -> rows longest
-

@@ -312,7 +312,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__object__serialize_2, &frame__types__object__serialize_1, 108, 108, 3, 19},
   {entry__types__object__equal_type_and_value_1, NULL, 117, 117, 6, 15},
   {cont__types__object__equal_type_and_value_2, &frame__types__object__equal_type_and_value_1, 117, 117, 3, 15},
-  {entry__std__current_address_of_1, NULL, 128, 131, 3, 2}
+  {entry__std__current_address_of_1, NULL, 127, 130, 3, 2}
 };
 
 union NODE {

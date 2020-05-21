@@ -176,7 +176,6 @@ $types::widget types::object # The prototype for all widgets.
 $types::style
   #
     the prototype object for all widget styles
-
   types::object
     .gui::foreground_colour_of gui::BLACK
     .gui::background_colour_of gui::WHITE
@@ -364,6 +363,7 @@ $gui::HORIZONTAL_SPACING .
     an option to set the horizontal spacing for subwidgets
 
     Sets the spacing used between grid columns or within a line in a group.
+
 $gui::VERTICAL_SPACING .
   #
     an option to set the vertical spacing for subwidgets
@@ -384,7 +384,8 @@ $gui::ALIGNMENT .
 
     Vertical alignment options: "top", "bottom", "middle", "grow".
 
-$gui::ITEM_ALIGNMENT .
+$gui::ITEM_ALIGNMENT
+  .
   #
     an option to specify the alignment of grid items
   #
@@ -403,21 +404,21 @@ $gui::MARGIN .
     sets TOP_MARGIN, BOTTOM_MARGIN, LEFT_MARGIN and RIGHT_MARGIN
 
     See also: gui::HORIZONTAL_MARGIN, gui::VERTICAL_MARGIN, gui::LEFT_MARGIN,
-	      gui::RIGHT_MARGIN, gui::TOP_MARGIN, gui::BOTTOM_MARGIN
+              gui::RIGHT_MARGIN, gui::TOP_MARGIN, gui::BOTTOM_MARGIN
 
 $gui::HORIZONTAL_MARGIN .
   #
     an option to specify the left and right margins
 
     See also: gui::MARGIN, gui::VERTICAL_MARGIN, gui::LEFT_MARGIN,
-	      gui::RIGHT_MARGIN
+              gui::RIGHT_MARGIN
 
 $gui::VERTICAL_MARGIN .
   #
     an option to specify the top and bottom margins
 
     See also: gui::MARGIN, gui::HORIZONTAL_MARGIN, gui::TOP_MARGIN,
-	      gui::BOTTOM_MARGIN
+              gui::BOTTOM_MARGIN
 
 $gui::LEFT_MARGIN .
   #

@@ -27,7 +27,8 @@
 <using compiler>
 <using node>
 
-$compiler::std_identifier: (name) -> identifier(.namespace_of "std" .name_of name)
+$compiler::std_identifier: (name)
+  -> identifier(.namespace_of "std" .name_of name)
 
 #
   remarks are assigned to
@@ -61,7 +62,13 @@ $print_message: (fragment offset msg_type $msg)
   $$n length_of(source)-offset
   while -> n > 0 && source(n) < ' ': dec &n
   $text compiler::text_of(fragment)
-  $rest if(line_offset > 0 (-> behind(text '@nl;' line_offset)) -> text)
+
+  $rest
+    if
+      line_offset > 0
+      -> behind(text '@nl;' line_offset)
+      -> text
+
   $line replace_all(rest .truncate_from. alt('@cr;' '@nl;') '@ht;' = "        ")
   do: (-> break)
     for_each line: (chr)
@@ -74,7 +81,7 @@ $print_message: (fragment offset msg_type $msg)
     :
       ewrite "
 	____________________________________
-	@(msg_type) IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
+	@(msg_type) IN LINE @(line_no) OF FILE "@(module_name)@quot;:@nl;@(msg)!
       ewriteln line
       ewriteln dup(" " n) "^"
 
@@ -104,7 +111,7 @@ $syntax_error: (message) -> types::syntax_error(.message_of message)
 $types::unexpected_input_error types::grammar_object
 
 $types::unexpected_input_error/grammar::match: (self stream)
-  $expression expression_of(self)
+  $$expression expression_of(self)
   if
     expression.is_a_character || expression.is_a_string:
       case
@@ -118,8 +125,10 @@ $types::unexpected_input_error/grammar::match: (self stream)
 	'@quot;':
 	  ParseError stream "closing quotation mark expected"
 	:
-	  ParseError stream "
-	    @quot;@(expression)" expected@
+	  to_string &expression
+	  unless expression(1).is_a_letter:
+	    !expression "@quot;@(expression)@quot;"
+	  ParseError stream "@(expression) expected"
     :
       ParseError stream "unexpected input"
 
@@ -130,13 +139,11 @@ $unexpected_input_error: (expression)
 # PRINT
 # for debugging purposes
 
-$types::print types::grammar_object
-
-$types::print/grammar::match: (self _stream)
+#$types::print types::grammar_object
+#$types::print/grammar::match: (self _stream)
   ewriteln message_of(self)
   -> 0
-
-$print: (message) -> types::print(.message_of message)
+#$print: (message) -> types::print(.message_of message)
 
 ###
 # DUMP STREAM
@@ -167,8 +174,6 @@ $compiler::strip: (&node)
     update_each &node.statements_of: (&statement) strip &statement
   if parameters_of(node).is_defined:
     update_each &node.parameters_of: (&parameter) strip &parameter
-  if output_arguments_of(node).is_defined:
-    update_each &node.output_arguments_of: (&argument) strip &argument
   if arguments_of(node).is_defined:
     update_each &node.arguments_of: (&argument) strip &argument
   if parent_of(node).is_defined: strip &node.parent_of
@@ -235,6 +240,19 @@ $infix_operator: (operator)
 $interleaved: (expression separator) -> expression, some(separator, expression)
 
 ###
+# ARGUMENTS INDEX
+
+%arguments_index undefined
+$types::store_arguments_index types::grammar_object
+
+$types::store_arguments_index/grammar::match: (self stream)
+  %arguments_index length_of(arguments_of(grammar::current_node))
+  grammar::match expression_of(self) stream
+
+$store_arguments_index: (expression)
+  -> types::store_arguments_index(.expression_of expression)
+
+###
 # INLINE
 
 %within_inline_expression false
@@ -265,32 +283,11 @@ $expect: (expression description?)
     -> alt(expression syntax_error("@(description) expected"))
     -> alt(expression unexpected_input_error(expression))
 
-$ENUMERATE
-  modify_node
-    : (&node)
-      #
-	On a first look there seem to be too many enumeration numbers used,
-	but single nested nodes are flattened later on and there is no need
-	for enumeration numbers to be dense.
-
-      inc &enumeration_count
-      !node.enumeration_no_of enumeration_count
-
-$MAKE_A_DESTINATION
-  modify_node
-    : (&node)
-      !node.is_a_destination true
-
-$compiler::arguments_span: (expression)
-  -> multi_span(arguments_of expression, ENUMERATE)
-
-$compiler::output_arguments_span: (expression)
-  -> multi_span(output_arguments_of expression, ENUMERATE, MAKE_A_DESTINATION)
+$compiler::arguments_span: (expression) -> multi_span(arguments_of expression)
 
 $compiler::WHITESPACE many(' ')
 $SEPARATOR alt(compiler::WHITESPACE followed_by(':'))
 $NEWLINES many(NEWLINE)
-$NEXT_LINE ARGUMENT_LINE_END_REMARK, NEWLINES
 
 $STORE_POSITION
   modify_node
@@ -310,16 +307,6 @@ $STORE_POSITION_MINUS_1
 	stream
       )
       !node.source_position_of length_of(stream)+1
-      !node.fragment_of current_fragment
-
-$STORE_POSITION_MINUS_2
-  modify_node
-    :
-      (
-	&node
-	stream
-      )
-      !node.source_position_of length_of(stream)+2
       !node.fragment_of current_fragment
 
 $STORE_END_POSITION
@@ -491,69 +478,59 @@ $DATA
 $META_INSTRUCTION
   sequence
     alt(REQUIRE NAMESPACE USING INCLUDE LINK DATA)
-    optional(alt(NEW_LINE_END_REMARK NEXT_LINE_REMARK, expect(outdent_marker)))
+    optional(alt(LINE_END_REMARK NEXT_LINE_REMARK, expect(outdent_marker)))
 
 ###
-# REMARK_STATEMENT
+# REMARKS
+
+#
+  Remarks are
+
+  * statements of their own
+
+  * pseudo arguments to procedure or function calls or return statements
+
+  * part of a body declaration
+
+  * part of a parameter declaration
+
+  An indentifier does not become a function call, when it contains only remark
+  pseudo arguments.
+
+  A return statement containing only remark pseudo arguments is invalid.
 
 $REMARK_LINE multi_capture(remark_lines_of some(PRINTABLE_CHARACTER))
+  # a single line containing remark text
 
 $REMARK_LINES
+  #
+    a remark potentially spanning multipe lines
   sequence
     REMARK_LINE
     optional(INDENT, interleaved(REMARK_LINE NEWLINE), expect(outdent_marker))
 
-$SINGLE_REMARK_STATEMENT HASHTAG, set_node(remark_statement), REMARK_LINES
-  # used for top-level statements (fragments)
-$REMARK_STATEMENT multi_span(statements_of SINGLE_REMARK_STATEMENT)
+$REMARK_STATEMENT HASHTAG, set_node(remark_statement), REMARK_LINES
 $REMARK HASHTAG, REMARK_LINES
+$LINE_END_REMARK compiler::WHITESPACE, HASHTAG, REMARK_LINE
+$NEXT_LINE_REMARK INDENT, REMARK
 
-$REMARK_BEHIND
-  sequence
-    REMARK
-    modify_node
-      : (&node)
-	unless node.is_a_definition || node.is_a_meta_instruction:
-	  $remark_lines remark_lines_of(node)
-	  if
-	    arguments_of(node).is_empty:
-	      !node.remark_lines_behind_of remark_lines
-	    :
-	      append &node.arguments_of(-1).remark_lines_behind_of remark_lines
-	  !node.remark_lines_of empty_list
+$REMOVE_LAST_ARGUMENT_IF_NOT_PRETTY_PRINTING
+  modify_node
+    : (&node)
+      unless do_pretty_print || do_extract_documentation:
+	range &node.arguments_of 1 -2
 
-$LINE_END_REMARK optional(compiler::WHITESPACE, HASHTAG, REMARK_LINE)
-
-$ARGUMENT_LINE_END_REMARK
-  optional
-    sequence
-      compiler::WHITESPACE
-      HASHTAG
-      REMARK_LINE
-      modify_node
-	: (&node)
-	  unless node.is_a_definition:
-	    $n length_of(arguments_of(node))
-	    if n > 0:
-	      push
-		&node.arguments_of(n).remark_lines_of
-		remark_lines_of(node)(-1)
-	      range &node.remark_lines_of 1 -2
-
-$ARGUMENT_REMARK
+$REMARK_ARGUMENT
   sequence
     HASHTAG
-    REMARK_LINE
-    modify_node
-      : (&node)
-	unless node.is_a_definition:
-	  $n length_of(arguments_of(node))
-	  if n > 0:
-	    push &node.arguments_of(n).remark_lines_of remark_lines_of(node)(-1)
-	    range &node.remark_lines_of 1 -2
+    arguments_span(set_node(remark_argument), REMARK_LINES)
+    REMOVE_LAST_ARGUMENT_IF_NOT_PRETTY_PRINTING
 
-$NEW_LINE_END_REMARK compiler::WHITESPACE, HASHTAG, REMARK_LINE
-$NEXT_LINE_REMARK INDENT, REMARK
+$LINE_END_REMARK_ARGUMENT
+  sequence
+    HASHTAG
+    arguments_span(set_node(remark_argument), REMARK_LINE)
+    REMOVE_LAST_ARGUMENT_IF_NOT_PRETTY_PRINTING
 
 ###
 # EXPRESSIONS
@@ -568,7 +545,8 @@ $FUNCTION_CALL
 	    .functor_of node
 	    .fragment_of fragment_of(node)
 	    .source_position_of source_position_of(node)
-    inline(optional(alt(ARGUMENTS INLINE_ATTRIBUTE_VALUE_PAIRS)))
+    optional(not_followed_by(')'), INLINE_ARGUMENTS)
+    CHECK_ARGUMENTS("function call")
     expect(')')
     STORE_END_POSITION
 
@@ -601,7 +579,7 @@ $READ_WRITE_EXTENSIONS some(alt(FUNCTION_CALL ATTRIBUTE_WRITE))
 $IDENTIFIER_OR_FUNCTION_CALL IDENTIFIER, EXTENSIONS
 
 $READ_WRITE_IDENTIFIER_OR_FUNCTION_CALL
-  IDENTIFIER, set_field(is_a_destination true), READ_WRITE_EXTENSIONS
+  IDENTIFIER, set_field(is_used_as_a_destination true), READ_WRITE_EXTENSIONS
 
 $DECIMAL_NUMBER
   sequence
@@ -722,9 +700,7 @@ $CHECK_INSERTIONS
 	    .source_position_of source_position_of(node)
 	    .end_position_of end_position_of(node)
 
-$STRING
-  # This code has an astonishing capability to flatten template expressions!
-
+$STRING # This code has an astonishing capability to flatten template expressions!
   sequence
     '@quot;'
     not_followed_by(indent_marker)
@@ -867,14 +843,17 @@ $EXTEND_EXPRESSION
       if
 	n == 1:
 	  !node arguments(1)
-	: # build syntax tree according to operator precedences
+	:
 	  $operators operators_of(node)
 	  $$operand_stack list(arguments(1))
 	  $$operator_stack list(operators(1))
 
 	  $update_stack: ($right next_operator)
 	    $next_prec
-	      if(next_operator.is_defined (-> precedence(next_operator)) -> 0)
+	      if
+		next_operator.is_defined
+		-> precedence(next_operator)
+		-> 0
 
 	    do: (-> break)
 	      forever:
@@ -895,7 +874,6 @@ $EXTEND_EXPRESSION
 		    .functor_of functor
 		    .arguments_of list(left right)
 		    .is_in_infix_notation true
-		    .enumeration_no_of enumeration_no_of(left)
 		    .fragment_of fragment_of(left)
 		    .source_position_of source_position_of(left)
 		    .end_position_of end_position_of(right)
@@ -905,7 +883,12 @@ $EXTEND_EXPRESSION
 	    push &operator_stack next_operator
 
 	  from_to 2 n: (i)
-	    update_stack arguments(i) if(i < n (-> operators(i)) -> undefined)
+	    update_stack
+	      arguments(i)
+	      if
+		i < n
+		-> operators(i)
+		-> undefined
 	  !node peek(operand_stack)
       if parent.is_defined:
 	!node parent(.arguments_of push(arguments_of(parent) node))
@@ -965,7 +948,12 @@ $METHOD_DEFINITION
     alt(followed_by(':') span(functor_of NAME_OF_POLYMORPHIC))
     STORE_END_POSITION
 
-$ASSIGN '!', READ_WRITE_IDENTIFIER_OR_FUNCTION_CALL, optional(METHOD_DEFINITION)
+$ASSIGN
+  sequence
+    '!'
+    READ_WRITE_IDENTIFIER_OR_FUNCTION_CALL
+    optional(METHOD_DEFINITION)
+    set_field(is_a_destination true)
 
 $DESTINATION
   alt
@@ -981,203 +969,58 @@ $BACKQUOTED
     set_node(backquoted)
     capture(node::text_of span(expression_of alt(OPERAND DESTINATION)))
 
-$INPUT_ARGUMENT arguments_span(alt(EXPRESSION BODY))
-
 $EXPANSION
   alt
     '?', set_field(is_an_optional_item true)
     '*', set_field(is_an_expanded_item true)
 
-$OUTPUT_ARGUMENT output_arguments_span(DESTINATION, optional(EXPANSION))
+$OUTPUT_ARGUMENT DESTINATION, optional(EXPANSION)
 
 $INPUT_OUTPUT_ARGUMENT
-  output_arguments_span
-    '&', READ_WRITE_IDENTIFIER_OR_FUNCTION_CALL, optional(EXPANSION)
+  sequence
+    '&'
+    READ_WRITE_IDENTIFIER_OR_FUNCTION_CALL
+    set_field(is_a_destination true)
+    set_field(is_an_input_output_argument true)
+    optional(EXPANSION)
 
-$COPY_OUTPUT
-  #
-    copy an input-output argument as an additional input argument
+$INPUT_ARGUMENT arguments_span(alt(EXPRESSION BODY MULTI_LINE_STRING))
 
-  modify_node
-    : (&node)
-      push
-	&node.arguments_of
-	output_arguments_of(node)(-1)(.is_a_destination false)
-
-$MAYBE_SPLIT_INPUT
-  #
-    split things like
-
-    `$var
-
-    into an input and an output argument
-
-  modify_node
-    : (&node)
-      $argument arguments_of(node)(-1)
-      $expression expression_of(argument)
-      if expression.is_a_definition || expression.is_a_destination:
-	push &node.output_arguments_of expression
-	!node.arguments_of(-1)
-	  string_literal(.node::text_of node::text_of(argument))
-
-$SIMPLE_ARGUMENT
-  alt
-    arguments_span(EXPRESSION, optional(EXPANSION))
-    OUTPUT_ARGUMENT
-    INPUT_OUTPUT_ARGUMENT, COPY_OUTPUT
-    arguments_span(BACKQUOTED), MAYBE_SPLIT_INPUT
-
-$INLINE_ATTRIBUTE_VALUE_PAIR
-  alt
-    sequence
-      '.'
-      arguments_span
-	sequence
-	  set_node(attribute_value_pair)
-	  span(identifier_of NAME_OF_POLYMORPHIC)
-	  compiler::WHITESPACE
-	  INPUT_ARGUMENT
-    sequence
-      '/'
-      followed_by(':')
-      arguments_span
-	set_node(attribute_function_pair), SEPARATOR, INPUT_ARGUMENT
-    sequence
-      '/'
-      arguments_span
-	sequence
-	  set_node(attribute_function_pair)
-	  span(identifier_of NAME_OF_POLYMORPHIC)
-	  SEPARATOR
-	  INPUT_ARGUMENT
+$VALUE_ARGUMENT
+  sequence
+    STORE_POSITION_MINUS_1
+    span(identifier_of NAME_OF_POLYMORPHIC)
+    optional(compiler::WHITESPACE, LINE_END_REMARK_ARGUMENT)
+    alt
+      INDENTED_ARGUMENTS, CHECK_ARGUMENTS("attribute value" 0 1)
+      SEPARATOR, INPUT_ARGUMENT
+    STORE_END_POSITION
 
 $ATTRIBUTE_VALUE_PAIR
   sequence
-    some(REMARK_BEHIND, NEWLINES)
     alt
       sequence
 	'.'
-	arguments_span
-	  sequence
-	    set_node(attribute_value_pair)
-	    span(identifier_of NAME_OF_POLYMORPHIC)
-	    SINGLE_INPUT_ARGUMENT
+	arguments_span(sequence(set_node(attribute_value_pair) VALUE_ARGUMENT))
       sequence
 	'/'
 	followed_by(':')
-	arguments_span(set_node(attribute_function_pair), SINGLE_INPUT_ARGUMENT)
-      sequence
-	'/'
 	arguments_span
 	  sequence
 	    set_node(attribute_function_pair)
-	    span(identifier_of NAME_OF_POLYMORPHIC)
-	    SINGLE_INPUT_ARGUMENT
-
-$INLINE_ATTRIBUTE_VALUE_PAIRS
-  interleaved(INLINE_ATTRIBUTE_VALUE_PAIR compiler::WHITESPACE)
-
-$INDENTED_ATTRIBUTE_VALUE_PAIRS
-  INDENT, interleaved(ATTRIBUTE_VALUE_PAIR NEXT_LINE), expect(outdent_marker)
-
-$SINGLE_EXPRESSION_LINE
-  alt(LINE_START_ARGUMENT, ARGUMENT_LINE_END_REMARK LINE_END_EXPRESSION)
-
-$PROCEDURE_ARGUMENTS
-  optional
-    alt
+	    STORE_POSITION_MINUS_1
+	    arguments_span(BODY)
+	    STORE_END_POSITION
       sequence
-	SEPARATOR
-	alt(LINE_END_EXPRESSION SIMPLE_ARGUMENT, PROCEDURE_ARGUMENTS)
-      sequence
-	LINE_END_REMARK
-	optional
-	  sequence
-	    INDENT
-	    some(NEWLINE)
-	    FIRST_LINE_START_ARGUMENTS
-	    expect(outdent_marker)
-
-$ARGUMENTS
-  alt
-    sequence
-      LINE_END_EXPRESSION
-      optional(SEPARATOR, ARGUMENT_REMARK)
-      optional(NEWLINES, MORE_LINE_START_ARGUMENTS)
-    sequence
-      SIMPLE_ARGUMENT
-      alt(SEPARATOR, ARGUMENTS optional(NEWLINES, MORE_LINE_START_ARGUMENTS))
-    sequence(ARGUMENT_REMARK optional(NEWLINES, MORE_LINE_START_ARGUMENTS))
+	'/'
+	STORE_POSITION_MINUS_1
+	arguments_span
+	  sequence(set_node(attribute_function_pair) VALUE_ARGUMENT)
 
 $OPERATORS_AND_OPERANDS
   alt
     sequence(INFIX_OPERATOR arguments_span(OPERAND) OPERATORS_AND_OPERANDS)
     EXTEND_EXPRESSION
-
-$MULTI_LINE_FUNCTION_CALL
-  # store the current node in the parent slot for later retrieval
-
-  sequence
-    modify_node
-      : (node)
-	-> function_call(.parent_of node)
-    alt(LINE_START_ARGUMENTS interleaved(ATTRIBUTE_VALUE_PAIR NEXT_LINE))
-    STORE_END_POSITION
-    expect(outdent_marker)
-    modify_node
-      : (node)
-	# rotate the subnodes to generate the correct function call argument
-
-	$top_level_node parent_of(node)
-	$top_level_arguments arguments_of(top_level_node)
-	$functor top_level_arguments(-1)
-
-	$new_arguments
-	  push
-	    range(top_level_arguments 1 -2)
-	    function_call
-	      .functor_of
-		functor
-		  .enumeration_no_of undefined
-		  .remark_lines_of empty_list
-	      .arguments_of arguments_of(node)
-	      .output_arguments_of output_arguments_of(node)
-	      .enumeration_no_of enumeration_no_of(functor)
-	      .remark_lines_of remark_lines_of(functor)
-	      .fragment_of fragment_of(functor)
-	      .source_position_of source_position_of(functor)
-	      .end_position_of end_position_of(node)
-
-	-> top_level_node(.arguments_of new_arguments)
-
-$original_remark_lines_of ()
-
-$INDENTED_FUNCTION_CALL_OR_REMARK
-  alt
-    sequence
-      # ATTENTION: very dirty fix!
-      modify_node
-	: (&node)
-	  !node.original_remark_lines_of remark_lines_of(node)
-	  !node.remark_lines_of empty_list
-      REMARK
-      modify_node
-	: (&node)
-	  $n length_of(arguments_of(node))
-	  if n > 0:
-	    append &node.arguments_of(n).remark_lines_of remark_lines_of(node)
-	    !node.remark_lines_of empty_list
-	  !node.remark_lines_of original_remark_lines_of(node)
-	  !node.original_remark_lines_of undefined
-      alt(sequence(NEWLINES INDENTED_FUNCTION_CALL_OR_REMARK) OUTDENT)
-    MULTI_LINE_FUNCTION_CALL
-
-$MULTI_LINE_FUNCTION_CALL_OR_INDENTED_REMARK
-  INDENT, some(NEWLINE), INDENTED_FUNCTION_CALL_OR_REMARK
-
-$ARGUMENT_EXPANSION
-  alt('?' '*', followed_by(alt(compiler::WHITESPACE NEWLINE OUTDENT END_OF_TEXT)))
 
 $MULTI_LINE_EXPRESSION
   sequence
@@ -1191,10 +1034,10 @@ $MULTI_LINE_EXPRESSION
 	    .functor_of node
 	    .fragment_of fragment_of(node)
 	    .source_position_of source_position_of(node)
-    INDENT
-    LINE_START_ARGUMENTS
+    optional(compiler::WHITESPACE, LINE_END_REMARK_ARGUMENT)
+    INDENTED_ARGUMENTS
     STORE_END_POSITION
-    expect(outdent_marker)
+    CHECK_ARGUMENTS("multi line expression" 0)
     modify_node
       :
 	(
@@ -1224,64 +1067,6 @@ $MULTI_LINE_EXPRESSION
 		    .arguments_of range(arguments -2 -1)
 		if length_of(arguments) == 2 return
 		!arguments push(range(arguments 1 -3) node)
-
-$LINE_START_ARGUMENT
-  alt
-    sequence
-      arguments_span
-	IDENTIFIER_OR_FUNCTION_CALL, not_followed_by(ARGUMENT_EXPANSION)
-      optional
-	alt
-	  sequence
-	    followed_by
-	      alt
-		optional(compiler::WHITESPACE), INFIX_OPERATOR_SYMBOL
-		','
-		compiler::WHITESPACE, '.'
-		NAME, '.'
-	    modify_node
-	      : (node)
-		# store the current node in the parent slot for later retrieval
-
-		->
-		  expression
-		    .parent_of
-		      node(.arguments_of range(arguments_of(node) 1 -2))
-		    .arguments_of list(arguments_of(node)(-1))
-	    OPERATORS_AND_OPERANDS
-	  sequence
-	    MULTI_LINE_FUNCTION_CALL_OR_INDENTED_REMARK
-	    optional(NEXT_LINE, LINE_START_ARGUMENTS)
-    arguments_span(EXPRESSION, not_followed_by(ARGUMENT_EXPANSION))
-    arguments_span(MULTI_LINE_EXPRESSION)
-
-$LINE_START_ARGUMENTS
-  alt
-    LINE_END_EXPRESSION, optional(NEXT_LINE, MORE_LINE_START_ARGUMENTS)
-    sequence
-      alt(LINE_START_ARGUMENT SIMPLE_ARGUMENT)
-      alt(SEPARATOR, ARGUMENTS optional(NEWLINES, MORE_LINE_START_ARGUMENTS))
-
-$MORE_LINE_START_ARGUMENTS
-  alt
-    REMARK_BEHIND, optional(NEWLINES, MORE_LINE_START_ARGUMENTS)
-    LINE_START_ARGUMENTS
-
-$FIRST_LINE_START_ARGUMENTS
-  alt
-    REMARK, optional(NEWLINES, MORE_LINE_START_ARGUMENTS)
-    LINE_START_ARGUMENTS
-
-$SINGLE_INPUT_ARGUMENT
-  alt
-    compiler::WHITESPACE, INPUT_ARGUMENT, LINE_END_REMARK
-    SEPARATOR, LINE_END_EXPRESSION
-    sequence
-      LINE_END_REMARK
-      INDENT
-      some(REMARK, NEWLINES)
-      alt(SINGLE_EXPRESSION_LINE INPUT_ARGUMENT)
-      expect(outdent_marker)
 
 $PARAMETER_MODE
   optional
@@ -1330,7 +1115,7 @@ $PARAMETER_NAME
 $PARAMETER PARAMETER_MODE, PARAMETER_NAME, PARAMETER_COUNT_OR_MYSELF
 
 $MULTI_LINE_PARAMETER
-  PARAMETER, ARGUMENT_LINE_END_REMARK, optional(INDENT, REMARK, OUTDENT)
+  PARAMETER, optional(LINE_END_REMARK), optional(INDENT, REMARK, OUTDENT)
 
 $CONTINUATION
   sequence
@@ -1341,7 +1126,7 @@ $CONTINUATION
     PARAMETER_NAME
 
 $MULTI_LINE_CONTINUATION
-  CONTINUATION, ARGUMENT_LINE_END_REMARK, optional(INDENT, REMARK, OUTDENT)
+  CONTINUATION, optional(LINE_END_REMARK), optional(INDENT, REMARK, OUTDENT)
 
 $INLINE_PARAMETERS
   sequence
@@ -1372,26 +1157,29 @@ $COMPLETE_BODY
     ':'
     set_node(body)
     STORE_POSITION_MINUS_1
-    optional(NEW_LINE_END_REMARK)
-    sequence
-      alt
-	sequence
-	  INDENT
-	  some(REMARK, NEWLINES)
-	  MULTI_LINE_PARAMETERS
-	  NEWLINES
-	  STATEMENTS
-	  expect(outdent_marker)
-	sequence
-	  optional(compiler::WHITESPACE, INLINE_PARAMETERS)
-	  LINE_END_REMARK
-	  alt
-	    INDENT, optional(NEWLINES), STATEMENTS, expect(outdent_marker)
-	    sequence
-	      compiler::WHITESPACE
-	      alt(STATEMENT RETURN_STATEMENT syntax_error("statement expected"))
-	    syntax_error("statement expected")
-	syntax_error("statement expected")
+    alt
+      sequence
+	optional(LINE_END_REMARK)
+	INDENT
+	some(multi_span(statements_of REMARK_STATEMENT), NEWLINES)
+	optional
+	  sequence
+	    MULTI_LINE_PARAMETERS
+	    NEWLINE
+	    modify_node
+	      : (&node)
+		for_each statements_of(node): (remark_statement)
+		  append &node.remark_lines_of remark_lines_of(remark_statement)
+		!node.statements_of empty_list
+	optional(NEWLINES)
+	STATEMENTS
+	expect(outdent_marker)
+      sequence
+	optional(compiler::WHITESPACE, INLINE_PARAMETERS)
+	optional(LINE_END_REMARK)
+	alt
+	  compiler::WHITESPACE, multi_span(statements_of STATEMENT)
+	  sequence(INDENT optional(NEWLINES) STATEMENTS expect(outdent_marker))
     STORE_END_POSITION
 
 $RETURN_EXPRESSION
@@ -1399,7 +1187,7 @@ $RETURN_EXPRESSION
     followed_by("->")
     set_node(body)
     STORE_POSITION
-    RETURN_STATEMENT
+    multi_span(statements_of RETURN_STATEMENT)
     STORE_END_POSITION
 
 $BODY alt(COMPLETE_BODY RETURN_EXPRESSION)
@@ -1417,59 +1205,13 @@ $C_BODY
     STORE_END_POSITION
 
 $LINE_END_EXPRESSION arguments_span(alt(BODY C_BODY MULTI_LINE_STRING))
-$ASSIGNMENT
-  sequence
-    set_node(assignment)
-    STORE_POSITION
-    alt
-      output_arguments_span(DEFINE_STATIC_MULTI), SINGLE_INPUT_ARGUMENT
-      sequence
-	output_arguments_span(DEFINE_STATIC_SINGLE) SINGLE_INPUT_ARGUMENT
-      output_arguments_span(DEFINE_DYNAMIC_MULTI), SINGLE_INPUT_ARGUMENT
-      output_arguments_span(DEFINE_DYNAMIC_SINGLE), SINGLE_INPUT_ARGUMENT
-      sequence
-	output_arguments_span(ASSIGN)
-	alt(SINGLE_INPUT_ARGUMENT INDENTED_ATTRIBUTE_VALUE_PAIRS)
-    STORE_END_POSITION
-
-$POLYMORPHIC_FUNCTION_WITHOUT_SETTER
-  "()", set_node(polymorphic_function)
+$POLYMORPHIC_FUNCTION_WITHOUT_SETTER "()", set_node(polymorphic_function)
 
 $POLYMORPHIC_FUNCTION_WITH_SETTER
   "(!)", set_node(polymorphic_function_with_setter)
 
 $POLYMORPHIC_FUNCTION
-  sequence
-    compiler::WHITESPACE
-    arguments_span
-      alt(POLYMORPHIC_FUNCTION_WITHOUT_SETTER POLYMORPHIC_FUNCTION_WITH_SETTER)
-    LINE_END_REMARK
-
-$TOP_LEVEL_ASSIGNMENT
-  sequence
-    set_node(assignment)
-    STORE_POSITION
-    alt
-      output_arguments_span(DEFINE_STATIC_MULTI), SINGLE_INPUT_ARGUMENT
-      sequence
-	output_arguments_span(DEFINE_STATIC_SINGLE)
-	alt
-	  sequence
-	    POLYMORPHIC_FUNCTION
-	    modify_node
-	      : (&node)
-		$$destination output_arguments_of(node)(1)
-		if attribute_of(destination).is_defined:
-		  SyntaxError node "invalid polymorphic function definition"
-		!destination.variable_kind_of POLYMORPHIC
-		!node.output_arguments_of(1) destination
-	  SINGLE_INPUT_ARGUMENT
-      output_arguments_span(DEFINE_DYNAMIC_MULTI), SINGLE_INPUT_ARGUMENT
-      output_arguments_span(DEFINE_DYNAMIC_SINGLE), SINGLE_INPUT_ARGUMENT
-      sequence
-	output_arguments_span(ASSIGN)
-	alt(SINGLE_INPUT_ARGUMENT INDENTED_ATTRIBUTE_VALUE_PAIRS)
-    STORE_END_POSITION
+  alt(POLYMORPHIC_FUNCTION_WITHOUT_SETTER POLYMORPHIC_FUNCTION_WITH_SETTER)
 
 $FUNCTOR span(functor_of IDENTIFIER_OR_FUNCTION_CALL)
 
@@ -1478,63 +1220,240 @@ $RESULT_COUNT_OR_CONTINUATION
     ".(", span(result_count_of EXPRESSION), ')'
     '/', span(continuation_of IDENTIFIER)
 
-$PROCEDURE_CALL
+$ARGUMENT
+  alt
+    arguments_span
+      alt
+	POLYMORPHIC_FUNCTION
+	EXPRESSION, optional(EXPANSION)
+	INPUT_OUTPUT_ARGUMENT
+	BACKQUOTED
+	DESTINATION, optional(EXPANSION)
+    ATTRIBUTE_VALUE_PAIR
+    followed_by('@quot;', indent_marker)
+    followed_by(':')
+    followed_by('#')
+    followed_by('{')
+    followed_by("->")
+    syntax_error("argument expected")
+
+$FIRST_LINE_ARGUMENTS
+  sequence
+    some(compiler::WHITESPACE, ARGUMENT)
+    optional(LINE_END_REMARK_ARGUMENT)
+
+$MULTI_LINE_FUNCTION_CALL
+  sequence
+    store_arguments_index
+      sequence
+	optional(compiler::WHITESPACE, LINE_END_REMARK_ARGUMENT)
+	INDENTED_ARGUMENTS
+	modify_node
+	  : (node)
+	    $arguments arguments_of(node)
+	    $functor arguments(arguments_index)
+
+	    $$argument
+	      function_call
+		.functor_of functor
+		.arguments_of range(arguments arguments_index+1 -1)
+		.fragment_of fragment_of(node)
+		.source_position_of source_position_of(node)
+
+	    check_arguments argument "function call"
+	    if
+	      arguments_of(argument).is_empty:
+		!argument functor_of(argument)
+		  # The "arguments" were just remarks!
+	      :
+		unless
+		  do_pretty_print && all_of(arguments_of(argument) is_a_remark)
+		  :
+		    check_functor functor
+	    ->
+	      node
+		.arguments_of
+		  push(range(arguments 1 arguments_index-1) argument)
+    STORE_END_POSITION
+
+$ARGUMENT_LINE
+  alt
+    LINE_END_EXPRESSION
+    arguments_span(MULTI_LINE_EXPRESSION)
+    REMARK_ARGUMENT
+    sequence
+      ARGUMENT
+      alt
+	sequence
+	  followed_by
+	    sequence
+	      optional(compiler::WHITESPACE, HASHTAG, some(PRINTABLE_CHARACTER))
+	      INDENT
+	  MULTI_LINE_FUNCTION_CALL
+	sequence
+	  some(compiler::WHITESPACE, ARGUMENT)
+	  optional(alt(LINE_END_REMARK_ARGUMENT LINE_END_EXPRESSION))
+
+$INLINE_ARGUMENTS
+  inline
+    alt
+      arguments_span(BODY)
+      sequence
+	interleaved(ARGUMENT compiler::WHITESPACE)
+	optional(arguments_span(BODY))
+
+$INDENTED_ARGUMENTS
+  sequence(INDENT some(newline) interleaved(ARGUMENT_LINE NEWLINES) OUTDENT)
+
+$ARGUMENTS
+  sequence
+    FIRST_LINE_ARGUMENTS
+    optional(alt(LINE_END_EXPRESSION INDENTED_ARGUMENTS))
+
+$ONE_OR_MORE .
+
+$check_functor: (functor)
+  unless
+    ||
+      functor.is_an_identifier
+      functor.is_a_function_call && not(functor.is_in_infix_notation)
+    :
+      SyntaxError functor "invalid functor"
+
+$check_arguments: (node kind wanted_outputs? wanted_inputs?)
+  $$outputs 0
+  $$inputs 0
+  $$contains_attribute_value_pair false
+  $$contains_simple_input_argument false
+
+  $add_argument: (argument)
+    if argument.is_a_destination: inc &outputs
+    if not(argument.is_a_destination) || argument.is_an_input_output_argument:
+      if
+	argument.is_an_attribute_value_pair:
+	  if contains_simple_input_argument:
+	    SyntaxError argument "unexpected attribute-value-pair"
+	  !contains_attribute_value_pair true
+	:
+	  if contains_attribute_value_pair:
+	    SyntaxError argument "simple argument within attribute definition"
+	  !contains_simple_input_argument true
+      inc &inputs
+
+  for_each arguments_of(node): (argument)
+    unless argument.is_a_remark:
+      if
+	argument.is_a_backquoted_expression:
+	  add_argument string_literal(.node::text_of node::text_of(argument))
+	  add_argument expression_of(argument)
+	:
+	  add_argument argument
+  if wanted_outputs.is_defined:
+    if outputs > wanted_outputs:
+      SyntaxError node "too many output arguments for @(kind)"
+    if outputs < wanted_outputs:
+      SyntaxError node "too few output arguments for @(kind)"
+  if wanted_inputs.is_defined:
+    $min_inputs
+      if
+	wanted_inputs == ONE_OR_MORE
+	-> 1
+	-> wanted_inputs
+
+    $max_inputs
+      if
+	wanted_inputs == ONE_OR_MORE
+	-> undefined
+	-> wanted_inputs
+
+    if max_inputs.is_defined && inputs > max_inputs:
+      $$first_input_argument undefined
+      do: (-> break)
+	for_each arguments_of(node): (argument)
+	  unless argument.is_a_destination:
+	    !first_input_argument argument
+	    break
+      unless first_input_argument.is_an_attribute_value_pair:
+	SyntaxError node "too many input arguments for @(kind)"
+    if min_inputs.is_defined && inputs < min_inputs:
+      SyntaxError node "too few input arguments for @(kind)"
+
+$CHECK_ARGUMENTS: (kind wanted_outputs? wanted_inputs?)
+  inspect_node: (node) check_arguments node kind wanted_outputs wanted_inputs
+
+$ASSIGNMENT_STATEMENT
+  sequence
+    set_node(assignment)
+    STORE_POSITION
+    arguments_span(OUTPUT_ARGUMENT)
+    ARGUMENTS
+    STORE_END_POSITION
+    CHECK_ARGUMENTS("assignment" 1 1)
+    modify_node
+      : (&node)
+	do: (-> break)
+	  for_each_from_to arguments_of(node) 2 -1: (source)
+	    unless source.is_a_remark:
+	      if source.is_a_polymorphic_function_constant:
+		$destination arguments_of(node)(1)
+		unless
+		  &&
+		    destination.is_a_static_single_definition
+		    attribute_kind_of(destination) == NONE
+		  :
+		    SyntaxError node "
+		      invalid polymorphic function definition (destination @
+		      must be a single assignment static)@
+		!node.arguments_of
+		  put
+		    range(arguments_of(node) 2 -1)
+		    destination(.variable_kind_of POLYMORPHIC)
+	      break
+
+$PROCEDURE_STATEMENT
   sequence
     set_node(procedure_call)
     STORE_POSITION
     FUNCTOR
     optional(RESULT_COUNT_OR_CONTINUATION)
-    alt
-      sequence
-	compiler::WHITESPACE
-	OUTPUT_ARGUMENT
-	alt
-	  sequence
-	    compiler::WHITESPACE
-	    INLINE_ATTRIBUTE_VALUE_PAIRS
-	    optional(INDENTED_ATTRIBUTE_VALUE_PAIRS)
-	  INDENTED_ATTRIBUTE_VALUE_PAIRS
-	  PROCEDURE_ARGUMENTS
-      PROCEDURE_ARGUMENTS
+    ARGUMENTS
     STORE_END_POSITION
-
-$INDENTED_REMARKS INDENT, interleaved(REMARK NEWLINES), OUTDENT
-
-$SINGLE_STATEMENT
-  alt
-    alt(ASSIGNMENT PROCEDURE_CALL), optional(INDENTED_REMARKS)
-    SINGLE_REMARK_STATEMENT
-
-$TOP_LEVEL_STATEMENT
-  alt
-    alt(TOP_LEVEL_ASSIGNMENT PROCEDURE_CALL), optional(INDENTED_REMARKS)
-    SINGLE_REMARK_STATEMENT
-
-$STATEMENT multi_span(statements_of SINGLE_STATEMENT)
+    CHECK_ARGUMENTS("procedure call")
 
 $RETURN_STATEMENT
   sequence
+    set_node(return_statement)
+    STORE_POSITION
     "->"
-    multi_span
-      statements_of
-      sequence
-	set_node(return_statement)
-	STORE_POSITION_MINUS_2
-	PROCEDURE_ARGUMENTS
-	check_node
-	  : (node)
-	    if arguments_of(node).is_empty:
-	      SyntaxError node "return statement needs at least one argument"
-	    -> true
-	STORE_END_POSITION
+    ARGUMENTS
+    STORE_END_POSITION
+    CHECK_ARGUMENTS("return statement" 0 ONE_OR_MORE)
+
+$STATEMENT
+  alt
+    REMARK_STATEMENT
+    PROCEDURE_STATEMENT
+    ASSIGNMENT_STATEMENT
+    RETURN_STATEMENT
+    syntax_error("statement expected")
 
 $STATEMENTS
   sequence
-    alt
-      interleaved(STATEMENT NEXT_LINE), optional(NEXT_LINE, RETURN_STATEMENT)
-      RETURN_STATEMENT
-      syntax_error("statement expected")
-    some(NEXT_LINE, REMARK_STATEMENT)
+    interleaved(multi_span(statements_of STATEMENT) NEWLINES)
+    inspect_node
+      : (node)
+	$$return_statement undefined
+	$$statement_found false
+	for_each statements_of(node): (statement)
+	  unless statement.is_a_remark:
+	    if return_statement.is_defined:
+	      SyntaxError
+		return_statement
+		"return statement is followed by another statement"
+	    if statement.is_a_return: !return_statement statement
+	    !statement_found true
+	unless statement_found:
+	  SyntaxError node "missing statement in body (there are only remarks)"
 
 $BUILTIN_NAME
   span
@@ -1556,7 +1475,8 @@ $KIND_ANNOTATION "kind", expect(compiler::WHITESPACE, capture(kind_of NAME))
 $NAME_ANNOTATION
   sequence
     "name"
-    expect(compiler::WHITESPACE, alt(BUILTIN_NAME DEFINED_VARIABLE_OR_ATTRIBUTE))
+    expect
+      compiler::WHITESPACE, alt(BUILTIN_NAME DEFINED_VARIABLE_OR_ATTRIBUTE)
 
 $NODE_ANNOTATION "node", expect(compiler::WHITESPACE, capture(node_of NAME))
 
@@ -1569,7 +1489,9 @@ $SCOPE_ANNOTATION
 	capture(node::scope_of alt("runtime" "global" "local" "extern"))
 
 $TYPE_ANNOTATION
-  "type", expect(compiler::WHITESPACE, span(node::type_of NAMESPACED_IDENTIFIER))
+  sequence
+    "type"
+    expect(compiler::WHITESPACE, span(node::type_of NAMESPACED_IDENTIFIER))
 
 $ANNOTATION_ITEM
   alt
@@ -1600,31 +1522,32 @@ $C_CODE
     alt(ANNOTATIONS, optional(NEWLINES, SOURCE) SOURCE)
     expect(outdent_marker)
     expect(newline)
+    some(newline)
     expect('}')
 
 $META_FRAGMENT META_INSTRUCTION, expect(newline, END_OF_TEXT)
 
 $FRAGMENT
   sequence
-    alt
-      SINGLE_REMARK_STATEMENT
-      TOP_LEVEL_STATEMENT
-      C_CODE
-      syntax_error("top-level statement expected")
+    alt(C_CODE STATEMENT syntax_error("top-level statement expected"))
     expect(newline, END_OF_TEXT)
 
 ###
 # PARSER
 
 $compiler::parse_meta_instruction: (fragment)
-  %compiler::current_fragment fragment # used to generate meaningful error messages
+  %compiler::current_fragment fragment
+    # used to generate meaningful error messages
+
   $source compiler::source_of(fragment)
   match source META_FRAGMENT $len $cap
   if len != length_of(source): ParseError source "invalid meta instruction"
   -> cap
 
 $compiler::parse_statement: (fragment)
-  %compiler::current_fragment fragment # used to generate meaningful error messages
+  %compiler::current_fragment fragment
+    # used to generate meaningful error messages
+
   $source compiler::source_of(fragment)
   match source FRAGMENT $len $cap
   if

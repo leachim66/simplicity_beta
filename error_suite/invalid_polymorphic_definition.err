@@ -1,0 +1,5 @@
+____________________________________
+SYNTAX ERROR IN LINE 3 OF FILE "invalid_polymorphic_definition":
+Invalid polymorphic function definition (destination must be a single assignment static)!
+$x.z ()
+^

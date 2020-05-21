@@ -92,20 +92,15 @@ copyright "
   or write to the
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
-
 $MAJOR runtime_major_version()
 $MINOR runtime_minor_version()
 $REVISION runtime_revision()
-
 $VERSION "@(MAJOR).@(MINOR).@(REVISION)"
-
 version VERSION
-
 extern $cc c_compiler()
 extern $mkdir "mkdir" # would be nice to have one in the system library!
 $SIMLIBPATH environment("SIMLIBPATH")
 $SIMDATAPATH environment("SIMDATAPATH")
-
 $default_paths list(string(PREFIX() "/share/simplicity-@(VERSION)"))
 
 $simlibpaths
@@ -197,13 +192,14 @@ if
       !do_time_passes
       -> "time-passes" "
 	print running time for the individual compiler passes
-      !module_prefix:
-	-> VALUED_OPTION "module-prefix" "
-	  needed to compile a single file within a subdirectory;
-	  if the subdirectories are nested use slashes to separate
-	  the directory names
+      !module_prefix
+      -> VALUED_OPTION "module-prefix" "
+	needed to compile a single file within a subdirectory;
+	if the subdirectories are nested use slashes to separate
+	the directory names
 
-	# the following options change the diagnostic output
+      # the following options change the diagnostic output
+
       !compiler::do_show_brief_messages
       -> "brief" "
 	show brief error messages
@@ -222,22 +218,24 @@ if
       !compiler::do_show_debug_infos
       -> "debug" "
 	show C-compiler and linker calls
-      !compiler::do_show_compiler_debug_infos:
-	-> "debug_compiler" "
-	  show internal debug messages of the Simplicity compiler
+      !compiler::do_show_compiler_debug_infos
+      -> "debug-compiler" "
+	show internal debug messages of the Simplicity compiler
 
-	# the following options create meta-informations
+      # the following options create meta-informations
+
       !do_build_codeblocks_project
       -> "codeblocks" "
 	create Code::Blocks project
       !do_extract_documentation
       -> "extract-documentation" "
 	extract documentation encoded as HTML
-      !do_list_dependencies:
-	-> "list-dependencies" "
-	  list all dependencies
+      !do_list_dependencies
+      -> "list-dependencies" "
+	list all dependencies
 
-	# the following options influence the build process for all modules
+      # the following options influence the build process for all modules
+
       !do_rebuild
       -> "rebuild" "
 	rebuild all source files
@@ -256,7 +254,6 @@ if
       !additional_libraries
       -> std::SOME_PARAMETERS "additional_libraries" "
 	the names of additional libraries (used for --extract-documentation)
-
 %main_filename fullname(input_filename)
 %main_info stat(main_filename)
 %do_build_static_executable do_build_static
@@ -279,30 +276,20 @@ $$cc_options
     "-Wno-parentheses"
     "-Wno-switch"
     "-Wno-trigraphs"
-    "-O1"
     "-fPIC"
+    "-O1"
     "-fno-stack-protector"
     "-falign-functions=16"
 
-if c_compiler() == "gcc":
-  push &cc_options "-Wno-maybe-uninitialized"
-
-case hardware_architecture()
-  "x86_32", "x86_64":
-    push &cc_options "-msse2"
-    push &cc_options "-mfpmath=sse"
-
-for_each simdatapaths: (path)
-  push &cc_options "-I@(path)"
-
+if c_compiler() == "gcc": push &cc_options "-Wno-maybe-uninitialized"
+case hardware_architecture() "x86_32", "x86_64":
+  push &cc_options "-msse2"
+  push &cc_options "-mfpmath=sse"
+for_each simdatapaths: (path) push &cc_options "-I@(path)"
 $$cpp_options empty_list
-for_each split(CPPFLAGS()): (option)
-  push &cpp_options option
-
+for_each split(CPPFLAGS()): (option) push &cpp_options option
 $$ld_options empty_list
-for_each split(LDFLAGS()): (option)
-  push &ld_options option
-
+for_each split(LDFLAGS()): (option) push &ld_options option
 %on_top_level true # set to false while building meta-files
 %%objects empty_insert_order_set
 %%libraries empty_insert_order_set # contains "-lsim-..."-entries
@@ -397,11 +384,18 @@ $CC: (args*)
 
 $compile_c: (c_filename o_filename)
   unless do_build_codeblocks_project || do_list_dependencies:
-    CC $_out $err $success cpp_options* cc_options* "-c" c_filename "-o" o_filename
+    CC
+      $_out
+      $err
+      $success
+      cpp_options*
+      cc_options*
+      "-c"
+      c_filename
+      "-o"
+      o_filename
     unless success:
-      Error "
-	Failed to compile @(c_filename)
-	@(err.from_utf8)
+      Error "Failed to compile @(c_filename)@nl;@(err.from_utf8)@nl;"
     !do_link true
 
 $compile_meta_module:
@@ -493,9 +487,9 @@ $build_dependencies:
     trim &line
     $command line .truncate_from. WHITESPACE
     $argument line .behind. WHITESPACE
-    case
-      command
-      "require":
+    case command
+      "require"
+      :
 	if
 	  argument .has_prefix. "./":
 	    if mode == EXE:
@@ -514,7 +508,8 @@ $build_dependencies:
 	      :
 		if do_compile_c:
 		  !libraries(string("sim-" argument .truncate_from. '/')) true
-      "link":
+      "link"
+      :
 	if do_compile_c: !libraries(argument .truncate_from. '/') true
 
 $compile_module:
@@ -544,7 +539,7 @@ $compile_module:
       $sim_info stat(sim_filename)
       unless sim_info.is_defined:
 	Error "
-	  Failed to open file "@(sim_filename)"!@
+	  Failed to open file "@(sim_filename)@quot;!@
       if
 	||
 	  modification_time.is_undefined
@@ -594,8 +589,8 @@ $compile_module:
   !objects(o_filename) true
   if
     mod_info.is_empty:
-      compile_submodule list(truncate_until(mod_name '/' -1))
       if do_list_dependencies: push &dependencies string(mod_filename ".c")
+      compile_submodule list(truncate_until(mod_name '/' -1))
     :
       do:
 	$$best_platform undefined
@@ -671,7 +666,8 @@ $library_paths_and_file_list:
 	->
 	  case
 	    operating_system()
-	    "linux", "bsd" -> "-l:lib@(library).so.@(MAJOR)"
+	    "linux", "bsd"
+	    -> "-l:lib@(library).so.@(MAJOR)"
 	    -> "-l@(library)-@(MAJOR)"
 	->
 	  if
@@ -899,10 +895,13 @@ $build_library:
 	    !do_link true
       if do_link:
 	if verbose: ewriteln "linking dynamic library"
-	case
-	  operating_system()
-	  "linux", "bsd":
-	    CC $_out $err $success
+	case operating_system()
+	  "linux", "bsd"
+	  :
+	    CC
+	      $_out
+	      $err
+	      $success
 	      ld_options*
 	      "-shared"
 	      "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
@@ -910,8 +909,12 @@ $build_library:
 	      "-o"
 	      lib_filename
 	    unless success: Error err.from_utf8
-	  "cygwin":
-	    CC $_out $err $success
+	  "cygwin"
+	  :
+	    CC
+	      $_out
+	      $err
+	      $success
 	      ld_options*
 	      "-shared"
 	      library_paths_and_file_list()*
@@ -919,19 +922,27 @@ $build_library:
 	      "-o"
 	      lib_filename
 	    unless success: Error err.from_utf8
-	  "darwin":
-	    CC $_out $err $success
+	  "darwin"
+	  :
+	    CC
+	      $_out
+	      $err
+	      $success
 	      ld_options*
 	      "-dynamiclib"
 	      "
-		-Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR).dylib@
+		-Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
+		.dylib@
 	      library_paths_and_file_list()*
 	      "-lsim-@(MAJOR)"
 	      "-o"
 	      lib_filename
 	    unless success: Error err.from_utf8
 	  :
-	    CC $_out $err $success
+	    CC
+	      $_out
+	      $err
+	      $success
 	      ld_options*
 	      "-shared"
 	      library_paths_and_file_list()*
@@ -1047,7 +1058,8 @@ $build_executable:
     build_dependencies mod_filename mod_name c_buf
     if do_build_static_executable:
       for_each
-	"runtime/linker", "runtime/memory", "runtime/debugger": (filename)
+	"runtime/linker", "runtime/memory", "runtime/debugger"
+	: (filename)
 	  maybe_compile_c_file filename
     unless do_link:
       $info stat(exe_filename)
@@ -1065,7 +1077,10 @@ $build_executable:
       if
 	do_build_static_executable:
 	  if verbose: ewriteln "linking static executable"
-	  CC $_out $err $success
+	  CC
+	    $_out
+	    $err
+	    $success
 	    "runtime/linker.o"
 	    "runtime/memory.o"
 	    "runtime/debugger.o"
@@ -1075,11 +1090,15 @@ $build_executable:
 	  unless success: Error err.from_utf8
 	:
 	  if verbose: ewriteln "linking executable"
-	  CC $_out $err $success
+	  CC
+	    $_out
+	    $err
+	    $success
 	    libs_and_files*
 	    case
 	      operating_system()
-	      "linux", "bsd" -> "-l:libsim.so.@(MAJOR)"
+	      "linux", "bsd"
+	      -> "-l:libsim.so.@(MAJOR)"
 	      -> "-lsim-@(MAJOR)"
 	    "-o"
 	    exe_filename

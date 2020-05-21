@@ -1,0 +1,5 @@
+____________________________________
+SYNTAX ERROR IN LINE 4 OF FILE "output_argument_in_expression":
+Argument expected!
+  a + $b
+    ^

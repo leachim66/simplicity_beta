@@ -46,6 +46,7 @@
   // traverse an undefined structure.
   //
   // Be very carefull when defining methods or attributes for <types::undefined>.
+
 }
 
 $types::undefined.is_defined false # obvious

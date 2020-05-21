@@ -1,0 +1,1111 @@
+#!/usr/bin/env simrun
+
+#
+  the main module of the compiler;
+  calls the Simplicity-compiler, C-compiler and linker
+
+<require basic/exceptions>
+<require basic/serialize>
+<require basic/deserialize>
+<require basic/branches>
+<require basic/debug>
+<require basic/environment>
+<require basic/event>
+<require basic/exec>
+<require basic/functional>
+<require basic/grammar>
+<require basic/io>
+<require basic/loops>
+<require basic/math>
+<require basic/options>
+<require basic/parameters>
+<require basic/platform>
+<require basic/polymorphic_functions>
+<require basic/primitives>
+<require basic/runtime>
+<require basic/types/boolean>
+<require basic/types/character>
+<require basic/types/continuation>
+<require basic/types/date_and_time>
+<require basic/types/function>
+<require basic/types/insert_order_set>
+<require basic/types/insert_order_table>
+<require basic/types/list>
+<require basic/types/multi_dimensional_set>
+<require basic/types/multi_dimensional_table>
+<require basic/types/number>
+<require basic/types/object>
+<require basic/types/key_order_table>
+<require basic/types/key_value_pair>
+<require basic/types/set>
+<require basic/types/key_order_set>
+<require basic/types/string_primitives>
+<require basic/types/string>
+<require basic/types/table>
+<require basic/types/undefined>
+<require basic/types/unique_item>
+<require basic/types/unordered_set>
+<require basic/types/unordered_table>
+<require basic/types/value_range>
+<require system/export/html>
+<require ./character_names>
+<require ./fragments>
+<require ./tokenizer>
+<require ./shared_variables>
+<require ./nodes>
+<require ./parser>
+<require ./expander>
+<require ./annotator>
+<require ./simplifier>
+<require ./macros>
+<require ./c_code_generator>
+<require ./pretty_printer>
+<require ./sim2c>
+<require ./extractor>
+<require ./runtime_definitions>
+
+<namespace std>
+<namespace types>
+<namespace compiler>
+
+<using std>
+<using compiler>
+<using node>
+
+copyright "
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+$MAJOR runtime_major_version()
+$MINOR runtime_minor_version()
+$REVISION runtime_revision()
+
+$VERSION "@(MAJOR).@(MINOR).@(REVISION)"
+
+version VERSION
+
+extern $cc c_compiler()
+extern $mkdir "mkdir" # would be nice to have one in the system library!
+$SIMLIBPATH environment("SIMLIBPATH")
+$SIMDATAPATH environment("SIMDATAPATH")
+
+$default_paths list(string(PREFIX() "/share/simplicity-@(VERSION)"))
+
+$simlibpaths
+  if
+    SIMLIBPATH.is_defined && SIMLIBPATH != ""
+    -> split(SIMLIBPATH ':')
+    -> default_paths
+
+$simdatapaths
+  if
+    SIMDATAPATH.is_defined && SIMDATAPATH != ""
+    -> split(SIMDATAPATH ':')
+    -> default_paths
+
+$NONE .
+
+$supported_platforms
+  key_order_table
+    "bsd" = "posix"
+    "cygwin" = "posix"
+    "darwin" = "posix"
+    "linux" = "posix"
+    "posix" = "all"
+    "win" = "all"
+    "all" = NONE
+
+$$platform_priority empty_table
+do:
+  $$platform operating_system()
+  $$priority 0
+  do: (-> break)
+    forever:
+      $plat supported_platforms(platform)
+      if plat.is_undefined break
+      inc &priority
+      !platform_priority(platform) priority
+      if plat == NONE break
+      !platform plat
+$$platform_specific_priority undefined
+$$module_info empty_table
+$$meta_levels empty_table # 0 -> no meta files
+$$do_rebuild false
+$$do_omit_meta false
+$$compiler::do_dump_trees false
+$$compiler::do_pretty_print false
+$$compiler::do_print_simplified_source false
+$$compiler::do_show_debug_infos false
+$$compiler::do_show_compiler_debug_infos false
+$$compiler::do_check_only false
+$$compiler::do_show_brief_messages false
+$$compiler::do_print_warnings false
+$$compiler::do_print_missing false
+$$compiler::do_print_summary false
+$$compiler::verbose false
+$$do_print_c false
+$$compiler::do_extract_documentation false
+$$do_build_codeblocks_project false
+$$do_list_dependencies false
+$$do_build_static false
+$$do_link_profiler false
+$$compiler::do_time_passes false
+$$module_prefix undefined
+$$input_filename undefined
+$$additional_libraries undefined
+$action truncate_until(program_name '/' -1) .truncate_from. '-'
+if
+  action == "simrun":
+    if command_line_arguments.is_empty: Error "Missing command line arguments!"
+    !input_filename command_line_arguments(1)
+  :
+    program_parameters
+      # the following options act on a single file only
+
+      !compiler::do_check_only
+      -> "check-only" "
+	do not compile; just check for syntax errors
+      !compiler::do_dump_trees
+      -> "dump-trees" "
+	dump abstract syntax trees
+      !compiler::do_pretty_print
+      -> "pretty-print" "
+	do not compile; just pretty print the source file
+      !compiler::do_print_simplified_source
+      -> "print-simplified-source" "
+	do not generate a C-file; just print the simplified source text
+      !do_print_c
+      -> "print-c" "
+	print C source code for a single module
+      !do_time_passes
+      -> "time-passes" "
+	print running time for the individual compiler passes
+      !module_prefix:
+	-> VALUED_OPTION "module-prefix" "
+	  needed to compile a single file within a subdirectory;
+	  if the subdirectories are nested use slashes to separate
+	  the directory names
+
+	# the following options change the diagnostic output
+      !compiler::do_show_brief_messages
+      -> "brief" "
+	show brief error messages
+      !compiler::do_print_warnings
+      -> "warnings" "
+	show warning messages
+      !compiler::do_print_missing
+      -> "missing" "
+	inform about missing documentation
+      !compiler::do_print_summary
+      -> "summary" "
+	show a statistical summary
+      !compiler::verbose
+      -> "verbose" "
+	output verbose informations
+      !compiler::do_show_debug_infos
+      -> "debug" "
+	show C-compiler and linker calls
+      !compiler::do_show_compiler_debug_infos:
+	-> "debug_compiler" "
+	  show internal debug messages of the Simplicity compiler
+
+	# the following options create meta-informations
+      !do_build_codeblocks_project
+      -> "codeblocks" "
+	create Code::Blocks project
+      !do_extract_documentation
+      -> "extract-documentation" "
+	extract documentation encoded as HTML
+      !do_list_dependencies:
+	-> "list-dependencies" "
+	  list all dependencies
+
+	# the following options influence the build process for all modules
+      !do_rebuild
+      -> "rebuild" "
+	rebuild all source files
+      !do_omit_meta
+      -> "omit-meta" "
+	do not rebuild meta files
+      !do_build_static
+      -> "static" "
+	create statically linked executable
+      !do_link_profiler
+      -> "profile" "
+	link with libprofiler
+      !input_filename
+      -> std::MANDATORY_PARAMETER "filename" "
+	the name of the source file or directory to compile
+      !additional_libraries
+      -> std::SOME_PARAMETERS "additional_libraries" "
+	the names of additional libraries (used for --extract-documentation)
+
+%main_filename fullname(input_filename)
+%main_info stat(main_filename)
+%do_build_static_executable do_build_static
+if do_show_debug_infos: !verbose true
+
+$compiler::show_compiler_debug_info: (args*)
+  if do_show_compiler_debug_infos: ewriteln args*
+
+$EXE . # a file withing an executable
+$LIB . # a file within a shared library
+
+%mode undefined # EXE or LIB
+$WHITESPACE many(' ')
+
+$$cc_options
+  list
+    "-Wall"
+    "-Wno-unused-function"
+    "-Wno-unused-variable"
+    "-Wno-parentheses"
+    "-Wno-switch"
+    "-Wno-trigraphs"
+    "-O1"
+    "-fPIC"
+    "-fno-stack-protector"
+    "-falign-functions=16"
+
+if c_compiler() == "gcc":
+  push &cc_options "-Wno-maybe-uninitialized"
+
+case hardware_architecture()
+  "x86_32", "x86_64":
+    push &cc_options "-msse2"
+    push &cc_options "-mfpmath=sse"
+
+for_each simdatapaths: (path)
+  push &cc_options "-I@(path)"
+
+$$cpp_options empty_list
+for_each split(CPPFLAGS()): (option)
+  push &cpp_options option
+
+$$ld_options empty_list
+for_each split(LDFLAGS()): (option)
+  push &ld_options option
+
+%on_top_level true # set to false while building meta-files
+%%objects empty_insert_order_set
+%%libraries empty_insert_order_set # contains "-lsim-..."-entries
+%%do_link false
+%%last_modification_time undefined
+$$c_sources empty_insert_order_set
+$$dependencies empty_list
+$$resolved_libraries undefined
+
+$resolve_filename: (filename)
+  if resolved_libraries.is_undefined:
+    !resolved_libraries empty_table
+    for_each simlibpaths: (path)
+      if file_exists(path):
+	for_each directory(path): (entry)
+	  if entry.is_a_directory:
+	    $name std::filename_of(entry)
+	    if name .matches. NAME: !resolved_libraries(name) fullname_of(entry)
+  $libname filename .before. '/'
+  $libpath resolved_libraries(libname)
+  if libpath.is_undefined:
+    Error "
+      Cannot resolve required library "@(libname)@quot;!@
+  -> string(libpath filename .from. '/')
+
+$add_module_infos:
+  (
+    path # the full pathname; e.g.: "/usr/lib/simplicity/system/types"
+    mod_path
+      #
+	the module name with an added slash if not empty; e.g.:
+	"system/types/" or ""
+    -> return
+  )
+  $entries directory(--SORT path)
+  $$filenames empty_set
+  $$directories empty_list
+  $$modules empty_key_order_set
+  for_each entries: (entry)
+    $name std::filename_of(entry)
+    cond
+      -> entry.is_a_directory: if name .matches. NAME: push &directories name
+      -> name .has_suffix. ".sim":
+	$submodule_name name .without_suffix. (some(".meta"), ".sim")
+	!filenames(submodule_name) true
+	$meta_level (length_of(name)-length_of(submodule_name)-4)/5
+	$stored_level meta_levels(submodule_name)
+	if stored_level.is_undefined || meta_level > stored_level:
+	  !meta_levels(submodule_name) meta_level
+	$basename submodule_name .truncate_from. '-'
+	!modules(basename) true
+	$mod_name string(mod_path basename)
+	!module_info(mod_name) empty_key_order_table
+  for_each filenames: (filename)
+    if filename .contains. '-':
+      unless filename .has_suffix. "-common":
+	$maybe_push_common: (plat)
+	  $common_name string(name "-" plat "-common")
+	  if filenames(common_name): push &files common_name
+
+	$name filename .before. '-'
+	$mod_name string(mod_path name .truncate_from. '-')
+	$platform filename .behind. '-'
+	$$parent supported_platforms(platform)
+	unless parent.is_defined:
+	  Error "
+	    The platform "@(platform)" is not supported!@
+	$$files list(filename)
+	maybe_push_common platform
+	while -> parent != NONE:
+	  maybe_push_common parent
+	  !parent supported_platforms(parent)
+	!module_info(mod_name)(platform) files
+  if parameter_count_of(return) == 2: return directories modules
+
+$lookup:
+  (
+    mod_filename
+      #
+	the full pathname without the ".sim"-extension; e.g.:
+	"/usr/lib/simplicity/system/types/number"
+    mod_name # the module name; e.g.: "system/types/number"
+  )
+  $info module_info(mod_name)
+  if info.is_defined (-> info):
+    add_module_infos before(mod_filename '/' -1) until(mod_name '/' -1)
+    -> module_info(mod_name)
+
+$CC: (args*)
+  if do_show_debug_infos: ewriteln c_compiler() ' ' join(args)
+  cc args*
+
+$compile_c: (c_filename o_filename)
+  unless do_build_codeblocks_project || do_list_dependencies:
+    CC $_out $err $success cpp_options* cc_options* "-c" c_filename "-o" o_filename
+    unless success:
+      Error "
+	Failed to compile @(c_filename)
+	@(err.from_utf8)
+    !do_link true
+
+$compile_meta_module:
+  (
+    mod_filename
+      #
+	the full pathname without the ".sim"-extension; e.g.:
+	"/usr/lib/simplicity/system/types/number"
+    _mod_name # the module name; e.g.: "system/types/number"
+    $meta_level # the number of ".meta"-suffixes
+  )
+  do_while:
+    $meta_path truncate_from(mod_filename '/' -1)
+    $filename string(mod_filename dup(".meta" meta_level))
+    $meta_filename string(filename ".sim")
+    $meta_c_filename string(mod_filename dup(".meta" meta_level) ".c")
+    $sim_filename string(mod_filename dup(".meta" meta_level-1) ".sim")
+    $meta_info stat(meta_filename)
+    $sim_info stat(sim_filename)
+    $meta_c_info stat(meta_c_filename)
+
+    $$force_rebuild
+      ||
+	do_rebuild
+	sim_info.is_undefined
+	meta_c_info.is_undefined
+	modification_time_of(meta_info) > modification_time_of(meta_c_info)
+	modification_time_of(meta_c_info) > modification_time_of(sim_info)
+
+    unless force_rebuild:
+      $modification_time modification_time_of(sim_info)
+      load $meta_c_buf meta_c_filename
+      do: (-> break)
+	for_each_line meta_c_buf: ($line)
+	  $check: (data_filename)
+	    $data_info stat(data_filename)
+	    if
+	      ||
+		data_info.is_undefined
+		modification_time_of(data_info) > modification_time
+	      :
+		!force_rebuild true
+		break
+
+	  unless line .has_prefix. "/// " break
+	  behind &line ' '
+	  trim &line
+	  $command line .truncate_from. WHITESPACE
+	  $argument line .behind. WHITESPACE
+	  if command == "data":
+	    if
+	      argument .has_prefix. "./":
+		check string(meta_path range(argument 2 -1))
+	      :
+		for_each simdatapaths: (path) check string(path '/' argument)
+    if force_rebuild:
+      %on_top_level false
+      %%objects empty_insert_order_set
+      %%libraries empty_insert_order_set
+      %%do_link false
+      %%last_modification_time undefined
+      %do_build_static_executable false
+      %main_filename meta_filename
+      %main_info stat(main_filename)
+      build_executable
+      $orig_path current_path()
+      change_directory meta_path
+      std::call $out $err $success filename
+      change_directory orig_path
+      unless success: Error err.from_utf8
+      save sim_filename out.to_utf8
+    dec &meta_level
+    -> meta_level > 0
+
+$build_dependencies:
+  (
+    mod_filename
+      #
+	the full pathname without the ".sim"-extension; e.g.:
+	"/usr/lib/simplicity/system/types/number"
+    mod_name # the module name; e.g.: "system/types/number"
+    c_buf
+    do_compile_c = true
+    -> return
+  )
+  for_each_line c_buf: ($line)
+    unless line .has_prefix. "/// " return
+    behind &line ' '
+    trim &line
+    $command line .truncate_from. WHITESPACE
+    $argument line .behind. WHITESPACE
+    case
+      command
+      "require":
+	if
+	  argument .has_prefix. "./":
+	    if mode == EXE:
+	      $req_name range(argument 3 -1)
+	      compile_module
+		string(until(mod_filename '/' -1) req_name)
+		string(until(mod_name '/' -1) req_name)
+	  :
+	    if
+	      ||
+		do_build_static_executable
+		do_build_codeblocks_project
+		do_list_dependencies
+	      :
+		compile_module resolve_filename(argument) argument
+	      :
+		if do_compile_c:
+		  !libraries(string("sim-" argument .truncate_from. '/')) true
+      "link":
+	if do_compile_c: !libraries(argument .truncate_from. '/') true
+
+$compile_module:
+  (
+    mod_filename
+      #
+	the full pathname without the ".sim"-extension; e.g.:
+	"/usr/lib/simplicity/system/types/number"
+    mod_name # the module name; e.g.: "system/types/number"
+    -> return
+  )
+  $compile_submodule:
+    (
+      submodule_names # no paths; no extensions
+      do_compile_c = true
+      suffix = "" # a hyphen followed by the platform name
+    )
+    $$modification_time undefined
+    $$sim_filenames empty_list
+    for_each submodule_names: (submodule_name)
+      $meta_level meta_levels(submodule_name)
+      $submodule_filename string(until(mod_filename '/' -1) submodule_name)
+      if meta_level > 0 && not(do_omit_meta):
+	compile_meta_module submodule_filename submodule_name meta_level
+      $sim_filename string(submodule_filename ".sim")
+      push &sim_filenames sim_filename
+      $sim_info stat(sim_filename)
+      unless sim_info.is_defined:
+	Error "
+	  Failed to open file "@(sim_filename)"!@
+      if
+	||
+	  modification_time.is_undefined
+	  modification_time_of(sim_info) > modification_time
+	:
+	  !modification_time modification_time_of(sim_info)
+    $c_filename string(mod_filename suffix ".c")
+    $c_info stat(c_filename)
+    if do_compile_c: !c_sources(c_filename) true
+    $$c_buf undefined
+    if
+      ||
+	do_rebuild
+	c_info.is_undefined
+	modification_time > modification_time_of(c_info)
+      :
+	%compiler::module_name replace_all(mod_name '/' = "__" '.' = "__")
+	if verbose: ewriteln "build module " module_name suffix
+	collect_output $c_source: sim2c sim_filenames
+	collect_output !c_buf: create_imports c_source
+	save c_filename c_buf.to_utf8
+	if do_compile_c: compile_c c_filename o_filename
+      :
+	load !c_buf c_filename
+	$o_info stat(o_filename)
+	if
+	  ||
+	    o_info.is_undefined
+	    modification_time_of(c_info) > modification_time_of(o_info)
+	  :
+	    if do_compile_c: compile_c c_filename o_filename
+	  :
+	    if
+	      ||
+		last_modification_time.is_undefined
+		modification_time_of(o_info) > last_modification_time
+	      :
+		!last_modification_time modification_time_of(o_info)
+    build_dependencies mod_filename mod_name c_buf do_compile_c
+
+  lookup $mod_info mod_filename mod_name
+  unless mod_info.is_defined:
+    Error "
+      No source file(s) for module "@(mod_name)" found!@
+  $o_filename append(mod_filename ".o")
+  if objects(o_filename) return
+  !objects(o_filename) true
+  if
+    mod_info.is_empty:
+      compile_submodule list(truncate_until(mod_name '/' -1))
+      if do_list_dependencies: push &dependencies string(mod_filename ".c")
+    :
+      do:
+	$$best_platform undefined
+	$$best_priority 999
+	for_each mod_info: (platform _filenames)
+	  $priority platform_priority(platform)
+	  if priority.is_defined && priority < best_priority:
+	    !best_platform platform
+	    !best_priority priority
+	for_each mod_info: (platform filenames)
+	  compile_submodule
+	    filenames
+	    platform == best_platform
+	    string("-" platform)
+      if do_list_dependencies:
+	$$used_by empty_table
+	for_each supported_platforms: (supported_platform _parent_platform)
+	  $$best_platform undefined
+	  $$best_priority 999
+	  for_each mod_info: (platform _filenames)
+	    $priority platform_specific_priority(supported_platform platform)
+	    if priority.is_defined && priority < best_priority:
+	      !best_platform platform
+	      !best_priority priority
+	  if best_platform.is_defined:
+	    $$ub default_value(used_by(best_platform) empty_list)
+	    push &ub supported_platform
+	    !used_by(best_platform) ub
+	for_each mod_info: (platform _filenames)
+	  $$dependency string(mod_filename "-" platform ".c")
+	  $platforms used_by(platform)
+	  if platforms.is_defined:
+	    for_each platforms: (plat) write_to &dependency " #" plat
+	  push &dependencies dependency
+
+$compile_modules:
+  (
+    path # the full pathname; e.g.: "/usr/lib/simplicity/system/types"
+    mod_path # the module name; e.g.: "system/types"
+  )
+  add_module_infos $directories $modules path string(mod_path '/')
+  for_each directories: (name)
+    compile_modules string(path '/' name) string(mod_path '/' name)
+  for_each modules: (name)
+    compile_module string(path '/' name) string(mod_path '/' name)
+
+if main_info.is_undefined:
+  Error "
+    Source file "@(main_filename)" does not exist!@
+
+$show_file_list:
+  if do_show_debug_infos:
+    $path environment("LD_LIBRARY_PATH")
+    if path.is_defined: ewriteln "LD_LIBRARY_PATH=@(path)"
+    ewriteln "included object files: " serialize(objects)
+    ewriteln "needed libraries: " serialize(libraries)
+
+$library_paths_and_file_list:
+  show_file_list
+  $$library_paths empty_list
+  $$object_files empty_list
+  $$library_files empty_list
+  $paths environment("LD_LIBRARY_PATH")
+  if paths.is_defined:
+    for_each paths .split. ':': (path) push &library_paths "-L@(path)"
+  if do_show_debug_infos: ewriteln "library paths: " serialize(library_paths)
+  for_each objects: (object) push &object_files object
+  for_each libraries: (library)
+    push
+      &library_files
+      if
+	library .has_prefix. "sim-"
+	->
+	  case
+	    operating_system()
+	    "linux", "bsd" -> "-l:lib@(library).so.@(MAJOR)"
+	    -> "-l@(library)-@(MAJOR)"
+	->
+	  if
+	    library .contains. '.'
+	    -> "-l:lib@(library .before. '.').so.@(library .behind. '.')"
+	      # Linux only
+	    -> "-l@(library)"
+  append library_paths append(object_files library_files)
+
+$create_imports: (source)
+  $$already_checked empty_set
+
+  $collect_declarations: (buf)
+    $$s undefined
+    for_each buf: (idx chr)
+      if
+	s.is_defined:
+	  unless chr.is_a_letter || chr == '_' || chr.is_a_digit:
+	    $symbol range(buf s idx-1)
+	    !s undefined
+	    unless already_checked(symbol):
+	      !already_checked(symbol) true
+	      $declaration runtime_symbols(symbol)
+	      if declaration.is_defined:
+		$do_import
+		  &&
+		    declaration(1) != '#'
+		    not(declaration .has_prefix. "typedef")
+		    not(declaration .has_prefix. "REGISTER")
+
+		cond
+		  ->
+		    declaration(1) == '#' || declaration .has_prefix. "REGISTER"
+		    :
+		      collect_declarations declaration .truncate_from. '{'
+		  -> declaration .has_prefix. "typedef struct":
+		    for_each_line between(declaration '{' '}').trim: (line)
+		      collect_declarations until(line ' ' -1)
+		  :
+		    collect_declarations declaration
+		if do_import: write "IMPORT "
+		write declaration
+	:
+	  if chr.is_a_letter || chr == '_': !s idx
+
+  collect_output $imports: collect_declarations source
+  $first_part source .before. "// INSERT HERE //"
+  write first_part
+  write imports
+  write range(source length_of(first_part)+18 -1)
+  if do_time_passes: write_timing_info "collecting imports"
+
+$compile_exe: (body)
+  if main_info.is_a_directory: Error "Expected a source code file!"
+  unless main_filename .has_suffix. ".sim":
+    Error "
+      Expected ".sim" file extension in source filename!@
+  %mode EXE
+  $mod_filename main_filename .without_suffix. ".sim"
+  $mod_name truncate_until(mod_filename '/' -1)
+  body mod_filename mod_name
+
+$dump_source_or_check:
+  compile_exe: (_mod_filename mod_name)
+    %compiler::module_name mod_name
+    sim2c list(main_filename)
+
+$print_c:
+  compile_exe: (_mod_filename $mod_name)
+    if module_prefix.is_defined: append string(module_prefix '/') &mod_name
+    collect_output $c_source:
+      %compiler::module_name replace_all(mod_name '/' = "__" '.' = "__")
+      sim2c list(main_filename)
+    collect_output $c_buf: create_imports c_source
+    write c_buf
+    if do_time_passes: write_timing_info "writing C-source"
+
+$list_dependencies:
+  !platform_specific_priority multi_dimensional_table(types::table types::table)
+  for_each supported_platforms: (supported_platform _parent_platform)
+    $$platform supported_platform
+    $$priority 0
+    do: (-> break)
+      forever:
+	$plat supported_platforms(platform)
+	if plat.is_undefined break
+	inc &priority
+	!platform_specific_priority(supported_platform platform) priority
+	if plat == NONE break
+	!platform plat
+  if
+    main_info.is_a_directory:
+      %mode LIB
+      if verbose: ewriteln "list dependencies for " main_filename
+      compile_modules main_filename behind(main_filename '/' -1)
+    :
+      compile_exe: (mod_filename mod_name)
+	if verbose: ewriteln "list dependencies for " mod_filename
+	compile_module mod_filename mod_name
+      writeln "runtime/linker.c"
+      writeln "runtime/memory.c"
+      writeln "runtime/debugger.c"
+  $prefix_path current_path()
+  for_each dependencies: ($filename)
+    without_prefix &filename prefix_path
+    without_prefix &filename '/'
+    writeln filename
+
+$build_codeblocks_project:
+  compile_exe: (mod_filename mod_name)
+    $codeblocks_path string(mod_filename ".codeblocks")
+    $info stat(codeblocks_path)
+    if info.is_defined:
+      ewrite "
+	The directory "@(codeblocks_path)" already exists!
+    if verbose: ewriteln "build Code::Blocks project in " codeblocks_path
+    compile_module mod_filename mod_name
+    show_file_list
+    $basename truncate_until(main_filename '/' -1) .without_suffix. ".sim"
+    $prefix_path current_path()
+    $depth count_occurrences(codeblocks_path .without_prefix. prefix_path '/')
+    $path_prefix dup("../" depth)
+    $cbp_filename string(codeblocks_path "/" basename ".cbp")
+    mkdir codeblocks_path
+    $$buf ""
+    write_to &buf "
+      <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+      <CodeBlocks_project_file>
+        <FileVersion major="1" minor="6" />
+        <Project>
+          <Option title="@(basename)" />
+          <Option pch_mode="2" />
+          <Option compiler="@(c_compiler())" />
+          <Build>
+            <Target title="debug">
+              <Option output="bin/debug/@(basename)" prefix_auto="1" @
+      extension_auto="1" />
+              <Option object_output="obj/debug/" />
+              <Option type="1" />
+              <Option compiler="@(c_compiler())" />
+              <Compiler>
+                <Add option="-g" />
+              </Compiler>
+            </Target>
+          </Build>
+          <Linker>
+    for_each libraries: (filename)
+      write_to &buf "
+	@
+	      <Add library="@(filename)" />
+    write_to &buf "
+      @
+
+          </Linker>
+          <Compiler>
+            <Add option="-Wall" />
+	    <Add directory=".." />
+          </Compiler>
+          <Unit filename="@(path_prefix)runtime/common.h" />
+          <Unit filename="@(path_prefix)runtime/linker.h" />
+          <Unit filename="@(path_prefix)runtime/memory.c">
+            <Option compilerVar="CC" />
+          </Unit>
+          <Unit filename="@(path_prefix)runtime/debugger.c">
+            <Option compilerVar="CC" />
+          </Unit>
+          <Unit filename="@(path_prefix)runtime/linker.c">
+            <Option compilerVar="CC" />
+          </Unit>
+    for_each c_sources: ($filename)
+      without_prefix &filename prefix_path
+      without_prefix &filename '/'
+      write_to &buf "
+	@
+
+	    <Unit filename="@(path_prefix)@(filename)">
+	      <Option compilerVar="CC" />
+	    </Unit>
+    write_to &buf "
+          <Extensions>
+            <code_completion />
+            <debugger />
+          </Extensions>
+        </Project>
+      </CodeBlocks_project_file>
+    save cbp_filename buf
+
+$build_library:
+  if action == "simrun": Error "Cannot run a directory!"
+  %mode LIB
+  if
+    do_extract_documentation:
+      $$doc_libraries list(main_filename)
+      for_each additional_libraries: (library)
+	push &doc_libraries fullname(library)
+      extract_documentation doc_libraries
+    :
+      $$version ""
+      $version_filename string(main_filename "/VERSION")
+      if file_exists(version_filename):
+	!version string('-' load(version_filename).trim)
+      $so_version version .truncate_from. '.'
+      $base_filename truncate_until(main_filename '/' -1)
+
+      $lib_filename
+	case
+	  operating_system()
+	  "linux", "bsd"
+	  -> string("libsim-" base_filename version ".so.@(MAJOR)")
+	  "cygwin"
+	  -> string("libsim-" base_filename version "-@(MAJOR).dll")
+	  "darwin"
+	  -> string("libsim-" base_filename version "-@(MAJOR).dylib")
+	  -> string("libsim-" base_filename version ".so.@(MAJOR)")
+
+      if verbose: ewriteln "build library " lib_filename
+      compile_modules main_filename behind(main_filename '/' -1)
+      unless do_link:
+	$info stat(lib_filename)
+	if
+	  ||
+	    info.is_undefined
+	    last_modification_time > modification_time_of(info)
+	  :
+	    !do_link true
+      if do_link:
+	if verbose: ewriteln "linking dynamic library"
+	case
+	  operating_system()
+	  "linux", "bsd":
+	    CC $_out $err $success
+	      ld_options*
+	      "-shared"
+	      "-Wl,-soname,libsim-@(base_filename)@(so_version).so.@(MAJOR)"
+	      library_paths_and_file_list()*
+	      "-o"
+	      lib_filename
+	    unless success: Error err.from_utf8
+	  "cygwin":
+	    CC $_out $err $success
+	      ld_options*
+	      "-shared"
+	      library_paths_and_file_list()*
+	      "-lsim-@(MAJOR)"
+	      "-o"
+	      lib_filename
+	    unless success: Error err.from_utf8
+	  "darwin":
+	    CC $_out $err $success
+	      ld_options*
+	      "-dynamiclib"
+	      "
+		-Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR).dylib@
+	      library_paths_and_file_list()*
+	      "-lsim-@(MAJOR)"
+	      "-o"
+	      lib_filename
+	    unless success: Error err.from_utf8
+	  :
+	    CC $_out $err $success
+	      ld_options*
+	      "-shared"
+	      library_paths_and_file_list()*
+	      "-o"
+	      lib_filename
+	    unless success: Error err.from_utf8
+
+$maybe_compile_c_file: (filename)
+  $c_filename string(filename ".c")
+  $o_filename string(filename ".o")
+  $c_info stat(c_filename)
+  if c_info.is_undefined:
+    Error "
+      @quot;@(c_filename)" does not exist!
+  $o_info stat(o_filename)
+  if
+    ||
+      o_info.is_undefined
+      modification_time_of(c_info) > modification_time_of(o_info)
+    :
+      if verbose: ewriteln "compiling runtime module @(filename)"
+      compile_c c_filename o_filename
+
+$$t undefined
+
+$format_number:
+  (
+    $val
+    n
+    m = 0
+  )
+  to_string &val
+  $$ac 0
+  do: (-> break)
+    for_each val: (i chr)
+      if chr == '.':
+	!ac length_of(val)-i
+	if n > i-1: append dup(" " n-(i-1)) &val
+	break
+  if
+    m > ac:
+      append &val dup("0" m-ac)
+    :
+      if ac > m: range &val 1 -(ac-m+1)
+  -> val
+
+$compiler::write_timing_info: (description $filename?)
+  $new_t current_time()
+  if
+    filename.is_defined:
+      truncate_until &filename '/' -1
+      ewriteln
+	description
+	' '
+	filename
+	':'
+	dup(" " 12-length_of(description))
+	format_number(new_t-t 2 3)
+	" s"
+    :
+      ewriteln description ": " format_number(new_t-t 0 3) " s"
+  !t current_time()
+
+$build_executable:
+  #
+    build a dynamically (default) or statically (--static) linked executable
+
+    for static builds library modules are searched in $SIMLIBPATH
+
+    if $SIMLIBPATH is not set the default is
+
+    "/usr/local/share/simplicity-@(version):/usr/share/simplicity-@(version)"
+
+  compile_exe: (mod_filename mod_name)
+    $exe_filename
+      if
+	operating_system() == "cygwin"
+	-> string(mod_filename ".exe")
+	-> mod_filename
+
+    if verbose: ewriteln "build executable " exe_filename
+    $c_filename string(mod_filename ".c")
+    $o_filename string(mod_filename ".o")
+    $sim_info stat(main_filename)
+    $c_info stat(c_filename)
+    $$c_buf undefined
+    !objects(o_filename) true
+    if
+      ||
+	do_rebuild
+	c_info.is_undefined
+	modification_time_of(sim_info) > modification_time_of(c_info)
+      :
+	%compiler::module_name mod_name .without_suffix. some(".meta")
+	if verbose: ewriteln "build main module " module_name
+	collect_output $c_source: sim2c list(main_filename) true
+	collect_output !c_buf: create_imports c_source
+	save c_filename c_buf.to_utf8
+	if do_time_passes: write_timing_info "saving" c_filename
+	compile_c c_filename o_filename
+	if do_time_passes: write_timing_info "compiling" c_filename
+      :
+	load !c_buf c_filename
+	$o_info stat(o_filename)
+	if
+	  ||
+	    o_info.is_undefined
+	    modification_time_of(c_info) > modification_time_of(o_info)
+	  :
+	    compile_c c_filename o_filename
+	  :
+	    !last_modification_time modification_time_of(o_info)
+    build_dependencies mod_filename mod_name c_buf
+    if do_build_static_executable:
+      for_each
+	"runtime/linker", "runtime/memory", "runtime/debugger": (filename)
+	  maybe_compile_c_file filename
+    unless do_link:
+      $info stat(exe_filename)
+      if
+	||
+	  info.is_undefined
+	  &&
+	    last_modification_time.is_defined
+	    last_modification_time > modification_time_of(info)
+	:
+	  !do_link true
+    if do_link:
+      $$libs_and_files library_paths_and_file_list()
+      if do_link_profiler: push &libs_and_files "/usr/lib/libprofiler.so.0"
+      if
+	do_build_static_executable:
+	  if verbose: ewriteln "linking static executable"
+	  CC $_out $err $success
+	    "runtime/linker.o"
+	    "runtime/memory.o"
+	    "runtime/debugger.o"
+	    libs_and_files*
+	    "-o"
+	    exe_filename
+	  unless success: Error err.from_utf8
+	:
+	  if verbose: ewriteln "linking executable"
+	  CC $_out $err $success
+	    libs_and_files*
+	    case
+	      operating_system()
+	      "linux", "bsd" -> "-l:libsim.so.@(MAJOR)"
+	      -> "-lsim-@(MAJOR)"
+	    "-o"
+	    exe_filename
+	  unless success: Error err.from_utf8
+    $zz range(command_line_arguments 2 -1)
+    if on_top_level && action == "simrun":
+      exec
+	if
+	  exe_filename .has_prefix. '/'
+	  -> exe_filename
+	  -> string("./" exe_filename)
+	zz*
+
+	#range(command_line_arguments 2 -1)*
+
+if do_time_passes: !t current_time()
+cond
+  ->
+    ||
+      do_check_only
+      do_dump_trees
+      do_pretty_print
+      do_print_simplified_source
+    dump_source_or_check
+  -> do_print_c print_c
+  -> do_list_dependencies list_dependencies
+  -> do_build_codeblocks_project build_codeblocks_project
+  -> main_info.is_a_directory build_library
+  build_executable

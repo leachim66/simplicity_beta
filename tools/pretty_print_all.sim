@@ -25,6 +25,7 @@
 extern $simple "compiler/simple"
 $$total 0
 $$updated 0
+$$failed 0
 
 $pretty_print: (folder)
   for_each directory(--SORT folder): (entry)
@@ -50,12 +51,17 @@ $pretty_print: (folder)
 		    save filename out
 		    writeln "UPDATED"
 	      :
+		inc &failed
 		writeln " FAILED"
 
 $$folders list("compiler" "system" "tools" "benchmarks" "examples")
 for_each_line load("configure"): (line)
   if
-    line .has_prefix. "BASIC_LIBRARIES=" || line .has_prefix. "OPTIONAL_LIBRARIES=":
+    ||
+      line .has_prefix. "BASIC_LIBRARIES="
+      line .has_prefix. "OPTIONAL_LIBRARIES="
+    :
       append &folders between(line '@apos;' '@apos;').split
 for_each folders: (folder) pretty_print folder
 writeln "updated " updated " of " total " files"
+if failed > 0: writeln "failed to print " failed " of " total " files"

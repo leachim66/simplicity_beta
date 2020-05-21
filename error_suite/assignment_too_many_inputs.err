@@ -1,0 +1,5 @@
+____________________________________
+SYNTAX ERROR IN LINE 3 OF FILE "assignment_too_many_inputs":
+Too many input arguments for assignment!
+$x 8 15
+^

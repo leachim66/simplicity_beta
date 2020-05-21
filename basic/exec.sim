@@ -30,16 +30,16 @@
 <include sys/wait.h>
 <include sys/select.h>
 
-$std::SIGHUP   1  # Hangup (POSIX)
-$std::SIGINT   2  # Interrupt (ANSI)
-$std::SIGQUIT  3  # Quit (POSIX)
-$std::SIGABRT  6  # Abort (ANSI)
-$std::SIGKILL  9  # Kill, unblockable (POSIX)
-$std::SIGUSR1 10  # User-defined signal 1 (POSIX)
-$std::SIGUSR2 12  # User-defined signal 2 (POSIX)
-$std::SIGPIPE 13  # Broken pipe (POSIX)
-$std::SIGALRM 14  # Alarm clock (POSIX)
-$std::SIGTERM 15  # Termination (ANSI)
+$std::SIGHUP 1 # Hangup (POSIX)
+$std::SIGINT 2 # Interrupt (ANSI)
+$std::SIGQUIT 3 # Quit (POSIX)
+$std::SIGABRT 6 # Abort (ANSI)
+$std::SIGKILL 9 # Kill, unblockable (POSIX)
+$std::SIGUSR1 10 # User-defined signal 1 (POSIX)
+$std::SIGUSR2 12 # User-defined signal 2 (POSIX)
+$std::SIGPIPE 13 # Broken pipe (POSIX)
+$std::SIGALRM 14 # Alarm clock (POSIX)
+$std::SIGTERM 15 # Termination (ANSI)
 
 {
   <kind function>
@@ -218,8 +218,7 @@ $std::launch:
     -> return
   )
   update_each &args to_string
-  case
-    parameter_count_of(return)
+  case parameter_count_of(return)
     0:
       posix_launch args*
     1:
@@ -514,7 +513,7 @@ $posix_pipe
       char **args = allocate_memory((len+1)*sizeof(char *));
       // convert all arguments into C-strings
       for (i = 0; i < len; ++i) {
-	args[i] = to_c_string(get_item_of(cmd, i));
+        args[i] = to_c_string(get_item_of(cmd, i));
       }
       args[len] = NULL;
 
@@ -525,18 +524,18 @@ $posix_pipe
           dup2_fd(out_pipes[cmd_idx].read_fd, STDIN_FILENO);
         }
         if (do_redirect_stdout || cmd_idx != cmd_cnt-1) {
-	  dup2_fd(out_pipes[cmd_idx+1].write_fd, STDOUT_FILENO);
+          dup2_fd(out_pipes[cmd_idx+1].write_fd, STDOUT_FILENO);
         }
-	for (i = 0; i <= cmd_cnt; ++i) {
-	  close(out_pipes[i].read_fd);
-	  close(out_pipes[i].write_fd);
-	}
+        for (i = 0; i <= cmd_cnt; ++i) {
+          close(out_pipes[i].read_fd);
+          close(out_pipes[i].write_fd);
+        }
         if (do_redirect_stderr) {
           dup2_fd(err_pipes[cmd_idx].write_fd, STDERR_FILENO);
-	  for (i = 0; i < cmd_cnt; ++i) {
-	    close(err_pipes[i].read_fd);
-	    close(err_pipes[i].write_fd);
-	  }
+          for (i = 0; i < cmd_cnt; ++i) {
+            close(err_pipes[i].read_fd);
+            close(err_pipes[i].write_fd);
+          }
         }
 
         execvp(args[0], args);
@@ -549,7 +548,7 @@ $posix_pipe
 
       // free the arguments in the parent process
       for (i = 0; i < len; ++i) {
-	deallocate_memory(args[i]);
+        deallocate_memory(args[i]);
       }
       deallocate_memory(args);
     } while (pid > 0 && cmd_idx < cmd_cnt);
@@ -633,14 +632,14 @@ $posix_pipe
 
       if (do_write_to_stdin && FD_ISSET(out_pipes[0].write_fd, &wfds)) {
         ssize_t bytes_written;
-	if (s < input_size) {
-	  do {
-	    bytes_written = write(out_pipes[0].write_fd, input+s, input_size-s);
-	  } while (bytes_written < 0 && errno == EINTR);
-	  if (bytes_written < 0) goto cleanup_and_return;
-	  s += bytes_written;
+        if (s < input_size) {
+          do {
+            bytes_written = write(out_pipes[0].write_fd, input+s, input_size-s);
+          } while (bytes_written < 0 && errno == EINTR);
+          if (bytes_written < 0) goto cleanup_and_return;
+          s += bytes_written;
         }
-	if (s >= input_size) { // <s> should never be greater than <input_size>
+        if (s >= input_size) { // <s> should never be greater than <input_size>
           do_write_to_stdin = false;
           close_fd(&out_pipes[0].write_fd);
         }
@@ -792,10 +791,10 @@ $std::extern:
     command
   )
   extract_options options TRIM = false $do_trim
-  -> : (arguments* -> return)
-    call $$out $err $ret command arguments*
-    if out.is_defined && do_trim: trim &out
-    case parameter_count_of(return)
-      1 -> out
-      2 -> out ret
-      3 -> out err ret
+  if
+    do_trim
+    ->: (args*)
+      $$out call(command args*)
+      if out.is_defined: trim &out
+      -> out
+    ->: (args*) call command args*

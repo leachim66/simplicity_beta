@@ -31,7 +31,6 @@ $PROMPT "> "
 $std::FORWARD . # enables forwarding of the authentication agent connection
 $std::PORT . # port to connect to on the remote host
 $std::USERNAME . # login username
-
 $KSH .
 $CSH .
 
@@ -42,7 +41,6 @@ $shell_of (!)
 $uuid_of (!)
 
 $types::ssh_connection types::object
-
 $ESC '@esc;'
 $CSI "@esc;["
 
@@ -51,8 +49,7 @@ $ESCAPE_SEQUENCE
     CSI, some(DIGIT), optional(';'), some(DIGIT), LETTER
     ESC, alt(DIGIT LETTER)
 
-$log: (text)
-  if do_log_ssh_output: ewrite delete_all(text ESCAPE_SEQUENCE)
+$log: (text) if do_log_ssh_output: ewrite delete_all(text ESCAPE_SEQUENCE)
 
 $std::open_ssh_connection:
   (
@@ -61,19 +58,24 @@ $std::open_ssh_connection:
     -> return
   )
   extract_options options
-    FORWARD = false $do_forward
-    PORT = undefined $port_no
-    USERNAME = undefined $username
+    FORWARD = false
+    $do_forward
+    PORT = undefined
+    $port_no
+    USERNAME = undefined
+    $username
   $$additional_options empty_list
   $$servername url
-  if do_forward:
-    push &additional_options "-A"
+  if do_forward: push &additional_options "-A"
   if port_no.is_defined:
     push &additional_options "-p"
     push &additional_options port_no
-  if username.is_defined:
-    !servername "@(username)@@@(servername)"
-  launch $pid $fd_out $fd_in $fd_err
+  if username.is_defined: !servername "@(username)@@@(servername)"
+  launch
+    $pid
+    $fd_out
+    $fd_in
+    $fd_err
     "ssh"
     additional_options*
     "-tt"
@@ -83,27 +85,25 @@ $std::open_ssh_connection:
     "ServerAliveInterval=30"
     servername
   $$timeout 3
-  do: (-> break) forever:
-    wait_to $event
-      READ_FROM = fd_out
-      READ_FROM = fd_err
-      TERMINATED = pid
-      TIMEOUT = timeout
-    case
-      type_of(event)
-      READ_FROM:
-	case
-	  file_descriptor_of(event)
-	  fd_out:
-	    log read_from(fd_out).from_utf8
-	  fd_err:
-	    if parameter_count_of(return) == 2: return undefined false
-	    raise read_from(fd_err)
-      TERMINATED:
-	return undefined false
-      TIMEOUT:
-	break
-
+  do: (-> break)
+    forever:
+      wait_to $event
+	READ_FROM = fd_out
+	READ_FROM = fd_err
+	TERMINATED = pid
+	TIMEOUT = timeout
+      case type_of(event)
+	READ_FROM:
+	  case file_descriptor_of(event)
+	    fd_out:
+	      log read_from(fd_out).from_utf8
+	    fd_err:
+	      if parameter_count_of(return) == 2: return undefined false
+	      raise read_from(fd_err)
+	TERMINATED:
+	  return undefined false
+	TIMEOUT:
+	  break
   !timeout 1
 
   $send_command: (cmd)
@@ -123,12 +123,10 @@ $std::open_ssh_connection:
 	  READ_FROM = fd_err
 	  TERMINATED = pid
 	  TIMEOUT = timeout
-	case
-	  type_of(event)
+	case type_of(event)
 	  READ_FROM:
 	    $fd file_descriptor_of(event)
-	    case
-	      fd
+	    case fd
 	      fd_out:
 		$text read_from(fd).from_utf8
 		log text
@@ -144,15 +142,16 @@ $std::open_ssh_connection:
 	    return undefined false
 	  TIMEOUT:
 	    break
-    case truncate_until(between(out "@@1234@@" "@@4321@@") '/' -1) "csh": !shell CSH
+    case truncate_until(between(out "@@1234@@" "@@4321@@") '/' -1) "csh":
+      !shell CSH
   if
     shell == KSH:
       send_command "
 	PROMPT_COMMAND=
-	PS1="@(PROMPT)"
+	PS1="@(PROMPT)@quot;
     :
       send_command "
-	set prompt="@(PROMPT)"
+	set prompt="@(PROMPT)@quot;
   do:
     $$out ""
     $$err ""
@@ -163,12 +162,10 @@ $std::open_ssh_connection:
 	  READ_FROM = fd_err
 	  TERMINATED = pid
 	  TIMEOUT = timeout
-	case
-	  type_of(event)
+	case type_of(event)
 	  READ_FROM:
 	    $fd file_descriptor_of(event)
-	    case
-	      fd
+	    case fd
 	      fd_out:
 		$text read_from(fd).from_utf8
 		log text
@@ -219,16 +216,15 @@ $types::ssh_connection/call_command:
     $$err ""
     do: (-> break)
       forever:
-	wait_to $event
+	wait_to
+	  $event
 	  READ_FROM = output_file_descriptor_of(conn)
 	  READ_FROM = error_file_descriptor_of(conn)
 	  TERMINATED = pid_of(conn)
-	case
-	  type_of(event)
+	case type_of(event)
 	  READ_FROM:
 	    $fd file_descriptor_of(event)
-	    case
-	      fd
+	    case fd
 	      output_file_descriptor_of(conn):
 		$text read_from(fd)
 		if do_log_ssh_output: ewrite text
@@ -277,8 +273,7 @@ $types::ssh_connection/call_command:
   $$c_err retrieve_stream("err")
   replace_all &c_out '@cr;' = ""
   replace_all &c_err '@cr;' = ""
-  case
-    parameter_count_of(return)
+  case parameter_count_of(return)
     3:
       return c_out c_err ret
     2:

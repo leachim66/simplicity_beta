@@ -157,10 +157,7 @@ $std::current_directory_separator
       operating_system, hardware_architecture, c_compiler, CPPFLAGS, LDFLAGS,
       current_path_separator
   :
-    if
-      operating_system() == "win"
-      -> '\'
-      -> '/'
+    if operating_system() == "win" (-> '\') -> '/'
 
 $std::current_path_separator
   #
@@ -178,7 +175,4 @@ $std::current_path_separator
       operating_system, hardware_architecture, c_compiler, CPPFLAGS, LDFLAGS,
       current_directory_separator
   :
-    if
-      operating_system() == "win"
-      -> ';'
-      -> ':'
+    if operating_system() == "win" (-> ';') -> ':'

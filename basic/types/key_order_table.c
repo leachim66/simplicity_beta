@@ -166,9 +166,10 @@ typedef struct CLOSURE {
   int parameter_count;
   struct FRAME *frame;
 } CLOSURE;
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 IMPORT NODE *get_attribute(NODE *node, int idx);
 REGISTER FRAME *arguments ASM("r12");
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -879,7 +880,7 @@ static void cont__update_each_item_from_to_23(void);
 static void cont__update_each_item_from_to_24(void);
 static NODE *func__update_each_item_from_to_25;
 static void entry__update_each_item_from_to_25(void);
-static FRAME_INFO frame__update_each_item_from_to_25 = {3, {"body", "myself", "key"}};
+static FRAME_INFO frame__update_each_item_from_to_25 = {3, {"body", "key", "myself"}};
 static void cont__update_each_item_from_to_26(void);
 static void cont__update_each_item_from_to_27(void);
 static void cont__update_each_item_from_to_28(void);
@@ -946,7 +947,7 @@ static void cont__update_each_item_from_down_to_23(void);
 static void cont__update_each_item_from_down_to_24(void);
 static NODE *func__update_each_item_from_down_to_25;
 static void entry__update_each_item_from_down_to_25(void);
-static FRAME_INFO frame__update_each_item_from_down_to_25 = {3, {"body", "myself", "key"}};
+static FRAME_INFO frame__update_each_item_from_down_to_25 = {3, {"body", "key", "myself"}};
 static void cont__update_each_item_from_down_to_26(void);
 static void cont__update_each_item_from_down_to_27(void);
 static void cont__update_each_item_from_down_to_28(void);
@@ -1341,6 +1342,10 @@ union NODE {
   CLOSURE closure;
 };
 static void type__std__is_a_key_order_table(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_a_key_order_table);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1363,6 +1368,10 @@ static void type__std__is_a_key_order_table(void) {
   }
 }
 static void type__tree_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__tree_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1385,6 +1394,10 @@ static void type__tree_of(void) {
   }
 }
 static void type__key_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__key_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1407,6 +1420,10 @@ static void type__key_of(void) {
   }
 }
 static void type__value_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__value_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1429,6 +1446,10 @@ static void type__value_of(void) {
   }
 }
 static void type__left_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__left_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1451,6 +1472,10 @@ static void type__left_of(void) {
   }
 }
 static void type__right_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__right_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1507,6 +1532,8 @@ EXPORT void run__basic__types__key_order_table(void) {
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
   // 70: $types::key_order_table types::generic_table
+  // 71:   #
+  // 72:     the prototype object for all key-order tables
   initialize_maybe_future(var.types__key_order_table, get__types__generic_table());
   // 74: $empty_node types::object
   initialize_maybe_future(var._empty_node, get__types__object());
@@ -1604,7 +1631,7 @@ static void cont__remove_leftmost_3(void) {
   frame->cont = cont__remove_leftmost_10;
 }
 static void entry__remove_leftmost_4(void) {
-  allocate_initialized_frame_gc(4, 5);
+  allocate_initialized_frame_gc(4, 4);
   // slot allocations:
   // left: 0
   // key: 1
@@ -1635,13 +1662,11 @@ static void cont__remove_leftmost_5(void) {
   ((CELL *)frame->slots[0])->contents /* left */ = arguments->slots[0];
   ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[1];
   ((CELL *)frame->slots[2])->contents /* value */ = arguments->slots[2];
-  // 48: !node.left_of left
-  frame->slots[4] /* temp__1 */ = ((CELL *)frame->slots[0])->contents /* left */;
   // 48: !node.left_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[3])->contents /* node */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__left_of, frame->slots[4] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__left_of, ((CELL *)frame->slots[0])->contents /* left */);
     ((CELL *)frame->slots[3])->contents /* node */ = temp;
 
   }
@@ -1803,7 +1828,7 @@ static void cont__remove_rightmost_3(void) {
   frame->cont = cont__remove_rightmost_10;
 }
 static void entry__remove_rightmost_4(void) {
-  allocate_initialized_frame_gc(4, 5);
+  allocate_initialized_frame_gc(4, 4);
   // slot allocations:
   // right: 0
   // key: 1
@@ -1834,13 +1859,11 @@ static void cont__remove_rightmost_5(void) {
   ((CELL *)frame->slots[0])->contents /* right */ = arguments->slots[0];
   ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[1];
   ((CELL *)frame->slots[2])->contents /* value */ = arguments->slots[2];
-  // 64: !node.right_of right
-  frame->slots[4] /* temp__1 */ = ((CELL *)frame->slots[0])->contents /* right */;
   // 64: !node.right_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[3])->contents /* node */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__right_of, frame->slots[4] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__right_of, ((CELL *)frame->slots[0])->contents /* right */);
     ((CELL *)frame->slots[3])->contents /* node */ = temp;
 
   }
@@ -2004,7 +2027,7 @@ static void cont__fetch_first_3(void) {
   frame->cont = cont__fetch_first_10;
 }
 static void entry__fetch_first_4(void) {
-  allocate_initialized_frame_gc(3, 7);
+  allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // left: 0
   // myself: 1
@@ -2035,19 +2058,13 @@ static void cont__fetch_first_5(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* left */ = arguments->slots[0];
-  frame->slots[5] /* temp__1 */ = arguments->slots[1];
-  frame->slots[6] /* temp__2 */ = arguments->slots[2];
-  // 86: ... key
-  initialize_future(frame->slots[3] /* key */, frame->slots[5] /* temp__1 */);
-  // 86: ... value
-  initialize_future(frame->slots[4] /* value */, frame->slots[6] /* temp__2 */);
-  // 87: !myself.left_of left
-  frame->slots[5] /* temp__1 */ = ((CELL *)frame->slots[0])->contents /* left */;
+  initialize_future(frame->slots[3] /* key */, arguments->slots[1]);
+  initialize_future(frame->slots[4] /* value */, arguments->slots[2]);
   // 87: !myself.left_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* myself */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__left_of, frame->slots[5] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__left_of, ((CELL *)frame->slots[0])->contents /* left */);
     ((CELL *)frame->slots[1])->contents /* myself */ = temp;
 
   }
@@ -2638,7 +2655,7 @@ static void cont__add_item_5(void) {
   frame->cont = cont__add_item_19;
 }
 static void entry__add_item_16(void) {
-  allocate_initialized_frame_gc(4, 9);
+  allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // myself: 0
   // key: 1
@@ -2687,12 +2704,8 @@ static void cont__add_item_18(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  frame->slots[8] /* temp__3 */ = arguments->slots[1];
-  // 123: ... right
-  initialize_future(frame->slots[4] /* right */, frame->slots[7] /* temp__2 */);
-  // 123: ... mode
-  initialize_future(frame->slots[5] /* mode */, frame->slots[8] /* temp__3 */);
+  initialize_future(frame->slots[4] /* right */, arguments->slots[0]);
+  initialize_future(frame->slots[5] /* mode */, arguments->slots[1]);
   // 124: ... myself(.right_of right)
   {
     NODE *temp = clone_object_and_attributes(frame->slots[0] /* myself */);
@@ -2712,7 +2725,7 @@ static void cont__add_item_18(void) {
   frame = frame->caller_frame;
 }
 static void entry__add_item_11(void) {
-  allocate_initialized_frame_gc(4, 9);
+  allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // myself: 0
   // key: 1
@@ -2761,12 +2774,8 @@ static void cont__add_item_13(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  frame->slots[8] /* temp__3 */ = arguments->slots[1];
-  // 120: ... left
-  initialize_future(frame->slots[4] /* left */, frame->slots[7] /* temp__2 */);
-  // 120: ... mode
-  initialize_future(frame->slots[5] /* mode */, frame->slots[8] /* temp__3 */);
+  initialize_future(frame->slots[4] /* left */, arguments->slots[0]);
+  initialize_future(frame->slots[5] /* mode */, arguments->slots[1]);
   // 121: ... myself(.left_of left)
   {
     NODE *temp = clone_object_and_attributes(frame->slots[0] /* myself */);
@@ -3182,13 +3191,11 @@ static void cont__remove_item_33(void) {
     invalid_results_error();
     return;
   }
-  // 161: !myself.right_of right
-  frame->slots[4] /* temp__1 */ = frame->slots[3] /* right */;
   // 161: !myself.right_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__right_of, frame->slots[4] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__right_of, frame->slots[3] /* right */);
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
@@ -3298,13 +3305,11 @@ static void cont__remove_item_25(void) {
     invalid_results_error();
     return;
   }
-  // 156: !myself.left_of left
-  frame->slots[4] /* temp__1 */ = frame->slots[3] /* left */;
   // 156: !myself.left_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__left_of, frame->slots[4] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__left_of, frame->slots[3] /* left */);
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
@@ -3318,7 +3323,7 @@ static void cont__remove_item_25(void) {
   frame = frame->caller_frame;
 }
 static void entry__remove_item_14(void) {
-  allocate_initialized_frame_gc(3, 7);
+  allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // right: 0
   // return: 1
@@ -3349,17 +3354,8 @@ static void cont__remove_item_15(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* right */ = arguments->slots[0];
-  frame->slots[5] /* temp__1 */ = arguments->slots[1];
-  frame->slots[6] /* temp__2 */ = arguments->slots[2];
-  // 142: ... head_key
-  initialize_future(frame->slots[3] /* head_key */, frame->slots[5] /* temp__1 */);
-  // 142: ... head_value
-  initialize_future(frame->slots[4] /* head_value */, frame->slots[6] /* temp__2 */);
-  // 144: types::object
-  // 145:   .key_of head_key
-  // 146:   .value_of head_value
-  // 147:   .left_of left
-  // 148:   .right_of right
+  initialize_future(frame->slots[3] /* head_key */, arguments->slots[1]);
+  initialize_future(frame->slots[4] /* head_value */, arguments->slots[2]);
   {
     NODE *temp = clone_object_and_attributes(get__types__object());
     update_start_p = node_p;
@@ -3871,13 +3867,11 @@ static void entry__types__key_order_table__private__set_item_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 176: !self.tree_of new_tree
-  frame->slots[2] /* temp__1 */ = frame->slots[1] /* new_tree */;
   // 176: !self.tree_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__tree_of, frame->slots[2] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__tree_of, frame->slots[1] /* new_tree */);
     ((CELL *)frame->slots[0])->contents /* self */ = temp;
 
   }
@@ -4017,7 +4011,7 @@ static void cont__types__key_order_table__private__set_item_7(void) {
   frame = frame->caller_frame;
 }
 static void entry__types__key_order_table__private__set_item_11(void) {
-  allocate_initialized_frame_gc(3, 8);
+  allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // self: 0
   // key: 1
@@ -4064,19 +4058,13 @@ static void cont__types__key_order_table__private__set_item_13(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  frame->slots[7] /* temp__3 */ = arguments->slots[1];
-  // 179: ... new_tree
-  initialize_future(frame->slots[3] /* new_tree */, frame->slots[6] /* temp__2 */);
-  // 179: ... mode
-  initialize_future(frame->slots[4] /* mode */, frame->slots[7] /* temp__3 */);
-  // 180: !self.tree_of new_tree
-  frame->slots[5] /* temp__1 */ = frame->slots[3] /* new_tree */;
+  initialize_future(frame->slots[3] /* new_tree */, arguments->slots[0]);
+  initialize_future(frame->slots[4] /* mode */, arguments->slots[1]);
   // 180: !self.tree_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__tree_of, frame->slots[5] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__tree_of, frame->slots[3] /* new_tree */);
     ((CELL *)frame->slots[0])->contents /* self */ = temp;
 
   }
@@ -6921,11 +6909,11 @@ static void entry__update_each_item_from_to_25(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // body: 0
-  // myself: 1
-  // key: 2
+  // key: 1
+  // myself: 2
   frame->slots[0] = myself->closure.frame->slots[3]; /* body */
-  frame->slots[1] = myself->closure.frame->slots[0]; /* myself */
-  frame->slots[2] = myself->closure.frame->slots[4]; /* key */
+  frame->slots[1] = myself->closure.frame->slots[4]; /* key */
+  frame->slots[2] = myself->closure.frame->slots[0]; /* myself */
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -6933,7 +6921,7 @@ static void entry__update_each_item_from_to_25(void) {
   // 332: ... myself.value_of
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* myself */;
+  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* myself */;
   result_count = 1;
   myself = var._value_of;
   func = myself->type;
@@ -6948,7 +6936,7 @@ static void cont__update_each_item_from_to_26(void) {
   // 332: body key &myself.value_of
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* key */;
+  arguments->slots[0] = frame->slots[1] /* key */;
   arguments->slots[1] = frame->slots[3] /* temp__1 */;
   result_count = 1;
   myself = frame->slots[0] /* body */;
@@ -6963,10 +6951,10 @@ static void cont__update_each_item_from_to_27(void) {
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 332: ... &myself.value_of
   {
-    NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* myself */);
+    NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[2])->contents /* myself */);
     update_start_p = node_p;
     set_attribute_value(temp->attributes, poly_idx__value_of, frame->slots[4] /* temp__2 */);
-    ((CELL *)frame->slots[1])->contents /* myself */ = temp;
+    ((CELL *)frame->slots[2])->contents /* myself */ = temp;
 
   }
   argument_count = 0;
@@ -7729,11 +7717,11 @@ static void entry__update_each_item_from_down_to_25(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // body: 0
-  // myself: 1
-  // key: 2
+  // key: 1
+  // myself: 2
   frame->slots[0] = myself->closure.frame->slots[3]; /* body */
-  frame->slots[1] = myself->closure.frame->slots[0]; /* myself */
-  frame->slots[2] = myself->closure.frame->slots[4]; /* key */
+  frame->slots[1] = myself->closure.frame->slots[4]; /* key */
+  frame->slots[2] = myself->closure.frame->slots[0]; /* myself */
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -7741,7 +7729,7 @@ static void entry__update_each_item_from_down_to_25(void) {
   // 362: ... myself.value_of
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* myself */;
+  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* myself */;
   result_count = 1;
   myself = var._value_of;
   func = myself->type;
@@ -7756,7 +7744,7 @@ static void cont__update_each_item_from_down_to_26(void) {
   // 362: body key &myself.value_of
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* key */;
+  arguments->slots[0] = frame->slots[1] /* key */;
   arguments->slots[1] = frame->slots[3] /* temp__1 */;
   result_count = 1;
   myself = frame->slots[0] /* body */;
@@ -7771,10 +7759,10 @@ static void cont__update_each_item_from_down_to_27(void) {
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
   // 362: ... &myself.value_of
   {
-    NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* myself */);
+    NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[2])->contents /* myself */);
     update_start_p = node_p;
     set_attribute_value(temp->attributes, poly_idx__value_of, frame->slots[4] /* temp__2 */);
-    ((CELL *)frame->slots[1])->contents /* myself */ = temp;
+    ((CELL *)frame->slots[2])->contents /* myself */ = temp;
 
   }
   argument_count = 0;

@@ -176,6 +176,12 @@ static void dump_continuation(FUNC func) {
   }
 }
 
+#ifdef __CYGWIN__
+  extern FUNC invalid_continuation;
+#else
+  extern void invalid_continuation(void);
+#endif
+
 static void edump_continuation(const char *name, FUNC func) {
   const char *module_filename;
   CONTINUATION_INFO *info;
@@ -186,7 +192,11 @@ static void edump_continuation(const char *name, FUNC func) {
       info->first_line, info->first_column,
       info->last_line, info->last_column);
   } else {
-    fprintf(stderr, "%s: %p\n", name, func);
+    if (func == invalid_continuation) {
+      fprintf(stderr, "%s: <invalid continuation>\n", name);
+    } else {
+      fprintf(stderr, "%s: %p\n", name, func);
+    }
   }
 }
 
@@ -217,12 +227,6 @@ static void list_local_symbol_names(void) {
     }
   }
 }
-
-#ifdef __CYGWIN__
-  extern FUNC invalid_continuation;
-#else
-  extern void invalid_continuation(void);
-#endif
 
 void print_contents(NODE *node) {
   if (node->type == NULL) { // it's a cell

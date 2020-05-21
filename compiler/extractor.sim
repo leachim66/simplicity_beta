@@ -43,7 +43,6 @@ $$short_descriptions empty_table
 
 $$topics empty_key_order_table
 $$topics_paragraphs empty_table
-
 $$missing_documentation_count 0
 
 $FUNCTION .
@@ -159,10 +158,28 @@ types::object $symbol_info
   .name_of undefined
   .base_of undefined
   .parameters_of undefined
-  .remark_lines_of undefined
+  .remark_lines_of empty_list
   .derived_types_of empty_key_order_set
   .methods_of empty_key_order_table
   .types_of empty_key_order_set
+
+$extract_remark_lines: (node)
+  if
+    not(remark_lines_of(node).is_empty) || arguments_of(node).is_empty
+    -> remark_lines_of(node)
+    :
+      $arguments arguments_of(node)
+
+      $first_idx
+	if
+	  node.is_an_assignment
+	  -> 2
+	  -> 1
+
+      if
+	not(remark_lines_of(arguments(first_idx)).is_empty)
+	-> remark_lines_of(arguments(first_idx))
+	-> remark_lines_of(arguments(-1))
 
 $extract_documentation_from_file: (filename)
   ewrite "extracting documentation from @(filename)@nl;"
@@ -188,8 +205,7 @@ $extract_documentation_from_file: (filename)
   $$first_idx 1
   do: (-> done)
     for_each fragments: (idx fragment)
-      case
-	source_of(fragment)(1)
+      case source_of(fragment)(1)
 	'#':
 	  pass
 	'<':
@@ -202,17 +218,14 @@ $extract_documentation_from_file: (filename)
   if used_namespaces.is_empty: !used_namespaces("std") true
   $$local_method_names empty_set
   for_each trees: (statement)
-    cond
-      -> statement.is_a_remark: pass
-      -> statement.is_c_code: pass
-      -> statement.is_an_assignment:
-	$destination output_arguments_of(statement)(1)
-	if destination.is_a_definition:
-	  $identifier identifier_of(destination)
-	  unless namespace_of(identifier).is_defined:
-	    $source arguments_of(statement)(1)
-	    if source.is_a_polymorphic_function_constant:
-	      !local_method_names(name_of(identifier_of(destination))) true
+    cond (-> statement.is_a_remark: pass) (-> statement.is_c_code: pass) -> statement.is_an_assignment:
+      $destination arguments_of(statement)(1)
+      if destination.is_a_definition:
+	$identifier identifier_of(destination)
+	unless namespace_of(identifier).is_defined:
+	  $source arguments_of(statement)(2)
+	  if source.is_a_polymorphic_function_constant:
+	    !local_method_names(name_of(identifier_of(destination))) true
   for_each trees:
     (
       statement
@@ -223,11 +236,12 @@ $extract_documentation_from_file: (filename)
 	$remark_lines remark_lines_of(statement)
 	if any_of(remark_lines has_prefix "Topic:"):
 	  $paragraphs remark_lines.to_paragraphs
-	  do: (-> done) for_each paragraphs: (idx paragraph)
-	    if paragraph .has_prefix. "Topic:":
-	      $topic trim(paragraph .behind. "Topic:")
-	      !topics_paragraphs(topic) range(paragraphs idx+1 -1)
-	      done
+	  do: (-> done)
+	    for_each paragraphs: (idx paragraph)
+	      if paragraph .has_prefix. "Topic:":
+		$topic trim(paragraph .behind. "Topic:")
+		!topics_paragraphs(topic) range(paragraphs idx+1 -1)
+		done
       -> statement.is_c_code:
 	$identifier identifier_of(statement)
 	if identifier.is_defined:
@@ -235,17 +249,23 @@ $extract_documentation_from_file: (filename)
 	  if namespace.is_defined:
 	    $name name_of(identifier)
 	    case kind_of(statement)
-	      "type":
+	      "type"
+	      :
 		if namespace.is_defined:
 		  $base base_of(statement)
 		  !definitions(ordered_name(namespace name))
 		    symbol_info
 		      .kind_of INLINE_C_TYPE
 		      .name_of identifier.to_string
-		      .base_of if(base.is_defined (-> base.to_string) -> undefined)
+		      .base_of
+			if
+			  base.is_defined
+			  -> base.to_string
+			  -> undefined
 		      .remark_lines_of remark_lines_of(statement)
 		      .filename_of filename
-	      "object":
+	      "object"
+	      :
 		!definitions(ordered_name(namespace name))
 		  symbol_info
 		    .kind_of INLINE_C_OBJECT
@@ -253,77 +273,75 @@ $extract_documentation_from_file: (filename)
 		    .remark_lines_of remark_lines_of(statement)
 		    .filename_of filename
       -> statement.is_an_assignment:
-	$destination output_arguments_of(statement)(1)(.base_of undefined)
+	$destination arguments_of(statement)(1)(.base_of undefined)
 	$$info symbol_info(.filename_of filename)
-	if
-	  destination.is_a_definition:
-	    $identifier identifier_of(destination)
-	    $namespace namespace_of(identifier)
-	    if namespace.is_defined:
-	      $name name_of(identifier)
-	      $iname ordered_name(namespace name)
-	      !info
-		.name_of identifier.to_string
-		.variable_kind_of variable_kind_of(destination)
-		.remark_lines_of remark_lines_of(statement)
-	      $source arguments_of(statement)(1)
-	      cond
-		-> source.is_a_polymorphic_function_constant:
-		  !polymorphic_functions(name namespace) true
-		  !definitions(iname)
-		    info
-		      .kind_of
-			if
-			  source.is_a_setter
-			  -> POLYMORPHIC_ATTRIBUTE
-			  -> POLYMORPHIC_FUNCTION
-		  break
-		-> source.is_a_body:
-		  !info
-		    .base_of "types::function"
-		    .kind_of FUNCTION
-		    .parameters_of parameters_of(source)
-		    .remark_lines_of
+	if destination.is_a_definition:
+	  $identifier identifier_of(destination)
+	  $namespace namespace_of(identifier)
+	  if namespace.is_defined:
+	    $name name_of(identifier)
+	    $iname ordered_name(namespace name)
+	    !info
+	      .name_of identifier.to_string
+	      .variable_kind_of variable_kind_of(destination)
+	      .remark_lines_of extract_remark_lines(statement)
+
+	    $is_not_a_remark: (node) -> not(node.is_a_remark)
+
+	    $source
+	      find_first(range(arguments_of(statement) 2 -1) is_not_a_remark)
+
+	    cond
+	      -> source.is_a_polymorphic_function_constant:
+		!polymorphic_functions(name namespace) true
+		!definitions(iname)
+		  info
+		    .kind_of
 		      if
-			remark_lines_of(statement).is_empty
-			-> remark_lines_of(source)
-			-> remark_lines_of(statement)
-		-> source.is_a_c_body:
-		  !info.kind_of INLINE_C_FUNCTION
-		-> source.is_an_identifier:
-		  if namespace_of(source).is_defined:
-		    !info.base_of source.to_string
-		-> source.is_a_unique_item_constant:
-		  !definitions(iname) info(.kind_of UNIQUE_ITEM)
-		  break
-		-> source.is_a_constant:
-		  !info.kind_of CONSTANT
-	      case
-		attribute_kind_of(destination)
-		NONE:
-		  $previous_definition definitions(iname)
-		  if previous_definition.is_defined:
-		    if kind_of(previous_definition) == INLINE_C_TYPE:
-		      !info.types_of types_of(previous_definition)
-		      !info.derived_types_of derived_types_of(previous_definition)
-		      !info.methods_of methods_of(previous_definition)
-		  !definitions(iname) info
-		ATTRIBUTE_KIND, METHOD_KIND:
-		  $$attr attribute_of(destination)
+			source.is_a_setter
+			-> POLYMORPHIC_ATTRIBUTE
+			-> POLYMORPHIC_FUNCTION
+		break
+	      -> source.is_a_body:
+		!info
+		  .base_of "types::function"
+		  .kind_of FUNCTION
+		  .parameters_of parameters_of(source)
+		  .remark_lines_of extract_remark_lines(statement)
+	      -> source.is_a_c_body: !info.kind_of INLINE_C_FUNCTION
+	      -> source.is_an_identifier:
+		if namespace_of(source).is_defined:
+		  !info.base_of source.to_string
+	      -> source.is_a_unique_item_constant:
+		!definitions(iname) info(.kind_of UNIQUE_ITEM)
+		break
+	      -> source.is_a_constant: !info.kind_of CONSTANT
+	    case attribute_kind_of(destination)
+	      NONE:
+		$previous_definition definitions(iname)
+		if previous_definition.is_defined:
+		  if kind_of(previous_definition) == INLINE_C_TYPE:
+		    !info.types_of types_of(previous_definition)
+		    !info.derived_types_of derived_types_of(previous_definition)
+		    !info.methods_of methods_of(previous_definition)
+		!definitions(iname) info
+	      ATTRIBUTE_KIND, METHOD_KIND:
+		$$attr attribute_of(destination)
 
-		  $type
-		    default_value(definitions(iname) symbol_info)(.kind_of INLINE_C_TYPE)
+		$type
+		  default_value(definitions(iname) symbol_info)
+		    .kind_of INLINE_C_TYPE
 
-		  !definitions(iname) type
-		  if attr.is_defined:
-		    $attr_name attr.to_string
-		    unless local_method_names(attr_name):
-		      unless namespace_of(attr).is_defined:
-			!attr.used_namespaces_of used_namespaces
-		      $$definition default_value(definitions(iname) symbol_info)
-		      !definition.kind_of INLINE_C_TYPE
-		      !definition.methods_of(attr_name) info(.attribute_of attr)
-		      !definitions(iname) definition
+		!definitions(iname) type
+		if attr.is_defined:
+		  $attr_name attr.to_string
+		  unless local_method_names(attr_name):
+		    unless namespace_of(attr).is_defined:
+		      !attr.used_namespaces_of used_namespaces
+		    $$definition default_value(definitions(iname) symbol_info)
+		    !definition.kind_of INLINE_C_TYPE
+		    !definition.methods_of(attr_name) info(.attribute_of attr)
+		    !definitions(iname) definition
 
 $extract_documentation_from_directory: (path)
   for_each directory(--SORT path): (entry)
@@ -444,7 +462,7 @@ $create_info_page: (function_name info)
       Error "
 	The documentation for "@(function_name)"
 	(defined in "@(filename_of(info))")
-	references the undefined symbol "@(reference)"!
+	references the undefined symbol "@(reference)@quot;!
 
   if function_name.is_defined:
     create_page "html/@(function_name.mangled).html":
@@ -466,12 +484,13 @@ $create_info_page: (function_name info)
 	      ".html)"
 	:
 	  H1 function_name
-
 	  case variable_kind_of(info)
-	    STATIC_MULTI: H2 "(static multi-assignment variable)"
-	    DYNAMIC_SINGLE: H2 "(dynamic single-assignment variable)"
-	    DYNAMIC_MULTI: H2 "(dynamic multi-assignment variable)"
-
+	    STATIC_MULTI:
+	      H2 "(static multi-assignment variable)"
+	    DYNAMIC_SINGLE:
+	      H2 "(dynamic single-assignment variable)"
+	    DYNAMIC_MULTI:
+	      H2 "(dynamic multi-assignment variable)"
       $$short_description undefined
       $$parameters empty_list
       $$return_values empty_list
@@ -485,8 +504,8 @@ $create_info_page: (function_name info)
 	inc &missing_documentation_count
 	if do_print_missing:
 	  ewrite "
-	    Missing documentation for @(function_name) @
-	    (defined in "@(filename_of(info))")!
+	    Missing documentation for @(function_name) (defined in @
+	    "@(filename_of(info))")!
       if remark_lines.is_defined:
 	$paragraphs remark_lines.to_paragraphs
 	for_each paragraphs: ($paragraph)
@@ -646,13 +665,12 @@ $create_info_page: (function_name info)
 	      TD: A "href" = "@(name.mangled).html" name
 	      TD "&nbsp;as&nbsp;"
 	      TD: A "href" = "@(method.mangled).html" method
-
       if function_name .contains. '/':
 	$polymorphic_function_name function_name .behind. '/'
 	H2 "Implements"
-	A "href" = "@(polymorphic_function_name.mangled).html"
+	A
+	  "href" = "@(polymorphic_function_name.mangled).html"
 	  polymorphic_function_name
-
       if kind_of(info) == INLINE_C_TYPE:
 	H2 "Supported Polymorphic Functions"
 	TABLE:
@@ -678,7 +696,6 @@ $create_info_page: (function_name info)
 	  for_each topic_list: (topic)
 	    $filename string(replace_all(topic.to_lower_case ' ' = "_") ".html")
 	    TR: TD: A "href" = filename topic
-
       for_each examples: (example)
 	$title key_of(example)
 	$text std::value_of(example)
@@ -702,10 +719,11 @@ $create_info_page: (function_name info)
 $get_short_description: (name info)
   $remark_lines remark_lines_of(info)
   $$short_description ""
-  if remark_lines.is_defined && not(remark_lines.is_empty):
-    do: (-> break) for_each remark_lines: (line)
-      if line == "" && short_description != "" break
-      append &short_description line.trim
+  unless remark_lines.is_empty:
+    do: (-> break)
+      for_each remark_lines: (line)
+	if line == "" && short_description != "" break
+	append &short_description line.trim
     if do_print_warnings && length_of(short_description) > 80:
       ewrite "
 
@@ -716,16 +734,17 @@ $get_short_description: (name info)
   add_links &short_description
   -> short_description
 
-
 $compiler::extract_documentation: (paths)
   !path_prefix truncate_behind(paths(1) '/' -1)
-  for_each paths: (path)
-    extract_documentation_from_directory path
-
+  for_each paths: (path) extract_documentation_from_directory path
   for_each definitions: (iname info)
     $name name_of(info)
-    !short_descriptions(name) get_short_description(name info)
+    if name.is_undefined:
+      Error "
+	Incomplete definition encountered:
 
+	There is no name for the definition of "@(iname)@quot;!
+    !short_descriptions(name) get_short_description(name info)
     if kind_of(info) == INLINE_C_TYPE:
       $base base_of(info)
       if base.is_defined: add_derived_type base iname
@@ -735,12 +754,10 @@ $compiler::extract_documentation: (paths)
 	  !method_name attribute_of(method_info).resolved_name
 	$sd_name string(name "/" method_name)
 	!short_descriptions(sd_name) get_short_description(sd_name method_info)
-	$oname
-	  ordered_name(method_name .before. "::" method_name .behind. "::")
+	$oname ordered_name(method_name .before. "::" method_name .behind. "::")
 	!definitions(oname).types_of(name) true
 	!methods(method_name) method_info
       !definitions(iname).methods_of methods
-
   create_page "html/type_index.html":
     $print_type_info:
       (
@@ -765,7 +782,6 @@ $compiler::extract_documentation: (paths)
       for_each definitions: (_base info)
 	if kind_of(info) == INLINE_C_TYPE && base_of(info).is_undefined:
 	  print_type_info info
-
   create_page "html/symbol_index.html":
     link_bar
     H1 "id" = "index" "Symbol Index"
@@ -795,15 +811,24 @@ $compiler::extract_documentation: (paths)
 	$kind_info
 	  case
 	    kind_of(info)
-	    FUNCTION -> "function"
-	    POLYMORPHIC_FUNCTION -> "polymorphic function"
-	    POLYMORPHIC_ATTRIBUTE -> "polymorphic attribute"
-	    INLINE_C_TYPE -> "inline-C type"
-	    INLINE_C_OBJECT -> "inline-C object"
-	    INLINE_C_FUNCTION -> "inline-C function"
-	    UNIQUE_ITEM -> "unique item"
-	    CONSTANT -> "constant"
-	    OTHER -> "other"
+	    FUNCTION
+	    -> "function"
+	    POLYMORPHIC_FUNCTION
+	    -> "polymorphic function"
+	    POLYMORPHIC_ATTRIBUTE
+	    -> "polymorphic attribute"
+	    INLINE_C_TYPE
+	    -> "inline-C type"
+	    INLINE_C_OBJECT
+	    -> "inline-C object"
+	    INLINE_C_FUNCTION
+	    -> "inline-C function"
+	    UNIQUE_ITEM
+	    -> "unique item"
+	    CONSTANT
+	    -> "constant"
+	    OTHER
+	    -> "other"
 	    -> undefined
 
 	if kind_info.is_defined:
@@ -817,14 +842,12 @@ $compiler::extract_documentation: (paths)
 	    TD "align" = "right" name .until. "::"
 	    TD: A "href" = "@(name.mangled).html" name .behind. "::"
 	    TD "class" = "remark" remark
-
   for_each definitions: (_iname info)
     $name name_of(info)
     create_info_page name info
     case kind_of(info) INLINE_C_TYPE:
       for_each methods_of(info): (method_name method_info)
 	create_info_page string(name "/" method_name) method_info
-
   create_page "html/topics_index.html":
     link_bar
     H1 "id" = "index" "Topics Index"
@@ -852,7 +875,6 @@ $compiler::extract_documentation: (paths)
     P: A "href" = "type_index.html" "Type Index"
     P: A "href" = "symbol_index.html" "Symbol Index"
     P: A "href" = "topics_index.html" "Topics Index"
-
   if do_print_summary:
     $$total_functions 0
     $$total_polymorphic_functions 0
@@ -866,24 +888,35 @@ $compiler::extract_documentation: (paths)
     $$total_unique_items 0
     $$total_constants 0
     $$other 0
-
     for_each definitions: (_iname info)
       case kind_of(info)
-	FUNCTION: inc &total_functions
-	POLYMORPHIC_FUNCTION: inc &total_polymorphic_functions
-	POLYMORPHIC_ATTRIBUTE: inc &total_polymorphic_attributes
-	INLINE_C_FUNCTION: inc &total_inline_c_functions
-	INLINE_C_TYPE: inc &total_inline_c_types
-	INLINE_C_OBJECT: inc &total_inline_c_objects
-	UNIQUE_ITEM: inc &total_unique_items
-	CONSTANT: inc &total_constants
-	: inc &other
+	FUNCTION:
+	  inc &total_functions
+	POLYMORPHIC_FUNCTION:
+	  inc &total_polymorphic_functions
+	POLYMORPHIC_ATTRIBUTE:
+	  inc &total_polymorphic_attributes
+	INLINE_C_FUNCTION:
+	  inc &total_inline_c_functions
+	INLINE_C_TYPE:
+	  inc &total_inline_c_types
+	INLINE_C_OBJECT:
+	  inc &total_inline_c_objects
+	UNIQUE_ITEM:
+	  inc &total_unique_items
+	CONSTANT:
+	  inc &total_constants
+	:
+	  inc &other
       case kind_of(info) INLINE_C_TYPE:
-	for_each methods_of(info): (method_name method_info)
+	for_each methods_of(info): (_method_name method_info)
 	  case kind_of(method_info)
-	    FUNCTION: inc &total_methods
-	    INLINE_C_FUNCTION: inc &total_inline_c_methods
-	    : inc &total_attributes
+	    FUNCTION:
+	      inc &total_methods
+	    INLINE_C_FUNCTION:
+	      inc &total_inline_c_methods
+	    :
+	      inc &total_attributes
 
     $total_definitions
       +

@@ -64,12 +64,12 @@ $draw_vertical_bar:
     top_y
     bottom_y
   )
-  $$y (top_y+1) >> 1 # in rows
+  $$y top_y+1 >> 1 # in rows
   if top_y.is_even:
     at x y
     draw_character lower_half_block
     inc &y
-  repeat (bottom_y >> 1) - (top_y >> 1):
+  repeat (bottom_y >> 1)-(top_y >> 1):
     at x y
     draw_character full_block
     inc &y
@@ -88,21 +88,21 @@ $draw_cave_column:
 
   # update the ceiling height
 
-  !ceiling_y ceiling_y+next(&rng -2..2) # make a random change
+  !ceiling_y ceiling_y+next(&rng -2 .. 2) # make a random change
   extend_to &ceiling_y 1 # not too high
   reduce_to &ceiling_y 35 # not too low
 
   # update the floor height
 
-  !floor_y floor_y+next(&rng -2..2) # make a random change
+  !floor_y floor_y+next(&rng -2 .. 2) # make a random change
   reduce_to &floor_y HEIGHT # not too low
   extend_to &floor_y 16 # not too high
 
   # check whether the cave would be too narrow
 
   $cave_height floor_y-ceiling_y # the height of the cave
-  if cave_height < 15: # too narrow?
-    $delta (15-cave_height) .div. 2 # how much?
+  if cave_height < 15:
+    $delta 15-cave_height .div. 2 # how much?
     minus &ceiling_y delta # distribute the change to ceiling ...
     plus &floor_y delta # ... and floor
 
@@ -119,22 +119,21 @@ $draw_ship
     at 1 ship_y
     draw_character '='
 
-$draw_message
+$draw_message:
   #
     draws a message in the center of the screen
-  :
-    (
-      msg # the message to draw
-    )
-    $len length_of(msg)
-    at div((80-len) 2)+1 13
-    draw_text msg
+  (
+    msg # the message to draw
+  )
+  $len length_of(msg)
+  at div(80-len 2)+1 13
+  draw_text msg
 
-$a_collision_happened
+$a_collision_happened:
   #
     checks whether the space ship hit any obstacle
-  :
-    -> character_at(1 ship_y) != ' '
+
+  -> character_at(1 ship_y) != ' '
 
 initialize_terminal # must be called before any other terminal function
 
@@ -146,16 +145,14 @@ initialize_terminal # must be called before any other terminal function
 
 if width_of(current_screen) != 80 || height_of(current_screen) != 25:
   Error "Please change your terminal size to 80x25!"
-
-do: # we initialize the terminal
+do:
   get_terminal_attributes STDIN_FILENO $$attributes
   use_canonical_mode &attributes false # we want no line-buffering ...
   echo_characters &attributes false # ... and no echoing of typed in characters
   unless set_terminal_attributes(STDIN_FILENO attributes):
     Error "Failed to disable canonical input mode!"
   cursor_off # ... and we want no blinking cursor!
-
-do: # draw the initial view of the cave
+do:
   from_to 1 WIDTH: (x) draw_cave_column x # fill all columns of the screen
   draw_ship # draw the space ship
   update_terminal # make all updates visible
@@ -166,32 +163,29 @@ $$input_buffer ""
 
     If the user pressed more keys then we keep a backlog.
 
-do: (-> break) repeat 300: # after these number of steps the player survided!
-  wait_to $event READ_FROM=STDIN_FILENO TIMEOUT=0.08
-    # we wait for a keystroke or until some time elapsed
-  case type_of(event)
-    READ_FROM: # we got a keystroke
-      append &input_buffer read_from(STDIN_FILENO)
-
-  unless input_buffer.is_empty: # are there keys in the backlog buffer?
-    case get(&input_buffer)
-      'w':
-	dec &ship_y # move the space ship upwards
-      's':
-	inc &ship_y # move the space ship downwards
-      'q': break # the user wants to quit the game
-
-  do: # update the view of the cave
-    scroll_left # scroll the whole cave left by 1 character column
-    draw_cave_column 80 # draw a new right-most character column
-    if a_collision_happened():
-      draw_message "Your ship hit an obstacle!"
+do: (-> break)
+  repeat 300:
+    wait_to $event READ_FROM = STDIN_FILENO TIMEOUT = 0.08
+      # we wait for a keystroke or until some time elapsed
+    case type_of(event) READ_FROM: append &input_buffer read_from(STDIN_FILENO)
+    unless input_buffer.is_empty:
+      case get(&input_buffer)
+	'w':
+	  dec &ship_y # move the space ship upwards
+	's':
+	  inc &ship_y # move the space ship downwards
+	'q':
+	  break # the user wants to quit the game
+    do:
+      scroll_left # scroll the whole cave left by 1 character column
+      draw_cave_column 80 # draw a new right-most character column
+      if a_collision_happened():
+	draw_message "Your ship hit an obstacle!"
+	update_terminal # make all updates visible
+	sleep 3 # wait for 3 seconds ...
+	break # ... and leave
+      draw_ship # draw the space ship
       update_terminal # make all updates visible
-      sleep 3 # wait for 3 seconds ...
-      break # ... and leave
-    draw_ship # draw the space ship
-    update_terminal # make all updates visible
-
 do:
   #
     clean the screen and restore all changes we made to input buffering and

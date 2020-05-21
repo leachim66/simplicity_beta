@@ -165,10 +165,11 @@ typedef struct CLOSURE {
 #else
   #define ASM(x)
 #endif
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 REGISTER NODE *myself ASM("r13");
 IMPORT NODE *get_attribute(NODE *node, int idx);
 REGISTER FRAME *arguments ASM("r12");
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -380,6 +381,8 @@ static int poly_idx__is_an_identifier;
 static NODE_GETTER get__is_an_identifier;
 static int poly_idx__is_an_initialization;
 static NODE_GETTER get__is_an_initialization;
+static int poly_idx__is_an_input_output_argument;
+static NODE_GETTER get__is_an_input_output_argument;
 static int poly_idx__is_an_operator_symbol;
 static NODE_GETTER get__is_an_operator_symbol;
 static int poly_idx__is_an_optional_item;
@@ -394,6 +397,8 @@ static int poly_idx__is_in_numeric_notation;
 static NODE_GETTER get__is_in_numeric_notation;
 static int poly_idx__is_not_used;
 static NODE_GETTER get__is_not_used;
+static int poly_idx__is_used_as_a_destination;
+static NODE_GETTER get__is_used_as_a_destination;
 static int poly_idx__is_used_as_a_polymorphic_function;
 static NODE_GETTER get__is_used_as_a_polymorphic_function;
 static int poly_idx__mangled_name_of;
@@ -404,14 +409,10 @@ static NODE_GETTER get__namespace_of;
 static NODE_GETTER get_value_or_future__namespace_of;
 static int poly_idx__operators_of;
 static NODE_GETTER get__operators_of;
-static int poly_idx__output_arguments_of;
-static NODE_GETTER get__output_arguments_of;
 static int poly_idx__parameter_kind_of;
 static NODE_GETTER get__parameter_kind_of;
 static int poly_idx__parameters_of;
 static NODE_GETTER get__parameters_of;
-static int poly_idx__remark_lines_behind_of;
-static NODE_GETTER get__remark_lines_behind_of;
 static int poly_idx__remark_lines_of;
 static NODE_GETTER get__remark_lines_of;
 static NODE_GETTER get__replace_all;
@@ -466,7 +467,6 @@ static struct {
   NODE *node__definitions_of;
   NODE *node__destination_of;
   NODE *node__end_position_of;
-  NODE *node__enumeration_no_of;
   NODE *node__expression_of;
   NODE *node__filemask_of;
   NODE *node__filename_of;
@@ -503,7 +503,6 @@ static struct {
   NODE *node__namespace_alias_of;
   NODE *node__node_of;
   NODE *node__operators_of;
-  NODE *node__output_arguments_of;
   NODE *node__parameter_kind_of;
   NODE *node__parameters_of;
   NODE *node__parent_of;
@@ -512,7 +511,6 @@ static struct {
   NODE *node__source_position_of;
   NODE *node__temporary_count_of;
   NODE *node__remark_lines_of;
-  NODE *node__remark_lines_behind_of;
   NODE *node__scope_of;
   NODE *node__section_of;
   NODE *node__statements_of;
@@ -545,6 +543,8 @@ static struct {
   NODE *node__is_an_assignment;
   NODE *compiler__assignment;
   NODE *node__is_a_definition;
+  NODE *node__is_a_destination;
+  NODE *node__is_an_input_output_argument;
   NODE *compiler__definition;
   NODE *node__is_a_static_single_definition;
   NODE *compiler__define_static_single;
@@ -558,6 +558,7 @@ static struct {
   NODE *compiler__function_call;
   NODE *node__is_an_expression;
   NODE *compiler__expression;
+  NODE *compiler__remark_argument;
   NODE *node__is_a_backquoted_expression;
   NODE *compiler__backquoted;
   NODE *node__is_an_attribute_value_pair;
@@ -577,8 +578,8 @@ static struct {
   NODE *compiler__polymorphic_function;
   NODE *compiler__polymorphic_function_with_setter;
   NODE *node__is_an_identifier;
-  NODE *node__is_a_destination;
   NODE *node__is_used_as_a_polymorphic_function;
+  NODE *node__is_used_as_a_destination;
   NODE *compiler__identifier;
   NODE *node__is_a_temporary;
   NODE *compiler__temporary;
@@ -709,11 +710,6 @@ static int poly_idx__node__end_position_of;
 static void type__node__end_position_of(void);
 static NODE *get__node__end_position_of(void) {
   return var.node__end_position_of;
-}
-static int poly_idx__node__enumeration_no_of;
-static void type__node__enumeration_no_of(void);
-static NODE *get__node__enumeration_no_of(void) {
-  return var.node__enumeration_no_of;
 }
 static int poly_idx__node__expression_of;
 static void type__node__expression_of(void);
@@ -895,11 +891,6 @@ static void type__node__operators_of(void);
 static NODE *get__node__operators_of(void) {
   return var.node__operators_of;
 }
-static int poly_idx__node__output_arguments_of;
-static void type__node__output_arguments_of(void);
-static NODE *get__node__output_arguments_of(void) {
-  return var.node__output_arguments_of;
-}
 static int poly_idx__node__parameter_kind_of;
 static void type__node__parameter_kind_of(void);
 static NODE *get__node__parameter_kind_of(void) {
@@ -939,11 +930,6 @@ static int poly_idx__node__remark_lines_of;
 static void type__node__remark_lines_of(void);
 static NODE *get__node__remark_lines_of(void) {
   return var.node__remark_lines_of;
-}
-static int poly_idx__node__remark_lines_behind_of;
-static void type__node__remark_lines_behind_of(void);
-static NODE *get__node__remark_lines_behind_of(void) {
-  return var.node__remark_lines_behind_of;
 }
 static int poly_idx__node__scope_of;
 static void type__node__scope_of(void);
@@ -1077,6 +1063,16 @@ static void type__node__is_a_definition(void);
 static NODE *get__node__is_a_definition(void) {
   return var.node__is_a_definition;
 }
+static int poly_idx__node__is_a_destination;
+static void type__node__is_a_destination(void);
+static NODE *get__node__is_a_destination(void) {
+  return var.node__is_a_destination;
+}
+static int poly_idx__node__is_an_input_output_argument;
+static void type__node__is_an_input_output_argument(void);
+static NODE *get__node__is_an_input_output_argument(void) {
+  return var.node__is_an_input_output_argument;
+}
 static NODE *get__compiler__definition(void) {
   return var.compiler__definition;
 }
@@ -1127,6 +1123,9 @@ static NODE *get__node__is_an_expression(void) {
 }
 static NODE *get__compiler__expression(void) {
   return var.compiler__expression;
+}
+static NODE *get__compiler__remark_argument(void) {
+  return var.compiler__remark_argument;
 }
 static int poly_idx__node__is_a_backquoted_expression;
 static void type__node__is_a_backquoted_expression(void);
@@ -1212,15 +1211,15 @@ static void type__node__is_an_identifier(void);
 static NODE *get__node__is_an_identifier(void) {
   return var.node__is_an_identifier;
 }
-static int poly_idx__node__is_a_destination;
-static void type__node__is_a_destination(void);
-static NODE *get__node__is_a_destination(void) {
-  return var.node__is_a_destination;
-}
 static int poly_idx__node__is_used_as_a_polymorphic_function;
 static void type__node__is_used_as_a_polymorphic_function(void);
 static NODE *get__node__is_used_as_a_polymorphic_function(void) {
   return var.node__is_used_as_a_polymorphic_function;
+}
+static int poly_idx__node__is_used_as_a_destination;
+static void type__node__is_used_as_a_destination(void);
+static NODE *get__node__is_used_as_a_destination(void) {
+  return var.node__is_used_as_a_destination;
 }
 static NODE *get__compiler__identifier(void) {
   return var.compiler__identifier;
@@ -1314,122 +1313,121 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__node__definitions_of, NULL, 65, 65, 2, 21},
   {type__node__destination_of, NULL, 66, 66, 2, 21},
   {type__node__end_position_of, NULL, 67, 67, 2, 22},
-  {type__node__enumeration_no_of, NULL, 68, 68, 2, 24},
-  {type__node__expression_of, NULL, 69, 69, 2, 20},
-  {type__node__filemask_of, NULL, 70, 70, 2, 18},
-  {type__node__filename_of, NULL, 71, 71, 2, 18},
-  {type__node__fragment_of, NULL, 72, 72, 2, 18},
-  {type__node__full_name_of, NULL, 73, 73, 2, 19},
-  {type__node__functor_of, NULL, 74, 74, 2, 17},
-  {type__node__identifier_of, NULL, 75, 75, 2, 20},
-  {type__node__inherited_names_of, NULL, 76, 76, 2, 25},
-  {type__node__is_a_constant, NULL, 77, 77, 2, 20},
-  {type__node__is_a_dynamic_definition, NULL, 78, 78, 2, 30},
-  {type__node__is_a_method_definition, NULL, 79, 79, 2, 29},
-  {type__node__is_a_multi_assign_definition, NULL, 80, 80, 2, 35},
-  {type__node__is_an_expanded_item, NULL, 81, 81, 2, 26},
-  {type__node__is_an_optional_item, NULL, 82, 82, 2, 26},
-  {type__node__is_a_setter, NULL, 83, 83, 2, 18},
-  {type__node__is_a_single_assign_definition, NULL, 84, 84, 2, 36},
-  {type__node__is_a_static_definition, NULL, 85, 85, 2, 29},
-  {type__node__is_a_string_template, NULL, 86, 86, 2, 27},
-  {type__node__is_an_attribute_access, NULL, 87, 87, 2, 29},
-  {type__node__is_an_initialization, NULL, 88, 88, 2, 27},
-  {type__node__is_in_infix_notation, NULL, 89, 89, 2, 27},
-  {type__node__is_in_numeric_notation, NULL, 90, 90, 2, 29},
-  {type__node__is_mutable, NULL, 91, 91, 2, 17},
-  {type__node__is_not_used, NULL, 92, 92, 2, 18},
-  {type__node__kind_of, NULL, 93, 93, 2, 14},
-  {type__node__last_line_end_specifier_of, NULL, 94, 94, 2, 33},
-  {type__node__line_end_specifier_of, NULL, 95, 95, 2, 28},
-  {type__node__lowest_precedence_of, NULL, 96, 96, 2, 27},
-  {type__node__mangled_name_of, NULL, 97, 97, 2, 22},
-  {type__node__max_length_of, NULL, 98, 98, 2, 20},
-  {type__node__message_of, NULL, 99, 99, 2, 17},
-  {type__node__name_of, NULL, 100, 100, 2, 14},
-  {type__node__namespace_of, NULL, 101, 101, 2, 19},
-  {type__node__namespace_alias_of, NULL, 102, 102, 2, 25},
-  {type__node__node_of, NULL, 103, 103, 2, 14},
-  {type__node__operators_of, NULL, 104, 104, 2, 19},
-  {type__node__output_arguments_of, NULL, 105, 105, 2, 26},
-  {type__node__parameter_kind_of, NULL, 106, 106, 2, 24},
-  {type__node__parameters_of, NULL, 107, 107, 2, 20},
-  {type__node__parent_of, NULL, 108, 108, 2, 16},
-  {type__node__result_count_of, NULL, 109, 109, 2, 22},
-  {type__node__continuation_of, NULL, 110, 110, 2, 22},
-  {type__node__source_position_of, NULL, 111, 111, 2, 25},
-  {type__node__temporary_count_of, NULL, 112, 112, 2, 25},
-  {type__node__remark_lines_of, NULL, 113, 113, 2, 22},
-  {type__node__remark_lines_behind_of, NULL, 114, 114, 2, 29},
-  {type__node__scope_of, NULL, 115, 115, 2, 15},
-  {type__node__section_of, NULL, 116, 116, 2, 17},
-  {type__node__statements_of, NULL, 117, 117, 2, 20},
-  {type__node__submodule_no_of, NULL, 118, 118, 2, 22},
-  {type__node__text_of, NULL, 119, 119, 2, 14},
-  {type__node__type_of, NULL, 120, 120, 2, 14},
-  {type__node__used_names_of, NULL, 121, 121, 2, 20},
-  {type__node__value_of, NULL, 122, 122, 2, 15},
-  {type__node__variable_kind_of, NULL, 123, 123, 2, 23},
-  {type__node__is_a_meta_instruction, NULL, 145, 145, 2, 28},
-  {type__node__is_a_remark, NULL, 184, 184, 2, 18},
-  {type__node__is_a_body, NULL, 193, 193, 2, 16},
-  {type__node__defines_a_dynamic, NULL, 198, 198, 2, 24},
-  {type__node__is_a_call, NULL, 219, 219, 2, 16},
-  {type__node__is_a_procedure_call, NULL, 230, 230, 2, 26},
-  {type__node__is_a_return, NULL, 239, 239, 2, 18},
-  {type__node__is_an_assignment, NULL, 248, 248, 2, 23},
-  {type__node__is_a_definition, NULL, 257, 257, 2, 22},
+  {type__node__expression_of, NULL, 68, 68, 2, 20},
+  {type__node__filemask_of, NULL, 69, 69, 2, 18},
+  {type__node__filename_of, NULL, 70, 70, 2, 18},
+  {type__node__fragment_of, NULL, 71, 71, 2, 18},
+  {type__node__full_name_of, NULL, 72, 72, 2, 19},
+  {type__node__functor_of, NULL, 73, 73, 2, 17},
+  {type__node__identifier_of, NULL, 74, 74, 2, 20},
+  {type__node__inherited_names_of, NULL, 75, 75, 2, 25},
+  {type__node__is_a_constant, NULL, 76, 76, 2, 20},
+  {type__node__is_a_dynamic_definition, NULL, 77, 77, 2, 30},
+  {type__node__is_a_method_definition, NULL, 78, 78, 2, 29},
+  {type__node__is_a_multi_assign_definition, NULL, 79, 79, 2, 35},
+  {type__node__is_an_expanded_item, NULL, 80, 80, 2, 26},
+  {type__node__is_an_optional_item, NULL, 81, 81, 2, 26},
+  {type__node__is_a_setter, NULL, 82, 82, 2, 18},
+  {type__node__is_a_single_assign_definition, NULL, 83, 83, 2, 36},
+  {type__node__is_a_static_definition, NULL, 84, 84, 2, 29},
+  {type__node__is_a_string_template, NULL, 85, 85, 2, 27},
+  {type__node__is_an_attribute_access, NULL, 86, 86, 2, 29},
+  {type__node__is_an_initialization, NULL, 87, 87, 2, 27},
+  {type__node__is_in_infix_notation, NULL, 88, 88, 2, 27},
+  {type__node__is_in_numeric_notation, NULL, 89, 89, 2, 29},
+  {type__node__is_mutable, NULL, 90, 90, 2, 17},
+  {type__node__is_not_used, NULL, 91, 91, 2, 18},
+  {type__node__kind_of, NULL, 92, 92, 2, 14},
+  {type__node__last_line_end_specifier_of, NULL, 93, 93, 2, 33},
+  {type__node__line_end_specifier_of, NULL, 94, 94, 2, 28},
+  {type__node__lowest_precedence_of, NULL, 95, 95, 2, 27},
+  {type__node__mangled_name_of, NULL, 96, 96, 2, 22},
+  {type__node__max_length_of, NULL, 97, 97, 2, 20},
+  {type__node__message_of, NULL, 98, 98, 2, 17},
+  {type__node__name_of, NULL, 99, 99, 2, 14},
+  {type__node__namespace_of, NULL, 100, 100, 2, 19},
+  {type__node__namespace_alias_of, NULL, 101, 101, 2, 25},
+  {type__node__node_of, NULL, 102, 102, 2, 14},
+  {type__node__operators_of, NULL, 103, 103, 2, 19},
+  {type__node__parameter_kind_of, NULL, 104, 104, 2, 24},
+  {type__node__parameters_of, NULL, 105, 105, 2, 20},
+  {type__node__parent_of, NULL, 106, 106, 2, 16},
+  {type__node__result_count_of, NULL, 107, 107, 2, 22},
+  {type__node__continuation_of, NULL, 108, 108, 2, 22},
+  {type__node__source_position_of, NULL, 109, 109, 2, 25},
+  {type__node__temporary_count_of, NULL, 110, 110, 2, 25},
+  {type__node__remark_lines_of, NULL, 111, 111, 2, 22},
+  {type__node__scope_of, NULL, 112, 112, 2, 15},
+  {type__node__section_of, NULL, 113, 113, 2, 17},
+  {type__node__statements_of, NULL, 114, 114, 2, 20},
+  {type__node__submodule_no_of, NULL, 115, 115, 2, 22},
+  {type__node__text_of, NULL, 116, 116, 2, 14},
+  {type__node__type_of, NULL, 117, 117, 2, 14},
+  {type__node__used_names_of, NULL, 118, 118, 2, 20},
+  {type__node__value_of, NULL, 119, 119, 2, 15},
+  {type__node__variable_kind_of, NULL, 120, 120, 2, 23},
+  {type__node__is_a_meta_instruction, NULL, 141, 141, 2, 28},
+  {type__node__is_a_remark, NULL, 180, 180, 2, 18},
+  {type__node__is_a_body, NULL, 189, 189, 2, 16},
+  {type__node__defines_a_dynamic, NULL, 194, 194, 2, 24},
+  {type__node__is_a_call, NULL, 215, 215, 2, 16},
+  {type__node__is_a_procedure_call, NULL, 225, 225, 2, 26},
+  {type__node__is_a_return, NULL, 234, 234, 2, 18},
+  {type__node__is_an_assignment, NULL, 243, 243, 2, 23},
+  {type__node__is_a_definition, NULL, 252, 252, 2, 22},
+  {type__node__is_a_destination, NULL, 253, 253, 2, 23},
+  {type__node__is_an_input_output_argument, NULL, 254, 254, 2, 34},
   {type__node__is_a_static_single_definition, NULL, 268, 268, 2, 36},
   {type__node__is_a_static_multi_definition, NULL, 280, 280, 2, 35},
   {type__node__is_a_dynamic_single_definition, NULL, 292, 292, 2, 37},
   {type__node__is_a_dynamic_multi_definition, NULL, 304, 304, 2, 36},
   {type__node__is_a_function_call, NULL, 316, 316, 2, 25},
-  {type__node__is_an_expression, NULL, 332, 332, 2, 23},
-  {type__node__is_a_backquoted_expression, NULL, 343, 343, 2, 33},
-  {type__node__is_an_attribute_value_pair, NULL, 352, 352, 2, 33},
-  {type__node__is_an_attribute_function_pair, NULL, 362, 362, 2, 36},
-  {type__node__is_a_numeric_literal, NULL, 371, 371, 2, 27},
-  {type__node__is_a_character_literal, NULL, 384, 384, 2, 29},
-  {type__node__is_a_string_literal, NULL, 395, 395, 2, 26},
-  {type__node__is_a_unique_item_constant, NULL, 414, 414, 2, 32},
-  {type__node__is_a_polymorphic_function_constant, NULL, 424, 424, 2, 41},
-  {type__node__is_an_identifier, NULL, 441, 441, 2, 23},
-  {type__node__is_a_destination, NULL, 446, 446, 2, 23},
-  {type__node__is_used_as_a_polymorphic_function, NULL, 450, 450, 2, 40},
-  {type__node__is_a_temporary, NULL, 477, 477, 2, 21},
-  {type__node__is_an_operator_symbol, NULL, 486, 486, 2, 28},
-  {type__node__is_c_code, NULL, 495, 495, 2, 16},
-  {type__node__is_a_c_body, NULL, 506, 506, 2, 18},
-  {run__nodes, NULL, 499, 499, 1, 37},
-  {entry__compiler__numeric_literal__mangled_name_of_1, NULL, 379, 379, 18, 37},
-  {cont__compiler__numeric_literal__mangled_name_of_2, &frame__compiler__numeric_literal__mangled_name_of_1, 379, 379, 39, 47},
-  {cont__compiler__numeric_literal__mangled_name_of_4, &frame__compiler__numeric_literal__mangled_name_of_1, 379, 379, 49, 61},
-  {cont__compiler__numeric_literal__mangled_name_of_5, &frame__compiler__numeric_literal__mangled_name_of_1, 379, 379, 6, 62},
-  {cont__compiler__numeric_literal__mangled_name_of_6, &frame__compiler__numeric_literal__mangled_name_of_1, 379, 379, 3, 62},
-  {entry__compiler__identifier__full_name_of_4, NULL, 461, 461, 19, 36},
-  {cont__compiler__identifier__full_name_of_5, &frame__compiler__identifier__full_name_of_4, 461, 461, 12, 42},
-  {cont__compiler__identifier__full_name_of_7, &frame__compiler__identifier__full_name_of_4, 461, 461, 9, 42},
-  {entry__compiler__identifier__full_name_of_8, NULL, 462, 462, 9, 13},
-  {entry__compiler__identifier__full_name_of_1, NULL, 460, 460, 9, 26},
-  {cont__compiler__identifier__full_name_of_2, &frame__compiler__identifier__full_name_of_1, 460, 460, 9, 37},
-  {cont__compiler__identifier__full_name_of_3, &frame__compiler__identifier__full_name_of_1, 459, 462, 7, 12},
-  {cont__compiler__identifier__full_name_of_9, &frame__compiler__identifier__full_name_of_1, 463, 463, 7, 19},
-  {cont__compiler__identifier__full_name_of_10, &frame__compiler__identifier__full_name_of_1, 458, 463, 5, 18},
-  {cont__compiler__identifier__full_name_of_11, &frame__compiler__identifier__full_name_of_1, 457, 463, 3, 20},
-  {entry__compiler__identifier__mangled_name_of_4, NULL, 470, 470, 19, 36},
-  {cont__compiler__identifier__mangled_name_of_5, &frame__compiler__identifier__mangled_name_of_4, 470, 470, 12, 42},
-  {cont__compiler__identifier__mangled_name_of_7, &frame__compiler__identifier__mangled_name_of_4, 470, 470, 9, 42},
-  {entry__compiler__identifier__mangled_name_of_8, NULL, 471, 471, 9, 13},
-  {entry__compiler__identifier__mangled_name_of_1, NULL, 469, 469, 9, 26},
-  {cont__compiler__identifier__mangled_name_of_2, &frame__compiler__identifier__mangled_name_of_1, 469, 469, 9, 37},
-  {cont__compiler__identifier__mangled_name_of_3, &frame__compiler__identifier__mangled_name_of_1, 468, 471, 7, 12},
-  {cont__compiler__identifier__mangled_name_of_9, &frame__compiler__identifier__mangled_name_of_1, 472, 472, 7, 19},
-  {cont__compiler__identifier__mangled_name_of_10, &frame__compiler__identifier__mangled_name_of_1, 467, 472, 5, 18},
-  {cont__compiler__identifier__mangled_name_of_11, &frame__compiler__identifier__mangled_name_of_1, 466, 472, 3, 20},
-  {entry__compiler__is_a_parameter_1, NULL, 516, 516, 38, 60},
-  {cont__compiler__is_a_parameter_2, &frame__compiler__is_a_parameter_1, 516, 516, 38, 76},
-  {cont__compiler__is_a_parameter_3, &frame__compiler__is_a_parameter_1, 516, 516, 38, 76},
-  {cont__compiler__is_a_parameter_4, &frame__compiler__is_a_parameter_1, 516, 516, 35, 76}
+  {type__node__is_an_expression, NULL, 331, 331, 2, 23},
+  {type__node__is_a_backquoted_expression, NULL, 348, 348, 2, 33},
+  {type__node__is_an_attribute_value_pair, NULL, 357, 357, 2, 33},
+  {type__node__is_an_attribute_function_pair, NULL, 367, 367, 2, 36},
+  {type__node__is_a_numeric_literal, NULL, 376, 376, 2, 27},
+  {type__node__is_a_character_literal, NULL, 389, 389, 2, 29},
+  {type__node__is_a_string_literal, NULL, 400, 400, 2, 26},
+  {type__node__is_a_unique_item_constant, NULL, 419, 419, 2, 32},
+  {type__node__is_a_polymorphic_function_constant, NULL, 429, 429, 2, 41},
+  {type__node__is_an_identifier, NULL, 446, 446, 2, 23},
+  {type__node__is_used_as_a_polymorphic_function, NULL, 451, 451, 2, 40},
+  {type__node__is_used_as_a_destination, NULL, 452, 452, 2, 31},
+  {type__node__is_a_temporary, NULL, 480, 480, 2, 21},
+  {type__node__is_an_operator_symbol, NULL, 489, 489, 2, 28},
+  {type__node__is_c_code, NULL, 498, 498, 2, 16},
+  {type__node__is_a_c_body, NULL, 509, 509, 2, 18},
+  {run__nodes, NULL, 502, 502, 1, 37},
+  {entry__compiler__numeric_literal__mangled_name_of_1, NULL, 384, 384, 18, 37},
+  {cont__compiler__numeric_literal__mangled_name_of_2, &frame__compiler__numeric_literal__mangled_name_of_1, 384, 384, 39, 47},
+  {cont__compiler__numeric_literal__mangled_name_of_4, &frame__compiler__numeric_literal__mangled_name_of_1, 384, 384, 49, 61},
+  {cont__compiler__numeric_literal__mangled_name_of_5, &frame__compiler__numeric_literal__mangled_name_of_1, 384, 384, 6, 62},
+  {cont__compiler__numeric_literal__mangled_name_of_6, &frame__compiler__numeric_literal__mangled_name_of_1, 384, 384, 3, 62},
+  {entry__compiler__identifier__full_name_of_4, NULL, 464, 464, 19, 36},
+  {cont__compiler__identifier__full_name_of_5, &frame__compiler__identifier__full_name_of_4, 464, 464, 12, 42},
+  {cont__compiler__identifier__full_name_of_7, &frame__compiler__identifier__full_name_of_4, 464, 464, 9, 42},
+  {entry__compiler__identifier__full_name_of_8, NULL, 465, 465, 9, 13},
+  {entry__compiler__identifier__full_name_of_1, NULL, 463, 463, 9, 26},
+  {cont__compiler__identifier__full_name_of_2, &frame__compiler__identifier__full_name_of_1, 463, 463, 9, 37},
+  {cont__compiler__identifier__full_name_of_3, &frame__compiler__identifier__full_name_of_1, 464, 464, 9, 42},
+  {cont__compiler__identifier__full_name_of_9, &frame__compiler__identifier__full_name_of_1, 466, 466, 7, 19},
+  {cont__compiler__identifier__full_name_of_10, &frame__compiler__identifier__full_name_of_1, },
+  {cont__compiler__identifier__full_name_of_11, &frame__compiler__identifier__full_name_of_1, 460, 466, 3, 20},
+  {entry__compiler__identifier__mangled_name_of_4, NULL, 473, 473, 19, 36},
+  {cont__compiler__identifier__mangled_name_of_5, &frame__compiler__identifier__mangled_name_of_4, 473, 473, 12, 42},
+  {cont__compiler__identifier__mangled_name_of_7, &frame__compiler__identifier__mangled_name_of_4, 473, 473, 9, 42},
+  {entry__compiler__identifier__mangled_name_of_8, NULL, 474, 474, 9, 13},
+  {entry__compiler__identifier__mangled_name_of_1, NULL, 472, 472, 9, 26},
+  {cont__compiler__identifier__mangled_name_of_2, &frame__compiler__identifier__mangled_name_of_1, 472, 472, 9, 37},
+  {cont__compiler__identifier__mangled_name_of_3, &frame__compiler__identifier__mangled_name_of_1, 473, 473, 9, 42},
+  {cont__compiler__identifier__mangled_name_of_9, &frame__compiler__identifier__mangled_name_of_1, 475, 475, 7, 19},
+  {cont__compiler__identifier__mangled_name_of_10, &frame__compiler__identifier__mangled_name_of_1, },
+  {cont__compiler__identifier__mangled_name_of_11, &frame__compiler__identifier__mangled_name_of_1, 469, 475, 3, 20},
+  {entry__compiler__is_a_parameter_1, NULL, 519, 519, 38, 60},
+  {cont__compiler__is_a_parameter_2, &frame__compiler__is_a_parameter_1, 519, 519, 38, 76},
+  {cont__compiler__is_a_parameter_3, &frame__compiler__is_a_parameter_1, 519, 519, 38, 76},
+  {cont__compiler__is_a_parameter_4, &frame__compiler__is_a_parameter_1, 519, 519, 35, 76}
 };
 
 union NODE {
@@ -1441,6 +1439,10 @@ union NODE {
   CLOSURE closure;
 };
 static void type__node__argument_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__argument_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1463,6 +1465,10 @@ static void type__node__argument_of(void) {
   }
 }
 static void type__node__arguments_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__arguments_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1485,6 +1491,10 @@ static void type__node__arguments_of(void) {
   }
 }
 static void type__node__attribute_kind_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__attribute_kind_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1507,6 +1517,10 @@ static void type__node__attribute_kind_of(void) {
   }
 }
 static void type__node__attribute_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__attribute_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1529,6 +1543,10 @@ static void type__node__attribute_of(void) {
   }
 }
 static void type__node__base_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__base_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1551,6 +1569,10 @@ static void type__node__base_of(void) {
   }
 }
 static void type__node__default_value_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__default_value_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1573,6 +1595,10 @@ static void type__node__default_value_of(void) {
   }
 }
 static void type__node__defined_names_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__defined_names_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1595,6 +1621,10 @@ static void type__node__defined_names_of(void) {
   }
 }
 static void type__node__definitions_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__definitions_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1617,6 +1647,10 @@ static void type__node__definitions_of(void) {
   }
 }
 static void type__node__destination_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__destination_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1639,6 +1673,10 @@ static void type__node__destination_of(void) {
   }
 }
 static void type__node__end_position_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__end_position_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1660,29 +1698,11 @@ static void type__node__end_position_of(void) {
     func = myself->type;
   }
 }
-static void type__node__enumeration_no_of(void) {
-  myself = get_attribute(arguments->slots[0], poly_idx__node__enumeration_no_of);
-  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
-    if (argument_count != 1) {
-      if (argument_count != 2) invalid_arguments_error();
-      NODE *attr = arguments->slots[1];
-      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
-      update_start_p = node_p;
-      set_attribute_value(temp->attributes, poly_idx__node__enumeration_no_of, attr);
-      arguments = node_p;
-      argument_count = 1;
-      arguments->slots[0] = temp;
-    } else {
-      arguments = node_p;
-      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
-    }
-    func = frame->cont;
-    frame->cont = invalid_continuation;
-  } else {
-    func = myself->type;
-  }
-}
 static void type__node__expression_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__expression_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1705,6 +1725,10 @@ static void type__node__expression_of(void) {
   }
 }
 static void type__node__filemask_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__filemask_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1727,6 +1751,10 @@ static void type__node__filemask_of(void) {
   }
 }
 static void type__node__filename_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__filename_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1749,6 +1777,10 @@ static void type__node__filename_of(void) {
   }
 }
 static void type__node__fragment_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__fragment_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1771,6 +1803,10 @@ static void type__node__fragment_of(void) {
   }
 }
 static void type__node__full_name_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__full_name_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1793,6 +1829,10 @@ static void type__node__full_name_of(void) {
   }
 }
 static void type__node__functor_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__functor_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1815,6 +1855,10 @@ static void type__node__functor_of(void) {
   }
 }
 static void type__node__identifier_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__identifier_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1837,6 +1881,10 @@ static void type__node__identifier_of(void) {
   }
 }
 static void type__node__inherited_names_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__inherited_names_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1859,6 +1907,10 @@ static void type__node__inherited_names_of(void) {
   }
 }
 static void type__node__is_a_constant(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_constant);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1881,6 +1933,10 @@ static void type__node__is_a_constant(void) {
   }
 }
 static void type__node__is_a_dynamic_definition(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_dynamic_definition);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1903,6 +1959,10 @@ static void type__node__is_a_dynamic_definition(void) {
   }
 }
 static void type__node__is_a_method_definition(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_method_definition);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1925,6 +1985,10 @@ static void type__node__is_a_method_definition(void) {
   }
 }
 static void type__node__is_a_multi_assign_definition(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_multi_assign_definition);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1947,6 +2011,10 @@ static void type__node__is_a_multi_assign_definition(void) {
   }
 }
 static void type__node__is_an_expanded_item(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_expanded_item);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1969,6 +2037,10 @@ static void type__node__is_an_expanded_item(void) {
   }
 }
 static void type__node__is_an_optional_item(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_optional_item);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1991,6 +2063,10 @@ static void type__node__is_an_optional_item(void) {
   }
 }
 static void type__node__is_a_setter(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_setter);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2013,6 +2089,10 @@ static void type__node__is_a_setter(void) {
   }
 }
 static void type__node__is_a_single_assign_definition(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_single_assign_definition);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2035,6 +2115,10 @@ static void type__node__is_a_single_assign_definition(void) {
   }
 }
 static void type__node__is_a_static_definition(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_static_definition);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2057,6 +2141,10 @@ static void type__node__is_a_static_definition(void) {
   }
 }
 static void type__node__is_a_string_template(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_string_template);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2079,6 +2167,10 @@ static void type__node__is_a_string_template(void) {
   }
 }
 static void type__node__is_an_attribute_access(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_attribute_access);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2101,6 +2193,10 @@ static void type__node__is_an_attribute_access(void) {
   }
 }
 static void type__node__is_an_initialization(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_initialization);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2123,6 +2219,10 @@ static void type__node__is_an_initialization(void) {
   }
 }
 static void type__node__is_in_infix_notation(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_in_infix_notation);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2145,6 +2245,10 @@ static void type__node__is_in_infix_notation(void) {
   }
 }
 static void type__node__is_in_numeric_notation(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_in_numeric_notation);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2167,6 +2271,10 @@ static void type__node__is_in_numeric_notation(void) {
   }
 }
 static void type__node__is_mutable(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_mutable);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2189,6 +2297,10 @@ static void type__node__is_mutable(void) {
   }
 }
 static void type__node__is_not_used(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_not_used);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2211,6 +2323,10 @@ static void type__node__is_not_used(void) {
   }
 }
 static void type__node__kind_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__kind_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2233,6 +2349,10 @@ static void type__node__kind_of(void) {
   }
 }
 static void type__node__last_line_end_specifier_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__last_line_end_specifier_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2255,6 +2375,10 @@ static void type__node__last_line_end_specifier_of(void) {
   }
 }
 static void type__node__line_end_specifier_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__line_end_specifier_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2277,6 +2401,10 @@ static void type__node__line_end_specifier_of(void) {
   }
 }
 static void type__node__lowest_precedence_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__lowest_precedence_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2299,6 +2427,10 @@ static void type__node__lowest_precedence_of(void) {
   }
 }
 static void type__node__mangled_name_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__mangled_name_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2321,6 +2453,10 @@ static void type__node__mangled_name_of(void) {
   }
 }
 static void type__node__max_length_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__max_length_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2343,6 +2479,10 @@ static void type__node__max_length_of(void) {
   }
 }
 static void type__node__message_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__message_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2365,6 +2505,10 @@ static void type__node__message_of(void) {
   }
 }
 static void type__node__name_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__name_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2387,6 +2531,10 @@ static void type__node__name_of(void) {
   }
 }
 static void type__node__namespace_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__namespace_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2409,6 +2557,10 @@ static void type__node__namespace_of(void) {
   }
 }
 static void type__node__namespace_alias_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__namespace_alias_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2431,6 +2583,10 @@ static void type__node__namespace_alias_of(void) {
   }
 }
 static void type__node__node_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__node_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2453,6 +2609,10 @@ static void type__node__node_of(void) {
   }
 }
 static void type__node__operators_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__operators_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2474,29 +2634,11 @@ static void type__node__operators_of(void) {
     func = myself->type;
   }
 }
-static void type__node__output_arguments_of(void) {
-  myself = get_attribute(arguments->slots[0], poly_idx__node__output_arguments_of);
-  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
-    if (argument_count != 1) {
-      if (argument_count != 2) invalid_arguments_error();
-      NODE *attr = arguments->slots[1];
-      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
-      update_start_p = node_p;
-      set_attribute_value(temp->attributes, poly_idx__node__output_arguments_of, attr);
-      arguments = node_p;
-      argument_count = 1;
-      arguments->slots[0] = temp;
-    } else {
-      arguments = node_p;
-      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
-    }
-    func = frame->cont;
-    frame->cont = invalid_continuation;
-  } else {
-    func = myself->type;
-  }
-}
 static void type__node__parameter_kind_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__parameter_kind_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2519,6 +2661,10 @@ static void type__node__parameter_kind_of(void) {
   }
 }
 static void type__node__parameters_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__parameters_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2541,6 +2687,10 @@ static void type__node__parameters_of(void) {
   }
 }
 static void type__node__parent_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__parent_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2563,6 +2713,10 @@ static void type__node__parent_of(void) {
   }
 }
 static void type__node__result_count_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__result_count_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2585,6 +2739,10 @@ static void type__node__result_count_of(void) {
   }
 }
 static void type__node__continuation_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__continuation_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2607,6 +2765,10 @@ static void type__node__continuation_of(void) {
   }
 }
 static void type__node__source_position_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__source_position_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2629,6 +2791,10 @@ static void type__node__source_position_of(void) {
   }
 }
 static void type__node__temporary_count_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__temporary_count_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2651,6 +2817,10 @@ static void type__node__temporary_count_of(void) {
   }
 }
 static void type__node__remark_lines_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__remark_lines_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2672,29 +2842,11 @@ static void type__node__remark_lines_of(void) {
     func = myself->type;
   }
 }
-static void type__node__remark_lines_behind_of(void) {
-  myself = get_attribute(arguments->slots[0], poly_idx__node__remark_lines_behind_of);
-  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
-    if (argument_count != 1) {
-      if (argument_count != 2) invalid_arguments_error();
-      NODE *attr = arguments->slots[1];
-      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
-      update_start_p = node_p;
-      set_attribute_value(temp->attributes, poly_idx__node__remark_lines_behind_of, attr);
-      arguments = node_p;
-      argument_count = 1;
-      arguments->slots[0] = temp;
-    } else {
-      arguments = node_p;
-      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
-    }
-    func = frame->cont;
-    frame->cont = invalid_continuation;
-  } else {
-    func = myself->type;
-  }
-}
 static void type__node__scope_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__scope_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2717,6 +2869,10 @@ static void type__node__scope_of(void) {
   }
 }
 static void type__node__section_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__section_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2739,6 +2895,10 @@ static void type__node__section_of(void) {
   }
 }
 static void type__node__statements_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__statements_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2761,6 +2921,10 @@ static void type__node__statements_of(void) {
   }
 }
 static void type__node__submodule_no_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__submodule_no_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2783,6 +2947,10 @@ static void type__node__submodule_no_of(void) {
   }
 }
 static void type__node__text_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__text_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2805,6 +2973,10 @@ static void type__node__text_of(void) {
   }
 }
 static void type__node__type_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__type_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2827,6 +2999,10 @@ static void type__node__type_of(void) {
   }
 }
 static void type__node__used_names_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__used_names_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2849,6 +3025,10 @@ static void type__node__used_names_of(void) {
   }
 }
 static void type__node__value_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__value_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2871,6 +3051,10 @@ static void type__node__value_of(void) {
   }
 }
 static void type__node__variable_kind_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__variable_kind_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2893,6 +3077,10 @@ static void type__node__variable_kind_of(void) {
   }
 }
 static void type__node__is_a_meta_instruction(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_meta_instruction);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2915,6 +3103,10 @@ static void type__node__is_a_meta_instruction(void) {
   }
 }
 static void type__node__is_a_remark(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_remark);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2937,6 +3129,10 @@ static void type__node__is_a_remark(void) {
   }
 }
 static void type__node__is_a_body(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_body);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2959,6 +3155,10 @@ static void type__node__is_a_body(void) {
   }
 }
 static void type__node__defines_a_dynamic(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__defines_a_dynamic);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2981,6 +3181,10 @@ static void type__node__defines_a_dynamic(void) {
   }
 }
 static void type__node__is_a_call(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_call);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3003,6 +3207,10 @@ static void type__node__is_a_call(void) {
   }
 }
 static void type__node__is_a_procedure_call(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_procedure_call);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3025,6 +3233,10 @@ static void type__node__is_a_procedure_call(void) {
   }
 }
 static void type__node__is_a_return(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_return);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3047,6 +3259,10 @@ static void type__node__is_a_return(void) {
   }
 }
 static void type__node__is_an_assignment(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_assignment);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3069,6 +3285,10 @@ static void type__node__is_an_assignment(void) {
   }
 }
 static void type__node__is_a_definition(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_definition);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3090,7 +3310,63 @@ static void type__node__is_a_definition(void) {
     func = myself->type;
   }
 }
+static void type__node__is_a_destination(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
+  myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_destination);
+  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
+    if (argument_count != 1) {
+      if (argument_count != 2) invalid_arguments_error();
+      NODE *attr = arguments->slots[1];
+      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
+      update_start_p = node_p;
+      set_attribute_value(temp->attributes, poly_idx__node__is_a_destination, attr);
+      arguments = node_p;
+      argument_count = 1;
+      arguments->slots[0] = temp;
+    } else {
+      arguments = node_p;
+      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
+    }
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+  } else {
+    func = myself->type;
+  }
+}
+static void type__node__is_an_input_output_argument(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
+  myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_input_output_argument);
+  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
+    if (argument_count != 1) {
+      if (argument_count != 2) invalid_arguments_error();
+      NODE *attr = arguments->slots[1];
+      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
+      update_start_p = node_p;
+      set_attribute_value(temp->attributes, poly_idx__node__is_an_input_output_argument, attr);
+      arguments = node_p;
+      argument_count = 1;
+      arguments->slots[0] = temp;
+    } else {
+      arguments = node_p;
+      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
+    }
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+  } else {
+    func = myself->type;
+  }
+}
 static void type__node__is_a_static_single_definition(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_static_single_definition);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3113,6 +3389,10 @@ static void type__node__is_a_static_single_definition(void) {
   }
 }
 static void type__node__is_a_static_multi_definition(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_static_multi_definition);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3135,6 +3415,10 @@ static void type__node__is_a_static_multi_definition(void) {
   }
 }
 static void type__node__is_a_dynamic_single_definition(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_dynamic_single_definition);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3157,6 +3441,10 @@ static void type__node__is_a_dynamic_single_definition(void) {
   }
 }
 static void type__node__is_a_dynamic_multi_definition(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_dynamic_multi_definition);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3179,6 +3467,10 @@ static void type__node__is_a_dynamic_multi_definition(void) {
   }
 }
 static void type__node__is_a_function_call(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_function_call);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3201,6 +3493,10 @@ static void type__node__is_a_function_call(void) {
   }
 }
 static void type__node__is_an_expression(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_expression);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3223,6 +3519,10 @@ static void type__node__is_an_expression(void) {
   }
 }
 static void type__node__is_a_backquoted_expression(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_backquoted_expression);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3245,6 +3545,10 @@ static void type__node__is_a_backquoted_expression(void) {
   }
 }
 static void type__node__is_an_attribute_value_pair(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_attribute_value_pair);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3267,6 +3571,10 @@ static void type__node__is_an_attribute_value_pair(void) {
   }
 }
 static void type__node__is_an_attribute_function_pair(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_attribute_function_pair);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3289,6 +3597,10 @@ static void type__node__is_an_attribute_function_pair(void) {
   }
 }
 static void type__node__is_a_numeric_literal(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_numeric_literal);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3311,6 +3623,10 @@ static void type__node__is_a_numeric_literal(void) {
   }
 }
 static void type__node__is_a_character_literal(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_character_literal);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3333,6 +3649,10 @@ static void type__node__is_a_character_literal(void) {
   }
 }
 static void type__node__is_a_string_literal(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_string_literal);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3355,6 +3675,10 @@ static void type__node__is_a_string_literal(void) {
   }
 }
 static void type__node__is_a_unique_item_constant(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_unique_item_constant);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3377,6 +3701,10 @@ static void type__node__is_a_unique_item_constant(void) {
   }
 }
 static void type__node__is_a_polymorphic_function_constant(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_polymorphic_function_constant);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3399,6 +3727,10 @@ static void type__node__is_a_polymorphic_function_constant(void) {
   }
 }
 static void type__node__is_an_identifier(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_identifier);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3420,29 +3752,11 @@ static void type__node__is_an_identifier(void) {
     func = myself->type;
   }
 }
-static void type__node__is_a_destination(void) {
-  myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_destination);
-  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
-    if (argument_count != 1) {
-      if (argument_count != 2) invalid_arguments_error();
-      NODE *attr = arguments->slots[1];
-      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
-      update_start_p = node_p;
-      set_attribute_value(temp->attributes, poly_idx__node__is_a_destination, attr);
-      arguments = node_p;
-      argument_count = 1;
-      arguments->slots[0] = temp;
-    } else {
-      arguments = node_p;
-      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
-    }
-    func = frame->cont;
-    frame->cont = invalid_continuation;
-  } else {
-    func = myself->type;
-  }
-}
 static void type__node__is_used_as_a_polymorphic_function(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_used_as_a_polymorphic_function);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3464,7 +3778,37 @@ static void type__node__is_used_as_a_polymorphic_function(void) {
     func = myself->type;
   }
 }
+static void type__node__is_used_as_a_destination(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
+  myself = get_attribute(arguments->slots[0], poly_idx__node__is_used_as_a_destination);
+  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
+    if (argument_count != 1) {
+      if (argument_count != 2) invalid_arguments_error();
+      NODE *attr = arguments->slots[1];
+      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
+      update_start_p = node_p;
+      set_attribute_value(temp->attributes, poly_idx__node__is_used_as_a_destination, attr);
+      arguments = node_p;
+      argument_count = 1;
+      arguments->slots[0] = temp;
+    } else {
+      arguments = node_p;
+      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
+    }
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+  } else {
+    func = myself->type;
+  }
+}
 static void type__node__is_a_temporary(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_temporary);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3487,6 +3831,10 @@ static void type__node__is_a_temporary(void) {
   }
 }
 static void type__node__is_an_operator_symbol(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_operator_symbol);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3509,6 +3857,10 @@ static void type__node__is_an_operator_symbol(void) {
   }
 }
 static void type__node__is_c_code(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_c_code);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3531,6 +3883,10 @@ static void type__node__is_c_code(void) {
   }
 }
 static void type__node__is_a_c_body(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_c_body);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3588,35 +3944,37 @@ EXPORT void run__nodes(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 149: $compiler::meta_instruction types::grammar_node
+  // 145: $compiler::meta_instruction types::grammar_node
   initialize_maybe_future(var.compiler__meta_instruction, get__types__grammar_node());
-  // 200: $compiler::body types::grammar_node
+  // 196: $compiler::body types::grammar_node
   initialize_maybe_future(var.compiler__body, get__types__grammar_node());
-  // 214: $compiler::statement types::grammar_node
+  // 210: $compiler::statement types::grammar_node
   initialize_maybe_future(var.compiler__statement, get__types__grammar_node());
-  // 261: $compiler::definition types::grammar_node
+  // 259: $compiler::definition types::grammar_node
   initialize_maybe_future(var.compiler__definition, get__types__grammar_node());
   // 320: $compiler::function_call types::grammar_node
   initialize_maybe_future(var.compiler__function_call, get__types__grammar_node());
-  // 336: $compiler::expression types::grammar_node
+  // 335: $compiler::expression types::grammar_node
   initialize_maybe_future(var.compiler__expression, get__types__grammar_node());
-  // 347: $compiler::backquoted types::grammar_node
+  // 343: $compiler::remark_argument types::grammar_node
+  initialize_maybe_future(var.compiler__remark_argument, get__types__grammar_node());
+  // 352: $compiler::backquoted types::grammar_node
   initialize_maybe_future(var.compiler__backquoted, get__types__grammar_node());
-  // 356: $compiler::attribute_value_pair types::grammar_node
+  // 361: $compiler::attribute_value_pair types::grammar_node
   initialize_maybe_future(var.compiler__attribute_value_pair, get__types__grammar_node());
-  // 375: $compiler::numeric_literal types::grammar_node
+  // 380: $compiler::numeric_literal types::grammar_node
   initialize_maybe_future(var.compiler__numeric_literal, get__types__grammar_node());
-  // 388: $compiler::character_literal types::grammar_node
+  // 393: $compiler::character_literal types::grammar_node
   initialize_maybe_future(var.compiler__character_literal, get__types__grammar_node());
-  // 399: $compiler::string_literal types::grammar_node
+  // 404: $compiler::string_literal types::grammar_node
   initialize_maybe_future(var.compiler__string_literal, get__types__grammar_node());
-  // 418: $compiler::unique_item types::grammar_node
+  // 423: $compiler::unique_item types::grammar_node
   initialize_maybe_future(var.compiler__unique_item, get__types__grammar_node());
-  // 428: $compiler::polymorphic_function types::grammar_node
+  // 433: $compiler::polymorphic_function types::grammar_node
   initialize_maybe_future(var.compiler__polymorphic_function, get__types__grammar_node());
-  // 454: $compiler::identifier types::grammar_node
+  // 457: $compiler::identifier types::grammar_node
   initialize_maybe_future(var.compiler__identifier, get__types__grammar_node());
-  // 499: $compiler::c_code types::grammar_node
+  // 502: $compiler::c_code types::grammar_node
   initialize_maybe_future(var.compiler__c_code, get__types__grammar_node());
   frame = frame->caller_frame;
   func = frame->cont;
@@ -3630,7 +3988,7 @@ static void entry__compiler__numeric_literal__mangled_name_of_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 379: ... node::value_of(self)
+  // 384: ... node::value_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3645,7 +4003,7 @@ static void cont__compiler__numeric_literal__mangled_name_of_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 379: ... '.' = "_"
+  // 384: ... '.' = "_"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__46;
@@ -3661,7 +4019,7 @@ static void cont__compiler__numeric_literal__mangled_name_of_4(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 379: ... '@apos;' = ""
+  // 384: ... '@apos;' = ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__39;
@@ -3677,7 +4035,7 @@ static void cont__compiler__numeric_literal__mangled_name_of_5(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 379: ... replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
+  // 384: ... replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3694,7 +4052,7 @@ static void cont__compiler__numeric_literal__mangled_name_of_6(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 379: -> replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
+  // 384: -> replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3710,7 +4068,7 @@ static void entry__compiler__identifier__full_name_of_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 460: namespace_of(self)
+  // 463: namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3725,7 +4083,7 @@ static void cont__compiler__identifier__full_name_of_2(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 460: namespace_of(self).is_defined
+  // 463: namespace_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__4 */;
@@ -3740,12 +4098,8 @@ static void cont__compiler__identifier__full_name_of_3(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 461: -> string(namespace_of(self) "::")
+  // 464: -> string(namespace_of(self) "::")
   frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__identifier__full_name_of_4, 0);
-  // 459: if
-  // 460:   namespace_of(self).is_defined
-  // 461:   -> string(namespace_of(self) "::")
-  // 462:   -> ""
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -3765,7 +4119,7 @@ static void entry__compiler__identifier__full_name_of_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 461: ... namespace_of(self)
+  // 464: ... namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3780,7 +4134,7 @@ static void cont__compiler__identifier__full_name_of_5(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 461: ... string(namespace_of(self) "::")
+  // 464: ... string(namespace_of(self) "::")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3796,7 +4150,7 @@ static void cont__compiler__identifier__full_name_of_7(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 461: -> string(namespace_of(self) "::")
+  // 464: -> string(namespace_of(self) "::")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3811,7 +4165,7 @@ static void entry__compiler__identifier__full_name_of_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 462: -> ""
+  // 465: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -3825,7 +4179,7 @@ static void cont__compiler__identifier__full_name_of_9(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 463: name_of(self)
+  // 466: name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3840,12 +4194,6 @@ static void cont__compiler__identifier__full_name_of_10(void) {
     return;
   }
   frame->slots[6] /* temp__6 */ = arguments->slots[0];
-  // 458: string
-  // 459:   if
-  // 460:     namespace_of(self).is_defined
-  // 461:     -> string(namespace_of(self) "::")
-  // 462:     -> ""
-  // 463:   name_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3861,13 +4209,13 @@ static void cont__compiler__identifier__full_name_of_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 457: ->
-  // 458:   string
-  // 459:     if
-  // 460:       namespace_of(self).is_defined
-  // 461:       -> string(namespace_of(self) "::")
-  // 462:       -> ""
-  // 463:     name_of(self)
+  // 460: ->
+  // 461:   string
+  // 462:     if
+  // 463:       namespace_of(self).is_defined
+  // 464:       -> string(namespace_of(self) "::")
+  // 465:       -> ""
+  // 466:     name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3883,7 +4231,7 @@ static void entry__compiler__identifier__mangled_name_of_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 469: namespace_of(self)
+  // 472: namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3898,7 +4246,7 @@ static void cont__compiler__identifier__mangled_name_of_2(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 469: namespace_of(self).is_defined
+  // 472: namespace_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__4 */;
@@ -3913,12 +4261,8 @@ static void cont__compiler__identifier__mangled_name_of_3(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 470: -> string(namespace_of(self) "__")
+  // 473: -> string(namespace_of(self) "__")
   frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__identifier__mangled_name_of_4, 0);
-  // 468: if
-  // 469:   namespace_of(self).is_defined
-  // 470:   -> string(namespace_of(self) "__")
-  // 471:   -> ""
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -3938,7 +4282,7 @@ static void entry__compiler__identifier__mangled_name_of_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 470: ... namespace_of(self)
+  // 473: ... namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3953,7 +4297,7 @@ static void cont__compiler__identifier__mangled_name_of_5(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 470: ... string(namespace_of(self) "__")
+  // 473: ... string(namespace_of(self) "__")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3969,7 +4313,7 @@ static void cont__compiler__identifier__mangled_name_of_7(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 470: -> string(namespace_of(self) "__")
+  // 473: -> string(namespace_of(self) "__")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3984,7 +4328,7 @@ static void entry__compiler__identifier__mangled_name_of_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 471: -> ""
+  // 474: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -3998,7 +4342,7 @@ static void cont__compiler__identifier__mangled_name_of_9(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 472: name_of(self)
+  // 475: name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -4013,12 +4357,6 @@ static void cont__compiler__identifier__mangled_name_of_10(void) {
     return;
   }
   frame->slots[6] /* temp__6 */ = arguments->slots[0];
-  // 467: string
-  // 468:   if
-  // 469:     namespace_of(self).is_defined
-  // 470:     -> string(namespace_of(self) "__")
-  // 471:     -> ""
-  // 472:   name_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4034,13 +4372,13 @@ static void cont__compiler__identifier__mangled_name_of_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 466: ->
-  // 467:   string
-  // 468:     if
-  // 469:       namespace_of(self).is_defined
-  // 470:       -> string(namespace_of(self) "__")
-  // 471:       -> ""
-  // 472:     name_of(self)
+  // 469: ->
+  // 470:   string
+  // 471:     if
+  // 472:       namespace_of(self).is_defined
+  // 473:       -> string(namespace_of(self) "__")
+  // 474:       -> ""
+  // 475:     name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4056,7 +4394,7 @@ static void entry__compiler__is_a_parameter_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 516: ... parameter_kind_of(self)
+  // 519: ... parameter_kind_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -4071,7 +4409,7 @@ static void cont__compiler__is_a_parameter_2(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 516: ... parameter_kind_of(self) != NO_PARAMETER
+  // 519: ... parameter_kind_of(self) != NO_PARAMETER
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -4087,7 +4425,7 @@ static void cont__compiler__is_a_parameter_3(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 516: ... parameter_kind_of(self) != NO_PARAMETER
+  // 519: ... parameter_kind_of(self) != NO_PARAMETER
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4102,7 +4440,7 @@ static void cont__compiler__is_a_parameter_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 516: ... -> parameter_kind_of(self) != NO_PARAMETER
+  // 519: ... -> parameter_kind_of(self) != NO_PARAMETER
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4138,7 +4476,6 @@ EXPORT void collect__nodes(void) {
   var.node__definitions_of = collect_node(var.node__definitions_of);
   var.node__destination_of = collect_node(var.node__destination_of);
   var.node__end_position_of = collect_node(var.node__end_position_of);
-  var.node__enumeration_no_of = collect_node(var.node__enumeration_no_of);
   var.node__expression_of = collect_node(var.node__expression_of);
   var.node__filemask_of = collect_node(var.node__filemask_of);
   var.node__filename_of = collect_node(var.node__filename_of);
@@ -4175,7 +4512,6 @@ EXPORT void collect__nodes(void) {
   var.node__namespace_alias_of = collect_node(var.node__namespace_alias_of);
   var.node__node_of = collect_node(var.node__node_of);
   var.node__operators_of = collect_node(var.node__operators_of);
-  var.node__output_arguments_of = collect_node(var.node__output_arguments_of);
   var.node__parameter_kind_of = collect_node(var.node__parameter_kind_of);
   var.node__parameters_of = collect_node(var.node__parameters_of);
   var.node__parent_of = collect_node(var.node__parent_of);
@@ -4184,7 +4520,6 @@ EXPORT void collect__nodes(void) {
   var.node__source_position_of = collect_node(var.node__source_position_of);
   var.node__temporary_count_of = collect_node(var.node__temporary_count_of);
   var.node__remark_lines_of = collect_node(var.node__remark_lines_of);
-  var.node__remark_lines_behind_of = collect_node(var.node__remark_lines_behind_of);
   var.node__scope_of = collect_node(var.node__scope_of);
   var.node__section_of = collect_node(var.node__section_of);
   var.node__statements_of = collect_node(var.node__statements_of);
@@ -4217,6 +4552,8 @@ EXPORT void collect__nodes(void) {
   var.node__is_an_assignment = collect_node(var.node__is_an_assignment);
   var.compiler__assignment = collect_node(var.compiler__assignment);
   var.node__is_a_definition = collect_node(var.node__is_a_definition);
+  var.node__is_a_destination = collect_node(var.node__is_a_destination);
+  var.node__is_an_input_output_argument = collect_node(var.node__is_an_input_output_argument);
   var.compiler__definition = collect_node(var.compiler__definition);
   var.node__is_a_static_single_definition = collect_node(var.node__is_a_static_single_definition);
   var.compiler__define_static_single = collect_node(var.compiler__define_static_single);
@@ -4230,6 +4567,7 @@ EXPORT void collect__nodes(void) {
   var.compiler__function_call = collect_node(var.compiler__function_call);
   var.node__is_an_expression = collect_node(var.node__is_an_expression);
   var.compiler__expression = collect_node(var.compiler__expression);
+  var.compiler__remark_argument = collect_node(var.compiler__remark_argument);
   var.node__is_a_backquoted_expression = collect_node(var.node__is_a_backquoted_expression);
   var.compiler__backquoted = collect_node(var.compiler__backquoted);
   var.node__is_an_attribute_value_pair = collect_node(var.node__is_an_attribute_value_pair);
@@ -4249,8 +4587,8 @@ EXPORT void collect__nodes(void) {
   var.compiler__polymorphic_function = collect_node(var.compiler__polymorphic_function);
   var.compiler__polymorphic_function_with_setter = collect_node(var.compiler__polymorphic_function_with_setter);
   var.node__is_an_identifier = collect_node(var.node__is_an_identifier);
-  var.node__is_a_destination = collect_node(var.node__is_a_destination);
   var.node__is_used_as_a_polymorphic_function = collect_node(var.node__is_used_as_a_polymorphic_function);
+  var.node__is_used_as_a_destination = collect_node(var.node__is_used_as_a_destination);
   var.compiler__identifier = collect_node(var.compiler__identifier);
   var.node__is_a_temporary = collect_node(var.node__is_a_temporary);
   var.compiler__temporary = collect_node(var.compiler__temporary);
@@ -4307,7 +4645,6 @@ EXPORT void phase_2__nodes(void) {
   define_polymorphic_function_with_setter("node", "definitions_of", get__node__definitions_of, &poly_idx__node__definitions_of, &var.node__definitions_of);
   define_polymorphic_function_with_setter("node", "destination_of", get__node__destination_of, &poly_idx__node__destination_of, &var.node__destination_of);
   define_polymorphic_function_with_setter("node", "end_position_of", get__node__end_position_of, &poly_idx__node__end_position_of, &var.node__end_position_of);
-  define_polymorphic_function_with_setter("node", "enumeration_no_of", get__node__enumeration_no_of, &poly_idx__node__enumeration_no_of, &var.node__enumeration_no_of);
   define_polymorphic_function_with_setter("node", "expression_of", get__node__expression_of, &poly_idx__node__expression_of, &var.node__expression_of);
   define_polymorphic_function_with_setter("node", "filemask_of", get__node__filemask_of, &poly_idx__node__filemask_of, &var.node__filemask_of);
   define_polymorphic_function_with_setter("node", "filename_of", get__node__filename_of, &poly_idx__node__filename_of, &var.node__filename_of);
@@ -4336,7 +4673,7 @@ EXPORT void phase_2__nodes(void) {
   define_polymorphic_function_with_setter("node", "last_line_end_specifier_of", get__node__last_line_end_specifier_of, &poly_idx__node__last_line_end_specifier_of, &var.node__last_line_end_specifier_of);
   define_polymorphic_function_with_setter("node", "line_end_specifier_of", get__node__line_end_specifier_of, &poly_idx__node__line_end_specifier_of, &var.node__line_end_specifier_of);
   define_polymorphic_function_with_setter("node", "lowest_precedence_of", get__node__lowest_precedence_of, &poly_idx__node__lowest_precedence_of, &var.node__lowest_precedence_of);
-  define_polymorphic_function_with_setter("node", "mangled_name_of", get__node__mangled_name_of, &poly_idx__node__mangled_name_of, &var.node__mangled_name_of);
+  define_polymorphic_function("node", "mangled_name_of", get__node__mangled_name_of, &poly_idx__node__mangled_name_of, &var.node__mangled_name_of);
   define_polymorphic_function_with_setter("node", "max_length_of", get__node__max_length_of, &poly_idx__node__max_length_of, &var.node__max_length_of);
   define_polymorphic_function_with_setter("node", "message_of", get__node__message_of, &poly_idx__node__message_of, &var.node__message_of);
   define_polymorphic_function_with_setter("node", "name_of", get__node__name_of, &poly_idx__node__name_of, &var.node__name_of);
@@ -4344,7 +4681,6 @@ EXPORT void phase_2__nodes(void) {
   define_polymorphic_function_with_setter("node", "namespace_alias_of", get__node__namespace_alias_of, &poly_idx__node__namespace_alias_of, &var.node__namespace_alias_of);
   define_polymorphic_function_with_setter("node", "node_of", get__node__node_of, &poly_idx__node__node_of, &var.node__node_of);
   define_polymorphic_function_with_setter("node", "operators_of", get__node__operators_of, &poly_idx__node__operators_of, &var.node__operators_of);
-  define_polymorphic_function_with_setter("node", "output_arguments_of", get__node__output_arguments_of, &poly_idx__node__output_arguments_of, &var.node__output_arguments_of);
   define_polymorphic_function_with_setter("node", "parameter_kind_of", get__node__parameter_kind_of, &poly_idx__node__parameter_kind_of, &var.node__parameter_kind_of);
   define_polymorphic_function_with_setter("node", "parameters_of", get__node__parameters_of, &poly_idx__node__parameters_of, &var.node__parameters_of);
   define_polymorphic_function_with_setter("node", "parent_of", get__node__parent_of, &poly_idx__node__parent_of, &var.node__parent_of);
@@ -4353,7 +4689,6 @@ EXPORT void phase_2__nodes(void) {
   define_polymorphic_function_with_setter("node", "source_position_of", get__node__source_position_of, &poly_idx__node__source_position_of, &var.node__source_position_of);
   define_polymorphic_function_with_setter("node", "temporary_count_of", get__node__temporary_count_of, &poly_idx__node__temporary_count_of, &var.node__temporary_count_of);
   define_polymorphic_function("node", "remark_lines_of", get__node__remark_lines_of, &poly_idx__node__remark_lines_of, &var.node__remark_lines_of);
-  define_polymorphic_function("node", "remark_lines_behind_of", get__node__remark_lines_behind_of, &poly_idx__node__remark_lines_behind_of, &var.node__remark_lines_behind_of);
   define_polymorphic_function_with_setter("node", "scope_of", get__node__scope_of, &poly_idx__node__scope_of, &var.node__scope_of);
   define_polymorphic_function_with_setter("node", "section_of", get__node__section_of, &poly_idx__node__section_of, &var.node__section_of);
   define_polymorphic_function_with_setter("node", "statements_of", get__node__statements_of, &poly_idx__node__statements_of, &var.node__statements_of);
@@ -4372,6 +4707,8 @@ EXPORT void phase_2__nodes(void) {
   define_polymorphic_function("node", "is_a_return", get__node__is_a_return, &poly_idx__node__is_a_return, &var.node__is_a_return);
   define_polymorphic_function("node", "is_an_assignment", get__node__is_an_assignment, &poly_idx__node__is_an_assignment, &var.node__is_an_assignment);
   define_polymorphic_function("node", "is_a_definition", get__node__is_a_definition, &poly_idx__node__is_a_definition, &var.node__is_a_definition);
+  define_polymorphic_function("node", "is_a_destination", get__node__is_a_destination, &poly_idx__node__is_a_destination, &var.node__is_a_destination);
+  define_polymorphic_function("node", "is_an_input_output_argument", get__node__is_an_input_output_argument, &poly_idx__node__is_an_input_output_argument, &var.node__is_an_input_output_argument);
   define_polymorphic_function("node", "is_a_static_single_definition", get__node__is_a_static_single_definition, &poly_idx__node__is_a_static_single_definition, &var.node__is_a_static_single_definition);
   define_polymorphic_function("node", "is_a_static_multi_definition", get__node__is_a_static_multi_definition, &poly_idx__node__is_a_static_multi_definition, &var.node__is_a_static_multi_definition);
   define_polymorphic_function("node", "is_a_dynamic_single_definition", get__node__is_a_dynamic_single_definition, &poly_idx__node__is_a_dynamic_single_definition, &var.node__is_a_dynamic_single_definition);
@@ -4390,8 +4727,8 @@ EXPORT void phase_2__nodes(void) {
   define_polymorphic_function("node", "is_a_unique_item_constant", get__node__is_a_unique_item_constant, &poly_idx__node__is_a_unique_item_constant, &var.node__is_a_unique_item_constant);
   define_polymorphic_function("node", "is_a_polymorphic_function_constant", get__node__is_a_polymorphic_function_constant, &poly_idx__node__is_a_polymorphic_function_constant, &var.node__is_a_polymorphic_function_constant);
   define_polymorphic_function("node", "is_an_identifier", get__node__is_an_identifier, &poly_idx__node__is_an_identifier, &var.node__is_an_identifier);
-  define_polymorphic_function("node", "is_a_destination", get__node__is_a_destination, &poly_idx__node__is_a_destination, &var.node__is_a_destination);
   define_polymorphic_function("node", "is_used_as_a_polymorphic_function", get__node__is_used_as_a_polymorphic_function, &poly_idx__node__is_used_as_a_polymorphic_function, &var.node__is_used_as_a_polymorphic_function);
+  define_polymorphic_function("node", "is_used_as_a_destination", get__node__is_used_as_a_destination, &poly_idx__node__is_used_as_a_destination, &var.node__is_used_as_a_destination);
   string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
   func__compiler__identifier__full_name_of_8 = create_function(entry__compiler__identifier__full_name_of_8, 0);
   func__compiler__identifier__full_name_of_1 = create_function(entry__compiler__identifier__full_name_of_1, 1);
@@ -4468,6 +4805,7 @@ EXPORT void phase_3__nodes(void) {
   define_single_assign_static("compiler", "define_dynamic_multi", get__compiler__define_dynamic_multi, &var.compiler__define_dynamic_multi);
   define_single_assign_static("compiler", "function_call", get__compiler__function_call, &var.compiler__function_call);
   define_single_assign_static("compiler", "expression", get__compiler__expression, &var.compiler__expression);
+  define_single_assign_static("compiler", "remark_argument", get__compiler__remark_argument, &var.compiler__remark_argument);
   define_single_assign_static("compiler", "backquoted", get__compiler__backquoted, &var.compiler__backquoted);
   define_single_assign_static("compiler", "attribute_value_pair", get__compiler__attribute_value_pair, &var.compiler__attribute_value_pair);
   define_single_assign_static("compiler", "attribute_function_pair", get__compiler__attribute_function_pair, &var.compiler__attribute_function_pair);
@@ -4546,6 +4884,7 @@ EXPORT void phase_4__nodes(void) {
   use_polymorphic_function(NULL, "is_an_expression", &get__is_an_expression, &poly_idx__is_an_expression);
   use_polymorphic_function(NULL, "is_an_identifier", &get__is_an_identifier, &poly_idx__is_an_identifier);
   use_polymorphic_function(NULL, "is_an_initialization", &get__is_an_initialization, &poly_idx__is_an_initialization);
+  use_polymorphic_function(NULL, "is_an_input_output_argument", &get__is_an_input_output_argument, &poly_idx__is_an_input_output_argument);
   use_polymorphic_function(NULL, "is_an_operator_symbol", &get__is_an_operator_symbol, &poly_idx__is_an_operator_symbol);
   use_polymorphic_function(NULL, "is_an_optional_item", &get__is_an_optional_item, &poly_idx__is_an_optional_item);
   use_polymorphic_function(NULL, "is_c_code", &get__is_c_code, &poly_idx__is_c_code);
@@ -4553,15 +4892,14 @@ EXPORT void phase_4__nodes(void) {
   use_polymorphic_function(NULL, "is_in_infix_notation", &get__is_in_infix_notation, &poly_idx__is_in_infix_notation);
   use_polymorphic_function(NULL, "is_in_numeric_notation", &get__is_in_numeric_notation, &poly_idx__is_in_numeric_notation);
   use_polymorphic_function(NULL, "is_not_used", &get__is_not_used, &poly_idx__is_not_used);
+  use_polymorphic_function(NULL, "is_used_as_a_destination", &get__is_used_as_a_destination, &poly_idx__is_used_as_a_destination);
   use_polymorphic_function(NULL, "is_used_as_a_polymorphic_function", &get__is_used_as_a_polymorphic_function, &poly_idx__is_used_as_a_polymorphic_function);
   use_polymorphic_function(NULL, "mangled_name_of", &get__mangled_name_of, &poly_idx__mangled_name_of);
   use_read_only(NULL, "name_of", &get__name_of, &get_value_or_future__name_of);
   use_read_only(NULL, "namespace_of", &get__namespace_of, &get_value_or_future__namespace_of);
   use_polymorphic_function(NULL, "operators_of", &get__operators_of, &poly_idx__operators_of);
-  use_polymorphic_function(NULL, "output_arguments_of", &get__output_arguments_of, &poly_idx__output_arguments_of);
   use_polymorphic_function(NULL, "parameter_kind_of", &get__parameter_kind_of, &poly_idx__parameter_kind_of);
   use_polymorphic_function(NULL, "parameters_of", &get__parameters_of, &poly_idx__parameters_of);
-  use_polymorphic_function(NULL, "remark_lines_behind_of", &get__remark_lines_behind_of, &poly_idx__remark_lines_behind_of);
   use_polymorphic_function(NULL, "remark_lines_of", &get__remark_lines_of, &poly_idx__remark_lines_of);
   use_read_only(NULL, "replace_all", &get__replace_all, &get_value_or_future__replace_all);
   use_polymorphic_function(NULL, "scope_of", &get__scope_of, &poly_idx__scope_of);
@@ -4576,7 +4914,6 @@ EXPORT void phase_4__nodes(void) {
   use_polymorphic_function(NULL, "used_names_of", &get__used_names_of, &poly_idx__used_names_of);
   use_polymorphic_function(NULL, "variable_kind_of", &get__variable_kind_of, &poly_idx__variable_kind_of);
   define_attribute("types", "grammar_node", poly_idx__remark_lines_of, get__empty_list());
-  define_attribute("types", "grammar_node", poly_idx__remark_lines_behind_of, get__empty_list());
   define_attribute("types", "grammar_node", poly_idx__is_a_constant, get__false());
   define_attribute("types", "grammar_node", poly_idx__is_a_single_assign_definition, get__false());
   define_attribute("types", "grammar_node", poly_idx__is_a_multi_assign_definition, get__false());
@@ -4602,7 +4939,6 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("compiler", "body", poly_idx__arguments_of, get__empty_list());
   define_attribute("types", "grammar_node", poly_idx__is_a_call, get__false());
   define_attribute("compiler", "call", poly_idx__is_a_call, get__true());
-  define_attribute("compiler", "call", poly_idx__output_arguments_of, get__empty_list());
   define_attribute("compiler", "call", poly_idx__arguments_of, get__empty_list());
   define_attribute("compiler", "call", poly_idx__is_a_procedure_call, get__false());
   define_attribute("compiler", "procedure_call", poly_idx__is_a_procedure_call, get__true());
@@ -4611,7 +4947,10 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("compiler", "call", poly_idx__is_an_assignment, get__false());
   define_attribute("compiler", "assignment", poly_idx__is_an_assignment, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_definition, get__false());
+  define_attribute("types", "grammar_node", poly_idx__is_a_destination, get__false());
+  define_attribute("types", "grammar_node", poly_idx__is_an_input_output_argument, get__false());
   define_attribute("compiler", "definition", poly_idx__is_a_definition, get__true());
+  define_attribute("compiler", "definition", poly_idx__is_a_destination, get__true());
   define_attribute("compiler", "definition", poly_idx__attribute_kind_of, get__NONE());
   define_attribute("compiler", "definition", poly_idx__parameter_kind_of, get__NO_PARAMETER());
   define_attribute("types", "grammar_node", poly_idx__is_a_static_single_definition, get__false());
@@ -4641,11 +4980,11 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("compiler", "function_call", poly_idx__is_in_infix_notation, get__false());
   define_attribute("compiler", "function_call", poly_idx__is_a_string_template, get__false());
   define_attribute("compiler", "function_call", poly_idx__arguments_of, get__empty_list());
-  define_attribute("compiler", "function_call", poly_idx__output_arguments_of, get__empty_list());
   define_attribute("types", "grammar_node", poly_idx__is_an_expression, get__false());
   define_attribute("compiler", "expression", poly_idx__is_an_expression, get__true());
   define_attribute("compiler", "expression", poly_idx__arguments_of, get__empty_list());
   define_attribute("compiler", "expression", poly_idx__operators_of, get__empty_list());
+  define_attribute("compiler", "remark_argument", poly_idx__is_a_remark, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_backquoted_expression, get__false());
   define_attribute("compiler", "backquoted", poly_idx__is_a_backquoted_expression, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_an_attribute_value_pair, get__false());
@@ -4678,8 +5017,8 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("compiler", "polymorphic_function_with_setter", poly_idx__is_a_setter, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_an_identifier, get__false());
   define_attribute("compiler", "identifier", poly_idx__is_an_identifier, get__true());
-  define_attribute("types", "grammar_node", poly_idx__is_a_destination, get__false());
   define_attribute("compiler", "identifier", poly_idx__is_used_as_a_polymorphic_function, get__false());
+  define_attribute("compiler", "identifier", poly_idx__is_used_as_a_destination, get__false());
   define_attribute("compiler", "identifier", poly_idx__is_not_used, get__false());
   define_method("compiler", "identifier", poly_idx__full_name_of, func__compiler__identifier__full_name_of_1);
   define_method("compiler", "identifier", poly_idx__mangled_name_of, func__compiler__identifier__mangled_name_of_1);
@@ -4711,7 +5050,6 @@ EXPORT void phase_5__nodes(void) {
   assign_value(&var.node__definitions_of, create_function(type__node__definitions_of, -1));
   assign_value(&var.node__destination_of, create_function(type__node__destination_of, -1));
   assign_value(&var.node__end_position_of, create_function(type__node__end_position_of, -1));
-  assign_value(&var.node__enumeration_no_of, create_function(type__node__enumeration_no_of, -1));
   assign_value(&var.node__expression_of, create_function(type__node__expression_of, -1));
   assign_value(&var.node__filemask_of, create_function(type__node__filemask_of, -1));
   assign_value(&var.node__filename_of, create_function(type__node__filename_of, -1));
@@ -4748,7 +5086,6 @@ EXPORT void phase_5__nodes(void) {
   assign_value(&var.node__namespace_alias_of, create_function(type__node__namespace_alias_of, -1));
   assign_value(&var.node__node_of, create_function(type__node__node_of, -1));
   assign_value(&var.node__operators_of, create_function(type__node__operators_of, -1));
-  assign_value(&var.node__output_arguments_of, create_function(type__node__output_arguments_of, -1));
   assign_value(&var.node__parameter_kind_of, create_function(type__node__parameter_kind_of, -1));
   assign_value(&var.node__parameters_of, create_function(type__node__parameters_of, -1));
   assign_value(&var.node__parent_of, create_function(type__node__parent_of, -1));
@@ -4757,7 +5094,6 @@ EXPORT void phase_5__nodes(void) {
   assign_value(&var.node__source_position_of, create_function(type__node__source_position_of, -1));
   assign_value(&var.node__temporary_count_of, create_function(type__node__temporary_count_of, -1));
   assign_value(&var.node__remark_lines_of, create_function(type__node__remark_lines_of, -1));
-  assign_value(&var.node__remark_lines_behind_of, create_function(type__node__remark_lines_behind_of, -1));
   assign_value(&var.node__scope_of, create_function(type__node__scope_of, -1));
   assign_value(&var.node__section_of, create_function(type__node__section_of, -1));
   assign_value(&var.node__statements_of, create_function(type__node__statements_of, -1));
@@ -4790,6 +5126,8 @@ EXPORT void phase_5__nodes(void) {
   assign_value(&var.node__is_an_assignment, create_function(type__node__is_an_assignment, -1));
   assign_variable(&var.compiler__assignment, &var.compiler__call);
   assign_value(&var.node__is_a_definition, create_function(type__node__is_a_definition, -1));
+  assign_value(&var.node__is_a_destination, create_function(type__node__is_a_destination, -1));
+  assign_value(&var.node__is_an_input_output_argument, create_function(type__node__is_an_input_output_argument, -1));
   assign_value(&var.compiler__definition, get__types__grammar_node());
   assign_value(&var.node__is_a_static_single_definition, create_function(type__node__is_a_static_single_definition, -1));
   assign_variable(&var.compiler__define_static_single, &var.compiler__definition);
@@ -4803,6 +5141,7 @@ EXPORT void phase_5__nodes(void) {
   assign_value(&var.compiler__function_call, get__types__grammar_node());
   assign_value(&var.node__is_an_expression, create_function(type__node__is_an_expression, -1));
   assign_value(&var.compiler__expression, get__types__grammar_node());
+  assign_value(&var.compiler__remark_argument, get__types__grammar_node());
   assign_value(&var.node__is_a_backquoted_expression, create_function(type__node__is_a_backquoted_expression, -1));
   assign_value(&var.compiler__backquoted, get__types__grammar_node());
   assign_value(&var.node__is_an_attribute_value_pair, create_function(type__node__is_an_attribute_value_pair, -1));
@@ -4822,8 +5161,8 @@ EXPORT void phase_5__nodes(void) {
   assign_value(&var.compiler__polymorphic_function, get__types__grammar_node());
   assign_variable(&var.compiler__polymorphic_function_with_setter, &var.compiler__polymorphic_function);
   assign_value(&var.node__is_an_identifier, create_function(type__node__is_an_identifier, -1));
-  assign_value(&var.node__is_a_destination, create_function(type__node__is_a_destination, -1));
   assign_value(&var.node__is_used_as_a_polymorphic_function, create_function(type__node__is_used_as_a_polymorphic_function, -1));
+  assign_value(&var.node__is_used_as_a_destination, create_function(type__node__is_used_as_a_destination, -1));
   assign_value(&var.compiler__identifier, get__types__grammar_node());
   assign_value(&var.node__is_a_temporary, create_function(type__node__is_a_temporary, -1));
   assign_variable(&var.compiler__temporary, &var.compiler__identifier);

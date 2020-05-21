@@ -1,0 +1,945 @@
+#
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  Topic: Terminal
+
+  These functions allow to use the terminal as an array of rows and columns.
+
+  Each character in each row and column can be addressed individually.
+
+  Each character has associated text and background colours with support
+  for "true colours" (256 shades of red, green and blue).
+
+  The set text and background colours are used for consequent drawing
+  operations.
+
+  Horizontal and vertical lines are drawn using the appropriate unicode graphics
+  characters.
+
+$do_log false
+
+$characters_of ()
+$text_colours_of ()
+$background_colours_of ()
+$current_row_of ()
+$current_column_of ()
+$current_text_colour_of ()
+$current_background_colour_of ()
+
+$std::red_component_of (!)
+  #
+    the red component of a colour
+
+    Topic: Terminal
+
+    See also: green_component_of, blue_component_of
+
+$std::green_component_of (!)
+  #
+    the green component of a colour
+
+    Topic: Terminal
+
+    See also: red_component_of, blue_component_of
+
+$std::blue_component_of (!)
+  #
+    the blue component of a colour
+
+    Topic: Terminal
+
+    See also: red_component_of, green_component_of
+
+$INVALID_COLOUR '@0xffffffff;'
+
+$types::screen types::object
+  #
+    the prototype objects for all screens
+
+    Topic: Terminal
+
+$log: (args*) if do_log: ewriteln args*
+
+$$terminal_width undefined
+$$terminal_height undefined
+
+$std::create_screen:
+  #
+    creates a logical screen
+
+    The variable <current_screen> is initialized in <initialize_terminal> with
+    a freshly created screen.
+
+    For simple applications there is no need to create additional screens.
+
+    All drawing functions operate on the <current_screen>.
+
+    A screen contains the character codes, text and background colours for all
+    characters.
+
+    Column and row numbers start with 1!
+
+    Topic: Terminal
+
+    See also: initialize_terminal
+  (
+    text_colour = '@nul;' # the initial text colour
+    background_colour = '@0xffffff;' # the initial background colour
+  )
+  $row_count terminal_height
+  $column_count terminal_width
+  ->
+    types::screen
+      .height_of row_count
+      .width_of column_count
+      .current_row_of 1
+      .current_column_of 1
+      .current_text_colour_of text_colour
+      .current_background_colour_of background_colour
+      .characters_of dup(list(dup(" " column_count)) row_count)
+      .text_colours_of
+	dup(list(dup(text_colour.to_string column_count)) row_count)
+      .background_colours_of
+	dup(list(dup(background_colour.to_string column_count)) row_count)
+
+$std::character_at:
+  #
+    returns the character at the specified position of the screen
+
+    Topic: Terminal
+
+    See also: text_colour_at, background_colour_at, set_character_at
+
+    Example:
+
+    character_at(column row)
+  (
+    x
+    y
+  )
+  -> characters_of(current_screen)(y)(x)
+
+$std::text_colour_at:
+  #
+    returns the text colour at the specified position of the screen
+
+    Topic: Terminal
+
+    See also: background_colour_at, character_at, set_text_colour_at
+
+    Example:
+
+    text_colour_at(column row)
+  (
+    x
+    y
+  )
+  -> text_colours_of(current_screen)(y)(x)
+
+$std::background_colour_at:
+  #
+    returns the background colour at the specified position of the screen
+
+    Topic: Terminal
+
+    See also: text_colour_at, character_at, set_background_colour_at
+
+    Example:
+
+    background_colour_at(column row)
+  (
+    x
+    y
+  )
+  -> background_colours_of(current_screen)(y)(x)
+
+$std::scroll_left:
+  #
+    scrolls the contents of the <current_screen> leftwards
+
+    Topic: Terminal
+  (
+    delta = 1 # the amount of columns to scroll
+  )
+  $right_text spaces(delta)
+  $right_text_colours
+    dup(current_text_colour_of(current_screen).to_string delta)
+  $right_background_colours
+    dup(current_background_colour_of(current_screen).to_string delta)
+  update_each &current_screen.characters_of: (line)
+    append range(line 1+delta -1) right_text
+  update_each &current_screen.text_colours_of: (line)
+    append range(line 1+delta -1) right_text_colours
+  update_each &current_screen.background_colours_of: (line)
+    append range(line 1+delta -1) right_background_colours
+
+$std::update_terminal
+  #
+    updates the terminal screen to show the contents of <current_screen>
+
+    Topic: Terminal
+  :
+    $$output ""
+    $$current_row current_row_of(terminal)
+    $$current_column current_column_of(terminal)
+    $$current_text_colour undefined
+    $$current_background_colour undefined
+
+    $emit_command: (args*)
+      append &output "@esc;["
+      for_each args: (arg) append &output arg.to_string
+
+    $move_to: (row column)
+      if
+	row != current_row:
+	  if
+	    column != current_column:
+	      emit_command row ';' column 'H'
+	      log "move cursor to @(row), @(column)"
+	      !current_column column
+	    :
+	      if
+		row > current_row:
+		  $delta row-current_row
+		  if
+		    delta > 1:
+		      log "move cursor down by " delta
+		      emit_command delta 'B'
+		    :
+		      log "move cursor down"
+		      emit_command 'B'
+		:
+		  $delta current_row-row
+		  if
+		    delta > 1:
+		      log "move cursor up by " delta
+		      emit_command delta 'A'
+		    :
+		      log "move cursor up"
+		      emit_command 'A'
+	  !current_row row
+	:
+	  if
+	    column != current_column:
+	      if
+		column > current_column:
+		  $delta column-current_column
+		  if
+		    delta > 1:
+		      log "move cursor right by " delta
+		      emit_command delta 'C'
+		    :
+		      log "move cursor right"
+		      emit_command 'C'
+		:
+		  $delta current_column-column
+		  if
+		    delta > 1:
+		      log "move cursor left by " delta
+		      emit_command delta 'D'
+		    :
+		      log "move cursor left"
+		      emit_command 'D'
+	      !current_column column
+	    :
+	      log "no cursor move"
+
+    $use_text_colour: (colour)
+      if colour != current_text_colour:
+	!current_text_colour colour
+	$colour_value colour.to_integer
+	$red colour_value >> 16
+	$green colour_value >> 8 & 0xff
+	$blue colour_value & 0xff
+	log "set text colour to @(red), @(green), @(blue)"
+	emit_command "38;2;@(red);@(green);@(blue)m"
+
+    $use_background_colour: (colour)
+      if colour != current_background_colour:
+	!current_background_colour colour
+	$colour_value colour.to_integer
+	$red colour_value >> 16
+	$green colour_value >> 8 & 0xff
+	$blue colour_value & 0xff
+	log "set background colour to @(red), @(green), @(blue)"
+	emit_command "48;2;@(red);@(green);@(blue)m"
+
+    $emit_character: (chr)
+      log "print " debug_string(chr).trim
+      inc &current_column
+      if current_column > terminal_width:
+	!current_column 1
+	inc &current_row
+      push &output chr
+
+    $screen_characters characters_of(current_screen)
+    $screen_text_colours text_colours_of(current_screen)
+    $screen_background_colours background_colours_of(current_screen)
+    $terminal_characters characters_of(terminal)
+    $terminal_text_colours text_colours_of(terminal)
+    $terminal_background_colours background_colours_of(terminal)
+    from_to 1 terminal_height: (row)
+      $screen_line_characters screen_characters(row)
+      $screen_line_text_colours screen_text_colours(row)
+      $screen_line_background_colours screen_background_colours(row)
+      $terminal_line_characters terminal_characters(row)
+      $terminal_line_text_colours terminal_text_colours(row)
+      $terminal_line_background_colours terminal_background_colours(row)
+      from_to 1 terminal_width: (column)
+	$new_chr screen_line_characters(column)
+	$new_text_colour screen_line_text_colours(column)
+	$new_background_colour screen_line_background_colours(column)
+	if
+	  ||
+	    new_chr != terminal_line_characters(column)
+	    new_text_colour != terminal_line_text_colours(column)
+	    new_background_colour != terminal_line_background_colours(column)
+	  :
+	    move_to row column
+	    use_text_colour new_text_colour
+	    use_background_colour new_background_colour
+	    emit_character new_chr
+    if current_row > height_of(terminal):
+      !current_row 1
+      !current_column 1
+      emit_command current_row ';' current_column 'H'
+      log "move cursor to @(current_row), @(current_column)"
+    !terminal.current_row_of current_row
+    !terminal.current_column_of current_column
+    write output
+
+$std::at:
+  #
+    sets the cursor position of the <current_screen>
+
+    Topic: Terminal
+  (
+    x # column number
+    y # row number
+  )
+  !current_screen
+    .current_row_of y
+    .current_column_of x
+
+$std::set_text_colour:
+  #
+    sets the colour to be used for drawing text or lines
+
+    Topic: Terminal
+  (
+    colour # the new text colour
+  )
+  !current_screen.current_text_colour_of colour
+
+$std::set_background_colour:
+  #
+    sets the background colour to be used
+
+    Topic: Terminal
+  (
+    colour # the new background colour
+  )
+  !current_screen.current_background_colour_of colour
+
+$std::set_character_at:
+  #
+    sets the character at the specified screen position
+
+    The text and background colours are left unchanged.
+
+    Topic: Terminal
+
+    See also: set_text_colour_at, set_background_colour_at, character_at
+  (
+    x
+    y
+    chr
+  )
+  if
+    &&
+      y >= 1
+      y <= height_of(current_screen)
+      x >= 1
+      x <= width_of(current_screen)
+    :
+      !current_screen.characters_of(y)(x) chr
+
+$std::set_text_colour_at:
+  #
+    sets the text colour at the specified screen position
+
+    The character and the background colour are left unchanged.
+
+    Topic: Terminal
+
+    See also: set_background_colour_at, set_character_at, background_colour_at
+  (
+    x
+    y
+    colour # the new text colour
+  )
+  if
+    &&
+      y >= 1
+      y <= height_of(current_screen)
+      x >= 1
+      x <= width_of(current_screen)
+    :
+      !current_screen.text_colours_of(y)(x) colour
+
+$std::set_background_colour_at:
+  #
+    sets the background colour at the specified screen position
+
+    The character and the text colour are left unchanged.
+
+    Topic: Terminal
+
+    See also: set_text_colour_at, set_character_at, text_colour_at
+  (
+    x
+    y
+    colour # the new background colour
+  )
+  if
+    &&
+      y >= 1
+      y <= height_of(current_screen)
+      x >= 1
+      x <= width_of(current_screen)
+    :
+      !current_screen.background_colours_of(y)(x) colour
+
+$std::draw_character:
+  #
+    draws a character at the current screen position
+
+    The character is drawn using the current text and background colour.
+
+    If the cursor position is valid then the character is drawn.
+
+    The cursor position is advanced anyways.
+
+    Topic: Terminal
+
+    See also: draw_text
+  (
+    chr # the character to draw
+  )
+  $row current_row_of(current_screen)
+  $column current_column_of(current_screen)
+  $width width_of(current_screen)
+  $height height_of(current_screen)
+  if row >= 1 && row <= height && column >= 1 && column <= width:
+    $current_text_colour current_text_colour_of(current_screen)
+    $current_background_colour current_background_colour_of(current_screen)
+    !current_screen.characters_of(row)(column) chr
+    if current_text_colour.is_defined:
+      !current_screen.text_colours_of(row)(column) current_text_colour
+    if current_background_colour.is_defined:
+      !current_screen.background_colours_of(row)(column)
+	current_background_colour
+  !current_screen.current_column_of column+1
+
+$std::draw_text:
+  #
+    draw the specified text at the current screen position
+
+    The text is drawn using the current text and background colour.
+
+    The text is clipped on the borders of the screen.
+
+    The current column is updated according to the length of the *text*.
+
+    A *newline*-character moves the drawing position into the next *row* back to
+    the original *column*.
+
+    Topic: Terminal
+
+    See also: draw_character
+  (
+    $text # the text (string) to draw
+    -> return
+  )
+  $width width_of(current_screen)
+  $height height_of(current_screen)
+  $$row current_row_of(current_screen)
+  $$column current_column_of(current_screen)
+
+  $$row_is_valid row >= 1 || row <= height
+
+  $current_text_colour current_text_colour_of(current_screen)
+  $current_background_colour current_background_colour_of(current_screen)
+  for_each text: (chr)
+    if
+      chr == '@nl;':
+	inc &row
+	!column current_column_of(current_screen)
+	!row_is_valid row >= 1 || row <= height
+      :
+	if row_is_valid && column >= 1 && column <= width:
+	  !current_screen.characters_of(row)(column) chr
+	  if current_text_colour.is_defined:
+	    !current_screen.text_colours_of(row)(column) current_text_colour
+	  if current_background_colour.is_defined:
+	    !current_screen.background_colours_of(row)(column)
+	      current_background_colour
+	inc &column
+  !current_screen.current_row_of row
+  !current_screen.current_column_of column
+
+$std::draw_line:
+  #
+    draws a horizontal or vertical line
+
+    The following condition must hold:
+
+    x1 == x2 || y1 == y2
+
+    Topic: Terminal
+
+    See also: draw_rectangle
+  (
+    x1
+    y1
+    x2
+    y2
+  )
+  $min_x min(x1 x2)
+  $max_x max(x1 x2)
+  $min_y min(y1 y2)
+  $max_y max(y1 y2)
+  $width width_of(current_screen)
+  $height height_of(current_screen)
+  if min_x < 1 || max_x > width || min_y < 1 || max_y > height:
+    raise "invalid arguments"
+  $current_text_colour current_text_colour_of(current_screen)
+  $current_background_colour current_background_colour_of(current_screen)
+  cond
+    -> min_x == max_x:
+      if min_y == max_y: raise "invalid arguments"
+
+      $draw_vertical_line: (x y crossing)
+	$character_left:
+	  if x > 1 (-> current_screen.characters_of(y)(x-1)) -> ' '
+
+	$character_right:
+	  if x < width (-> current_screen.characters_of(y)(x+1)) -> ' '
+
+	$prev_chr current_screen.characters_of(y)(x)
+	$$chr '@0x2502;'
+	case
+	  prev_chr
+	  '@0x2500;':
+	    $left character_left()
+	    $right character_right()
+	    cond
+	      -> left == '@0x2500;' && right != '@0x2500;':
+		case
+		  crossing
+		  '@0x253c;':
+		    !chr '@0x2524;'
+		  '@0x252c;':
+		    !chr '@0x2510;'
+		  '@0x2534;':
+		    !chr '@0x2518;'
+	      -> right == '@0x2500;' && left != '@0x2500;':
+		case
+		  crossing
+		  '@0x253c;':
+		    !chr '@0x251c;'
+		  '@0x252c;':
+		    !chr '@0x250c;'
+		  '@0x2534;':
+		    !chr '@0x2514;'
+	      -> true: !chr crossing
+	  '@0x250c;':
+	    if
+	      crossing == '@0x252c;':
+		!chr '@0x250c;'
+	      :
+		!chr '@0x251c;'
+	  '@0x251c;':
+	    !chr '@0x251c;'
+	  '@0x2514;':
+	    if
+	      crossing == '@0x2534;':
+		!chr '@0x2514;'
+	      :
+		!chr '@0x251c;'
+	  '@0x2510;':
+	    if
+	      crossing == '@0x252c;':
+		!chr '@0x2510;'
+	      :
+		!chr '@0x2524;'
+	  '@0x2524;':
+	    !chr '@0x2524;'
+	  '@0x2518;':
+	    if
+	      crossing == '@0x2534;':
+		!chr '@0x2518;'
+	      :
+		!chr '@0x2524;'
+	  '@0x252c;':
+	    if
+	      crossing == '@0x252c;':
+		!chr '@0x252c;'
+	      :
+		!chr '@0x253c;'
+	  '@0x2534;':
+	    if
+	      crossing == '@0x2534;':
+		!chr '@0x2534;'
+	      :
+		!chr '@0x2524;'
+	    !chr '@0x253c;'
+	  '@0x253c;':
+	    !chr '@0x253c;'
+	!current_screen.characters_of(y)(x) chr
+	if current_text_colour.is_defined:
+	  !current_screen.text_colours_of(y)(x) current_text_colour
+	if current_background_colour.is_defined:
+	  !current_screen.background_colours_of(y)(x) current_background_colour
+
+      draw_vertical_line min_x min_y '@0x252c;'
+      from_to min_y+1 max_y-1: (y) draw_vertical_line min_x y '@0x253c;'
+      draw_vertical_line min_x max_y '@0x2534;'
+    -> min_y == max_y:
+      $draw_horizontal_line: (x y crossing)
+	$character_above:
+	  if y > 1 (-> current_screen.characters_of(y-1)(x)) -> ' '
+
+	$character_below:
+	  if y < height (-> current_screen.characters_of(y+1)(x)) -> ' '
+
+	$prev_chr current_screen.characters_of(y)(x)
+	$$chr '@0x2500;'
+	case
+	  prev_chr
+	  '@0x2502;':
+	    $above character_above()
+	    $below character_below()
+	    cond
+	      -> above == '@0x2502;' && below != '@0x2502;':
+		case
+		  crossing
+		  '@0x253c;':
+		    !chr '@0x2534;'
+		  '@0x251c;':
+		    !chr '@0x2514;'
+		  '@0x2524;':
+		    !chr '@0x2518;'
+	      -> below == '@0x2502;' && above != '@0x2502;':
+		case
+		  crossing
+		  '@0x253c;':
+		    !chr '@0x252c;'
+		  '@0x251c;':
+		    !chr '@0x250c;'
+		  '@0x2524;':
+		    !chr '@0x2510;'
+	      -> true: !chr crossing
+	  '@0x250c;':
+	    if
+	      crossing == '@0x251c;':
+		!chr '@0x250c;'
+	      :
+		!chr '@0x252c;'
+	  '@0x252c;':
+	    !chr '@0x252c;'
+	  '@0x2510;':
+	    if
+	      crossing == '@0x2524;':
+		!chr '@0x2510;'
+	      :
+		!chr '@0x252c;'
+	  '@0x2514;':
+	    if
+	      crossing == '@0x251c;':
+		!chr '@0x2514;'
+	      :
+		!chr '@0x2534;'
+	  '@0x2534;':
+	    !chr '@0x2534;'
+	  '@0x2518;':
+	    if
+	      crossing == '@0x2524;':
+		!chr '@0x2518;'
+	      :
+		!chr '@0x2534;'
+	  '@0x251c;':
+	    if
+	      crossing == '@0x251c;':
+		!chr '@0x251c;'
+	      :
+		!chr '@0x253c;'
+	  '@0x2524;':
+	    if
+	      crossing == '@0x2524;':
+		!chr '@0x2524;'
+	      :
+		!chr '@0x253c;'
+	  '@0x253c;':
+	    !chr '@0x253c;'
+	!current_screen.characters_of(y)(x) chr
+	if current_text_colour.is_defined:
+	  !current_screen.text_colours_of(y)(x) current_text_colour
+	if current_background_colour.is_defined:
+	  !current_screen.background_colours_of(y)(x) current_background_colour
+
+      draw_horizontal_line min_x min_y '@0x251c;'
+      from_to min_x+1 max_x-1: (x) draw_horizontal_line x min_y '@0x253c;'
+      draw_horizontal_line max_x min_y '@0x2524;'
+    -> true: raise "invalid arguments"
+
+$$terminal undefined
+
+%%std::current_screen undefined
+  #
+    the current screen
+
+    All drawing functions operate on the *current screen*.
+
+    Topic: Terminal
+
+    See also: create_screen
+
+$std::initialize_terminal
+  #
+    must be called before any other terminal function
+
+    Creates a default screen and allows the use of all drawing functions.
+
+    Topic: Terminal
+
+    See also: current_screen, create_screen
+  :
+    (
+      text_colour? # the initial text colour
+      background_colour? # the initial background colour
+    )
+    get_terminal_size STDIN_FILENO !terminal_width !terminal_height
+    create_screen !terminal INVALID_COLOUR INVALID_COLOUR
+    create_screen !std::current_screen text_colour? background_colour?
+
+$std::draw_rectangle:
+  #
+    draws a rectangle
+
+    The points *x1*/*y1* and *x2*/*y2* denote opposite corners of the rectangle.
+
+    The rectangle goes through the specified corner points.
+
+    Topic: Terminal
+
+    See also: draw_line
+  (
+    x1
+    y1
+    x2
+    y2
+  )
+  draw_line x1 y1 x1 y2
+  draw_line x1 y2 x2 y2
+  draw_line x2 y2 x2 y1
+  draw_line x2 y1 x1 y1
+
+$std::cursor_off
+  #
+    turns the terminal cursor off
+
+    Topic: Terminal
+
+    See also: cursor_on, cursor_home, clear_screen
+  :
+    write "@esc;[?25l"
+
+$std::cursor_on
+  #
+    turns the terminal cursor on
+
+    Topic: Terminal
+
+    See also: cursor_off, cursor_home, clear_screen
+  :
+    write "@esc;[?25h"
+
+$std::cursor_home
+  #
+    moves the cursor to the top-left position
+
+    Topic: Terminal
+
+    See also: clear_screen, cursor_on, cursor_off
+  :
+    write "@esc;[1;1H"
+
+$std::clear_screen
+  #
+    clears the terminal screen and moves the cursor to the top-left position
+
+    Topic: Terminal
+
+    See also: cursor_home, cursor_on, cursor_off, restore_colours
+  :
+    cursor_home
+    write "@esc;[2J"
+
+$std::restore_colours
+  #
+    set default colours for text and background
+
+    Call this during the cleanup phase.
+
+    Topic: Terminal
+
+    See also: clear_screen, cursor_on
+  :
+    write "@esc;[39m@esc;[49m"
+
+$std::rgb_character:
+  #
+    constructs a colour (character) from its primary colours
+
+    Topic: Terminal
+
+    See also: colour_mixture,
+	      red_component_of, green_component_of, blue_component_of
+  (
+    red
+    green
+    blue
+  )
+  -> character(red << 16 | green << 8 | blue)
+
+$types::character/red_component_of:
+  #
+    returns the red component of the colour (character)
+
+    Topic: Terminal
+
+    See also: green_component_of, blue_component_of, rgb_character,
+	      colour_mixture
+  (
+    chr
+  )
+  -> (chr.to_integer >> 16) & 0xff
+
+$types::character/green_component_of:
+  #
+    returns the green component of the colour (character)
+
+    Topic: Terminal
+
+    See also: red_component_of, blue_component_of, rgb_character,
+	      colour_mixture
+  (
+    chr
+  )
+  -> (chr.to_integer >> 8) & 0xff
+
+$types::character/blue_component_of:
+  #
+    returns the blue component of the colour (character)
+
+    Topic: Terminal
+
+    See also: red_component_of, green_component_of, rgb_character,
+	      colour_mixture
+  (
+    chr
+  )
+  -> chr.to_integer & 0xff
+
+$std::colour_mixture:
+  #
+    constructs a colour (character) from a mixture of the specified colours
+
+    The arguments are colour characters or <types::key_value_pair>s of the
+    form
+
+    *colour* = *parts*
+
+    Topic: Terminal
+
+    See also: rgb_character,
+	      red_component_of, green_component_of, blue_component_of
+
+    Example:
+
+    $RED rgb_character(0xff 0 0)
+    $BLUE rgb_character(0 0 0xff)
+
+    $VIOLET colour_mixture(RED BLUE = 2) # one part red, two parts blue
+  (
+    args*
+  )
+  $$total_parts 0
+  $$red 0
+  $$green 0
+  $$blue 0
+
+  for_each args: (arg)
+    if
+      arg.is_a_key_value_pair:
+	$colour key_of(arg)
+	$parts value_of(arg)
+	plus &red parts*red_component_of(colour)
+	plus &green parts*green_component_of(colour)
+	plus &blue parts*blue_component_of(colour)
+	plus &total_parts parts
+      :
+	plus &red red_component_of(arg)
+	plus &green green_component_of(arg)
+	plus &blue blue_component_of(arg)
+	inc &total_parts
+  ->
+    rgb_character
+      round(red/total_parts).to_integer
+      round(green/total_parts).to_integer
+      round(blue/total_parts).to_integer
+
+$std::rows_and_columns:
+  #
+    returns the number of rows and the width of the longest row in the text
+
+    Topic: Terminal, Strings
+  (
+    text # the text to measure
+  )
+  $$rows 0
+  $$longest 0
+  $$length 0
+  for_each text: (chr)
+    if
+      chr == '@nl;':
+	extend_to &longest length
+	inc &rows
+	!length 0
+      :
+	inc &length
+  if text(-1) != '@nl;':
+    extend_to &longest length
+    inc &rows
+  -> rows longest
+

@@ -67,7 +67,10 @@ $compiler::begin_continuation: (name)
     static void @(name)(void) {
   write_to_continuation_table "  {@(name), "
   write_to_continuation_table
-    if(current_frame.is_defined (-> "&@(current_frame), ") -> "NULL, ")
+    if
+      current_frame.is_defined
+      -> "&@(current_frame), "
+      -> "NULL, "
 
 $compiler::end_continuation:
   if
@@ -117,7 +120,12 @@ $generate_c_arguments:
       -> argument.is_an_optional_item: write "  optional_item(@(src));@nl;"
       -> argument.is_an_expanded_item: write "  unfold(@(src));@nl;"
       :
-	$slot_idx if(inputs_count.is_defined (-> idx) -> "argument_count++")
+	$slot_idx
+	  if
+	    inputs_count.is_defined
+	    -> idx
+	    -> "argument_count++"
+
 	write "  arguments->slots[@(slot_idx)] = @(src);@nl;"
 	inc &idx
 
@@ -128,32 +136,6 @@ $get_func_and_myself: (functor cont insertion_line?)
       -> indented(indent string('@nl;' insertion_line))
       -> ""
 
-  if functor.is_an_identifier:
-    #$id privileged_polymorphic_functions(mangled_name)
-
-    # ATTENTION: do not optimize to get better error messages
-
-    #if id.is_defined && id < 8:
-      write "
-        @
-          myself = (NODE @
-        *)arguments->slots[0]->attributes->nodes[0]->nodes[@(id)]; // @
-        @(mangled_name)
-          if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
-            if (argument_count != 1) {
-              invalid_arguments_error();
-              return;
-            }
-            arguments = node_p;
-            arguments->slots[0] = @
-        RETRIEVE_ATTRIBUTE_VALUE(myself);@(insertion(4))
-            func = @(cont);
-            frame->cont = invalid_continuation;
-          } else {
-            func = myself->type;@(insertion(4))
-            frame->cont = @(cont);
-          }
-      return
   write "
     @
       myself = @(functor.to_c);
@@ -168,8 +150,7 @@ $compiler::assignment_to_c:
     -> return
   )
   if destination.is_a_definition:
-    case
-      variable_kind_of(destination)
+    case variable_kind_of(destination)
       STATIC_SINGLE:
 	if
 	  destination.is_an_initialization:
@@ -296,7 +277,13 @@ $extract:
         switch(argument_count) {
     from_down_to total_count-right_count fixed_count-right_count+1: (idx)
       $n idx+right_count
-      $cnt if(n == total_count (-> "default") -> "case @(n)")
+
+      $cnt
+	if
+	  n == total_count
+	  -> "default"
+	  -> "case @(n)"
+
       assign_argument_or_result
 	"    @(cnt): "
 	kind
@@ -312,7 +299,13 @@ $extract:
       has_complex_default_values:
 	from_down_to total_count-right_count fixed_count-right_count+1: (idx)
 	  $n idx+right_count
-	  $cnt if(n == total_count (-> "default") -> "case @(n)")
+
+	  $cnt
+	    if
+	      n == total_count
+	      -> "default"
+	      -> "case @(n)"
+
 	  inc &index
 	  !indices(n) index
 	  write "
@@ -348,7 +341,10 @@ $extract:
 	  $default_value default_value_of(output)
 
 	  $value
-	    if(default_value.is_defined (-> default_value.to_c) -> "undefined")
+	    if
+	      default_value.is_defined
+	      -> default_value.to_c
+	      -> "undefined"
 
 	  assign_argument_or_result
 	    "    case @(idx+right_count-1): "
@@ -452,8 +448,7 @@ $compute_source_text_info:
     write_line_start
     do: (-> break)
       for_each source: (_idx chr)
-	case
-	  chr
+	case chr
 	  newline, indent_marker:
 	    if chr == indent_marker: inc &indent
 	    writeln
@@ -489,10 +484,13 @@ $get_kind:
       $name mangled_name_of(source)
       cond
 	-> current_locals(name).is_defined:
-	  return if(name.is_a_shared_local (-> STANDARD) -> EARLY)
+	  return
+	    if
+	      name.is_a_shared_local
+	      -> STANDARD
+	      -> EARLY
 	-> needed_names(name).is_defined:
-	  case
-	    variable_kind_of(needed_names(name))
+	  case variable_kind_of(needed_names(name))
 	    STATIC_SINGLE:
 	      return UNKNOWN
 	    POLYMORPHIC, DYNAMIC_SINGLE:
@@ -558,8 +556,7 @@ $compiler::body/to_c:
       $default_value default_value_of(parameter)
       if default_value.is_defined && default_value.is_a_function_call:
 	!has_complex_default_values true
-      case
-	kind
+      case kind
 	OUT_PARAMETER:
 	  push &output_parameters parameter
 	IN_OUT_PARAMETER:
@@ -586,8 +583,7 @@ $compiler::body/to_c:
       inc &slot_idx
     for_each implicit_parameters: (parameter)
       $name name_of(identifier_of(parameter))
-      case
-	parameter_kind_of(parameter)
+      case parameter_kind_of(parameter)
 	MYSELF_PARAMETER:
 	  !myself_parameter parameter
 	CONTINUATION_PARAMETER:
@@ -666,7 +662,10 @@ $compiler::body/to_c:
 
     $extract_destination_and_source: (definition)
       $destination
-	if(definition.is_a_key_value_pair (-> key_of(definition)) -> definition)
+	if
+	  definition.is_a_key_value_pair
+	  -> key_of(definition)
+	  -> definition
 
       $source
 	if
@@ -678,8 +677,7 @@ $compiler::body/to_c:
 
     $extract_source_or_create_future: (source)
       if source.is_undefined (-> "create_future()"):
-	case
-	  get_kind(source)
+	case get_kind(source)
 	  UNKNOWN
 	  -> "get_value_or_future__@(mangled_name_of(source))()"
 	  STANDARD
@@ -691,8 +689,7 @@ $compiler::body/to_c:
       if source.is_defined:
 	write_as_remark
 	  "_define @(key_of(definition)) @(std::value_of(definition))"
-      case
-	variable_kind_of(destination)
+      case variable_kind_of(destination)
 	STATIC_SINGLE, DYNAMIC_SINGLE:
 	  if attribute_kind_of(destination) == NONE:
 	    extract_source_or_create_future $src source
@@ -711,8 +708,7 @@ $compiler::body/to_c:
 	  variable_kind_of(destination) == STATIC_SINGLE
 	  attribute_kind_of(destination) != NONE
 	:
-	  case
-	    attribute_kind_of(destination)
+	  case attribute_kind_of(destination)
 	    ATTRIBUTE_KIND:
 	      extract_source_or_create_future $src source
 	      $attribute_name mangled_name_of(attribute_of(destination))
@@ -782,7 +778,7 @@ $compiler::body/to_c:
 
     for_each_from_to statements 1 -2: (statement) generate_statement statement
     if
-      is_empty(statements): # there might be only definitions
+      is_empty(statements):
 	generate_exit
       :
 	$statement statements(-1)
@@ -816,7 +812,7 @@ $compiler::body/to_c:
 	  ->
 	    &&
 	      statement.is_a_procedure_call
-	      output_arguments_of(statement).is_empty
+	      not(any_of(arguments_of(statement) is_a_destination))
 	    :
 	      write_source_as_remark statement
 	      $functor functor_of(statement)
@@ -835,8 +831,7 @@ $compiler::body/to_c:
 		      frame->caller_frame = NULL;
 		      result_count = frame->slots[0]->continuation.result_count;
 		:
-		  case
-		    result_count
+		  case result_count
 		    undefined:
 		      write "
 			@
@@ -943,8 +938,7 @@ $compiler::body/to_c:
       write "
 	  func = continuation_type_function;
 	}
-  if parameter_count_of(return) == 2: # type function
-    return "entry@(body_suffix)" par_count
+  if parameter_count_of(return) == 2: return "entry@(body_suffix)" par_count
   if
     inherited_names_of(self).is_empty:
       write_to_phase_2 "
@@ -952,7 +946,7 @@ $compiler::body/to_c:
 	  func@(body_suffix) = create_function(entry@(body_suffix), @
 	@(par_count));@nl;@
       return "func@(body_suffix)"
-    : # it's a closure
+    :
       return "create_closure(entry@(body_suffix), @(par_count))"
 
 ###
@@ -972,20 +966,6 @@ $compiler::definition/to_c:
 	"__"
 	mangled_name_of(attribute_of(self))
   -> identifier_of(self).to_c
-
-###
-# ATTRIBUTE VALUE PAIR
-
-$compiler::attribute_value_pair/to_c: (self)
-  show_compiler_debug_info "generate attribute-value pair"
-  -> generate_c_arguments(arguments_of(self))
-
-###
-# ATTRIBUTE FUNCTION PAIR
-
-$compiler::attribute_function_pair/to_c: (self)
-  show_compiler_debug_info "generate attribute-function pair"
-  -> generate_c_arguments(arguments_of(self))
 
 ###
 # NUMERIC LITERAL
@@ -1029,14 +1009,18 @@ $register_string: (str)
       stored.is_defined:
 	if stored != str:
 	  # there is a collision
+
 	  if stored.is_a_string:
 	    # convert a single string into a list containing this string
+
 	    !stored list(stored)
 	  do: (-> break)
 	    # search for string in the collision list
+
 	    for_each stored: (idx stored_str)
 	      if str == stored_str:
 		# if it's not the first add a collision suffix
+
 		if idx > 1: string &name '_' idx
 		break
 
@@ -1051,15 +1035,18 @@ $register_string: (str)
     write_to_declarations "static NODE *@(name);@nl;"
     if
       str.is_a_latin_1_string:
-	write_to_phase_2 "
-	  @
-	    @(name) = from_latin_1_string(@
+	write_to_phase_2 "  @(name) = from_latin_1_string("
 	$n search_character(str '@nl;')
 	if
 	  n.is_defined && len > n:
-	    for_each_line str
-	      : (line)
-		write_to_phase_2 "@nl;    @quot;" to_c_string(line)
+	    for_each_line
+	      str: (line)
+		write_to_phase_2
+		  "
+		    @
+
+		        "@
+		  to_c_string(line)
 	      :
 		write_to_phase_2 "\n@quot;"
 	    if
@@ -1067,10 +1054,11 @@ $register_string: (str)
 		write_to_phase_2 "\n@quot;"
 	      :
 		write_to_phase_2 "@quot;"
-	    write_to_phase_2 ",@nl;    @(len));@nl;"
-	  :
 	    write_to_phase_2 "
-	      "@(to_c_string(str))@quot;, @(len));
+	      ,
+	          @(len));
+	  :
+	    write_to_phase_2 "@quot;@(to_c_string(str))@quot;, @(len));@nl;"
       :
 	write_to_phase_2 "  uint32_t @(name)_literal[@(len)] = {"
 	for_each
@@ -1099,13 +1087,10 @@ $compiler::string_literal/to_c: (self)
   show_compiler_debug_info "generate string literal"
   $text node::text_of(self)
   $literal used_string_literals(text)
-  if
-    literal.is_defined
-    -> literal
-    :
-      $new_literal register_string(text)
-      !used_string_literals(text) new_literal
-      -> new_literal
+  if literal.is_defined (-> literal):
+    $new_literal register_string(text)
+    !used_string_literals(text) new_literal
+    -> new_literal
 
 ###
 # UNIQUE ITEM
@@ -1113,7 +1098,13 @@ $compiler::string_literal/to_c: (self)
 $compiler::unique_item/to_c: (self)
   show_compiler_debug_info "generate unique item"
   $name string("unique__" name_of(self))
-  $reg_name if(name_of(self).is_defined (-> name_of(self)) -> name)
+
+  $reg_name
+    if
+      name_of(self).is_defined
+      -> name_of(self)
+      -> name
+
   write_to_declarations "static NODE *@(name);@nl;"
   write_to_phase_2 "
     @
@@ -1183,8 +1174,8 @@ $compiler::c_body/to_c: (self)
       @(indented(2 source_of(self).converted))@nl;}
     write_to_phase_2 "
       @
-        func@(body_suffix) = create_function(entry@(body_suffix), @
-      @(par_count));
+        func@(body_suffix) = create_function(entry@(body_suffix), @(par_count)@
+      );@nl;@
   -> "func@(body_suffix)"
 
 ####################
@@ -1274,8 +1265,7 @@ $compiler::define_variable: (definition source)
                   assign_variable(&@(var_entry(mangled_name)), &@(source.to_c));
   if
     namespace.is_defined:
-      case
-	kind
+      case kind
 	STATIC_SINGLE:
 	  write_to_global_variable_declarations
 	    string("  NODE *" mangled_name ";@nl;")
@@ -1334,8 +1324,7 @@ $compiler::define_variable: (definition source)
 	    , &dyna_idx__@(mangled_name));
 	      define__@(mangled_name)(undefined);
     :
-      case
-	kind
+      case kind
 	STATIC_SINGLE:
 	  write_to_top_level_variable_names "  @quot;@(mangled_name)@quot;,@nl;"
 	  write_to_top_level_variable_declarations
@@ -1494,7 +1483,6 @@ $compiler::define_polymorphic_function: (definition is_a_setter)
   compute_source_text_info $info identifier_of(definition)
   write_to_continuation_table "  {type__@(mangled_name), NULL, @(info)},@nl;"
   generate_dispatcher_function mangled_name
-
   write_to_phase_5 "
     @
       assign_value(&@(var_entry(mangled_name)), @
@@ -1549,9 +1537,16 @@ $compiler::define_c_code: (self)
     $identifier identifier_of(self)
 
     $namespace
-      if(identifier.is_defined (-> namespace_of(identifier)) -> undefined)
+      if
+	identifier.is_defined
+	-> namespace_of(identifier)
+	-> undefined
 
-    $name if(identifier.is_defined (-> name_of(identifier)) -> undefined)
+    $name
+      if
+	identifier.is_defined
+	-> name_of(identifier)
+	-> undefined
 
     $mangled_name
       if
@@ -1607,13 +1602,15 @@ $compiler::define_c_code: (self)
 
     case
       kind
-      "struct":
+      "struct"
+      :
 	write_to_declarations "
 
 	  typedef struct @(mangled_name) @(mangled_name);
 	  struct @(mangled_name) {@nl;@(indented(2 source))
 	  };
-      "node":
+      "node"
+      :
 	write_to_declarations "
 
 	  typedef struct {
@@ -1653,7 +1650,8 @@ $compiler::define_c_code: (self)
 	  write "
 	      return new_node;
 	    }
-      "type":
+      "type"
+      :
 	$node_name node_of(self)
 	$node defined_nodes(node_name)
 	unless node.is_defined:
@@ -1701,15 +1699,17 @@ $compiler::define_c_code: (self)
 	  vtable_entries: (entry)
 	    $func_name
 	      string
-		if(namespace.is_defined (-> "@(namespace)::") -> "")
+		if
+		  namespace.is_defined
+		  -> "@(namespace)::"
+		  -> ""
 		name
 		'/'
 		entry
 
 	    if
 	      defined_functions(func_name):
-		write_to
-		  &attributes_declaration
+		write_to &attributes_declaration
 		  "  &func__"
 		  mangled_name
 		  "___"
@@ -1776,14 +1776,16 @@ $compiler::define_c_code: (self)
 		  node->attributes = &attributes__@(mangled_name)@
 		;@nl;@(initializers)  return node;
 		}
-      "object":
+      "object"
+      :
 	initialize_object type
 	if namespace.is_defined:
 	  write_to_phase_3 "
 	    @
 	      define_single_assign_static("@(namespace)", "@(name)", @
 	    get__@(mangled_name), &@(var_entry(mangled_name)));
-      "function":
+      "function"
+      :
 	$raw_declaration source .until. ')'
 	$type_and_name raw_declaration .before. '('
 	$function_name behind(type_and_name alt(' ' '*') -1)
@@ -1800,7 +1802,10 @@ $compiler::define_c_code: (self)
 	$declaration
 	  string
 	    function_type
-	    if(function_name .contains. "::" (-> "func__") -> "")
+	    if
+	      function_name .contains. "::"
+	      -> "func__"
+	      -> ""
 	    replace_all(mangled_function_name "::" = "__" '/' = "___")
 	    arguments
 
@@ -1835,7 +1840,12 @@ $assign_attributes: (destination source attributes)
     $value arguments_of(attribute)(1).to_c
     if
       identifier.is_defined:
-	$kind if(attribute.is_an_attribute_function_pair (-> "") -> "_value")
+	$kind
+	  if
+	    attribute.is_an_attribute_function_pair
+	    -> ""
+	    -> "_value"
+
 	write "
 	  @
 	      set_attribute@(kind)(temp->attributes, @
@@ -1861,15 +1871,28 @@ $compiler::generate_statement: (statement)
 	ewriteln "generate unknown statement"
   write_source_as_remark statement
   $functor functor_of(statement)
-  $input_arguments arguments_of(statement)
-  $output_arguments output_arguments_of(statement)
+  $$input_arguments empty_list
+  $$output_arguments empty_list
+  for_each arguments_of(statement): (argument)
+    if
+      argument.is_a_destination:
+	push &output_arguments argument
+	if argument.is_an_input_output_argument: push &input_arguments argument
+      :
+	push &input_arguments argument
   if
     &&
       length_of(input_arguments) >= 1
       input_arguments(-1).is_an_attribute_value_pair
     :
-      $destination output_arguments_of(statement)(1)
-      $source if(functor.is_defined (-> functor) -> destination)
+      $destination output_arguments(1)
+
+      $source
+	if
+	  functor.is_defined
+	  -> functor
+	  -> destination
+
       assign_attributes destination source input_arguments
     :
       if
@@ -1898,7 +1921,7 @@ $compiler::generate_statement: (statement)
 	  write "}@nl;"
 	  next_continuation "cont@(suffix)_@(index)"
 	  extract "results" output_arguments
-	: # assignment
+	:
 	  $destination output_arguments(1)
 	  $source input_arguments(1)
 	  if

@@ -1,5 +1,5 @@
-stdlib.h
 runtime/platform.h
+stdlib.h
 stdint.h
 stdio.h
 string.h

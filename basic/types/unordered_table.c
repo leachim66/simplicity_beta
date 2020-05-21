@@ -430,7 +430,7 @@ static void cont__types__unordered_table__private__set_item_4(void);
 static void cont__types__unordered_table__private__set_item_5(void);
 static NODE *func__types__unordered_table__private__set_item_6;
 static void entry__types__unordered_table__private__set_item_6(void);
-static FRAME_INFO frame__types__unordered_table__private__set_item_6 = {6, {"self", "cmp_key", "h", "key", "value", "return"}};
+static FRAME_INFO frame__types__unordered_table__private__set_item_6 = {6, {"self", "h", "cmp_key", "key", "value", "return"}};
 static void cont__types__unordered_table__private__set_item_7(void);
 static void cont__types__unordered_table__private__set_item_8(void);
 static NODE *func__types__unordered_table__private__set_item_9;
@@ -448,7 +448,7 @@ static FRAME_INFO frame__types__unordered_table__private__get_item_1 = {5, {"sel
 static void cont__types__unordered_table__private__get_item_2(void);
 static NODE *func__types__unordered_table__private__get_item_3;
 static void entry__types__unordered_table__private__get_item_3(void);
-static FRAME_INFO frame__types__unordered_table__private__get_item_3 = {6, {"cmp_key", "self", "h", "key", "return", "retrieved_value"}};
+static FRAME_INFO frame__types__unordered_table__private__get_item_3 = {6, {"self", "h", "cmp_key", "key", "return", "retrieved_value"}};
 static void cont__types__unordered_table__private__get_item_4(void);
 static void cont__types__unordered_table__private__get_item_5(void);
 static NODE *func__types__unordered_table__private__get_item_6;
@@ -495,7 +495,7 @@ static void entry__types__unordered_table__for_each_1(void);
 static FRAME_INFO frame__types__unordered_table__for_each_1 = {4, {"self", "body", "return", "key"}};
 static NODE *func__types__unordered_table__for_each_2;
 static void entry__types__unordered_table__for_each_2(void);
-static FRAME_INFO frame__types__unordered_table__for_each_2 = {5, {"key", "self", "return", "body", "value"}};
+static FRAME_INFO frame__types__unordered_table__for_each_2 = {5, {"self", "key", "return", "body", "value"}};
 static void cont__types__unordered_table__for_each_3(void);
 static void cont__types__unordered_table__for_each_4(void);
 static void cont__types__unordered_table__for_each_5(void);
@@ -543,7 +543,7 @@ static void entry__types__unordered_table__for_each_downwards_1(void);
 static FRAME_INFO frame__types__unordered_table__for_each_downwards_1 = {4, {"self", "body", "return", "key"}};
 static NODE *func__types__unordered_table__for_each_downwards_2;
 static void entry__types__unordered_table__for_each_downwards_2(void);
-static FRAME_INFO frame__types__unordered_table__for_each_downwards_2 = {5, {"key", "self", "return", "body", "value"}};
+static FRAME_INFO frame__types__unordered_table__for_each_downwards_2 = {5, {"self", "key", "return", "body", "value"}};
 static void cont__types__unordered_table__for_each_downwards_3(void);
 static void cont__types__unordered_table__for_each_downwards_4(void);
 static void cont__types__unordered_table__for_each_downwards_5(void);
@@ -591,7 +591,7 @@ static FRAME_INFO frame__types__unordered_table__update_each_1 = {4, {"self", "b
 static void exit__types__unordered_table__update_each_1(void);
 static NODE *func__types__unordered_table__update_each_2;
 static void entry__types__unordered_table__update_each_2(void);
-static FRAME_INFO frame__types__unordered_table__update_each_2 = {5, {"key", "self", "return", "body", "value"}};
+static FRAME_INFO frame__types__unordered_table__update_each_2 = {5, {"self", "key", "return", "body", "value"}};
 static void cont__types__unordered_table__update_each_3(void);
 static void cont__types__unordered_table__update_each_4(void);
 static void cont__types__unordered_table__update_each_5(void);
@@ -612,7 +612,7 @@ static FRAME_INFO frame__types__unordered_table__update_each_from_to_5 = {0, {}}
 static void cont__types__unordered_table__update_each_from_to_6(void);
 static NODE *func__types__unordered_table__update_each_from_to_7;
 static void entry__types__unordered_table__update_each_from_to_7(void);
-static FRAME_INFO frame__types__unordered_table__update_each_from_to_7 = {6, {"body", "value", "key", "self", "last", "return"}};
+static FRAME_INFO frame__types__unordered_table__update_each_from_to_7 = {6, {"body", "key", "value", "self", "last", "return"}};
 static void cont__types__unordered_table__update_each_from_to_8(void);
 static void cont__types__unordered_table__update_each_from_to_9(void);
 static void cont__types__unordered_table__update_each_from_to_10(void);
@@ -627,7 +627,7 @@ static FRAME_INFO frame__types__unordered_table__update_each_downwards_1 = {4, {
 static void exit__types__unordered_table__update_each_downwards_1(void);
 static NODE *func__types__unordered_table__update_each_downwards_2;
 static void entry__types__unordered_table__update_each_downwards_2(void);
-static FRAME_INFO frame__types__unordered_table__update_each_downwards_2 = {5, {"key", "self", "return", "body", "value"}};
+static FRAME_INFO frame__types__unordered_table__update_each_downwards_2 = {5, {"self", "key", "return", "body", "value"}};
 static void cont__types__unordered_table__update_each_downwards_3(void);
 static void cont__types__unordered_table__update_each_downwards_4(void);
 static void cont__types__unordered_table__update_each_downwards_5(void);
@@ -648,7 +648,7 @@ static FRAME_INFO frame__types__unordered_table__update_each_from_down_to_5 = {0
 static void cont__types__unordered_table__update_each_from_down_to_6(void);
 static NODE *func__types__unordered_table__update_each_from_down_to_7;
 static void entry__types__unordered_table__update_each_from_down_to_7(void);
-static FRAME_INFO frame__types__unordered_table__update_each_from_down_to_7 = {6, {"body", "value", "key", "self", "first", "return"}};
+static FRAME_INFO frame__types__unordered_table__update_each_from_down_to_7 = {6, {"body", "key", "value", "self", "first", "return"}};
 static void cont__types__unordered_table__update_each_from_down_to_8(void);
 static void cont__types__unordered_table__update_each_from_down_to_9(void);
 static void cont__types__unordered_table__update_each_from_down_to_10(void);
@@ -663,7 +663,7 @@ static void cont__66_1(void);
 void run__basic__types__unordered_table(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {run__basic__types__unordered_table, NULL, 1189, 1189, 1, 70},
+  {run__basic__types__unordered_table, NULL, 1191, 1191, 1, 70},
   {cont__66_1, NULL, },
   {entry__insert_item_1, NULL, 305, 541, 3, 2},
   {entry__retrieve_item_1, NULL, 544, 617, 3, 2},
@@ -671,145 +671,145 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__next_key_and_value_1, NULL, 675, 742, 3, 2},
   {entry__previous_key_and_value_1, NULL, 745, 806, 3, 2},
   {entry__types__unordered_table__private__set_item_3, NULL, 817, 817, 37, 37},
-  {entry__types__unordered_table__private__set_item_9, NULL, 831, 831, 25, 35},
-  {entry__types__unordered_table__private__set_item_12, NULL, 833, 833, 72, 72},
-  {entry__types__unordered_table__private__set_item_6, NULL, 830, 830, 5, 42},
-  {cont__types__unordered_table__private__set_item_7, &frame__types__unordered_table__private__set_item_6, 831, 831, 8, 22},
-  {cont__types__unordered_table__private__set_item_8, &frame__types__unordered_table__private__set_item_6, 831, 831, 5, 35},
-  {cont__types__unordered_table__private__set_item_10, &frame__types__unordered_table__private__set_item_6, 832, 832, 8, 41},
-  {cont__types__unordered_table__private__set_item_11, &frame__types__unordered_table__private__set_item_6, 832, 833, 5, 72},
+  {entry__types__unordered_table__private__set_item_9, NULL, 832, 832, 25, 35},
+  {entry__types__unordered_table__private__set_item_12, NULL, 834, 834, 72, 72},
+  {entry__types__unordered_table__private__set_item_6, NULL, 831, 831, 5, 42},
+  {cont__types__unordered_table__private__set_item_7, &frame__types__unordered_table__private__set_item_6, 832, 832, 8, 22},
+  {cont__types__unordered_table__private__set_item_8, &frame__types__unordered_table__private__set_item_6, 832, 832, 5, 35},
+  {cont__types__unordered_table__private__set_item_10, &frame__types__unordered_table__private__set_item_6, 833, 833, 8, 41},
+  {cont__types__unordered_table__private__set_item_11, &frame__types__unordered_table__private__set_item_6, 833, 834, 5, 72},
   {entry__types__unordered_table__private__set_item_1, NULL, 817, 817, 6, 21},
   {cont__types__unordered_table__private__set_item_2, &frame__types__unordered_table__private__set_item_1, 817, 817, 3, 37},
   {cont__types__unordered_table__private__set_item_4, &frame__types__unordered_table__private__set_item_1, 818, 818, 3, 14},
-  {cont__types__unordered_table__private__set_item_5, &frame__types__unordered_table__private__set_item_1, 829, 833, 3, 73},
-  {cont__types__unordered_table__private__set_item_13, &frame__types__unordered_table__private__set_item_1, 833, 833, 73, 73},
-  {entry__types__unordered_table__private__get_item_6, NULL, 859, 859, 27, 60},
-  {cont__types__unordered_table__private__get_item_7, &frame__types__unordered_table__private__get_item_6, 859, 859, 27, 60},
-  {entry__types__unordered_table__private__get_item_9, NULL, 860, 860, 7, 28},
-  {entry__types__unordered_table__private__get_item_3, NULL, 854, 854, 5, 50},
-  {cont__types__unordered_table__private__get_item_4, &frame__types__unordered_table__private__get_item_3, 859, 859, 8, 22},
-  {cont__types__unordered_table__private__get_item_5, &frame__types__unordered_table__private__get_item_3, 859, 859, 8, 60},
-  {cont__types__unordered_table__private__get_item_8, &frame__types__unordered_table__private__get_item_3, 859, 860, 5, 28},
-  {entry__types__unordered_table__private__get_item_1, NULL, 843, 843, 3, 14},
-  {cont__types__unordered_table__private__get_item_2, &frame__types__unordered_table__private__get_item_1, 853, 866, 3, 52},
-  {cont__types__unordered_table__private__get_item_10, &frame__types__unordered_table__private__get_item_1, 866, 866, 52, 52},
-  {entry__types__unordered_table_3, NULL, 884, 884, 7, 34},
-  {entry__types__unordered_table_4, NULL, 886, 886, 7, 40},
-  {entry__types__unordered_table_1, NULL, 883, 883, 5, 17},
-  {cont__types__unordered_table_2, &frame__types__unordered_table_1, 882, 886, 3, 41},
-  {entry__types__unordered_table__new_empty_collection_1, NULL, 898, 898, 3, 27},
-  {entry__std__unordered_table_2, NULL, 919, 919, 5, 61},
-  {cont__std__unordered_table_3, &frame__std__unordered_table_2, 919, 919, 10, 33},
-  {cont__std__unordered_table_4, &frame__std__unordered_table_2, 919, 919, 5, 34},
-  {cont__std__unordered_table_5, &frame__std__unordered_table_2, 919, 919, 61, 61},
-  {entry__std__unordered_table_1, NULL, 918, 919, 3, 61},
-  {cont__std__unordered_table_6, &frame__std__unordered_table_1, 920, 920, 3, 8},
-  {entry__types__unordered_table__for_each_9, NULL, 941, 941, 9, 22},
-  {entry__types__unordered_table__for_each_10, NULL, 943, 943, 9, 18},
-  {entry__types__unordered_table__for_each_2, NULL, 937, 937, 29, 37},
-  {cont__types__unordered_table__for_each_3, &frame__types__unordered_table__for_each_2, 937, 937, 5, 49},
-  {cont__types__unordered_table__for_each_4, &frame__types__unordered_table__for_each_2, 938, 938, 8, 18},
-  {cont__types__unordered_table__for_each_5, &frame__types__unordered_table__for_each_2, 938, 938, 5, 25},
-  {cont__types__unordered_table__for_each_6, &frame__types__unordered_table__for_each_2, 940, 940, 7, 30},
-  {cont__types__unordered_table__for_each_7, &frame__types__unordered_table__for_each_2, 940, 940, 7, 35},
-  {cont__types__unordered_table__for_each_8, &frame__types__unordered_table__for_each_2, 939, 943, 5, 19},
-  {entry__types__unordered_table__for_each_1, NULL, 936, 943, 3, 20},
-  {cont__types__unordered_table__for_each_11, &frame__types__unordered_table__for_each_1, 943, 943, 20, 20},
-  {entry__types__unordered_table__for_each_from_to_5, NULL, 963, 963, 19, 46},
-  {entry__types__unordered_table__for_each_from_to_11, NULL, 967, 967, 9, 22},
-  {entry__types__unordered_table__for_each_from_to_12, NULL, 969, 969, 9, 18},
-  {entry__types__unordered_table__for_each_from_to_8, NULL, 966, 966, 7, 30},
-  {cont__types__unordered_table__for_each_from_to_9, &frame__types__unordered_table__for_each_from_to_8, 966, 966, 7, 35},
-  {cont__types__unordered_table__for_each_from_to_10, &frame__types__unordered_table__for_each_from_to_8, 965, 969, 5, 19},
-  {cont__types__unordered_table__for_each_from_to_13, &frame__types__unordered_table__for_each_from_to_8, 970, 970, 8, 18},
-  {cont__types__unordered_table__for_each_from_to_14, &frame__types__unordered_table__for_each_from_to_8, 970, 970, 5, 25},
-  {cont__types__unordered_table__for_each_from_to_15, &frame__types__unordered_table__for_each_from_to_8, 971, 971, 29, 37},
-  {cont__types__unordered_table__for_each_from_to_16, &frame__types__unordered_table__for_each_from_to_8, 971, 971, 5, 49},
-  {cont__types__unordered_table__for_each_from_to_17, &frame__types__unordered_table__for_each_from_to_8, 972, 972, 8, 18},
-  {cont__types__unordered_table__for_each_from_to_18, &frame__types__unordered_table__for_each_from_to_8, 972, 972, 5, 25},
-  {entry__types__unordered_table__for_each_from_to_1, NULL, 961, 961, 3, 14},
-  {cont__types__unordered_table__for_each_from_to_2, &frame__types__unordered_table__for_each_from_to_1, 962, 962, 3, 34},
-  {cont__types__unordered_table__for_each_from_to_3, &frame__types__unordered_table__for_each_from_to_1, 963, 963, 6, 16},
-  {cont__types__unordered_table__for_each_from_to_4, &frame__types__unordered_table__for_each_from_to_1, 963, 963, 3, 46},
-  {cont__types__unordered_table__for_each_from_to_7, &frame__types__unordered_table__for_each_from_to_1, 964, 972, 3, 25},
-  {cont__types__unordered_table__for_each_from_to_19, &frame__types__unordered_table__for_each_from_to_1, 972, 972, 25, 25},
-  {entry__types__unordered_table__for_each_downwards_9, NULL, 993, 993, 9, 22},
-  {entry__types__unordered_table__for_each_downwards_10, NULL, 995, 995, 9, 18},
-  {entry__types__unordered_table__for_each_downwards_2, NULL, 989, 989, 33, 41},
-  {cont__types__unordered_table__for_each_downwards_3, &frame__types__unordered_table__for_each_downwards_2, 989, 989, 5, 53},
-  {cont__types__unordered_table__for_each_downwards_4, &frame__types__unordered_table__for_each_downwards_2, 990, 990, 8, 18},
-  {cont__types__unordered_table__for_each_downwards_5, &frame__types__unordered_table__for_each_downwards_2, 990, 990, 5, 25},
-  {cont__types__unordered_table__for_each_downwards_6, &frame__types__unordered_table__for_each_downwards_2, 992, 992, 7, 30},
-  {cont__types__unordered_table__for_each_downwards_7, &frame__types__unordered_table__for_each_downwards_2, 992, 992, 7, 35},
-  {cont__types__unordered_table__for_each_downwards_8, &frame__types__unordered_table__for_each_downwards_2, 991, 995, 5, 19},
-  {entry__types__unordered_table__for_each_downwards_1, NULL, 988, 995, 3, 20},
-  {cont__types__unordered_table__for_each_downwards_11, &frame__types__unordered_table__for_each_downwards_1, 995, 995, 20, 20},
-  {entry__types__unordered_table__for_each_from_down_to_5, NULL, 1015, 1015, 19, 46},
-  {entry__types__unordered_table__for_each_from_down_to_10, NULL, 1019, 1019, 9, 22},
-  {entry__types__unordered_table__for_each_from_down_to_11, NULL, 1021, 1021, 9, 18},
-  {entry__types__unordered_table__for_each_from_down_to_7, NULL, 1018, 1018, 7, 30},
-  {cont__types__unordered_table__for_each_from_down_to_8, &frame__types__unordered_table__for_each_from_down_to_7, 1018, 1018, 7, 35},
-  {cont__types__unordered_table__for_each_from_down_to_9, &frame__types__unordered_table__for_each_from_down_to_7, 1017, 1021, 5, 19},
-  {cont__types__unordered_table__for_each_from_down_to_12, &frame__types__unordered_table__for_each_from_down_to_7, 1022, 1022, 8, 19},
-  {cont__types__unordered_table__for_each_from_down_to_13, &frame__types__unordered_table__for_each_from_down_to_7, 1022, 1022, 5, 26},
-  {cont__types__unordered_table__for_each_from_down_to_14, &frame__types__unordered_table__for_each_from_down_to_7, 1023, 1023, 33, 41},
-  {cont__types__unordered_table__for_each_from_down_to_15, &frame__types__unordered_table__for_each_from_down_to_7, 1023, 1023, 5, 53},
-  {cont__types__unordered_table__for_each_from_down_to_16, &frame__types__unordered_table__for_each_from_down_to_7, 1024, 1024, 8, 18},
-  {cont__types__unordered_table__for_each_from_down_to_17, &frame__types__unordered_table__for_each_from_down_to_7, 1024, 1024, 5, 25},
-  {entry__types__unordered_table__for_each_from_down_to_1, NULL, 1013, 1013, 3, 14},
-  {cont__types__unordered_table__for_each_from_down_to_2, &frame__types__unordered_table__for_each_from_down_to_1, 1014, 1014, 3, 34},
-  {cont__types__unordered_table__for_each_from_down_to_3, &frame__types__unordered_table__for_each_from_down_to_1, 1015, 1015, 6, 16},
-  {cont__types__unordered_table__for_each_from_down_to_4, &frame__types__unordered_table__for_each_from_down_to_1, 1015, 1015, 3, 46},
-  {cont__types__unordered_table__for_each_from_down_to_6, &frame__types__unordered_table__for_each_from_down_to_1, 1016, 1024, 3, 25},
-  {cont__types__unordered_table__for_each_from_down_to_18, &frame__types__unordered_table__for_each_from_down_to_1, 1024, 1024, 25, 25},
-  {entry__types__unordered_table__update_each_2, NULL, 1041, 1041, 29, 37},
-  {cont__types__unordered_table__update_each_3, &frame__types__unordered_table__update_each_2, 1041, 1041, 5, 50},
-  {cont__types__unordered_table__update_each_4, &frame__types__unordered_table__update_each_2, 1042, 1042, 8, 18},
-  {cont__types__unordered_table__update_each_5, &frame__types__unordered_table__update_each_2, 1042, 1042, 5, 25},
-  {cont__types__unordered_table__update_each_6, &frame__types__unordered_table__update_each_2, 1043, 1043, 5, 19},
-  {cont__types__unordered_table__update_each_7, &frame__types__unordered_table__update_each_2, 1044, 1044, 5, 14},
-  {cont__types__unordered_table__update_each_8, &frame__types__unordered_table__update_each_2, 1044, 1044, 20, 20},
-  {entry__types__unordered_table__update_each_1, NULL, 1040, 1044, 3, 20},
-  {cont__types__unordered_table__update_each_9, &frame__types__unordered_table__update_each_1, 1044, 1044, 20, 20},
-  {entry__types__unordered_table__update_each_from_to_5, NULL, 1064, 1064, 19, 46},
-  {entry__types__unordered_table__update_each_from_to_7, NULL, 1066, 1066, 5, 19},
-  {cont__types__unordered_table__update_each_from_to_8, &frame__types__unordered_table__update_each_from_to_7, 1067, 1067, 5, 14},
-  {cont__types__unordered_table__update_each_from_to_9, &frame__types__unordered_table__update_each_from_to_7, 1068, 1068, 8, 18},
-  {cont__types__unordered_table__update_each_from_to_10, &frame__types__unordered_table__update_each_from_to_7, 1068, 1068, 5, 25},
-  {cont__types__unordered_table__update_each_from_to_11, &frame__types__unordered_table__update_each_from_to_7, 1069, 1069, 29, 37},
-  {cont__types__unordered_table__update_each_from_to_12, &frame__types__unordered_table__update_each_from_to_7, 1069, 1069, 5, 49},
-  {cont__types__unordered_table__update_each_from_to_13, &frame__types__unordered_table__update_each_from_to_7, 1070, 1070, 8, 18},
-  {cont__types__unordered_table__update_each_from_to_14, &frame__types__unordered_table__update_each_from_to_7, 1070, 1070, 5, 25},
-  {entry__types__unordered_table__update_each_from_to_1, NULL, 1062, 1062, 3, 14},
-  {cont__types__unordered_table__update_each_from_to_2, &frame__types__unordered_table__update_each_from_to_1, 1063, 1063, 3, 34},
-  {cont__types__unordered_table__update_each_from_to_3, &frame__types__unordered_table__update_each_from_to_1, 1064, 1064, 6, 16},
-  {cont__types__unordered_table__update_each_from_to_4, &frame__types__unordered_table__update_each_from_to_1, 1064, 1064, 3, 46},
-  {cont__types__unordered_table__update_each_from_to_6, &frame__types__unordered_table__update_each_from_to_1, 1065, 1070, 3, 25},
-  {cont__types__unordered_table__update_each_from_to_15, &frame__types__unordered_table__update_each_from_to_1, 1070, 1070, 25, 25},
-  {entry__types__unordered_table__update_each_downwards_2, NULL, 1087, 1087, 33, 41},
-  {cont__types__unordered_table__update_each_downwards_3, &frame__types__unordered_table__update_each_downwards_2, 1087, 1087, 5, 54},
-  {cont__types__unordered_table__update_each_downwards_4, &frame__types__unordered_table__update_each_downwards_2, 1088, 1088, 8, 18},
-  {cont__types__unordered_table__update_each_downwards_5, &frame__types__unordered_table__update_each_downwards_2, 1088, 1088, 5, 25},
-  {cont__types__unordered_table__update_each_downwards_6, &frame__types__unordered_table__update_each_downwards_2, 1089, 1089, 5, 19},
-  {cont__types__unordered_table__update_each_downwards_7, &frame__types__unordered_table__update_each_downwards_2, 1090, 1090, 5, 14},
-  {cont__types__unordered_table__update_each_downwards_8, &frame__types__unordered_table__update_each_downwards_2, 1090, 1090, 20, 20},
-  {entry__types__unordered_table__update_each_downwards_1, NULL, 1086, 1090, 3, 20},
-  {cont__types__unordered_table__update_each_downwards_9, &frame__types__unordered_table__update_each_downwards_1, 1090, 1090, 20, 20},
-  {entry__types__unordered_table__update_each_from_down_to_5, NULL, 1110, 1110, 19, 46},
-  {entry__types__unordered_table__update_each_from_down_to_7, NULL, 1112, 1112, 5, 19},
-  {cont__types__unordered_table__update_each_from_down_to_8, &frame__types__unordered_table__update_each_from_down_to_7, 1113, 1113, 5, 14},
-  {cont__types__unordered_table__update_each_from_down_to_9, &frame__types__unordered_table__update_each_from_down_to_7, 1114, 1114, 8, 19},
-  {cont__types__unordered_table__update_each_from_down_to_10, &frame__types__unordered_table__update_each_from_down_to_7, 1114, 1114, 5, 26},
-  {cont__types__unordered_table__update_each_from_down_to_11, &frame__types__unordered_table__update_each_from_down_to_7, 1115, 1115, 33, 41},
-  {cont__types__unordered_table__update_each_from_down_to_12, &frame__types__unordered_table__update_each_from_down_to_7, 1115, 1115, 5, 53},
-  {cont__types__unordered_table__update_each_from_down_to_13, &frame__types__unordered_table__update_each_from_down_to_7, 1116, 1116, 8, 18},
-  {cont__types__unordered_table__update_each_from_down_to_14, &frame__types__unordered_table__update_each_from_down_to_7, 1116, 1116, 5, 25},
-  {entry__types__unordered_table__update_each_from_down_to_1, NULL, 1108, 1108, 3, 14},
-  {cont__types__unordered_table__update_each_from_down_to_2, &frame__types__unordered_table__update_each_from_down_to_1, 1109, 1109, 3, 34},
-  {cont__types__unordered_table__update_each_from_down_to_3, &frame__types__unordered_table__update_each_from_down_to_1, 1110, 1110, 6, 16},
-  {cont__types__unordered_table__update_each_from_down_to_4, &frame__types__unordered_table__update_each_from_down_to_1, 1110, 1110, 3, 46},
-  {cont__types__unordered_table__update_each_from_down_to_6, &frame__types__unordered_table__update_each_from_down_to_1, 1111, 1116, 3, 25},
-  {cont__types__unordered_table__update_each_from_down_to_15, &frame__types__unordered_table__update_each_from_down_to_1, 1116, 1116, 25, 25}
+  {cont__types__unordered_table__private__set_item_5, &frame__types__unordered_table__private__set_item_1, 830, 834, 3, 73},
+  {cont__types__unordered_table__private__set_item_13, &frame__types__unordered_table__private__set_item_1, 834, 834, 73, 73},
+  {entry__types__unordered_table__private__get_item_6, NULL, 861, 861, 27, 60},
+  {cont__types__unordered_table__private__get_item_7, &frame__types__unordered_table__private__get_item_6, 861, 861, 27, 60},
+  {entry__types__unordered_table__private__get_item_9, NULL, 862, 862, 7, 28},
+  {entry__types__unordered_table__private__get_item_3, NULL, 856, 856, 5, 50},
+  {cont__types__unordered_table__private__get_item_4, &frame__types__unordered_table__private__get_item_3, 861, 861, 8, 22},
+  {cont__types__unordered_table__private__get_item_5, &frame__types__unordered_table__private__get_item_3, 861, 861, 8, 60},
+  {cont__types__unordered_table__private__get_item_8, &frame__types__unordered_table__private__get_item_3, 861, 862, 5, 28},
+  {entry__types__unordered_table__private__get_item_1, NULL, 844, 844, 3, 14},
+  {cont__types__unordered_table__private__get_item_2, &frame__types__unordered_table__private__get_item_1, 855, 868, 3, 52},
+  {cont__types__unordered_table__private__get_item_10, &frame__types__unordered_table__private__get_item_1, 868, 868, 52, 52},
+  {entry__types__unordered_table_3, NULL, 886, 886, 7, 34},
+  {entry__types__unordered_table_4, NULL, 888, 888, 7, 40},
+  {entry__types__unordered_table_1, NULL, 885, 885, 5, 17},
+  {cont__types__unordered_table_2, &frame__types__unordered_table_1, 884, 888, 3, 41},
+  {entry__types__unordered_table__new_empty_collection_1, NULL, 900, 900, 3, 27},
+  {entry__std__unordered_table_2, NULL, 921, 921, 5, 61},
+  {cont__std__unordered_table_3, &frame__std__unordered_table_2, 921, 921, 10, 33},
+  {cont__std__unordered_table_4, &frame__std__unordered_table_2, 921, 921, 5, 34},
+  {cont__std__unordered_table_5, &frame__std__unordered_table_2, 921, 921, 61, 61},
+  {entry__std__unordered_table_1, NULL, 920, 921, 3, 61},
+  {cont__std__unordered_table_6, &frame__std__unordered_table_1, 922, 922, 3, 8},
+  {entry__types__unordered_table__for_each_9, NULL, 943, 943, 9, 22},
+  {entry__types__unordered_table__for_each_10, NULL, 945, 945, 9, 18},
+  {entry__types__unordered_table__for_each_2, NULL, 939, 939, 29, 37},
+  {cont__types__unordered_table__for_each_3, &frame__types__unordered_table__for_each_2, 939, 939, 5, 49},
+  {cont__types__unordered_table__for_each_4, &frame__types__unordered_table__for_each_2, 940, 940, 8, 18},
+  {cont__types__unordered_table__for_each_5, &frame__types__unordered_table__for_each_2, 940, 940, 5, 25},
+  {cont__types__unordered_table__for_each_6, &frame__types__unordered_table__for_each_2, 942, 942, 7, 30},
+  {cont__types__unordered_table__for_each_7, &frame__types__unordered_table__for_each_2, 942, 942, 7, 35},
+  {cont__types__unordered_table__for_each_8, &frame__types__unordered_table__for_each_2, 941, 945, 5, 19},
+  {entry__types__unordered_table__for_each_1, NULL, 938, 945, 3, 20},
+  {cont__types__unordered_table__for_each_11, &frame__types__unordered_table__for_each_1, 945, 945, 20, 20},
+  {entry__types__unordered_table__for_each_from_to_5, NULL, 965, 965, 19, 46},
+  {entry__types__unordered_table__for_each_from_to_11, NULL, 969, 969, 9, 22},
+  {entry__types__unordered_table__for_each_from_to_12, NULL, 971, 971, 9, 18},
+  {entry__types__unordered_table__for_each_from_to_8, NULL, 968, 968, 7, 30},
+  {cont__types__unordered_table__for_each_from_to_9, &frame__types__unordered_table__for_each_from_to_8, 968, 968, 7, 35},
+  {cont__types__unordered_table__for_each_from_to_10, &frame__types__unordered_table__for_each_from_to_8, 967, 971, 5, 19},
+  {cont__types__unordered_table__for_each_from_to_13, &frame__types__unordered_table__for_each_from_to_8, 972, 972, 8, 18},
+  {cont__types__unordered_table__for_each_from_to_14, &frame__types__unordered_table__for_each_from_to_8, 972, 972, 5, 25},
+  {cont__types__unordered_table__for_each_from_to_15, &frame__types__unordered_table__for_each_from_to_8, 973, 973, 29, 37},
+  {cont__types__unordered_table__for_each_from_to_16, &frame__types__unordered_table__for_each_from_to_8, 973, 973, 5, 49},
+  {cont__types__unordered_table__for_each_from_to_17, &frame__types__unordered_table__for_each_from_to_8, 974, 974, 8, 18},
+  {cont__types__unordered_table__for_each_from_to_18, &frame__types__unordered_table__for_each_from_to_8, 974, 974, 5, 25},
+  {entry__types__unordered_table__for_each_from_to_1, NULL, 963, 963, 3, 14},
+  {cont__types__unordered_table__for_each_from_to_2, &frame__types__unordered_table__for_each_from_to_1, 964, 964, 3, 34},
+  {cont__types__unordered_table__for_each_from_to_3, &frame__types__unordered_table__for_each_from_to_1, 965, 965, 6, 16},
+  {cont__types__unordered_table__for_each_from_to_4, &frame__types__unordered_table__for_each_from_to_1, 965, 965, 3, 46},
+  {cont__types__unordered_table__for_each_from_to_7, &frame__types__unordered_table__for_each_from_to_1, 966, 974, 3, 25},
+  {cont__types__unordered_table__for_each_from_to_19, &frame__types__unordered_table__for_each_from_to_1, 974, 974, 25, 25},
+  {entry__types__unordered_table__for_each_downwards_9, NULL, 995, 995, 9, 22},
+  {entry__types__unordered_table__for_each_downwards_10, NULL, 997, 997, 9, 18},
+  {entry__types__unordered_table__for_each_downwards_2, NULL, 991, 991, 33, 41},
+  {cont__types__unordered_table__for_each_downwards_3, &frame__types__unordered_table__for_each_downwards_2, 991, 991, 5, 53},
+  {cont__types__unordered_table__for_each_downwards_4, &frame__types__unordered_table__for_each_downwards_2, 992, 992, 8, 18},
+  {cont__types__unordered_table__for_each_downwards_5, &frame__types__unordered_table__for_each_downwards_2, 992, 992, 5, 25},
+  {cont__types__unordered_table__for_each_downwards_6, &frame__types__unordered_table__for_each_downwards_2, 994, 994, 7, 30},
+  {cont__types__unordered_table__for_each_downwards_7, &frame__types__unordered_table__for_each_downwards_2, 994, 994, 7, 35},
+  {cont__types__unordered_table__for_each_downwards_8, &frame__types__unordered_table__for_each_downwards_2, 993, 997, 5, 19},
+  {entry__types__unordered_table__for_each_downwards_1, NULL, 990, 997, 3, 20},
+  {cont__types__unordered_table__for_each_downwards_11, &frame__types__unordered_table__for_each_downwards_1, 997, 997, 20, 20},
+  {entry__types__unordered_table__for_each_from_down_to_5, NULL, 1017, 1017, 19, 46},
+  {entry__types__unordered_table__for_each_from_down_to_10, NULL, 1021, 1021, 9, 22},
+  {entry__types__unordered_table__for_each_from_down_to_11, NULL, 1023, 1023, 9, 18},
+  {entry__types__unordered_table__for_each_from_down_to_7, NULL, 1020, 1020, 7, 30},
+  {cont__types__unordered_table__for_each_from_down_to_8, &frame__types__unordered_table__for_each_from_down_to_7, 1020, 1020, 7, 35},
+  {cont__types__unordered_table__for_each_from_down_to_9, &frame__types__unordered_table__for_each_from_down_to_7, 1019, 1023, 5, 19},
+  {cont__types__unordered_table__for_each_from_down_to_12, &frame__types__unordered_table__for_each_from_down_to_7, 1024, 1024, 8, 19},
+  {cont__types__unordered_table__for_each_from_down_to_13, &frame__types__unordered_table__for_each_from_down_to_7, 1024, 1024, 5, 26},
+  {cont__types__unordered_table__for_each_from_down_to_14, &frame__types__unordered_table__for_each_from_down_to_7, 1025, 1025, 33, 41},
+  {cont__types__unordered_table__for_each_from_down_to_15, &frame__types__unordered_table__for_each_from_down_to_7, 1025, 1025, 5, 53},
+  {cont__types__unordered_table__for_each_from_down_to_16, &frame__types__unordered_table__for_each_from_down_to_7, 1026, 1026, 8, 18},
+  {cont__types__unordered_table__for_each_from_down_to_17, &frame__types__unordered_table__for_each_from_down_to_7, 1026, 1026, 5, 25},
+  {entry__types__unordered_table__for_each_from_down_to_1, NULL, 1015, 1015, 3, 14},
+  {cont__types__unordered_table__for_each_from_down_to_2, &frame__types__unordered_table__for_each_from_down_to_1, 1016, 1016, 3, 34},
+  {cont__types__unordered_table__for_each_from_down_to_3, &frame__types__unordered_table__for_each_from_down_to_1, 1017, 1017, 6, 16},
+  {cont__types__unordered_table__for_each_from_down_to_4, &frame__types__unordered_table__for_each_from_down_to_1, 1017, 1017, 3, 46},
+  {cont__types__unordered_table__for_each_from_down_to_6, &frame__types__unordered_table__for_each_from_down_to_1, 1018, 1026, 3, 25},
+  {cont__types__unordered_table__for_each_from_down_to_18, &frame__types__unordered_table__for_each_from_down_to_1, 1026, 1026, 25, 25},
+  {entry__types__unordered_table__update_each_2, NULL, 1043, 1043, 29, 37},
+  {cont__types__unordered_table__update_each_3, &frame__types__unordered_table__update_each_2, 1043, 1043, 5, 50},
+  {cont__types__unordered_table__update_each_4, &frame__types__unordered_table__update_each_2, 1044, 1044, 8, 18},
+  {cont__types__unordered_table__update_each_5, &frame__types__unordered_table__update_each_2, 1044, 1044, 5, 25},
+  {cont__types__unordered_table__update_each_6, &frame__types__unordered_table__update_each_2, 1045, 1045, 5, 19},
+  {cont__types__unordered_table__update_each_7, &frame__types__unordered_table__update_each_2, 1046, 1046, 5, 14},
+  {cont__types__unordered_table__update_each_8, &frame__types__unordered_table__update_each_2, 1046, 1046, 20, 20},
+  {entry__types__unordered_table__update_each_1, NULL, 1042, 1046, 3, 20},
+  {cont__types__unordered_table__update_each_9, &frame__types__unordered_table__update_each_1, 1046, 1046, 20, 20},
+  {entry__types__unordered_table__update_each_from_to_5, NULL, 1066, 1066, 19, 46},
+  {entry__types__unordered_table__update_each_from_to_7, NULL, 1068, 1068, 5, 19},
+  {cont__types__unordered_table__update_each_from_to_8, &frame__types__unordered_table__update_each_from_to_7, 1069, 1069, 5, 14},
+  {cont__types__unordered_table__update_each_from_to_9, &frame__types__unordered_table__update_each_from_to_7, 1070, 1070, 8, 18},
+  {cont__types__unordered_table__update_each_from_to_10, &frame__types__unordered_table__update_each_from_to_7, 1070, 1070, 5, 25},
+  {cont__types__unordered_table__update_each_from_to_11, &frame__types__unordered_table__update_each_from_to_7, 1071, 1071, 29, 37},
+  {cont__types__unordered_table__update_each_from_to_12, &frame__types__unordered_table__update_each_from_to_7, 1071, 1071, 5, 49},
+  {cont__types__unordered_table__update_each_from_to_13, &frame__types__unordered_table__update_each_from_to_7, 1072, 1072, 8, 18},
+  {cont__types__unordered_table__update_each_from_to_14, &frame__types__unordered_table__update_each_from_to_7, 1072, 1072, 5, 25},
+  {entry__types__unordered_table__update_each_from_to_1, NULL, 1064, 1064, 3, 14},
+  {cont__types__unordered_table__update_each_from_to_2, &frame__types__unordered_table__update_each_from_to_1, 1065, 1065, 3, 34},
+  {cont__types__unordered_table__update_each_from_to_3, &frame__types__unordered_table__update_each_from_to_1, 1066, 1066, 6, 16},
+  {cont__types__unordered_table__update_each_from_to_4, &frame__types__unordered_table__update_each_from_to_1, 1066, 1066, 3, 46},
+  {cont__types__unordered_table__update_each_from_to_6, &frame__types__unordered_table__update_each_from_to_1, 1067, 1072, 3, 25},
+  {cont__types__unordered_table__update_each_from_to_15, &frame__types__unordered_table__update_each_from_to_1, 1072, 1072, 25, 25},
+  {entry__types__unordered_table__update_each_downwards_2, NULL, 1089, 1089, 33, 41},
+  {cont__types__unordered_table__update_each_downwards_3, &frame__types__unordered_table__update_each_downwards_2, 1089, 1089, 5, 54},
+  {cont__types__unordered_table__update_each_downwards_4, &frame__types__unordered_table__update_each_downwards_2, 1090, 1090, 8, 18},
+  {cont__types__unordered_table__update_each_downwards_5, &frame__types__unordered_table__update_each_downwards_2, 1090, 1090, 5, 25},
+  {cont__types__unordered_table__update_each_downwards_6, &frame__types__unordered_table__update_each_downwards_2, 1091, 1091, 5, 19},
+  {cont__types__unordered_table__update_each_downwards_7, &frame__types__unordered_table__update_each_downwards_2, 1092, 1092, 5, 14},
+  {cont__types__unordered_table__update_each_downwards_8, &frame__types__unordered_table__update_each_downwards_2, 1092, 1092, 20, 20},
+  {entry__types__unordered_table__update_each_downwards_1, NULL, 1088, 1092, 3, 20},
+  {cont__types__unordered_table__update_each_downwards_9, &frame__types__unordered_table__update_each_downwards_1, 1092, 1092, 20, 20},
+  {entry__types__unordered_table__update_each_from_down_to_5, NULL, 1112, 1112, 19, 46},
+  {entry__types__unordered_table__update_each_from_down_to_7, NULL, 1114, 1114, 5, 19},
+  {cont__types__unordered_table__update_each_from_down_to_8, &frame__types__unordered_table__update_each_from_down_to_7, 1115, 1115, 5, 14},
+  {cont__types__unordered_table__update_each_from_down_to_9, &frame__types__unordered_table__update_each_from_down_to_7, 1116, 1116, 8, 19},
+  {cont__types__unordered_table__update_each_from_down_to_10, &frame__types__unordered_table__update_each_from_down_to_7, 1116, 1116, 5, 26},
+  {cont__types__unordered_table__update_each_from_down_to_11, &frame__types__unordered_table__update_each_from_down_to_7, 1117, 1117, 33, 41},
+  {cont__types__unordered_table__update_each_from_down_to_12, &frame__types__unordered_table__update_each_from_down_to_7, 1117, 1117, 5, 53},
+  {cont__types__unordered_table__update_each_from_down_to_13, &frame__types__unordered_table__update_each_from_down_to_7, 1118, 1118, 8, 18},
+  {cont__types__unordered_table__update_each_from_down_to_14, &frame__types__unordered_table__update_each_from_down_to_7, 1118, 1118, 5, 25},
+  {entry__types__unordered_table__update_each_from_down_to_1, NULL, 1110, 1110, 3, 14},
+  {cont__types__unordered_table__update_each_from_down_to_2, &frame__types__unordered_table__update_each_from_down_to_1, 1111, 1111, 3, 34},
+  {cont__types__unordered_table__update_each_from_down_to_3, &frame__types__unordered_table__update_each_from_down_to_1, 1112, 1112, 6, 16},
+  {cont__types__unordered_table__update_each_from_down_to_4, &frame__types__unordered_table__update_each_from_down_to_1, 1112, 1112, 3, 46},
+  {cont__types__unordered_table__update_each_from_down_to_6, &frame__types__unordered_table__update_each_from_down_to_1, 1113, 1118, 3, 25},
+  {cont__types__unordered_table__update_each_from_down_to_15, &frame__types__unordered_table__update_each_from_down_to_1, 1118, 1118, 25, 25}
 };
 
 union NODE {
@@ -855,7 +855,7 @@ EXPORT void run__basic__types__unordered_table(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 1189: register_collection_serializer "unordered_table" empty_unordered_table
+  // 1191: register_collection_serializer "unordered_table" empty_unordered_table
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__16058a9f0bf11cc9;
@@ -1740,18 +1740,21 @@ static void cont__types__unordered_table__private__set_item_5(void) {
   }
   initialize_future(frame->slots[4] /* h */, arguments->slots[0]);
   // 825: $$cmp_key NONE
+  // 826:   #
+  // 827:     start looking for possibly matching keys at the first key with
+  // 828:     identical hash
   ((CELL *)frame->slots[5])->contents /* cmp_key */ = var._NONE;
-  // 829: ... :
-  // 830:   insert_item &self h &cmp_key key value
-  // 831:   if cmp_key == NONE: return self
-  // 832:   if cmp_key .equal_type_and_value. key:
-  // 833:     !key cmp_key # force the use of the already stored (and equal) key
+  // 830: ... :
+  // 831:   insert_item &self h &cmp_key key value
+  // 832:   if cmp_key == NONE: return self
+  // 833:   if cmp_key .equal_type_and_value. key:
+  // 834:     !key cmp_key # force the use of the already stored (and equal) key
   frame->slots[6] /* temp__1 */ = create_closure(entry__types__unordered_table__private__set_item_6, 0);
-  // 829: forever:
-  // 830:   insert_item &self h &cmp_key key value
-  // 831:   if cmp_key == NONE: return self
-  // 832:   if cmp_key .equal_type_and_value. key:
-  // 833:     !key cmp_key # force the use of the already stored (and equal) key
+  // 830: forever:
+  // 831:   insert_item &self h &cmp_key key value
+  // 832:   if cmp_key == NONE: return self
+  // 833:   if cmp_key .equal_type_and_value. key:
+  // 834:     !key cmp_key # force the use of the already stored (and equal) key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -1766,12 +1769,12 @@ static void entry__types__unordered_table__private__set_item_12(void) {
   // key: 0
   // cmp_key: 1
   frame->slots[0] = myself->closure.frame->slots[3]; /* key */
-  frame->slots[1] = myself->closure.frame->slots[1]; /* cmp_key */
+  frame->slots[1] = myself->closure.frame->slots[2]; /* cmp_key */
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 833: !key cmp_key # force the use of the already stored (and equal) key
+  // 834: !key cmp_key # force the use of the already stored (and equal) key
   ((CELL *)frame->slots[0])->contents /* key */ = ((CELL *)frame->slots[1])->contents /* cmp_key */;
   argument_count = 0;
   arguments = node_p;
@@ -1783,14 +1786,14 @@ static void entry__types__unordered_table__private__set_item_6(void) {
   allocate_initialized_frame_gc(6, 8);
   // slot allocations:
   // self: 0
-  // cmp_key: 1
-  // h: 2
+  // h: 1
+  // cmp_key: 2
   // key: 3
   // value: 4
   // return: 5
   frame->slots[0] = myself->closure.frame->slots[0]; /* self */
-  frame->slots[1] = myself->closure.frame->slots[5]; /* cmp_key */
-  frame->slots[2] = myself->closure.frame->slots[4]; /* h */
+  frame->slots[1] = myself->closure.frame->slots[4]; /* h */
+  frame->slots[2] = myself->closure.frame->slots[5]; /* cmp_key */
   frame->slots[3] = myself->closure.frame->slots[1]; /* key */
   frame->slots[4] = myself->closure.frame->slots[2]; /* value */
   frame->slots[5] = myself->closure.frame->slots[3]; /* return */
@@ -1798,12 +1801,12 @@ static void entry__types__unordered_table__private__set_item_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 830: insert_item &self h &cmp_key key value
+  // 831: insert_item &self h &cmp_key key value
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
-  arguments->slots[1] = frame->slots[2] /* h */;
-  arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* cmp_key */;
+  arguments->slots[1] = frame->slots[1] /* h */;
+  arguments->slots[2] = ((CELL *)frame->slots[2])->contents /* cmp_key */;
   arguments->slots[3] = ((CELL *)frame->slots[3])->contents /* key */;
   arguments->slots[4] = frame->slots[4] /* value */;
   result_count = 2;
@@ -1817,11 +1820,11 @@ static void cont__types__unordered_table__private__set_item_7(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* self */ = arguments->slots[0];
-  ((CELL *)frame->slots[1])->contents /* cmp_key */ = arguments->slots[1];
-  // 831: ... cmp_key == NONE
+  ((CELL *)frame->slots[2])->contents /* cmp_key */ = arguments->slots[1];
+  // 832: ... cmp_key == NONE
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* cmp_key */;
+  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* cmp_key */;
   arguments->slots[1] = var._NONE;
   result_count = 1;
   myself = get__std__equal();
@@ -1834,9 +1837,9 @@ static void cont__types__unordered_table__private__set_item_8(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 831: ... : return self
+  // 832: ... : return self
   frame->slots[7] /* temp__2 */ = create_closure(entry__types__unordered_table__private__set_item_9, 0);
-  // 831: if cmp_key == NONE: return self
+  // 832: if cmp_key == NONE: return self
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -1857,7 +1860,7 @@ static void entry__types__unordered_table__private__set_item_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 831: ... return self
+  // 832: ... return self
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -1871,10 +1874,10 @@ static void cont__types__unordered_table__private__set_item_10(void) {
     invalid_results_error();
     return;
   }
-  // 832: ... cmp_key .equal_type_and_value. key
+  // 833: ... cmp_key .equal_type_and_value. key
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* cmp_key */;
+  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* cmp_key */;
   arguments->slots[1] = ((CELL *)frame->slots[3])->contents /* key */;
   result_count = 1;
   myself = get__equal_type_and_value();
@@ -1887,11 +1890,11 @@ static void cont__types__unordered_table__private__set_item_11(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 832: ... :
-  // 833:   !key cmp_key # force the use of the already stored (and equal) key
+  // 833: ... :
+  // 834:   !key cmp_key # force the use of the already stored (and equal) key
   frame->slots[7] /* temp__2 */ = create_closure(entry__types__unordered_table__private__set_item_12, 0);
-  // 832: if cmp_key .equal_type_and_value. key:
-  // 833:   !key cmp_key # force the use of the already stored (and equal) key
+  // 833: if cmp_key .equal_type_and_value. key:
+  // 834:   !key cmp_key # force the use of the already stored (and equal) key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -1921,7 +1924,7 @@ static void entry__types__unordered_table__private__get_item_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 843: $h hash(key)
+  // 844: $h hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* key */;
@@ -1936,30 +1939,32 @@ static void cont__types__unordered_table__private__get_item_2(void) {
     return;
   }
   initialize_future(frame->slots[3] /* h */, arguments->slots[0]);
-  // 850: $$cmp_key NONE
+  // 851: $$cmp_key NONE
+  // 852:   #
+  // 853:     start the search with the first key with a matching hash value
   ((CELL *)frame->slots[4])->contents /* cmp_key */ = var._NONE;
-  // 853: ... :
-  // 854:   retrieve_item self h &cmp_key $retrieved_value
-  // 855:   
-  // 856:   #ewriteln "___"
-  // 857:   #edump `cmp_key `retrieved_value
-  // 858:   
-  // 859:   if cmp_key == NONE || cmp_key .equal_type_and_value. key:
-  // 860:     return retrieved_value
-  // 861:   
-  // 862:   #
+  // 855: ... :
+  // 856:   retrieve_item self h &cmp_key $retrieved_value
+  // 857:   
+  // 858:   #ewriteln "___"
+  // 859:   #edump `cmp_key `retrieved_value
+  // 860:   
+  // 861:   if cmp_key == NONE || cmp_key .equal_type_and_value. key:
+  // 862:     return retrieved_value
+  // 863:   
+  // 864:   #
   // ...
   frame->slots[5] /* temp__1 */ = create_closure(entry__types__unordered_table__private__get_item_3, 0);
-  // 853: forever:
-  // 854:   retrieve_item self h &cmp_key $retrieved_value
-  // 855:   
-  // 856:   #ewriteln "___"
-  // 857:   #edump `cmp_key `retrieved_value
-  // 858:   
-  // 859:   if cmp_key == NONE || cmp_key .equal_type_and_value. key:
-  // 860:     return retrieved_value
-  // 861:   
-  // 862:   #
+  // 855: forever:
+  // 856:   retrieve_item self h &cmp_key $retrieved_value
+  // 857:   
+  // 858:   #ewriteln "___"
+  // 859:   #edump `cmp_key `retrieved_value
+  // 860:   
+  // 861:   if cmp_key == NONE || cmp_key .equal_type_and_value. key:
+  // 862:     return retrieved_value
+  // 863:   
+  // 864:   #
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -1980,7 +1985,7 @@ static void entry__types__unordered_table__private__get_item_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 860: return retrieved_value
+  // 862: return retrieved_value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* retrieved_value */;
@@ -1992,15 +1997,15 @@ static void entry__types__unordered_table__private__get_item_9(void) {
 static void entry__types__unordered_table__private__get_item_3(void) {
   allocate_initialized_frame_gc(5, 10);
   // slot allocations:
-  // cmp_key: 0
-  // self: 1
-  // h: 2
+  // self: 0
+  // h: 1
+  // cmp_key: 2
   // key: 3
   // return: 4
   // retrieved_value: 5
-  frame->slots[0] = myself->closure.frame->slots[4]; /* cmp_key */
-  frame->slots[1] = myself->closure.frame->slots[0]; /* self */
-  frame->slots[2] = myself->closure.frame->slots[3]; /* h */
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[1] = myself->closure.frame->slots[3]; /* h */
+  frame->slots[2] = myself->closure.frame->slots[4]; /* cmp_key */
   frame->slots[3] = myself->closure.frame->slots[1]; /* key */
   frame->slots[4] = myself->closure.frame->slots[2]; /* return */
   frame->slots[5] /* retrieved_value */ = create_future();
@@ -2008,12 +2013,12 @@ static void entry__types__unordered_table__private__get_item_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 854: retrieve_item self h &cmp_key $retrieved_value
+  // 856: retrieve_item self h &cmp_key $retrieved_value
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* self */;
-  arguments->slots[1] = frame->slots[2] /* h */;
-  arguments->slots[2] = ((CELL *)frame->slots[0])->contents /* cmp_key */;
+  arguments->slots[0] = frame->slots[0] /* self */;
+  arguments->slots[1] = frame->slots[1] /* h */;
+  arguments->slots[2] = ((CELL *)frame->slots[2])->contents /* cmp_key */;
   result_count = 2;
   myself = var._retrieve_item;
   func = myself->type;
@@ -2024,14 +2029,12 @@ static void cont__types__unordered_table__private__get_item_4(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[0])->contents /* cmp_key */ = arguments->slots[0];
-  frame->slots[6] /* temp__1 */ = arguments->slots[1];
-  // 854: ... retrieved_value
-  initialize_future(frame->slots[5] /* retrieved_value */, frame->slots[6] /* temp__1 */);
-  // 859: ... cmp_key == NONE
+  ((CELL *)frame->slots[2])->contents /* cmp_key */ = arguments->slots[0];
+  initialize_future(frame->slots[5] /* retrieved_value */, arguments->slots[1]);
+  // 861: ... cmp_key == NONE
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* cmp_key */;
+  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* cmp_key */;
   arguments->slots[1] = var._NONE;
   result_count = 1;
   myself = get__std__equal();
@@ -2044,9 +2047,9 @@ static void cont__types__unordered_table__private__get_item_5(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 859: ... cmp_key .equal_type_and_value. key
+  // 861: ... cmp_key .equal_type_and_value. key
   frame->slots[8] /* temp__3 */ = create_closure(entry__types__unordered_table__private__get_item_6, 0);
-  // 859: ... cmp_key == NONE || cmp_key .equal_type_and_value. key
+  // 861: ... cmp_key == NONE || cmp_key .equal_type_and_value. key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -2061,13 +2064,13 @@ static void entry__types__unordered_table__private__get_item_6(void) {
   // slot allocations:
   // cmp_key: 0
   // key: 1
-  frame->slots[0] = myself->closure.frame->slots[0]; /* cmp_key */
+  frame->slots[0] = myself->closure.frame->slots[2]; /* cmp_key */
   frame->slots[1] = myself->closure.frame->slots[3]; /* key */
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 859: ... cmp_key .equal_type_and_value. key
+  // 861: ... cmp_key .equal_type_and_value. key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* cmp_key */;
@@ -2083,7 +2086,7 @@ static void cont__types__unordered_table__private__get_item_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 859: ... cmp_key .equal_type_and_value. key
+  // 861: ... cmp_key .equal_type_and_value. key
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2097,11 +2100,11 @@ static void cont__types__unordered_table__private__get_item_8(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 859: ... :
-  // 860:   return retrieved_value
+  // 861: ... :
+  // 862:   return retrieved_value
   frame->slots[9] /* temp__4 */ = create_closure(entry__types__unordered_table__private__get_item_9, 0);
-  // 859: if cmp_key == NONE || cmp_key .equal_type_and_value. key:
-  // 860:   return retrieved_value
+  // 861: if cmp_key == NONE || cmp_key .equal_type_and_value. key:
+  // 862:   return retrieved_value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2127,7 +2130,7 @@ static void entry__types__unordered_table_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 884: private::get_item myself key
+  // 886: private::get_item myself key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -2150,7 +2153,7 @@ static void entry__types__unordered_table_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 886: private::set_item myself key value
+  // 888: private::set_item myself key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -2183,7 +2186,7 @@ static void entry__types__unordered_table_1(void) {
     case 1: frame->slots[1] /* value */ = var._NONE;
   }
   frame->slots[2] /* myself */ = myself;
-  // 883: NONE == value
+  // 885: NONE == value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -2199,17 +2202,17 @@ static void cont__types__unordered_table_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 883: ... :
-  // 884:   private::get_item myself key
+  // 885: ... :
+  // 886:   private::get_item myself key
   frame->slots[4] /* temp__2 */ = create_closure(entry__types__unordered_table_3, 0);
-  // 885: :
-  // 886:   private::set_item myself key value
+  // 887: :
+  // 888:   private::set_item myself key value
   frame->slots[5] /* temp__3 */ = create_closure(entry__types__unordered_table_4, 0);
-  // 882: if
-  // 883:   NONE == value:
-  // 884:     private::get_item myself key
-  // 885:   :
-  // 886:     private::set_item myself key value
+  // 884: if
+  // 885:   NONE == value:
+  // 886:     private::get_item myself key
+  // 887:   :
+  // 888:     private::set_item myself key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2228,7 +2231,7 @@ static void entry__types__unordered_table__new_empty_collection_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 898: -> types::unordered_table
+  // 900: -> types::unordered_table
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var.types__unordered_table;
@@ -2244,13 +2247,13 @@ static void entry__std__unordered_table_1(void) {
   // tab: 1
   frame->slots[1] /* tab */ = create_cell();
   frame->slots[0] /* initializers */ = from_arguments(0, argument_count-0);
-  // 917: $$tab types::unordered_table
+  // 919: $$tab types::unordered_table
   ((CELL *)frame->slots[1])->contents /* tab */ = var.types__unordered_table;
-  // 918: ... : (initializer)
-  // 919:   !tab(std::key_of(initializer)) std::value_of(initializer)
+  // 920: ... : (initializer)
+  // 921:   !tab(std::key_of(initializer)) std::value_of(initializer)
   frame->slots[2] /* temp__1 */ = create_closure(entry__std__unordered_table_2, 1);
-  // 918: for_each initializers: (initializer)
-  // 919:   !tab(std::key_of(initializer)) std::value_of(initializer)
+  // 920: for_each initializers: (initializer)
+  // 921:   !tab(std::key_of(initializer)) std::value_of(initializer)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* initializers */;
@@ -2270,7 +2273,7 @@ static void entry__std__unordered_table_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 919: !tab(std::key_of(initializer)) std::value_of(initializer)
+  // 921: !tab(std::key_of(initializer)) std::value_of(initializer)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* initializer */;
@@ -2285,7 +2288,7 @@ static void cont__std__unordered_table_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 919: ... std::key_of(initializer)
+  // 921: ... std::key_of(initializer)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* initializer */;
@@ -2300,7 +2303,7 @@ static void cont__std__unordered_table_4(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 919: !tab(std::key_of(initializer))
+  // 921: !tab(std::key_of(initializer))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -2327,7 +2330,7 @@ static void cont__std__unordered_table_6(void) {
     invalid_results_error();
     return;
   }
-  // 920: -> tab
+  // 922: -> tab
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* tab */;
@@ -2348,25 +2351,25 @@ static void entry__types__unordered_table__for_each_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 935: $$key NONE
+  // 937: $$key NONE
   ((CELL *)frame->slots[3])->contents /* key */ = var._NONE;
-  // 936: ... :
-  // 937:   next_key_and_value self hash(key) &key $value
-  // 938:   if key == NONE return
-  // 939:   if
-  // 940:     parameter_count_of(body) == 2:
-  // 941:       body key value
-  // 942:     :
-  // 943:       body value
+  // 938: ... :
+  // 939:   next_key_and_value self hash(key) &key $value
+  // 940:   if key == NONE return
+  // 941:   if
+  // 942:     parameter_count_of(body) == 2:
+  // 943:       body key value
+  // 944:     :
+  // 945:       body value
   frame->slots[4] /* temp__1 */ = create_closure(entry__types__unordered_table__for_each_2, 0);
-  // 936: forever:
-  // 937:   next_key_and_value self hash(key) &key $value
-  // 938:   if key == NONE return
-  // 939:   if
-  // 940:     parameter_count_of(body) == 2:
-  // 941:       body key value
-  // 942:     :
-  // 943:       body value
+  // 938: forever:
+  // 939:   next_key_and_value self hash(key) &key $value
+  // 940:   if key == NONE return
+  // 941:   if
+  // 942:     parameter_count_of(body) == 2:
+  // 943:       body key value
+  // 944:     :
+  // 945:       body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2382,13 +2385,13 @@ static void entry__types__unordered_table__for_each_9(void) {
   // key: 1
   // value: 2
   frame->slots[0] = myself->closure.frame->slots[3]; /* body */
-  frame->slots[1] = myself->closure.frame->slots[0]; /* key */
+  frame->slots[1] = myself->closure.frame->slots[1]; /* key */
   frame->slots[2] = myself->closure.frame->slots[4]; /* value */
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 941: body key value
+  // 943: body key value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2409,7 +2412,7 @@ static void entry__types__unordered_table__for_each_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 943: body value
+  // 945: body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* value */;
@@ -2421,13 +2424,13 @@ static void entry__types__unordered_table__for_each_10(void) {
 static void entry__types__unordered_table__for_each_2(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
-  // key: 0
-  // self: 1
+  // self: 0
+  // key: 1
   // return: 2
   // body: 3
   // value: 4
-  frame->slots[0] = myself->closure.frame->slots[3]; /* key */
-  frame->slots[1] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[1] = myself->closure.frame->slots[3]; /* key */
   frame->slots[2] = myself->closure.frame->slots[2]; /* return */
   frame->slots[3] = myself->closure.frame->slots[1]; /* body */
   frame->slots[4] /* value */ = create_future();
@@ -2435,10 +2438,10 @@ static void entry__types__unordered_table__for_each_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 937: ... hash(key)
+  // 939: ... hash(key)
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 1;
   myself = get__hash();
   func = myself->type;
@@ -2450,12 +2453,12 @@ static void cont__types__unordered_table__for_each_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 937: next_key_and_value self hash(key) &key $value
+  // 939: next_key_and_value self hash(key) &key $value
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* self */;
+  arguments->slots[0] = frame->slots[0] /* self */;
   arguments->slots[1] = frame->slots[5] /* temp__1 */;
-  arguments->slots[2] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 2;
   myself = var._next_key_and_value;
   func = myself->type;
@@ -2466,14 +2469,12 @@ static void cont__types__unordered_table__for_each_4(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[0])->contents /* key */ = arguments->slots[0];
-  frame->slots[6] /* temp__2 */ = arguments->slots[1];
-  // 937: ... value
-  initialize_future(frame->slots[4] /* value */, frame->slots[6] /* temp__2 */);
-  // 938: ... key == NONE
+  ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[0];
+  initialize_future(frame->slots[4] /* value */, arguments->slots[1]);
+  // 940: ... key == NONE
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[1] = var._NONE;
   result_count = 1;
   myself = get__std__equal();
@@ -2486,7 +2487,7 @@ static void cont__types__unordered_table__for_each_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 938: if key == NONE return
+  // 940: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2501,7 +2502,7 @@ static void cont__types__unordered_table__for_each_6(void) {
     invalid_results_error();
     return;
   }
-  // 940: parameter_count_of(body)
+  // 942: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* body */;
@@ -2516,7 +2517,7 @@ static void cont__types__unordered_table__for_each_7(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 940: parameter_count_of(body) == 2
+  // 942: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -2532,17 +2533,17 @@ static void cont__types__unordered_table__for_each_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 940: ... :
-  // 941:   body key value
+  // 942: ... :
+  // 943:   body key value
   frame->slots[7] /* temp__3 */ = create_closure(entry__types__unordered_table__for_each_9, 0);
-  // 942: :
-  // 943:   body value
+  // 944: :
+  // 945:   body value
   frame->slots[8] /* temp__4 */ = create_closure(entry__types__unordered_table__for_each_10, 0);
-  // 939: if
-  // 940:   parameter_count_of(body) == 2:
-  // 941:     body key value
-  // 942:   :
-  // 943:     body value
+  // 941: if
+  // 942:   parameter_count_of(body) == 2:
+  // 943:     body key value
+  // 944:   :
+  // 945:     body value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -2577,11 +2578,11 @@ static void entry__types__unordered_table__for_each_from_to_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 959: $$key first
+  // 961: $$key first
   ((CELL *)frame->slots[5])->contents /* key */ = frame->slots[1] /* first */;
-  // 960: $$value undefined
+  // 962: $$value undefined
   ((CELL *)frame->slots[6])->contents /* value */ = get__undefined();
-  // 961: $h hash(key)
+  // 963: $h hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -2596,7 +2597,7 @@ static void cont__types__unordered_table__for_each_from_to_2(void) {
     return;
   }
   initialize_future(frame->slots[7] /* h */, arguments->slots[0]);
-  // 962: retrieve_item self h &key !value
+  // 964: retrieve_item self h &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -2614,7 +2615,7 @@ static void cont__types__unordered_table__for_each_from_to_3(void) {
   }
   ((CELL *)frame->slots[5])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[6])->contents /* value */ = arguments->slots[1];
-  // 963: ... key == NONE
+  // 965: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -2630,7 +2631,7 @@ static void cont__types__unordered_table__for_each_from_to_4(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 963: if key == NONE: Error "Invalid index error!"
+  // 965: if key == NONE: Error "Invalid index error!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -2647,7 +2648,7 @@ static void entry__types__unordered_table__for_each_from_to_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 963: ... Error "Invalid index error!"
+  // 965: ... Error "Invalid index error!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2bdb69f58c8fd6ea;
@@ -2661,25 +2662,25 @@ static void cont__types__unordered_table__for_each_from_to_7(void) {
     invalid_results_error();
     return;
   }
-  // 964: ... :
-  // 965:   if
-  // 966:     parameter_count_of(body) == 2:
-  // 967:       body key value
-  // 968:     :
-  // 969:       body value
-  // 970:   if key == last return
-  // 971:   next_key_and_value self hash(key) &key !value
-  // 972:   if key == NONE return
+  // 966: ... :
+  // 967:   if
+  // 968:     parameter_count_of(body) == 2:
+  // 969:       body key value
+  // 970:     :
+  // 971:       body value
+  // 972:   if key == last return
+  // 973:   next_key_and_value self hash(key) &key !value
+  // 974:   if key == NONE return
   frame->slots[8] /* temp__1 */ = create_closure(entry__types__unordered_table__for_each_from_to_8, 0);
-  // 964: forever:
-  // 965:   if
-  // 966:     parameter_count_of(body) == 2:
-  // 967:       body key value
-  // 968:     :
-  // 969:       body value
-  // 970:   if key == last return
-  // 971:   next_key_and_value self hash(key) &key !value
-  // 972:   if key == NONE return
+  // 966: forever:
+  // 967:   if
+  // 968:     parameter_count_of(body) == 2:
+  // 969:       body key value
+  // 970:     :
+  // 971:       body value
+  // 972:   if key == last return
+  // 973:   next_key_and_value self hash(key) &key !value
+  // 974:   if key == NONE return
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -2707,7 +2708,7 @@ static void entry__types__unordered_table__for_each_from_to_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 966: parameter_count_of(body)
+  // 968: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -2722,7 +2723,7 @@ static void cont__types__unordered_table__for_each_from_to_9(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 966: parameter_count_of(body) == 2
+  // 968: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -2738,17 +2739,17 @@ static void cont__types__unordered_table__for_each_from_to_10(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 966: ... :
-  // 967:   body key value
+  // 968: ... :
+  // 969:   body key value
   frame->slots[8] /* temp__3 */ = create_closure(entry__types__unordered_table__for_each_from_to_11, 0);
-  // 968: :
-  // 969:   body value
+  // 970: :
+  // 971:   body value
   frame->slots[9] /* temp__4 */ = create_closure(entry__types__unordered_table__for_each_from_to_12, 0);
-  // 965: if
-  // 966:   parameter_count_of(body) == 2:
-  // 967:     body key value
-  // 968:   :
-  // 969:     body value
+  // 967: if
+  // 968:   parameter_count_of(body) == 2:
+  // 969:     body key value
+  // 970:   :
+  // 971:     body value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2772,7 +2773,7 @@ static void entry__types__unordered_table__for_each_from_to_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 967: body key value
+  // 969: body key value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2793,7 +2794,7 @@ static void entry__types__unordered_table__for_each_from_to_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 969: body value
+  // 971: body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* value */;
@@ -2807,7 +2808,7 @@ static void cont__types__unordered_table__for_each_from_to_13(void) {
     invalid_results_error();
     return;
   }
-  // 970: ... key == last
+  // 972: ... key == last
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2823,7 +2824,7 @@ static void cont__types__unordered_table__for_each_from_to_14(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 970: if key == last return
+  // 972: if key == last return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2838,7 +2839,7 @@ static void cont__types__unordered_table__for_each_from_to_15(void) {
     invalid_results_error();
     return;
   }
-  // 971: ... hash(key)
+  // 973: ... hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2853,7 +2854,7 @@ static void cont__types__unordered_table__for_each_from_to_16(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 971: next_key_and_value self hash(key) &key !value
+  // 973: next_key_and_value self hash(key) &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* self */;
@@ -2871,7 +2872,7 @@ static void cont__types__unordered_table__for_each_from_to_17(void) {
   }
   ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[2])->contents /* value */ = arguments->slots[1];
-  // 972: ... key == NONE
+  // 974: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2887,7 +2888,7 @@ static void cont__types__unordered_table__for_each_from_to_18(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 972: if key == NONE return
+  // 974: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2915,25 +2916,25 @@ static void entry__types__unordered_table__for_each_downwards_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 987: $$key NONE
+  // 989: $$key NONE
   ((CELL *)frame->slots[3])->contents /* key */ = var._NONE;
-  // 988: ... :
-  // 989:   previous_key_and_value self hash(key) &key $value
-  // 990:   if key == NONE return
-  // 991:   if
-  // 992:     parameter_count_of(body) == 2:
-  // 993:       body key value
-  // 994:     :
-  // 995:       body value
+  // 990: ... :
+  // 991:   previous_key_and_value self hash(key) &key $value
+  // 992:   if key == NONE return
+  // 993:   if
+  // 994:     parameter_count_of(body) == 2:
+  // 995:       body key value
+  // 996:     :
+  // 997:       body value
   frame->slots[4] /* temp__1 */ = create_closure(entry__types__unordered_table__for_each_downwards_2, 0);
-  // 988: forever:
-  // 989:   previous_key_and_value self hash(key) &key $value
-  // 990:   if key == NONE return
-  // 991:   if
-  // 992:     parameter_count_of(body) == 2:
-  // 993:       body key value
-  // 994:     :
-  // 995:       body value
+  // 990: forever:
+  // 991:   previous_key_and_value self hash(key) &key $value
+  // 992:   if key == NONE return
+  // 993:   if
+  // 994:     parameter_count_of(body) == 2:
+  // 995:       body key value
+  // 996:     :
+  // 997:       body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2949,13 +2950,13 @@ static void entry__types__unordered_table__for_each_downwards_9(void) {
   // key: 1
   // value: 2
   frame->slots[0] = myself->closure.frame->slots[3]; /* body */
-  frame->slots[1] = myself->closure.frame->slots[0]; /* key */
+  frame->slots[1] = myself->closure.frame->slots[1]; /* key */
   frame->slots[2] = myself->closure.frame->slots[4]; /* value */
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
   }
-  // 993: body key value
+  // 995: body key value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -2976,7 +2977,7 @@ static void entry__types__unordered_table__for_each_downwards_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 995: body value
+  // 997: body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* value */;
@@ -2988,13 +2989,13 @@ static void entry__types__unordered_table__for_each_downwards_10(void) {
 static void entry__types__unordered_table__for_each_downwards_2(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
-  // key: 0
-  // self: 1
+  // self: 0
+  // key: 1
   // return: 2
   // body: 3
   // value: 4
-  frame->slots[0] = myself->closure.frame->slots[3]; /* key */
-  frame->slots[1] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[1] = myself->closure.frame->slots[3]; /* key */
   frame->slots[2] = myself->closure.frame->slots[2]; /* return */
   frame->slots[3] = myself->closure.frame->slots[1]; /* body */
   frame->slots[4] /* value */ = create_future();
@@ -3002,10 +3003,10 @@ static void entry__types__unordered_table__for_each_downwards_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 989: ... hash(key)
+  // 991: ... hash(key)
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 1;
   myself = get__hash();
   func = myself->type;
@@ -3017,12 +3018,12 @@ static void cont__types__unordered_table__for_each_downwards_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 989: previous_key_and_value self hash(key) &key $value
+  // 991: previous_key_and_value self hash(key) &key $value
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* self */;
+  arguments->slots[0] = frame->slots[0] /* self */;
   arguments->slots[1] = frame->slots[5] /* temp__1 */;
-  arguments->slots[2] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 2;
   myself = var._previous_key_and_value;
   func = myself->type;
@@ -3033,14 +3034,12 @@ static void cont__types__unordered_table__for_each_downwards_4(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[0])->contents /* key */ = arguments->slots[0];
-  frame->slots[6] /* temp__2 */ = arguments->slots[1];
-  // 989: ... value
-  initialize_future(frame->slots[4] /* value */, frame->slots[6] /* temp__2 */);
-  // 990: ... key == NONE
+  ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[0];
+  initialize_future(frame->slots[4] /* value */, arguments->slots[1]);
+  // 992: ... key == NONE
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[1] = var._NONE;
   result_count = 1;
   myself = get__std__equal();
@@ -3053,7 +3052,7 @@ static void cont__types__unordered_table__for_each_downwards_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 990: if key == NONE return
+  // 992: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -3068,7 +3067,7 @@ static void cont__types__unordered_table__for_each_downwards_6(void) {
     invalid_results_error();
     return;
   }
-  // 992: parameter_count_of(body)
+  // 994: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* body */;
@@ -3083,7 +3082,7 @@ static void cont__types__unordered_table__for_each_downwards_7(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 992: parameter_count_of(body) == 2
+  // 994: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -3099,17 +3098,17 @@ static void cont__types__unordered_table__for_each_downwards_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 992: ... :
-  // 993:   body key value
+  // 994: ... :
+  // 995:   body key value
   frame->slots[7] /* temp__3 */ = create_closure(entry__types__unordered_table__for_each_downwards_9, 0);
-  // 994: :
-  // 995:   body value
+  // 996: :
+  // 997:   body value
   frame->slots[8] /* temp__4 */ = create_closure(entry__types__unordered_table__for_each_downwards_10, 0);
-  // 991: if
-  // 992:   parameter_count_of(body) == 2:
-  // 993:     body key value
-  // 994:   :
-  // 995:     body value
+  // 993: if
+  // 994:   parameter_count_of(body) == 2:
+  // 995:     body key value
+  // 996:   :
+  // 997:     body value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -3144,11 +3143,11 @@ static void entry__types__unordered_table__for_each_from_down_to_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 1011: $$key last
+  // 1013: $$key last
   ((CELL *)frame->slots[5])->contents /* key */ = frame->slots[1] /* last */;
-  // 1012: $$value undefined
+  // 1014: $$value undefined
   ((CELL *)frame->slots[6])->contents /* value */ = get__undefined();
-  // 1013: $h hash(key)
+  // 1015: $h hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -3163,7 +3162,7 @@ static void cont__types__unordered_table__for_each_from_down_to_2(void) {
     return;
   }
   initialize_future(frame->slots[7] /* h */, arguments->slots[0]);
-  // 1014: retrieve_item self h &key !value
+  // 1016: retrieve_item self h &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3181,7 +3180,7 @@ static void cont__types__unordered_table__for_each_from_down_to_3(void) {
   }
   ((CELL *)frame->slots[5])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[6])->contents /* value */ = arguments->slots[1];
-  // 1015: ... key == NONE
+  // 1017: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -3197,7 +3196,7 @@ static void cont__types__unordered_table__for_each_from_down_to_4(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 1015: if key == NONE: Error "Invalid index error!"
+  // 1017: if key == NONE: Error "Invalid index error!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -3214,7 +3213,7 @@ static void entry__types__unordered_table__for_each_from_down_to_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 1015: ... Error "Invalid index error!"
+  // 1017: ... Error "Invalid index error!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2bdb69f58c8fd6ea;
@@ -3228,25 +3227,25 @@ static void cont__types__unordered_table__for_each_from_down_to_6(void) {
     invalid_results_error();
     return;
   }
-  // 1016: ... :
-  // 1017:   if
-  // 1018:     parameter_count_of(body) == 2:
-  // 1019:       body key value
-  // 1020:     :
-  // 1021:       body value
-  // 1022:   if key == first return
-  // 1023:   previous_key_and_value self hash(key) &key !value
-  // 1024:   if key == NONE return
+  // 1018: ... :
+  // 1019:   if
+  // 1020:     parameter_count_of(body) == 2:
+  // 1021:       body key value
+  // 1022:     :
+  // 1023:       body value
+  // 1024:   if key == first return
+  // 1025:   previous_key_and_value self hash(key) &key !value
+  // 1026:   if key == NONE return
   frame->slots[8] /* temp__1 */ = create_closure(entry__types__unordered_table__for_each_from_down_to_7, 0);
-  // 1016: forever:
-  // 1017:   if
-  // 1018:     parameter_count_of(body) == 2:
-  // 1019:       body key value
-  // 1020:     :
-  // 1021:       body value
-  // 1022:   if key == first return
-  // 1023:   previous_key_and_value self hash(key) &key !value
-  // 1024:   if key == NONE return
+  // 1018: forever:
+  // 1019:   if
+  // 1020:     parameter_count_of(body) == 2:
+  // 1021:       body key value
+  // 1022:     :
+  // 1023:       body value
+  // 1024:   if key == first return
+  // 1025:   previous_key_and_value self hash(key) &key !value
+  // 1026:   if key == NONE return
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -3274,7 +3273,7 @@ static void entry__types__unordered_table__for_each_from_down_to_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 1018: parameter_count_of(body)
+  // 1020: parameter_count_of(body)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* body */;
@@ -3289,7 +3288,7 @@ static void cont__types__unordered_table__for_each_from_down_to_8(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 1018: parameter_count_of(body) == 2
+  // 1020: parameter_count_of(body) == 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -3305,17 +3304,17 @@ static void cont__types__unordered_table__for_each_from_down_to_9(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1018: ... :
-  // 1019:   body key value
+  // 1020: ... :
+  // 1021:   body key value
   frame->slots[8] /* temp__3 */ = create_closure(entry__types__unordered_table__for_each_from_down_to_10, 0);
-  // 1020: :
-  // 1021:   body value
+  // 1022: :
+  // 1023:   body value
   frame->slots[9] /* temp__4 */ = create_closure(entry__types__unordered_table__for_each_from_down_to_11, 0);
-  // 1017: if
-  // 1018:   parameter_count_of(body) == 2:
-  // 1019:     body key value
-  // 1020:   :
-  // 1021:     body value
+  // 1019: if
+  // 1020:   parameter_count_of(body) == 2:
+  // 1021:     body key value
+  // 1022:   :
+  // 1023:     body value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -3339,7 +3338,7 @@ static void entry__types__unordered_table__for_each_from_down_to_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 1019: body key value
+  // 1021: body key value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -3360,7 +3359,7 @@ static void entry__types__unordered_table__for_each_from_down_to_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 1021: body value
+  // 1023: body value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* value */;
@@ -3374,7 +3373,7 @@ static void cont__types__unordered_table__for_each_from_down_to_12(void) {
     invalid_results_error();
     return;
   }
-  // 1022: ... key == first
+  // 1024: ... key == first
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -3390,7 +3389,7 @@ static void cont__types__unordered_table__for_each_from_down_to_13(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1022: if key == first return
+  // 1024: if key == first return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -3405,7 +3404,7 @@ static void cont__types__unordered_table__for_each_from_down_to_14(void) {
     invalid_results_error();
     return;
   }
-  // 1023: ... hash(key)
+  // 1025: ... hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -3420,7 +3419,7 @@ static void cont__types__unordered_table__for_each_from_down_to_15(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1023: previous_key_and_value self hash(key) &key !value
+  // 1025: previous_key_and_value self hash(key) &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* self */;
@@ -3438,7 +3437,7 @@ static void cont__types__unordered_table__for_each_from_down_to_16(void) {
   }
   ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[2])->contents /* value */ = arguments->slots[1];
-  // 1024: ... key == NONE
+  // 1026: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
@@ -3454,7 +3453,7 @@ static void cont__types__unordered_table__for_each_from_down_to_17(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1024: if key == NONE return
+  // 1026: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -3483,19 +3482,19 @@ static void entry__types__unordered_table__update_each_1(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 1039: $$key NONE
+  // 1041: $$key NONE
   ((CELL *)frame->slots[3])->contents /* key */ = var._NONE;
-  // 1040: ... :
-  // 1041:   next_key_and_value self hash(key) &key $$value
-  // 1042:   if key == NONE return
-  // 1043:   body key &value
-  // 1044:   !self(key) value
+  // 1042: ... :
+  // 1043:   next_key_and_value self hash(key) &key $$value
+  // 1044:   if key == NONE return
+  // 1045:   body key &value
+  // 1046:   !self(key) value
   frame->slots[4] /* temp__1 */ = create_closure(entry__types__unordered_table__update_each_2, 0);
-  // 1040: forever:
-  // 1041:   next_key_and_value self hash(key) &key $$value
-  // 1042:   if key == NONE return
-  // 1043:   body key &value
-  // 1044:   !self(key) value
+  // 1042: forever:
+  // 1043:   next_key_and_value self hash(key) &key $$value
+  // 1044:   if key == NONE return
+  // 1045:   body key &value
+  // 1046:   !self(key) value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3509,13 +3508,13 @@ static void entry__types__unordered_table__update_each_1(void) {
 static void entry__types__unordered_table__update_each_2(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
-  // key: 0
-  // self: 1
+  // self: 0
+  // key: 1
   // return: 2
   // body: 3
   // value: 4
-  frame->slots[0] = myself->closure.frame->slots[3]; /* key */
-  frame->slots[1] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[1] = myself->closure.frame->slots[3]; /* key */
   frame->slots[2] = myself->closure.frame->slots[2]; /* return */
   frame->slots[3] = myself->closure.frame->slots[1]; /* body */
   frame->slots[4] /* value */ = create_cell();
@@ -3523,10 +3522,10 @@ static void entry__types__unordered_table__update_each_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 1041: ... hash(key)
+  // 1043: ... hash(key)
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 1;
   myself = get__hash();
   func = myself->type;
@@ -3538,12 +3537,12 @@ static void cont__types__unordered_table__update_each_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1041: next_key_and_value self hash(key) &key $$value
+  // 1043: next_key_and_value self hash(key) &key $$value
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   arguments->slots[1] = frame->slots[5] /* temp__1 */;
-  arguments->slots[2] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 2;
   myself = var._next_key_and_value;
   func = myself->type;
@@ -3554,12 +3553,12 @@ static void cont__types__unordered_table__update_each_4(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[0])->contents /* key */ = arguments->slots[0];
+  ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[4])->contents /* value */ = arguments->slots[1];
-  // 1042: ... key == NONE
+  // 1044: ... key == NONE
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[1] = var._NONE;
   result_count = 1;
   myself = get__std__equal();
@@ -3572,7 +3571,7 @@ static void cont__types__unordered_table__update_each_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1042: if key == NONE return
+  // 1044: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -3587,10 +3586,10 @@ static void cont__types__unordered_table__update_each_6(void) {
     invalid_results_error();
     return;
   }
-  // 1043: body key &value
+  // 1045: body key &value
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[1] = ((CELL *)frame->slots[4])->contents /* value */;
   result_count = 1;
   myself = frame->slots[3] /* body */;
@@ -3603,15 +3602,13 @@ static void cont__types__unordered_table__update_each_7(void) {
     return;
   }
   ((CELL *)frame->slots[4])->contents /* value */ = arguments->slots[0];
-  // 1044: !self(key) value
-  frame->slots[5] /* temp__1 */ = ((CELL *)frame->slots[4])->contents /* value */;
-  // 1044: !self(key)
+  // 1046: !self(key)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
-  arguments->slots[1] = frame->slots[5] /* temp__1 */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
+  arguments->slots[1] = ((CELL *)frame->slots[4])->contents /* value */;
   result_count = 1;
-  myself = ((CELL *)frame->slots[1])->contents /* self */;
+  myself = ((CELL *)frame->slots[0])->contents /* self */;
   func = myself->type;
   frame->cont = cont__types__unordered_table__update_each_8;
 }
@@ -3620,7 +3617,7 @@ static void cont__types__unordered_table__update_each_8(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[1])->contents /* self */ = arguments->slots[0];
+  ((CELL *)frame->slots[0])->contents /* self */ = arguments->slots[0];
   argument_count = 0;
   arguments = node_p;
   frame = frame->caller_frame;
@@ -3662,11 +3659,11 @@ static void entry__types__unordered_table__update_each_from_to_1(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 1060: $$key first
+  // 1062: $$key first
   ((CELL *)frame->slots[5])->contents /* key */ = frame->slots[1] /* first */;
-  // 1061: $$value undefined
+  // 1063: $$value undefined
   ((CELL *)frame->slots[6])->contents /* value */ = get__undefined();
-  // 1062: $h hash(key)
+  // 1064: $h hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -3681,7 +3678,7 @@ static void cont__types__unordered_table__update_each_from_to_2(void) {
     return;
   }
   initialize_future(frame->slots[7] /* h */, arguments->slots[0]);
-  // 1063: retrieve_item self h &key !value
+  // 1065: retrieve_item self h &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -3699,7 +3696,7 @@ static void cont__types__unordered_table__update_each_from_to_3(void) {
   }
   ((CELL *)frame->slots[5])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[6])->contents /* value */ = arguments->slots[1];
-  // 1064: ... key == NONE
+  // 1066: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -3715,7 +3712,7 @@ static void cont__types__unordered_table__update_each_from_to_4(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 1064: if key == NONE: Error "Invalid index error!"
+  // 1066: if key == NONE: Error "Invalid index error!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -3732,7 +3729,7 @@ static void entry__types__unordered_table__update_each_from_to_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 1064: ... Error "Invalid index error!"
+  // 1066: ... Error "Invalid index error!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2bdb69f58c8fd6ea;
@@ -3746,19 +3743,19 @@ static void cont__types__unordered_table__update_each_from_to_6(void) {
     invalid_results_error();
     return;
   }
-  // 1065: ... :
-  // 1066:   body key &value
-  // 1067:   !self(key) value
-  // 1068:   if key == last return
-  // 1069:   next_key_and_value self hash(key) &key !value
-  // 1070:   if key == NONE return
+  // 1067: ... :
+  // 1068:   body key &value
+  // 1069:   !self(key) value
+  // 1070:   if key == last return
+  // 1071:   next_key_and_value self hash(key) &key !value
+  // 1072:   if key == NONE return
   frame->slots[8] /* temp__1 */ = create_closure(entry__types__unordered_table__update_each_from_to_7, 0);
-  // 1065: forever:
-  // 1066:   body key &value
-  // 1067:   !self(key) value
-  // 1068:   if key == last return
-  // 1069:   next_key_and_value self hash(key) &key !value
-  // 1070:   if key == NONE return
+  // 1067: forever:
+  // 1068:   body key &value
+  // 1069:   !self(key) value
+  // 1070:   if key == last return
+  // 1071:   next_key_and_value self hash(key) &key !value
+  // 1072:   if key == NONE return
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -3773,14 +3770,14 @@ static void entry__types__unordered_table__update_each_from_to_7(void) {
   allocate_initialized_frame_gc(6, 7);
   // slot allocations:
   // body: 0
-  // value: 1
-  // key: 2
+  // key: 1
+  // value: 2
   // self: 3
   // last: 4
   // return: 5
   frame->slots[0] = myself->closure.frame->slots[3]; /* body */
-  frame->slots[1] = myself->closure.frame->slots[6]; /* value */
-  frame->slots[2] = myself->closure.frame->slots[5]; /* key */
+  frame->slots[1] = myself->closure.frame->slots[5]; /* key */
+  frame->slots[2] = myself->closure.frame->slots[6]; /* value */
   frame->slots[3] = myself->closure.frame->slots[0]; /* self */
   frame->slots[4] = myself->closure.frame->slots[2]; /* last */
   frame->slots[5] = myself->closure.frame->slots[4]; /* return */
@@ -3788,11 +3785,11 @@ static void entry__types__unordered_table__update_each_from_to_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 1066: body key &value
+  // 1068: body key &value
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
-  arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* value */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
+  arguments->slots[1] = ((CELL *)frame->slots[2])->contents /* value */;
   result_count = 1;
   myself = frame->slots[0] /* body */;
   func = myself->type;
@@ -3803,14 +3800,12 @@ static void cont__types__unordered_table__update_each_from_to_8(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[1])->contents /* value */ = arguments->slots[0];
-  // 1067: !self(key) value
-  frame->slots[6] /* temp__1 */ = ((CELL *)frame->slots[1])->contents /* value */;
-  // 1067: !self(key)
+  ((CELL *)frame->slots[2])->contents /* value */ = arguments->slots[0];
+  // 1069: !self(key)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
-  arguments->slots[1] = frame->slots[6] /* temp__1 */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
+  arguments->slots[1] = ((CELL *)frame->slots[2])->contents /* value */;
   result_count = 1;
   myself = ((CELL *)frame->slots[3])->contents /* self */;
   func = myself->type;
@@ -3822,10 +3817,10 @@ static void cont__types__unordered_table__update_each_from_to_9(void) {
     return;
   }
   ((CELL *)frame->slots[3])->contents /* self */ = arguments->slots[0];
-  // 1068: ... key == last
+  // 1070: ... key == last
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[1] = frame->slots[4] /* last */;
   result_count = 1;
   myself = get__std__equal();
@@ -3838,7 +3833,7 @@ static void cont__types__unordered_table__update_each_from_to_10(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1068: if key == last return
+  // 1070: if key == last return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -3853,10 +3848,10 @@ static void cont__types__unordered_table__update_each_from_to_11(void) {
     invalid_results_error();
     return;
   }
-  // 1069: ... hash(key)
+  // 1071: ... hash(key)
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 1;
   myself = get__hash();
   func = myself->type;
@@ -3868,12 +3863,12 @@ static void cont__types__unordered_table__update_each_from_to_12(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1069: next_key_and_value self hash(key) &key !value
+  // 1071: next_key_and_value self hash(key) &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* self */;
   arguments->slots[1] = frame->slots[6] /* temp__1 */;
-  arguments->slots[2] = ((CELL *)frame->slots[2])->contents /* key */;
+  arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 2;
   myself = var._next_key_and_value;
   func = myself->type;
@@ -3884,12 +3879,12 @@ static void cont__types__unordered_table__update_each_from_to_13(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[2])->contents /* key */ = arguments->slots[0];
-  ((CELL *)frame->slots[1])->contents /* value */ = arguments->slots[1];
-  // 1070: ... key == NONE
+  ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[0];
+  ((CELL *)frame->slots[2])->contents /* value */ = arguments->slots[1];
+  // 1072: ... key == NONE
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[1] = var._NONE;
   result_count = 1;
   myself = get__std__equal();
@@ -3902,7 +3897,7 @@ static void cont__types__unordered_table__update_each_from_to_14(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1070: if key == NONE return
+  // 1072: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -3941,19 +3936,19 @@ static void entry__types__unordered_table__update_each_downwards_1(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 1085: $$key NONE
+  // 1087: $$key NONE
   ((CELL *)frame->slots[3])->contents /* key */ = var._NONE;
-  // 1086: ... :
-  // 1087:   previous_key_and_value self hash(key) &key $$value
-  // 1088:   if key == NONE return
-  // 1089:   body key &value
-  // 1090:   !self(key) value
+  // 1088: ... :
+  // 1089:   previous_key_and_value self hash(key) &key $$value
+  // 1090:   if key == NONE return
+  // 1091:   body key &value
+  // 1092:   !self(key) value
   frame->slots[4] /* temp__1 */ = create_closure(entry__types__unordered_table__update_each_downwards_2, 0);
-  // 1086: forever:
-  // 1087:   previous_key_and_value self hash(key) &key $$value
-  // 1088:   if key == NONE return
-  // 1089:   body key &value
-  // 1090:   !self(key) value
+  // 1088: forever:
+  // 1089:   previous_key_and_value self hash(key) &key $$value
+  // 1090:   if key == NONE return
+  // 1091:   body key &value
+  // 1092:   !self(key) value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3967,13 +3962,13 @@ static void entry__types__unordered_table__update_each_downwards_1(void) {
 static void entry__types__unordered_table__update_each_downwards_2(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
-  // key: 0
-  // self: 1
+  // self: 0
+  // key: 1
   // return: 2
   // body: 3
   // value: 4
-  frame->slots[0] = myself->closure.frame->slots[3]; /* key */
-  frame->slots[1] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[1] = myself->closure.frame->slots[3]; /* key */
   frame->slots[2] = myself->closure.frame->slots[2]; /* return */
   frame->slots[3] = myself->closure.frame->slots[1]; /* body */
   frame->slots[4] /* value */ = create_cell();
@@ -3981,10 +3976,10 @@ static void entry__types__unordered_table__update_each_downwards_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 1087: ... hash(key)
+  // 1089: ... hash(key)
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 1;
   myself = get__hash();
   func = myself->type;
@@ -3996,12 +3991,12 @@ static void cont__types__unordered_table__update_each_downwards_3(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1087: previous_key_and_value self hash(key) &key $$value
+  // 1089: previous_key_and_value self hash(key) &key $$value
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   arguments->slots[1] = frame->slots[5] /* temp__1 */;
-  arguments->slots[2] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 2;
   myself = var._previous_key_and_value;
   func = myself->type;
@@ -4012,12 +4007,12 @@ static void cont__types__unordered_table__update_each_downwards_4(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[0])->contents /* key */ = arguments->slots[0];
+  ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[4])->contents /* value */ = arguments->slots[1];
-  // 1088: ... key == NONE
+  // 1090: ... key == NONE
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[1] = var._NONE;
   result_count = 1;
   myself = get__std__equal();
@@ -4030,7 +4025,7 @@ static void cont__types__unordered_table__update_each_downwards_5(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1088: if key == NONE return
+  // 1090: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -4045,10 +4040,10 @@ static void cont__types__unordered_table__update_each_downwards_6(void) {
     invalid_results_error();
     return;
   }
-  // 1089: body key &value
+  // 1091: body key &value
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[1] = ((CELL *)frame->slots[4])->contents /* value */;
   result_count = 1;
   myself = frame->slots[3] /* body */;
@@ -4061,15 +4056,13 @@ static void cont__types__unordered_table__update_each_downwards_7(void) {
     return;
   }
   ((CELL *)frame->slots[4])->contents /* value */ = arguments->slots[0];
-  // 1090: !self(key) value
-  frame->slots[5] /* temp__1 */ = ((CELL *)frame->slots[4])->contents /* value */;
-  // 1090: !self(key)
+  // 1092: !self(key)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* key */;
-  arguments->slots[1] = frame->slots[5] /* temp__1 */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
+  arguments->slots[1] = ((CELL *)frame->slots[4])->contents /* value */;
   result_count = 1;
-  myself = ((CELL *)frame->slots[1])->contents /* self */;
+  myself = ((CELL *)frame->slots[0])->contents /* self */;
   func = myself->type;
   frame->cont = cont__types__unordered_table__update_each_downwards_8;
 }
@@ -4078,7 +4071,7 @@ static void cont__types__unordered_table__update_each_downwards_8(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[1])->contents /* self */ = arguments->slots[0];
+  ((CELL *)frame->slots[0])->contents /* self */ = arguments->slots[0];
   argument_count = 0;
   arguments = node_p;
   frame = frame->caller_frame;
@@ -4120,11 +4113,11 @@ static void entry__types__unordered_table__update_each_from_down_to_1(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 1106: $$key last
+  // 1108: $$key last
   ((CELL *)frame->slots[5])->contents /* key */ = frame->slots[1] /* last */;
-  // 1107: $$value undefined
+  // 1109: $$value undefined
   ((CELL *)frame->slots[6])->contents /* value */ = get__undefined();
-  // 1108: $h hash(key)
+  // 1110: $h hash(key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -4139,7 +4132,7 @@ static void cont__types__unordered_table__update_each_from_down_to_2(void) {
     return;
   }
   initialize_future(frame->slots[7] /* h */, arguments->slots[0]);
-  // 1109: retrieve_item self h &key !value
+  // 1111: retrieve_item self h &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -4157,7 +4150,7 @@ static void cont__types__unordered_table__update_each_from_down_to_3(void) {
   }
   ((CELL *)frame->slots[5])->contents /* key */ = arguments->slots[0];
   ((CELL *)frame->slots[6])->contents /* value */ = arguments->slots[1];
-  // 1110: ... key == NONE
+  // 1112: ... key == NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
@@ -4173,7 +4166,7 @@ static void cont__types__unordered_table__update_each_from_down_to_4(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 1110: if key == NONE: Error "Invalid index error!"
+  // 1112: if key == NONE: Error "Invalid index error!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -4190,7 +4183,7 @@ static void entry__types__unordered_table__update_each_from_down_to_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 1110: ... Error "Invalid index error!"
+  // 1112: ... Error "Invalid index error!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2bdb69f58c8fd6ea;
@@ -4204,19 +4197,19 @@ static void cont__types__unordered_table__update_each_from_down_to_6(void) {
     invalid_results_error();
     return;
   }
-  // 1111: ... :
-  // 1112:   body key &value
-  // 1113:   !self(key) value
-  // 1114:   if key == first return
-  // 1115:   previous_key_and_value self hash(key) &key !value
-  // 1116:   if key == NONE return
+  // 1113: ... :
+  // 1114:   body key &value
+  // 1115:   !self(key) value
+  // 1116:   if key == first return
+  // 1117:   previous_key_and_value self hash(key) &key !value
+  // 1118:   if key == NONE return
   frame->slots[8] /* temp__1 */ = create_closure(entry__types__unordered_table__update_each_from_down_to_7, 0);
-  // 1111: forever:
-  // 1112:   body key &value
-  // 1113:   !self(key) value
-  // 1114:   if key == first return
-  // 1115:   previous_key_and_value self hash(key) &key !value
-  // 1116:   if key == NONE return
+  // 1113: forever:
+  // 1114:   body key &value
+  // 1115:   !self(key) value
+  // 1116:   if key == first return
+  // 1117:   previous_key_and_value self hash(key) &key !value
+  // 1118:   if key == NONE return
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -4231,14 +4224,14 @@ static void entry__types__unordered_table__update_each_from_down_to_7(void) {
   allocate_initialized_frame_gc(6, 7);
   // slot allocations:
   // body: 0
-  // value: 1
-  // key: 2
+  // key: 1
+  // value: 2
   // self: 3
   // first: 4
   // return: 5
   frame->slots[0] = myself->closure.frame->slots[3]; /* body */
-  frame->slots[1] = myself->closure.frame->slots[6]; /* value */
-  frame->slots[2] = myself->closure.frame->slots[5]; /* key */
+  frame->slots[1] = myself->closure.frame->slots[5]; /* key */
+  frame->slots[2] = myself->closure.frame->slots[6]; /* value */
   frame->slots[3] = myself->closure.frame->slots[0]; /* self */
   frame->slots[4] = myself->closure.frame->slots[2]; /* first */
   frame->slots[5] = myself->closure.frame->slots[4]; /* return */
@@ -4246,11 +4239,11 @@ static void entry__types__unordered_table__update_each_from_down_to_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 1112: body key &value
+  // 1114: body key &value
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
-  arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* value */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
+  arguments->slots[1] = ((CELL *)frame->slots[2])->contents /* value */;
   result_count = 1;
   myself = frame->slots[0] /* body */;
   func = myself->type;
@@ -4261,14 +4254,12 @@ static void cont__types__unordered_table__update_each_from_down_to_8(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[1])->contents /* value */ = arguments->slots[0];
-  // 1113: !self(key) value
-  frame->slots[6] /* temp__1 */ = ((CELL *)frame->slots[1])->contents /* value */;
-  // 1113: !self(key)
+  ((CELL *)frame->slots[2])->contents /* value */ = arguments->slots[0];
+  // 1115: !self(key)
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
-  arguments->slots[1] = frame->slots[6] /* temp__1 */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
+  arguments->slots[1] = ((CELL *)frame->slots[2])->contents /* value */;
   result_count = 1;
   myself = ((CELL *)frame->slots[3])->contents /* self */;
   func = myself->type;
@@ -4280,10 +4271,10 @@ static void cont__types__unordered_table__update_each_from_down_to_9(void) {
     return;
   }
   ((CELL *)frame->slots[3])->contents /* self */ = arguments->slots[0];
-  // 1114: ... key == first
+  // 1116: ... key == first
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[1] = frame->slots[4] /* first */;
   result_count = 1;
   myself = get__std__equal();
@@ -4296,7 +4287,7 @@ static void cont__types__unordered_table__update_each_from_down_to_10(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1114: if key == first return
+  // 1116: if key == first return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -4311,10 +4302,10 @@ static void cont__types__unordered_table__update_each_from_down_to_11(void) {
     invalid_results_error();
     return;
   }
-  // 1115: ... hash(key)
+  // 1117: ... hash(key)
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 1;
   myself = get__hash();
   func = myself->type;
@@ -4326,12 +4317,12 @@ static void cont__types__unordered_table__update_each_from_down_to_12(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1115: previous_key_and_value self hash(key) &key !value
+  // 1117: previous_key_and_value self hash(key) &key !value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* self */;
   arguments->slots[1] = frame->slots[6] /* temp__1 */;
-  arguments->slots[2] = ((CELL *)frame->slots[2])->contents /* key */;
+  arguments->slots[2] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 2;
   myself = var._previous_key_and_value;
   func = myself->type;
@@ -4342,12 +4333,12 @@ static void cont__types__unordered_table__update_each_from_down_to_13(void) {
     invalid_results_error();
     return;
   }
-  ((CELL *)frame->slots[2])->contents /* key */ = arguments->slots[0];
-  ((CELL *)frame->slots[1])->contents /* value */ = arguments->slots[1];
-  // 1116: ... key == NONE
+  ((CELL *)frame->slots[1])->contents /* key */ = arguments->slots[0];
+  ((CELL *)frame->slots[2])->contents /* value */ = arguments->slots[1];
+  // 1118: ... key == NONE
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* key */;
+  arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[1] = var._NONE;
   result_count = 1;
   myself = get__std__equal();
@@ -4360,7 +4351,7 @@ static void cont__types__unordered_table__update_each_from_down_to_14(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1116: if key == NONE return
+  // 1118: if key == NONE return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;

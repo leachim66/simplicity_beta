@@ -53,8 +53,7 @@ $SUPPORTS_PASSWORD .
 $SUPPORTS_ACTION .
 
 $widget: (name options*)
-  extract_options
-    options
+  extract_options options
     HAS_CHILDREN = false
     $has_children
     IS_A_GRID = false
@@ -177,7 +176,7 @@ $widget: (name options*)
 	    .gui::vertical_spacing_of default_value(vertical_spacing spacing)
 	    .gui::layout_direction_of layout_direction
 	    .gui::item_alignment_of item_alignment
-      : # group
+      :
 	write_to &constructor "
 	  @
 	    .gui::horizontal_spacing_of default_value(horizontal_spacing @

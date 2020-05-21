@@ -86,6 +86,7 @@ $meta::lgpl_header:
       51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $c_types set("void" "bool" "char" "int" "long")
+
 %meta::known_c_types c_types
   #
     the set of known C types
@@ -293,7 +294,13 @@ $meta::wrapper_function:
     write "  "
     if result_type != "void":
       if qualifier_of(cap).is_defined: write qualifier_of(cap) " "
-      write result_type if(result_type(-1) == '*' (-> "") -> " ") "result = "
+      write
+	result_type
+	if
+	  result_type(-1) == '*'
+	  -> ""
+	  -> " "
+	"result = "
     write function_name "("
     for_each
       parameters: (idx parameter)

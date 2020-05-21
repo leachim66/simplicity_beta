@@ -130,8 +130,7 @@ $types::value_range/for_each:
     self
     body
   )
-  from_to lower_bound_of(self) upper_bound_of(self): (item)
-    body item
+  from_to lower_bound_of(self) upper_bound_of(self): (item) body item
 
 $types::value_range/serialize:
   #

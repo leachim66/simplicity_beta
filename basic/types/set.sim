@@ -71,7 +71,6 @@ $std::is_a_set ()
     returns <true> for sets; <false> for all other objects
 
 $types::object.is_a_set false # obvious
-
 $types::generic_set.is_a_set true # obvious
 
 $types::set types::unordered_set

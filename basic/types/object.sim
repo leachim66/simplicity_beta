@@ -124,7 +124,6 @@ $std::current_address_of
     collection) memory address of its argument.
 
     Parameter obj: the object of which to get the memory address
-
   {
     CHECK_ARGUMENTS(1)
     RETURN_SINGLE_RESULT(from_long((long)ARGUMENTS(0)))

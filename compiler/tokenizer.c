@@ -589,21 +589,21 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__tokenize_7, &frame__compiler__tokenize_2, 47, 47, 20, 25},
   {cont__compiler__tokenize_8, &frame__compiler__tokenize_2, 47, 47, 5, 25},
   {cont__compiler__tokenize_9, &frame__compiler__tokenize_2, 47, 47, 19, 25},
-  {cont__compiler__tokenize_10, &frame__compiler__tokenize_2, 48, 50, 12, 80},
-  {cont__compiler__tokenize_15, &frame__compiler__tokenize_2, 48, 50, 5, 80},
-  {cont__compiler__tokenize_16, &frame__compiler__tokenize_2, 51, 51, 5, 10},
+  {cont__compiler__tokenize_10, &frame__compiler__tokenize_2, 48, 51, 12, 24},
+  {cont__compiler__tokenize_15, &frame__compiler__tokenize_2, 48, 51, 5, 24},
+  {cont__compiler__tokenize_16, &frame__compiler__tokenize_2, 52, 52, 5, 10},
   {entry__compiler__tokenize_24, NULL, 59, 59, 11, 26},
   {cont__compiler__tokenize_25, &frame__compiler__tokenize_24, 59, 59, 26, 26},
   {entry__compiler__tokenize_26, NULL, 61, 61, 11, 70},
-  {entry__compiler__tokenize_22, NULL, 57, 57, 9, 15},
-  {cont__compiler__tokenize_23, &frame__compiler__tokenize_22, 56, 61, 7, 71},
+  {entry__compiler__tokenize_22, NULL, 57, 57, 12, 18},
+  {cont__compiler__tokenize_23, &frame__compiler__tokenize_22, 57, 61, 7, 71},
   {cont__compiler__tokenize_28, &frame__compiler__tokenize_22, 62, 62, 7, 12},
   {cont__compiler__tokenize_29, &frame__compiler__tokenize_22, 62, 62, 12, 12},
-  {entry__compiler__tokenize_18, NULL, 55, 55, 14, 20},
-  {cont__compiler__tokenize_19, &frame__compiler__tokenize_18, 55, 55, 14, 31},
-  {cont__compiler__tokenize_20, &frame__compiler__tokenize_18, 55, 55, 14, 31},
-  {cont__compiler__tokenize_21, &frame__compiler__tokenize_18, 55, 62, 11, 12},
-  {entry__compiler__tokenize_17, NULL, 55, 62, 5, 12},
+  {entry__compiler__tokenize_18, NULL, 56, 56, 14, 20},
+  {cont__compiler__tokenize_19, &frame__compiler__tokenize_18, 56, 56, 14, 31},
+  {cont__compiler__tokenize_20, &frame__compiler__tokenize_18, 56, 56, 14, 31},
+  {cont__compiler__tokenize_21, &frame__compiler__tokenize_18, 56, 62, 11, 12},
+  {entry__compiler__tokenize_17, NULL, 56, 62, 5, 12},
   {entry__compiler__tokenize_35, NULL, 68, 68, 42, 42},
   {cont__compiler__tokenize_36, &frame__compiler__tokenize_35, 68, 68, 34, 42},
   {entry__compiler__tokenize_32, NULL, 68, 68, 17, 31},
@@ -811,8 +811,9 @@ static void entry__compiler__tokenize_1(void) {
   // 47:   to_upper_case &msg(1)
   // 48:   ewrite "
   // 49:     ____________________________________
-  // 50:     TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
-  // 51:   exit 1
+  // 50:     TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)@
+  // 51:     @quot;:@nl;@(msg)!
+  // 52:   exit 1
   frame->slots[11] /* temp__1 */ = create_closure(entry__compiler__tokenize_2, 1);
   // 44: $TokenizationError: ($msg)
   // 45:   $$line_no line_no_of(fragment)
@@ -820,25 +821,24 @@ static void entry__compiler__tokenize_1(void) {
   // 47:   to_upper_case &msg(1)
   // 48:   ewrite "
   // 49:     ____________________________________
-  // 50:     TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
-  // 51:   exit 1
+  // 50:     TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)@
+  // 51:     @quot;:@nl;@(msg)!
+  // 52:   exit 1
   initialize_future(frame->slots[7] /* TokenizationError */, frame->slots[11] /* temp__1 */);
-  // 53: ... :
-  // 54:   !quote_count 0
-  // 55:   while -> text(i) != newline:
-  // 56:     case
-  // 57:       text(i)
+  // 54: ... :
+  // 55:   !quote_count 0
+  // 56:   while -> text(i) != newline:
+  // 57:     case text(i)
   // 58:       '@quot;':
   // 59:         inc &quote_count
   // 60:       '@ht;':
   // 61:         TokenizationError "tabulator character within line detected"
   // 62:     inc &i
   frame->slots[11] /* temp__1 */ = create_closure(entry__compiler__tokenize_17, 0);
-  // 53: $skip_line:
-  // 54:   !quote_count 0
-  // 55:   while -> text(i) != newline:
-  // 56:     case
-  // 57:       text(i)
+  // 54: $skip_line:
+  // 55:   !quote_count 0
+  // 56:   while -> text(i) != newline:
+  // 57:     case text(i)
   // 58:       '@quot;':
   // 59:         inc &quote_count
   // 60:       '@ht;':
@@ -893,13 +893,11 @@ static void entry__compiler__tokenize_1(void) {
   // 92:         push &fragment.indents_of indent
   // ...
   initialize_future(frame->slots[10] /* convert */, frame->slots[11] /* temp__1 */);
-  // 36: !fragment.indents_of empty_list
-  frame->slots[11] /* temp__1 */ = get__empty_list();
   // 36: !fragment.indents_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* fragment */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__indents_of, frame->slots[11] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__indents_of, get__empty_list());
     ((CELL *)frame->slots[0])->contents /* fragment */ = temp;
 
   }
@@ -927,7 +925,7 @@ static void entry__compiler__tokenize_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 57: text(i)
+  // 57: ... text(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -948,8 +946,7 @@ static void cont__compiler__tokenize_23(void) {
   // 60: ... :
   // 61:   TokenizationError "tabulator character within line detected"
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__tokenize_26, 0);
-  // 56: case
-  // 57:   text(i)
+  // 57: case text(i)
   // 58:   '@quot;':
   // 59:     inc &quote_count
   // 60:   '@ht;':
@@ -1055,7 +1052,7 @@ static void entry__compiler__tokenize_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 55: ... text(i)
+  // 56: ... text(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -1070,7 +1067,7 @@ static void cont__compiler__tokenize_19(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 55: ... text(i) != newline
+  // 56: ... text(i) != newline
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -1086,7 +1083,7 @@ static void cont__compiler__tokenize_20(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 55: ... text(i) != newline
+  // 56: ... text(i) != newline
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -1101,18 +1098,16 @@ static void cont__compiler__tokenize_21(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 55: ... :
-  // 56:   case
-  // 57:     text(i)
+  // 56: ... :
+  // 57:   case text(i)
   // 58:     '@quot;':
   // 59:       inc &quote_count
   // 60:     '@ht;':
   // 61:       TokenizationError "tabulator character within line detected"
   // 62:   inc &i
   frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__tokenize_22, 0);
-  // 55: ... -> text(i) != newline:
-  // 56:   case
-  // 57:     text(i)
+  // 56: ... -> text(i) != newline:
+  // 57:   case text(i)
   // 58:     '@quot;':
   // 59:       inc &quote_count
   // 60:     '@ht;':
@@ -1271,7 +1266,8 @@ static void cont__compiler__tokenize_10(void) {
   ((CELL *)frame->slots[0])->contents /* msg */ = arguments->slots[0];
   // 48: ... "
   // 49:   ____________________________________
-  // 50:   TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
+  // 50:   TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)@
+  // 51:   @quot;:@nl;@(msg)!
   argument_count = 7;
   arguments = node_p;
   arguments->slots[0] = string__a18ab04649b43ca6;
@@ -1294,7 +1290,8 @@ static void cont__compiler__tokenize_15(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 48: ewrite "
   // 49:   ____________________________________
-  // 50:   TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
+  // 50:   TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)@
+  // 51:   @quot;:@nl;@(msg)!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -1308,7 +1305,7 @@ static void cont__compiler__tokenize_16(void) {
     invalid_results_error();
     return;
   }
-  // 51: exit 1
+  // 52: exit 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1332,20 +1329,18 @@ static void entry__compiler__tokenize_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 54: !quote_count 0
+  // 55: !quote_count 0
   ((CELL *)frame->slots[0])->contents /* quote_count */ = number__0;
-  // 55: ... -> text(i) != newline:
-  // 56:   case
-  // 57:     text(i)
+  // 56: ... -> text(i) != newline:
+  // 57:   case text(i)
   // 58:     '@quot;':
   // 59:       inc &quote_count
   // 60:     '@ht;':
   // 61:       TokenizationError "tabulator character within line detected"
   // 62:   inc &i
   frame->slots[4] /* temp__1 */ = create_closure(entry__compiler__tokenize_18, 0);
-  // 55: while -> text(i) != newline:
-  // 56:   case
-  // 57:     text(i)
+  // 56: while -> text(i) != newline:
+  // 57:   case text(i)
   // 58:     '@quot;':
   // 59:       inc &quote_count
   // 60:     '@ht;':
@@ -3580,13 +3575,11 @@ static void cont__compiler__tokenize_144(void) {
     return;
   }
   ((CELL *)frame->slots[4])->contents /* new_text */ = arguments->slots[0];
-  // 141: !fragment.source_of new_text
-  frame->slots[11] /* temp__1 */ = ((CELL *)frame->slots[4])->contents /* new_text */;
   // 141: !fragment.source_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* fragment */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__source_of, frame->slots[11] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__source_of, ((CELL *)frame->slots[4])->contents /* new_text */);
     ((CELL *)frame->slots[0])->contents /* fragment */ = temp;
 
   }

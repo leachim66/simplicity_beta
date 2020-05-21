@@ -21,15 +21,14 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 $std::save_csv: (options* filename entries)
-  extract_options
-    options
+  extract_options options
     ENCODING = UTF8
     $encoding
     SEPARATOR = ','
     $separator
     KEYS = undefined
     $$keys
-  unless keys.is_defined: # extract keys from first entry
+  unless keys.is_defined:
     !keys empty_list
     for_each entries(1): (key _value) push &keys key
   $$buf ""
@@ -43,7 +42,12 @@ $std::save_csv: (options* filename entries)
     for_each
       keys: (key)
 	$item entry(key)
-	append &buf if(item.is_defined (-> item.to_string) -> "")
+	append
+	  &buf
+	  if
+	    item.is_defined
+	    -> item.to_string
+	    -> ""
       :
 	push &buf separator
     push &buf '@nl;'

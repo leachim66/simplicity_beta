@@ -30,6 +30,7 @@ $private::set_item ()
 
     This function shall only be used in derived types that change the behaviour
     of the main accessor function and need access to the base functionality.
+
 $private::get_item ()
   #
     get (retrieve) an item from any kind of table
@@ -130,6 +131,7 @@ $std::is_a_table () # obvious
 
 $types::object.is_a_table false # obvious
 $types::generic_table.is_a_table true # obvious
+
 $types::table types::unordered_table
   #
     the default table is a <types::unordered_table>

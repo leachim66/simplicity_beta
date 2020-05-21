@@ -34,8 +34,7 @@ $std::make: (rules*)
     $$buf undefined
     if
       file_exists(target):
-	case
-	  action
+	case action
 	  SAVE:
 	    load !buf target
 	    if buf != dependency: !do_make true
@@ -51,8 +50,7 @@ $std::make: (rules*)
       :
 	!do_make true
     if do_make:
-      case
-	action
+      case action
 	SAVE:
 	  write "
 	    saving "@(target)@quot;

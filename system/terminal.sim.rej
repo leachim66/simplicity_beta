@@ -1,0 +1,11 @@
+--- system/terminal.sim	2020-04-29 14:16:08 +0000
++++ system/terminal.sim	2020-05-21 12:47:02 +0000
+@@ -694,6 +691,8 @@
+ 		!chr '@0x2524;'
+ 	      :
+ 		!chr '@0x253c;'
++	  '@0x253c;':
++	    !chr '@0x253c;'
+ 	!current_screen.characters_of(y)(x) chr
+ 	if current_text_colour.is_defined:
+ 	  !current_screen.text_colours_of(y)(x) current_text_colour

@@ -522,10 +522,6 @@ static void cont__compiler__cut_into_fragments_21(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 42: types::object
-  // 43:   .submodule_no_of submodule_no
-  // 44:   .line_no_of start_no
-  // 45:   .compiler::text_of range(buf start_idx idx)
   {
     NODE *temp = clone_object_and_attributes(get__types__object());
     update_start_p = node_p;

@@ -166,9 +166,10 @@ typedef struct CLOSURE {
   int parameter_count;
   struct FRAME *frame;
 } CLOSURE;
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 IMPORT NODE *get_attribute(NODE *node, int idx);
 REGISTER FRAME *arguments ASM("r12");
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -202,7 +203,6 @@ IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT NODE *create_continuation(void);
 IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
-IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT NODE *undefined;
 IMPORT NODE *collect_node(NODE *node);
@@ -503,6 +503,10 @@ union NODE {
   CLOSURE closure;
 };
 static void type__dimensions_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__dimensions_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -525,6 +529,10 @@ static void type__dimensions_of(void) {
   }
 }
 static void type__table_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__table_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1341,14 +1349,14 @@ static void cont__types__multi_dimensional_set_5(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 59: ... : # insert
+  // 59: ... :
   // 60:   !myself.table_of insert_into(table_of(myself) dimensions args)
   // 61:   -> myself
   frame->slots[6] /* temp__3 */ = create_closure(entry__types__multi_dimensional_set_6, 0);
   // 62: -> get_item(table_of(myself) args)
   frame->slots[7] /* temp__4 */ = create_closure(entry__types__multi_dimensional_set_9, 0);
   // 58: if
-  // 59:   length_of(args) > n: # insert
+  // 59:   length_of(args) > n:
   // 60:     !myself.table_of insert_into(table_of(myself) dimensions args)
   // 61:     -> myself
   // 62:   -> get_item(table_of(myself) args)

@@ -125,7 +125,7 @@ $types::tree/:
   )
   case
     value
-    NONE: # maybe <value> has no <equal>-method!
+    NONE:
       if key.is_a_list (-> retrieve_item(myself key)) -> table_of(myself)(key)
     :
       if
@@ -145,7 +145,7 @@ $types::key_order_tree/:
   )
   case
     value
-    NONE: # maybe <value> has no <equal>-method!
+    NONE:
       if key.is_a_list (-> retrieve_item(myself key)) -> table_of(myself)(key)
     :
       if
@@ -166,7 +166,7 @@ $types::insert_order_tree/:
   )
   case
     value
-    NONE: # maybe <value> has no <equal>-method!
+    NONE:
       if key.is_a_list (-> retrieve_item(myself key)) -> table_of(myself)(key)
     :
       if
@@ -248,8 +248,7 @@ $std::tree_nodes_of:
   (
     self
   )
-  -> table_of(self)
-    # allows only read-access
+  -> table_of(self) # allows only read-access
 
 $total_node_count_of: (self)
   $$n 1
@@ -351,14 +350,30 @@ $std::for_each_leaf_from_to_do:
     table.is_empty:
       body keys node
     :
-      $first_key if(first_keys.is_defined (-> first_keys(1)) -> undefined)
-      $last_key if(last_keys.is_defined (-> last_keys(1)) -> undefined)
+      $first_key
+	if
+	  first_keys.is_defined
+	  -> first_keys(1)
+	  -> undefined
+
+      $last_key
+	if
+	  last_keys.is_defined
+	  -> last_keys(1)
+	  -> undefined
+
       for_each_from_to table first_key last_key: (key item)
 	for_each_leaf_from_to_do
 	  keys .push. key
 	  item
-	  if(key == first_key (-> range(first_keys 2 -1)) -> undefined)
-	  if(key == last_key (-> range(last_keys 2 -1)) -> undefined)
+	  if
+	    key == first_key
+	    -> range(first_keys 2 -1)
+	    -> undefined
+	  if
+	    key == last_key
+	    -> range(last_keys 2 -1)
+	    -> undefined
 	  body
 
 $std::for_each_leaf_from_to:
@@ -388,14 +403,30 @@ $std::for_each_leaf_from_down_to_do:
     table.is_empty:
       body keys node
     :
-      $last_key if(last_keys.is_defined (-> last_keys(1)) -> undefined)
-      $first_key if(first_keys.is_defined (-> first_keys(1)) -> undefined)
+      $last_key
+	if
+	  last_keys.is_defined
+	  -> last_keys(1)
+	  -> undefined
+
+      $first_key
+	if
+	  first_keys.is_defined
+	  -> first_keys(1)
+	  -> undefined
+
       for_each_from_down_to table last_key first_key: (key item)
 	for_each_leaf_from_down_to_do
 	  keys .push. key
 	  item
-	  if(key == last_key (-> range(last_keys 2 -1)) -> undefined)
-	  if(key == first_key (-> range(first_keys 2 -1)) -> undefined)
+	  if
+	    key == last_key
+	    -> range(last_keys 2 -1)
+	    -> undefined
+	  if
+	    key == first_key
+	    -> range(first_keys 2 -1)
+	    -> undefined
 	  body
 
 $std::for_each_leaf_from_down_to:
@@ -501,8 +532,18 @@ $std::update_each_leaf_from_to_do:
     table_of(node).is_empty:
       body keys node
     :
-      $first_key if(first_keys.is_defined (-> first_keys(1)) -> undefined)
-      $last_key if(last_keys.is_defined (-> last_keys(1)) -> undefined)
+      $first_key
+	if
+	  first_keys.is_defined
+	  -> first_keys(1)
+	  -> undefined
+
+      $last_key
+	if
+	  last_keys.is_defined
+	  -> last_keys(1)
+	  -> undefined
+
       update_each_from_to &node.table_of first_key last_key:
 	(
 	  key
@@ -511,8 +552,14 @@ $std::update_each_leaf_from_to_do:
 	update_each_leaf_from_to_do
 	  keys .push. key
 	  &item
-	  if(key == first_key (-> range(first_keys 2 -1)) -> undefined)
-	  if(key == last_key (-> range(last_keys 2 -1)) -> undefined)
+	  if
+	    key == first_key
+	    -> range(first_keys 2 -1)
+	    -> undefined
+	  if
+	    key == last_key
+	    -> range(last_keys 2 -1)
+	    -> undefined
 	  body
 
 $std::update_each_leaf_from_to:
@@ -541,8 +588,18 @@ $std::update_each_leaf_from_down_to_do:
     table_of(node).is_empty:
       body keys node
     :
-      $last_key if(last_keys.is_defined (-> last_keys(1)) -> undefined)
-      $first_key if(first_keys.is_defined (-> first_keys(1)) -> undefined)
+      $last_key
+	if
+	  last_keys.is_defined
+	  -> last_keys(1)
+	  -> undefined
+
+      $first_key
+	if
+	  first_keys.is_defined
+	  -> first_keys(1)
+	  -> undefined
+
       update_each_from_down_to &node.table_of last_key first_key:
 	(
 	  key
@@ -551,8 +608,14 @@ $std::update_each_leaf_from_down_to_do:
 	update_each_leaf_from_down_to_do
 	  keys .push. key
 	  &item
-	  if(key == last_key (-> range(last_keys 2 -1)) -> undefined)
-	  if(key == first_key (-> range(first_keys 2 -1)) -> undefined)
+	  if
+	    key == last_key
+	    -> range(last_keys 2 -1)
+	    -> undefined
+	  if
+	    key == first_key
+	    -> range(first_keys 2 -1)
+	    -> undefined
 	  body
 
 $std::update_each_leaf_from_down_to:
@@ -593,11 +656,8 @@ $types::generic_tree/serialize:
 	:
 	  serialize_tree self indent+2
 
-$std::empty_tree types::tree
-  # an empty tree
-
-$std::empty_key_order_tree types::key_order_tree
-  # an empty key-order tree
+$std::empty_tree types::tree # an empty tree
+$std::empty_key_order_tree types::key_order_tree # an empty key-order tree
 
 $std::empty_insert_order_tree types::insert_order_tree
   # an empty insert-order tree

@@ -22,12 +22,10 @@
 
 $STATE_VECTOR_LENGTH 624
 $STATE_VECTOR_M 397
-
-$UPPER_MASK       0x80000000
-$LOWER_MASK       0x7fffffff
+$UPPER_MASK 0x80000000
+$LOWER_MASK 0x7fffffff
 $TEMPERING_MASK_B 0x9d2c5680
 $TEMPERING_MASK_C 0xefc60000
-
 $mag list(0x0 0x9908b0df)
 
 $index_of ()
@@ -41,7 +39,7 @@ $std::mersenne_twister:
   )
   $$initial_state list(seed & 0xffffffff)
   repeat STATE_VECTOR_LENGTH-1:
-    push &initial_state (6069 * initial_state(-1)) & 0xffffffff
+    push &initial_state 6069*initial_state(-1) & 0xffffffff
   ->
     types::object
       .state_of initial_state
@@ -55,36 +53,39 @@ $std::mersenne_twister:
 	$$index index_of(self)
 	if index > STATE_VECTOR_LENGTH:
 	  $$new_state empty_list
-
 	  from_to 1 STATE_VECTOR_LENGTH-STATE_VECTOR_M: (kk)
-	    $x (state(kk) & UPPER_MASK) | (state(kk+1) & LOWER_MASK)
-	    push &new_state state(kk+STATE_VECTOR_M) ^ (x >> 1) ^ mag((x&1)+1)
-
-	  from_to STATE_VECTOR_LENGTH-STATE_VECTOR_M+1 STATE_VECTOR_LENGTH-1: (kk)
-	    $x (state(kk) & UPPER_MASK) | (state(kk+1) & LOWER_MASK)
-	    push &new_state new_state(kk+STATE_VECTOR_M-STATE_VECTOR_LENGTH) ^ (x >> 1) ^ mag((x&1)+1)
-
+	    $x state(kk) & UPPER_MASK | state(kk+1) & LOWER_MASK
+	    push &new_state state(kk+STATE_VECTOR_M) ^ x >> 1 ^ mag((x & 1)+1)
+	  from_to
+	    STATE_VECTOR_LENGTH-STATE_VECTOR_M+1
+	    STATE_VECTOR_LENGTH-1: (kk)
+	      $x state(kk) & UPPER_MASK | state(kk+1) & LOWER_MASK
+	      push
+		&new_state
+		^
+		  new_state(kk+STATE_VECTOR_M-STATE_VECTOR_LENGTH)
+		  x >> 1
+		  mag((x & 1)+1)
 	  do:
-	    $x (state(STATE_VECTOR_LENGTH) & UPPER_MASK) | (new_state(1) & LOWER_MASK)
-	    push &new_state new_state(STATE_VECTOR_M) ^ (x >> 1) ^ mag((x&1)+1)
+	    $x
+	      |
+		state(STATE_VECTOR_LENGTH) & UPPER_MASK
+		new_state(1) & LOWER_MASK
 
+	    push &new_state new_state(STATE_VECTOR_M) ^ x >> 1 ^ mag((x & 1)+1)
 	  !state new_state
 	  !index 1
-
 	$$y state(index)
 	inc &index
-	!y y ^ (y >> 11)
-	!y y ^ ((y << 7) & TEMPERING_MASK_B)
-	!y y ^ ((y << 15) & TEMPERING_MASK_C)
-	!y y ^ (y >> 18)
-
+	!y y ^ y >> 11
+	!y y ^ y << 7 & TEMPERING_MASK_B
+	!y y ^ y << 15 & TEMPERING_MASK_C
+	!y y ^ y >> 18
 	!self.state_of state
 	!self.index_of index
-
 	if
-	  n.is_a_value_range
-	  :
+	  n.is_a_value_range:
 	    $low lower_bound_of(n)
 	    $high upper_bound_of(n)
-	    -> (y .mod. high-low+1) + low
-	  -> (y .mod. n) + 1
+	    -> (y .mod. high-low+1)+low
+	  -> (y .mod. n)+1

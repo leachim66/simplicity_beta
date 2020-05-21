@@ -135,10 +135,11 @@ typedef struct SIMPLE_NODE {
 #else
   #define ASM(x)
 #endif
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 REGISTER NODE *myself ASM("r13");
 IMPORT NODE *get_attribute(NODE *node, int idx);
 REGISTER FRAME *arguments ASM("r12");
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -176,7 +177,6 @@ IMPORT int print(char **buf_p, const char *format, ...);
 IMPORT int result_count;
 IMPORT void invalid_results_error(void);
 IMPORT NODE *create_closure(FUNC type, int par_count);
-IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
@@ -410,22 +410,22 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__value_range__contains_3, &frame__types__value_range__contains_1, 119, 119, 6, 33},
   {cont__types__value_range__contains_4, &frame__types__value_range__contains_1, 119, 119, 6, 65},
   {cont__types__value_range__contains_9, &frame__types__value_range__contains_1, 119, 119, 3, 65},
-  {entry__types__value_range__for_each_4, NULL, 134, 134, 5, 13},
+  {entry__types__value_range__for_each_4, NULL, 133, 133, 61, 69},
   {entry__types__value_range__for_each_1, NULL, 133, 133, 11, 30},
   {cont__types__value_range__for_each_2, &frame__types__value_range__for_each_1, 133, 133, 32, 51},
-  {cont__types__value_range__for_each_3, &frame__types__value_range__for_each_1, 133, 134, 3, 13},
-  {entry__types__value_range__serialize_1, NULL, 145, 145, 14, 21},
-  {cont__types__value_range__serialize_2, &frame__types__value_range__serialize_1, 145, 145, 7, 22},
-  {cont__types__value_range__serialize_3, &frame__types__value_range__serialize_1, 145, 145, 36, 55},
-  {cont__types__value_range__serialize_4, &frame__types__value_range__serialize_1, 145, 145, 26, 56},
-  {cont__types__value_range__serialize_5, &frame__types__value_range__serialize_1, 145, 145, 60, 67},
-  {cont__types__value_range__serialize_6, &frame__types__value_range__serialize_1, 146, 146, 18, 25},
-  {cont__types__value_range__serialize_7, &frame__types__value_range__serialize_1, 146, 146, 11, 26},
-  {cont__types__value_range__serialize_8, &frame__types__value_range__serialize_1, 146, 146, 40, 59},
-  {cont__types__value_range__serialize_9, &frame__types__value_range__serialize_1, 146, 146, 30, 60},
-  {cont__types__value_range__serialize_10, &frame__types__value_range__serialize_1, 146, 146, 64, 71},
-  {cont__types__value_range__serialize_11, &frame__types__value_range__serialize_1, 143, 146, 6, 72},
-  {cont__types__value_range__serialize_14, &frame__types__value_range__serialize_1, 143, 146, 3, 72}
+  {cont__types__value_range__for_each_3, &frame__types__value_range__for_each_1, 133, 133, 3, 69},
+  {entry__types__value_range__serialize_1, NULL, 144, 144, 14, 21},
+  {cont__types__value_range__serialize_2, &frame__types__value_range__serialize_1, 144, 144, 7, 22},
+  {cont__types__value_range__serialize_3, &frame__types__value_range__serialize_1, 144, 144, 36, 55},
+  {cont__types__value_range__serialize_4, &frame__types__value_range__serialize_1, 144, 144, 26, 56},
+  {cont__types__value_range__serialize_5, &frame__types__value_range__serialize_1, 144, 144, 60, 67},
+  {cont__types__value_range__serialize_6, &frame__types__value_range__serialize_1, 145, 145, 18, 25},
+  {cont__types__value_range__serialize_7, &frame__types__value_range__serialize_1, 145, 145, 11, 26},
+  {cont__types__value_range__serialize_8, &frame__types__value_range__serialize_1, 145, 145, 40, 59},
+  {cont__types__value_range__serialize_9, &frame__types__value_range__serialize_1, 145, 145, 30, 60},
+  {cont__types__value_range__serialize_10, &frame__types__value_range__serialize_1, 145, 145, 64, 71},
+  {cont__types__value_range__serialize_11, &frame__types__value_range__serialize_1, 142, 145, 6, 72},
+  {cont__types__value_range__serialize_14, &frame__types__value_range__serialize_1, 142, 145, 3, 72}
 };
 
 union NODE {
@@ -439,6 +439,10 @@ union NODE {
   VALUE_RANGE value_range;
 };
 static void type__std__is_a_value_range(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_a_value_range);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -971,7 +975,7 @@ static void entry__types__value_range__for_each_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 134: body item
+  // 133: ... body item
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* item */;
@@ -1019,11 +1023,9 @@ static void cont__types__value_range__for_each_3(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 133: ... : (item)
-  // 134:   body item
+  // 133: ... : (item) body item
   frame->slots[4] /* temp__3 */ = create_closure(entry__types__value_range__for_each_4, 1);
-  // 133: from_to lower_bound_of(self) upper_bound_of(self): (item)
-  // 134:   body item
+  // 133: from_to lower_bound_of(self) upper_bound_of(self): (item) body item
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1054,7 +1056,7 @@ static void entry__types__value_range__serialize_1(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* indent */ = number__0;
   }
-  // 145: ... indent+2
+  // 144: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -1070,7 +1072,7 @@ static void cont__types__value_range__serialize_2(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 145: ... spaces(indent+2)
+  // 144: ... spaces(indent+2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -1085,7 +1087,7 @@ static void cont__types__value_range__serialize_3(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 145: ... lower_bound_of(self)
+  // 144: ... lower_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1100,7 +1102,7 @@ static void cont__types__value_range__serialize_4(void) {
     return;
   }
   frame->slots[6] /* temp__5 */ = arguments->slots[0];
-  // 145: ... serialize(lower_bound_of(self))
+  // 144: ... serialize(lower_bound_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__5 */;
@@ -1115,7 +1117,7 @@ static void cont__types__value_range__serialize_5(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 145: ... indent+2
+  // 144: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -1131,7 +1133,7 @@ static void cont__types__value_range__serialize_6(void) {
     return;
   }
   frame->slots[7] /* temp__6 */ = arguments->slots[0];
-  // 146: ... indent+2
+  // 145: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -1147,7 +1149,7 @@ static void cont__types__value_range__serialize_7(void) {
     return;
   }
   frame->slots[9] /* temp__8 */ = arguments->slots[0];
-  // 146: ... spaces(indent+2)
+  // 145: ... spaces(indent+2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__8 */;
@@ -1162,7 +1164,7 @@ static void cont__types__value_range__serialize_8(void) {
     return;
   }
   frame->slots[8] /* temp__7 */ = arguments->slots[0];
-  // 146: ... upper_bound_of(self)
+  // 145: ... upper_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -1177,7 +1179,7 @@ static void cont__types__value_range__serialize_9(void) {
     return;
   }
   frame->slots[11] /* temp__10 */ = arguments->slots[0];
-  // 146: ... serialize(upper_bound_of(self))
+  // 145: ... serialize(upper_bound_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__10 */;
@@ -1192,7 +1194,7 @@ static void cont__types__value_range__serialize_10(void) {
     return;
   }
   frame->slots[10] /* temp__9 */ = arguments->slots[0];
-  // 146: ... indent+2
+  // 145: ... indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* indent */;
@@ -1208,10 +1210,10 @@ static void cont__types__value_range__serialize_11(void) {
     return;
   }
   frame->slots[12] /* temp__11 */ = arguments->slots[0];
-  // 143: ... "
-  // 144:   value_range
-  // 145:   @(spaces(indent+2))@(serialize(lower_bound_of(self)))@(indent+2)@
-  // 146:   @nl;@(spaces(indent+2))@(serialize(upper_bound_of(self)))@(indent+2)
+  // 142: ... "
+  // 143:   value_range
+  // 144:   @(spaces(indent+2))@(serialize(lower_bound_of(self)))@(indent+2)@
+  // 145:   @nl;@(spaces(indent+2))@(serialize(upper_bound_of(self)))@(indent+2)
   argument_count = 9;
   arguments = node_p;
   arguments->slots[0] = string__d62119844f001643;
@@ -1234,10 +1236,10 @@ static void cont__types__value_range__serialize_14(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 143: -> "
-  // 144:   value_range
-  // 145:   @(spaces(indent+2))@(serialize(lower_bound_of(self)))@(indent+2)@
-  // 146:   @nl;@(spaces(indent+2))@(serialize(upper_bound_of(self)))@(indent+2)
+  // 142: -> "
+  // 143:   value_range
+  // 144:   @(spaces(indent+2))@(serialize(lower_bound_of(self)))@(indent+2)@
+  // 145:   @nl;@(spaces(indent+2))@(serialize(upper_bound_of(self)))@(indent+2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;

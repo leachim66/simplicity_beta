@@ -28,8 +28,7 @@
 
 $compiler::print_source: (source)
   for_each source: (chr)
-    case
-      chr
+    case chr
       newline:
 	writeln "<newline>"
       indent_marker:
@@ -41,8 +40,7 @@ $compiler::print_source: (source)
 
 $compiler::eprint_source: (source)
   for_each source: (chr)
-    case
-      chr
+    case chr
       newline:
 	ewriteln "<newline>"
       indent_marker:
@@ -67,6 +65,10 @@ $compiler::generate_dispatcher_function: (name)
     static void type__@(name)(void);
   write_to_functions "
     static void type__@(name)(void) {
+      if (argument_count < 1) {
+        too_few_arguments_error();
+        return;
+      }
   $id privileged_polymorphic_functions(name)
   if
     id.is_defined:
@@ -128,8 +130,7 @@ $compiler::update_info:
   )
   if
     curr_info.is_defined:
-      case
-	variable_kind_of(curr_info)
+      case variable_kind_of(curr_info)
 	POLYMORPHIC:
 	  case
 	    variable_kind_of(info)
@@ -147,8 +148,7 @@ $compiler::update_info:
 	    :
 	      return info
 	STATIC_MULTI:
-	  case
-	    variable_kind_of(info)
+	  case variable_kind_of(info)
 	    POLYMORPHIC:
 	      Error "
 		The symbol "@(name.demangled)" is used as a polymorphic @
@@ -162,8 +162,7 @@ $compiler::update_info:
 	    DYNAMIC_MULTI:
 	      return info
 	DYNAMIC_SINGLE:
-	  case
-	    variable_kind_of(info)
+	  case variable_kind_of(info)
 	    POLYMORPHIC:
 	      Error "
 		The symbol "@(name.demangled)" is used as a polymorphic @
@@ -179,8 +178,7 @@ $compiler::update_info:
 		The symbol "@(name.demangled)" is used as a single-assign @
 		dynamic and as a multi-assign dynamic!@
 	DYNAMIC_MULTI:
-	  case
-	    variable_kind_of(info)
+	  case variable_kind_of(info)
 	    POLYMORPHIC:
 	      Error "
 		The symbol "@(name.demangled)" is used as a polymorphic @
@@ -260,8 +258,7 @@ $compiler::sim2c:
     $$first_idx 1
     do: (-> done)
       for_each submodule_fragments: (idx fragment)
-	case
-	  source_of(fragment)(1)
+	case source_of(fragment)(1)
 	  '#':
 	    !first_idx idx+1
 	    push &trees parse_statement(fragment)
@@ -284,7 +281,7 @@ $compiler::sim2c:
 
     print_trees trees
     terminate
-  if is_main: # the main program should terminate cleanly
+  if is_main:
     push &trees procedure_call(.functor_of std_identifier("terminate"))
   update_each &trees: (&tree)
     %%compiler::index 1
@@ -301,7 +298,10 @@ $compiler::sim2c:
   $$all_actions empty_list
 
   $$top_level_names
-    if(do_print_warnings (-> empty_insert_order_table) -> empty_table)
+    if
+      do_print_warnings
+      -> empty_insert_order_table
+      -> empty_table
 
   if required_modules.is_empty && is_main:
     !required_modules("basic/stdlib") types::grammar_node
@@ -381,18 +381,13 @@ $compiler::sim2c:
   !all_actions empty_list
   if do_time_passes: write_timing_info "simplifying" filenames(1)
   if do_print_simplified_source:
-    for_each all_definitions
-      :
-	(
-	  defs
-	)
+    for_each
+      all_definitions: (defs)
 	for_each defs: (def)
 	  if
 	    def.is_a_key_value_pair:
 	      writeln
-		assignment
-		  .output_arguments_of list(key_of(def))
-		  .arguments_of list(std::value_of(def))
+		assignment(.arguments_of list(key_of(def) std::value_of(def)))
 	    :
 	      writeln "_define " def
       :
@@ -431,6 +426,7 @@ $compiler::sim2c:
   $$generated_continuation_table ""
   $$generated_delayed_continuation_table ""
   $$generated_functions ""
+
   $$generated_phase_1 ""
     #
       register module information
@@ -438,24 +434,27 @@ $compiler::sim2c:
       define privileged polymorphic functions (with short access paths)
       define C functions
       register (use) polymorphic functions
+
   $$generated_phase_2 ""
     #
       define non-garbage-collected objects:
-	numeric literals
-	character literals
-	function literals
-	inline-C functions
+        numeric literals
+        character literals
+        function literals
+        inline-C functions
+
   $$generated_phase_3 ""
     #
       reassign memory pool to save literals from garbage collection
       create futures
       create futures with prototypes
       define garbage-collectec objects:
-	string literals
-	single-assign static variables
-	multi-assign static variables
-	single-assign dynamic variables
-	multi-assign dynamic variables
+        string literals
+        single-assign static variables
+        multi-assign static variables
+        single-assign dynamic variables
+        multi-assign dynamic variables
+
   $$generated_phase_4 ""
     #
       define attributes
@@ -474,6 +473,7 @@ $compiler::sim2c:
 
       if the object is a future then the directly defined attributes and methods
       are added to the future's list of pending attributes and methods
+
   $$generated_phase_5 ""
     #
       create functions
@@ -489,9 +489,11 @@ $compiler::sim2c:
       object
 
       if it does exist it must be a future and inheritance takes place
+
   $$generated_phase_6 ""
     #
       assign values
+
   $$generated_code ""
   $$generated_collections ""
   $$delayed_statements ""
@@ -567,7 +569,7 @@ $compiler::sim2c:
       need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
 
   show_compiler_debug_info "GENERATE DEFINITIONS"
-  for_each all_definitions: (stmt_idx defs)
+  for_each all_definitions: (defs)
     %%compiler::actions empty_list
     %%compiler::delayed_code ""
     %%compiler::index 0
@@ -591,8 +593,7 @@ $compiler::sim2c:
 	      source.is_defined && source.is_a_polymorphic_function_constant:
 		define_polymorphic_function definition source.is_a_setter
 	      :
-		case
-		  attribute_kind_of(definition)
+		case attribute_kind_of(definition)
 		  ATTRIBUTE_KIND:
 		    define_attribute definition source
 		  METHOD_KIND:
@@ -762,7 +763,8 @@ $compiler::sim2c:
 
     #define IS_COLLECTED(addr) (((void *)(addr)) >= coll_node_buf && ((void @
     *)(addr)) < coll_node_buf_end)
-    #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void *)(addr)) < static_node_buf_end)
+    #define IS_STATIC(addr) (((void *)(addr)) >= static_node_buf && ((void @
+    *)(addr)) < static_node_buf_end)
     #define MARK(addr) (((MEMORY_BLOCK *)(addr))-1)->mark = current_mark;
 
     #define ALLOCATION_SIZE(size) (((size)+sizeof(void *)-1)&-sizeof(void *))
@@ -913,12 +915,10 @@ $compiler::sim2c:
   write "
     @
       register_module_info(&module_info);
-
   for_each defined_namespaces: (namespace)
     write "
       @
         define_namespace("@(namespace)");
-
   write generated_phase_1
   if
     is_main:
@@ -1020,8 +1020,7 @@ $compiler::sim2c:
 	  -> "NULL"
 
       $basename name .truncate_until. "__"
-      case
-	variable_kind_of(info)
+      case variable_kind_of(info)
 	POLYMORPHIC:
 	  write "
 	    @

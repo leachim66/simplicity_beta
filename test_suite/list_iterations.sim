@@ -1,0 +1,15 @@
+#!/usr/bin/env simple
+
+$names list("Peter" "George" "Maria" "Gundula" "Jeffrey")
+
+for_each names: (name)
+  writeln name
+
+for_each names: (idx name)
+  writeln idx ": " name
+
+for_each_downwards names: (name)
+  writeln name
+
+for_each_downwards names: (idx name)
+  writeln idx ": " name

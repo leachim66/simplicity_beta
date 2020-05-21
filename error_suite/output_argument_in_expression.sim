@@ -1,0 +1,4 @@
+#!/usr/bin/env simple
+
+writeln
+  a + $b

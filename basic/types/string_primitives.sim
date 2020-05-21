@@ -264,6 +264,7 @@ $types::string types::generic_list
   <argument NULL>
 
   // the empty string
+
 }
 
 {
@@ -713,8 +714,7 @@ $types::string/parse_integer:
 	      break
       -> self .has_prefix. "0x":
 	for_each_from_to self 3 -1: (idx chr)
-	  case
-	    chr
+	  case chr
 	    '0' .. '9':
 	      !val (val << 4)+(chr-'0')
 	    'a' .. 'f':
@@ -736,7 +736,12 @@ $types::string/parse_integer:
 	      range &self idx -1
 	      break
     !self ""
-  -> self if(negate (-> -val) -> val)
+  ->
+    self
+    if
+      negate
+      -> -val
+      -> val
 
 {
   <kind function>

@@ -92,8 +92,7 @@ $delete_escape_sequences: (&text)
   replace_all &text "@esc;[", DIGIT, DIGIT, 'm' = ""
 
 $os_to_string: (os)
-  case
-    os
+  case os
     DEBIAN
     -> "Debian Linux"
     FEDORA
@@ -115,8 +114,7 @@ $os_to_string: (os)
     -> "unknown"
 
 $hw_to_string: (hw)
-  case
-    hw
+  case hw
     X86_32
     -> "x86-32"
     X86_64
@@ -144,8 +142,7 @@ $remote::do_on_remote_server:
 	  args*
 	  -> return
 	)
-	case
-	  parameter_count_of(return)
+	case parameter_count_of(return)
 	  2:
 	    call_command $$out $ret conn args*
 	    trim &out

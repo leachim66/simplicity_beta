@@ -163,7 +163,6 @@ $std::some:
     Topic: Grammar
 
     See also: some, optional
-
   (
     expr # the expression to use for matching
   )

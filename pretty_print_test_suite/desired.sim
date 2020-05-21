@@ -1,0 +1,40 @@
+if a > b:
+  writeln "a is big"
+
+if
+  a > b:
+    writeln "a is big"
+  :
+    writeln "a is small"
+
+while -> a > b:
+  writeln "a is big"
+  dec &a
+
+case a
+  1: writeln "one"
+  2: writeln "two"
+  3: writeln "three"
+
+case a
+  1:
+    writeln "one"
+  2:
+    writeln "two"
+    another_call
+  3:
+    writeln "three"
+
+cond
+  -> a == 1: writeln "one"
+  -> a == 2: writeln "two"
+  -> a == 3: writeln "three"
+
+cond
+  -> a == 1:
+    writeln "one"
+  -> a == 2:
+    writeln "two"
+    another_call
+  -> a == 3:
+    writeln "three"

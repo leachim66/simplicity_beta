@@ -1,0 +1,5 @@
+____________________________________
+SYNTAX ERROR IN LINE 4 OF FILE "invalid_inline_arguments":
+")" expected!
+  on_first_line && not(any_of(strings contains '@nl;'):
+                                                       ^

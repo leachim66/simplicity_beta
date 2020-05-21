@@ -33,10 +33,10 @@
 $compiler::annotate_statement ()
 $compiler::annotate_expression ()
 
-$annotate_output_arguments: (&arguments)
+$annotate_arguments: (&arguments)
   update_each &arguments: (&argument)
     annotate_expression &argument
-    if do_print_warnings:
+    if argument.is_a_destination && do_print_warnings:
       $$destination argument
       unless destination.is_a_definition:
 	while -> destination.is_a_function_call:
@@ -47,9 +47,6 @@ $annotate_output_arguments: (&arguments)
 	      !destination functor_of(destination)
 	$name mangled_name_of(destination)
 	!assigned_names(name) true
-
-$annotate_arguments: (&arguments)
-  update_each &arguments: (&argument) annotate_expression &argument
 
 ###
 # DEFAULT GRAMMAR NODE
@@ -103,13 +100,13 @@ $compiler::body/annotate_expression: (&self)
     update_each &self.parameters_of: (&parameter)
       push &defined_names parameter
       if
-	parameter.is_an_optional_item && default_value_of(parameter).is_defined:
+	parameter.is_an_optional_item && default_value_of(parameter).is_defined
+	:
 	  annotate_expression &parameter.default_value_of
     update_each &self.statements_of: (&stmt) annotate_statement &stmt
     $$local_definitions empty_insert_order_table
     for_each defined_names: (info)
-      case
-	variable_kind_of(info)
+      case variable_kind_of(info)
 	STATIC_SINGLE, STATIC_MULTI:
 	  $ident identifier_of(info)
 	  if namespace_of(ident).is_defined:
@@ -126,7 +123,7 @@ $compiler::body/annotate_expression: (&self)
 	  !used_names(mangled_name_of(identifier_of(info))) info
     !self.defined_names_of local_definitions
     !self.used_names_of used_names
-    if defines_dynamics: # then add a continuation parameter if not present
+    if defines_dynamics:
       !self.defines_a_dynamic true
       $parameters parameters_of(self)
       if
@@ -156,18 +153,6 @@ $compiler::body/annotate_expression: (&self)
 
 $compiler::call/annotate_statement: (&self)
   show_compiler_debug_info "annotate statement"
-  #if
-    &&
-      self.is_an_assignment
-      arguments_of(self)(1).is_a_body || arguments_of(self)(1).is_a_c_body
-      output_arguments_of(self)(1).is_a_single_assign_definition
-    :
-      !self.arguments_of(1).name_of
-	replace_all
-	  range(output_arguments_of(self)(1).to_string 2 -1)
-	  "::" = "__"
-	  '/' = "_"
-	  '.' = "_"
   if
     functor_of(self).is_defined:
       if result_count_of(self).is_defined:
@@ -176,16 +161,15 @@ $compiler::call/annotate_statement: (&self)
 	annotate_expression &self.continuation_of
       annotate_expression &self.functor_of
     :
-      unless output_arguments_of(self).is_empty:
-	$destination output_arguments_of(self)(1)
+      unless arguments_of(self).is_empty:
+	$destination arguments_of(self)(1)
 	if
 	  &&
 	    destination.is_a_definition
-	    arguments_of(self)(1).is_a_unique_item_constant
+	    arguments_of(self)(2).is_a_unique_item_constant
 	  :
-	    !self.arguments_of(1).name_of
+	    !self.arguments_of(2).name_of
 	      mangled_name_of(identifier_of(destination))
-  annotate_output_arguments &self.output_arguments_of
   annotate_arguments &self.arguments_of
 
 ###
@@ -241,7 +225,6 @@ $compiler::function_call/annotate_expression: (&self)
   show_compiler_debug_info "annotate function call"
   if functor_of(self).is_defined:
     annotate_expression &self.functor_of
-    annotate_output_arguments &self.output_arguments_of
     annotate_arguments &self.arguments_of
 
 ###
@@ -273,7 +256,7 @@ $compiler::identifier/annotate_expression: (&self)
     $name mangled_name_of(self)
     $info used_names(name)
     cond
-      -> self.is_a_destination:
+      -> self.is_used_as_a_destination:
 	if
 	  info.is_undefined || variable_kind_of(info) == STATIC_SINGLE:
 	    !used_names(name)

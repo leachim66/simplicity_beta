@@ -170,10 +170,11 @@ typedef struct CLOSURE {
 #else
   #define ASM(x)
 #endif
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 REGISTER NODE *myself ASM("r13");
 IMPORT NODE *get_attribute(NODE *node, int idx);
 REGISTER FRAME *arguments ASM("r12");
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -743,7 +744,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__compiler__text_of, NULL, 32, 32, 2, 18},
   {type__compiler__source_of, NULL, 33, 33, 2, 20},
   {type__compiler__indents_of, NULL, 34, 34, 2, 21},
-  {run__shared_variables, NULL, 114, 134, 1, 19},
+  {run__shared_variables, NULL, 126, 146, 1, 19},
   {cont__104_20, NULL, }
 };
 
@@ -756,6 +757,10 @@ union NODE {
   CLOSURE closure;
 };
 static void type__compiler__line_no_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__compiler__line_no_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -778,6 +783,10 @@ static void type__compiler__line_no_of(void) {
   }
 }
 static void type__compiler__text_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__compiler__text_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -800,6 +809,10 @@ static void type__compiler__text_of(void) {
   }
 }
 static void type__compiler__source_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__compiler__source_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -822,6 +835,10 @@ static void type__compiler__source_of(void) {
   }
 }
 static void type__compiler__indents_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__compiler__indents_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -895,92 +912,103 @@ EXPORT void run__shared_variables(void) {
   set__compiler__enumeration_count(get__undefined());
   // 52: %%compiler::global_names undefined # module global names
   set__compiler__global_names(get__undefined());
-  // 53: %%compiler::exported_names undefined # first index: name; second index: namespace
+  // 54: %%compiler::exported_names undefined
+  // 55:   # first index: name; second index: namespace
   set__compiler__exported_names(get__undefined());
-  // 54: %%compiler::needed_names undefined # contains all symbols that are imported
+  // 57: %%compiler::needed_names undefined # contains all symbols that are imported
   set__compiler__needed_names(get__undefined());
-  // 58: %%compiler::use_inline_c undefined
+  // 61: %%compiler::use_inline_c undefined
   set__compiler__use_inline_c(get__undefined());
-  // 59: %%compiler::defined_structs undefined
+  // 62: %%compiler::defined_structs undefined
   set__compiler__defined_structs(get__undefined());
-  // 60: %%compiler::defined_nodes undefined
+  // 63: %%compiler::defined_nodes undefined
   set__compiler__defined_nodes(get__undefined());
-  // 61: %%compiler::defined_functions undefined
+  // 64: %%compiler::defined_functions undefined
   set__compiler__defined_functions(get__undefined());
-  // 65: %compiler::write_to_generated_collections undefined
+  // 68: %compiler::write_to_generated_collections undefined
   initialize_maybe_future(get__compiler__write_to_generated_collections(), get__undefined());
-  // 66: %compiler::write_to_delayed_statements undefined
+  // 69: %compiler::write_to_delayed_statements undefined
   initialize_maybe_future(get__compiler__write_to_delayed_statements(), get__undefined());
-  // 67: %compiler::use_identifier undefined
+  // 70: %compiler::use_identifier undefined
   initialize_maybe_future(get__compiler__use_identifier(), get__undefined());
-  // 68: %compiler::write_to_declarations undefined
+  // 71: %compiler::write_to_declarations undefined
   initialize_maybe_future(get__compiler__write_to_declarations(), get__undefined());
-  // 69: %compiler::write_to_top_level_variable_names undefined
+  // 72: %compiler::write_to_top_level_variable_names undefined
   initialize_maybe_future(get__compiler__write_to_top_level_variable_names(), get__undefined());
-  // 70: %compiler::write_to_top_level_variable_declarations undefined
+  // 73: %compiler::write_to_top_level_variable_declarations undefined
   initialize_maybe_future(get__compiler__write_to_top_level_variable_declarations(), get__undefined());
-  // 71: %compiler::write_to_global_variable_declarations undefined
+  // 74: %compiler::write_to_global_variable_declarations undefined
   initialize_maybe_future(get__compiler__write_to_global_variable_declarations(), get__undefined());
-  // 72: %compiler::write_to_continuation_table undefined
+  // 75: %compiler::write_to_continuation_table undefined
   initialize_maybe_future(get__compiler__write_to_continuation_table(), get__undefined());
-  // 73: %compiler::write_to_delayed_continuation_table undefined
+  // 76: %compiler::write_to_delayed_continuation_table undefined
   initialize_maybe_future(get__compiler__write_to_delayed_continuation_table(), get__undefined());
-  // 74: %compiler::write_to_functions undefined
+  // 77: %compiler::write_to_functions undefined
   initialize_maybe_future(get__compiler__write_to_functions(), get__undefined());
-  // 75: %compiler::write_to_phase_1 undefined
+  // 78: %compiler::write_to_phase_1 undefined
   initialize_maybe_future(get__compiler__write_to_phase_1(), get__undefined());
-  // 76: %compiler::write_to_phase_2 undefined
+  // 79: %compiler::write_to_phase_2 undefined
   initialize_maybe_future(get__compiler__write_to_phase_2(), get__undefined());
-  // 77: %compiler::write_to_phase_3 undefined
+  // 80: %compiler::write_to_phase_3 undefined
   initialize_maybe_future(get__compiler__write_to_phase_3(), get__undefined());
-  // 78: %compiler::write_to_phase_4 undefined
+  // 81: %compiler::write_to_phase_4 undefined
   initialize_maybe_future(get__compiler__write_to_phase_4(), get__undefined());
-  // 79: %compiler::write_to_phase_5 undefined
+  // 82: %compiler::write_to_phase_5 undefined
   initialize_maybe_future(get__compiler__write_to_phase_5(), get__undefined());
-  // 80: %compiler::write_to_phase_6 undefined
+  // 83: %compiler::write_to_phase_6 undefined
   initialize_maybe_future(get__compiler__write_to_phase_6(), get__undefined());
-  // 81: %compiler::use_literal undefined
+  // 84: %compiler::use_literal undefined
   initialize_maybe_future(get__compiler__use_literal(), get__undefined());
-  // 85: %compiler::module_name undefined # the name of the current compilation unit
+  // 88: %compiler::module_name undefined # the name of the current compilation unit
   initialize_maybe_future(get__compiler__module_name(), get__undefined());
-  // 86: %compiler::submodule_no undefined
+  // 90: %compiler::submodule_no undefined
+  // 91:   # the no. of the current submodule; starting with 0
   initialize_maybe_future(get__compiler__submodule_no(), get__undefined());
-  // 88: %%compiler::index undefined # used for enumerating expanded source code items
+  // 93: %%compiler::index undefined # used for enumerating expanded source code items
   set__compiler__index(get__undefined());
-  // 89: %%compiler::definitions undefined # a list of key-value pairs
+  // 94: %%compiler::definitions undefined # a list of key-value pairs
   set__compiler__definitions(get__undefined());
-  // 90: %%compiler::statements undefined # a list of statements
+  // 95: %%compiler::statements undefined # a list of statements
   set__compiler__statements(get__undefined());
-  // 91: %%compiler::actions undefined # a list of deferred actions (closures)
+  // 96: %%compiler::actions undefined # a list of deferred actions (closures)
   set__compiler__actions(get__undefined());
-  // 92: %%compiler::temp_idx undefined
+  // 98: %%compiler::temp_idx undefined
+  // 99:   # total count of already defined temporaries (initialized to 0)
   set__compiler__temp_idx(get__undefined());
-  // 94: %compiler::current_fragment undefined # used for generating error messages
+  // 101: %compiler::current_fragment undefined # used for generating error messages
   initialize_maybe_future(get__compiler__current_fragment(), get__undefined());
-  // 95: %compiler::already_defined_names undefined
+  // 103: %compiler::already_defined_names undefined
+  // 104:   # names that must not be redefined as local symbols
   initialize_maybe_future(get__compiler__already_defined_names(), get__undefined());
-  // 97: %%compiler::defined_names undefined # used for collecting defined symbols
+  // 106: %%compiler::defined_names undefined # used for collecting defined symbols
   set__compiler__defined_names(get__undefined());
-  // 98: %%compiler::used_names undefined # used for collecting usages of symbols
+  // 107: %%compiler::used_names undefined # used for collecting usages of symbols
   set__compiler__used_names(get__undefined());
-  // 99: %%compiler::assigned_names undefined
+  // 109: %%compiler::assigned_names undefined
+  // 110:   #
+  // 111:     used for collecting assignments to symbols;
+  // 112:     only used for creating appropriate warning messages
   set__compiler__assigned_names(get__undefined());
-  // 103: %%compiler::used_string_literals undefined
+  // 114: %%compiler::used_string_literals undefined
+  // 115:   # a a table that stores already defined string literals
   set__compiler__used_string_literals(get__undefined());
-  // 105: %%compiler::current_continuation_info undefined
+  // 117: %%compiler::current_continuation_info undefined
+  // 118:   # stores debug information about the current continuation function
   set__compiler__current_continuation_info(get__undefined());
-  // 108: %%compiler::string_literals undefined
+  // 120: %%compiler::string_literals undefined
+  // 121:   #
+  // 122:     a table that matches string hashes to string literals
   set__compiler__string_literals(get__undefined());
-  // 114: $compiler::vtable_entries
-  // 115:   list
-  // 116:     "to_int8"
-  // 117:     "to_int16"
-  // 118:     "to_int32"
-  // 119:     "to_int64"
-  // 120:     "to_uint8"
-  // 121:     "to_uint16"
-  // 122:     "to_uint32"
-  // 123:     "to_uint64"
+  // 126: $compiler::vtable_entries
+  // 127:   list
+  // 128:     "to_int8"
+  // 129:     "to_int16"
+  // 130:     "to_int32"
+  // 131:     "to_int64"
+  // 132:     "to_uint8"
+  // 133:     "to_uint16"
+  // 134:     "to_uint32"
+  // 135:     "to_uint64"
   // ...
   argument_count = 19;
   arguments = node_p;

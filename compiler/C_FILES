@@ -1,6 +1,7 @@
 runtime/linker.c
 runtime/memory.c
 runtime/debugger.c
+compiler/simple.c
 basic/exceptions.c
 basic/serialize.c
 basic/deserialize.c
@@ -61,4 +62,3 @@ compiler/pretty_printer.c
 compiler/sim2c.c
 compiler/extractor.c
 compiler/runtime_definitions.c
-compiler/simple.c

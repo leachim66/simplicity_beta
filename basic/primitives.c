@@ -136,9 +136,10 @@ typedef struct SIMPLE_NODE {
   FUNC type;
   struct ATTRIBUTES *attributes;
 } SIMPLE_NODE;
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 REGISTER NODE *myself ASM("r13");
 IMPORT NODE *get_attribute(NODE *node, int idx);
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -161,7 +162,6 @@ IMPORT void allocate_initialized_frame_gc(int slot_idx, int slot_count);
 IMPORT int result_count;
 IMPORT void invalid_results_error(void);
 IMPORT void allocate_arguments(void);
-IMPORT void too_few_arguments_error(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
 IMPORT NODE *collect_node(NODE *node);
 IMPORT void register_module_info(MODULE_INFO *info);
@@ -320,18 +320,18 @@ void run__basic__primitives(void);
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__has_minimum_length, NULL, 23, 23, 2, 24},
   {run__basic__primitives, NULL, },
-  {entry__types__object__has_minimum_length_1, NULL, 52, 52, 8, 22},
-  {cont__types__object__has_minimum_length_2, &frame__types__object__has_minimum_length_1, 52, 52, 8, 29},
-  {cont__types__object__has_minimum_length_3, &frame__types__object__has_minimum_length_1, 52, 52, 8, 29},
-  {cont__types__object__has_minimum_length_4, &frame__types__object__has_minimum_length_1, 52, 52, 5, 29},
-  {entry__std__ignore_1, NULL, 60, 60, 3, 6},
-  {entry__std__writeln_to_1, NULL, 75, 75, 3, 40},
-  {entry__std__swap_1, NULL, 90, 90, 3, 15},
-  {entry__std__pass_1, NULL, 107, 110, 3, 2},
-  {entry__std__eval_1, NULL, 130, 130, 3, 6},
-  {entry__std__do_1, NULL, 154, 159, 3, 2},
-  {entry__std__assign_1, NULL, 196, 198, 3, 2},
-  {entry__std__goto_1, NULL, 210, 225, 3, 2}
+  {entry__types__object__has_minimum_length_1, NULL, 48, 48, 8, 22},
+  {cont__types__object__has_minimum_length_2, &frame__types__object__has_minimum_length_1, 48, 48, 8, 29},
+  {cont__types__object__has_minimum_length_3, &frame__types__object__has_minimum_length_1, 48, 48, 8, 29},
+  {cont__types__object__has_minimum_length_4, &frame__types__object__has_minimum_length_1, 48, 48, 5, 29},
+  {entry__std__ignore_1, NULL, 56, 56, 3, 6},
+  {entry__std__writeln_to_1, NULL, 71, 71, 3, 40},
+  {entry__std__swap_1, NULL, 86, 86, 3, 15},
+  {entry__std__pass_1, NULL, 102, 105, 3, 2},
+  {entry__std__eval_1, NULL, 125, 125, 3, 6},
+  {entry__std__do_1, NULL, 149, 154, 3, 2},
+  {entry__std__assign_1, NULL, 190, 192, 3, 2},
+  {entry__std__goto_1, NULL, 204, 219, 3, 2}
 };
 
 union NODE {
@@ -344,6 +344,10 @@ union NODE {
   SIMPLE_NODE simple_node;
 };
 static void type__std__has_minimum_length(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__has_minimum_length);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -411,7 +415,7 @@ static void entry__types__object__has_minimum_length_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 52: ... length_of(self)
+  // 48: ... length_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -426,7 +430,7 @@ static void cont__types__object__has_minimum_length_2(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 52: ... length_of(self) >= len
+  // 48: ... length_of(self) >= len
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -442,7 +446,7 @@ static void cont__types__object__has_minimum_length_3(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 52: ... length_of(self) >= len
+  // 48: ... length_of(self) >= len
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -457,7 +461,7 @@ static void cont__types__object__has_minimum_length_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 52: -> length_of(self) >= len
+  // 48: -> length_of(self) >= len
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -473,7 +477,7 @@ static void entry__std__ignore_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 60: pass
+  // 56: pass
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -493,7 +497,7 @@ static void entry__std__writeln_to_1(void) {
   }
   frame->slots[0] /* file_handle */ = arguments->slots[0];
   frame->slots[1] /* arguments */ = from_arguments(1, argument_count-1);
-  // 75: write_to file_handle arguments* '@nl;'
+  // 71: write_to file_handle arguments* '@nl;'
   argument_count = 0;
   arguments = node_p;
   arguments->slots[argument_count++] = frame->slots[0] /* file_handle */;
@@ -513,7 +517,7 @@ static void entry__std__swap_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 90: -> right left
+  // 86: -> right left
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -542,7 +546,7 @@ static void entry__std__eval_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 130: body
+  // 125: body
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;

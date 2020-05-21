@@ -61,7 +61,11 @@ for_each flags: (flag)
       $bit info(2)
 
       $remark
-	case(bit "VTIME" (-> "; timeout is converted to/from seconds!") -> "")
+	case
+	  bit
+	  "VTIME"
+	  -> "; timeout is converted to/from seconds!"
+	  -> ""
 
       if
 	field == "c_cc":

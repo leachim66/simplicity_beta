@@ -50,7 +50,10 @@ $compiler::indents_of (!)
 # symbols
 
 %%compiler::global_names undefined # module global names
-%%compiler::exported_names undefined # first index: name; second index: namespace
+
+%%compiler::exported_names undefined
+  # first index: name; second index: namespace
+
 %%compiler::needed_names undefined # contains all symbols that are imported
 
 # inline-C
@@ -83,25 +86,34 @@ $compiler::indents_of (!)
 # dynamic variables
 
 %compiler::module_name undefined # the name of the current compilation unit
+
 %compiler::submodule_no undefined
   # the no. of the current submodule; starting with 0
+
 %%compiler::index undefined # used for enumerating expanded source code items
 %%compiler::definitions undefined # a list of key-value pairs
 %%compiler::statements undefined # a list of statements
 %%compiler::actions undefined # a list of deferred actions (closures)
+
 %%compiler::temp_idx undefined
   # total count of already defined temporaries (initialized to 0)
+
 %compiler::current_fragment undefined # used for generating error messages
+
 %compiler::already_defined_names undefined
   # names that must not be redefined as local symbols
+
 %%compiler::defined_names undefined # used for collecting defined symbols
 %%compiler::used_names undefined # used for collecting usages of symbols
+
 %%compiler::assigned_names undefined
   #
     used for collecting assignments to symbols;
     only used for creating appropriate warning messages
+
 %%compiler::used_string_literals undefined
   # a a table that stores already defined string literals
+
 %%compiler::current_continuation_info undefined
   # stores debug information about the current continuation function
 

@@ -7,8 +7,7 @@ $$digits 0
 $$other_characters 0
 repeat 100'000:
   for_each text: (chr)
-    case
-      chr
+    case chr
       'a' .. 'z':
 	!lower_case_letters lower_case_letters+1
       'A' .. 'Z':

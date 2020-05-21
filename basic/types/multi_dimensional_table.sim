@@ -56,7 +56,7 @@ $types::multi_dimensional_table:
   $dimensions dimensions_of(myself)
   $n length_of(dimensions)
   if
-    length_of(args) > n: # insert
+    length_of(args) > n:
       !myself.table_of insert_into(table_of(myself) dimensions args)
       -> myself
     -> get_item(table_of(myself) args)

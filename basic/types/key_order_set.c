@@ -166,9 +166,10 @@ typedef struct CLOSURE {
   int parameter_count;
   struct FRAME *frame;
 } CLOSURE;
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 IMPORT NODE *get_attribute(NODE *node, int idx);
 REGISTER FRAME *arguments ASM("r12");
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -204,7 +205,6 @@ IMPORT NODE *create_future(void);
 IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void continuation_type_function(void);
 IMPORT NODE *create_continuation(void);
-IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT void allocate_arguments(void);
 IMPORT NODE *from_arguments(int first_idx, int count);
@@ -702,46 +702,46 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__remove_item_4, &frame__remove_item_1, 101, 101, 3, 24},
   {cont__remove_item_5, &frame__remove_item_1, 102, 125, 3, 20},
   {cont__remove_item_34, &frame__remove_item_1, 125, 125, 20, 20},
-  {entry__types__key_order_set_2, NULL, 139, 139, 23, 37},
-  {cont__types__key_order_set_3, &frame__types__key_order_set_2, 139, 139, 14, 42},
-  {cont__types__key_order_set_4, &frame__types__key_order_set_2, 139, 139, 7, 42},
-  {entry__types__key_order_set_10, NULL, 144, 144, 14, 29},
-  {cont__types__key_order_set_11, &frame__types__key_order_set_10, 144, 144, 9, 29},
-  {cont__types__key_order_set_12, &frame__types__key_order_set_10, 144, 144, 29, 29},
-  {entry__types__key_order_set_5, NULL, 141, 141, 26, 40},
-  {cont__types__key_order_set_6, &frame__types__key_order_set_5, 141, 141, 7, 45},
-  {cont__types__key_order_set_7, &frame__types__key_order_set_5, 142, 142, 10, 25},
-  {cont__types__key_order_set_8, &frame__types__key_order_set_5, 142, 142, 10, 25},
-  {cont__types__key_order_set_9, &frame__types__key_order_set_5, 142, 144, 7, 29},
-  {cont__types__key_order_set_13, &frame__types__key_order_set_5, 145, 145, 7, 19},
-  {entry__types__key_order_set_19, NULL, 150, 150, 14, 29},
-  {cont__types__key_order_set_20, &frame__types__key_order_set_19, 150, 150, 9, 29},
-  {cont__types__key_order_set_21, &frame__types__key_order_set_19, 150, 150, 29, 29},
-  {entry__types__key_order_set_14, NULL, 147, 147, 29, 43},
-  {cont__types__key_order_set_15, &frame__types__key_order_set_14, 147, 147, 7, 48},
-  {cont__types__key_order_set_16, &frame__types__key_order_set_14, 148, 148, 10, 25},
-  {cont__types__key_order_set_17, &frame__types__key_order_set_14, 148, 148, 10, 25},
-  {cont__types__key_order_set_18, &frame__types__key_order_set_14, 148, 150, 7, 29},
-  {cont__types__key_order_set_22, &frame__types__key_order_set_14, 151, 151, 7, 19},
-  {entry__types__key_order_set_23, NULL, 153, 153, 7, 65},
-  {entry__types__key_order_set_1, NULL, 136, 153, 3, 66},
-  {cont__types__key_order_set_25, &frame__types__key_order_set_1, 153, 153, 66, 66},
-  {entry__std__key_order_set_2, NULL, 176, 176, 24, 32},
-  {cont__std__key_order_set_3, &frame__std__key_order_set_2, 176, 176, 37, 37},
-  {entry__std__key_order_set_1, NULL, 176, 176, 3, 37},
-  {cont__std__key_order_set_4, &frame__std__key_order_set_1, 177, 177, 3, 8},
-  {entry__for_each_item_3, NULL, 181, 181, 19, 33},
-  {cont__for_each_item_4, &frame__for_each_item_3, 181, 181, 5, 38},
-  {cont__for_each_item_5, &frame__for_each_item_3, 182, 182, 10, 23},
-  {cont__for_each_item_6, &frame__for_each_item_3, 182, 182, 5, 23},
-  {cont__for_each_item_7, &frame__for_each_item_3, 183, 183, 19, 34},
-  {cont__for_each_item_8, &frame__for_each_item_3, 183, 183, 5, 39},
-  {entry__for_each_item_1, NULL, 180, 180, 6, 22},
-  {cont__for_each_item_2, &frame__for_each_item_1, 180, 183, 3, 39},
-  {entry__types__key_order_set__for_each_4, NULL, 193, 193, 23, 45},
-  {entry__types__key_order_set__for_each_1, NULL, 192, 192, 3, 21},
-  {cont__types__key_order_set__for_each_2, &frame__types__key_order_set__for_each_1, 193, 193, 6, 20},
-  {cont__types__key_order_set__for_each_3, &frame__types__key_order_set__for_each_1, 193, 193, 3, 45}
+  {entry__types__key_order_set_2, NULL, 138, 138, 23, 37},
+  {cont__types__key_order_set_3, &frame__types__key_order_set_2, 138, 138, 14, 42},
+  {cont__types__key_order_set_4, &frame__types__key_order_set_2, 138, 138, 7, 42},
+  {entry__types__key_order_set_10, NULL, 143, 143, 14, 29},
+  {cont__types__key_order_set_11, &frame__types__key_order_set_10, 143, 143, 9, 29},
+  {cont__types__key_order_set_12, &frame__types__key_order_set_10, 143, 143, 29, 29},
+  {entry__types__key_order_set_5, NULL, 140, 140, 26, 40},
+  {cont__types__key_order_set_6, &frame__types__key_order_set_5, 140, 140, 7, 45},
+  {cont__types__key_order_set_7, &frame__types__key_order_set_5, 141, 141, 10, 25},
+  {cont__types__key_order_set_8, &frame__types__key_order_set_5, 141, 141, 10, 25},
+  {cont__types__key_order_set_9, &frame__types__key_order_set_5, 141, 143, 7, 29},
+  {cont__types__key_order_set_13, &frame__types__key_order_set_5, 144, 144, 7, 19},
+  {entry__types__key_order_set_19, NULL, 149, 149, 14, 29},
+  {cont__types__key_order_set_20, &frame__types__key_order_set_19, 149, 149, 9, 29},
+  {cont__types__key_order_set_21, &frame__types__key_order_set_19, 149, 149, 29, 29},
+  {entry__types__key_order_set_14, NULL, 146, 146, 29, 43},
+  {cont__types__key_order_set_15, &frame__types__key_order_set_14, 146, 146, 7, 48},
+  {cont__types__key_order_set_16, &frame__types__key_order_set_14, 147, 147, 10, 25},
+  {cont__types__key_order_set_17, &frame__types__key_order_set_14, 147, 147, 10, 25},
+  {cont__types__key_order_set_18, &frame__types__key_order_set_14, 147, 149, 7, 29},
+  {cont__types__key_order_set_22, &frame__types__key_order_set_14, 150, 150, 7, 19},
+  {entry__types__key_order_set_23, NULL, 152, 152, 7, 65},
+  {entry__types__key_order_set_1, NULL, 136, 152, 3, 66},
+  {cont__types__key_order_set_25, &frame__types__key_order_set_1, 152, 152, 66, 66},
+  {entry__std__key_order_set_2, NULL, 175, 175, 24, 32},
+  {cont__std__key_order_set_3, &frame__std__key_order_set_2, 175, 175, 37, 37},
+  {entry__std__key_order_set_1, NULL, 175, 175, 3, 37},
+  {cont__std__key_order_set_4, &frame__std__key_order_set_1, 176, 176, 3, 8},
+  {entry__for_each_item_3, NULL, 180, 180, 19, 33},
+  {cont__for_each_item_4, &frame__for_each_item_3, 180, 180, 5, 38},
+  {cont__for_each_item_5, &frame__for_each_item_3, 181, 181, 10, 23},
+  {cont__for_each_item_6, &frame__for_each_item_3, 181, 181, 5, 23},
+  {cont__for_each_item_7, &frame__for_each_item_3, 182, 182, 19, 34},
+  {cont__for_each_item_8, &frame__for_each_item_3, 182, 182, 5, 39},
+  {entry__for_each_item_1, NULL, 179, 179, 6, 22},
+  {cont__for_each_item_2, &frame__for_each_item_1, 179, 182, 3, 39},
+  {entry__types__key_order_set__for_each_4, NULL, 192, 192, 23, 45},
+  {entry__types__key_order_set__for_each_1, NULL, 191, 191, 3, 21},
+  {cont__types__key_order_set__for_each_2, &frame__types__key_order_set__for_each_1, 192, 192, 6, 20},
+  {cont__types__key_order_set__for_each_3, &frame__types__key_order_set__for_each_1, 192, 192, 3, 45}
 };
 
 union NODE {
@@ -753,6 +753,10 @@ union NODE {
   CLOSURE closure;
 };
 static void type__std__is_a_key_order_set(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_a_key_order_set);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -775,6 +779,10 @@ static void type__std__is_a_key_order_set(void) {
   }
 }
 static void type__tree_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__tree_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -797,6 +805,10 @@ static void type__tree_of(void) {
   }
 }
 static void type__left_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__left_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -819,6 +831,10 @@ static void type__left_of(void) {
   }
 }
 static void type__right_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__right_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -874,6 +890,10 @@ EXPORT void run__basic__types__key_order_set(void) {
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
   // 34: $types::key_order_set types::generic_set
+  // 35:   #
+  // 36:     the prototype object for *key order* sets
+  // 37:     
+  // 38:     Topic: Collections
   initialize_maybe_future(var.types__key_order_set, get__types__generic_set());
   // 40: $empty_node types::object
   initialize_maybe_future(var._empty_node, get__types__object());
@@ -956,7 +976,7 @@ static void cont__fetch_first_3(void) {
   frame->cont = cont__fetch_first_9;
 }
 static void entry__fetch_first_4(void) {
-  allocate_initialized_frame_gc(3, 5);
+  allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // left: 0
   // myself: 1
@@ -985,16 +1005,12 @@ static void cont__fetch_first_5(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* left */ = arguments->slots[0];
-  frame->slots[4] /* temp__1 */ = arguments->slots[1];
-  // 52: ... key
-  initialize_future(frame->slots[3] /* key */, frame->slots[4] /* temp__1 */);
-  // 53: !myself.left_of left
-  frame->slots[4] /* temp__1 */ = ((CELL *)frame->slots[0])->contents /* left */;
+  initialize_future(frame->slots[3] /* key */, arguments->slots[1]);
   // 53: !myself.left_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* myself */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__left_of, frame->slots[4] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__left_of, ((CELL *)frame->slots[0])->contents /* left */);
     ((CELL *)frame->slots[1])->contents /* myself */ = temp;
 
   }
@@ -1646,13 +1662,11 @@ static void cont__add_item_24(void) {
     invalid_results_error();
     return;
   }
-  // 91: !myself.right_of right
-  frame->slots[4] /* temp__1 */ = frame->slots[3] /* right */;
   // 91: !myself.right_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__right_of, frame->slots[4] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__right_of, frame->slots[3] /* right */);
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
@@ -1762,13 +1776,11 @@ static void cont__add_item_16(void) {
     invalid_results_error();
     return;
   }
-  // 86: !myself.left_of left
-  frame->slots[4] /* temp__1 */ = frame->slots[3] /* left */;
   // 86: !myself.left_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__left_of, frame->slots[4] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__left_of, frame->slots[3] /* left */);
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
@@ -2165,13 +2177,11 @@ static void cont__remove_item_33(void) {
     invalid_results_error();
     return;
   }
-  // 124: !myself.right_of right
-  frame->slots[4] /* temp__1 */ = frame->slots[3] /* right */;
   // 124: !myself.right_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__right_of, frame->slots[4] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__right_of, frame->slots[3] /* right */);
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
@@ -2281,13 +2291,11 @@ static void cont__remove_item_25(void) {
     invalid_results_error();
     return;
   }
-  // 119: !myself.left_of left
-  frame->slots[4] /* temp__1 */ = frame->slots[3] /* left */;
   // 119: !myself.left_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__left_of, frame->slots[4] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__left_of, frame->slots[3] /* left */);
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
@@ -2330,9 +2338,7 @@ static void cont__remove_item_15(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* right */ = arguments->slots[0];
-  frame->slots[4] /* temp__1 */ = arguments->slots[1];
-  // 110: ... head
-  initialize_future(frame->slots[3] /* head */, frame->slots[4] /* temp__1 */);
+  initialize_future(frame->slots[3] /* head */, arguments->slots[1]);
   // 111: ... types::object(.key_of head .left_of left .right_of right)
   {
     NODE *temp = clone_object_and_attributes(get__types__object());
@@ -2725,33 +2731,33 @@ static void entry__types__key_order_set_1(void) {
     case 1: frame->slots[1] /* value */ = var._NONE;
   }
   frame->slots[2] /* myself */ = create_cell_with_contents(myself);
-  // 138: ... :
-  // 139:   return get_item(tree_of(myself) key)
+  // 137: ... :
+  // 138:   return get_item(tree_of(myself) key)
   frame->slots[4] /* temp__1 */ = create_closure(entry__types__key_order_set_2, 0);
-  // 140: ... :
-  // 141:   $new_tree add_item(tree_of(myself) key)
-  // 142:   if NONE != new_tree:
-  // 143:     !myself.tree_of new_tree
-  // 144:     inc &myself.length_of
-  // 145:   return myself
+  // 139: ... :
+  // 140:   $new_tree add_item(tree_of(myself) key)
+  // 141:   if NONE != new_tree:
+  // 142:     !myself.tree_of new_tree
+  // 143:     inc &myself.length_of
+  // 144:   return myself
   frame->slots[5] /* temp__2 */ = create_closure(entry__types__key_order_set_5, 0);
-  // 146: ... :
-  // 147:   $new_tree remove_item(tree_of(myself) key)
-  // 148:   if NONE != new_tree:
-  // 149:     !myself.tree_of new_tree
-  // 150:     dec &myself.length_of
-  // 151:   return myself
+  // 145: ... :
+  // 146:   $new_tree remove_item(tree_of(myself) key)
+  // 147:   if NONE != new_tree:
+  // 148:     !myself.tree_of new_tree
+  // 149:     dec &myself.length_of
+  // 150:   return myself
   frame->slots[6] /* temp__3 */ = create_closure(entry__types__key_order_set_14, 0);
-  // 136: case
-  // 137:   value
-  // 138:   NONE:
-  // 139:     return get_item(tree_of(myself) key)
-  // 140:   true:
-  // 141:     $new_tree add_item(tree_of(myself) key)
-  // 142:     if NONE != new_tree:
-  // 143:       !myself.tree_of new_tree
-  // 144:       inc &myself.length_of
-  // 145:     return myself
+  // 136: case value
+  // 137:   NONE:
+  // 138:     return get_item(tree_of(myself) key)
+  // 139:   true:
+  // 140:     $new_tree add_item(tree_of(myself) key)
+  // 141:     if NONE != new_tree:
+  // 142:       !myself.tree_of new_tree
+  // 143:       inc &myself.length_of
+  // 144:     return myself
+  // 145:   false:
   // ...
   argument_count = 8;
   arguments = node_p;
@@ -2781,7 +2787,7 @@ static void entry__types__key_order_set_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 139: ... tree_of(myself)
+  // 138: ... tree_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* myself */;
@@ -2796,7 +2802,7 @@ static void cont__types__key_order_set_3(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 139: ... get_item(tree_of(myself) key)
+  // 138: ... get_item(tree_of(myself) key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -2812,7 +2818,7 @@ static void cont__types__key_order_set_4(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 139: return get_item(tree_of(myself) key)
+  // 138: return get_item(tree_of(myself) key)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2836,7 +2842,7 @@ static void entry__types__key_order_set_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 141: ... tree_of(myself)
+  // 140: ... tree_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -2851,7 +2857,7 @@ static void cont__types__key_order_set_6(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 141: $new_tree add_item(tree_of(myself) key)
+  // 140: $new_tree add_item(tree_of(myself) key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2867,7 +2873,7 @@ static void cont__types__key_order_set_7(void) {
     return;
   }
   initialize_future(frame->slots[3] /* new_tree */, arguments->slots[0]);
-  // 142: ... NONE != new_tree
+  // 141: ... NONE != new_tree
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -2883,7 +2889,7 @@ static void cont__types__key_order_set_8(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 142: ... NONE != new_tree
+  // 141: ... NONE != new_tree
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -2898,13 +2904,13 @@ static void cont__types__key_order_set_9(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 142: ... :
-  // 143:   !myself.tree_of new_tree
-  // 144:   inc &myself.length_of
+  // 141: ... :
+  // 142:   !myself.tree_of new_tree
+  // 143:   inc &myself.length_of
   frame->slots[6] /* temp__3 */ = create_closure(entry__types__key_order_set_10, 0);
-  // 142: if NONE != new_tree:
-  // 143:   !myself.tree_of new_tree
-  // 144:   inc &myself.length_of
+  // 141: if NONE != new_tree:
+  // 142:   !myself.tree_of new_tree
+  // 143:   inc &myself.length_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -2925,17 +2931,15 @@ static void entry__types__key_order_set_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 143: !myself.tree_of new_tree
-  frame->slots[2] /* temp__1 */ = frame->slots[1] /* new_tree */;
-  // 143: !myself.tree_of
+  // 142: !myself.tree_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__tree_of, frame->slots[2] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__tree_of, frame->slots[1] /* new_tree */);
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
-  // 144: ... myself.length_of
+  // 143: ... myself.length_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -2950,7 +2954,7 @@ static void cont__types__key_order_set_11(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 144: inc &myself.length_of
+  // 143: inc &myself.length_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2965,7 +2969,7 @@ static void cont__types__key_order_set_12(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 144: ... &myself.length_of
+  // 143: ... &myself.length_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -2984,7 +2988,7 @@ static void cont__types__key_order_set_13(void) {
     invalid_results_error();
     return;
   }
-  // 145: return myself
+  // 144: return myself
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -3008,7 +3012,7 @@ static void entry__types__key_order_set_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 147: ... tree_of(myself)
+  // 146: ... tree_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -3023,7 +3027,7 @@ static void cont__types__key_order_set_15(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 147: $new_tree remove_item(tree_of(myself) key)
+  // 146: $new_tree remove_item(tree_of(myself) key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3039,7 +3043,7 @@ static void cont__types__key_order_set_16(void) {
     return;
   }
   initialize_future(frame->slots[3] /* new_tree */, arguments->slots[0]);
-  // 148: ... NONE != new_tree
+  // 147: ... NONE != new_tree
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -3055,7 +3059,7 @@ static void cont__types__key_order_set_17(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 148: ... NONE != new_tree
+  // 147: ... NONE != new_tree
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -3070,13 +3074,13 @@ static void cont__types__key_order_set_18(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 148: ... :
-  // 149:   !myself.tree_of new_tree
-  // 150:   dec &myself.length_of
+  // 147: ... :
+  // 148:   !myself.tree_of new_tree
+  // 149:   dec &myself.length_of
   frame->slots[6] /* temp__3 */ = create_closure(entry__types__key_order_set_19, 0);
-  // 148: if NONE != new_tree:
-  // 149:   !myself.tree_of new_tree
-  // 150:   dec &myself.length_of
+  // 147: if NONE != new_tree:
+  // 148:   !myself.tree_of new_tree
+  // 149:   dec &myself.length_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -3097,17 +3101,15 @@ static void entry__types__key_order_set_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 149: !myself.tree_of new_tree
-  frame->slots[2] /* temp__1 */ = frame->slots[1] /* new_tree */;
-  // 149: !myself.tree_of
+  // 148: !myself.tree_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__tree_of, frame->slots[2] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__tree_of, frame->slots[1] /* new_tree */);
     ((CELL *)frame->slots[0])->contents /* myself */ = temp;
 
   }
-  // 150: ... myself.length_of
+  // 149: ... myself.length_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -3122,7 +3124,7 @@ static void cont__types__key_order_set_20(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 150: dec &myself.length_of
+  // 149: dec &myself.length_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3137,7 +3139,7 @@ static void cont__types__key_order_set_21(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 150: ... &myself.length_of
+  // 149: ... &myself.length_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* myself */);
     update_start_p = node_p;
@@ -3156,7 +3158,7 @@ static void cont__types__key_order_set_22(void) {
     invalid_results_error();
     return;
   }
-  // 151: return myself
+  // 150: return myself
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* myself */;
@@ -3172,7 +3174,7 @@ static void entry__types__key_order_set_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 153: Error "Attempt to set a set element to a nonboolean value!"
+  // 152: Error "Attempt to set a set element to a nonboolean value!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__3cace614246a32e7;
@@ -3194,11 +3196,11 @@ static void entry__std__key_order_set_1(void) {
   // tab: 1
   frame->slots[1] /* tab */ = create_cell();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 175: $$tab types::key_order_set
+  // 174: $$tab types::key_order_set
   ((CELL *)frame->slots[1])->contents /* tab */ = var.types__key_order_set;
-  // 176: ... : (key) !tab(key) true
+  // 175: ... : (key) !tab(key) true
   frame->slots[2] /* temp__1 */ = create_closure(entry__std__key_order_set_2, 1);
-  // 176: for_each args: (key) !tab(key) true
+  // 175: for_each args: (key) !tab(key) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* args */;
@@ -3209,7 +3211,7 @@ static void entry__std__key_order_set_1(void) {
   frame->cont = cont__std__key_order_set_4;
 }
 static void entry__std__key_order_set_2(void) {
-  allocate_initialized_frame_gc(2, 3);
+  allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // key: 0
   // tab: 1
@@ -3218,13 +3220,11 @@ static void entry__std__key_order_set_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 176: ... !tab(key) true
-  frame->slots[2] /* temp__1 */ = get__true();
-  // 176: ... !tab(key)
+  // 175: ... !tab(key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
-  arguments->slots[1] = frame->slots[2] /* temp__1 */;
+  arguments->slots[1] = get__true();
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* tab */;
   func = myself->type;
@@ -3247,7 +3247,7 @@ static void cont__std__key_order_set_4(void) {
     invalid_results_error();
     return;
   }
-  // 177: -> tab
+  // 176: -> tab
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* tab */;
@@ -3266,7 +3266,7 @@ static void entry__for_each_item_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 181: ... left_of(myself)
+  // 180: ... left_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3281,7 +3281,7 @@ static void cont__for_each_item_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 181: for_each_item left_of(myself) body
+  // 180: for_each_item left_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3296,7 +3296,7 @@ static void cont__for_each_item_5(void) {
     invalid_results_error();
     return;
   }
-  // 182: ... key_of(myself)
+  // 181: ... key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3311,7 +3311,7 @@ static void cont__for_each_item_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 182: body key_of(myself)
+  // 181: body key_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3325,7 +3325,7 @@ static void cont__for_each_item_7(void) {
     invalid_results_error();
     return;
   }
-  // 183: ... right_of(myself)
+  // 182: ... right_of(myself)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3340,7 +3340,7 @@ static void cont__for_each_item_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 183: for_each_item right_of(myself) body
+  // 182: for_each_item right_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3359,7 +3359,7 @@ static void entry__for_each_item_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 180: ... myself.is_defined
+  // 179: ... myself.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -3374,15 +3374,15 @@ static void cont__for_each_item_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 180: ... :
-  // 181:   for_each_item left_of(myself) body
-  // 182:   body key_of(myself)
-  // 183:   for_each_item right_of(myself) body
+  // 179: ... :
+  // 180:   for_each_item left_of(myself) body
+  // 181:   body key_of(myself)
+  // 182:   for_each_item right_of(myself) body
   frame->slots[3] /* temp__2 */ = create_closure(entry__for_each_item_3, 0);
-  // 180: if myself.is_defined:
-  // 181:   for_each_item left_of(myself) body
-  // 182:   body key_of(myself)
-  // 183:   for_each_item right_of(myself) body
+  // 179: if myself.is_defined:
+  // 180:   for_each_item left_of(myself) body
+  // 181:   body key_of(myself)
+  // 182:   for_each_item right_of(myself) body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3403,7 +3403,7 @@ static void entry__types__key_order_set__for_each_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 193: ... for_each_item tree body
+  // 192: ... for_each_item tree body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* tree */;
@@ -3424,7 +3424,7 @@ static void entry__types__key_order_set__for_each_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 192: $tree tree_of(self)
+  // 191: $tree tree_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3439,7 +3439,7 @@ static void cont__types__key_order_set__for_each_2(void) {
     return;
   }
   initialize_future(frame->slots[2] /* tree */, arguments->slots[0]);
-  // 193: ... tree.is_defined
+  // 192: ... tree.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* tree */;
@@ -3454,9 +3454,9 @@ static void cont__types__key_order_set__for_each_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 193: ... : for_each_item tree body
+  // 192: ... : for_each_item tree body
   frame->slots[4] /* temp__2 */ = create_closure(entry__types__key_order_set__for_each_4, 0);
-  // 193: if tree.is_defined: for_each_item tree body
+  // 192: if tree.is_defined: for_each_item tree body
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;

@@ -70,7 +70,6 @@ $compiler::call/expand_statement: (&self)
     if result_count_of(self).is_defined: expand_expression &self.result_count_of
     expand_expression &self.functor_of
   expand_arguments &self.arguments_of
-  expand_arguments &self.output_arguments_of
 
 ###
 # FUNCTION CALL
@@ -94,56 +93,74 @@ $compiler::expand_operator_call: (&self)
   $$functor functor_of(self)
   if functor.is_an_operator_symbol:
     $$do_insert_not false
-    case
-      name_of(functor)
-      "*":
+    case name_of(functor)
+      "*"
+      :
 	!functor std_identifier("times")
-      "/":
+      "/"
+      :
 	!functor std_identifier("over")
-      "+":
+      "+"
+      :
 	!functor std_identifier("plus")
-      "-":
+      "-"
+      :
 	if
 	  length_of(arguments_of(self)) == 1:
 	    !functor std_identifier("negate")
 	  :
 	    !functor std_identifier("minus")
-      "<<":
+      "<<"
+      :
 	!functor std_identifier("shift_left")
-      ">>":
+      ">>"
+      :
 	!functor std_identifier("shift_right")
-      "&":
+      "&"
+      :
 	!functor std_identifier("bit_and")
-      "^":
+      "^"
+      :
 	!functor std_identifier("bit_xor")
-      "|":
+      "|"
+      :
 	!functor std_identifier("bit_or")
-      "<=":
+      "<="
+      :
 	!functor std_identifier("less")
 	swap &self.arguments_of(1) &self.arguments_of(2)
 	!do_insert_not true
-      "<":
+      "<"
+      :
 	!functor std_identifier("less")
-      ">=":
+      ">="
+      :
 	!functor std_identifier("less")
 	!do_insert_not true
-      ">":
+      ">"
+      :
 	!functor std_identifier("less")
 	swap &self.arguments_of(1) &self.arguments_of(2)
-      "==":
+      "=="
+      :
 	!functor std_identifier("equal")
-      "!=":
+      "!="
+      :
 	!functor std_identifier("equal")
 	!do_insert_not true
-      "&&":
+      "&&"
+      :
 	!functor std_identifier("and")
 	make_right_argument_lazy
-      "||":
+      "||"
+      :
 	!functor std_identifier("or")
 	make_right_argument_lazy
-      "..":
+      ".."
+      :
 	!functor std_identifier("value_range")
-      "=":
+      "="
+      :
 	!functor std_identifier("key_value_pair")
     !self.functor_of functor
     if do_insert_not:

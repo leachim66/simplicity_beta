@@ -73,8 +73,7 @@ $STRING
 	      if i <= n:
 		$chr capture(i)
 		inc &i
-		case
-		  chr
+		case chr
 		  'b':
 		    push &str '@bs;'
 		  'f':

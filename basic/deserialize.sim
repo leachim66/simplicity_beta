@@ -25,7 +25,6 @@ $std::NAME
     a grammar expression to match a valid Simplicity name
 
     See also: IDENTIFIER
-
   LETTER, some(alt(LETTER DIGIT)), some('_', many(alt(LETTER DIGIT)))
 
 $std::IDENTIFIER
@@ -33,7 +32,6 @@ $std::IDENTIFIER
     a grammar expression to match a valid Simplicity name (with optional namespace)
 
     See also: NAME
-
   NAME, optional("::", NAME)
 
 $$deserializers empty_table
@@ -104,7 +102,7 @@ $std::create_deserializer:
   $$attribute_setters empty_table
   for_each_pair attributes: (attribute_name attribute_setter)
     !attribute_setters(range(attribute_name 3 -1)) attribute_setter
-  -> :
+  ->:
     (
       $text
       base_indent
@@ -135,16 +133,14 @@ $deserialize_stream:
     indent
     -> return
   )
-  case
-    text(1)
+  case text(1)
     '@quot;':
       $$str ""
       $$i 2
       $n length_of(text)
       while -> i <= n:
 	$chr text(i)
-	case
-	  chr
+	case chr
 	  '@quot;':
 	    return range(text i+1 -1) str
 	  '@@':
@@ -215,4 +211,8 @@ $std::deserialize:
     text
   )
   deserialize_stream text 0 $remaining_text $obj
-  -> if(remaining_text == "" (-> obj) -> undefined)
+  ->
+    if
+      remaining_text == ""
+      -> obj
+      -> undefined

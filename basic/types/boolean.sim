@@ -25,7 +25,6 @@ $std::is_a_boolean ()
     succeeds for <true> and <false>
 
 $types::object.is_a_boolean false # obvious
-
 $types::true.is_a_boolean true # obvious
 $types::false.is_a_boolean true # obvious
 
@@ -56,6 +55,7 @@ $types::false.is_a_boolean true # obvious
   // There is no common basetype (e.g. "boolean") for <true> and <false>!
   //
   // See also: std::false, types::true
+
 }
 
 {
@@ -85,6 +85,7 @@ $types::false.is_a_boolean true # obvious
   // There is no common basetype (e.g. "boolean") for <true> and <false>!
   //
   // See also: std::true, types::false
+
 }
 
 {
@@ -115,11 +116,8 @@ $types::false.is_a_boolean true # obvious
   }
 }
 
-$types::true.std::to_string "true"
-  # returns the string "true"
-
-$types::false.std::to_string "false"
-  # returns the string "false"
+$types::true.std::to_string "true" # returns the string "true"
+$types::false.std::to_string "false" # returns the string "false"
 
 {
   <kind function>
@@ -153,11 +151,8 @@ $types::false/equal
     RETURN_BOOLEAN(TYPEOF(ARGUMENTS(1)) == TYPE(types::false))
   }
 
-$types::true.not false
-  # returns <false>
-
-$types::false.not true
-  # returns <true>
+$types::true.not false # returns <false>
+$types::false.not true # returns <true>
 
 $types::true/and:
   #

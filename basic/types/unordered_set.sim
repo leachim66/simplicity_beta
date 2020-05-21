@@ -812,6 +812,7 @@ $types::unordered_set/private::set_item:
     #
       start looking for possibly matching keys at the first key with
       identical hash
+
   forever:
     insert_item &self h &cmp_key key value
     if cmp_key == NONE: return self
@@ -836,6 +837,7 @@ $types::unordered_set/private::get_item:
   $$cmp_key NONE
     #
       start the search with the first key with a matching hash value
+
   forever:
     retrieve_item self h &cmp_key
 
@@ -1018,15 +1020,15 @@ $types::unordered_set/for_each_from_down_to:
             while (revision) {
               if (revision->rev_no <= rev_no) {
                 if (revision->value) {
-		  ++count;
-		  if (max_depth > 1) {
-		    long len;
-		    n += print(&buf, contents_indent);
-		    len = debug_string(key_collision->key, indent, max_depth-1, buf);
-		    if (buf) buf += len;
-		    n += len;
-		  }
-		}
+                  ++count;
+                  if (max_depth > 1) {
+                    long len;
+                    n += print(&buf, contents_indent);
+                    len = debug_string(key_collision->key, indent, max_depth-1, buf);
+                    if (buf) buf += len;
+                    n += len;
+                  }
+                }
                 break;
               }
               revision = revision->link;
@@ -1042,7 +1044,7 @@ $types::unordered_set/for_each_from_down_to:
       return n;
     } else {
       return
-	debug_print(indent, buf, "<unordered_set with %ld entries>", count);
+        debug_print(indent, buf, "<unordered_set with %ld entries>", count);
     }
   }
 }

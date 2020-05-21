@@ -216,9 +216,7 @@ IMPORT void store__pointer(void *ptr);
 IMPORT void store__int_array(const int *buf, long len);
 IMPORT void store__memory(const uint8_t *buf, long len);
 IMPORT void store__c_string(const char *buf);
-IMPORT void retrieve__pointer(void **ptr_p);
 IMPORT NODE *create_cell(void);
-IMPORT void print__pointer(void *ptr);
 typedef struct CELL {
   FUNC type;
   struct ATTRIBUTES *attributes;
@@ -227,8 +225,10 @@ typedef struct CELL {
 IMPORT void replay__event(const char *name);
 IMPORT int replay__action(const char *name);
 IMPORT void report__event(const char *name);
+IMPORT void print__pointer(void *ptr);
 IMPORT void print__int_array(const int *buf, long len);
 IMPORT void print__memory(const uint8_t *buf, long len);
+IMPORT void retrieve__pointer(void **ptr_p);
 IMPORT long retrieve__int_array(int **buf_p);
 IMPORT long retrieve__memory(uint8_t **buf_p);
 IMPORT NODE *zero;
@@ -1240,270 +1240,270 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__92_3, NULL, 57, 61, 1, 4},
   {cont__93_3, NULL, 62, 66, 1, 4},
   {cont__94_3, NULL, 67, 67, 1, 42},
-  {cont__95_3, NULL, 68, 73, 1, 24},
-  {cont__96_19, NULL, 74, 77, 1, 39},
-  {cont__97_5, NULL, 78, 81, 1, 39},
-  {cont__98_4, NULL, 82, 84, 1, 7},
-  {cont__99_3, NULL, 85, 93, 1, 44},
-  {cont__100_10, NULL, 94, 110, 1, 13},
-  {cont__101_25, NULL, 111, 127, 1, 13},
-  {cont__102_19, NULL, 128, 144, 1, 13},
-  {cont__103_20, NULL, 145, 155, 1, 13},
-  {cont__104_14, NULL, 156, 166, 1, 13},
-  {cont__105_14, NULL, 167, 176, 1, 13},
-  {cont__106_13, NULL, 177, 255, 1, 8},
-  {cont__107_107, NULL, 256, 256, 1, 36},
-  {cont__108_3, NULL, 257, 257, 1, 26},
-  {cont__109_3, NULL, 258, 258, 1, 34},
-  {cont__110_3, NULL, 259, 259, 1, 36},
-  {cont__111_3, NULL, 260, 260, 1, 42},
-  {cont__112_3, NULL, 261, 261, 1, 47},
-  {cont__113_3, NULL, 262, 262, 1, 30},
-  {cont__114_3, NULL, 263, 263, 1, 34},
-  {cont__115_3, NULL, 264, 264, 1, 54},
-  {cont__116_3, NULL, 265, 271, 1, 4},
-  {cont__117_3, NULL, 272, 281, 1, 4},
-  {cont__118_3, NULL, 282, 282, 1, 67},
-  {cont__119_3, NULL, 283, 291, 1, 4},
-  {cont__120_3, NULL, 292, 300, 1, 4},
-  {cont__121_3, NULL, 301, 309, 1, 4},
-  {cont__122_3, NULL, 310, 318, 1, 4},
-  {cont__123_3, NULL, 319, 321, 1, 22},
-  {cont__124_3, NULL, 322, 327, 1, 4},
-  {cont__125_3, NULL, 328, 332, 1, 4},
-  {cont__126_3, NULL, 336, 336, 1, 61},
-  {cont__127_3, NULL, 337, 337, 1, 59},
-  {cont__128_3, NULL, 341, 344, 1, 4},
-  {cont__129_3, NULL, 345, 348, 1, 4},
-  {cont__130_3, NULL, 349, 352, 1, 4},
-  {cont__131_3, NULL, 353, 356, 1, 4},
-  {cont__132_3, NULL, 357, 360, 1, 4},
-  {cont__133_3, NULL, 361, 364, 1, 4},
-  {cont__134_3, NULL, 365, 368, 1, 4},
-  {cont__135_3, NULL, 369, 372, 1, 4},
-  {cont__136_3, NULL, 373, 376, 1, 4},
-  {cont__137_3, NULL, 377, 380, 1, 4},
-  {cont__138_3, NULL, 381, 384, 1, 4},
-  {cont__139_3, NULL, 385, 388, 1, 4},
-  {cont__140_3, NULL, 389, 392, 1, 4},
+  {cont__95_3, NULL, 68, 77, 1, 24},
+  {cont__96_19, NULL, 78, 81, 1, 39},
+  {cont__97_5, NULL, 82, 85, 1, 39},
+  {cont__98_4, NULL, 86, 88, 1, 7},
+  {cont__99_3, NULL, 89, 97, 1, 44},
+  {cont__100_10, NULL, 98, 113, 1, 13},
+  {cont__101_25, NULL, 114, 129, 1, 13},
+  {cont__102_19, NULL, 130, 145, 1, 13},
+  {cont__103_20, NULL, 146, 155, 1, 13},
+  {cont__104_14, NULL, 156, 165, 1, 13},
+  {cont__105_14, NULL, 166, 174, 1, 13},
+  {cont__106_13, NULL, 175, 273, 1, 8},
+  {cont__107_107, NULL, 274, 274, 1, 36},
+  {cont__108_3, NULL, 275, 275, 1, 26},
+  {cont__109_3, NULL, 276, 276, 1, 34},
+  {cont__110_3, NULL, 277, 277, 1, 36},
+  {cont__111_3, NULL, 278, 278, 1, 42},
+  {cont__112_3, NULL, 279, 279, 1, 47},
+  {cont__113_3, NULL, 280, 280, 1, 30},
+  {cont__114_3, NULL, 281, 281, 1, 34},
+  {cont__115_3, NULL, 282, 282, 1, 54},
+  {cont__116_3, NULL, 283, 289, 1, 4},
+  {cont__117_3, NULL, 290, 299, 1, 4},
+  {cont__118_3, NULL, 300, 300, 1, 67},
+  {cont__119_3, NULL, 301, 309, 1, 4},
+  {cont__120_3, NULL, 310, 318, 1, 4},
+  {cont__121_3, NULL, 319, 327, 1, 4},
+  {cont__122_3, NULL, 328, 336, 1, 4},
+  {cont__123_3, NULL, 337, 339, 1, 22},
+  {cont__124_3, NULL, 340, 345, 1, 4},
+  {cont__125_3, NULL, 346, 350, 1, 4},
+  {cont__126_3, NULL, 354, 354, 1, 61},
+  {cont__127_3, NULL, 355, 355, 1, 59},
+  {cont__128_3, NULL, 359, 362, 1, 4},
+  {cont__129_3, NULL, 363, 366, 1, 4},
+  {cont__130_3, NULL, 367, 370, 1, 4},
+  {cont__131_3, NULL, 371, 374, 1, 4},
+  {cont__132_3, NULL, 375, 378, 1, 4},
+  {cont__133_3, NULL, 379, 382, 1, 4},
+  {cont__134_3, NULL, 383, 386, 1, 4},
+  {cont__135_3, NULL, 387, 390, 1, 4},
+  {cont__136_3, NULL, 391, 394, 1, 4},
+  {cont__137_3, NULL, 395, 398, 1, 4},
+  {cont__138_3, NULL, 399, 402, 1, 4},
+  {cont__139_3, NULL, 403, 406, 1, 4},
+  {cont__140_3, NULL, 407, 410, 1, 4},
   {cont__141_3, NULL, },
   {entry__define_macro_1, NULL, 41, 41, 35, 59},
   {cont__define_macro_2, &frame__define_macro_1, 41, 41, 71, 71},
-  {entry__compiler__converted_15, NULL, 409, 409, 72, 72},
-  {entry__compiler__converted_10, NULL, 409, 409, 40, 42},
-  {cont__compiler__converted_11, &frame__compiler__converted_10, 409, 409, 35, 43},
-  {cont__compiler__converted_12, &frame__compiler__converted_10, 409, 409, 35, 50},
-  {cont__compiler__converted_13, &frame__compiler__converted_10, 409, 409, 35, 50},
-  {cont__compiler__converted_14, &frame__compiler__converted_10, 409, 409, 32, 72},
-  {entry__compiler__converted_8, NULL, 409, 409, 14, 20},
-  {cont__compiler__converted_9, &frame__compiler__converted_8, 409, 409, 9, 72},
-  {cont__compiler__converted_16, &frame__compiler__converted_8, 410, 410, 9, 14},
-  {cont__compiler__converted_17, &frame__compiler__converted_8, 410, 410, 14, 14},
-  {entry__compiler__converted_25, NULL, 416, 416, 37, 37},
-  {entry__compiler__converted_23, NULL, 416, 416, 20, 31},
-  {cont__compiler__converted_24, &frame__compiler__converted_23, 416, 416, 13, 37},
-  {entry__compiler__converted_32, NULL, 421, 421, 52, 52},
-  {entry__compiler__converted_27, NULL, 421, 421, 21, 23},
-  {cont__compiler__converted_28, &frame__compiler__converted_27, 421, 421, 16, 24},
-  {cont__compiler__converted_29, &frame__compiler__converted_27, 421, 421, 16, 31},
-  {cont__compiler__converted_30, &frame__compiler__converted_27, 421, 421, 16, 31},
-  {cont__compiler__converted_31, &frame__compiler__converted_27, 421, 421, 13, 52},
-  {entry__compiler__converted_37, NULL, 425, 425, 36, 38},
-  {cont__compiler__converted_38, &frame__compiler__converted_37, 425, 425, 31, 39},
-  {cont__compiler__converted_39, &frame__compiler__converted_37, 425, 425, 31, 46},
-  {cont__compiler__converted_40, &frame__compiler__converted_37, 425, 425, 31, 46},
-  {entry__compiler__converted_42, NULL, 426, 426, 19, 24},
-  {cont__compiler__converted_43, &frame__compiler__converted_42, 426, 426, 24, 24},
-  {entry__compiler__converted_66, NULL, 445, 445, 71, 73},
-  {cont__compiler__converted_67, &frame__compiler__converted_66, 445, 445, 58, 74},
-  {cont__compiler__converted_68, &frame__compiler__converted_66, 445, 445, 53, 75},
-  {cont__compiler__converted_69, &frame__compiler__converted_66, 445, 445, 37, 75},
-  {cont__compiler__converted_70, &frame__compiler__converted_66, 446, 446, 37, 42},
-  {cont__compiler__converted_71, &frame__compiler__converted_66, 446, 446, 42, 42},
-  {entry__compiler__converted_64, NULL, 444, 444, 38, 47},
-  {cont__compiler__converted_65, &frame__compiler__converted_64, 444, 446, 35, 42},
-  {entry__compiler__converted_72, NULL, 448, 448, 35, 44},
-  {cont__compiler__converted_73, &frame__compiler__converted_72, 448, 448, 44, 44},
-  {entry__compiler__converted_77, NULL, 452, 452, 71, 73},
-  {cont__compiler__converted_78, &frame__compiler__converted_77, 452, 452, 58, 74},
-  {cont__compiler__converted_79, &frame__compiler__converted_77, 452, 452, 53, 75},
-  {cont__compiler__converted_80, &frame__compiler__converted_77, 452, 452, 37, 75},
-  {cont__compiler__converted_81, &frame__compiler__converted_77, 453, 453, 37, 42},
-  {cont__compiler__converted_82, &frame__compiler__converted_77, 454, 454, 37, 41},
-  {entry__compiler__converted_74, NULL, 450, 450, 35, 44},
-  {cont__compiler__converted_75, &frame__compiler__converted_74, 451, 451, 38, 47},
-  {cont__compiler__converted_76, &frame__compiler__converted_74, 451, 454, 35, 41},
-  {entry__compiler__converted_62, NULL, 442, 442, 33, 39},
-  {cont__compiler__converted_63, &frame__compiler__converted_62, 441, 454, 31, 43},
-  {cont__compiler__converted_83, &frame__compiler__converted_62, 455, 455, 31, 36},
-  {cont__compiler__converted_84, &frame__compiler__converted_62, 455, 455, 36, 36},
-  {entry__compiler__converted_59, NULL, 440, 440, 38, 45},
-  {cont__compiler__converted_60, &frame__compiler__converted_59, 440, 440, 38, 45},
-  {cont__compiler__converted_61, &frame__compiler__converted_59, 440, 455, 35, 36},
-  {entry__compiler__converted_58, NULL, 440, 455, 29, 36},
-  {cont__compiler__converted_85, &frame__compiler__converted_58, 455, 455, 36, 36},
-  {entry__compiler__converted_103, NULL, 473, 473, 41, 60},
-  {cont__compiler__converted_105, &frame__compiler__converted_103, 471, 473, 39, 60},
-  {cont__compiler__converted_106, &frame__compiler__converted_103, 473, 473, 61, 61},
-  {entry__compiler__converted_107, NULL, 475, 475, 39, 53},
-  {cont__compiler__converted_108, &frame__compiler__converted_107, 476, 476, 63, 76},
-  {cont__compiler__converted_109, &frame__compiler__converted_107, 476, 476, 39, 76},
-  {cont__compiler__converted_110, &frame__compiler__converted_107, 476, 476, 76, 76},
-  {entry__compiler__converted_96, NULL, 466, 466, 57, 59},
-  {cont__compiler__converted_97, &frame__compiler__converted_96, 466, 466, 37, 60},
-  {cont__compiler__converted_98, &frame__compiler__converted_96, 464, 466, 35, 60},
-  {cont__compiler__converted_99, &frame__compiler__converted_96, 467, 467, 35, 40},
-  {cont__compiler__converted_100, &frame__compiler__converted_96, 468, 468, 35, 56},
-  {cont__compiler__converted_101, &frame__compiler__converted_96, 470, 470, 37, 49},
-  {cont__compiler__converted_102, &frame__compiler__converted_96, 469, 476, 35, 77},
-  {cont__compiler__converted_111, &frame__compiler__converted_96, 477, 477, 35, 40},
-  {cont__compiler__converted_112, &frame__compiler__converted_96, 477, 477, 40, 40},
-  {entry__compiler__converted_93, NULL, 463, 463, 36, 49},
-  {cont__compiler__converted_94, &frame__compiler__converted_93, 463, 463, 36, 56},
-  {cont__compiler__converted_95, &frame__compiler__converted_93, 463, 477, 33, 40},
-  {cont__compiler__converted_113, &frame__compiler__converted_93, 478, 478, 33, 38},
-  {cont__compiler__converted_114, &frame__compiler__converted_93, 478, 478, 38, 38},
-  {entry__compiler__converted_90, NULL, 462, 462, 40, 45},
-  {cont__compiler__converted_91, &frame__compiler__converted_90, 462, 462, 40, 45},
-  {cont__compiler__converted_92, &frame__compiler__converted_90, 462, 478, 37, 38},
-  {entry__compiler__converted_88, NULL, 460, 460, 31, 55},
-  {cont__compiler__converted_89, &frame__compiler__converted_88, 462, 478, 31, 38},
-  {cont__compiler__converted_115, &frame__compiler__converted_88, 480, 480, 77, 77},
-  {cont__compiler__converted_116, &frame__compiler__converted_88, 480, 480, 56, 78},
-  {cont__compiler__converted_117, &frame__compiler__converted_88, 479, 480, 31, 79},
-  {cont__compiler__converted_118, &frame__compiler__converted_88, 480, 480, 80, 80},
-  {entry__compiler__converted_119, NULL, 482, 482, 31, 65},
-  {cont__compiler__converted_120, &frame__compiler__converted_119, 482, 482, 65, 65},
-  {entry__compiler__converted_55, NULL, 435, 435, 27, 44},
-  {cont__compiler__converted_56, &frame__compiler__converted_55, 436, 436, 27, 32},
-  {cont__compiler__converted_57, &frame__compiler__converted_55, 439, 455, 27, 37},
-  {cont__compiler__converted_86, &frame__compiler__converted_55, 457, 457, 29, 51},
-  {cont__compiler__converted_87, &frame__compiler__converted_55, 456, 482, 27, 66},
-  {entry__compiler__converted_123, NULL, 485, 485, 29, 54},
-  {cont__compiler__converted_124, &frame__compiler__converted_123, 485, 485, 54, 54},
-  {entry__compiler__converted_121, NULL, 484, 484, 34, 56},
-  {cont__compiler__converted_122, &frame__compiler__converted_121, 484, 485, 27, 54},
-  {entry__compiler__converted_49, NULL, 432, 432, 57, 59},
-  {cont__compiler__converted_50, &frame__compiler__converted_49, 432, 432, 40, 60},
-  {cont__compiler__converted_51, &frame__compiler__converted_49, 432, 432, 23, 60},
-  {cont__compiler__converted_52, &frame__compiler__converted_49, 434, 434, 25, 31},
-  {cont__compiler__converted_53, &frame__compiler__converted_49, 434, 434, 25, 38},
-  {cont__compiler__converted_54, &frame__compiler__converted_49, 433, 485, 23, 56},
-  {cont__compiler__converted_125, &frame__compiler__converted_49, 486, 486, 40, 60},
-  {cont__compiler__converted_126, &frame__compiler__converted_49, 486, 486, 23, 60},
-  {cont__compiler__converted_127, &frame__compiler__converted_49, 487, 487, 30, 30},
-  {entry__compiler__converted_130, NULL, 490, 490, 49, 59},
-  {cont__compiler__converted_133, &frame__compiler__converted_130, 490, 490, 25, 59},
-  {cont__compiler__converted_134, &frame__compiler__converted_130, 491, 491, 59, 61},
-  {cont__compiler__converted_135, &frame__compiler__converted_130, 491, 491, 42, 62},
-  {cont__compiler__converted_136, &frame__compiler__converted_130, 491, 491, 25, 62},
-  {cont__compiler__converted_137, &frame__compiler__converted_130, 492, 492, 25, 51},
-  {cont__compiler__converted_138, &frame__compiler__converted_130, 493, 493, 32, 32},
-  {entry__compiler__converted_128, NULL, 489, 489, 26, 50},
-  {cont__compiler__converted_129, &frame__compiler__converted_128, 489, 493, 23, 32},
-  {cont__compiler__converted_139, &frame__compiler__converted_128, 494, 494, 23, 47},
-  {entry__compiler__converted_44, NULL, 428, 428, 45, 47},
-  {cont__compiler__converted_45, &frame__compiler__converted_44, 428, 428, 19, 48},
-  {cont__compiler__converted_46, &frame__compiler__converted_44, 429, 429, 19, 62},
-  {cont__compiler__converted_47, &frame__compiler__converted_44, 431, 431, 21, 42},
-  {cont__compiler__converted_48, &frame__compiler__converted_44, 430, 494, 19, 48},
-  {cont__compiler__converted_140, &frame__compiler__converted_44, 495, 495, 30, 30},
-  {entry__compiler__converted_35, NULL, 425, 425, 17, 26},
-  {cont__compiler__converted_36, &frame__compiler__converted_35, 425, 425, 17, 46},
-  {cont__compiler__converted_41, &frame__compiler__converted_35, 424, 495, 15, 31},
-  {entry__compiler__converted_33, NULL, 423, 423, 16, 27},
-  {cont__compiler__converted_34, &frame__compiler__converted_33, 423, 495, 13, 32},
-  {entry__compiler__converted_141, NULL, 418, 418, 13, 16},
-  {entry__compiler__converted_18, NULL, 412, 412, 9, 20},
-  {cont__compiler__converted_19, &frame__compiler__converted_18, 415, 415, 16, 25},
-  {cont__compiler__converted_20, &frame__compiler__converted_18, 415, 415, 28, 37},
-  {cont__compiler__converted_21, &frame__compiler__converted_18, 415, 415, 11, 37},
-  {cont__compiler__converted_22, &frame__compiler__converted_18, 417, 417, 11, 20},
-  {cont__compiler__converted_26, &frame__compiler__converted_18, 413, 495, 9, 34},
-  {cont__compiler__converted_142, &frame__compiler__converted_18, 496, 496, 9, 14},
-  {cont__compiler__converted_143, &frame__compiler__converted_18, 496, 496, 14, 14},
-  {entry__compiler__converted_7, NULL, 407, 496, 5, 15},
-  {entry__compiler__converted_4, NULL, 406, 406, 12, 19},
-  {cont__compiler__converted_5, &frame__compiler__converted_4, 406, 406, 12, 19},
-  {cont__compiler__converted_6, &frame__compiler__converted_4, 406, 496, 9, 16},
-  {entry__compiler__converted_147, NULL, 499, 499, 42, 42},
-  {cont__compiler__converted_148, &frame__compiler__converted_147, 499, 499, 24, 43},
-  {cont__compiler__converted_149, &frame__compiler__converted_147, 499, 499, 8, 44},
-  {cont__compiler__converted_150, &frame__compiler__converted_147, 499, 499, 5, 44},
-  {entry__compiler__converted_151, NULL, 500, 500, 22, 22},
-  {cont__compiler__converted_152, &frame__compiler__converted_151, 500, 500, 8, 23},
-  {cont__compiler__converted_153, &frame__compiler__converted_151, 500, 500, 5, 23},
-  {entry__compiler__converted_1, NULL, 399, 399, 3, 34},
-  {cont__compiler__converted_2, &frame__compiler__converted_1, 405, 405, 3, 22},
-  {cont__compiler__converted_3, &frame__compiler__converted_1, 406, 496, 3, 16},
-  {cont__compiler__converted_144, &frame__compiler__converted_1, 498, 498, 5, 18},
-  {cont__compiler__converted_145, &frame__compiler__converted_1, 498, 498, 5, 18},
-  {cont__compiler__converted_146, &frame__compiler__converted_1, 497, 500, 3, 23},
-  {cont__compiler__converted_154, &frame__compiler__converted_1, 500, 500, 23, 23},
-  {entry__96_8, NULL, 72, 72, 36, 48},
-  {cont__96_10, &frame__96_8, 72, 72, 33, 48},
-  {entry__96_11, NULL, 72, 72, 54, 67},
-  {cont__96_13, &frame__96_11, 72, 72, 51, 67},
-  {entry__96_6, NULL, 72, 72, 11, 30},
-  {cont__96_7, &frame__96_6, 72, 72, 8, 68},
-  {cont__96_14, &frame__96_6, 72, 72, 5, 68},
-  {entry__96_15, NULL, 73, 73, 8, 23},
-  {cont__96_18, &frame__96_15, 73, 73, 5, 23},
+  {entry__compiler__converted_15, NULL, 427, 427, 72, 72},
+  {entry__compiler__converted_10, NULL, 427, 427, 40, 42},
+  {cont__compiler__converted_11, &frame__compiler__converted_10, 427, 427, 35, 43},
+  {cont__compiler__converted_12, &frame__compiler__converted_10, 427, 427, 35, 50},
+  {cont__compiler__converted_13, &frame__compiler__converted_10, 427, 427, 35, 50},
+  {cont__compiler__converted_14, &frame__compiler__converted_10, 427, 427, 32, 72},
+  {entry__compiler__converted_8, NULL, 427, 427, 14, 20},
+  {cont__compiler__converted_9, &frame__compiler__converted_8, 427, 427, 9, 72},
+  {cont__compiler__converted_16, &frame__compiler__converted_8, 428, 428, 9, 14},
+  {cont__compiler__converted_17, &frame__compiler__converted_8, 428, 428, 14, 14},
+  {entry__compiler__converted_25, NULL, 433, 433, 37, 37},
+  {entry__compiler__converted_23, NULL, 433, 433, 20, 31},
+  {cont__compiler__converted_24, &frame__compiler__converted_23, 433, 433, 13, 37},
+  {entry__compiler__converted_32, NULL, 438, 438, 52, 52},
+  {entry__compiler__converted_27, NULL, 438, 438, 21, 23},
+  {cont__compiler__converted_28, &frame__compiler__converted_27, 438, 438, 16, 24},
+  {cont__compiler__converted_29, &frame__compiler__converted_27, 438, 438, 16, 31},
+  {cont__compiler__converted_30, &frame__compiler__converted_27, 438, 438, 16, 31},
+  {cont__compiler__converted_31, &frame__compiler__converted_27, 438, 438, 13, 52},
+  {entry__compiler__converted_37, NULL, 442, 442, 36, 38},
+  {cont__compiler__converted_38, &frame__compiler__converted_37, 442, 442, 31, 39},
+  {cont__compiler__converted_39, &frame__compiler__converted_37, 442, 442, 31, 46},
+  {cont__compiler__converted_40, &frame__compiler__converted_37, 442, 442, 31, 46},
+  {entry__compiler__converted_42, NULL, 443, 443, 19, 24},
+  {cont__compiler__converted_43, &frame__compiler__converted_42, 443, 443, 24, 24},
+  {entry__compiler__converted_66, NULL, 461, 461, 71, 73},
+  {cont__compiler__converted_67, &frame__compiler__converted_66, 461, 461, 58, 74},
+  {cont__compiler__converted_68, &frame__compiler__converted_66, 461, 461, 53, 75},
+  {cont__compiler__converted_69, &frame__compiler__converted_66, 461, 461, 37, 75},
+  {cont__compiler__converted_70, &frame__compiler__converted_66, 462, 462, 37, 42},
+  {cont__compiler__converted_71, &frame__compiler__converted_66, 462, 462, 42, 42},
+  {entry__compiler__converted_64, NULL, 460, 460, 38, 47},
+  {cont__compiler__converted_65, &frame__compiler__converted_64, 460, 462, 35, 42},
+  {entry__compiler__converted_72, NULL, 464, 464, 35, 44},
+  {cont__compiler__converted_73, &frame__compiler__converted_72, 464, 464, 44, 44},
+  {entry__compiler__converted_77, NULL, 468, 468, 71, 73},
+  {cont__compiler__converted_78, &frame__compiler__converted_77, 468, 468, 58, 74},
+  {cont__compiler__converted_79, &frame__compiler__converted_77, 468, 468, 53, 75},
+  {cont__compiler__converted_80, &frame__compiler__converted_77, 468, 468, 37, 75},
+  {cont__compiler__converted_81, &frame__compiler__converted_77, 469, 469, 37, 42},
+  {cont__compiler__converted_82, &frame__compiler__converted_77, 470, 470, 37, 41},
+  {entry__compiler__converted_74, NULL, 466, 466, 35, 44},
+  {cont__compiler__converted_75, &frame__compiler__converted_74, 467, 467, 38, 47},
+  {cont__compiler__converted_76, &frame__compiler__converted_74, 467, 470, 35, 41},
+  {entry__compiler__converted_62, NULL, 458, 458, 36, 42},
+  {cont__compiler__converted_63, &frame__compiler__converted_62, 458, 470, 31, 43},
+  {cont__compiler__converted_83, &frame__compiler__converted_62, 471, 471, 31, 36},
+  {cont__compiler__converted_84, &frame__compiler__converted_62, 471, 471, 36, 36},
+  {entry__compiler__converted_59, NULL, 457, 457, 38, 45},
+  {cont__compiler__converted_60, &frame__compiler__converted_59, 457, 457, 38, 45},
+  {cont__compiler__converted_61, &frame__compiler__converted_59, 457, 471, 35, 36},
+  {entry__compiler__converted_58, NULL, 457, 471, 29, 36},
+  {cont__compiler__converted_85, &frame__compiler__converted_58, 471, 471, 36, 36},
+  {entry__compiler__converted_103, NULL, 489, 489, 41, 60},
+  {cont__compiler__converted_105, &frame__compiler__converted_103, 487, 489, 39, 60},
+  {cont__compiler__converted_106, &frame__compiler__converted_103, 489, 489, 61, 61},
+  {entry__compiler__converted_107, NULL, 491, 491, 39, 53},
+  {cont__compiler__converted_108, &frame__compiler__converted_107, 492, 492, 63, 76},
+  {cont__compiler__converted_109, &frame__compiler__converted_107, 492, 492, 39, 76},
+  {cont__compiler__converted_110, &frame__compiler__converted_107, 492, 492, 76, 76},
+  {entry__compiler__converted_96, NULL, 482, 482, 57, 59},
+  {cont__compiler__converted_97, &frame__compiler__converted_96, 482, 482, 37, 60},
+  {cont__compiler__converted_98, &frame__compiler__converted_96, 480, 482, 35, 60},
+  {cont__compiler__converted_99, &frame__compiler__converted_96, 483, 483, 35, 40},
+  {cont__compiler__converted_100, &frame__compiler__converted_96, 484, 484, 35, 56},
+  {cont__compiler__converted_101, &frame__compiler__converted_96, 486, 486, 37, 49},
+  {cont__compiler__converted_102, &frame__compiler__converted_96, 485, 492, 35, 77},
+  {cont__compiler__converted_111, &frame__compiler__converted_96, 493, 493, 35, 40},
+  {cont__compiler__converted_112, &frame__compiler__converted_96, 493, 493, 40, 40},
+  {entry__compiler__converted_93, NULL, 479, 479, 36, 49},
+  {cont__compiler__converted_94, &frame__compiler__converted_93, 479, 479, 36, 56},
+  {cont__compiler__converted_95, &frame__compiler__converted_93, 479, 493, 33, 40},
+  {cont__compiler__converted_113, &frame__compiler__converted_93, 494, 494, 33, 38},
+  {cont__compiler__converted_114, &frame__compiler__converted_93, 494, 494, 38, 38},
+  {entry__compiler__converted_90, NULL, 478, 478, 40, 45},
+  {cont__compiler__converted_91, &frame__compiler__converted_90, 478, 478, 40, 45},
+  {cont__compiler__converted_92, &frame__compiler__converted_90, 478, 494, 37, 38},
+  {entry__compiler__converted_88, NULL, 476, 476, 31, 55},
+  {cont__compiler__converted_89, &frame__compiler__converted_88, 478, 494, 31, 38},
+  {cont__compiler__converted_115, &frame__compiler__converted_88, 496, 496, 77, 77},
+  {cont__compiler__converted_116, &frame__compiler__converted_88, 496, 496, 56, 78},
+  {cont__compiler__converted_117, &frame__compiler__converted_88, 495, 496, 31, 79},
+  {cont__compiler__converted_118, &frame__compiler__converted_88, 496, 496, 80, 80},
+  {entry__compiler__converted_119, NULL, 498, 498, 31, 65},
+  {cont__compiler__converted_120, &frame__compiler__converted_119, 498, 498, 65, 65},
+  {entry__compiler__converted_55, NULL, 452, 452, 27, 44},
+  {cont__compiler__converted_56, &frame__compiler__converted_55, 453, 453, 27, 32},
+  {cont__compiler__converted_57, &frame__compiler__converted_55, 456, 471, 27, 37},
+  {cont__compiler__converted_86, &frame__compiler__converted_55, 473, 473, 29, 51},
+  {cont__compiler__converted_87, &frame__compiler__converted_55, 472, 498, 27, 66},
+  {entry__compiler__converted_123, NULL, 501, 501, 29, 54},
+  {cont__compiler__converted_124, &frame__compiler__converted_123, 501, 501, 54, 54},
+  {entry__compiler__converted_121, NULL, 500, 500, 34, 56},
+  {cont__compiler__converted_122, &frame__compiler__converted_121, 500, 501, 27, 54},
+  {entry__compiler__converted_49, NULL, 449, 449, 57, 59},
+  {cont__compiler__converted_50, &frame__compiler__converted_49, 449, 449, 40, 60},
+  {cont__compiler__converted_51, &frame__compiler__converted_49, 449, 449, 23, 60},
+  {cont__compiler__converted_52, &frame__compiler__converted_49, 451, 451, 25, 31},
+  {cont__compiler__converted_53, &frame__compiler__converted_49, 451, 451, 25, 38},
+  {cont__compiler__converted_54, &frame__compiler__converted_49, 450, 501, 23, 56},
+  {cont__compiler__converted_125, &frame__compiler__converted_49, 502, 502, 40, 60},
+  {cont__compiler__converted_126, &frame__compiler__converted_49, 502, 502, 23, 60},
+  {cont__compiler__converted_127, &frame__compiler__converted_49, 503, 503, 30, 30},
+  {entry__compiler__converted_130, NULL, 506, 506, 49, 59},
+  {cont__compiler__converted_133, &frame__compiler__converted_130, 506, 506, 25, 59},
+  {cont__compiler__converted_134, &frame__compiler__converted_130, 507, 507, 59, 61},
+  {cont__compiler__converted_135, &frame__compiler__converted_130, 507, 507, 42, 62},
+  {cont__compiler__converted_136, &frame__compiler__converted_130, 507, 507, 25, 62},
+  {cont__compiler__converted_137, &frame__compiler__converted_130, 508, 508, 25, 51},
+  {cont__compiler__converted_138, &frame__compiler__converted_130, 509, 509, 32, 32},
+  {entry__compiler__converted_128, NULL, 505, 505, 26, 50},
+  {cont__compiler__converted_129, &frame__compiler__converted_128, 505, 509, 23, 32},
+  {cont__compiler__converted_139, &frame__compiler__converted_128, 510, 510, 23, 47},
+  {entry__compiler__converted_44, NULL, 445, 445, 45, 47},
+  {cont__compiler__converted_45, &frame__compiler__converted_44, 445, 445, 19, 48},
+  {cont__compiler__converted_46, &frame__compiler__converted_44, 446, 446, 19, 62},
+  {cont__compiler__converted_47, &frame__compiler__converted_44, 448, 448, 21, 42},
+  {cont__compiler__converted_48, &frame__compiler__converted_44, 447, 510, 19, 48},
+  {cont__compiler__converted_140, &frame__compiler__converted_44, 511, 511, 30, 30},
+  {entry__compiler__converted_35, NULL, 442, 442, 17, 26},
+  {cont__compiler__converted_36, &frame__compiler__converted_35, 442, 442, 17, 46},
+  {cont__compiler__converted_41, &frame__compiler__converted_35, 441, 511, 15, 31},
+  {entry__compiler__converted_33, NULL, 440, 440, 16, 27},
+  {cont__compiler__converted_34, &frame__compiler__converted_33, 440, 511, 13, 32},
+  {entry__compiler__converted_141, NULL, 435, 435, 13, 16},
+  {entry__compiler__converted_18, NULL, 430, 430, 9, 20},
+  {cont__compiler__converted_19, &frame__compiler__converted_18, 432, 432, 16, 25},
+  {cont__compiler__converted_20, &frame__compiler__converted_18, 432, 432, 28, 37},
+  {cont__compiler__converted_21, &frame__compiler__converted_18, 432, 432, 11, 37},
+  {cont__compiler__converted_22, &frame__compiler__converted_18, 434, 434, 11, 20},
+  {cont__compiler__converted_26, &frame__compiler__converted_18, 431, 511, 9, 34},
+  {cont__compiler__converted_142, &frame__compiler__converted_18, 512, 512, 9, 14},
+  {cont__compiler__converted_143, &frame__compiler__converted_18, 512, 512, 14, 14},
+  {entry__compiler__converted_7, NULL, 425, 512, 5, 15},
+  {entry__compiler__converted_4, NULL, 424, 424, 12, 19},
+  {cont__compiler__converted_5, &frame__compiler__converted_4, 424, 424, 12, 19},
+  {cont__compiler__converted_6, &frame__compiler__converted_4, 424, 512, 9, 16},
+  {entry__compiler__converted_147, NULL, 515, 515, 42, 42},
+  {cont__compiler__converted_148, &frame__compiler__converted_147, 515, 515, 24, 43},
+  {cont__compiler__converted_149, &frame__compiler__converted_147, 515, 515, 8, 44},
+  {cont__compiler__converted_150, &frame__compiler__converted_147, 515, 515, 5, 44},
+  {entry__compiler__converted_151, NULL, 516, 516, 22, 22},
+  {cont__compiler__converted_152, &frame__compiler__converted_151, 516, 516, 8, 23},
+  {cont__compiler__converted_153, &frame__compiler__converted_151, 516, 516, 5, 23},
+  {entry__compiler__converted_1, NULL, 417, 417, 3, 34},
+  {cont__compiler__converted_2, &frame__compiler__converted_1, 423, 423, 3, 22},
+  {cont__compiler__converted_3, &frame__compiler__converted_1, 424, 512, 3, 16},
+  {cont__compiler__converted_144, &frame__compiler__converted_1, 514, 514, 5, 18},
+  {cont__compiler__converted_145, &frame__compiler__converted_1, 514, 514, 5, 18},
+  {cont__compiler__converted_146, &frame__compiler__converted_1, 513, 516, 3, 23},
+  {cont__compiler__converted_154, &frame__compiler__converted_1, 516, 516, 23, 23},
+  {entry__96_8, NULL, 75, 75, 12, 24},
+  {cont__96_10, &frame__96_8, 75, 75, 9, 24},
+  {entry__96_11, NULL, 76, 76, 12, 25},
+  {cont__96_13, &frame__96_11, 76, 76, 9, 25},
+  {entry__96_6, NULL, 74, 74, 9, 28},
+  {cont__96_7, &frame__96_6, 76, 76, 9, 25},
+  {cont__96_14, &frame__96_6, 72, 76, 5, 26},
+  {entry__96_15, NULL, 77, 77, 8, 23},
+  {cont__96_18, &frame__96_15, 77, 77, 5, 23},
   {entry__96_2, NULL, 69, 69, 3, 20},
   {cont__96_3, &frame__96_2, 71, 71, 5, 22},
   {cont__96_4, &frame__96_2, 71, 71, 5, 33},
-  {cont__96_5, &frame__96_2, 70, 73, 3, 23},
-  {entry__97_2, NULL, 75, 75, 3, 26},
-  {cont__97_3, &frame__97_2, 77, 77, 3, 39},
-  {entry__98_2, NULL, 79, 79, 3, 26},
-  {cont__98_3, &frame__98_2, 81, 81, 3, 39},
-  {entry__99_2, NULL, 84, 84, 3, 7},
-  {entry__100_4, NULL, 89, 92, 8, 51},
-  {cont__100_7, &frame__100_4, 89, 92, 5, 51},
-  {entry__100_8, NULL, 93, 93, 5, 43},
-  {entry__100_2, NULL, 88, 88, 5, 23},
-  {cont__100_3, &frame__100_2, 87, 93, 3, 43},
-  {entry__101_9, NULL, 100, 100, 34, 61},
-  {cont__101_12, &frame__101_9, 100, 100, 31, 61},
-  {entry__101_13, NULL, 102, 102, 30, 41},
-  {cont__101_14, &frame__101_13, 100, 107, 67, 18},
-  {cont__101_21, &frame__101_13, 100, 107, 64, 18},
-  {entry__101_4, NULL, 99, 99, 28, 51},
-  {cont__101_6, &frame__101_4, 99, 99, 7, 51},
-  {cont__101_7, &frame__101_4, 100, 100, 10, 28},
-  {cont__101_8, &frame__101_4, 100, 107, 7, 18},
-  {entry__101_22, NULL, 109, 109, 28, 51},
-  {cont__101_23, &frame__101_22, 109, 109, 7, 51},
-  {cont__101_24, &frame__101_22, 110, 110, 7, 11},
-  {entry__101_2, NULL, 95, 95, 3, 20},
-  {cont__101_3, &frame__101_2, 96, 110, 3, 12},
-  {entry__102_9, NULL, 117, 117, 34, 66},
-  {cont__102_11, &frame__102_9, 117, 117, 31, 66},
-  {entry__102_12, NULL, 119, 119, 30, 41},
-  {cont__102_13, &frame__102_12, 117, 124, 72, 18},
-  {cont__102_15, &frame__102_12, 117, 124, 69, 18},
-  {entry__102_4, NULL, 116, 116, 28, 56},
-  {cont__102_6, &frame__102_4, 116, 116, 7, 56},
-  {cont__102_7, &frame__102_4, 117, 117, 10, 28},
-  {cont__102_8, &frame__102_4, 117, 124, 7, 18},
-  {entry__102_16, NULL, 126, 126, 28, 56},
-  {cont__102_17, &frame__102_16, 126, 126, 7, 56},
-  {cont__102_18, &frame__102_16, 127, 127, 7, 11},
-  {entry__102_2, NULL, 112, 112, 3, 20},
-  {cont__102_3, &frame__102_2, 113, 127, 3, 12},
-  {entry__103_9, NULL, 134, 134, 34, 61},
-  {cont__103_11, &frame__103_9, 134, 134, 31, 61},
-  {entry__103_12, NULL, 134, 141, 67, 18},
-  {cont__103_16, &frame__103_12, 134, 141, 64, 18},
-  {entry__103_4, NULL, 133, 133, 28, 51},
-  {cont__103_6, &frame__103_4, 133, 133, 7, 51},
-  {cont__103_7, &frame__103_4, 134, 134, 10, 28},
-  {cont__103_8, &frame__103_4, 134, 141, 7, 18},
-  {entry__103_17, NULL, 143, 143, 28, 51},
-  {cont__103_18, &frame__103_17, 143, 143, 7, 51},
-  {cont__103_19, &frame__103_17, 144, 144, 7, 11},
-  {entry__103_2, NULL, 129, 129, 3, 20},
-  {cont__103_3, &frame__103_2, 130, 144, 3, 12},
+  {cont__96_5, &frame__96_2, 70, 77, 3, 23},
+  {entry__97_2, NULL, 79, 79, 3, 26},
+  {cont__97_3, &frame__97_2, 81, 81, 3, 39},
+  {entry__98_2, NULL, 83, 83, 3, 26},
+  {cont__98_3, &frame__98_2, 85, 85, 3, 39},
+  {entry__99_2, NULL, 88, 88, 3, 7},
+  {entry__100_4, NULL, 93, 96, 8, 51},
+  {cont__100_7, &frame__100_4, 93, 96, 5, 51},
+  {entry__100_8, NULL, 97, 97, 5, 43},
+  {entry__100_2, NULL, 92, 92, 5, 23},
+  {cont__100_3, &frame__100_2, 91, 97, 3, 43},
+  {entry__101_9, NULL, 103, 103, 34, 61},
+  {cont__101_12, &frame__101_9, 103, 103, 31, 61},
+  {entry__101_13, NULL, 105, 105, 30, 41},
+  {cont__101_14, &frame__101_13, 103, 110, 67, 18},
+  {cont__101_21, &frame__101_13, 103, 110, 64, 18},
+  {entry__101_4, NULL, 102, 102, 28, 51},
+  {cont__101_6, &frame__101_4, 102, 102, 7, 51},
+  {cont__101_7, &frame__101_4, 103, 103, 10, 28},
+  {cont__101_8, &frame__101_4, 103, 110, 7, 18},
+  {entry__101_22, NULL, 112, 112, 28, 51},
+  {cont__101_23, &frame__101_22, 112, 112, 7, 51},
+  {cont__101_24, &frame__101_22, 113, 113, 7, 11},
+  {entry__101_2, NULL, 99, 99, 3, 20},
+  {cont__101_3, &frame__101_2, 100, 113, 3, 12},
+  {entry__102_9, NULL, 119, 119, 34, 66},
+  {cont__102_11, &frame__102_9, 119, 119, 31, 66},
+  {entry__102_12, NULL, 121, 121, 30, 41},
+  {cont__102_13, &frame__102_12, 119, 126, 72, 18},
+  {cont__102_15, &frame__102_12, 119, 126, 69, 18},
+  {entry__102_4, NULL, 118, 118, 28, 56},
+  {cont__102_6, &frame__102_4, 118, 118, 7, 56},
+  {cont__102_7, &frame__102_4, 119, 119, 10, 28},
+  {cont__102_8, &frame__102_4, 119, 126, 7, 18},
+  {entry__102_16, NULL, 128, 128, 28, 56},
+  {cont__102_17, &frame__102_16, 128, 128, 7, 56},
+  {cont__102_18, &frame__102_16, 129, 129, 7, 11},
+  {entry__102_2, NULL, 115, 115, 3, 20},
+  {cont__102_3, &frame__102_2, 116, 129, 3, 12},
+  {entry__103_9, NULL, 135, 135, 34, 61},
+  {cont__103_11, &frame__103_9, 135, 135, 31, 61},
+  {entry__103_12, NULL, 135, 142, 67, 18},
+  {cont__103_16, &frame__103_12, 135, 142, 64, 18},
+  {entry__103_4, NULL, 134, 134, 28, 51},
+  {cont__103_6, &frame__103_4, 134, 134, 7, 51},
+  {cont__103_7, &frame__103_4, 135, 135, 10, 28},
+  {cont__103_8, &frame__103_4, 135, 142, 7, 18},
+  {entry__103_17, NULL, 144, 144, 28, 51},
+  {cont__103_18, &frame__103_17, 144, 144, 7, 51},
+  {cont__103_19, &frame__103_17, 145, 145, 7, 11},
+  {entry__103_2, NULL, 131, 131, 3, 20},
+  {cont__103_3, &frame__103_2, 132, 145, 3, 12},
   {entry__104_5, NULL, 151, 151, 28, 53},
   {cont__104_7, &frame__104_5, 151, 151, 7, 53},
   {cont__104_8, &frame__104_5, 152, 152, 10, 50},
@@ -1511,109 +1511,109 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__104_11, NULL, 154, 154, 28, 53},
   {cont__104_12, &frame__104_11, 154, 154, 7, 53},
   {cont__104_13, &frame__104_11, 155, 155, 7, 11},
-  {entry__104_2, NULL, 146, 146, 3, 20},
-  {cont__104_3, &frame__104_2, 147, 147, 3, 22},
-  {cont__104_4, &frame__104_2, 148, 155, 3, 12},
-  {entry__105_5, NULL, 162, 162, 28, 50},
-  {cont__105_7, &frame__105_5, 162, 162, 7, 50},
-  {cont__105_8, &frame__105_5, 163, 163, 10, 47},
-  {cont__105_10, &frame__105_5, 163, 163, 7, 47},
-  {entry__105_11, NULL, 165, 165, 28, 50},
-  {cont__105_12, &frame__105_11, 165, 165, 7, 50},
-  {cont__105_13, &frame__105_11, 166, 166, 7, 11},
+  {entry__104_2, NULL, 147, 147, 3, 20},
+  {cont__104_3, &frame__104_2, 148, 148, 3, 22},
+  {cont__104_4, &frame__104_2, 149, 155, 3, 12},
+  {entry__105_5, NULL, 161, 161, 28, 50},
+  {cont__105_7, &frame__105_5, 161, 161, 7, 50},
+  {cont__105_8, &frame__105_5, 162, 162, 10, 47},
+  {cont__105_10, &frame__105_5, 162, 162, 7, 47},
+  {entry__105_11, NULL, 164, 164, 28, 50},
+  {cont__105_12, &frame__105_11, 164, 164, 7, 50},
+  {cont__105_13, &frame__105_11, 165, 165, 7, 11},
   {entry__105_2, NULL, 157, 157, 3, 20},
   {cont__105_3, &frame__105_2, 158, 158, 3, 22},
-  {cont__105_4, &frame__105_2, 159, 166, 3, 12},
-  {entry__106_4, NULL, 172, 172, 28, 52},
-  {cont__106_6, &frame__106_4, 172, 172, 7, 52},
-  {cont__106_7, &frame__106_4, 173, 173, 10, 38},
-  {cont__106_9, &frame__106_4, 173, 173, 7, 38},
-  {entry__106_10, NULL, 175, 175, 28, 52},
-  {cont__106_11, &frame__106_10, 175, 175, 7, 52},
-  {cont__106_12, &frame__106_10, 176, 176, 7, 11},
-  {entry__106_2, NULL, 168, 168, 3, 20},
-  {cont__106_3, &frame__106_2, 169, 176, 3, 12},
-  {entry__107_5, NULL, 179, 179, 38, 48},
-  {entry__107_7, NULL, 179, 179, 51, 57},
-  {entry__107_13, NULL, 186, 186, 34, 72},
-  {cont__107_15, &frame__107_13, 186, 186, 11, 72},
-  {cont__107_16, &frame__107_13, 186, 186, 72, 72},
-  {entry__107_17, NULL, 191, 191, 16, 21},
-  {cont__107_18, &frame__107_17, 191, 191, 13, 64},
-  {cont__107_20, &frame__107_17, 188, 191, 11, 64},
-  {cont__107_21, &frame__107_17, 191, 191, 65, 65},
-  {entry__107_22, NULL, 196, 196, 16, 21},
-  {cont__107_23, &frame__107_22, 196, 196, 13, 65},
-  {cont__107_25, &frame__107_22, 193, 196, 11, 65},
-  {cont__107_26, &frame__107_22, 196, 196, 66, 66},
-  {entry__107_27, NULL, 198, 198, 34, 63},
-  {cont__107_30, &frame__107_27, 198, 198, 11, 63},
-  {cont__107_31, &frame__107_27, 198, 198, 63, 63},
-  {entry__107_10, NULL, 181, 181, 7, 18},
-  {cont__107_11, &frame__107_10, 182, 182, 7, 18},
-  {cont__107_12, &frame__107_10, 183, 198, 7, 64},
-  {entry__107_3, NULL, 179, 179, 16, 35},
-  {cont__107_4, &frame__107_3, 179, 179, 5, 58},
-  {cont__107_9, &frame__107_3, 180, 198, 5, 65},
-  {entry__107_34, NULL, 201, 201, 38, 48},
-  {entry__107_35, NULL, 201, 201, 51, 57},
-  {entry__107_40, NULL, 208, 208, 34, 59},
-  {cont__107_42, &frame__107_40, 208, 208, 11, 59},
-  {cont__107_43, &frame__107_40, 208, 208, 59, 59},
-  {entry__107_44, NULL, 210, 210, 63, 68},
-  {cont__107_45, &frame__107_44, 210, 210, 34, 72},
-  {cont__107_47, &frame__107_44, 210, 210, 11, 72},
-  {cont__107_48, &frame__107_44, 210, 210, 72, 72},
-  {entry__107_49, NULL, 212, 212, 60, 65},
-  {cont__107_50, &frame__107_49, 212, 212, 34, 69},
-  {cont__107_52, &frame__107_49, 212, 212, 11, 69},
-  {cont__107_53, &frame__107_49, 212, 212, 69, 69},
-  {entry__107_54, NULL, 214, 214, 34, 59},
-  {cont__107_57, &frame__107_54, 214, 214, 11, 59},
-  {cont__107_58, &frame__107_54, 214, 214, 59, 59},
-  {entry__107_37, NULL, 203, 203, 7, 18},
-  {cont__107_38, &frame__107_37, 204, 204, 7, 18},
-  {cont__107_39, &frame__107_37, 205, 214, 7, 60},
-  {entry__107_32, NULL, 201, 201, 16, 35},
-  {cont__107_33, &frame__107_32, 201, 201, 5, 58},
-  {cont__107_36, &frame__107_32, 202, 214, 5, 61},
-  {entry__107_70, NULL, 227, 229, 23, 45},
-  {cont__107_72, &frame__107_70, 227, 229, 9, 45},
-  {cont__107_73, &frame__107_70, 230, 230, 9, 23},
-  {entry__107_61, NULL, 219, 221, 7, 16},
-  {cont__107_63, &frame__107_61, 222, 224, 21, 43},
-  {cont__107_66, &frame__107_61, 222, 224, 7, 43},
-  {cont__107_67, &frame__107_61, 225, 225, 7, 24},
-  {cont__107_68, &frame__107_61, 226, 226, 14, 36},
-  {cont__107_69, &frame__107_61, 226, 230, 7, 23},
-  {entry__107_59, NULL, 218, 218, 8, 26},
-  {cont__107_60, &frame__107_59, 218, 230, 5, 24},
-  {entry__107_91, NULL, 244, 244, 62, 67},
-  {cont__107_92, &frame__107_91, 244, 244, 59, 67},
-  {entry__107_93, NULL, 244, 244, 38, 56},
-  {entry__107_101, NULL, 250, 252, 23, 49},
-  {cont__107_103, &frame__107_101, 250, 252, 9, 49},
-  {cont__107_104, &frame__107_101, 253, 253, 9, 23},
-  {entry__107_77, NULL, 232, 235, 7, 20},
-  {cont__107_79, &frame__107_77, 236, 238, 21, 54},
-  {cont__107_82, &frame__107_77, 236, 238, 7, 54},
-  {cont__107_83, &frame__107_77, 239, 239, 7, 24},
-  {cont__107_84, &frame__107_77, 240, 240, 7, 34},
-  {cont__107_86, &frame__107_77, 241, 241, 7, 28},
-  {cont__107_87, &frame__107_77, 242, 242, 7, 18},
-  {cont__107_88, &frame__107_77, 243, 243, 7, 18},
-  {cont__107_89, &frame__107_77, 244, 244, 19, 35},
-  {cont__107_90, &frame__107_77, 244, 244, 7, 68},
-  {cont__107_95, &frame__107_77, 245, 248, 21, 13},
-  {cont__107_98, &frame__107_77, 245, 248, 7, 13},
-  {cont__107_99, &frame__107_77, 249, 249, 14, 36},
-  {cont__107_100, &frame__107_77, 249, 253, 7, 23},
-  {entry__107_74, NULL, 231, 231, 8, 32},
-  {cont__107_75, &frame__107_74, 231, 231, 8, 36},
-  {cont__107_76, &frame__107_74, 231, 253, 5, 24},
-  {entry__107_2, NULL, 217, 253, 3, 25},
-  {cont__107_105, &frame__107_2, 254, 254, 3, 19},
-  {cont__107_106, &frame__107_2, 255, 255, 3, 8}
+  {cont__105_4, &frame__105_2, 159, 165, 3, 12},
+  {entry__106_4, NULL, 170, 170, 28, 52},
+  {cont__106_6, &frame__106_4, 170, 170, 7, 52},
+  {cont__106_7, &frame__106_4, 171, 171, 10, 38},
+  {cont__106_9, &frame__106_4, 171, 171, 7, 38},
+  {entry__106_10, NULL, 173, 173, 28, 52},
+  {cont__106_11, &frame__106_10, 173, 173, 7, 52},
+  {cont__106_12, &frame__106_10, 174, 174, 7, 11},
+  {entry__106_2, NULL, 167, 167, 3, 20},
+  {cont__106_3, &frame__106_2, 168, 174, 3, 12},
+  {entry__107_5, NULL, 180, 180, 9, 19},
+  {entry__107_7, NULL, 181, 181, 9, 15},
+  {entry__107_13, NULL, 189, 189, 34, 72},
+  {cont__107_15, &frame__107_13, 189, 189, 11, 72},
+  {cont__107_16, &frame__107_13, 189, 189, 72, 72},
+  {entry__107_17, NULL, 195, 195, 16, 21},
+  {cont__107_18, &frame__107_17, 195, 195, 13, 64},
+  {cont__107_20, &frame__107_17, 192, 195, 11, 64},
+  {cont__107_21, &frame__107_17, 195, 195, 65, 65},
+  {entry__107_22, NULL, 201, 201, 16, 21},
+  {cont__107_23, &frame__107_22, 201, 201, 13, 65},
+  {cont__107_25, &frame__107_22, 198, 201, 11, 65},
+  {cont__107_26, &frame__107_22, 201, 201, 66, 66},
+  {entry__107_27, NULL, 203, 203, 34, 63},
+  {cont__107_30, &frame__107_27, 203, 203, 11, 63},
+  {cont__107_31, &frame__107_27, 203, 203, 63, 63},
+  {entry__107_10, NULL, 184, 184, 7, 18},
+  {cont__107_11, &frame__107_10, 185, 185, 7, 18},
+  {cont__107_12, &frame__107_10, 186, 203, 7, 64},
+  {entry__107_3, NULL, 179, 179, 9, 28},
+  {cont__107_4, &frame__107_3, 177, 181, 5, 16},
+  {cont__107_9, &frame__107_3, 183, 203, 5, 65},
+  {entry__107_34, NULL, 209, 209, 9, 19},
+  {entry__107_35, NULL, 210, 210, 9, 15},
+  {entry__107_40, NULL, 218, 218, 34, 59},
+  {cont__107_42, &frame__107_40, 218, 218, 11, 59},
+  {cont__107_43, &frame__107_40, 218, 218, 59, 59},
+  {entry__107_44, NULL, 221, 221, 63, 68},
+  {cont__107_45, &frame__107_44, 221, 221, 34, 72},
+  {cont__107_47, &frame__107_44, 221, 221, 11, 72},
+  {cont__107_48, &frame__107_44, 221, 221, 72, 72},
+  {entry__107_49, NULL, 224, 224, 60, 65},
+  {cont__107_50, &frame__107_49, 224, 224, 34, 69},
+  {cont__107_52, &frame__107_49, 224, 224, 11, 69},
+  {cont__107_53, &frame__107_49, 224, 224, 69, 69},
+  {entry__107_54, NULL, 226, 226, 34, 59},
+  {cont__107_57, &frame__107_54, 226, 226, 11, 59},
+  {cont__107_58, &frame__107_54, 226, 226, 59, 59},
+  {entry__107_37, NULL, 213, 213, 7, 18},
+  {cont__107_38, &frame__107_37, 214, 214, 7, 18},
+  {cont__107_39, &frame__107_37, 215, 226, 7, 60},
+  {entry__107_32, NULL, 208, 208, 9, 28},
+  {cont__107_33, &frame__107_32, 206, 210, 5, 16},
+  {cont__107_36, &frame__107_32, 212, 226, 5, 61},
+  {entry__107_70, NULL, 239, 241, 23, 45},
+  {cont__107_72, &frame__107_70, 239, 241, 9, 45},
+  {cont__107_73, &frame__107_70, 242, 242, 9, 23},
+  {entry__107_61, NULL, 231, 233, 7, 16},
+  {cont__107_63, &frame__107_61, 234, 236, 21, 43},
+  {cont__107_66, &frame__107_61, 234, 236, 7, 43},
+  {cont__107_67, &frame__107_61, 237, 237, 7, 24},
+  {cont__107_68, &frame__107_61, 238, 238, 14, 36},
+  {cont__107_69, &frame__107_61, 238, 242, 7, 23},
+  {entry__107_59, NULL, 230, 230, 8, 26},
+  {cont__107_60, &frame__107_59, 230, 242, 5, 24},
+  {entry__107_91, NULL, 261, 261, 14, 19},
+  {cont__107_92, &frame__107_91, 261, 261, 11, 19},
+  {entry__107_93, NULL, 260, 260, 11, 29},
+  {entry__107_101, NULL, 268, 270, 23, 49},
+  {cont__107_103, &frame__107_101, 268, 270, 9, 49},
+  {cont__107_104, &frame__107_101, 271, 271, 9, 23},
+  {entry__107_77, NULL, 244, 247, 7, 20},
+  {cont__107_79, &frame__107_77, 248, 250, 21, 54},
+  {cont__107_82, &frame__107_77, 248, 250, 7, 54},
+  {cont__107_83, &frame__107_77, 251, 251, 7, 24},
+  {cont__107_84, &frame__107_77, 252, 252, 7, 34},
+  {cont__107_86, &frame__107_77, 253, 253, 7, 28},
+  {cont__107_87, &frame__107_77, 254, 254, 7, 18},
+  {cont__107_88, &frame__107_77, 255, 255, 7, 18},
+  {cont__107_89, &frame__107_77, 259, 259, 11, 27},
+  {cont__107_90, &frame__107_77, 257, 261, 7, 20},
+  {cont__107_95, &frame__107_77, 263, 266, 21, 13},
+  {cont__107_98, &frame__107_77, 263, 266, 7, 13},
+  {cont__107_99, &frame__107_77, 267, 267, 14, 36},
+  {cont__107_100, &frame__107_77, 267, 271, 7, 23},
+  {entry__107_74, NULL, 243, 243, 8, 32},
+  {cont__107_75, &frame__107_74, 243, 243, 8, 36},
+  {cont__107_76, &frame__107_74, 243, 271, 5, 24},
+  {entry__107_2, NULL, 229, 271, 3, 25},
+  {cont__107_105, &frame__107_2, 272, 272, 3, 19},
+  {cont__107_106, &frame__107_2, 273, 273, 3, 8}
 };
 
 union NODE {
@@ -1902,8 +1902,12 @@ static void cont__95_3(void) {
   // 69:   $name arguments(1)
   // 70:   if
   // 71:     global_names(name).is_defined
-  // 72:     -> if(name .contains. "__" (-> "var.@(name)") -> "var._@(name)")
-  // 73:     -> "get__@(name)()"
+  // 72:     ->
+  // 73:       if
+  // 74:         name .contains. "__"
+  // 75:         -> "var.@(name)"
+  // 76:         -> "var._@(name)"
+  // 77:     -> "get__@(name)()"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__fa72dc15c216b9e;
@@ -1922,7 +1926,7 @@ static void entry__96_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 72: ... name .contains. "__"
+  // 74: name .contains. "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -1938,11 +1942,10 @@ static void cont__96_7(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 72: ... -> "var.@(name)"
+  // 75: -> "var.@(name)"
   frame->slots[3] /* temp__3 */ = create_closure(entry__96_8, 0);
-  // 72: ... -> "var._@(name)"
+  // 76: -> "var._@(name)"
   frame->slots[4] /* temp__4 */ = create_closure(entry__96_11, 0);
-  // 72: ... if(name .contains. "__" (-> "var.@(name)") -> "var._@(name)")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -1962,7 +1965,7 @@ static void entry__96_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 72: ... "var.@(name)"
+  // 75: ... "var.@(name)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2e0ae90b5df07d17;
@@ -1978,7 +1981,7 @@ static void cont__96_10(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 72: ... -> "var.@(name)"
+  // 75: -> "var.@(name)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1995,7 +1998,7 @@ static void entry__96_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 72: ... "var._@(name)"
+  // 76: ... "var._@(name)"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__485aef83e8b97008;
@@ -2011,7 +2014,7 @@ static void cont__96_13(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 72: ... -> "var._@(name)"
+  // 76: -> "var._@(name)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2025,7 +2028,11 @@ static void cont__96_14(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 72: -> if(name .contains. "__" (-> "var.@(name)") -> "var._@(name)")
+  // 72: ->
+  // 73:   if
+  // 74:     name .contains. "__"
+  // 75:     -> "var.@(name)"
+  // 76:     -> "var._@(name)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2042,7 +2049,7 @@ static void entry__96_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 73: ... "get__@(name)()"
+  // 77: ... "get__@(name)()"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__405aee03eb306008;
@@ -2059,7 +2066,7 @@ static void cont__96_18(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 73: -> "get__@(name)()"
+  // 77: -> "get__@(name)()"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2122,14 +2129,22 @@ static void cont__96_5(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 72: -> if(name .contains. "__" (-> "var.@(name)") -> "var._@(name)")
+  // 72: ->
+  // 73:   if
+  // 74:     name .contains. "__"
+  // 75:     -> "var.@(name)"
+  // 76:     -> "var._@(name)"
   frame->slots[4] /* temp__3 */ = create_closure(entry__96_6, 0);
-  // 73: -> "get__@(name)()"
+  // 77: -> "get__@(name)()"
   frame->slots[5] /* temp__4 */ = create_closure(entry__96_15, 0);
   // 70: if
   // 71:   global_names(name).is_defined
-  // 72:   -> if(name .contains. "__" (-> "var.@(name)") -> "var._@(name)")
-  // 73:   -> "get__@(name)()"
+  // 72:   ->
+  // 73:     if
+  // 74:       name .contains. "__"
+  // 75:       -> "var.@(name)"
+  // 76:       -> "var._@(name)"
+  // 77:   -> "get__@(name)()"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2145,10 +2160,10 @@ static void cont__96_19(void) {
     invalid_results_error();
     return;
   }
-  // 74: define_macro "EVENT": (arguments)
-  // 75:   !event_name arguments(1)
-  // 76:   !event_kind EVENT
-  // 77:   -> "if (event__mode != EM__REPLAY) {"
+  // 78: define_macro "EVENT": (arguments)
+  // 79:   !event_name arguments(1)
+  // 80:   !event_kind EVENT
+  // 81:   -> "if (event__mode != EM__REPLAY) {"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__265ae243ebba4003;
@@ -2166,7 +2181,7 @@ static void entry__97_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 75: !event_name arguments(1)
+  // 79: !event_name arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2181,9 +2196,9 @@ static void cont__97_3(void) {
     return;
   }
   set__event_name(arguments->slots[0]);
-  // 76: !event_kind EVENT
+  // 80: !event_kind EVENT
   set__event_kind(var._EVENT);
-  // 77: -> "if (event__mode != EM__REPLAY) {"
+  // 81: -> "if (event__mode != EM__REPLAY) {"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__314a5f4a93a00186;
@@ -2196,10 +2211,10 @@ static void cont__97_5(void) {
     invalid_results_error();
     return;
   }
-  // 78: define_macro "ACTION": (arguments)
-  // 79:   !event_name arguments(1)
-  // 80:   !event_kind ACTION
-  // 81:   -> "if (event__mode != EM__REPLAY) {"
+  // 82: define_macro "ACTION": (arguments)
+  // 83:   !event_name arguments(1)
+  // 84:   !event_kind ACTION
+  // 85:   -> "if (event__mode != EM__REPLAY) {"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__301f5c1000c06299;
@@ -2217,7 +2232,7 @@ static void entry__98_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 79: !event_name arguments(1)
+  // 83: !event_name arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2232,9 +2247,9 @@ static void cont__98_3(void) {
     return;
   }
   set__event_name(arguments->slots[0]);
-  // 80: !event_kind ACTION
+  // 84: !event_kind ACTION
   set__event_kind(var._ACTION);
-  // 81: -> "if (event__mode != EM__REPLAY) {"
+  // 85: -> "if (event__mode != EM__REPLAY) {"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__314a5f4a93a00186;
@@ -2247,9 +2262,9 @@ static void cont__98_4(void) {
     invalid_results_error();
     return;
   }
-  // 82: define_macro "INFO":
-  // 83:   !event_phase INFO
-  // 84:   -> ""
+  // 86: define_macro "INFO":
+  // 87:   !event_phase INFO
+  // 88:   -> ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__500ae2cb5c507d76;
@@ -2266,9 +2281,9 @@ static void entry__99_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 83: !event_phase INFO
+  // 87: !event_phase INFO
   set__event_phase(var._INFO);
-  // 84: -> ""
+  // 88: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -2281,15 +2296,15 @@ static void cont__99_3(void) {
     invalid_results_error();
     return;
   }
-  // 85: define_macro "DATA":
-  // 86:   !event_phase DATA
-  // 87:   if
-  // 88:     event_kind == EVENT
-  // 89:     -> "
-  // 90:       @
-  // 91:         if (event__mode == EM__RECORD) {
-  // 92:           record__event("@(event_name)@quot;);@
-  // 93:     -> "  if (event__mode == EM__RECORD) {"
+  // 89: define_macro "DATA":
+  // 90:   !event_phase DATA
+  // 91:   if
+  // 92:     event_kind == EVENT
+  // 93:     -> "
+  // 94:       @
+  // 95:         if (event__mode == EM__RECORD) {
+  // 96:           record__event("@(event_name)@quot;);@
+  // 97:     -> "  if (event__mode == EM__RECORD) {"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__4a0ae10b5cc07d78;
@@ -2306,10 +2321,10 @@ static void entry__100_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 89: ... "
-  // 90:   @
-  // 91:     if (event__mode == EM__RECORD) {
-  // 92:       record__event("@(event_name)@quot;);@
+  // 93: ... "
+  // 94:   @
+  // 95:     if (event__mode == EM__RECORD) {
+  // 96:       record__event("@(event_name)@quot;);@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__b0ac9625f04ddbd3;
@@ -2326,10 +2341,10 @@ static void cont__100_7(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 89: -> "
-  // 90:   @
-  // 91:     if (event__mode == EM__RECORD) {
-  // 92:       record__event("@(event_name)@quot;);@
+  // 93: -> "
+  // 94:   @
+  // 95:     if (event__mode == EM__RECORD) {
+  // 96:       record__event("@(event_name)@quot;);@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -2344,7 +2359,7 @@ static void entry__100_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 93: -> "  if (event__mode == EM__RECORD) {"
+  // 97: -> "  if (event__mode == EM__RECORD) {"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__f9bb92aa6d4490dd;
@@ -2359,9 +2374,9 @@ static void entry__100_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 86: !event_phase DATA
+  // 90: !event_phase DATA
   set__event_phase(var._DATA);
-  // 88: event_kind == EVENT
+  // 92: event_kind == EVENT
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
@@ -2377,13 +2392,13 @@ static void cont__100_3(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 87: if
-  // 88:   event_kind == EVENT
-  // 89:   -> "
-  // 90:     @
-  // 91:       if (event__mode == EM__RECORD) {
-  // 92:         record__event("@(event_name)@quot;);@
-  // 93:   -> "  if (event__mode == EM__RECORD) {"
+  // 91: if
+  // 92:   event_kind == EVENT
+  // 93:   -> "
+  // 94:     @
+  // 95:       if (event__mode == EM__RECORD) {
+  // 96:         record__event("@(event_name)@quot;);@
+  // 97:   -> "  if (event__mode == EM__RECORD) {"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -2399,16 +2414,16 @@ static void cont__100_10(void) {
     invalid_results_error();
     return;
   }
-  //  94: define_macro "INT": (arguments)
-  //  95:   $name arguments(1)
-  //  96:   case
-  //  97:     event_phase
-  //  98:     DATA:
-  //  99:       push &data_variables put(arguments "integer")
-  // 100:       if event_kind == EVENT (-> "  store__integer(@(name));") -> "
-  // 101:         @
-  // 102:           if (@(name) == @(arguments(2))) {
-  // 103:               successful__action("@(event_name)");
+  //  98: define_macro "INT": (arguments)
+  //  99:   $name arguments(1)
+  // 100:   case event_phase
+  // 101:     DATA:
+  // 102:       push &data_variables put(arguments "integer")
+  // 103:       if event_kind == EVENT (-> "  store__integer(@(name));") -> "
+  // 104:         @
+  // 105:           if (@(name) == @(arguments(2))) {
+  // 106:               successful__action("@(event_name)");
+  // 107:             } else {
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -2428,7 +2443,7 @@ static void entry__101_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 100: ... "  store__integer(@(name));"
+  // 103: ... "  store__integer(@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__297be2f6f9dca12f;
@@ -2445,7 +2460,7 @@ static void cont__101_12(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 100: ... -> "  store__integer(@(name));"
+  // 103: ... -> "  store__integer(@(name));"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2464,7 +2479,7 @@ static void entry__101_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 102: ... arguments(2)
+  // 105: ... arguments(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -2479,14 +2494,14 @@ static void cont__101_14(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 100: ... "
-  // 101:   @
-  // 102:     if (@(name) == @(arguments(2))) {
-  // 103:         successful__action("@(event_name)");
-  // 104:       } else {
-  // 105:         failed__action("@(event_name)");
-  // 106:         store__integer(@(name));
-  // 107:       }@
+  // 103: ... "
+  // 104:   @
+  // 105:     if (@(name) == @(arguments(2))) {
+  // 106:         successful__action("@(event_name)");
+  // 107:       } else {
+  // 108:         failed__action("@(event_name)");
+  // 109:         store__integer(@(name));
+  // 110:       }@
   argument_count = 11;
   arguments = node_p;
   arguments->slots[0] = string__4a1f57e083be52ff;
@@ -2511,14 +2526,14 @@ static void cont__101_21(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 100: ... -> "
-  // 101:   @
-  // 102:     if (@(name) == @(arguments(2))) {
-  // 103:         successful__action("@(event_name)");
-  // 104:       } else {
-  // 105:         failed__action("@(event_name)");
-  // 106:         store__integer(@(name));
-  // 107:       }@
+  // 103: ... -> "
+  // 104:   @
+  // 105:     if (@(name) == @(arguments(2))) {
+  // 106:         successful__action("@(event_name)");
+  // 107:       } else {
+  // 108:         failed__action("@(event_name)");
+  // 109:         store__integer(@(name));
+  // 110:       }@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2537,7 +2552,7 @@ static void entry__101_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 99: ... put(arguments "integer")
+  // 102: ... put(arguments "integer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arguments */;
@@ -2553,7 +2568,7 @@ static void cont__101_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 99: push &data_variables put(arguments "integer")
+  // 102: push &data_variables put(arguments "integer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__data_variables();
@@ -2569,7 +2584,7 @@ static void cont__101_7(void) {
     return;
   }
   set__data_variables(arguments->slots[0]);
-  // 100: ... event_kind == EVENT
+  // 103: ... event_kind == EVENT
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
@@ -2585,25 +2600,25 @@ static void cont__101_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 100: ... -> "  store__integer(@(name));"
+  // 103: ... -> "  store__integer(@(name));"
   frame->slots[3] /* temp__2 */ = create_closure(entry__101_9, 0);
-  // 100: ... -> "
-  // 101:   @
-  // 102:     if (@(name) == @(arguments(2))) {
-  // 103:         successful__action("@(event_name)");
-  // 104:       } else {
-  // 105:         failed__action("@(event_name)");
-  // 106:         store__integer(@(name));
-  // 107:       }@
+  // 103: ... -> "
+  // 104:   @
+  // 105:     if (@(name) == @(arguments(2))) {
+  // 106:         successful__action("@(event_name)");
+  // 107:       } else {
+  // 108:         failed__action("@(event_name)");
+  // 109:         store__integer(@(name));
+  // 110:       }@
   frame->slots[4] /* temp__3 */ = create_closure(entry__101_13, 0);
-  // 100: if event_kind == EVENT (-> "  store__integer(@(name));") -> "
-  // 101:   @
-  // 102:     if (@(name) == @(arguments(2))) {
-  // 103:         successful__action("@(event_name)");
-  // 104:       } else {
-  // 105:         failed__action("@(event_name)");
-  // 106:         store__integer(@(name));
-  // 107:       }@
+  // 103: if event_kind == EVENT (-> "  store__integer(@(name));") -> "
+  // 104:   @
+  // 105:     if (@(name) == @(arguments(2))) {
+  // 106:         successful__action("@(event_name)");
+  // 107:       } else {
+  // 108:         failed__action("@(event_name)");
+  // 109:         store__integer(@(name));
+  // 110:       }@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2623,7 +2638,7 @@ static void entry__101_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 109: ... put(arguments "integer")
+  // 112: ... put(arguments "integer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arguments */;
@@ -2639,7 +2654,7 @@ static void cont__101_23(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 109: push &info_variables put(arguments "integer")
+  // 112: push &info_variables put(arguments "integer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__info_variables();
@@ -2655,7 +2670,7 @@ static void cont__101_24(void) {
     return;
   }
   set__info_variables(arguments->slots[0]);
-  // 110: -> ""
+  // 113: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -2673,7 +2688,7 @@ static void entry__101_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 95: $name arguments(1)
+  // 99: $name arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2688,31 +2703,31 @@ static void cont__101_3(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  //  98: ... :
-  //  99:   push &data_variables put(arguments "integer")
-  // 100:   if event_kind == EVENT (-> "  store__integer(@(name));") -> "
-  // 101:     @
-  // 102:       if (@(name) == @(arguments(2))) {
-  // 103:           successful__action("@(event_name)");
-  // 104:         } else {
-  // 105:           failed__action("@(event_name)");
-  // 106:           store__integer(@(name));
-  // 107:         }@
+  // 101: ... :
+  // 102:   push &data_variables put(arguments "integer")
+  // 103:   if event_kind == EVENT (-> "  store__integer(@(name));") -> "
+  // 104:     @
+  // 105:       if (@(name) == @(arguments(2))) {
+  // 106:           successful__action("@(event_name)");
+  // 107:         } else {
+  // 108:           failed__action("@(event_name)");
+  // 109:           store__integer(@(name));
+  // 110:         }@
   frame->slots[2] /* temp__1 */ = create_closure(entry__101_4, 0);
-  // 108: ... :
-  // 109:   push &info_variables put(arguments "integer")
-  // 110:   -> ""
+  // 111: ... :
+  // 112:   push &info_variables put(arguments "integer")
+  // 113:   -> ""
   frame->slots[3] /* temp__2 */ = create_closure(entry__101_22, 0);
-  //  96: case
-  //  97:   event_phase
-  //  98:   DATA:
-  //  99:     push &data_variables put(arguments "integer")
-  // 100:     if event_kind == EVENT (-> "  store__integer(@(name));") -> "
-  // 101:       @
-  // 102:         if (@(name) == @(arguments(2))) {
-  // 103:             successful__action("@(event_name)");
-  // 104:           } else {
-  // 105:             failed__action("@(event_name)");
+  // 100: case event_phase
+  // 101:   DATA:
+  // 102:     push &data_variables put(arguments "integer")
+  // 103:     if event_kind == EVENT (-> "  store__integer(@(name));") -> "
+  // 104:       @
+  // 105:         if (@(name) == @(arguments(2))) {
+  // 106:             successful__action("@(event_name)");
+  // 107:           } else {
+  // 108:             failed__action("@(event_name)");
+  // 109:             store__integer(@(name));
   // ...
   argument_count = 5;
   arguments = node_p;
@@ -2731,16 +2746,16 @@ static void cont__101_25(void) {
     invalid_results_error();
     return;
   }
-  // 111: define_macro "LONG": (arguments)
-  // 112:   $name arguments(1)
-  // 113:   case
-  // 114:     event_phase
-  // 115:     DATA:
-  // 116:       push &data_variables put(arguments "long_integer")
-  // 117:       if event_kind == EVENT (-> "  store__long_integer(@(name));") -> "
-  // 118:         @
-  // 119:           if (@(name) == @(arguments(2))) {
-  // 120:               successful__action("@(event_name)");
+  // 114: define_macro "LONG": (arguments)
+  // 115:   $name arguments(1)
+  // 116:   case event_phase
+  // 117:     DATA:
+  // 118:       push &data_variables put(arguments "long_integer")
+  // 119:       if event_kind == EVENT (-> "  store__long_integer(@(name));") -> "
+  // 120:         @
+  // 121:           if (@(name) == @(arguments(2))) {
+  // 122:               successful__action("@(event_name)");
+  // 123:             } else {
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -2760,7 +2775,7 @@ static void entry__102_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 117: ... "  store__long_integer(@(name));"
+  // 119: ... "  store__long_integer(@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__329e59a9af29a0d5;
@@ -2777,7 +2792,7 @@ static void cont__102_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 117: ... -> "  store__long_integer(@(name));"
+  // 119: ... -> "  store__long_integer(@(name));"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2796,7 +2811,7 @@ static void entry__102_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 119: ... arguments(2)
+  // 121: ... arguments(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -2811,14 +2826,14 @@ static void cont__102_13(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 117: ... "
-  // 118:   @
-  // 119:     if (@(name) == @(arguments(2))) {
-  // 120:         successful__action("@(event_name)");
-  // 121:       } else {
-  // 122:         failed__action("@(event_name)");
-  // 123:         store__long_integer(@(name));
-  // 124:       }@
+  // 119: ... "
+  // 120:   @
+  // 121:     if (@(name) == @(arguments(2))) {
+  // 122:         successful__action("@(event_name)");
+  // 123:       } else {
+  // 124:         failed__action("@(event_name)");
+  // 125:         store__long_integer(@(name));
+  // 126:       }@
   argument_count = 11;
   arguments = node_p;
   arguments->slots[0] = string__4a1f57e083be52ff;
@@ -2843,14 +2858,14 @@ static void cont__102_15(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 117: ... -> "
-  // 118:   @
-  // 119:     if (@(name) == @(arguments(2))) {
-  // 120:         successful__action("@(event_name)");
-  // 121:       } else {
-  // 122:         failed__action("@(event_name)");
-  // 123:         store__long_integer(@(name));
-  // 124:       }@
+  // 119: ... -> "
+  // 120:   @
+  // 121:     if (@(name) == @(arguments(2))) {
+  // 122:         successful__action("@(event_name)");
+  // 123:       } else {
+  // 124:         failed__action("@(event_name)");
+  // 125:         store__long_integer(@(name));
+  // 126:       }@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2869,7 +2884,7 @@ static void entry__102_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 116: ... put(arguments "long_integer")
+  // 118: ... put(arguments "long_integer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arguments */;
@@ -2885,7 +2900,7 @@ static void cont__102_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 116: push &data_variables put(arguments "long_integer")
+  // 118: push &data_variables put(arguments "long_integer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__data_variables();
@@ -2901,7 +2916,7 @@ static void cont__102_7(void) {
     return;
   }
   set__data_variables(arguments->slots[0]);
-  // 117: ... event_kind == EVENT
+  // 119: ... event_kind == EVENT
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
@@ -2917,25 +2932,25 @@ static void cont__102_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 117: ... -> "  store__long_integer(@(name));"
+  // 119: ... -> "  store__long_integer(@(name));"
   frame->slots[3] /* temp__2 */ = create_closure(entry__102_9, 0);
-  // 117: ... -> "
-  // 118:   @
-  // 119:     if (@(name) == @(arguments(2))) {
-  // 120:         successful__action("@(event_name)");
-  // 121:       } else {
-  // 122:         failed__action("@(event_name)");
-  // 123:         store__long_integer(@(name));
-  // 124:       }@
+  // 119: ... -> "
+  // 120:   @
+  // 121:     if (@(name) == @(arguments(2))) {
+  // 122:         successful__action("@(event_name)");
+  // 123:       } else {
+  // 124:         failed__action("@(event_name)");
+  // 125:         store__long_integer(@(name));
+  // 126:       }@
   frame->slots[4] /* temp__3 */ = create_closure(entry__102_12, 0);
-  // 117: if event_kind == EVENT (-> "  store__long_integer(@(name));") -> "
-  // 118:   @
-  // 119:     if (@(name) == @(arguments(2))) {
-  // 120:         successful__action("@(event_name)");
-  // 121:       } else {
-  // 122:         failed__action("@(event_name)");
-  // 123:         store__long_integer(@(name));
-  // 124:       }@
+  // 119: if event_kind == EVENT (-> "  store__long_integer(@(name));") -> "
+  // 120:   @
+  // 121:     if (@(name) == @(arguments(2))) {
+  // 122:         successful__action("@(event_name)");
+  // 123:       } else {
+  // 124:         failed__action("@(event_name)");
+  // 125:         store__long_integer(@(name));
+  // 126:       }@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2955,7 +2970,7 @@ static void entry__102_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 126: ... put(arguments "long_integer")
+  // 128: ... put(arguments "long_integer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arguments */;
@@ -2971,7 +2986,7 @@ static void cont__102_17(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 126: push &info_variables put(arguments "long_integer")
+  // 128: push &info_variables put(arguments "long_integer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__info_variables();
@@ -2987,7 +3002,7 @@ static void cont__102_18(void) {
     return;
   }
   set__info_variables(arguments->slots[0]);
-  // 127: -> ""
+  // 129: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -3005,7 +3020,7 @@ static void entry__102_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 112: $name arguments(1)
+  // 115: $name arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3020,31 +3035,31 @@ static void cont__102_3(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  // 115: ... :
-  // 116:   push &data_variables put(arguments "long_integer")
-  // 117:   if event_kind == EVENT (-> "  store__long_integer(@(name));") -> "
-  // 118:     @
-  // 119:       if (@(name) == @(arguments(2))) {
-  // 120:           successful__action("@(event_name)");
-  // 121:         } else {
-  // 122:           failed__action("@(event_name)");
-  // 123:           store__long_integer(@(name));
-  // 124:         }@
+  // 117: ... :
+  // 118:   push &data_variables put(arguments "long_integer")
+  // 119:   if event_kind == EVENT (-> "  store__long_integer(@(name));") -> "
+  // 120:     @
+  // 121:       if (@(name) == @(arguments(2))) {
+  // 122:           successful__action("@(event_name)");
+  // 123:         } else {
+  // 124:           failed__action("@(event_name)");
+  // 125:           store__long_integer(@(name));
+  // 126:         }@
   frame->slots[2] /* temp__1 */ = create_closure(entry__102_4, 0);
-  // 125: ... :
-  // 126:   push &info_variables put(arguments "long_integer")
-  // 127:   -> ""
+  // 127: ... :
+  // 128:   push &info_variables put(arguments "long_integer")
+  // 129:   -> ""
   frame->slots[3] /* temp__2 */ = create_closure(entry__102_16, 0);
-  // 113: case
-  // 114:   event_phase
-  // 115:   DATA:
-  // 116:     push &data_variables put(arguments "long_integer")
-  // 117:     if event_kind == EVENT (-> "  store__long_integer(@(name));") -> "
-  // 118:       @
-  // 119:         if (@(name) == @(arguments(2))) {
-  // 120:             successful__action("@(event_name)");
-  // 121:           } else {
-  // 122:             failed__action("@(event_name)");
+  // 116: case event_phase
+  // 117:   DATA:
+  // 118:     push &data_variables put(arguments "long_integer")
+  // 119:     if event_kind == EVENT (-> "  store__long_integer(@(name));") -> "
+  // 120:       @
+  // 121:         if (@(name) == @(arguments(2))) {
+  // 122:             successful__action("@(event_name)");
+  // 123:           } else {
+  // 124:             failed__action("@(event_name)");
+  // 125:             store__long_integer(@(name));
   // ...
   argument_count = 5;
   arguments = node_p;
@@ -3063,16 +3078,16 @@ static void cont__102_19(void) {
     invalid_results_error();
     return;
   }
-  // 128: define_macro "POINTER": (arguments)
-  // 129:   $name arguments(1)
-  // 130:   case
-  // 131:     event_phase
-  // 132:     DATA:
-  // 133:       push &data_variables put(arguments "pointer")
-  // 134:       if event_kind == EVENT (-> "  store__pointer(@(name));") -> "
-  // 135:         @
-  // 136:           if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
-  // 137:               successful__action("@(event_name)");
+  // 130: define_macro "POINTER": (arguments)
+  // 131:   $name arguments(1)
+  // 132:   case event_phase
+  // 133:     DATA:
+  // 134:       push &data_variables put(arguments "pointer")
+  // 135:       if event_kind == EVENT (-> "  store__pointer(@(name));") -> "
+  // 136:         @
+  // 137:           if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
+  // 138:               successful__action("@(event_name)");
+  // 139:             } else {
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -3092,7 +3107,7 @@ static void entry__103_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 134: ... "  store__pointer(@(name));"
+  // 135: ... "  store__pointer(@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__f7fe2f879dc120f;
@@ -3109,7 +3124,7 @@ static void cont__103_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 134: ... -> "  store__pointer(@(name));"
+  // 135: ... -> "  store__pointer(@(name));"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3126,14 +3141,14 @@ static void entry__103_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 134: ... "
-  // 135:   @
-  // 136:     if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
-  // 137:         successful__action("@(event_name)");
-  // 138:       } else {
-  // 139:         failed__action("@(event_name)");
-  // 140:         store__pointer(@(name));
-  // 141:       }@
+  // 135: ... "
+  // 136:   @
+  // 137:     if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
+  // 138:         successful__action("@(event_name)");
+  // 139:       } else {
+  // 140:         failed__action("@(event_name)");
+  // 141:         store__pointer(@(name));
+  // 142:       }@
   argument_count = 11;
   arguments = node_p;
   arguments->slots[0] = string__4a1f57e083be52ff;
@@ -3158,14 +3173,14 @@ static void cont__103_16(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 134: ... -> "
-  // 135:   @
-  // 136:     if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
-  // 137:         successful__action("@(event_name)");
-  // 138:       } else {
-  // 139:         failed__action("@(event_name)");
-  // 140:         store__pointer(@(name));
-  // 141:       }@
+  // 135: ... -> "
+  // 136:   @
+  // 137:     if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
+  // 138:         successful__action("@(event_name)");
+  // 139:       } else {
+  // 140:         failed__action("@(event_name)");
+  // 141:         store__pointer(@(name));
+  // 142:       }@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3184,7 +3199,7 @@ static void entry__103_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 133: ... put(arguments "pointer")
+  // 134: ... put(arguments "pointer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arguments */;
@@ -3200,7 +3215,7 @@ static void cont__103_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 133: push &data_variables put(arguments "pointer")
+  // 134: push &data_variables put(arguments "pointer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__data_variables();
@@ -3216,7 +3231,7 @@ static void cont__103_7(void) {
     return;
   }
   set__data_variables(arguments->slots[0]);
-  // 134: ... event_kind == EVENT
+  // 135: ... event_kind == EVENT
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
@@ -3232,25 +3247,25 @@ static void cont__103_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 134: ... -> "  store__pointer(@(name));"
+  // 135: ... -> "  store__pointer(@(name));"
   frame->slots[3] /* temp__2 */ = create_closure(entry__103_9, 0);
-  // 134: ... -> "
-  // 135:   @
-  // 136:     if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
-  // 137:         successful__action("@(event_name)");
-  // 138:       } else {
-  // 139:         failed__action("@(event_name)");
-  // 140:         store__pointer(@(name));
-  // 141:       }@
+  // 135: ... -> "
+  // 136:   @
+  // 137:     if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
+  // 138:         successful__action("@(event_name)");
+  // 139:       } else {
+  // 140:         failed__action("@(event_name)");
+  // 141:         store__pointer(@(name));
+  // 142:       }@
   frame->slots[4] /* temp__3 */ = create_closure(entry__103_12, 0);
-  // 134: if event_kind == EVENT (-> "  store__pointer(@(name));") -> "
-  // 135:   @
-  // 136:     if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
-  // 137:         successful__action("@(event_name)");
-  // 138:       } else {
-  // 139:         failed__action("@(event_name)");
-  // 140:         store__pointer(@(name));
-  // 141:       }@
+  // 135: if event_kind == EVENT (-> "  store__pointer(@(name));") -> "
+  // 136:   @
+  // 137:     if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
+  // 138:         successful__action("@(event_name)");
+  // 139:       } else {
+  // 140:         failed__action("@(event_name)");
+  // 141:         store__pointer(@(name));
+  // 142:       }@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3270,7 +3285,7 @@ static void entry__103_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 143: ... put(arguments "pointer")
+  // 144: ... put(arguments "pointer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arguments */;
@@ -3286,7 +3301,7 @@ static void cont__103_18(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 143: push &info_variables put(arguments "pointer")
+  // 144: push &info_variables put(arguments "pointer")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__info_variables();
@@ -3302,7 +3317,7 @@ static void cont__103_19(void) {
     return;
   }
   set__info_variables(arguments->slots[0]);
-  // 144: -> ""
+  // 145: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -3320,7 +3335,7 @@ static void entry__103_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 129: $name arguments(1)
+  // 131: $name arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3335,31 +3350,31 @@ static void cont__103_3(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  // 132: ... :
-  // 133:   push &data_variables put(arguments "pointer")
-  // 134:   if event_kind == EVENT (-> "  store__pointer(@(name));") -> "
-  // 135:     @
-  // 136:       if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
-  // 137:           successful__action("@(event_name)");
-  // 138:         } else {
-  // 139:           failed__action("@(event_name)");
-  // 140:           store__pointer(@(name));
-  // 141:         }@
+  // 133: ... :
+  // 134:   push &data_variables put(arguments "pointer")
+  // 135:   if event_kind == EVENT (-> "  store__pointer(@(name));") -> "
+  // 136:     @
+  // 137:       if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
+  // 138:           successful__action("@(event_name)");
+  // 139:         } else {
+  // 140:           failed__action("@(event_name)");
+  // 141:           store__pointer(@(name));
+  // 142:         }@
   frame->slots[2] /* temp__1 */ = create_closure(entry__103_4, 0);
-  // 142: ... :
-  // 143:   push &info_variables put(arguments "pointer")
-  // 144:   -> ""
+  // 143: ... :
+  // 144:   push &info_variables put(arguments "pointer")
+  // 145:   -> ""
   frame->slots[3] /* temp__2 */ = create_closure(entry__103_17, 0);
-  // 130: case
-  // 131:   event_phase
-  // 132:   DATA:
-  // 133:     push &data_variables put(arguments "pointer")
-  // 134:     if event_kind == EVENT (-> "  store__pointer(@(name));") -> "
-  // 135:       @
-  // 136:         if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
-  // 137:             successful__action("@(event_name)");
-  // 138:           } else {
-  // 139:             failed__action("@(event_name)");
+  // 132: case event_phase
+  // 133:   DATA:
+  // 134:     push &data_variables put(arguments "pointer")
+  // 135:     if event_kind == EVENT (-> "  store__pointer(@(name));") -> "
+  // 136:       @
+  // 137:         if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
+  // 138:             successful__action("@(event_name)");
+  // 139:           } else {
+  // 140:             failed__action("@(event_name)");
+  // 141:             store__pointer(@(name));
   // ...
   argument_count = 5;
   arguments = node_p;
@@ -3378,17 +3393,16 @@ static void cont__103_20(void) {
     invalid_results_error();
     return;
   }
-  // 145: define_macro "INT_ARRAY": (arguments)
-  // 146:   $name arguments(1)
-  // 147:   $length arguments(2)
-  // 148:   case
-  // 149:     event_phase
+  // 146: define_macro "INT_ARRAY": (arguments)
+  // 147:   $name arguments(1)
+  // 148:   $length arguments(2)
+  // 149:   case event_phase
   // 150:     DATA:
   // 151:       push &data_variables put(arguments "int_array")
   // 152:       -> "  store__int_array(@(name), @(length));"
   // 153:     INFO:
   // 154:       push &info_variables put(arguments "int_array")
-  // ...
+  // 155:       -> ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__a602a332a09613c;
@@ -3531,7 +3545,7 @@ static void entry__104_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 146: $name arguments(1)
+  // 147: $name arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3546,7 +3560,7 @@ static void cont__104_3(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  // 147: $length arguments(2)
+  // 148: $length arguments(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -3569,8 +3583,7 @@ static void cont__104_4(void) {
   // 154:   push &info_variables put(arguments "int_array")
   // 155:   -> ""
   frame->slots[4] /* temp__2 */ = create_closure(entry__104_11, 0);
-  // 148: case
-  // 149:   event_phase
+  // 149: case event_phase
   // 150:   DATA:
   // 151:     push &data_variables put(arguments "int_array")
   // 152:     -> "  store__int_array(@(name), @(length));"
@@ -3597,14 +3610,13 @@ static void cont__104_14(void) {
   // 156: define_macro "MEMORY": (arguments)
   // 157:   $name arguments(1)
   // 158:   $length arguments(2)
-  // 159:   case
-  // 160:     event_phase
-  // 161:     DATA:
-  // 162:       push &data_variables put(arguments "memory")
-  // 163:       -> "  store__memory(@(name), @(length));"
-  // 164:     INFO:
-  // 165:       push &info_variables put(arguments "memory")
-  // ...
+  // 159:   case event_phase
+  // 160:     DATA:
+  // 161:       push &data_variables put(arguments "memory")
+  // 162:       -> "  store__memory(@(name), @(length));"
+  // 163:     INFO:
+  // 164:       push &info_variables put(arguments "memory")
+  // 165:       -> ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__21f5d960028028e;
@@ -3627,7 +3639,7 @@ static void entry__105_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 162: ... put(arguments "memory")
+  // 161: ... put(arguments "memory")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arguments */;
@@ -3643,7 +3655,7 @@ static void cont__105_7(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 162: push &data_variables put(arguments "memory")
+  // 161: push &data_variables put(arguments "memory")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__data_variables();
@@ -3659,7 +3671,7 @@ static void cont__105_8(void) {
     return;
   }
   set__data_variables(arguments->slots[0]);
-  // 163: ... "  store__memory(@(name), @(length));"
+  // 162: ... "  store__memory(@(name), @(length));"
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = string__8030e06afcbf4f61;
@@ -3678,7 +3690,7 @@ static void cont__105_10(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 163: -> "  store__memory(@(name), @(length));"
+  // 162: -> "  store__memory(@(name), @(length));"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -3695,7 +3707,7 @@ static void entry__105_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 165: ... put(arguments "memory")
+  // 164: ... put(arguments "memory")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arguments */;
@@ -3711,7 +3723,7 @@ static void cont__105_12(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 165: push &info_variables put(arguments "memory")
+  // 164: push &info_variables put(arguments "memory")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__info_variables();
@@ -3727,7 +3739,7 @@ static void cont__105_13(void) {
     return;
   }
   set__info_variables(arguments->slots[0]);
-  // 166: -> ""
+  // 165: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -3777,22 +3789,21 @@ static void cont__105_4(void) {
     return;
   }
   initialize_future(frame->slots[2] /* length */, arguments->slots[0]);
-  // 161: ... :
-  // 162:   push &data_variables put(arguments "memory")
-  // 163:   -> "  store__memory(@(name), @(length));"
+  // 160: ... :
+  // 161:   push &data_variables put(arguments "memory")
+  // 162:   -> "  store__memory(@(name), @(length));"
   frame->slots[3] /* temp__1 */ = create_closure(entry__105_5, 0);
-  // 164: ... :
-  // 165:   push &info_variables put(arguments "memory")
-  // 166:   -> ""
+  // 163: ... :
+  // 164:   push &info_variables put(arguments "memory")
+  // 165:   -> ""
   frame->slots[4] /* temp__2 */ = create_closure(entry__105_11, 0);
-  // 159: case
-  // 160:   event_phase
-  // 161:   DATA:
-  // 162:     push &data_variables put(arguments "memory")
-  // 163:     -> "  store__memory(@(name), @(length));"
-  // 164:   INFO:
-  // 165:     push &info_variables put(arguments "memory")
-  // 166:     -> ""
+  // 159: case event_phase
+  // 160:   DATA:
+  // 161:     push &data_variables put(arguments "memory")
+  // 162:     -> "  store__memory(@(name), @(length));"
+  // 163:   INFO:
+  // 164:     push &info_variables put(arguments "memory")
+  // 165:     -> ""
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = get__event_phase();
@@ -3810,16 +3821,15 @@ static void cont__105_14(void) {
     invalid_results_error();
     return;
   }
-  // 167: define_macro "C_STRING": (arguments)
-  // 168:   $name arguments(1)
-  // 169:   case
-  // 170:     event_phase
-  // 171:     DATA:
-  // 172:       push &data_variables put(arguments "c_string")
-  // 173:       -> "  store__c_string(@(name));"
-  // 174:     INFO:
-  // 175:       push &info_variables put(arguments "c_string")
-  // 176:       -> ""
+  // 166: define_macro "C_STRING": (arguments)
+  // 167:   $name arguments(1)
+  // 168:   case event_phase
+  // 169:     DATA:
+  // 170:       push &data_variables put(arguments "c_string")
+  // 171:       -> "  store__c_string(@(name));"
+  // 172:     INFO:
+  // 173:       push &info_variables put(arguments "c_string")
+  // 174:       -> ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__a68a78f85a6d407;
@@ -3840,7 +3850,7 @@ static void entry__106_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 172: ... put(arguments "c_string")
+  // 170: ... put(arguments "c_string")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arguments */;
@@ -3856,7 +3866,7 @@ static void cont__106_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 172: push &data_variables put(arguments "c_string")
+  // 170: push &data_variables put(arguments "c_string")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__data_variables();
@@ -3872,7 +3882,7 @@ static void cont__106_7(void) {
     return;
   }
   set__data_variables(arguments->slots[0]);
-  // 173: ... "  store__c_string(@(name));"
+  // 171: ... "  store__c_string(@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__fabc9ed81001dd7;
@@ -3889,7 +3899,7 @@ static void cont__106_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 173: -> "  store__c_string(@(name));"
+  // 171: -> "  store__c_string(@(name));"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3906,7 +3916,7 @@ static void entry__106_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 175: ... put(arguments "c_string")
+  // 173: ... put(arguments "c_string")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arguments */;
@@ -3922,7 +3932,7 @@ static void cont__106_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 175: push &info_variables put(arguments "c_string")
+  // 173: push &info_variables put(arguments "c_string")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__info_variables();
@@ -3938,7 +3948,7 @@ static void cont__106_12(void) {
     return;
   }
   set__info_variables(arguments->slots[0]);
-  // 176: -> ""
+  // 174: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -3956,7 +3966,7 @@ static void entry__106_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 168: $name arguments(1)
+  // 167: $name arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3971,22 +3981,21 @@ static void cont__106_3(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  // 171: ... :
-  // 172:   push &data_variables put(arguments "c_string")
-  // 173:   -> "  store__c_string(@(name));"
+  // 169: ... :
+  // 170:   push &data_variables put(arguments "c_string")
+  // 171:   -> "  store__c_string(@(name));"
   frame->slots[2] /* temp__1 */ = create_closure(entry__106_4, 0);
-  // 174: ... :
-  // 175:   push &info_variables put(arguments "c_string")
-  // 176:   -> ""
+  // 172: ... :
+  // 173:   push &info_variables put(arguments "c_string")
+  // 174:   -> ""
   frame->slots[3] /* temp__2 */ = create_closure(entry__106_10, 0);
-  // 169: case
-  // 170:   event_phase
-  // 171:   DATA:
-  // 172:     push &data_variables put(arguments "c_string")
-  // 173:     -> "  store__c_string(@(name));"
-  // 174:   INFO:
-  // 175:     push &info_variables put(arguments "c_string")
-  // 176:     -> ""
+  // 168: case event_phase
+  // 169:   DATA:
+  // 170:     push &data_variables put(arguments "c_string")
+  // 171:     -> "  store__c_string(@(name));"
+  // 172:   INFO:
+  // 173:     push &info_variables put(arguments "c_string")
+  // 174:     -> ""
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = get__event_phase();
@@ -4004,16 +4013,16 @@ static void cont__106_13(void) {
     invalid_results_error();
     return;
   }
-  // 177: define_macro "END":
-  // 178:   $retrieve_variables:
-  // 179:     $indent if(event_kind == ACTION (-> "      ") -> "  ")
-  // 180:     for_each data_variables: (var)
-  // 181:       $type var(1)
-  // 182:       $name var(2)
-  // 183:       case
-  // 184:         type
-  // 185:         "pointer":
-  // 186:           writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
+  // 175: define_macro "END":
+  // 176:   $retrieve_variables:
+  // 177:     $indent
+  // 178:       if
+  // 179:         event_kind == ACTION
+  // 180:         -> "      "
+  // 181:         -> "  "
+  // 182:     
+  // 183:     for_each data_variables: (var)
+  // 184:       $type var(1)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -4037,90 +4046,90 @@ static void entry__107_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 178: ... :
-  // 179:   $indent if(event_kind == ACTION (-> "      ") -> "  ")
-  // 180:   for_each data_variables: (var)
-  // 181:     $type var(1)
-  // 182:     $name var(2)
-  // 183:     case
-  // 184:       type
-  // 185:       "pointer":
-  // 186:         writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
-  // 187:       "int_array":
+  // 176: ... :
+  // 177:   $indent
+  // 178:     if
+  // 179:       event_kind == ACTION
+  // 180:       -> "      "
+  // 181:       -> "  "
+  // 182:   
+  // 183:   for_each data_variables: (var)
+  // 184:     $type var(1)
+  // 185:     $name var(2)
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__107_3, 0);
-  // 178: $retrieve_variables:
-  // 179:   $indent if(event_kind == ACTION (-> "      ") -> "  ")
-  // 180:   for_each data_variables: (var)
-  // 181:     $type var(1)
-  // 182:     $name var(2)
-  // 183:     case
-  // 184:       type
-  // 185:       "pointer":
-  // 186:         writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
-  // 187:       "int_array":
+  // 176: $retrieve_variables:
+  // 177:   $indent
+  // 178:     if
+  // 179:       event_kind == ACTION
+  // 180:       -> "      "
+  // 181:       -> "  "
+  // 182:   
+  // 183:   for_each data_variables: (var)
+  // 184:     $type var(1)
+  // 185:     $name var(2)
   // ...
   initialize_future(frame->slots[0] /* retrieve_variables */, frame->slots[3] /* temp__1 */);
-  // 200: ... :
-  // 201:   $indent if(event_kind == ACTION (-> "      ") -> "  ")
-  // 202:   for_each info_variables: (var)
-  // 203:     $type var(1)
-  // 204:     $name var(2)
-  // 205:     case
-  // 206:       type
-  // 207:       "pointer":
-  // 208:         writeln_to &buf indent "print__pointer(@(name));"
-  // 209:       "int_array":
+  // 205: ... :
+  // 206:   $indent
+  // 207:     if
+  // 208:       event_kind == ACTION
+  // 209:       -> "      "
+  // 210:       -> "  "
+  // 211:   
+  // 212:   for_each info_variables: (var)
+  // 213:     $type var(1)
+  // 214:     $name var(2)
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__107_32, 0);
-  // 200: $print_variables:
-  // 201:   $indent if(event_kind == ACTION (-> "      ") -> "  ")
-  // 202:   for_each info_variables: (var)
-  // 203:     $type var(1)
-  // 204:     $name var(2)
-  // 205:     case
-  // 206:       type
-  // 207:       "pointer":
-  // 208:         writeln_to &buf indent "print__pointer(@(name));"
-  // 209:       "int_array":
+  // 205: $print_variables:
+  // 206:   $indent
+  // 207:     if
+  // 208:       event_kind == ACTION
+  // 209:       -> "      "
+  // 210:       -> "  "
+  // 211:   
+  // 212:   for_each info_variables: (var)
+  // 213:     $type var(1)
+  // 214:     $name var(2)
   // ...
   initialize_future(frame->slots[1] /* print_variables */, frame->slots[3] /* temp__1 */);
-  // 216: $$buf ""
+  // 228: $$buf ""
   ((CELL *)frame->slots[2])->contents /* buf */ = empty_string;
-  // 218: -> event_kind == EVENT:
-  // 219:   write_to &buf "
-  // 220:       }
-  // 221:     } else {
-  // 222:   write_to &buf "
-  // 223:     @
-  // 224:       replay__event("@(event_name)");
-  // 225:   retrieve_variables
-  // 226:   unless info_variables.is_empty:
-  // 227:     write_to &buf "
+  // 230: -> event_kind == EVENT:
+  // 231:   write_to &buf "
+  // 232:       }
+  // 233:     } else {
+  // 234:   write_to &buf "
+  // 235:     @
+  // 236:       replay__event("@(event_name)");
+  // 237:   retrieve_variables
+  // 238:   unless info_variables.is_empty:
+  // 239:     write_to &buf "
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__107_59, 0);
-  // 231: -> length_of(data_variables) > 0:
-  // 232:   write_to &buf "
-  // 233:     @
-  // 234:         }
-  // 235:       } else {
-  // 236:   write_to &buf "
-  // 237:     @
-  // 238:         if (replay__action("@(event_name)")) {
-  // 239:   retrieve_variables
-  // 240:   writeln_to &buf "  } else {"
+  // 243: -> length_of(data_variables) > 0:
+  // 244:   write_to &buf "
+  // 245:     @
+  // 246:         }
+  // 247:       } else {
+  // 248:   write_to &buf "
+  // 249:     @
+  // 250:         if (replay__action("@(event_name)")) {
+  // 251:   retrieve_variables
+  // 252:   writeln_to &buf "  } else {"
   // ...
   frame->slots[4] /* temp__2 */ = create_closure(entry__107_74, 0);
-  // 217: cond
-  // 218:   -> event_kind == EVENT:
-  // 219:     write_to &buf "
-  // 220:         }
-  // 221:       } else {
-  // 222:     write_to &buf "
-  // 223:       @
-  // 224:         replay__event("@(event_name)");
-  // 225:     retrieve_variables
-  // 226:     unless info_variables.is_empty:
+  // 229: cond
+  // 230:   -> event_kind == EVENT:
+  // 231:     write_to &buf "
+  // 232:         }
+  // 233:       } else {
+  // 234:     write_to &buf "
+  // 235:       @
+  // 236:         replay__event("@(event_name)");
+  // 237:     retrieve_variables
+  // 238:     unless info_variables.is_empty:
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -4142,9 +4151,9 @@ static void entry__107_101(void) {
     invalid_arguments_error();
     return;
   }
-  // 250: ... "
-  // 251:   @
-  // 252:       report__event("@(event_name)");
+  // 268: ... "
+  // 269:   @
+  // 270:       report__event("@(event_name)");
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__4fbb5986ed8ccf7;
@@ -4161,9 +4170,9 @@ static void cont__107_103(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 250: write_to &buf "
-  // 251:   @
-  // 252:       report__event("@(event_name)");
+  // 268: write_to &buf "
+  // 269:   @
+  // 270:       report__event("@(event_name)");
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4179,7 +4188,7 @@ static void cont__107_104(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* buf */ = arguments->slots[0];
-  // 253: print_variables
+  // 271: print_variables
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -4208,10 +4217,10 @@ static void entry__107_77(void) {
     invalid_arguments_error();
     return;
   }
-  // 232: write_to &buf "
-  // 233:   @
-  // 234:       }
-  // 235:     } else {
+  // 244: write_to &buf "
+  // 245:   @
+  // 246:       }
+  // 247:     } else {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4227,9 +4236,9 @@ static void cont__107_79(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* buf */ = arguments->slots[0];
-  // 236: ... "
-  // 237:   @
-  // 238:       if (replay__action("@(event_name)")) {
+  // 248: ... "
+  // 249:   @
+  // 250:       if (replay__action("@(event_name)")) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__3f8698e0b2f30ecd;
@@ -4246,9 +4255,9 @@ static void cont__107_82(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 236: write_to &buf "
-  // 237:   @
-  // 238:       if (replay__action("@(event_name)")) {
+  // 248: write_to &buf "
+  // 249:   @
+  // 250:       if (replay__action("@(event_name)")) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4264,7 +4273,7 @@ static void cont__107_83(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* buf */ = arguments->slots[0];
-  // 239: retrieve_variables
+  // 251: retrieve_variables
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -4277,7 +4286,7 @@ static void cont__107_84(void) {
     invalid_results_error();
     return;
   }
-  // 240: writeln_to &buf "  } else {"
+  // 252: writeln_to &buf "  } else {"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4293,7 +4302,7 @@ static void cont__107_86(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* buf */ = arguments->slots[0];
-  // 241: $var data_variables(1)
+  // 253: $var data_variables(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -4308,7 +4317,7 @@ static void cont__107_87(void) {
     return;
   }
   initialize_future(frame->slots[3] /* var */, arguments->slots[0]);
-  // 242: $type var(1)
+  // 254: $type var(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -4323,7 +4332,7 @@ static void cont__107_88(void) {
     return;
   }
   initialize_future(frame->slots[4] /* type */, arguments->slots[0]);
-  // 243: $name var(2)
+  // 255: $name var(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -4338,7 +4347,7 @@ static void cont__107_89(void) {
     return;
   }
   initialize_future(frame->slots[5] /* name */, arguments->slots[0]);
-  // 244: ... type == "pointer"
+  // 259: type == "pointer"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* type */;
@@ -4354,9 +4363,13 @@ static void cont__107_90(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 244: ... -> var(3)
+  // 261: -> var(3)
   frame->slots[8] /* temp__2 */ = create_closure(entry__107_91, 0);
-  // 244: $default if(type == "pointer" (-> "SAMPLE_POINTER") -> var(3))
+  // 257: $default
+  // 258:   if
+  // 259:     type == "pointer"
+  // 260:     -> "SAMPLE_POINTER"
+  // 261:     -> var(3)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -4376,7 +4389,7 @@ static void entry__107_91(void) {
     invalid_arguments_error();
     return;
   }
-  // 244: ... var(3)
+  // 261: ... var(3)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__3;
@@ -4391,7 +4404,7 @@ static void cont__107_92(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 244: ... -> var(3)
+  // 261: -> var(3)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4406,7 +4419,7 @@ static void entry__107_93(void) {
     invalid_arguments_error();
     return;
   }
-  // 244: ... -> "SAMPLE_POINTER"
+  // 260: -> "SAMPLE_POINTER"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__c440cd65102e84e8;
@@ -4420,10 +4433,10 @@ static void cont__107_95(void) {
     return;
   }
   initialize_future(frame->slots[6] /* default */, arguments->slots[0]);
-  // 245: ... "
-  // 246:   @
-  // 247:         @(name) = @(default);
-  // 248:     }
+  // 263: ... "
+  // 264:   @
+  // 265:         @(name) = @(default);
+  // 266:     }
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = string__d81f466083be52f7;
@@ -4442,10 +4455,10 @@ static void cont__107_98(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 245: write_to &buf "
-  // 246:   @
-  // 247:         @(name) = @(default);
-  // 248:     }
+  // 263: write_to &buf "
+  // 264:   @
+  // 265:         @(name) = @(default);
+  // 266:     }
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4461,7 +4474,7 @@ static void cont__107_99(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* buf */ = arguments->slots[0];
-  // 249: ... info_variables.is_empty
+  // 267: ... info_variables.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__info_variables();
@@ -4476,17 +4489,17 @@ static void cont__107_100(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 249: ... :
-  // 250:   write_to &buf "
-  // 251:     @
-  // 252:         report__event("@(event_name)");
-  // 253:   print_variables
+  // 267: ... :
+  // 268:   write_to &buf "
+  // 269:     @
+  // 270:         report__event("@(event_name)");
+  // 271:   print_variables
   frame->slots[8] /* temp__2 */ = create_closure(entry__107_101, 0);
-  // 249: unless info_variables.is_empty:
-  // 250:   write_to &buf "
-  // 251:     @
-  // 252:         report__event("@(event_name)");
-  // 253:   print_variables
+  // 267: unless info_variables.is_empty:
+  // 268:   write_to &buf "
+  // 269:     @
+  // 270:         report__event("@(event_name)");
+  // 271:   print_variables
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -4507,9 +4520,9 @@ static void entry__107_70(void) {
     invalid_arguments_error();
     return;
   }
-  // 227: ... "
-  // 228:   @
-  // 229:     report__event("@(event_name)");
+  // 239: ... "
+  // 240:   @
+  // 241:     report__event("@(event_name)");
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__f3d6bf47fb36a3e0;
@@ -4526,9 +4539,9 @@ static void cont__107_72(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 227: write_to &buf "
-  // 228:   @
-  // 229:     report__event("@(event_name)");
+  // 239: write_to &buf "
+  // 240:   @
+  // 241:     report__event("@(event_name)");
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4544,7 +4557,7 @@ static void cont__107_73(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* buf */ = arguments->slots[0];
-  // 230: print_variables
+  // 242: print_variables
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -4565,9 +4578,9 @@ static void entry__107_61(void) {
     invalid_arguments_error();
     return;
   }
-  // 219: write_to &buf "
-  // 220:     }
-  // 221:   } else {
+  // 231: write_to &buf "
+  // 232:     }
+  // 233:   } else {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4583,9 +4596,9 @@ static void cont__107_63(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* buf */ = arguments->slots[0];
-  // 222: ... "
-  // 223:   @
-  // 224:     replay__event("@(event_name)");
+  // 234: ... "
+  // 235:   @
+  // 236:     replay__event("@(event_name)");
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__33d6d747fb30a3e4;
@@ -4602,9 +4615,9 @@ static void cont__107_66(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 222: write_to &buf "
-  // 223:   @
-  // 224:     replay__event("@(event_name)");
+  // 234: write_to &buf "
+  // 235:   @
+  // 236:     replay__event("@(event_name)");
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4620,7 +4633,7 @@ static void cont__107_67(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* buf */ = arguments->slots[0];
-  // 225: retrieve_variables
+  // 237: retrieve_variables
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -4633,7 +4646,7 @@ static void cont__107_68(void) {
     invalid_results_error();
     return;
   }
-  // 226: ... info_variables.is_empty
+  // 238: ... info_variables.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__info_variables();
@@ -4648,17 +4661,17 @@ static void cont__107_69(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 226: ... :
-  // 227:   write_to &buf "
-  // 228:     @
-  // 229:       report__event("@(event_name)");
-  // 230:   print_variables
+  // 238: ... :
+  // 239:   write_to &buf "
+  // 240:     @
+  // 241:       report__event("@(event_name)");
+  // 242:   print_variables
   frame->slots[4] /* temp__2 */ = create_closure(entry__107_70, 0);
-  // 226: unless info_variables.is_empty:
-  // 227:   write_to &buf "
-  // 228:     @
-  // 229:       report__event("@(event_name)");
-  // 230:   print_variables
+  // 238: unless info_variables.is_empty:
+  // 239:   write_to &buf "
+  // 240:     @
+  // 241:       report__event("@(event_name)");
+  // 242:   print_variables
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -4681,7 +4694,7 @@ static void entry__107_40(void) {
     invalid_arguments_error();
     return;
   }
-  // 208: ... "print__pointer(@(name));"
+  // 218: ... "print__pointer(@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__32285b242638aa20;
@@ -4698,7 +4711,7 @@ static void cont__107_42(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 208: writeln_to &buf indent "print__pointer(@(name));"
+  // 218: writeln_to &buf indent "print__pointer(@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4736,7 +4749,7 @@ static void entry__107_44(void) {
     invalid_arguments_error();
     return;
   }
-  // 210: ... var(3)
+  // 221: ... var(3)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__3;
@@ -4751,7 +4764,7 @@ static void cont__107_45(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 210: ... "print__int_array(@(name), @(var(3)));"
+  // 221: ... "print__int_array(@(name), @(var(3)));"
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = string__8eee524608dfba81;
@@ -4770,7 +4783,7 @@ static void cont__107_47(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 210: writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
+  // 221: writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4808,7 +4821,7 @@ static void entry__107_49(void) {
     invalid_arguments_error();
     return;
   }
-  // 212: ... var(3)
+  // 224: ... var(3)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__3;
@@ -4823,7 +4836,7 @@ static void cont__107_50(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 212: ... "print__memory(@(name), @(var(3)));"
+  // 224: ... "print__memory(@(name), @(var(3)));"
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = string__173507c00b84c49d;
@@ -4842,7 +4855,7 @@ static void cont__107_52(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 212: writeln_to &buf indent "print__memory(@(name), @(var(3)));"
+  // 224: writeln_to &buf indent "print__memory(@(name), @(var(3)));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4880,7 +4893,7 @@ static void entry__107_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 214: ... "print__@(type)(@(name));"
+  // 226: ... "print__@(type)(@(name));"
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = string__ae4408db944250a5;
@@ -4899,7 +4912,7 @@ static void cont__107_57(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 214: writeln_to &buf indent "print__@(type)(@(name));"
+  // 226: writeln_to &buf indent "print__@(type)(@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -4938,7 +4951,7 @@ static void entry__107_37(void) {
     invalid_arguments_error();
     return;
   }
-  // 203: $type var(1)
+  // 213: $type var(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -4953,7 +4966,7 @@ static void cont__107_38(void) {
     return;
   }
   initialize_future(frame->slots[3] /* type */, arguments->slots[0]);
-  // 204: $name var(2)
+  // 214: $name var(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -4968,28 +4981,29 @@ static void cont__107_39(void) {
     return;
   }
   initialize_future(frame->slots[4] /* name */, arguments->slots[0]);
-  // 207: ... :
-  // 208:   writeln_to &buf indent "print__pointer(@(name));"
+  // 217: :
+  // 218:   writeln_to &buf indent "print__pointer(@(name));"
   frame->slots[5] /* temp__1 */ = create_closure(entry__107_40, 0);
-  // 209: ... :
-  // 210:   writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
+  // 220: :
+  // 221:   writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
   frame->slots[6] /* temp__2 */ = create_closure(entry__107_44, 0);
-  // 211: ... :
-  // 212:   writeln_to &buf indent "print__memory(@(name), @(var(3)));"
+  // 223: :
+  // 224:   writeln_to &buf indent "print__memory(@(name), @(var(3)));"
   frame->slots[7] /* temp__3 */ = create_closure(entry__107_49, 0);
-  // 213: :
-  // 214:   writeln_to &buf indent "print__@(type)(@(name));"
+  // 225: :
+  // 226:   writeln_to &buf indent "print__@(type)(@(name));"
   frame->slots[8] /* temp__4 */ = create_closure(entry__107_54, 0);
-  // 205: case
-  // 206:   type
-  // 207:   "pointer":
-  // 208:     writeln_to &buf indent "print__pointer(@(name));"
-  // 209:   "int_array":
-  // 210:     writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
-  // 211:   "memory":
-  // 212:     writeln_to &buf indent "print__memory(@(name), @(var(3)));"
-  // 213:   :
-  // 214:     writeln_to &buf indent "print__@(type)(@(name));"
+  // 215: case type
+  // 216:   "pointer"
+  // 217:   :
+  // 218:     writeln_to &buf indent "print__pointer(@(name));"
+  // 219:   "int_array"
+  // 220:   :
+  // 221:     writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
+  // 222:   "memory"
+  // 223:   :
+  // 224:     writeln_to &buf indent "print__memory(@(name), @(var(3)));"
+  // ...
   argument_count = 8;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* type */;
@@ -5018,7 +5032,7 @@ static void entry__107_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 186: ... "retrieve__pointer((void **)&@(name));"
+  // 189: ... "retrieve__pointer((void **)&@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__3802f8268029fd6c;
@@ -5035,7 +5049,7 @@ static void cont__107_15(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 186: writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
+  // 189: writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -5073,7 +5087,7 @@ static void entry__107_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 191: ... var(3)
+  // 195: ... var(3)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__3;
@@ -5088,7 +5102,7 @@ static void cont__107_18(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 191: "@(var(3)) = retrieve__int_array((int **)&@(name));"
+  // 195: "@(var(3)) = retrieve__int_array((int **)&@(name));"
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -5106,10 +5120,10 @@ static void cont__107_20(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 188: writeln_to
-  // 189:   &buf
-  // 190:   indent
-  // 191:   "@(var(3)) = retrieve__int_array((int **)&@(name));"
+  // 192: writeln_to
+  // 193:   &buf
+  // 194:   indent
+  // 195:   "@(var(3)) = retrieve__int_array((int **)&@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -5147,7 +5161,7 @@ static void entry__107_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 196: ... var(3)
+  // 201: ... var(3)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__3;
@@ -5162,7 +5176,7 @@ static void cont__107_23(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 196: "@(var(3)) = retrieve__memory((uint8_t **)&@(name));"
+  // 201: "@(var(3)) = retrieve__memory((uint8_t **)&@(name));"
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -5180,10 +5194,10 @@ static void cont__107_25(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 193: writeln_to
-  // 194:   &buf
-  // 195:   indent
-  // 196:   "@(var(3)) = retrieve__memory((uint8_t **)&@(name));"
+  // 198: writeln_to
+  // 199:   &buf
+  // 200:   indent
+  // 201:   "@(var(3)) = retrieve__memory((uint8_t **)&@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -5221,7 +5235,7 @@ static void entry__107_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 198: ... "retrieve__@(type)(&@(name));"
+  // 203: ... "retrieve__@(type)(&@(name));"
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = string__192c815f22d3275e;
@@ -5240,7 +5254,7 @@ static void cont__107_30(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 198: writeln_to &buf indent "retrieve__@(type)(&@(name));"
+  // 203: writeln_to &buf indent "retrieve__@(type)(&@(name));"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -5279,7 +5293,7 @@ static void entry__107_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 181: $type var(1)
+  // 184: $type var(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5294,7 +5308,7 @@ static void cont__107_11(void) {
     return;
   }
   initialize_future(frame->slots[3] /* type */, arguments->slots[0]);
-  // 182: $name var(2)
+  // 185: $name var(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -5309,34 +5323,34 @@ static void cont__107_12(void) {
     return;
   }
   initialize_future(frame->slots[4] /* name */, arguments->slots[0]);
-  // 185: ... :
-  // 186:   writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
+  // 188: :
+  // 189:   writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
   frame->slots[5] /* temp__1 */ = create_closure(entry__107_13, 0);
-  // 187: ... :
-  // 188:   writeln_to
-  // 189:     &buf
-  // 190:     indent
-  // 191:     "@(var(3)) = retrieve__int_array((int **)&@(name));"
+  // 191: :
+  // 192:   writeln_to
+  // 193:     &buf
+  // 194:     indent
+  // 195:     "@(var(3)) = retrieve__int_array((int **)&@(name));"
   frame->slots[6] /* temp__2 */ = create_closure(entry__107_17, 0);
-  // 192: ... :
-  // 193:   writeln_to
-  // 194:     &buf
-  // 195:     indent
-  // 196:     "@(var(3)) = retrieve__memory((uint8_t **)&@(name));"
-  frame->slots[7] /* temp__3 */ = create_closure(entry__107_22, 0);
   // 197: :
-  // 198:   writeln_to &buf indent "retrieve__@(type)(&@(name));"
+  // 198:   writeln_to
+  // 199:     &buf
+  // 200:     indent
+  // 201:     "@(var(3)) = retrieve__memory((uint8_t **)&@(name));"
+  frame->slots[7] /* temp__3 */ = create_closure(entry__107_22, 0);
+  // 202: :
+  // 203:   writeln_to &buf indent "retrieve__@(type)(&@(name));"
   frame->slots[8] /* temp__4 */ = create_closure(entry__107_27, 0);
-  // 183: case
-  // 184:   type
-  // 185:   "pointer":
-  // 186:     writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
-  // 187:   "int_array":
-  // 188:     writeln_to
-  // 189:       &buf
-  // 190:       indent
-  // 191:       "@(var(3)) = retrieve__int_array((int **)&@(name));"
-  // 192:   "memory":
+  // 186: case type
+  // 187:   "pointer"
+  // 188:   :
+  // 189:     writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
+  // 190:   "int_array"
+  // 191:   :
+  // 192:     writeln_to
+  // 193:       &buf
+  // 194:       indent
+  // 195:       "@(var(3)) = retrieve__int_array((int **)&@(name));"
   // ...
   argument_count = 8;
   arguments = node_p;
@@ -5364,7 +5378,7 @@ static void entry__107_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 179: ... event_kind == ACTION
+  // 179: event_kind == ACTION
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
@@ -5380,7 +5394,11 @@ static void cont__107_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 179: $indent if(event_kind == ACTION (-> "      ") -> "  ")
+  // 177: $indent
+  // 178:   if
+  // 179:     event_kind == ACTION
+  // 180:     -> "      "
+  // 181:     -> "  "
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5398,7 +5416,7 @@ static void entry__107_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 179: ... -> "      "
+  // 180: -> "      "
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__d81f466083be52f7;
@@ -5413,7 +5431,7 @@ static void entry__107_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 179: ... -> "  "
+  // 181: -> "  "
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e6082be5;
@@ -5427,28 +5445,28 @@ static void cont__107_9(void) {
     return;
   }
   initialize_future(frame->slots[1] /* indent */, arguments->slots[0]);
-  // 180: ... : (var)
-  // 181:   $type var(1)
-  // 182:   $name var(2)
-  // 183:   case
-  // 184:     type
-  // 185:     "pointer":
-  // 186:       writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
-  // 187:     "int_array":
-  // 188:       writeln_to
-  // 189:         &buf
+  // 183: ... : (var)
+  // 184:   $type var(1)
+  // 185:   $name var(2)
+  // 186:   case type
+  // 187:     "pointer"
+  // 188:     :
+  // 189:       writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
+  // 190:     "int_array"
+  // 191:     :
+  // 192:       writeln_to
   // ...
   frame->slots[2] /* temp__1 */ = create_closure(entry__107_10, 1);
-  // 180: for_each data_variables: (var)
-  // 181:   $type var(1)
-  // 182:   $name var(2)
-  // 183:   case
-  // 184:     type
-  // 185:     "pointer":
-  // 186:       writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
-  // 187:     "int_array":
-  // 188:       writeln_to
-  // 189:         &buf
+  // 183: for_each data_variables: (var)
+  // 184:   $type var(1)
+  // 185:   $name var(2)
+  // 186:   case type
+  // 187:     "pointer"
+  // 188:     :
+  // 189:       writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
+  // 190:     "int_array"
+  // 191:     :
+  // 192:       writeln_to
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -5470,7 +5488,7 @@ static void entry__107_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 201: ... event_kind == ACTION
+  // 208: event_kind == ACTION
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
@@ -5486,7 +5504,11 @@ static void cont__107_33(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 201: $indent if(event_kind == ACTION (-> "      ") -> "  ")
+  // 206: $indent
+  // 207:   if
+  // 208:     event_kind == ACTION
+  // 209:     -> "      "
+  // 210:     -> "  "
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5504,7 +5526,7 @@ static void entry__107_34(void) {
     invalid_arguments_error();
     return;
   }
-  // 201: ... -> "      "
+  // 209: -> "      "
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__d81f466083be52f7;
@@ -5519,7 +5541,7 @@ static void entry__107_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 201: ... -> "  "
+  // 210: -> "  "
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e6082be5;
@@ -5533,28 +5555,28 @@ static void cont__107_36(void) {
     return;
   }
   initialize_future(frame->slots[1] /* indent */, arguments->slots[0]);
-  // 202: ... : (var)
-  // 203:   $type var(1)
-  // 204:   $name var(2)
-  // 205:   case
-  // 206:     type
-  // 207:     "pointer":
-  // 208:       writeln_to &buf indent "print__pointer(@(name));"
-  // 209:     "int_array":
-  // 210:       writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
-  // 211:     "memory":
+  // 212: ... : (var)
+  // 213:   $type var(1)
+  // 214:   $name var(2)
+  // 215:   case type
+  // 216:     "pointer"
+  // 217:     :
+  // 218:       writeln_to &buf indent "print__pointer(@(name));"
+  // 219:     "int_array"
+  // 220:     :
+  // 221:       writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
   // ...
   frame->slots[2] /* temp__1 */ = create_closure(entry__107_37, 1);
-  // 202: for_each info_variables: (var)
-  // 203:   $type var(1)
-  // 204:   $name var(2)
-  // 205:   case
-  // 206:     type
-  // 207:     "pointer":
-  // 208:       writeln_to &buf indent "print__pointer(@(name));"
-  // 209:     "int_array":
-  // 210:       writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
-  // 211:     "memory":
+  // 212: for_each info_variables: (var)
+  // 213:   $type var(1)
+  // 214:   $name var(2)
+  // 215:   case type
+  // 216:     "pointer"
+  // 217:     :
+  // 218:       writeln_to &buf indent "print__pointer(@(name));"
+  // 219:     "int_array"
+  // 220:     :
+  // 221:       writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -5578,7 +5600,7 @@ static void entry__107_59(void) {
     invalid_arguments_error();
     return;
   }
-  // 218: ... event_kind == EVENT
+  // 230: ... event_kind == EVENT
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
@@ -5594,28 +5616,28 @@ static void cont__107_60(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 218: ... :
-  // 219:   write_to &buf "
-  // 220:       }
-  // 221:     } else {
-  // 222:   write_to &buf "
-  // 223:     @
-  // 224:       replay__event("@(event_name)");
-  // 225:   retrieve_variables
-  // 226:   unless info_variables.is_empty:
-  // 227:     write_to &buf "
+  // 230: ... :
+  // 231:   write_to &buf "
+  // 232:       }
+  // 233:     } else {
+  // 234:   write_to &buf "
+  // 235:     @
+  // 236:       replay__event("@(event_name)");
+  // 237:   retrieve_variables
+  // 238:   unless info_variables.is_empty:
+  // 239:     write_to &buf "
   // ...
   frame->slots[4] /* temp__2 */ = create_closure(entry__107_61, 0);
-  // 218: -> event_kind == EVENT:
-  // 219:   write_to &buf "
-  // 220:       }
-  // 221:     } else {
-  // 222:   write_to &buf "
-  // 223:     @
-  // 224:       replay__event("@(event_name)");
-  // 225:   retrieve_variables
-  // 226:   unless info_variables.is_empty:
-  // 227:     write_to &buf "
+  // 230: -> event_kind == EVENT:
+  // 231:   write_to &buf "
+  // 232:       }
+  // 233:     } else {
+  // 234:   write_to &buf "
+  // 235:     @
+  // 236:       replay__event("@(event_name)");
+  // 237:   retrieve_variables
+  // 238:   unless info_variables.is_empty:
+  // 239:     write_to &buf "
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -5638,7 +5660,7 @@ static void entry__107_74(void) {
     invalid_arguments_error();
     return;
   }
-  // 231: ... length_of(data_variables)
+  // 243: ... length_of(data_variables)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__data_variables();
@@ -5653,7 +5675,7 @@ static void cont__107_75(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 231: ... length_of(data_variables) > 0
+  // 243: ... length_of(data_variables) > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -5669,28 +5691,28 @@ static void cont__107_76(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 231: ... :
-  // 232:   write_to &buf "
-  // 233:     @
-  // 234:         }
-  // 235:       } else {
-  // 236:   write_to &buf "
-  // 237:     @
-  // 238:         if (replay__action("@(event_name)")) {
-  // 239:   retrieve_variables
-  // 240:   writeln_to &buf "  } else {"
+  // 243: ... :
+  // 244:   write_to &buf "
+  // 245:     @
+  // 246:         }
+  // 247:       } else {
+  // 248:   write_to &buf "
+  // 249:     @
+  // 250:         if (replay__action("@(event_name)")) {
+  // 251:   retrieve_variables
+  // 252:   writeln_to &buf "  } else {"
   // ...
   frame->slots[5] /* temp__3 */ = create_closure(entry__107_77, 0);
-  // 231: -> length_of(data_variables) > 0:
-  // 232:   write_to &buf "
-  // 233:     @
-  // 234:         }
-  // 235:       } else {
-  // 236:   write_to &buf "
-  // 237:     @
-  // 238:         if (replay__action("@(event_name)")) {
-  // 239:   retrieve_variables
-  // 240:   writeln_to &buf "  } else {"
+  // 243: -> length_of(data_variables) > 0:
+  // 244:   write_to &buf "
+  // 245:     @
+  // 246:         }
+  // 247:       } else {
+  // 248:   write_to &buf "
+  // 249:     @
+  // 250:         if (replay__action("@(event_name)")) {
+  // 251:   retrieve_variables
+  // 252:   writeln_to &buf "  } else {"
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -5705,7 +5727,7 @@ static void cont__107_105(void) {
     invalid_results_error();
     return;
   }
-  // 254: write_to &buf '}'
+  // 272: write_to &buf '}'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* buf */;
@@ -5721,7 +5743,7 @@ static void cont__107_106(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* buf */ = arguments->slots[0];
-  // 255: -> buf
+  // 273: -> buf
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* buf */;
@@ -5734,7 +5756,7 @@ static void cont__107_107(void) {
     invalid_results_error();
     return;
   }
-  // 256: define_macro "UNDEFINED" "undefined"
+  // 274: define_macro "UNDEFINED" "undefined"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__3c202d3e36291121;
@@ -5749,7 +5771,7 @@ static void cont__108_3(void) {
     invalid_results_error();
     return;
   }
-  // 257: define_macro "ZERO" "zero"
+  // 275: define_macro "ZERO" "zero"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__760ae00b5cf07d76;
@@ -5764,7 +5786,7 @@ static void cont__109_3(void) {
     invalid_results_error();
     return;
   }
-  // 258: define_macro "TRUE" "boolean_true"
+  // 276: define_macro "TRUE" "boolean_true"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__6a0ae5cb5cc87d7c;
@@ -5779,7 +5801,7 @@ static void cont__110_3(void) {
     invalid_results_error();
     return;
   }
-  // 259: define_macro "FALSE" "boolean_false"
+  // 277: define_macro "FALSE" "boolean_false"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__85ae003eb527012;
@@ -5794,7 +5816,7 @@ static void cont__111_3(void) {
     invalid_results_error();
     return;
   }
-  // 260: define_macro "EMPTY_STRING" "empty_string"
+  // 278: define_macro "EMPTY_STRING" "empty_string"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__ae20f214ef3d4185;
@@ -5809,7 +5831,7 @@ static void cont__112_3(void) {
     invalid_results_error();
     return;
   }
-  // 261: define_macro "ARGUMENTS" "arguments->slots[$1]"
+  // 279: define_macro "ARGUMENTS" "arguments->slots[$1]"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__242c2d3622a1a2b6;
@@ -5824,7 +5846,7 @@ static void cont__113_3(void) {
     invalid_results_error();
     return;
   }
-  // 262: define_macro "TYPE" "type__$1"
+  // 280: define_macro "TYPE" "type__$1"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__6a0ae70b5ce07d7c;
@@ -5839,7 +5861,7 @@ static void cont__114_3(void) {
     invalid_results_error();
     return;
   }
-  // 263: define_macro "TYPEOF" "($1)->type"
+  // 281: define_macro "TYPEOF" "($1)->type"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__381f5f1a80c1c291;
@@ -5854,7 +5876,7 @@ static void cont__115_3(void) {
     invalid_results_error();
     return;
   }
-  // 264: define_macro "SIZEOF" "($1)->attributes->vtable->size"
+  // 282: define_macro "SIZEOF" "($1)->attributes->vtable->size"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2c1f5f1900c0c291;
@@ -5869,13 +5891,13 @@ static void cont__116_3(void) {
     invalid_results_error();
     return;
   }
-  // 265: define_macro "RETURN_NOTHING" "
-  // 266:   {
-  // 267:     argument_count = 0;
-  // 268:     func = frame->cont;
-  // 269:     frame->cont = invalid_continuation;
-  // 270:     return;
-  // 271:   }@
+  // 283: define_macro "RETURN_NOTHING" "
+  // 284:   {
+  // 285:     argument_count = 0;
+  // 286:     func = frame->cont;
+  // 287:     frame->cont = invalid_continuation;
+  // 288:     return;
+  // 289:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__88b83a651b4554fc;
@@ -5890,16 +5912,16 @@ static void cont__117_3(void) {
     invalid_results_error();
     return;
   }
-  // 272: define_macro "RETURN_SINGLE_RESULT" "
-  // 273:   {
-  // 274:     NODE *result__node = (NODE *)($1);
-  // 275:     arguments = node_p;
-  // 276:     arguments->slots[0] = result__node;
-  // 277:     argument_count = 1;
-  // 278:     func = frame->cont;
-  // 279:     frame->cont = invalid_continuation;
-  // 280:     return;
-  // 281:   }@
+  // 290: define_macro "RETURN_SINGLE_RESULT" "
+  // 291:   {
+  // 292:     NODE *result__node = (NODE *)($1);
+  // 293:     arguments = node_p;
+  // 294:     arguments->slots[0] = result__node;
+  // 295:     argument_count = 1;
+  // 296:     func = frame->cont;
+  // 297:     frame->cont = invalid_continuation;
+  // 298:     return;
+  // 299:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__75924e59eefc3c27;
@@ -5914,7 +5936,7 @@ static void cont__118_3(void) {
     invalid_results_error();
     return;
   }
-  // 282: define_macro "RETURN_BOOLEAN" "RETURN_SINGLE_RESULT(from_bool($1))"
+  // 300: define_macro "RETURN_BOOLEAN" "RETURN_SINGLE_RESULT(from_bool($1))"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__808839651b3ce4f5;
@@ -5929,15 +5951,15 @@ static void cont__119_3(void) {
     invalid_results_error();
     return;
   }
-  // 283: define_macro "RETURN_UNDEFINED" "
-  // 284:   {
-  // 285:     arguments = node_p;
-  // 286:     arguments->slots[0] = undefined;
-  // 287:     argument_count = 1;
-  // 288:     func = frame->cont;
-  // 289:     frame->cont = invalid_continuation;
-  // 290:     return;
-  // 291:   }@
+  // 301: define_macro "RETURN_UNDEFINED" "
+  // 302:   {
+  // 303:     arguments = node_p;
+  // 304:     arguments->slots[0] = undefined;
+  // 305:     argument_count = 1;
+  // 306:     func = frame->cont;
+  // 307:     frame->cont = invalid_continuation;
+  // 308:     return;
+  // 309:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__df153d64b7266922;
@@ -5952,15 +5974,15 @@ static void cont__120_3(void) {
     invalid_results_error();
     return;
   }
-  // 292: define_macro "RETURN_TRUE" "
-  // 293:   {
-  // 294:     arguments = node_p;
-  // 295:     arguments->slots[0] = boolean_true;
-  // 296:     argument_count = 1;
-  // 297:     func = frame->cont;
-  // 298:     frame->cont = invalid_continuation;
-  // 299:     return;
-  // 300:   }@
+  // 310: define_macro "RETURN_TRUE" "
+  // 311:   {
+  // 312:     arguments = node_p;
+  // 313:     arguments->slots[0] = boolean_true;
+  // 314:     argument_count = 1;
+  // 315:     func = frame->cont;
+  // 316:     frame->cont = invalid_continuation;
+  // 317:     return;
+  // 318:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__681415cc9aa25dc9;
@@ -5975,15 +5997,15 @@ static void cont__121_3(void) {
     invalid_results_error();
     return;
   }
-  // 301: define_macro "RETURN_FALSE" "
-  // 302:   {
-  // 303:     arguments = node_p;
-  // 304:     arguments->slots[0] = boolean_false;
-  // 305:     argument_count = 1;
-  // 306:     func = frame->cont;
-  // 307:     frame->cont = invalid_continuation;
-  // 308:     return;
-  // 309:   }@
+  // 319: define_macro "RETURN_FALSE" "
+  // 320:   {
+  // 321:     arguments = node_p;
+  // 322:     arguments->slots[0] = boolean_false;
+  // 323:     argument_count = 1;
+  // 324:     func = frame->cont;
+  // 325:     frame->cont = invalid_continuation;
+  // 326:     return;
+  // 327:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__8864d352eefa60e5;
@@ -5998,15 +6020,15 @@ static void cont__122_3(void) {
     invalid_results_error();
     return;
   }
-  // 310: define_macro "RETURN_ZERO" "
-  // 311:   {
-  // 312:     arguments = node_p;
-  // 313:     arguments->slots[0] = zero;
-  // 314:     argument_count = 1;
-  // 315:     func = frame->cont;
-  // 316:     frame->cont = invalid_continuation;
-  // 317:     return;
-  // 318:   }@
+  // 328: define_macro "RETURN_ZERO" "
+  // 329:   {
+  // 330:     arguments = node_p;
+  // 331:     arguments->slots[0] = zero;
+  // 332:     argument_count = 1;
+  // 333:     func = frame->cont;
+  // 334:     frame->cont = invalid_continuation;
+  // 335:     return;
+  // 336:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__7414100c9a9a5dc3;
@@ -6021,9 +6043,9 @@ static void cont__123_3(void) {
     invalid_results_error();
     return;
   }
-  // 319: define_macro "START_ARGUMENTS" "
-  // 320:   argument_count = $1;
-  // 321:   arguments = node_p;@
+  // 337: define_macro "START_ARGUMENTS" "
+  // 338:   argument_count = $1;
+  // 339:   arguments = node_p;@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__4388537a39721213;
@@ -6038,12 +6060,12 @@ static void cont__124_3(void) {
     invalid_results_error();
     return;
   }
-  // 322: define_macro "RETURN" "
-  // 323:   {
-  // 324:     func = frame->cont;
-  // 325:     frame->cont = invalid_continuation;
-  // 326:     return;
-  // 327:   }@
+  // 340: define_macro "RETURN" "
+  // 341:   {
+  // 342:     func = frame->cont;
+  // 343:     frame->cont = invalid_continuation;
+  // 344:     return;
+  // 345:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__301f5b1980280299;
@@ -6058,11 +6080,11 @@ static void cont__125_3(void) {
     invalid_results_error();
     return;
   }
-  // 328: define_macro "CHAIN" "
-  // 329:   {
-  // 330:     func = myself->type;
-  // 331:     return;
-  // 332:   }@
+  // 346: define_macro "CHAIN" "
+  // 347:   {
+  // 348:     func = myself->type;
+  // 349:     return;
+  // 350:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__1a5ae343eb822019;
@@ -6077,7 +6099,7 @@ static void cont__126_3(void) {
     invalid_results_error();
     return;
   }
-  // 336: define_macro "UNRECOVERABLE_ERROR" "unrecoverable_error($*);"
+  // 354: define_macro "UNRECOVERABLE_ERROR" "unrecoverable_error($*);"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__690816604df6099f;
@@ -6092,7 +6114,7 @@ static void cont__127_3(void) {
     invalid_results_error();
     return;
   }
-  // 337: define_macro "OUT_OF_MEMORY_ERROR" "out_of_memory_error();"
+  // 355: define_macro "OUT_OF_MEMORY_ERROR" "out_of_memory_error();"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__adfe76f306663a82;
@@ -6107,10 +6129,10 @@ static void cont__128_3(void) {
     invalid_results_error();
     return;
   }
-  // 341: define_macro "RUNTIME_ERROR" "
-  // 342:   {
-  // 343:     runtime_error($*);
-  // 344:   }@
+  // 359: define_macro "RUNTIME_ERROR" "
+  // 360:   {
+  // 361:     runtime_error($*);
+  // 362:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__26ff7f9f9c5c0312;
@@ -6125,10 +6147,10 @@ static void cont__129_3(void) {
     invalid_results_error();
     return;
   }
-  // 345: define_macro "TOO_FEW_ARGUMENTS_ERROR" "
-  // 346:   {
-  // 347:     too_few_arguments_error();
-  // 348:   }@
+  // 363: define_macro "TOO_FEW_ARGUMENTS_ERROR" "
+  // 364:   {
+  // 365:     too_few_arguments_error();
+  // 366:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__fce3f40028924a51;
@@ -6143,10 +6165,10 @@ static void cont__130_3(void) {
     invalid_results_error();
     return;
   }
-  // 349: define_macro "TOO_MANY_ARGUMENTS_ERROR" "
-  // 350:   {
-  // 351:     too_many_arguments_error();
-  // 352:   }@
+  // 367: define_macro "TOO_MANY_ARGUMENTS_ERROR" "
+  // 368:   {
+  // 369:     too_many_arguments_error();
+  // 370:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__aab70cfc8956db67;
@@ -6161,10 +6183,10 @@ static void cont__131_3(void) {
     invalid_results_error();
     return;
   }
-  // 353: define_macro "INVALID_ARGUMENTS_ERROR" "
-  // 354:   {
-  // 355:     invalid_arguments_error();
-  // 356:   }@
+  // 371: define_macro "INVALID_ARGUMENTS_ERROR" "
+  // 372:   {
+  // 373:     invalid_arguments_error();
+  // 374:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__6cf0c8742a12ca30;
@@ -6179,10 +6201,10 @@ static void cont__132_3(void) {
     invalid_results_error();
     return;
   }
-  // 357: define_macro "TOO_FEW_RESULTS_ERROR" "
-  // 358:   {
-  // 359:     too_few_results_error();
-  // 360:   }@
+  // 375: define_macro "TOO_FEW_RESULTS_ERROR" "
+  // 376:   {
+  // 377:     too_few_results_error();
+  // 378:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__1adfaddd8e34edf5;
@@ -6197,10 +6219,10 @@ static void cont__133_3(void) {
     invalid_results_error();
     return;
   }
-  // 361: define_macro "TOO_MANY_RESULTS_ERROR" "
-  // 362:   {
-  // 363:     too_many_results_error();
-  // 364:   }@
+  // 379: define_macro "TOO_MANY_RESULTS_ERROR" "
+  // 380:   {
+  // 381:     too_many_results_error();
+  // 382:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__e858bf99576dbe16;
@@ -6215,10 +6237,10 @@ static void cont__134_3(void) {
     invalid_results_error();
     return;
   }
-  // 365: define_macro "INVALID_RESULTS_ERROR" "
-  // 366:   {
-  // 367:     invalid_results_error();
-  // 368:   }@
+  // 383: define_macro "INVALID_RESULTS_ERROR" "
+  // 384:   {
+  // 385:     invalid_results_error();
+  // 386:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__cad5afdc0874a104;
@@ -6233,10 +6255,10 @@ static void cont__135_3(void) {
     invalid_results_error();
     return;
   }
-  // 369: define_macro "INVALID_INDEX_ERROR" "
-  // 370:   {
-  // 371:     invalid_index_error();
-  // 372:   }@
+  // 387: define_macro "INVALID_INDEX_ERROR" "
+  // 388:   {
+  // 389:     invalid_index_error();
+  // 390:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__aa786f40ccc234b9;
@@ -6251,10 +6273,10 @@ static void cont__136_3(void) {
     invalid_results_error();
     return;
   }
-  // 373: define_macro "DIVIDE_BY_ZERO_ERROR" "
-  // 374:   {
-  // 375:     divide_by_zero_error();
-  // 376:   }@
+  // 391: define_macro "DIVIDE_BY_ZERO_ERROR" "
+  // 392:   {
+  // 393:     divide_by_zero_error();
+  // 394:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__37ce8a8da4c412d5;
@@ -6269,10 +6291,10 @@ static void cont__137_3(void) {
     invalid_results_error();
     return;
   }
-  // 377: define_macro "NOT_YET_IMPLEMENTED_ERROR" "
-  // 378:   {
-  // 379:     not_yet_implemented_error();
-  // 380:   }@
+  // 395: define_macro "NOT_YET_IMPLEMENTED_ERROR" "
+  // 396:   {
+  // 397:     not_yet_implemented_error();
+  // 398:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__221e44965d54351b;
@@ -6287,10 +6309,10 @@ static void cont__138_3(void) {
     invalid_results_error();
     return;
   }
-  // 381: define_macro "NO_SUCH_FUNCTION_ERROR" "
-  // 382:   {
-  // 383:     no_such_function_error();
-  // 384:   }@
+  // 399: define_macro "NO_SUCH_FUNCTION_ERROR" "
+  // 400:   {
+  // 401:     no_such_function_error();
+  // 402:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__e4ae97e99176a5b2;
@@ -6305,10 +6327,10 @@ static void cont__139_3(void) {
     invalid_results_error();
     return;
   }
-  // 385: define_macro "RESOURCE_ERROR" "
-  // 386:   {
-  // 387:     resource_error();
-  // 388:   }@
+  // 403: define_macro "RESOURCE_ERROR" "
+  // 404:   {
+  // 405:     resource_error();
+  // 406:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__3c9404ad0742476f;
@@ -6323,10 +6345,10 @@ static void cont__140_3(void) {
     invalid_results_error();
     return;
   }
-  // 389: define_macro "IO_ERROR" "
-  // 390:   {
-  // 391:     io_error();
-  // 392:   }@
+  // 407: define_macro "IO_ERROR" "
+  // 408:   {
+  // 409:     io_error();
+  // 410:   }@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__a28a14985afc552;
@@ -6346,7 +6368,7 @@ static void cont__141_3(void) {
   frame->cont = invalid_continuation;
 }
 static void entry__define_macro_1(void) {
-  allocate_initialized_frame_gc(2, 3);
+  allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // name: 0
   // replacement: 1
@@ -6354,13 +6376,11 @@ static void entry__define_macro_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 41: ... !macro_replacements(name) replacement
-  frame->slots[2] /* temp__1 */ = frame->slots[1] /* replacement */;
   // 41: ... !macro_replacements(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
-  arguments->slots[1] = frame->slots[2] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* replacement */;
   result_count = 1;
   myself = var._macro_replacements;
   func = myself->type;
@@ -6405,15 +6425,15 @@ static void entry__compiler__converted_1(void) {
     return;
   }
   frame->slots[0] /* code */ = create_cell_with_contents(arguments->slots[0]);
-  // 395: %%event_name undefined
+  // 413: %%event_name undefined
   set__event_name(get__undefined());
-  // 396: %%event_kind undefined
+  // 414: %%event_kind undefined
   set__event_kind(get__undefined());
-  // 397: %%data_variables empty_list
+  // 415: %%data_variables empty_list
   set__data_variables(get__empty_list());
-  // 398: %%info_variables empty_list
+  // 416: %%info_variables empty_list
   set__info_variables(get__empty_list());
-  // 399: push &code '@nl;' # add sentinel
+  // 417: push &code '@nl;' # add sentinel
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* code */;
@@ -6429,17 +6449,17 @@ static void cont__compiler__converted_2(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* code */ = arguments->slots[0];
-  // 400: $$new_code ""
+  // 418: $$new_code ""
   ((CELL *)frame->slots[2])->contents /* new_code */ = empty_string;
-  // 401: $$start 1
+  // 419: $$start 1
   ((CELL *)frame->slots[3])->contents /* start */ = number__1;
-  // 402: $$within_string false
+  // 420: $$within_string false
   ((CELL *)frame->slots[4])->contents /* within_string */ = get__false();
-  // 403: $$s undefined
+  // 421: $$s undefined
   ((CELL *)frame->slots[5])->contents /* s */ = get__undefined();
-  // 404: $$i 1
+  // 422: $$i 1
   ((CELL *)frame->slots[6])->contents /* i */ = number__1;
-  // 405: $len length_of(code)
+  // 423: $len length_of(code)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* code */;
@@ -6454,28 +6474,28 @@ static void cont__compiler__converted_3(void) {
     return;
   }
   initialize_future(frame->slots[7] /* len */, arguments->slots[0]);
-  // 406: ... -> i <= len:
-  // 407:   if
-  // 408:     within_string:
-  // 409:       case code(i) '@quot;': if code(i-1) != '\': !within_string false
-  // 410:       inc &i
-  // 411:     :
-  // 412:       $chr code(i)
-  // 413:       case
-  // 414:         chr
-  // 415:         '_', 'a' .. 'z', 'A' .. 'Z':
+  // 424: ... -> i <= len:
+  // 425:   if
+  // 426:     within_string:
+  // 427:       case code(i) '@quot;': if code(i-1) != '\': !within_string false
+  // 428:       inc &i
+  // 429:     :
+  // 430:       $chr code(i)
+  // 431:       case chr
+  // 432:         '_', 'a' .. 'z', 'A' .. 'Z':
+  // 433:           unless s.is_defined: !s i
   // ...
   frame->slots[8] /* temp__1 */ = create_closure(entry__compiler__converted_4, 0);
-  // 406: while -> i <= len:
-  // 407:   if
-  // 408:     within_string:
-  // 409:       case code(i) '@quot;': if code(i-1) != '\': !within_string false
-  // 410:       inc &i
-  // 411:     :
-  // 412:       $chr code(i)
-  // 413:       case
-  // 414:         chr
-  // 415:         '_', 'a' .. 'z', 'A' .. 'Z':
+  // 424: while -> i <= len:
+  // 425:   if
+  // 426:     within_string:
+  // 427:       case code(i) '@quot;': if code(i-1) != '\': !within_string false
+  // 428:       inc &i
+  // 429:     :
+  // 430:       $chr code(i)
+  // 431:       case chr
+  // 432:         '_', 'a' .. 'z', 'A' .. 'Z':
+  // 433:           unless s.is_defined: !s i
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -6498,7 +6518,7 @@ static void entry__compiler__converted_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 409: ... code(i)
+  // 427: ... code(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -6513,9 +6533,9 @@ static void cont__compiler__converted_9(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 409: ... : if code(i-1) != '\': !within_string false
+  // 427: ... : if code(i-1) != '\': !within_string false
   frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__converted_10, 0);
-  // 409: case code(i) '@quot;': if code(i-1) != '\': !within_string false
+  // 427: case code(i) '@quot;': if code(i-1) != '\': !within_string false
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -6535,7 +6555,7 @@ static void entry__compiler__converted_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 409: ... !within_string false
+  // 427: ... !within_string false
   ((CELL *)frame->slots[0])->contents /* within_string */ = get__false();
   argument_count = 0;
   arguments = node_p;
@@ -6556,7 +6576,7 @@ static void entry__compiler__converted_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 409: ... i-1
+  // 427: ... i-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -6572,7 +6592,7 @@ static void cont__compiler__converted_11(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 409: ... code(i-1)
+  // 427: ... code(i-1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__4 */;
@@ -6587,7 +6607,7 @@ static void cont__compiler__converted_12(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 409: ... code(i-1) != '\'
+  // 427: ... code(i-1) != '\'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -6603,7 +6623,7 @@ static void cont__compiler__converted_13(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 409: ... code(i-1) != '\'
+  // 427: ... code(i-1) != '\'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -6618,9 +6638,9 @@ static void cont__compiler__converted_14(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 409: ... : !within_string false
+  // 427: ... : !within_string false
   frame->slots[7] /* temp__5 */ = create_closure(entry__compiler__converted_15, 0);
-  // 409: ... if code(i-1) != '\': !within_string false
+  // 427: ... if code(i-1) != '\': !within_string false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -6635,7 +6655,7 @@ static void cont__compiler__converted_16(void) {
     invalid_results_error();
     return;
   }
-  // 410: inc &i
+  // 428: inc &i
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -6679,7 +6699,7 @@ static void entry__compiler__converted_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 412: $chr code(i)
+  // 430: $chr code(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -6694,7 +6714,7 @@ static void cont__compiler__converted_19(void) {
     return;
   }
   initialize_future(frame->slots[7] /* chr */, arguments->slots[0]);
-  // 415: ... 'a' .. 'z'
+  // 432: ... 'a' .. 'z'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__97;
@@ -6710,7 +6730,7 @@ static void cont__compiler__converted_20(void) {
     return;
   }
   frame->slots[9] /* temp__2 */ = arguments->slots[0];
-  // 415: ... 'A' .. 'Z'
+  // 432: ... 'A' .. 'Z'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__65;
@@ -6726,7 +6746,7 @@ static void cont__compiler__converted_21(void) {
     return;
   }
   frame->slots[10] /* temp__3 */ = arguments->slots[0];
-  // 415: '_', 'a' .. 'z', 'A' .. 'Z'
+  // 432: '_', 'a' .. 'z', 'A' .. 'Z'
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = character__95;
@@ -6743,10 +6763,10 @@ static void cont__compiler__converted_22(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 415: ... :
-  // 416:   unless s.is_defined: !s i
+  // 432: ... :
+  // 433:   unless s.is_defined: !s i
   frame->slots[11] /* temp__4 */ = create_closure(entry__compiler__converted_23, 0);
-  // 417: '0' .. '9'
+  // 434: '0' .. '9'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__48;
@@ -6767,7 +6787,7 @@ static void entry__compiler__converted_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 416: ... !s i
+  // 433: ... !s i
   ((CELL *)frame->slots[0])->contents /* s */ = ((CELL *)frame->slots[1])->contents /* i */;
   argument_count = 0;
   arguments = node_p;
@@ -6786,7 +6806,7 @@ static void entry__compiler__converted_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 416: ... s.is_defined
+  // 433: ... s.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* s */;
@@ -6801,9 +6821,9 @@ static void cont__compiler__converted_24(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 416: ... : !s i
+  // 433: ... : !s i
   frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__converted_25, 0);
-  // 416: unless s.is_defined: !s i
+  // 433: unless s.is_defined: !s i
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6819,32 +6839,32 @@ static void cont__compiler__converted_26(void) {
     return;
   }
   frame->slots[12] /* temp__5 */ = arguments->slots[0];
-  // 419: ... :
-  // 420:   !s undefined
-  // 421:   if code(i-1) != '\': !within_string true
+  // 436: ... :
+  // 437:   !s undefined
+  // 438:   if code(i-1) != '\': !within_string true
   frame->slots[13] /* temp__6 */ = create_closure(entry__compiler__converted_27, 0);
-  // 422: :
-  // 423:   if s.is_defined:
-  // 424:     if
-  // 425:       chr == ':' && code(i+1) == ':':
-  // 426:         inc &i
-  // 427:       :
-  // 428:         $$identifier range(code s i-1)
-  // 429:         $$replacement macro_replacements(identifier)
-  // 430:         if
-  // 431:           replacement.is_defined:
+  // 439: :
+  // 440:   if s.is_defined:
+  // 441:     if
+  // 442:       chr == ':' && code(i+1) == ':':
+  // 443:         inc &i
+  // 444:       :
+  // 445:         $$identifier range(code s i-1)
+  // 446:         $$replacement macro_replacements(identifier)
+  // 447:         if
+  // 448:           replacement.is_defined:
   // ...
   frame->slots[14] /* temp__7 */ = create_closure(entry__compiler__converted_33, 0);
-  // 413: case
-  // 414:   chr
-  // 415:   '_', 'a' .. 'z', 'A' .. 'Z':
-  // 416:     unless s.is_defined: !s i
-  // 417:   '0' .. '9':
-  // 418:     pass
-  // 419:   '@quot;':
-  // 420:     !s undefined
-  // 421:     if code(i-1) != '\': !within_string true
-  // 422:   :
+  // 431: case chr
+  // 432:   '_', 'a' .. 'z', 'A' .. 'Z':
+  // 433:     unless s.is_defined: !s i
+  // 434:   '0' .. '9':
+  // 435:     pass
+  // 436:   '@quot;':
+  // 437:     !s undefined
+  // 438:     if code(i-1) != '\': !within_string true
+  // 439:   :
+  // 440:     if s.is_defined:
   // ...
   argument_count = 8;
   arguments = node_p;
@@ -6870,7 +6890,7 @@ static void entry__compiler__converted_42(void) {
     invalid_arguments_error();
     return;
   }
-  // 426: inc &i
+  // 443: inc &i
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* i */;
@@ -6914,7 +6934,7 @@ static void entry__compiler__converted_44(void) {
     invalid_arguments_error();
     return;
   }
-  // 428: ... i-1
+  // 445: ... i-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* i */;
@@ -6930,7 +6950,7 @@ static void cont__compiler__converted_45(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 428: $$identifier range(code s i-1)
+  // 445: $$identifier range(code s i-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* code */;
@@ -6947,7 +6967,7 @@ static void cont__compiler__converted_46(void) {
     return;
   }
   ((CELL *)frame->slots[6])->contents /* identifier */ = arguments->slots[0];
-  // 429: $$replacement macro_replacements(identifier)
+  // 446: $$replacement macro_replacements(identifier)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[6])->contents /* identifier */;
@@ -6962,7 +6982,7 @@ static void cont__compiler__converted_47(void) {
     return;
   }
   ((CELL *)frame->slots[7])->contents /* replacement */ = arguments->slots[0];
-  // 431: replacement.is_defined
+  // 448: replacement.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[7])->contents /* replacement */;
@@ -6977,36 +6997,36 @@ static void cont__compiler__converted_48(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 431: ... :
-  // 432:   append &new_code range(code start s-1)
-  // 433:   if
-  // 434:     code(i) == '(':
-  // 435:       $$arguments list()
-  // 436:       inc &i
-  // 437:       $$a i
-  // 438:       $$level 1
-  // 439:       do: (-> break)
-  // 440:         while -> i <= len:
+  // 448: ... :
+  // 449:   append &new_code range(code start s-1)
+  // 450:   if
+  // 451:     code(i) == '(':
+  // 452:       $$arguments list()
+  // 453:       inc &i
+  // 454:       $$a i
+  // 455:       $$level 1
+  // 456:       do: (-> break)
+  // 457:         while -> i <= len:
   // ...
   frame->slots[9] /* temp__2 */ = create_closure(entry__compiler__converted_49, 0);
-  // 488: :
-  // 489:   if identifier .contains. ':':
-  // 490:     replace_all &identifier "::" = "__"
-  // 491:     append &new_code range(code start s-1)
-  // 492:     append &new_code identifier
-  // 493:     !start i
-  // 494:   use_identifier identifier
+  // 504: :
+  // 505:   if identifier .contains. ':':
+  // 506:     replace_all &identifier "::" = "__"
+  // 507:     append &new_code range(code start s-1)
+  // 508:     append &new_code identifier
+  // 509:     !start i
+  // 510:   use_identifier identifier
   frame->slots[10] /* temp__3 */ = create_closure(entry__compiler__converted_128, 0);
-  // 430: if
-  // 431:   replacement.is_defined:
-  // 432:     append &new_code range(code start s-1)
-  // 433:     if
-  // 434:       code(i) == '(':
-  // 435:         $$arguments list()
-  // 436:         inc &i
-  // 437:         $$a i
-  // 438:         $$level 1
-  // 439:         do: (-> break)
+  // 447: if
+  // 448:   replacement.is_defined:
+  // 449:     append &new_code range(code start s-1)
+  // 450:     if
+  // 451:       code(i) == '(':
+  // 452:         $$arguments list()
+  // 453:         inc &i
+  // 454:         $$a i
+  // 455:         $$level 1
+  // 456:         do: (-> break)
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -7039,7 +7059,7 @@ static void entry__compiler__converted_49(void) {
     invalid_arguments_error();
     return;
   }
-  // 432: ... s-1
+  // 449: ... s-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* s */;
@@ -7055,7 +7075,7 @@ static void cont__compiler__converted_50(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 432: ... range(code start s-1)
+  // 449: ... range(code start s-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* code */;
@@ -7072,7 +7092,7 @@ static void cont__compiler__converted_51(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 432: append &new_code range(code start s-1)
+  // 449: append &new_code range(code start s-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* new_code */;
@@ -7088,7 +7108,7 @@ static void cont__compiler__converted_52(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* new_code */ = arguments->slots[0];
-  // 434: code(i)
+  // 451: code(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* i */;
@@ -7103,7 +7123,7 @@ static void cont__compiler__converted_53(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 434: code(i) == '('
+  // 451: code(i) == '('
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -7119,32 +7139,32 @@ static void cont__compiler__converted_54(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 434: ... :
-  // 435:   $$arguments list()
-  // 436:   inc &i
-  // 437:   $$a i
-  // 438:   $$level 1
-  // 439:   do: (-> break)
-  // 440:     while -> i <= len:
-  // 441:       case
-  // 442:         code(i)
-  // 443:         ',':
+  // 451: ... :
+  // 452:   $$arguments list()
+  // 453:   inc &i
+  // 454:   $$a i
+  // 455:   $$level 1
+  // 456:   do: (-> break)
+  // 457:     while -> i <= len:
+  // 458:       case code(i)
+  // 459:         ',':
+  // 460:           if level == 1:
   // ...
   frame->slots[9] /* temp__3 */ = create_closure(entry__compiler__converted_55, 0);
-  // 483: :
-  // 484:   unless replacement.is_a_string:
-  // 485:     !replacement replacement()
+  // 499: :
+  // 500:   unless replacement.is_a_string:
+  // 501:     !replacement replacement()
   frame->slots[10] /* temp__4 */ = create_closure(entry__compiler__converted_121, 0);
-  // 433: if
-  // 434:   code(i) == '(':
-  // 435:     $$arguments list()
-  // 436:     inc &i
-  // 437:     $$a i
-  // 438:     $$level 1
-  // 439:     do: (-> break)
-  // 440:       while -> i <= len:
-  // 441:         case
-  // 442:           code(i)
+  // 450: if
+  // 451:   code(i) == '(':
+  // 452:     $$arguments list()
+  // 453:     inc &i
+  // 454:     $$a i
+  // 455:     $$level 1
+  // 456:     do: (-> break)
+  // 457:       while -> i <= len:
+  // 458:         case code(i)
+  // 459:           ',':
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -7165,7 +7185,7 @@ static void entry__compiler__converted_123(void) {
     invalid_arguments_error();
     return;
   }
-  // 485: !replacement replacement()
+  // 501: !replacement replacement()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -7204,11 +7224,11 @@ static void entry__compiler__converted_88(void) {
     invalid_arguments_error();
     return;
   }
-  // 458: $$r 1
+  // 474: $$r 1
   ((CELL *)frame->slots[2])->contents /* r */ = number__1;
-  // 459: $$j 1
+  // 475: $$j 1
   ((CELL *)frame->slots[3])->contents /* j */ = number__1;
-  // 460: $m length_of(replacement)
+  // 476: $m length_of(replacement)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* replacement */;
@@ -7223,30 +7243,30 @@ static void cont__compiler__converted_89(void) {
     return;
   }
   initialize_future(frame->slots[4] /* m */, arguments->slots[0]);
-  // 461: $$new_replacement ""
+  // 477: $$new_replacement ""
   ((CELL *)frame->slots[5])->contents /* new_replacement */ = empty_string;
-  // 462: ... -> j <= m:
-  // 463:   if replacement(j) == '$':
-  // 464:     append
-  // 465:       &new_replacement
-  // 466:       range(replacement r j-1)
-  // 467:     inc &j
-  // 468:     $var_no replacement(j)
-  // 469:     if
-  // 470:       var_no == '*':
-  // 471:         append
+  // 478: ... -> j <= m:
+  // 479:   if replacement(j) == '$':
+  // 480:     append
+  // 481:       &new_replacement
+  // 482:       range(replacement r j-1)
+  // 483:     inc &j
+  // 484:     $var_no replacement(j)
+  // 485:     if
+  // 486:       var_no == '*':
+  // 487:         append
   // ...
   frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__converted_90, 0);
-  // 462: while -> j <= m:
-  // 463:   if replacement(j) == '$':
-  // 464:     append
-  // 465:       &new_replacement
-  // 466:       range(replacement r j-1)
-  // 467:     inc &j
-  // 468:     $var_no replacement(j)
-  // 469:     if
-  // 470:       var_no == '*':
-  // 471:         append
+  // 478: while -> j <= m:
+  // 479:   if replacement(j) == '$':
+  // 480:     append
+  // 481:       &new_replacement
+  // 482:       range(replacement r j-1)
+  // 483:     inc &j
+  // 484:     $var_no replacement(j)
+  // 485:     if
+  // 486:       var_no == '*':
+  // 487:         append
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -7273,7 +7293,7 @@ static void entry__compiler__converted_93(void) {
     invalid_arguments_error();
     return;
   }
-  // 463: ... replacement(j)
+  // 479: ... replacement(j)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* j */;
@@ -7288,7 +7308,7 @@ static void cont__compiler__converted_94(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 463: ... replacement(j) == '$'
+  // 479: ... replacement(j) == '$'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -7304,28 +7324,28 @@ static void cont__compiler__converted_95(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 463: ... :
-  // 464:   append
-  // 465:     &new_replacement
-  // 466:     range(replacement r j-1)
-  // 467:   inc &j
-  // 468:   $var_no replacement(j)
-  // 469:   if
-  // 470:     var_no == '*':
-  // 471:       append
-  // 472:         &new_replacement
+  // 479: ... :
+  // 480:   append
+  // 481:     &new_replacement
+  // 482:     range(replacement r j-1)
+  // 483:   inc &j
+  // 484:   $var_no replacement(j)
+  // 485:   if
+  // 486:     var_no == '*':
+  // 487:       append
+  // 488:         &new_replacement
   // ...
   frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__converted_96, 0);
-  // 463: if replacement(j) == '$':
-  // 464:   append
-  // 465:     &new_replacement
-  // 466:     range(replacement r j-1)
-  // 467:   inc &j
-  // 468:   $var_no replacement(j)
-  // 469:   if
-  // 470:     var_no == '*':
-  // 471:       append
-  // 472:         &new_replacement
+  // 479: if replacement(j) == '$':
+  // 480:   append
+  // 481:     &new_replacement
+  // 482:     range(replacement r j-1)
+  // 483:   inc &j
+  // 484:   $var_no replacement(j)
+  // 485:   if
+  // 486:     var_no == '*':
+  // 487:       append
+  // 488:         &new_replacement
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -7355,7 +7375,7 @@ static void entry__compiler__converted_96(void) {
     invalid_arguments_error();
     return;
   }
-  // 466: ... j-1
+  // 482: ... j-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* j */;
@@ -7371,7 +7391,7 @@ static void cont__compiler__converted_97(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 466: range(replacement r j-1)
+  // 482: range(replacement r j-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* replacement */;
@@ -7388,9 +7408,9 @@ static void cont__compiler__converted_98(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 464: append
-  // 465:   &new_replacement
-  // 466:   range(replacement r j-1)
+  // 480: append
+  // 481:   &new_replacement
+  // 482:   range(replacement r j-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* new_replacement */;
@@ -7406,7 +7426,7 @@ static void cont__compiler__converted_99(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* new_replacement */ = arguments->slots[0];
-  // 467: inc &j
+  // 483: inc &j
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* j */;
@@ -7421,7 +7441,7 @@ static void cont__compiler__converted_100(void) {
     return;
   }
   ((CELL *)frame->slots[3])->contents /* j */ = arguments->slots[0];
-  // 468: $var_no replacement(j)
+  // 484: $var_no replacement(j)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* j */;
@@ -7436,7 +7456,7 @@ static void cont__compiler__converted_101(void) {
     return;
   }
   initialize_future(frame->slots[5] /* var_no */, arguments->slots[0]);
-  // 470: var_no == '*'
+  // 486: var_no == '*'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* var_no */;
@@ -7452,23 +7472,23 @@ static void cont__compiler__converted_102(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 470: ... :
-  // 471:   append
-  // 472:     &new_replacement
-  // 473:     join(arguments ", ")
+  // 486: ... :
+  // 487:   append
+  // 488:     &new_replacement
+  // 489:     join(arguments ", ")
   frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__converted_103, 0);
-  // 474: :
-  // 475:   $idx var_no-'0'
-  // 476:   append &new_replacement arguments(idx)
+  // 490: :
+  // 491:   $idx var_no-'0'
+  // 492:   append &new_replacement arguments(idx)
   frame->slots[8] /* temp__3 */ = create_closure(entry__compiler__converted_107, 0);
-  // 469: if
-  // 470:   var_no == '*':
-  // 471:     append
-  // 472:       &new_replacement
-  // 473:       join(arguments ", ")
-  // 474:   :
-  // 475:     $idx var_no-'0'
-  // 476:     append &new_replacement arguments(idx)
+  // 485: if
+  // 486:   var_no == '*':
+  // 487:     append
+  // 488:       &new_replacement
+  // 489:       join(arguments ", ")
+  // 490:   :
+  // 491:     $idx var_no-'0'
+  // 492:     append &new_replacement arguments(idx)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -7490,7 +7510,7 @@ static void entry__compiler__converted_103(void) {
     invalid_arguments_error();
     return;
   }
-  // 473: join(arguments ", ")
+  // 489: join(arguments ", ")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* arguments */;
@@ -7506,9 +7526,9 @@ static void cont__compiler__converted_105(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 471: append
-  // 472:   &new_replacement
-  // 473:   join(arguments ", ")
+  // 487: append
+  // 488:   &new_replacement
+  // 489:   join(arguments ", ")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* new_replacement */;
@@ -7545,7 +7565,7 @@ static void entry__compiler__converted_107(void) {
     invalid_arguments_error();
     return;
   }
-  // 475: $idx var_no-'0'
+  // 491: $idx var_no-'0'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* var_no */;
@@ -7561,7 +7581,7 @@ static void cont__compiler__converted_108(void) {
     return;
   }
   initialize_future(frame->slots[3] /* idx */, arguments->slots[0]);
-  // 476: ... arguments(idx)
+  // 492: ... arguments(idx)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* idx */;
@@ -7576,7 +7596,7 @@ static void cont__compiler__converted_109(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 476: append &new_replacement arguments(idx)
+  // 492: append &new_replacement arguments(idx)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* new_replacement */;
@@ -7603,7 +7623,7 @@ static void cont__compiler__converted_111(void) {
     invalid_results_error();
     return;
   }
-  // 477: !r j+1
+  // 493: !r j+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* j */;
@@ -7630,7 +7650,7 @@ static void cont__compiler__converted_113(void) {
     invalid_results_error();
     return;
   }
-  // 478: inc &j
+  // 494: inc &j
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* j */;
@@ -7670,7 +7690,7 @@ static void entry__compiler__converted_90(void) {
     invalid_arguments_error();
     return;
   }
-  // 462: ... j <= m
+  // 478: ... j <= m
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* m */;
@@ -7686,7 +7706,7 @@ static void cont__compiler__converted_91(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 462: ... j <= m
+  // 478: ... j <= m
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -7701,28 +7721,28 @@ static void cont__compiler__converted_92(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 462: ... :
-  // 463:   if replacement(j) == '$':
-  // 464:     append
-  // 465:       &new_replacement
-  // 466:       range(replacement r j-1)
-  // 467:     inc &j
-  // 468:     $var_no replacement(j)
-  // 469:     if
-  // 470:       var_no == '*':
-  // 471:         append
+  // 478: ... :
+  // 479:   if replacement(j) == '$':
+  // 480:     append
+  // 481:       &new_replacement
+  // 482:       range(replacement r j-1)
+  // 483:     inc &j
+  // 484:     $var_no replacement(j)
+  // 485:     if
+  // 486:       var_no == '*':
+  // 487:         append
   // ...
   frame->slots[8] /* temp__3 */ = create_closure(entry__compiler__converted_93, 0);
-  // 462: ... -> j <= m:
-  // 463:   if replacement(j) == '$':
-  // 464:     append
-  // 465:       &new_replacement
-  // 466:       range(replacement r j-1)
-  // 467:     inc &j
-  // 468:     $var_no replacement(j)
-  // 469:     if
-  // 470:       var_no == '*':
-  // 471:         append
+  // 478: ... -> j <= m:
+  // 479:   if replacement(j) == '$':
+  // 480:     append
+  // 481:       &new_replacement
+  // 482:       range(replacement r j-1)
+  // 483:     inc &j
+  // 484:     $var_no replacement(j)
+  // 485:     if
+  // 486:       var_no == '*':
+  // 487:         append
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -7737,7 +7757,7 @@ static void cont__compiler__converted_115(void) {
     invalid_results_error();
     return;
   }
-  // 480: ... 1
+  // 496: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7752,7 +7772,7 @@ static void cont__compiler__converted_116(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 480: ... range(replacement r -1)
+  // 496: ... range(replacement r -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* replacement */;
@@ -7769,8 +7789,8 @@ static void cont__compiler__converted_117(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 479: !replacement
-  // 480:   append(new_replacement range(replacement r -1))
+  // 495: !replacement
+  // 496:   append(new_replacement range(replacement r -1))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* new_replacement */;
@@ -7803,7 +7823,7 @@ static void entry__compiler__converted_119(void) {
     invalid_arguments_error();
     return;
   }
-  // 482: !replacement replacement(arguments)
+  // 498: !replacement replacement(arguments)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* arguments */;
@@ -7845,7 +7865,7 @@ static void entry__compiler__converted_55(void) {
     invalid_arguments_error();
     return;
   }
-  // 435: $$arguments list()
+  // 452: $$arguments list()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -7859,7 +7879,7 @@ static void cont__compiler__converted_56(void) {
     return;
   }
   ((CELL *)frame->slots[4])->contents /* arguments */ = arguments->slots[0];
-  // 436: inc &i
+  // 453: inc &i
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* i */;
@@ -7874,32 +7894,32 @@ static void cont__compiler__converted_57(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* i */ = arguments->slots[0];
-  // 437: $$a i
+  // 454: $$a i
   ((CELL *)frame->slots[5])->contents /* a */ = ((CELL *)frame->slots[0])->contents /* i */;
-  // 438: $$level 1
+  // 455: $$level 1
   ((CELL *)frame->slots[6])->contents /* level */ = number__1;
-  // 439: ... : (-> break)
-  // 440:   while -> i <= len:
-  // 441:     case
-  // 442:       code(i)
-  // 443:       ',':
-  // 444:         if level == 1:
-  // 445:           push &arguments trim(range(code a i-1))
-  // 446:           !a i+1
-  // 447:       '(':
-  // 448:         inc &level
+  // 456: ... : (-> break)
+  // 457:   while -> i <= len:
+  // 458:     case code(i)
+  // 459:       ',':
+  // 460:         if level == 1:
+  // 461:           push &arguments trim(range(code a i-1))
+  // 462:           !a i+1
+  // 463:       '(':
+  // 464:         inc &level
+  // 465:       ')':
   // ...
   frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__converted_58, 0);
-  // 439: do: (-> break)
-  // 440:   while -> i <= len:
-  // 441:     case
-  // 442:       code(i)
-  // 443:       ',':
-  // 444:         if level == 1:
-  // 445:           push &arguments trim(range(code a i-1))
-  // 446:           !a i+1
-  // 447:       '(':
-  // 448:         inc &level
+  // 456: do: (-> break)
+  // 457:   while -> i <= len:
+  // 458:     case code(i)
+  // 459:       ',':
+  // 460:         if level == 1:
+  // 461:           push &arguments trim(range(code a i-1))
+  // 462:           !a i+1
+  // 463:       '(':
+  // 464:         inc &level
+  // 465:       ')':
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -7930,28 +7950,28 @@ static void entry__compiler__converted_58(void) {
     invalid_arguments_error();
     return;
   }
-  // 440: ... -> i <= len:
-  // 441:   case
-  // 442:     code(i)
-  // 443:     ',':
-  // 444:       if level == 1:
-  // 445:         push &arguments trim(range(code a i-1))
-  // 446:         !a i+1
-  // 447:     '(':
-  // 448:       inc &level
-  // 449:     ')':
+  // 457: ... -> i <= len:
+  // 458:   case code(i)
+  // 459:     ',':
+  // 460:       if level == 1:
+  // 461:         push &arguments trim(range(code a i-1))
+  // 462:         !a i+1
+  // 463:     '(':
+  // 464:       inc &level
+  // 465:     ')':
+  // 466:       dec &level
   // ...
   frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__converted_59, 0);
-  // 440: while -> i <= len:
-  // 441:   case
-  // 442:     code(i)
-  // 443:     ',':
-  // 444:       if level == 1:
-  // 445:         push &arguments trim(range(code a i-1))
-  // 446:         !a i+1
-  // 447:     '(':
-  // 448:       inc &level
-  // 449:     ')':
+  // 457: while -> i <= len:
+  // 458:   case code(i)
+  // 459:     ',':
+  // 460:       if level == 1:
+  // 461:         push &arguments trim(range(code a i-1))
+  // 462:         !a i+1
+  // 463:     '(':
+  // 464:       inc &level
+  // 465:     ')':
+  // 466:       dec &level
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -7980,7 +8000,7 @@ static void entry__compiler__converted_62(void) {
     invalid_arguments_error();
     return;
   }
-  // 442: code(i)
+  // 458: ... code(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -7995,31 +8015,31 @@ static void cont__compiler__converted_63(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 443: ... :
-  // 444:   if level == 1:
-  // 445:     push &arguments trim(range(code a i-1))
-  // 446:     !a i+1
+  // 459: ... :
+  // 460:   if level == 1:
+  // 461:     push &arguments trim(range(code a i-1))
+  // 462:     !a i+1
   frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__converted_64, 0);
-  // 447: ... :
-  // 448:   inc &level
+  // 463: ... :
+  // 464:   inc &level
   frame->slots[8] /* temp__3 */ = create_closure(entry__compiler__converted_72, 0);
-  // 449: ... :
-  // 450:   dec &level
-  // 451:   if level == 0:
-  // 452:     push &arguments trim(range(code a i-1))
-  // 453:     inc &i
-  // 454:     break
+  // 465: ... :
+  // 466:   dec &level
+  // 467:   if level == 0:
+  // 468:     push &arguments trim(range(code a i-1))
+  // 469:     inc &i
+  // 470:     break
   frame->slots[9] /* temp__4 */ = create_closure(entry__compiler__converted_74, 0);
-  // 441: case
-  // 442:   code(i)
-  // 443:   ',':
-  // 444:     if level == 1:
-  // 445:       push &arguments trim(range(code a i-1))
-  // 446:       !a i+1
-  // 447:   '(':
-  // 448:     inc &level
-  // 449:   ')':
-  // 450:     dec &level
+  // 458: case code(i)
+  // 459:   ',':
+  // 460:     if level == 1:
+  // 461:       push &arguments trim(range(code a i-1))
+  // 462:       !a i+1
+  // 463:   '(':
+  // 464:     inc &level
+  // 465:   ')':
+  // 466:     dec &level
+  // 467:     if level == 0:
   // ...
   argument_count = 7;
   arguments = node_p;
@@ -8052,7 +8072,7 @@ static void entry__compiler__converted_77(void) {
     invalid_arguments_error();
     return;
   }
-  // 452: ... i-1
+  // 468: ... i-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* i */;
@@ -8068,7 +8088,7 @@ static void cont__compiler__converted_78(void) {
     return;
   }
   frame->slots[7] /* temp__3 */ = arguments->slots[0];
-  // 452: ... range(code a i-1)
+  // 468: ... range(code a i-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* code */;
@@ -8085,7 +8105,7 @@ static void cont__compiler__converted_79(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 452: ... trim(range(code a i-1))
+  // 468: ... trim(range(code a i-1))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -8100,7 +8120,7 @@ static void cont__compiler__converted_80(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 452: push &arguments trim(range(code a i-1))
+  // 468: push &arguments trim(range(code a i-1))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* arguments */;
@@ -8116,7 +8136,7 @@ static void cont__compiler__converted_81(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* arguments */ = arguments->slots[0];
-  // 453: inc &i
+  // 469: inc &i
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* i */;
@@ -8131,7 +8151,7 @@ static void cont__compiler__converted_82(void) {
     return;
   }
   ((CELL *)frame->slots[3])->contents /* i */ = arguments->slots[0];
-  // 454: break
+  // 470: break
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -8154,7 +8174,7 @@ static void entry__compiler__converted_66(void) {
     invalid_arguments_error();
     return;
   }
-  // 445: ... i-1
+  // 461: ... i-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* i */;
@@ -8170,7 +8190,7 @@ static void cont__compiler__converted_67(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 445: ... range(code a i-1)
+  // 461: ... range(code a i-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* code */;
@@ -8187,7 +8207,7 @@ static void cont__compiler__converted_68(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 445: ... trim(range(code a i-1))
+  // 461: ... trim(range(code a i-1))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -8202,7 +8222,7 @@ static void cont__compiler__converted_69(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 445: push &arguments trim(range(code a i-1))
+  // 461: push &arguments trim(range(code a i-1))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* arguments */;
@@ -8218,7 +8238,7 @@ static void cont__compiler__converted_70(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* arguments */ = arguments->slots[0];
-  // 446: !a i+1
+  // 462: !a i+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* i */;
@@ -8257,7 +8277,7 @@ static void entry__compiler__converted_64(void) {
     invalid_arguments_error();
     return;
   }
-  // 444: ... level == 1
+  // 460: ... level == 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* level */;
@@ -8273,13 +8293,13 @@ static void cont__compiler__converted_65(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 444: ... :
-  // 445:   push &arguments trim(range(code a i-1))
-  // 446:   !a i+1
+  // 460: ... :
+  // 461:   push &arguments trim(range(code a i-1))
+  // 462:   !a i+1
   frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__converted_66, 0);
-  // 444: if level == 1:
-  // 445:   push &arguments trim(range(code a i-1))
-  // 446:   !a i+1
+  // 460: if level == 1:
+  // 461:   push &arguments trim(range(code a i-1))
+  // 462:   !a i+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -8298,7 +8318,7 @@ static void entry__compiler__converted_72(void) {
     invalid_arguments_error();
     return;
   }
-  // 448: inc &level
+  // 464: inc &level
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* level */;
@@ -8338,7 +8358,7 @@ static void entry__compiler__converted_74(void) {
     invalid_arguments_error();
     return;
   }
-  // 450: dec &level
+  // 466: dec &level
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* level */;
@@ -8353,7 +8373,7 @@ static void cont__compiler__converted_75(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* level */ = arguments->slots[0];
-  // 451: ... level == 0
+  // 467: ... level == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* level */;
@@ -8369,15 +8389,15 @@ static void cont__compiler__converted_76(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 451: ... :
-  // 452:   push &arguments trim(range(code a i-1))
-  // 453:   inc &i
-  // 454:   break
+  // 467: ... :
+  // 468:   push &arguments trim(range(code a i-1))
+  // 469:   inc &i
+  // 470:   break
   frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__converted_77, 0);
-  // 451: if level == 0:
-  // 452:   push &arguments trim(range(code a i-1))
-  // 453:   inc &i
-  // 454:   break
+  // 467: if level == 0:
+  // 468:   push &arguments trim(range(code a i-1))
+  // 469:   inc &i
+  // 470:   break
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -8392,7 +8412,7 @@ static void cont__compiler__converted_83(void) {
     invalid_results_error();
     return;
   }
-  // 455: inc &i
+  // 471: inc &i
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -8434,7 +8454,7 @@ static void entry__compiler__converted_59(void) {
     invalid_arguments_error();
     return;
   }
-  // 440: ... i <= len
+  // 457: ... i <= len
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* len */;
@@ -8450,7 +8470,7 @@ static void cont__compiler__converted_60(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 440: ... i <= len
+  // 457: ... i <= len
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -8465,28 +8485,28 @@ static void cont__compiler__converted_61(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 440: ... :
-  // 441:   case
-  // 442:     code(i)
-  // 443:     ',':
-  // 444:       if level == 1:
-  // 445:         push &arguments trim(range(code a i-1))
-  // 446:         !a i+1
-  // 447:     '(':
-  // 448:       inc &level
-  // 449:     ')':
+  // 457: ... :
+  // 458:   case code(i)
+  // 459:     ',':
+  // 460:       if level == 1:
+  // 461:         push &arguments trim(range(code a i-1))
+  // 462:         !a i+1
+  // 463:     '(':
+  // 464:       inc &level
+  // 465:     ')':
+  // 466:       dec &level
   // ...
   frame->slots[9] /* temp__3 */ = create_closure(entry__compiler__converted_62, 0);
-  // 440: ... -> i <= len:
-  // 441:   case
-  // 442:     code(i)
-  // 443:     ',':
-  // 444:       if level == 1:
-  // 445:         push &arguments trim(range(code a i-1))
-  // 446:         !a i+1
-  // 447:     '(':
-  // 448:       inc &level
-  // 449:     ')':
+  // 457: ... -> i <= len:
+  // 458:   case code(i)
+  // 459:     ',':
+  // 460:       if level == 1:
+  // 461:         push &arguments trim(range(code a i-1))
+  // 462:         !a i+1
+  // 463:     '(':
+  // 464:       inc &level
+  // 465:     ')':
+  // 466:       dec &level
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -8506,7 +8526,7 @@ static void cont__compiler__converted_86(void) {
     invalid_results_error();
     return;
   }
-  // 457: replacement.is_a_string
+  // 473: replacement.is_a_string
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* replacement */;
@@ -8521,31 +8541,31 @@ static void cont__compiler__converted_87(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 457: ... :
-  // 458:   $$r 1
-  // 459:   $$j 1
-  // 460:   $m length_of(replacement)
-  // 461:   $$new_replacement ""
-  // 462:   while -> j <= m:
-  // 463:     if replacement(j) == '$':
-  // 464:       append
-  // 465:         &new_replacement
-  // 466:         range(replacement r j-1)
+  // 473: ... :
+  // 474:   $$r 1
+  // 475:   $$j 1
+  // 476:   $m length_of(replacement)
+  // 477:   $$new_replacement ""
+  // 478:   while -> j <= m:
+  // 479:     if replacement(j) == '$':
+  // 480:       append
+  // 481:         &new_replacement
+  // 482:         range(replacement r j-1)
   // ...
   frame->slots[8] /* temp__2 */ = create_closure(entry__compiler__converted_88, 0);
-  // 481: :
-  // 482:   !replacement replacement(arguments)
+  // 497: :
+  // 498:   !replacement replacement(arguments)
   frame->slots[9] /* temp__3 */ = create_closure(entry__compiler__converted_119, 0);
-  // 456: if
-  // 457:   replacement.is_a_string:
-  // 458:     $$r 1
-  // 459:     $$j 1
-  // 460:     $m length_of(replacement)
-  // 461:     $$new_replacement ""
-  // 462:     while -> j <= m:
-  // 463:       if replacement(j) == '$':
-  // 464:         append
-  // 465:           &new_replacement
+  // 472: if
+  // 473:   replacement.is_a_string:
+  // 474:     $$r 1
+  // 475:     $$j 1
+  // 476:     $m length_of(replacement)
+  // 477:     $$new_replacement ""
+  // 478:     while -> j <= m:
+  // 479:       if replacement(j) == '$':
+  // 480:         append
+  // 481:           &new_replacement
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -8566,7 +8586,7 @@ static void entry__compiler__converted_121(void) {
     invalid_arguments_error();
     return;
   }
-  // 484: ... replacement.is_a_string
+  // 500: ... replacement.is_a_string
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* replacement */;
@@ -8581,11 +8601,11 @@ static void cont__compiler__converted_122(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 484: ... :
-  // 485:   !replacement replacement()
+  // 500: ... :
+  // 501:   !replacement replacement()
   frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__converted_123, 0);
-  // 484: unless replacement.is_a_string:
-  // 485:   !replacement replacement()
+  // 500: unless replacement.is_a_string:
+  // 501:   !replacement replacement()
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8600,7 +8620,7 @@ static void cont__compiler__converted_125(void) {
     invalid_results_error();
     return;
   }
-  // 486: ... replacement.converted
+  // 502: ... replacement.converted
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[6])->contents /* replacement */;
@@ -8615,7 +8635,7 @@ static void cont__compiler__converted_126(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 486: append &new_code replacement.converted
+  // 502: append &new_code replacement.converted
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* new_code */;
@@ -8631,7 +8651,7 @@ static void cont__compiler__converted_127(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* new_code */ = arguments->slots[0];
-  // 487: !start i
+  // 503: !start i
   ((CELL *)frame->slots[2])->contents /* start */ = ((CELL *)frame->slots[4])->contents /* i */;
   argument_count = 0;
   arguments = node_p;
@@ -8658,7 +8678,7 @@ static void entry__compiler__converted_128(void) {
     invalid_arguments_error();
     return;
   }
-  // 489: ... identifier .contains. ':'
+  // 505: ... identifier .contains. ':'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* identifier */;
@@ -8674,17 +8694,17 @@ static void cont__compiler__converted_129(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 489: ... :
-  // 490:   replace_all &identifier "::" = "__"
-  // 491:   append &new_code range(code start s-1)
-  // 492:   append &new_code identifier
-  // 493:   !start i
+  // 505: ... :
+  // 506:   replace_all &identifier "::" = "__"
+  // 507:   append &new_code range(code start s-1)
+  // 508:   append &new_code identifier
+  // 509:   !start i
   frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__converted_130, 0);
-  // 489: if identifier .contains. ':':
-  // 490:   replace_all &identifier "::" = "__"
-  // 491:   append &new_code range(code start s-1)
-  // 492:   append &new_code identifier
-  // 493:   !start i
+  // 505: if identifier .contains. ':':
+  // 506:   replace_all &identifier "::" = "__"
+  // 507:   append &new_code range(code start s-1)
+  // 508:   append &new_code identifier
+  // 509:   !start i
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -8713,7 +8733,7 @@ static void entry__compiler__converted_130(void) {
     invalid_arguments_error();
     return;
   }
-  // 490: ... "::" = "__"
+  // 506: ... "::" = "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e6d82bff;
@@ -8729,7 +8749,7 @@ static void cont__compiler__converted_133(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 490: replace_all &identifier "::" = "__"
+  // 506: replace_all &identifier "::" = "__"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* identifier */;
@@ -8745,7 +8765,7 @@ static void cont__compiler__converted_134(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* identifier */ = arguments->slots[0];
-  // 491: ... s-1
+  // 507: ... s-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* s */;
@@ -8761,7 +8781,7 @@ static void cont__compiler__converted_135(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 491: ... range(code start s-1)
+  // 507: ... range(code start s-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* code */;
@@ -8778,7 +8798,7 @@ static void cont__compiler__converted_136(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 491: append &new_code range(code start s-1)
+  // 507: append &new_code range(code start s-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* new_code */;
@@ -8794,7 +8814,7 @@ static void cont__compiler__converted_137(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* new_code */ = arguments->slots[0];
-  // 492: append &new_code identifier
+  // 508: append &new_code identifier
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* new_code */;
@@ -8810,7 +8830,7 @@ static void cont__compiler__converted_138(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* new_code */ = arguments->slots[0];
-  // 493: !start i
+  // 509: !start i
   ((CELL *)frame->slots[3])->contents /* start */ = ((CELL *)frame->slots[5])->contents /* i */;
   argument_count = 0;
   arguments = node_p;
@@ -8823,7 +8843,7 @@ static void cont__compiler__converted_139(void) {
     invalid_results_error();
     return;
   }
-  // 494: use_identifier identifier
+  // 510: use_identifier identifier
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* identifier */;
@@ -8837,7 +8857,7 @@ static void cont__compiler__converted_140(void) {
     invalid_results_error();
     return;
   }
-  // 495: !s undefined
+  // 511: !s undefined
   ((CELL *)frame->slots[1])->contents /* s */ = get__undefined();
   argument_count = 0;
   arguments = node_p;
@@ -8866,7 +8886,7 @@ static void entry__compiler__converted_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 425: chr == ':'
+  // 442: chr == ':'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -8882,9 +8902,9 @@ static void cont__compiler__converted_36(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 425: ... code(i+1) == ':'
+  // 442: ... code(i+1) == ':'
   frame->slots[9] /* temp__3 */ = create_closure(entry__compiler__converted_37, 0);
-  // 425: chr == ':' && code(i+1) == ':'
+  // 442: chr == ':' && code(i+1) == ':'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -8905,7 +8925,7 @@ static void entry__compiler__converted_37(void) {
     invalid_arguments_error();
     return;
   }
-  // 425: ... i+1
+  // 442: ... i+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -8921,7 +8941,7 @@ static void cont__compiler__converted_38(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 425: ... code(i+1)
+  // 442: ... code(i+1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -8936,7 +8956,7 @@ static void cont__compiler__converted_39(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 425: ... code(i+1) == ':'
+  // 442: ... code(i+1) == ':'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -8952,7 +8972,7 @@ static void cont__compiler__converted_40(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 425: ... code(i+1) == ':'
+  // 442: ... code(i+1) == ':'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -8966,31 +8986,31 @@ static void cont__compiler__converted_41(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 425: ... :
-  // 426:   inc &i
+  // 442: ... :
+  // 443:   inc &i
   frame->slots[10] /* temp__4 */ = create_closure(entry__compiler__converted_42, 0);
-  // 427: :
-  // 428:   $$identifier range(code s i-1)
-  // 429:   $$replacement macro_replacements(identifier)
-  // 430:   if
-  // 431:     replacement.is_defined:
-  // 432:       append &new_code range(code start s-1)
-  // 433:       if
-  // 434:         code(i) == '(':
-  // 435:           $$arguments list()
-  // 436:           inc &i
+  // 444: :
+  // 445:   $$identifier range(code s i-1)
+  // 446:   $$replacement macro_replacements(identifier)
+  // 447:   if
+  // 448:     replacement.is_defined:
+  // 449:       append &new_code range(code start s-1)
+  // 450:       if
+  // 451:         code(i) == '(':
+  // 452:           $$arguments list()
+  // 453:           inc &i
   // ...
   frame->slots[11] /* temp__5 */ = create_closure(entry__compiler__converted_44, 0);
-  // 424: if
-  // 425:   chr == ':' && code(i+1) == ':':
-  // 426:     inc &i
-  // 427:   :
-  // 428:     $$identifier range(code s i-1)
-  // 429:     $$replacement macro_replacements(identifier)
-  // 430:     if
-  // 431:       replacement.is_defined:
-  // 432:         append &new_code range(code start s-1)
-  // 433:         if
+  // 441: if
+  // 442:   chr == ':' && code(i+1) == ':':
+  // 443:     inc &i
+  // 444:   :
+  // 445:     $$identifier range(code s i-1)
+  // 446:     $$replacement macro_replacements(identifier)
+  // 447:     if
+  // 448:       replacement.is_defined:
+  // 449:         append &new_code range(code start s-1)
+  // 450:         if
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -9011,7 +9031,7 @@ static void entry__compiler__converted_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 421: ... !within_string true
+  // 438: ... !within_string true
   ((CELL *)frame->slots[0])->contents /* within_string */ = get__true();
   argument_count = 0;
   arguments = node_p;
@@ -9034,9 +9054,9 @@ static void entry__compiler__converted_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 420: !s undefined
+  // 437: !s undefined
   ((CELL *)frame->slots[0])->contents /* s */ = get__undefined();
-  // 421: ... i-1
+  // 438: ... i-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* i */;
@@ -9052,7 +9072,7 @@ static void cont__compiler__converted_28(void) {
     return;
   }
   frame->slots[7] /* temp__4 */ = arguments->slots[0];
-  // 421: ... code(i-1)
+  // 438: ... code(i-1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__4 */;
@@ -9067,7 +9087,7 @@ static void cont__compiler__converted_29(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 421: ... code(i-1) != '\'
+  // 438: ... code(i-1) != '\'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -9083,7 +9103,7 @@ static void cont__compiler__converted_30(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 421: ... code(i-1) != '\'
+  // 438: ... code(i-1) != '\'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -9098,9 +9118,9 @@ static void cont__compiler__converted_31(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 421: ... : !within_string true
+  // 438: ... : !within_string true
   frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__converted_32, 0);
-  // 421: if code(i-1) != '\': !within_string true
+  // 438: if code(i-1) != '\': !within_string true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -9131,7 +9151,7 @@ static void entry__compiler__converted_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 423: ... s.is_defined
+  // 440: ... s.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* s */;
@@ -9146,28 +9166,28 @@ static void cont__compiler__converted_34(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 423: ... :
-  // 424:   if
-  // 425:     chr == ':' && code(i+1) == ':':
-  // 426:       inc &i
-  // 427:     :
-  // 428:       $$identifier range(code s i-1)
-  // 429:       $$replacement macro_replacements(identifier)
-  // 430:       if
-  // 431:         replacement.is_defined:
-  // 432:           append &new_code range(code start s-1)
+  // 440: ... :
+  // 441:   if
+  // 442:     chr == ':' && code(i+1) == ':':
+  // 443:       inc &i
+  // 444:     :
+  // 445:       $$identifier range(code s i-1)
+  // 446:       $$replacement macro_replacements(identifier)
+  // 447:       if
+  // 448:         replacement.is_defined:
+  // 449:           append &new_code range(code start s-1)
   // ...
   frame->slots[8] /* temp__2 */ = create_closure(entry__compiler__converted_35, 0);
-  // 423: if s.is_defined:
-  // 424:   if
-  // 425:     chr == ':' && code(i+1) == ':':
-  // 426:       inc &i
-  // 427:     :
-  // 428:       $$identifier range(code s i-1)
-  // 429:       $$replacement macro_replacements(identifier)
-  // 430:       if
-  // 431:         replacement.is_defined:
-  // 432:           append &new_code range(code start s-1)
+  // 440: if s.is_defined:
+  // 441:   if
+  // 442:     chr == ':' && code(i+1) == ':':
+  // 443:       inc &i
+  // 444:     :
+  // 445:       $$identifier range(code s i-1)
+  // 446:       $$replacement macro_replacements(identifier)
+  // 447:       if
+  // 448:         replacement.is_defined:
+  // 449:           append &new_code range(code start s-1)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -9185,7 +9205,7 @@ static void entry__compiler__converted_141(void) {
     invalid_arguments_error();
     return;
   }
-  // 418: pass
+  // 435: pass
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -9198,7 +9218,7 @@ static void cont__compiler__converted_142(void) {
     invalid_results_error();
     return;
   }
-  // 496: inc &i
+  // 512: inc &i
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -9240,32 +9260,32 @@ static void entry__compiler__converted_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 408: ... :
-  // 409:   case code(i) '@quot;': if code(i-1) != '\': !within_string false
-  // 410:   inc &i
+  // 426: ... :
+  // 427:   case code(i) '@quot;': if code(i-1) != '\': !within_string false
+  // 428:   inc &i
   frame->slots[7] /* temp__1 */ = create_closure(entry__compiler__converted_8, 0);
-  // 411: :
-  // 412:   $chr code(i)
-  // 413:   case
-  // 414:     chr
-  // 415:     '_', 'a' .. 'z', 'A' .. 'Z':
-  // 416:       unless s.is_defined: !s i
-  // 417:     '0' .. '9':
-  // 418:       pass
-  // 419:     '@quot;':
-  // 420:       !s undefined
+  // 429: :
+  // 430:   $chr code(i)
+  // 431:   case chr
+  // 432:     '_', 'a' .. 'z', 'A' .. 'Z':
+  // 433:       unless s.is_defined: !s i
+  // 434:     '0' .. '9':
+  // 435:       pass
+  // 436:     '@quot;':
+  // 437:       !s undefined
+  // 438:       if code(i-1) != '\': !within_string true
   // ...
   frame->slots[8] /* temp__2 */ = create_closure(entry__compiler__converted_18, 0);
-  // 407: if
-  // 408:   within_string:
-  // 409:     case code(i) '@quot;': if code(i-1) != '\': !within_string false
-  // 410:     inc &i
-  // 411:   :
-  // 412:     $chr code(i)
-  // 413:     case
-  // 414:       chr
-  // 415:       '_', 'a' .. 'z', 'A' .. 'Z':
-  // 416:         unless s.is_defined: !s i
+  // 425: if
+  // 426:   within_string:
+  // 427:     case code(i) '@quot;': if code(i-1) != '\': !within_string false
+  // 428:     inc &i
+  // 429:   :
+  // 430:     $chr code(i)
+  // 431:     case chr
+  // 432:       '_', 'a' .. 'z', 'A' .. 'Z':
+  // 433:         unless s.is_defined: !s i
+  // 434:       '0' .. '9':
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -9298,7 +9318,7 @@ static void entry__compiler__converted_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 406: ... i <= len
+  // 424: ... i <= len
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* len */;
@@ -9314,7 +9334,7 @@ static void cont__compiler__converted_5(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 406: ... i <= len
+  // 424: ... i <= len
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -9329,28 +9349,28 @@ static void cont__compiler__converted_6(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 406: ... :
-  // 407:   if
-  // 408:     within_string:
-  // 409:       case code(i) '@quot;': if code(i-1) != '\': !within_string false
-  // 410:       inc &i
-  // 411:     :
-  // 412:       $chr code(i)
-  // 413:       case
-  // 414:         chr
-  // 415:         '_', 'a' .. 'z', 'A' .. 'Z':
+  // 424: ... :
+  // 425:   if
+  // 426:     within_string:
+  // 427:       case code(i) '@quot;': if code(i-1) != '\': !within_string false
+  // 428:       inc &i
+  // 429:     :
+  // 430:       $chr code(i)
+  // 431:       case chr
+  // 432:         '_', 'a' .. 'z', 'A' .. 'Z':
+  // 433:           unless s.is_defined: !s i
   // ...
   frame->slots[9] /* temp__3 */ = create_closure(entry__compiler__converted_7, 0);
-  // 406: ... -> i <= len:
-  // 407:   if
-  // 408:     within_string:
-  // 409:       case code(i) '@quot;': if code(i-1) != '\': !within_string false
-  // 410:       inc &i
-  // 411:     :
-  // 412:       $chr code(i)
-  // 413:       case
-  // 414:         chr
-  // 415:         '_', 'a' .. 'z', 'A' .. 'Z':
+  // 424: ... -> i <= len:
+  // 425:   if
+  // 426:     within_string:
+  // 427:       case code(i) '@quot;': if code(i-1) != '\': !within_string false
+  // 428:       inc &i
+  // 429:     :
+  // 430:       $chr code(i)
+  // 431:       case chr
+  // 432:         '_', 'a' .. 'z', 'A' .. 'Z':
+  // 433:           unless s.is_defined: !s i
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -9365,7 +9385,7 @@ static void cont__compiler__converted_144(void) {
     invalid_results_error();
     return;
   }
-  // 498: new_code != ""
+  // 514: new_code != ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* new_code */;
@@ -9381,7 +9401,7 @@ static void cont__compiler__converted_145(void) {
     return;
   }
   frame->slots[9] /* temp__2 */ = arguments->slots[0];
-  // 498: new_code != ""
+  // 514: new_code != ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__2 */;
@@ -9396,14 +9416,14 @@ static void cont__compiler__converted_146(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 499: -> append(new_code range(code start -2))
+  // 515: -> append(new_code range(code start -2))
   frame->slots[10] /* temp__3 */ = create_closure(entry__compiler__converted_147, 0);
-  // 500: -> range(code 1 -2)
+  // 516: -> range(code 1 -2)
   frame->slots[11] /* temp__4 */ = create_closure(entry__compiler__converted_151, 0);
-  // 497: if
-  // 498:   new_code != ""
-  // 499:   -> append(new_code range(code start -2))
-  // 500:   -> range(code 1 -2)
+  // 513: if
+  // 514:   new_code != ""
+  // 515:   -> append(new_code range(code start -2))
+  // 516:   -> range(code 1 -2)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -9427,7 +9447,7 @@ static void entry__compiler__converted_147(void) {
     invalid_arguments_error();
     return;
   }
-  // 499: ... 2
+  // 515: ... 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -9442,7 +9462,7 @@ static void cont__compiler__converted_148(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 499: ... range(code start -2)
+  // 515: ... range(code start -2)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* code */;
@@ -9459,7 +9479,7 @@ static void cont__compiler__converted_149(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 499: ... append(new_code range(code start -2))
+  // 515: ... append(new_code range(code start -2))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* new_code */;
@@ -9475,7 +9495,7 @@ static void cont__compiler__converted_150(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 499: -> append(new_code range(code start -2))
+  // 515: -> append(new_code range(code start -2))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -9492,7 +9512,7 @@ static void entry__compiler__converted_151(void) {
     invalid_arguments_error();
     return;
   }
-  // 500: ... 2
+  // 516: ... 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -9507,7 +9527,7 @@ static void cont__compiler__converted_152(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 500: ... range(code 1 -2)
+  // 516: ... range(code 1 -2)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* code */;
@@ -9524,7 +9544,7 @@ static void cont__compiler__converted_153(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 500: -> range(code 1 -2)
+  // 516: -> range(code 1 -2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;

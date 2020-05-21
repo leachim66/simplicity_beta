@@ -1,0 +1,50 @@
+--- compiler/simple.sim	2020-05-01 19:51:55 +0000
++++ compiler/simple.sim	2020-05-21 12:47:00 +0000
+@@ -800,14 +796,14 @@
+         <Project>
+           <Option title="@(basename)" />
+           <Option pch_mode="2" />
+-          <Option compiler=c_compiler() />
++          <Option compiler="@(c_compiler())" />
+           <Build>
+             <Target title="debug">
+               <Option output="bin/debug/@(basename)" prefix_auto="1" @
+       extension_auto="1" />
+               <Option object_output="obj/debug/" />
+               <Option type="1" />
+-              <Option compiler=c_compiler() />
++              <Option compiler="@(c_compiler())" />
+               <Compiler>
+                 <Add option="-g" />
+               </Compiler>
+@@ -824,17 +820,18 @@
+           </Linker>
+           <Compiler>
+             <Add option="-Wall" />
++            <Add directory=".." />
+           </Compiler>
+           <Unit filename="@(path_prefix)runtime/common.h" />
+           <Unit filename="@(path_prefix)runtime/linker.h" />
+           <Unit filename="@(path_prefix)runtime/memory.c">
+-            <Option compilerVar="@(c_compiler())" />
++            <Option compilerVar="CC" />
+           </Unit>
+           <Unit filename="@(path_prefix)runtime/debugger.c">
+-            <Option compilerVar="@(c_compiler())" />
++            <Option compilerVar="CC" />
+           </Unit>
+           <Unit filename="@(path_prefix)runtime/linker.c">
+-            <Option compilerVar="@(c_compiler())" />
++            <Option compilerVar="CC" />
+           </Unit>
+     for_each c_sources: ($filename)
+       without_prefix &filename prefix_path
+@@ -843,7 +840,7 @@
+ 	@
+ 
+ 	    <Unit filename="@(path_prefix)@(filename)">
+-	      <Option compilerVar="@(c_compiler())" />
++	      <Option compilerVar="CC" />
+ 	    </Unit>
+     write_to &buf "
+           <Extensions>

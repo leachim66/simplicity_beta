@@ -166,9 +166,10 @@ typedef struct CLOSURE {
   int parameter_count;
   struct FRAME *frame;
 } CLOSURE;
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 REGISTER NODE *myself ASM("r13");
 IMPORT NODE *get_attribute(NODE *node, int idx);
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -329,8 +330,6 @@ static NODE_GETTER get__name_of;
 static NODE_GETTER get_value_or_future__name_of;
 static int poly_idx__node__text_of;
 static NODE_GETTER get__node__text_of;
-static int poly_idx__output_arguments_of;
-static NODE_GETTER get__output_arguments_of;
 static int poly_idx__parameters_of;
 static NODE_GETTER get__parameters_of;
 static NODE_GETTER get__push;
@@ -459,8 +458,6 @@ static void cont__compiler__call__expand_statement_13(void);
 static void cont__compiler__call__expand_statement_14(void);
 static void cont__compiler__call__expand_statement_15(void);
 static void cont__compiler__call__expand_statement_16(void);
-static void cont__compiler__call__expand_statement_17(void);
-static void cont__compiler__call__expand_statement_18(void);
 static NODE *func__compiler__expand_operator_call_1;
 static void entry__compiler__expand_operator_call_1(void);
 static FRAME_INFO frame__compiler__expand_operator_call_1 = {3, {"self", "make_right_argument_lazy", "functor"}};
@@ -764,145 +761,143 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__call__expand_statement_4, &frame__compiler__call__expand_statement_1, 69, 71, 3, 38},
   {cont__compiler__call__expand_statement_14, &frame__compiler__call__expand_statement_1, 72, 72, 21, 37},
   {cont__compiler__call__expand_statement_15, &frame__compiler__call__expand_statement_1, 72, 72, 3, 37},
-  {cont__compiler__call__expand_statement_16, &frame__compiler__call__expand_statement_1, 73, 73, 21, 44},
-  {cont__compiler__call__expand_statement_17, &frame__compiler__call__expand_statement_1, 73, 73, 3, 44},
-  {cont__compiler__call__expand_statement_18, &frame__compiler__call__expand_statement_1, 73, 73, 44, 44},
-  {entry__compiler__expand_operator_call_2, NULL, 80, 80, 12, 29},
-  {cont__compiler__expand_operator_call_3, &frame__compiler__expand_operator_call_2, 80, 80, 5, 32},
-  {cont__compiler__expand_operator_call_4, &frame__compiler__expand_operator_call_2, 86, 86, 29, 39},
-  {cont__compiler__expand_operator_call_5, &frame__compiler__expand_operator_call_2, 87, 87, 28, 45},
-  {cont__compiler__expand_operator_call_6, &frame__compiler__expand_operator_call_2, 88, 88, 35, 59},
-  {cont__compiler__expand_operator_call_7, &frame__compiler__expand_operator_call_2, 89, 89, 32, 53},
-  {cont__compiler__expand_operator_call_8, &frame__compiler__expand_operator_call_2, 84, 89, 11, 53},
-  {cont__compiler__expand_operator_call_9, &frame__compiler__expand_operator_call_2, 90, 90, 22, 39},
-  {cont__compiler__expand_operator_call_10, &frame__compiler__expand_operator_call_2, 91, 91, 29, 53},
-  {cont__compiler__expand_operator_call_11, &frame__compiler__expand_operator_call_2, 92, 92, 26, 47},
-  {cont__compiler__expand_operator_call_12, &frame__compiler__expand_operator_call_2, 81, 81, 6, 22},
-  {cont__compiler__expand_operator_call_13, &frame__compiler__expand_operator_call_2, 81, 81, 5, 25},
-  {cont__compiler__expand_operator_call_14, &frame__compiler__expand_operator_call_2, 92, 92, 49, 49},
-  {entry__compiler__expand_operator_call_19, NULL, 100, 100, 9, 40},
-  {cont__compiler__expand_operator_call_21, &frame__compiler__expand_operator_call_19, 100, 100, 40, 40},
+  {cont__compiler__call__expand_statement_16, &frame__compiler__call__expand_statement_1, 72, 72, 37, 37},
+  {entry__compiler__expand_operator_call_2, NULL, 79, 79, 12, 29},
+  {cont__compiler__expand_operator_call_3, &frame__compiler__expand_operator_call_2, 79, 79, 5, 32},
+  {cont__compiler__expand_operator_call_4, &frame__compiler__expand_operator_call_2, 85, 85, 29, 39},
+  {cont__compiler__expand_operator_call_5, &frame__compiler__expand_operator_call_2, 86, 86, 28, 45},
+  {cont__compiler__expand_operator_call_6, &frame__compiler__expand_operator_call_2, 87, 87, 35, 59},
+  {cont__compiler__expand_operator_call_7, &frame__compiler__expand_operator_call_2, 88, 88, 32, 53},
+  {cont__compiler__expand_operator_call_8, &frame__compiler__expand_operator_call_2, },
+  {cont__compiler__expand_operator_call_9, &frame__compiler__expand_operator_call_2, 89, 89, 22, 39},
+  {cont__compiler__expand_operator_call_10, &frame__compiler__expand_operator_call_2, 90, 90, 29, 53},
+  {cont__compiler__expand_operator_call_11, &frame__compiler__expand_operator_call_2, 91, 91, 26, 47},
+  {cont__compiler__expand_operator_call_12, &frame__compiler__expand_operator_call_2, 80, 80, 6, 22},
+  {cont__compiler__expand_operator_call_13, &frame__compiler__expand_operator_call_2, 80, 80, 5, 25},
+  {cont__compiler__expand_operator_call_14, &frame__compiler__expand_operator_call_2, 91, 91, 49, 49},
+  {entry__compiler__expand_operator_call_19, NULL, 99, 99, 9, 40},
+  {cont__compiler__expand_operator_call_21, &frame__compiler__expand_operator_call_19, 99, 99, 40, 40},
   {entry__compiler__expand_operator_call_22, NULL, 102, 102, 9, 39},
   {cont__compiler__expand_operator_call_24, &frame__compiler__expand_operator_call_22, 102, 102, 39, 39},
-  {entry__compiler__expand_operator_call_25, NULL, 104, 104, 9, 39},
-  {cont__compiler__expand_operator_call_27, &frame__compiler__expand_operator_call_25, 104, 104, 39, 39},
-  {entry__compiler__expand_operator_call_32, NULL, 108, 108, 13, 45},
-  {cont__compiler__expand_operator_call_34, &frame__compiler__expand_operator_call_32, 108, 108, 45, 45},
-  {entry__compiler__expand_operator_call_35, NULL, 110, 110, 13, 44},
-  {cont__compiler__expand_operator_call_37, &frame__compiler__expand_operator_call_35, 110, 110, 44, 44},
-  {entry__compiler__expand_operator_call_28, NULL, 107, 107, 21, 38},
-  {cont__compiler__expand_operator_call_29, &frame__compiler__expand_operator_call_28, 107, 107, 11, 39},
-  {cont__compiler__expand_operator_call_30, &frame__compiler__expand_operator_call_28, 107, 107, 11, 44},
-  {cont__compiler__expand_operator_call_31, &frame__compiler__expand_operator_call_28, 106, 110, 9, 45},
-  {entry__compiler__expand_operator_call_38, NULL, 112, 112, 9, 45},
-  {cont__compiler__expand_operator_call_40, &frame__compiler__expand_operator_call_38, 112, 112, 45, 45},
-  {entry__compiler__expand_operator_call_41, NULL, 114, 114, 9, 46},
-  {cont__compiler__expand_operator_call_43, &frame__compiler__expand_operator_call_41, 114, 114, 46, 46},
-  {entry__compiler__expand_operator_call_44, NULL, 116, 116, 9, 42},
-  {cont__compiler__expand_operator_call_46, &frame__compiler__expand_operator_call_44, 116, 116, 42, 42},
-  {entry__compiler__expand_operator_call_47, NULL, 118, 118, 9, 42},
-  {cont__compiler__expand_operator_call_49, &frame__compiler__expand_operator_call_47, 118, 118, 42, 42},
-  {entry__compiler__expand_operator_call_50, NULL, 120, 120, 9, 41},
-  {cont__compiler__expand_operator_call_52, &frame__compiler__expand_operator_call_50, 120, 120, 41, 41},
-  {entry__compiler__expand_operator_call_53, NULL, 122, 122, 9, 39},
-  {cont__compiler__expand_operator_call_55, &frame__compiler__expand_operator_call_53, 123, 123, 15, 31},
-  {cont__compiler__expand_operator_call_56, &frame__compiler__expand_operator_call_53, 123, 123, 15, 34},
-  {cont__compiler__expand_operator_call_57, &frame__compiler__expand_operator_call_53, 123, 123, 37, 53},
-  {cont__compiler__expand_operator_call_58, &frame__compiler__expand_operator_call_53, 123, 123, 37, 56},
-  {cont__compiler__expand_operator_call_59, &frame__compiler__expand_operator_call_53, 123, 123, 9, 56},
-  {cont__compiler__expand_operator_call_60, &frame__compiler__expand_operator_call_53, 123, 123, 15, 31},
-  {cont__compiler__expand_operator_call_61, &frame__compiler__expand_operator_call_53, 123, 123, 14, 34},
-  {cont__compiler__expand_operator_call_62, &frame__compiler__expand_operator_call_53, 123, 123, 37, 53},
-  {cont__compiler__expand_operator_call_63, &frame__compiler__expand_operator_call_53, 123, 123, 36, 56},
-  {cont__compiler__expand_operator_call_64, &frame__compiler__expand_operator_call_53, 124, 124, 27, 27},
-  {entry__compiler__expand_operator_call_65, NULL, 126, 126, 9, 39},
-  {cont__compiler__expand_operator_call_66, &frame__compiler__expand_operator_call_65, 126, 126, 39, 39},
-  {entry__compiler__expand_operator_call_67, NULL, 128, 128, 9, 39},
-  {cont__compiler__expand_operator_call_68, &frame__compiler__expand_operator_call_67, 129, 129, 27, 27},
-  {entry__compiler__expand_operator_call_69, NULL, 131, 131, 9, 39},
-  {cont__compiler__expand_operator_call_70, &frame__compiler__expand_operator_call_69, 132, 132, 15, 31},
-  {cont__compiler__expand_operator_call_71, &frame__compiler__expand_operator_call_69, 132, 132, 15, 34},
-  {cont__compiler__expand_operator_call_72, &frame__compiler__expand_operator_call_69, 132, 132, 37, 53},
-  {cont__compiler__expand_operator_call_73, &frame__compiler__expand_operator_call_69, 132, 132, 37, 56},
-  {cont__compiler__expand_operator_call_74, &frame__compiler__expand_operator_call_69, 132, 132, 9, 56},
-  {cont__compiler__expand_operator_call_75, &frame__compiler__expand_operator_call_69, 132, 132, 15, 31},
-  {cont__compiler__expand_operator_call_76, &frame__compiler__expand_operator_call_69, 132, 132, 14, 34},
-  {cont__compiler__expand_operator_call_77, &frame__compiler__expand_operator_call_69, 132, 132, 37, 53},
-  {cont__compiler__expand_operator_call_78, &frame__compiler__expand_operator_call_69, 132, 132, 36, 56},
-  {cont__compiler__expand_operator_call_79, &frame__compiler__expand_operator_call_69, 132, 132, 56, 56},
-  {entry__compiler__expand_operator_call_80, NULL, 134, 134, 9, 40},
-  {cont__compiler__expand_operator_call_82, &frame__compiler__expand_operator_call_80, 134, 134, 40, 40},
-  {entry__compiler__expand_operator_call_83, NULL, 136, 136, 9, 40},
-  {cont__compiler__expand_operator_call_84, &frame__compiler__expand_operator_call_83, 137, 137, 27, 27},
-  {entry__compiler__expand_operator_call_85, NULL, 139, 139, 9, 38},
-  {cont__compiler__expand_operator_call_87, &frame__compiler__expand_operator_call_85, 140, 140, 9, 32},
-  {entry__compiler__expand_operator_call_88, NULL, 142, 142, 9, 37},
-  {cont__compiler__expand_operator_call_90, &frame__compiler__expand_operator_call_88, 143, 143, 9, 32},
-  {entry__compiler__expand_operator_call_91, NULL, 145, 145, 9, 46},
-  {cont__compiler__expand_operator_call_93, &frame__compiler__expand_operator_call_91, 145, 145, 46, 46},
-  {entry__compiler__expand_operator_call_94, NULL, 147, 147, 9, 49},
-  {cont__compiler__expand_operator_call_96, &frame__compiler__expand_operator_call_94, 147, 147, 49, 49},
-  {entry__compiler__expand_operator_call_117, NULL, 152, 152, 23, 43},
-  {cont__compiler__expand_operator_call_119, &frame__compiler__expand_operator_call_117, 153, 153, 25, 34},
-  {cont__compiler__expand_operator_call_120, &frame__compiler__expand_operator_call_117, 154, 154, 24, 40},
-  {cont__compiler__expand_operator_call_121, &frame__compiler__expand_operator_call_117, 155, 155, 31, 54},
-  {cont__compiler__expand_operator_call_122, &frame__compiler__expand_operator_call_117, 156, 156, 28, 48},
-  {cont__compiler__expand_operator_call_123, &frame__compiler__expand_operator_call_117, 156, 156, 50, 50},
-  {entry__compiler__expand_operator_call_17, NULL, 98, 98, 7, 22},
-  {cont__compiler__expand_operator_call_18, &frame__compiler__expand_operator_call_17, 97, 147, 5, 50},
-  {cont__compiler__expand_operator_call_116, &frame__compiler__expand_operator_call_17, 149, 156, 5, 50},
-  {entry__compiler__expand_operator_call_1, NULL, 94, 94, 3, 28},
-  {cont__compiler__expand_operator_call_15, &frame__compiler__expand_operator_call_1, 95, 95, 6, 34},
-  {cont__compiler__expand_operator_call_16, &frame__compiler__expand_operator_call_1, 95, 156, 3, 51},
+  {entry__compiler__expand_operator_call_25, NULL, 105, 105, 9, 39},
+  {cont__compiler__expand_operator_call_27, &frame__compiler__expand_operator_call_25, 105, 105, 39, 39},
+  {entry__compiler__expand_operator_call_32, NULL, 110, 110, 13, 45},
+  {cont__compiler__expand_operator_call_34, &frame__compiler__expand_operator_call_32, 110, 110, 45, 45},
+  {entry__compiler__expand_operator_call_35, NULL, 112, 112, 13, 44},
+  {cont__compiler__expand_operator_call_37, &frame__compiler__expand_operator_call_35, 112, 112, 44, 44},
+  {entry__compiler__expand_operator_call_28, NULL, 109, 109, 21, 38},
+  {cont__compiler__expand_operator_call_29, &frame__compiler__expand_operator_call_28, 109, 109, 11, 39},
+  {cont__compiler__expand_operator_call_30, &frame__compiler__expand_operator_call_28, 109, 109, 11, 44},
+  {cont__compiler__expand_operator_call_31, &frame__compiler__expand_operator_call_28, 108, 112, 9, 45},
+  {entry__compiler__expand_operator_call_38, NULL, 115, 115, 9, 45},
+  {cont__compiler__expand_operator_call_40, &frame__compiler__expand_operator_call_38, 115, 115, 45, 45},
+  {entry__compiler__expand_operator_call_41, NULL, 118, 118, 9, 46},
+  {cont__compiler__expand_operator_call_43, &frame__compiler__expand_operator_call_41, 118, 118, 46, 46},
+  {entry__compiler__expand_operator_call_44, NULL, 121, 121, 9, 42},
+  {cont__compiler__expand_operator_call_46, &frame__compiler__expand_operator_call_44, 121, 121, 42, 42},
+  {entry__compiler__expand_operator_call_47, NULL, 124, 124, 9, 42},
+  {cont__compiler__expand_operator_call_49, &frame__compiler__expand_operator_call_47, 124, 124, 42, 42},
+  {entry__compiler__expand_operator_call_50, NULL, 127, 127, 9, 41},
+  {cont__compiler__expand_operator_call_52, &frame__compiler__expand_operator_call_50, 127, 127, 41, 41},
+  {entry__compiler__expand_operator_call_53, NULL, 130, 130, 9, 39},
+  {cont__compiler__expand_operator_call_55, &frame__compiler__expand_operator_call_53, 131, 131, 15, 31},
+  {cont__compiler__expand_operator_call_56, &frame__compiler__expand_operator_call_53, 131, 131, 15, 34},
+  {cont__compiler__expand_operator_call_57, &frame__compiler__expand_operator_call_53, 131, 131, 37, 53},
+  {cont__compiler__expand_operator_call_58, &frame__compiler__expand_operator_call_53, 131, 131, 37, 56},
+  {cont__compiler__expand_operator_call_59, &frame__compiler__expand_operator_call_53, 131, 131, 9, 56},
+  {cont__compiler__expand_operator_call_60, &frame__compiler__expand_operator_call_53, 131, 131, 15, 31},
+  {cont__compiler__expand_operator_call_61, &frame__compiler__expand_operator_call_53, 131, 131, 14, 34},
+  {cont__compiler__expand_operator_call_62, &frame__compiler__expand_operator_call_53, 131, 131, 37, 53},
+  {cont__compiler__expand_operator_call_63, &frame__compiler__expand_operator_call_53, 131, 131, 36, 56},
+  {cont__compiler__expand_operator_call_64, &frame__compiler__expand_operator_call_53, 132, 132, 27, 27},
+  {entry__compiler__expand_operator_call_65, NULL, 135, 135, 9, 39},
+  {cont__compiler__expand_operator_call_66, &frame__compiler__expand_operator_call_65, 135, 135, 39, 39},
+  {entry__compiler__expand_operator_call_67, NULL, 138, 138, 9, 39},
+  {cont__compiler__expand_operator_call_68, &frame__compiler__expand_operator_call_67, 139, 139, 27, 27},
+  {entry__compiler__expand_operator_call_69, NULL, 142, 142, 9, 39},
+  {cont__compiler__expand_operator_call_70, &frame__compiler__expand_operator_call_69, 143, 143, 15, 31},
+  {cont__compiler__expand_operator_call_71, &frame__compiler__expand_operator_call_69, 143, 143, 15, 34},
+  {cont__compiler__expand_operator_call_72, &frame__compiler__expand_operator_call_69, 143, 143, 37, 53},
+  {cont__compiler__expand_operator_call_73, &frame__compiler__expand_operator_call_69, 143, 143, 37, 56},
+  {cont__compiler__expand_operator_call_74, &frame__compiler__expand_operator_call_69, 143, 143, 9, 56},
+  {cont__compiler__expand_operator_call_75, &frame__compiler__expand_operator_call_69, 143, 143, 15, 31},
+  {cont__compiler__expand_operator_call_76, &frame__compiler__expand_operator_call_69, 143, 143, 14, 34},
+  {cont__compiler__expand_operator_call_77, &frame__compiler__expand_operator_call_69, 143, 143, 37, 53},
+  {cont__compiler__expand_operator_call_78, &frame__compiler__expand_operator_call_69, 143, 143, 36, 56},
+  {cont__compiler__expand_operator_call_79, &frame__compiler__expand_operator_call_69, 143, 143, 56, 56},
+  {entry__compiler__expand_operator_call_80, NULL, 146, 146, 9, 40},
+  {cont__compiler__expand_operator_call_82, &frame__compiler__expand_operator_call_80, 146, 146, 40, 40},
+  {entry__compiler__expand_operator_call_83, NULL, 149, 149, 9, 40},
+  {cont__compiler__expand_operator_call_84, &frame__compiler__expand_operator_call_83, 150, 150, 27, 27},
+  {entry__compiler__expand_operator_call_85, NULL, 153, 153, 9, 38},
+  {cont__compiler__expand_operator_call_87, &frame__compiler__expand_operator_call_85, 154, 154, 9, 32},
+  {entry__compiler__expand_operator_call_88, NULL, 157, 157, 9, 37},
+  {cont__compiler__expand_operator_call_90, &frame__compiler__expand_operator_call_88, 158, 158, 9, 32},
+  {entry__compiler__expand_operator_call_91, NULL, 161, 161, 9, 46},
+  {cont__compiler__expand_operator_call_93, &frame__compiler__expand_operator_call_91, 161, 161, 46, 46},
+  {entry__compiler__expand_operator_call_94, NULL, 164, 164, 9, 49},
+  {cont__compiler__expand_operator_call_96, &frame__compiler__expand_operator_call_94, 164, 164, 49, 49},
+  {entry__compiler__expand_operator_call_117, NULL, 169, 169, 23, 43},
+  {cont__compiler__expand_operator_call_119, &frame__compiler__expand_operator_call_117, 170, 170, 25, 34},
+  {cont__compiler__expand_operator_call_120, &frame__compiler__expand_operator_call_117, 171, 171, 24, 40},
+  {cont__compiler__expand_operator_call_121, &frame__compiler__expand_operator_call_117, 172, 172, 31, 54},
+  {cont__compiler__expand_operator_call_122, &frame__compiler__expand_operator_call_117, 173, 173, 28, 48},
+  {cont__compiler__expand_operator_call_123, &frame__compiler__expand_operator_call_117, 173, 173, 50, 50},
+  {entry__compiler__expand_operator_call_17, NULL, 96, 96, 10, 25},
+  {cont__compiler__expand_operator_call_18, &frame__compiler__expand_operator_call_17, 96, 164, 5, 50},
+  {cont__compiler__expand_operator_call_116, &frame__compiler__expand_operator_call_17, 166, 173, 5, 50},
+  {entry__compiler__expand_operator_call_1, NULL, 93, 93, 3, 28},
+  {cont__compiler__expand_operator_call_15, &frame__compiler__expand_operator_call_1, 94, 94, 6, 34},
+  {cont__compiler__expand_operator_call_16, &frame__compiler__expand_operator_call_1, 94, 173, 3, 51},
   {cont__compiler__expand_operator_call_124, &frame__compiler__expand_operator_call_1, },
-  {entry__compiler__function_call__expand_expression_11, NULL, 167, 167, 40, 55},
-  {cont__compiler__function_call__expand_expression_12, &frame__compiler__function_call__expand_expression_11, 167, 167, 40, 62},
-  {cont__compiler__function_call__expand_expression_14, &frame__compiler__function_call__expand_expression_11, 167, 167, 40, 62},
-  {entry__compiler__function_call__expand_expression_24, NULL, 170, 170, 54, 70},
-  {cont__compiler__function_call__expand_expression_25, &frame__compiler__function_call__expand_expression_24, 170, 170, 46, 71},
-  {cont__compiler__function_call__expand_expression_26, &frame__compiler__function_call__expand_expression_24, 170, 170, 46, 78},
-  {cont__compiler__function_call__expand_expression_27, &frame__compiler__function_call__expand_expression_24, 170, 170, 46, 78},
-  {entry__compiler__function_call__expand_expression_29, NULL, 171, 171, 11, 46},
-  {cont__compiler__function_call__expand_expression_30, &frame__compiler__function_call__expand_expression_29, 172, 172, 27, 44},
-  {cont__compiler__function_call__expand_expression_31, &frame__compiler__function_call__expand_expression_29, 172, 172, 11, 44},
-  {cont__compiler__function_call__expand_expression_32, &frame__compiler__function_call__expand_expression_29, 173, 173, 11, 35},
-  {cont__compiler__function_call__expand_expression_33, &frame__compiler__function_call__expand_expression_29, 173, 173, 35, 35},
-  {entry__compiler__function_call__expand_expression_22, NULL, 170, 170, 18, 41},
-  {cont__compiler__function_call__expand_expression_23, &frame__compiler__function_call__expand_expression_22, 170, 170, 18, 78},
-  {cont__compiler__function_call__expand_expression_28, &frame__compiler__function_call__expand_expression_22, 170, 173, 15, 35},
-  {entry__compiler__function_call__expand_expression_16, NULL, 168, 168, 26, 43},
-  {cont__compiler__function_call__expand_expression_17, &frame__compiler__function_call__expand_expression_16, 168, 168, 26, 46},
-  {cont__compiler__function_call__expand_expression_18, &frame__compiler__function_call__expand_expression_16, 168, 168, 9, 47},
-  {cont__compiler__function_call__expand_expression_19, &frame__compiler__function_call__expand_expression_16, 169, 169, 17, 34},
-  {cont__compiler__function_call__expand_expression_20, &frame__compiler__function_call__expand_expression_16, 169, 169, 9, 37},
-  {cont__compiler__function_call__expand_expression_21, &frame__compiler__function_call__expand_expression_16, 170, 173, 9, 35},
-  {cont__compiler__function_call__expand_expression_34, &frame__compiler__function_call__expand_expression_16, 174, 174, 9, 29},
-  {cont__compiler__function_call__expand_expression_35, &frame__compiler__function_call__expand_expression_16, 175, 175, 9, 51},
-  {cont__compiler__function_call__expand_expression_37, &frame__compiler__function_call__expand_expression_16, 176, 176, 9, 54},
-  {cont__compiler__function_call__expand_expression_38, &frame__compiler__function_call__expand_expression_16, 176, 176, 54, 54},
-  {entry__compiler__function_call__expand_expression_39, NULL, 178, 178, 27, 43},
-  {cont__compiler__function_call__expand_expression_40, &frame__compiler__function_call__expand_expression_39, 178, 178, 9, 43},
-  {cont__compiler__function_call__expand_expression_41, &frame__compiler__function_call__expand_expression_39, 179, 179, 9, 34},
-  {cont__compiler__function_call__expand_expression_42, &frame__compiler__function_call__expand_expression_39, 179, 179, 34, 34},
-  {entry__compiler__function_call__expand_expression_6, NULL, 164, 164, 24, 38},
-  {cont__compiler__function_call__expand_expression_7, &frame__compiler__function_call__expand_expression_6, 164, 164, 5, 38},
-  {cont__compiler__function_call__expand_expression_8, &frame__compiler__function_call__expand_expression_6, 165, 165, 5, 29},
-  {cont__compiler__function_call__expand_expression_9, &frame__compiler__function_call__expand_expression_6, 167, 167, 7, 35},
-  {cont__compiler__function_call__expand_expression_10, &frame__compiler__function_call__expand_expression_6, 167, 167, 7, 62},
-  {cont__compiler__function_call__expand_expression_15, &frame__compiler__function_call__expand_expression_6, 166, 179, 5, 35},
-  {entry__compiler__function_call__expand_expression_1, NULL, 159, 159, 3, 49},
-  {cont__compiler__function_call__expand_expression_3, &frame__compiler__function_call__expand_expression_1, 163, 163, 6, 21},
-  {cont__compiler__function_call__expand_expression_4, &frame__compiler__function_call__expand_expression_1, 163, 163, 6, 32},
-  {cont__compiler__function_call__expand_expression_5, &frame__compiler__function_call__expand_expression_1, 163, 179, 3, 36},
+  {entry__compiler__function_call__expand_expression_11, NULL, 184, 184, 40, 55},
+  {cont__compiler__function_call__expand_expression_12, &frame__compiler__function_call__expand_expression_11, 184, 184, 40, 62},
+  {cont__compiler__function_call__expand_expression_14, &frame__compiler__function_call__expand_expression_11, 184, 184, 40, 62},
+  {entry__compiler__function_call__expand_expression_24, NULL, 187, 187, 54, 70},
+  {cont__compiler__function_call__expand_expression_25, &frame__compiler__function_call__expand_expression_24, 187, 187, 46, 71},
+  {cont__compiler__function_call__expand_expression_26, &frame__compiler__function_call__expand_expression_24, 187, 187, 46, 78},
+  {cont__compiler__function_call__expand_expression_27, &frame__compiler__function_call__expand_expression_24, 187, 187, 46, 78},
+  {entry__compiler__function_call__expand_expression_29, NULL, 188, 188, 11, 46},
+  {cont__compiler__function_call__expand_expression_30, &frame__compiler__function_call__expand_expression_29, 189, 189, 27, 44},
+  {cont__compiler__function_call__expand_expression_31, &frame__compiler__function_call__expand_expression_29, 189, 189, 11, 44},
+  {cont__compiler__function_call__expand_expression_32, &frame__compiler__function_call__expand_expression_29, 190, 190, 11, 35},
+  {cont__compiler__function_call__expand_expression_33, &frame__compiler__function_call__expand_expression_29, 190, 190, 35, 35},
+  {entry__compiler__function_call__expand_expression_22, NULL, 187, 187, 18, 41},
+  {cont__compiler__function_call__expand_expression_23, &frame__compiler__function_call__expand_expression_22, 187, 187, 18, 78},
+  {cont__compiler__function_call__expand_expression_28, &frame__compiler__function_call__expand_expression_22, 187, 190, 15, 35},
+  {entry__compiler__function_call__expand_expression_16, NULL, 185, 185, 26, 43},
+  {cont__compiler__function_call__expand_expression_17, &frame__compiler__function_call__expand_expression_16, 185, 185, 26, 46},
+  {cont__compiler__function_call__expand_expression_18, &frame__compiler__function_call__expand_expression_16, 185, 185, 9, 47},
+  {cont__compiler__function_call__expand_expression_19, &frame__compiler__function_call__expand_expression_16, 186, 186, 17, 34},
+  {cont__compiler__function_call__expand_expression_20, &frame__compiler__function_call__expand_expression_16, 186, 186, 9, 37},
+  {cont__compiler__function_call__expand_expression_21, &frame__compiler__function_call__expand_expression_16, 187, 190, 9, 35},
+  {cont__compiler__function_call__expand_expression_34, &frame__compiler__function_call__expand_expression_16, 191, 191, 9, 29},
+  {cont__compiler__function_call__expand_expression_35, &frame__compiler__function_call__expand_expression_16, 192, 192, 9, 51},
+  {cont__compiler__function_call__expand_expression_37, &frame__compiler__function_call__expand_expression_16, 193, 193, 9, 54},
+  {cont__compiler__function_call__expand_expression_38, &frame__compiler__function_call__expand_expression_16, 193, 193, 54, 54},
+  {entry__compiler__function_call__expand_expression_39, NULL, 195, 195, 27, 43},
+  {cont__compiler__function_call__expand_expression_40, &frame__compiler__function_call__expand_expression_39, 195, 195, 9, 43},
+  {cont__compiler__function_call__expand_expression_41, &frame__compiler__function_call__expand_expression_39, 196, 196, 9, 34},
+  {cont__compiler__function_call__expand_expression_42, &frame__compiler__function_call__expand_expression_39, 196, 196, 34, 34},
+  {entry__compiler__function_call__expand_expression_6, NULL, 181, 181, 24, 38},
+  {cont__compiler__function_call__expand_expression_7, &frame__compiler__function_call__expand_expression_6, 181, 181, 5, 38},
+  {cont__compiler__function_call__expand_expression_8, &frame__compiler__function_call__expand_expression_6, 182, 182, 5, 29},
+  {cont__compiler__function_call__expand_expression_9, &frame__compiler__function_call__expand_expression_6, 184, 184, 7, 35},
+  {cont__compiler__function_call__expand_expression_10, &frame__compiler__function_call__expand_expression_6, 184, 184, 7, 62},
+  {cont__compiler__function_call__expand_expression_15, &frame__compiler__function_call__expand_expression_6, 183, 196, 5, 35},
+  {entry__compiler__function_call__expand_expression_1, NULL, 176, 176, 3, 49},
+  {cont__compiler__function_call__expand_expression_3, &frame__compiler__function_call__expand_expression_1, 180, 180, 6, 21},
+  {cont__compiler__function_call__expand_expression_4, &frame__compiler__function_call__expand_expression_1, 180, 180, 6, 32},
+  {cont__compiler__function_call__expand_expression_5, &frame__compiler__function_call__expand_expression_1, 180, 196, 3, 36},
   {cont__compiler__function_call__expand_expression_43, &frame__compiler__function_call__expand_expression_1, },
-  {entry__compiler__attribute_value_pair__expand_expression_1, NULL, 185, 185, 3, 56},
-  {cont__compiler__attribute_value_pair__expand_expression_3, &frame__compiler__attribute_value_pair__expand_expression_1, 186, 186, 21, 37},
-  {cont__compiler__attribute_value_pair__expand_expression_4, &frame__compiler__attribute_value_pair__expand_expression_1, 186, 186, 3, 37},
-  {cont__compiler__attribute_value_pair__expand_expression_5, &frame__compiler__attribute_value_pair__expand_expression_1, 186, 186, 37, 37},
-  {entry__compiler__attribute_function_pair__expand_expression_1, NULL, 192, 192, 3, 59},
-  {cont__compiler__attribute_function_pair__expand_expression_3, &frame__compiler__attribute_function_pair__expand_expression_1, 193, 193, 21, 37},
-  {cont__compiler__attribute_function_pair__expand_expression_4, &frame__compiler__attribute_function_pair__expand_expression_1, 193, 193, 3, 37},
-  {cont__compiler__attribute_function_pair__expand_expression_5, &frame__compiler__attribute_function_pair__expand_expression_1, 193, 193, 37, 37}
+  {entry__compiler__attribute_value_pair__expand_expression_1, NULL, 202, 202, 3, 56},
+  {cont__compiler__attribute_value_pair__expand_expression_3, &frame__compiler__attribute_value_pair__expand_expression_1, 203, 203, 21, 37},
+  {cont__compiler__attribute_value_pair__expand_expression_4, &frame__compiler__attribute_value_pair__expand_expression_1, 203, 203, 3, 37},
+  {cont__compiler__attribute_value_pair__expand_expression_5, &frame__compiler__attribute_value_pair__expand_expression_1, 203, 203, 37, 37},
+  {entry__compiler__attribute_function_pair__expand_expression_1, NULL, 209, 209, 3, 59},
+  {cont__compiler__attribute_function_pair__expand_expression_3, &frame__compiler__attribute_function_pair__expand_expression_1, 210, 210, 21, 37},
+  {cont__compiler__attribute_function_pair__expand_expression_4, &frame__compiler__attribute_function_pair__expand_expression_1, 210, 210, 3, 37},
+  {cont__compiler__attribute_function_pair__expand_expression_5, &frame__compiler__attribute_function_pair__expand_expression_1, 210, 210, 37, 37}
 };
 
 union NODE {
@@ -914,6 +909,10 @@ union NODE {
   CLOSURE closure;
 };
 static void type__compiler__expand_statement(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__compiler__expand_statement);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -936,6 +935,10 @@ static void type__compiler__expand_statement(void) {
   }
 }
 static void type__compiler__expand_expression(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__compiler__expand_expression);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1841,44 +1844,6 @@ static void cont__compiler__call__expand_statement_16(void) {
     ((CELL *)frame->slots[0])->contents /* self */ = temp;
 
   }
-  // 73: ... self.output_arguments_of
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
-  result_count = 1;
-  myself = get__output_arguments_of();
-  func = myself->type;
-  frame->cont = cont__compiler__call__expand_statement_17;
-}
-static void cont__compiler__call__expand_statement_17(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 73: expand_arguments &self.output_arguments_of
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  result_count = 1;
-  myself = var._expand_arguments;
-  func = myself->type;
-  frame->cont = cont__compiler__call__expand_statement_18;
-}
-static void cont__compiler__call__expand_statement_18(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 73: ... &self.output_arguments_of
-  {
-    NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
-    update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__output_arguments_of, frame->slots[2] /* temp__2 */);
-    ((CELL *)frame->slots[0])->contents /* self */ = temp;
-
-  }
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -1899,31 +1864,31 @@ static void entry__compiler__expand_operator_call_1(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 79: ... :
-  // 80:   $right arguments_of(self)(2)
-  // 81:   !self.arguments_of(2)
-  // 82:     body
-  // 83:       .statements_of
-  // 84:         list
-  // 85:           return_statement
-  // 86:             .arguments_of list(right)
-  // 87:             .fragment_of fragment_of(right)
-  // 88:             .source_position_of source_position_of(right)
+  // 78: ... :
+  // 79:   $right arguments_of(self)(2)
+  // 80:   !self.arguments_of(2)
+  // 81:     body
+  // 82:       .statements_of
+  // 83:         list
+  // 84:           return_statement
+  // 85:             .arguments_of list(right)
+  // 86:             .fragment_of fragment_of(right)
+  // 87:             .source_position_of source_position_of(right)
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__expand_operator_call_2, 0);
-  // 79: $make_right_argument_lazy:
-  // 80:   $right arguments_of(self)(2)
-  // 81:   !self.arguments_of(2)
-  // 82:     body
-  // 83:       .statements_of
-  // 84:         list
-  // 85:           return_statement
-  // 86:             .arguments_of list(right)
-  // 87:             .fragment_of fragment_of(right)
-  // 88:             .source_position_of source_position_of(right)
+  // 78: $make_right_argument_lazy:
+  // 79:   $right arguments_of(self)(2)
+  // 80:   !self.arguments_of(2)
+  // 81:     body
+  // 82:       .statements_of
+  // 83:         list
+  // 84:           return_statement
+  // 85:             .arguments_of list(right)
+  // 86:             .fragment_of fragment_of(right)
+  // 87:             .source_position_of source_position_of(right)
   // ...
   initialize_future(frame->slots[1] /* make_right_argument_lazy */, frame->slots[3] /* temp__1 */);
-  // 94: $$functor functor_of(self)
+  // 93: $$functor functor_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -1943,7 +1908,7 @@ static void entry__compiler__expand_operator_call_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 80: ... arguments_of(self)
+  // 79: ... arguments_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -1958,7 +1923,7 @@ static void cont__compiler__expand_operator_call_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 80: $right arguments_of(self)(2)
+  // 79: $right arguments_of(self)(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -1973,7 +1938,7 @@ static void cont__compiler__expand_operator_call_4(void) {
     return;
   }
   initialize_future(frame->slots[1] /* right */, arguments->slots[0]);
-  // 86: ... list(right)
+  // 85: ... list(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -1988,7 +1953,7 @@ static void cont__compiler__expand_operator_call_5(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 87: ... fragment_of(right)
+  // 86: ... fragment_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -2003,7 +1968,7 @@ static void cont__compiler__expand_operator_call_6(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 88: ... source_position_of(right)
+  // 87: ... source_position_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -2018,7 +1983,7 @@ static void cont__compiler__expand_operator_call_7(void) {
     return;
   }
   frame->slots[6] /* temp__5 */ = arguments->slots[0];
-  // 89: ... end_position_of(right)
+  // 88: ... end_position_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -2033,11 +1998,6 @@ static void cont__compiler__expand_operator_call_8(void) {
     return;
   }
   frame->slots[7] /* temp__6 */ = arguments->slots[0];
-  // 85: return_statement
-  // 86:   .arguments_of list(right)
-  // 87:   .fragment_of fragment_of(right)
-  // 88:   .source_position_of source_position_of(right)
-  // 89:   .end_position_of end_position_of(right)
   {
     NODE *temp = clone_object_and_attributes(get__return_statement());
     update_start_p = node_p;
@@ -2048,12 +2008,6 @@ static void cont__compiler__expand_operator_call_8(void) {
     frame->slots[3] /* temp__2 */ = temp;
 
   }
-  // 84: list
-  // 85:   return_statement
-  // 86:     .arguments_of list(right)
-  // 87:     .fragment_of fragment_of(right)
-  // 88:     .source_position_of source_position_of(right)
-  // 89:     .end_position_of end_position_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -2068,7 +2022,7 @@ static void cont__compiler__expand_operator_call_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 90: ... fragment_of(right)
+  // 89: ... fragment_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -2083,7 +2037,7 @@ static void cont__compiler__expand_operator_call_10(void) {
     return;
   }
   frame->slots[8] /* temp__7 */ = arguments->slots[0];
-  // 91: ... source_position_of(right)
+  // 90: ... source_position_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -2098,7 +2052,7 @@ static void cont__compiler__expand_operator_call_11(void) {
     return;
   }
   frame->slots[9] /* temp__8 */ = arguments->slots[0];
-  // 92: ... end_position_of(right)
+  // 91: ... end_position_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* right */;
@@ -2113,16 +2067,16 @@ static void cont__compiler__expand_operator_call_12(void) {
     return;
   }
   frame->slots[10] /* temp__9 */ = arguments->slots[0];
-  // 81: !self.arguments_of(2)
-  // 82:   body
-  // 83:     .statements_of
-  // 84:       list
-  // 85:         return_statement
-  // 86:           .arguments_of list(right)
-  // 87:           .fragment_of fragment_of(right)
-  // 88:           .source_position_of source_position_of(right)
-  // 89:           .end_position_of end_position_of(right)
-  // 90:     .fragment_of fragment_of(right)
+  // 80: !self.arguments_of(2)
+  // 81:   body
+  // 82:     .statements_of
+  // 83:       list
+  // 84:         return_statement
+  // 85:           .arguments_of list(right)
+  // 86:           .fragment_of fragment_of(right)
+  // 87:           .source_position_of source_position_of(right)
+  // 88:           .end_position_of end_position_of(right)
+  // 89:     .fragment_of fragment_of(right)
   // ...
   {
     NODE *temp = clone_object_and_attributes(get__body());
@@ -2134,7 +2088,7 @@ static void cont__compiler__expand_operator_call_12(void) {
     frame->slots[11] /* temp__10 */ = temp;
 
   }
-  // 81: ... self.arguments_of
+  // 80: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -2149,7 +2103,7 @@ static void cont__compiler__expand_operator_call_13(void) {
     return;
   }
   frame->slots[12] /* temp__11 */ = arguments->slots[0];
-  // 81: !self.arguments_of(2)
+  // 80: !self.arguments_of(2)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -2165,7 +2119,7 @@ static void cont__compiler__expand_operator_call_14(void) {
     return;
   }
   frame->slots[12] /* temp__11 */ = arguments->slots[0];
-  // 81: !self.arguments_of
+  // 80: !self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -2185,7 +2139,7 @@ static void cont__compiler__expand_operator_call_15(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* functor */ = arguments->slots[0];
-  // 95: ... functor.is_an_operator_symbol
+  // 94: ... functor.is_an_operator_symbol
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* functor */;
@@ -2200,28 +2154,28 @@ static void cont__compiler__expand_operator_call_16(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  //  95: ... :
-  //  96:   $$do_insert_not false
-  //  97:   case
-  //  98:     name_of(functor)
-  //  99:     "*":
-  // 100:       !functor std_identifier("times")
-  // 101:     "/":
+  //  94: ... :
+  //  95:   $$do_insert_not false
+  //  96:   case name_of(functor)
+  //  97:     "*"
+  //  98:     :
+  //  99:       !functor std_identifier("times")
+  // 100:     "/"
+  // 101:     :
   // 102:       !functor std_identifier("over")
-  // 103:     "+":
-  // 104:       !functor std_identifier("plus")
+  // 103:     "+"
   // ...
   frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__expand_operator_call_17, 0);
-  //  95: if functor.is_an_operator_symbol:
-  //  96:   $$do_insert_not false
-  //  97:   case
-  //  98:     name_of(functor)
-  //  99:     "*":
-  // 100:       !functor std_identifier("times")
-  // 101:     "/":
+  //  94: if functor.is_an_operator_symbol:
+  //  95:   $$do_insert_not false
+  //  96:   case name_of(functor)
+  //  97:     "*"
+  //  98:     :
+  //  99:       !functor std_identifier("times")
+  // 100:     "/"
+  // 101:     :
   // 102:       !functor std_identifier("over")
-  // 103:     "+":
-  // 104:       !functor std_identifier("plus")
+  // 103:     "+"
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -2243,7 +2197,7 @@ static void entry__compiler__expand_operator_call_117(void) {
     invalid_arguments_error();
     return;
   }
-  // 152: ... std_identifier("not")
+  // 169: ... std_identifier("not")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__fa723c15d516bb8;
@@ -2258,7 +2212,7 @@ static void cont__compiler__expand_operator_call_119(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 153: ... list(self)
+  // 170: ... list(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -2273,7 +2227,7 @@ static void cont__compiler__expand_operator_call_120(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 154: ... fragment_of(self)
+  // 171: ... fragment_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -2288,7 +2242,7 @@ static void cont__compiler__expand_operator_call_121(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 155: ... source_position_of(self)
+  // 172: ... source_position_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -2303,7 +2257,7 @@ static void cont__compiler__expand_operator_call_122(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 156: ... end_position_of(self)
+  // 173: ... end_position_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -2318,13 +2272,13 @@ static void cont__compiler__expand_operator_call_123(void) {
     return;
   }
   frame->slots[5] /* temp__5 */ = arguments->slots[0];
-  // 150: !self
-  // 151:   function_call
-  // 152:     .functor_of std_identifier("not")
-  // 153:     .arguments_of list(self)
-  // 154:     .fragment_of fragment_of(self)
-  // 155:     .source_position_of source_position_of(self)
-  // 156:     .end_position_of end_position_of(self)
+  // 167: !self
+  // 168:   function_call
+  // 169:     .functor_of std_identifier("not")
+  // 170:     .arguments_of list(self)
+  // 171:     .fragment_of fragment_of(self)
+  // 172:     .source_position_of source_position_of(self)
+  // 173:     .end_position_of end_position_of(self)
   {
     NODE *temp = clone_object_and_attributes(get__function_call());
     update_start_p = node_p;
@@ -2357,9 +2311,9 @@ static void entry__compiler__expand_operator_call_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 96: $$do_insert_not false
+  // 95: $$do_insert_not false
   ((CELL *)frame->slots[3])->contents /* do_insert_not */ = get__false();
-  // 98: name_of(functor)
+  // 96: ... name_of(functor)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* functor */;
@@ -2374,84 +2328,84 @@ static void cont__compiler__expand_operator_call_18(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  //  99: ... :
-  // 100:   !functor std_identifier("times")
+  // 98: :
+  // 99:   !functor std_identifier("times")
   frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__expand_operator_call_19, 0);
-  // 101: ... :
+  // 101: :
   // 102:   !functor std_identifier("over")
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__expand_operator_call_22, 0);
-  // 103: ... :
-  // 104:   !functor std_identifier("plus")
+  // 104: :
+  // 105:   !functor std_identifier("plus")
   frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__expand_operator_call_25, 0);
-  // 105: ... :
-  // 106:   if
-  // 107:     length_of(arguments_of(self)) == 1:
-  // 108:       !functor std_identifier("negate")
-  // 109:     :
-  // 110:       !functor std_identifier("minus")
+  // 107: :
+  // 108:   if
+  // 109:     length_of(arguments_of(self)) == 1:
+  // 110:       !functor std_identifier("negate")
+  // 111:     :
+  // 112:       !functor std_identifier("minus")
   frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__expand_operator_call_28, 0);
-  // 111: ... :
-  // 112:   !functor std_identifier("shift_left")
+  // 114: :
+  // 115:   !functor std_identifier("shift_left")
   frame->slots[9] /* temp__6 */ = create_closure(entry__compiler__expand_operator_call_38, 0);
-  // 113: ... :
-  // 114:   !functor std_identifier("shift_right")
+  // 117: :
+  // 118:   !functor std_identifier("shift_right")
   frame->slots[10] /* temp__7 */ = create_closure(entry__compiler__expand_operator_call_41, 0);
-  // 115: ... :
-  // 116:   !functor std_identifier("bit_and")
+  // 120: :
+  // 121:   !functor std_identifier("bit_and")
   frame->slots[11] /* temp__8 */ = create_closure(entry__compiler__expand_operator_call_44, 0);
-  // 117: ... :
-  // 118:   !functor std_identifier("bit_xor")
+  // 123: :
+  // 124:   !functor std_identifier("bit_xor")
   frame->slots[12] /* temp__9 */ = create_closure(entry__compiler__expand_operator_call_47, 0);
-  // 119: ... :
-  // 120:   !functor std_identifier("bit_or")
+  // 126: :
+  // 127:   !functor std_identifier("bit_or")
   frame->slots[13] /* temp__10 */ = create_closure(entry__compiler__expand_operator_call_50, 0);
-  // 121: ... :
-  // 122:   !functor std_identifier("less")
-  // 123:   swap &self.arguments_of(1) &self.arguments_of(2)
-  // 124:   !do_insert_not true
+  // 129: :
+  // 130:   !functor std_identifier("less")
+  // 131:   swap &self.arguments_of(1) &self.arguments_of(2)
+  // 132:   !do_insert_not true
   frame->slots[14] /* temp__11 */ = create_closure(entry__compiler__expand_operator_call_53, 0);
-  // 125: ... :
-  // 126:   !functor std_identifier("less")
+  // 134: :
+  // 135:   !functor std_identifier("less")
   frame->slots[15] /* temp__12 */ = create_closure(entry__compiler__expand_operator_call_65, 0);
-  // 127: ... :
-  // 128:   !functor std_identifier("less")
-  // 129:   !do_insert_not true
+  // 137: :
+  // 138:   !functor std_identifier("less")
+  // 139:   !do_insert_not true
   frame->slots[16] /* temp__13 */ = create_closure(entry__compiler__expand_operator_call_67, 0);
-  // 130: ... :
-  // 131:   !functor std_identifier("less")
-  // 132:   swap &self.arguments_of(1) &self.arguments_of(2)
+  // 141: :
+  // 142:   !functor std_identifier("less")
+  // 143:   swap &self.arguments_of(1) &self.arguments_of(2)
   frame->slots[17] /* temp__14 */ = create_closure(entry__compiler__expand_operator_call_69, 0);
-  // 133: ... :
-  // 134:   !functor std_identifier("equal")
+  // 145: :
+  // 146:   !functor std_identifier("equal")
   frame->slots[18] /* temp__15 */ = create_closure(entry__compiler__expand_operator_call_80, 0);
-  // 135: ... :
-  // 136:   !functor std_identifier("equal")
-  // 137:   !do_insert_not true
+  // 148: :
+  // 149:   !functor std_identifier("equal")
+  // 150:   !do_insert_not true
   frame->slots[19] /* temp__16 */ = create_closure(entry__compiler__expand_operator_call_83, 0);
-  // 138: ... :
-  // 139:   !functor std_identifier("and")
-  // 140:   make_right_argument_lazy
+  // 152: :
+  // 153:   !functor std_identifier("and")
+  // 154:   make_right_argument_lazy
   frame->slots[20] /* temp__17 */ = create_closure(entry__compiler__expand_operator_call_85, 0);
-  // 141: ... :
-  // 142:   !functor std_identifier("or")
-  // 143:   make_right_argument_lazy
+  // 156: :
+  // 157:   !functor std_identifier("or")
+  // 158:   make_right_argument_lazy
   frame->slots[21] /* temp__18 */ = create_closure(entry__compiler__expand_operator_call_88, 0);
-  // 144: ... :
-  // 145:   !functor std_identifier("value_range")
+  // 160: :
+  // 161:   !functor std_identifier("value_range")
   frame->slots[22] /* temp__19 */ = create_closure(entry__compiler__expand_operator_call_91, 0);
-  // 146: ... :
-  // 147:   !functor std_identifier("key_value_pair")
+  // 163: :
+  // 164:   !functor std_identifier("key_value_pair")
   frame->slots[23] /* temp__20 */ = create_closure(entry__compiler__expand_operator_call_94, 0);
-  //  97: case
-  //  98:   name_of(functor)
-  //  99:   "*":
-  // 100:     !functor std_identifier("times")
-  // 101:   "/":
+  //  96: case name_of(functor)
+  //  97:   "*"
+  //  98:   :
+  //  99:     !functor std_identifier("times")
+  // 100:   "/"
+  // 101:   :
   // 102:     !functor std_identifier("over")
-  // 103:   "+":
-  // 104:     !functor std_identifier("plus")
-  // 105:   "-":
-  // 106:     if
+  // 103:   "+"
+  // 104:   :
+  // 105:     !functor std_identifier("plus")
   // ...
   argument_count = 39;
   arguments = node_p;
@@ -2508,7 +2462,7 @@ static void entry__compiler__expand_operator_call_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 108: !functor std_identifier("negate")
+  // 110: !functor std_identifier("negate")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__561f5607811a02b2;
@@ -2538,7 +2492,7 @@ static void entry__compiler__expand_operator_call_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 110: !functor std_identifier("minus")
+  // 112: !functor std_identifier("minus")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__585ae883ea60c024;
@@ -2568,7 +2522,7 @@ static void entry__compiler__expand_operator_call_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 100: !functor std_identifier("times")
+  // 99: !functor std_identifier("times")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__585ae843eae15024;
@@ -2628,7 +2582,7 @@ static void entry__compiler__expand_operator_call_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 104: !functor std_identifier("plus")
+  // 105: !functor std_identifier("plus")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__220aea4b5dc87d4a;
@@ -2660,7 +2614,7 @@ static void entry__compiler__expand_operator_call_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 107: ... arguments_of(self)
+  // 109: ... arguments_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -2675,7 +2629,7 @@ static void cont__compiler__expand_operator_call_29(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 107: length_of(arguments_of(self))
+  // 109: length_of(arguments_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -2690,7 +2644,7 @@ static void cont__compiler__expand_operator_call_30(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 107: length_of(arguments_of(self)) == 1
+  // 109: length_of(arguments_of(self)) == 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -2706,17 +2660,17 @@ static void cont__compiler__expand_operator_call_31(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 107: ... :
-  // 108:   !functor std_identifier("negate")
+  // 109: ... :
+  // 110:   !functor std_identifier("negate")
   frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__expand_operator_call_32, 0);
-  // 109: :
-  // 110:   !functor std_identifier("minus")
+  // 111: :
+  // 112:   !functor std_identifier("minus")
   frame->slots[6] /* temp__5 */ = create_closure(entry__compiler__expand_operator_call_35, 0);
-  // 106: if
-  // 107:   length_of(arguments_of(self)) == 1:
-  // 108:     !functor std_identifier("negate")
-  // 109:   :
-  // 110:     !functor std_identifier("minus")
+  // 108: if
+  // 109:   length_of(arguments_of(self)) == 1:
+  // 110:     !functor std_identifier("negate")
+  // 111:   :
+  // 112:     !functor std_identifier("minus")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2736,7 +2690,7 @@ static void entry__compiler__expand_operator_call_38(void) {
     invalid_arguments_error();
     return;
   }
-  // 112: !functor std_identifier("shift_left")
+  // 115: !functor std_identifier("shift_left")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2d7c8951ae1884d5;
@@ -2766,7 +2720,7 @@ static void entry__compiler__expand_operator_call_41(void) {
     invalid_arguments_error();
     return;
   }
-  // 114: !functor std_identifier("shift_right")
+  // 118: !functor std_identifier("shift_right")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__528d708426488b90;
@@ -2796,7 +2750,7 @@ static void entry__compiler__expand_operator_call_44(void) {
     invalid_arguments_error();
     return;
   }
-  // 116: !functor std_identifier("bit_and")
+  // 121: !functor std_identifier("bit_and")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__cc0c0d9615cb809e;
@@ -2826,7 +2780,7 @@ static void entry__compiler__expand_operator_call_47(void) {
     invalid_arguments_error();
     return;
   }
-  // 118: !functor std_identifier("bit_xor")
+  // 124: !functor std_identifier("bit_xor")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__cc0c0bd615c38088;
@@ -2856,7 +2810,7 @@ static void entry__compiler__expand_operator_call_50(void) {
     invalid_arguments_error();
     return;
   }
-  // 120: !functor std_identifier("bit_or")
+  // 127: !functor std_identifier("bit_or")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__701f598181c2c2a5;
@@ -2890,7 +2844,7 @@ static void entry__compiler__expand_operator_call_53(void) {
     invalid_arguments_error();
     return;
   }
-  // 122: !functor std_identifier("less")
+  // 130: !functor std_identifier("less")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__1a0ae80b5df87d4a;
@@ -2905,7 +2859,7 @@ static void cont__compiler__expand_operator_call_55(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* functor */ = arguments->slots[0];
-  // 123: ... self.arguments_of
+  // 131: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -2920,7 +2874,7 @@ static void cont__compiler__expand_operator_call_56(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 123: ... self.arguments_of(1)
+  // 131: ... self.arguments_of(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2935,7 +2889,7 @@ static void cont__compiler__expand_operator_call_57(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 123: ... self.arguments_of
+  // 131: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -2950,7 +2904,7 @@ static void cont__compiler__expand_operator_call_58(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 123: ... self.arguments_of(2)
+  // 131: ... self.arguments_of(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -2965,7 +2919,7 @@ static void cont__compiler__expand_operator_call_59(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 123: swap &self.arguments_of(1) &self.arguments_of(2)
+  // 131: swap &self.arguments_of(1) &self.arguments_of(2)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2982,7 +2936,7 @@ static void cont__compiler__expand_operator_call_60(void) {
   }
   frame->slots[7] /* temp__5 */ = arguments->slots[0];
   frame->slots[8] /* temp__6 */ = arguments->slots[1];
-  // 123: ... self.arguments_of
+  // 131: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -2997,7 +2951,7 @@ static void cont__compiler__expand_operator_call_61(void) {
     return;
   }
   frame->slots[9] /* temp__7 */ = arguments->slots[0];
-  // 123: ... &self.arguments_of(1)
+  // 131: ... &self.arguments_of(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3013,7 +2967,7 @@ static void cont__compiler__expand_operator_call_62(void) {
     return;
   }
   frame->slots[9] /* temp__7 */ = arguments->slots[0];
-  // 123: ... &self.arguments_of
+  // 131: ... &self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* self */);
     update_start_p = node_p;
@@ -3021,7 +2975,7 @@ static void cont__compiler__expand_operator_call_62(void) {
     ((CELL *)frame->slots[1])->contents /* self */ = temp;
 
   }
-  // 123: ... self.arguments_of
+  // 131: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -3036,7 +2990,7 @@ static void cont__compiler__expand_operator_call_63(void) {
     return;
   }
   frame->slots[10] /* temp__8 */ = arguments->slots[0];
-  // 123: ... &self.arguments_of(2)
+  // 131: ... &self.arguments_of(2)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -3052,7 +3006,7 @@ static void cont__compiler__expand_operator_call_64(void) {
     return;
   }
   frame->slots[10] /* temp__8 */ = arguments->slots[0];
-  // 123: ... &self.arguments_of
+  // 131: ... &self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* self */);
     update_start_p = node_p;
@@ -3060,7 +3014,7 @@ static void cont__compiler__expand_operator_call_64(void) {
     ((CELL *)frame->slots[1])->contents /* self */ = temp;
 
   }
-  // 124: !do_insert_not true
+  // 132: !do_insert_not true
   ((CELL *)frame->slots[2])->contents /* do_insert_not */ = get__true();
   argument_count = 0;
   arguments = node_p;
@@ -3077,7 +3031,7 @@ static void entry__compiler__expand_operator_call_65(void) {
     invalid_arguments_error();
     return;
   }
-  // 126: !functor std_identifier("less")
+  // 135: !functor std_identifier("less")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__1a0ae80b5df87d4a;
@@ -3109,7 +3063,7 @@ static void entry__compiler__expand_operator_call_67(void) {
     invalid_arguments_error();
     return;
   }
-  // 128: !functor std_identifier("less")
+  // 138: !functor std_identifier("less")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__1a0ae80b5df87d4a;
@@ -3124,7 +3078,7 @@ static void cont__compiler__expand_operator_call_68(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* functor */ = arguments->slots[0];
-  // 129: !do_insert_not true
+  // 139: !do_insert_not true
   ((CELL *)frame->slots[1])->contents /* do_insert_not */ = get__true();
   argument_count = 0;
   arguments = node_p;
@@ -3143,7 +3097,7 @@ static void entry__compiler__expand_operator_call_69(void) {
     invalid_arguments_error();
     return;
   }
-  // 131: !functor std_identifier("less")
+  // 142: !functor std_identifier("less")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__1a0ae80b5df87d4a;
@@ -3158,7 +3112,7 @@ static void cont__compiler__expand_operator_call_70(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* functor */ = arguments->slots[0];
-  // 132: ... self.arguments_of
+  // 143: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -3173,7 +3127,7 @@ static void cont__compiler__expand_operator_call_71(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 132: ... self.arguments_of(1)
+  // 143: ... self.arguments_of(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3188,7 +3142,7 @@ static void cont__compiler__expand_operator_call_72(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 132: ... self.arguments_of
+  // 143: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -3203,7 +3157,7 @@ static void cont__compiler__expand_operator_call_73(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 132: ... self.arguments_of(2)
+  // 143: ... self.arguments_of(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -3218,7 +3172,7 @@ static void cont__compiler__expand_operator_call_74(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 132: swap &self.arguments_of(1) &self.arguments_of(2)
+  // 143: swap &self.arguments_of(1) &self.arguments_of(2)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3235,7 +3189,7 @@ static void cont__compiler__expand_operator_call_75(void) {
   }
   frame->slots[6] /* temp__5 */ = arguments->slots[0];
   frame->slots[7] /* temp__6 */ = arguments->slots[1];
-  // 132: ... self.arguments_of
+  // 143: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -3250,7 +3204,7 @@ static void cont__compiler__expand_operator_call_76(void) {
     return;
   }
   frame->slots[8] /* temp__7 */ = arguments->slots[0];
-  // 132: ... &self.arguments_of(1)
+  // 143: ... &self.arguments_of(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3266,7 +3220,7 @@ static void cont__compiler__expand_operator_call_77(void) {
     return;
   }
   frame->slots[8] /* temp__7 */ = arguments->slots[0];
-  // 132: ... &self.arguments_of
+  // 143: ... &self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* self */);
     update_start_p = node_p;
@@ -3274,7 +3228,7 @@ static void cont__compiler__expand_operator_call_77(void) {
     ((CELL *)frame->slots[1])->contents /* self */ = temp;
 
   }
-  // 132: ... self.arguments_of
+  // 143: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
@@ -3289,7 +3243,7 @@ static void cont__compiler__expand_operator_call_78(void) {
     return;
   }
   frame->slots[9] /* temp__8 */ = arguments->slots[0];
-  // 132: ... &self.arguments_of(2)
+  // 143: ... &self.arguments_of(2)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -3305,7 +3259,7 @@ static void cont__compiler__expand_operator_call_79(void) {
     return;
   }
   frame->slots[9] /* temp__8 */ = arguments->slots[0];
-  // 132: ... &self.arguments_of
+  // 143: ... &self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* self */);
     update_start_p = node_p;
@@ -3328,7 +3282,7 @@ static void entry__compiler__expand_operator_call_80(void) {
     invalid_arguments_error();
     return;
   }
-  // 134: !functor std_identifier("equal")
+  // 146: !functor std_identifier("equal")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__685aee43eac0403b;
@@ -3360,7 +3314,7 @@ static void entry__compiler__expand_operator_call_83(void) {
     invalid_arguments_error();
     return;
   }
-  // 136: !functor std_identifier("equal")
+  // 149: !functor std_identifier("equal")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__685aee43eac0403b;
@@ -3375,7 +3329,7 @@ static void cont__compiler__expand_operator_call_84(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* functor */ = arguments->slots[0];
-  // 137: !do_insert_not true
+  // 150: !do_insert_not true
   ((CELL *)frame->slots[1])->contents /* do_insert_not */ = get__true();
   argument_count = 0;
   arguments = node_p;
@@ -3394,7 +3348,7 @@ static void entry__compiler__expand_operator_call_85(void) {
     invalid_arguments_error();
     return;
   }
-  // 139: !functor std_identifier("and")
+  // 153: !functor std_identifier("and")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__fa720015d596ba8;
@@ -3409,7 +3363,7 @@ static void cont__compiler__expand_operator_call_87(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* functor */ = arguments->slots[0];
-  // 140: make_right_argument_lazy
+  // 154: make_right_argument_lazy
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -3428,7 +3382,7 @@ static void entry__compiler__expand_operator_call_88(void) {
     invalid_arguments_error();
     return;
   }
-  // 142: !functor std_identifier("or")
+  // 157: !functor std_identifier("or")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e4702bb7;
@@ -3443,7 +3397,7 @@ static void cont__compiler__expand_operator_call_90(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* functor */ = arguments->slots[0];
-  // 143: make_right_argument_lazy
+  // 158: make_right_argument_lazy
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -3460,7 +3414,7 @@ static void entry__compiler__expand_operator_call_91(void) {
     invalid_arguments_error();
     return;
   }
-  // 145: !functor std_identifier("value_range")
+  // 161: !functor std_identifier("value_range")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2c93ac4233089e0;
@@ -3490,7 +3444,7 @@ static void entry__compiler__expand_operator_call_94(void) {
     invalid_arguments_error();
     return;
   }
-  // 147: !functor std_identifier("key_value_pair")
+  // 164: !functor std_identifier("key_value_pair")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__64d512703527e2ab;
@@ -3516,33 +3470,31 @@ static void cont__compiler__expand_operator_call_116(void) {
     invalid_results_error();
     return;
   }
-  // 148: !self.functor_of functor
-  frame->slots[4] /* temp__1 */ = ((CELL *)frame->slots[0])->contents /* functor */;
-  // 148: !self.functor_of
+  // 165: !self.functor_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* self */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__functor_of, frame->slots[4] /* temp__1 */);
+    set_attribute_value(temp->attributes, poly_idx__functor_of, ((CELL *)frame->slots[0])->contents /* functor */);
     ((CELL *)frame->slots[1])->contents /* self */ = temp;
 
   }
-  // 149: ... :
-  // 150:   !self
-  // 151:     function_call
-  // 152:       .functor_of std_identifier("not")
-  // 153:       .arguments_of list(self)
-  // 154:       .fragment_of fragment_of(self)
-  // 155:       .source_position_of source_position_of(self)
-  // 156:       .end_position_of end_position_of(self)
+  // 166: ... :
+  // 167:   !self
+  // 168:     function_call
+  // 169:       .functor_of std_identifier("not")
+  // 170:       .arguments_of list(self)
+  // 171:       .fragment_of fragment_of(self)
+  // 172:       .source_position_of source_position_of(self)
+  // 173:       .end_position_of end_position_of(self)
   frame->slots[4] /* temp__1 */ = create_closure(entry__compiler__expand_operator_call_117, 0);
-  // 149: if do_insert_not:
-  // 150:   !self
-  // 151:     function_call
-  // 152:       .functor_of std_identifier("not")
-  // 153:       .arguments_of list(self)
-  // 154:       .fragment_of fragment_of(self)
-  // 155:       .source_position_of source_position_of(self)
-  // 156:       .end_position_of end_position_of(self)
+  // 166: if do_insert_not:
+  // 167:   !self
+  // 168:     function_call
+  // 169:       .functor_of std_identifier("not")
+  // 170:       .arguments_of list(self)
+  // 171:       .fragment_of fragment_of(self)
+  // 172:       .source_position_of source_position_of(self)
+  // 173:       .end_position_of end_position_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* do_insert_not */;
@@ -3572,7 +3524,7 @@ static void entry__compiler__function_call__expand_expression_1(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 159: show_compiler_debug_info "expand function call"
+  // 176: show_compiler_debug_info "expand function call"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2ae70e1058c2c0b7;
@@ -3586,7 +3538,7 @@ static void cont__compiler__function_call__expand_expression_3(void) {
     invalid_results_error();
     return;
   }
-  // 163: ... functor_of(self)
+  // 180: ... functor_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -3601,7 +3553,7 @@ static void cont__compiler__function_call__expand_expression_4(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 163: ... functor_of(self).is_defined
+  // 180: ... functor_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3616,28 +3568,28 @@ static void cont__compiler__function_call__expand_expression_5(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 163: ... :
-  // 164:   expand_expression &self.functor_of
-  // 165:   $functor functor_of(self)
-  // 166:   if
-  // 167:     functor.is_an_operator_symbol && name_of(functor) == ",":
-  // 168:       $$arguments list(arguments_of(self)(1))
-  // 169:       $$right arguments_of(self)(2)
-  // 170:       while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
-  // 171:         $right_arguments arguments_of(right)
-  // 172:         push &arguments right_arguments(1)
+  // 180: ... :
+  // 181:   expand_expression &self.functor_of
+  // 182:   $functor functor_of(self)
+  // 183:   if
+  // 184:     functor.is_an_operator_symbol && name_of(functor) == ",":
+  // 185:       $$arguments list(arguments_of(self)(1))
+  // 186:       $$right arguments_of(self)(2)
+  // 187:       while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
+  // 188:         $right_arguments arguments_of(right)
+  // 189:         push &arguments right_arguments(1)
   // ...
   frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__function_call__expand_expression_6, 0);
-  // 163: if functor_of(self).is_defined:
-  // 164:   expand_expression &self.functor_of
-  // 165:   $functor functor_of(self)
-  // 166:   if
-  // 167:     functor.is_an_operator_symbol && name_of(functor) == ",":
-  // 168:       $$arguments list(arguments_of(self)(1))
-  // 169:       $$right arguments_of(self)(2)
-  // 170:       while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
-  // 171:         $right_arguments arguments_of(right)
-  // 172:         push &arguments right_arguments(1)
+  // 180: if functor_of(self).is_defined:
+  // 181:   expand_expression &self.functor_of
+  // 182:   $functor functor_of(self)
+  // 183:   if
+  // 184:     functor.is_an_operator_symbol && name_of(functor) == ",":
+  // 185:       $$arguments list(arguments_of(self)(1))
+  // 186:       $$right arguments_of(self)(2)
+  // 187:       while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
+  // 188:         $right_arguments arguments_of(right)
+  // 189:         push &arguments right_arguments(1)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -3663,7 +3615,7 @@ static void entry__compiler__function_call__expand_expression_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 168: ... arguments_of(self)
+  // 185: ... arguments_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -3678,7 +3630,7 @@ static void cont__compiler__function_call__expand_expression_17(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 168: ... arguments_of(self)(1)
+  // 185: ... arguments_of(self)(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3693,7 +3645,7 @@ static void cont__compiler__function_call__expand_expression_18(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 168: $$arguments list(arguments_of(self)(1))
+  // 185: $$arguments list(arguments_of(self)(1))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -3708,7 +3660,7 @@ static void cont__compiler__function_call__expand_expression_19(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* arguments */ = arguments->slots[0];
-  // 169: ... arguments_of(self)
+  // 186: ... arguments_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -3723,7 +3675,7 @@ static void cont__compiler__function_call__expand_expression_20(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 169: $$right arguments_of(self)(2)
+  // 186: $$right arguments_of(self)(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -3738,15 +3690,15 @@ static void cont__compiler__function_call__expand_expression_21(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* right */ = arguments->slots[0];
-  // 170: ... -> right.is_a_function_call && name_of(functor_of(right)) == ",":
-  // 171:   $right_arguments arguments_of(right)
-  // 172:   push &arguments right_arguments(1)
-  // 173:   !right right_arguments(2)
+  // 187: ... -> right.is_a_function_call && name_of(functor_of(right)) == ",":
+  // 188:   $right_arguments arguments_of(right)
+  // 189:   push &arguments right_arguments(1)
+  // 190:   !right right_arguments(2)
   frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__function_call__expand_expression_22, 0);
-  // 170: while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
-  // 171:   $right_arguments arguments_of(right)
-  // 172:   push &arguments right_arguments(1)
-  // 173:   !right right_arguments(2)
+  // 187: while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
+  // 188:   $right_arguments arguments_of(right)
+  // 189:   push &arguments right_arguments(1)
+  // 190:   !right right_arguments(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -3768,7 +3720,7 @@ static void entry__compiler__function_call__expand_expression_29(void) {
     invalid_arguments_error();
     return;
   }
-  // 171: $right_arguments arguments_of(right)
+  // 188: $right_arguments arguments_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* right */;
@@ -3783,7 +3735,7 @@ static void cont__compiler__function_call__expand_expression_30(void) {
     return;
   }
   initialize_future(frame->slots[2] /* right_arguments */, arguments->slots[0]);
-  // 172: ... right_arguments(1)
+  // 189: ... right_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3798,7 +3750,7 @@ static void cont__compiler__function_call__expand_expression_31(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 172: push &arguments right_arguments(1)
+  // 189: push &arguments right_arguments(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* arguments */;
@@ -3814,7 +3766,7 @@ static void cont__compiler__function_call__expand_expression_32(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* arguments */ = arguments->slots[0];
-  // 173: !right right_arguments(2)
+  // 190: !right right_arguments(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -3846,7 +3798,7 @@ static void entry__compiler__function_call__expand_expression_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 170: ... right.is_a_function_call
+  // 187: ... right.is_a_function_call
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* right */;
@@ -3861,9 +3813,9 @@ static void cont__compiler__function_call__expand_expression_23(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 170: ... name_of(functor_of(right)) == ","
+  // 187: ... name_of(functor_of(right)) == ","
   frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__function_call__expand_expression_24, 0);
-  // 170: ... right.is_a_function_call && name_of(functor_of(right)) == ","
+  // 187: ... right.is_a_function_call && name_of(functor_of(right)) == ","
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -3882,7 +3834,7 @@ static void entry__compiler__function_call__expand_expression_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 170: ... functor_of(right)
+  // 187: ... functor_of(right)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* right */;
@@ -3897,7 +3849,7 @@ static void cont__compiler__function_call__expand_expression_25(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 170: ... name_of(functor_of(right))
+  // 187: ... name_of(functor_of(right))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -3912,7 +3864,7 @@ static void cont__compiler__function_call__expand_expression_26(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 170: ... name_of(functor_of(right)) == ","
+  // 187: ... name_of(functor_of(right)) == ","
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -3928,7 +3880,7 @@ static void cont__compiler__function_call__expand_expression_27(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 170: ... name_of(functor_of(right)) == ","
+  // 187: ... name_of(functor_of(right)) == ","
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3942,15 +3894,15 @@ static void cont__compiler__function_call__expand_expression_28(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 170: ... :
-  // 171:   $right_arguments arguments_of(right)
-  // 172:   push &arguments right_arguments(1)
-  // 173:   !right right_arguments(2)
+  // 187: ... :
+  // 188:   $right_arguments arguments_of(right)
+  // 189:   push &arguments right_arguments(1)
+  // 190:   !right right_arguments(2)
   frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__function_call__expand_expression_29, 0);
-  // 170: ... -> right.is_a_function_call && name_of(functor_of(right)) == ",":
-  // 171:   $right_arguments arguments_of(right)
-  // 172:   push &arguments right_arguments(1)
-  // 173:   !right right_arguments(2)
+  // 187: ... -> right.is_a_function_call && name_of(functor_of(right)) == ",":
+  // 188:   $right_arguments arguments_of(right)
+  // 189:   push &arguments right_arguments(1)
+  // 190:   !right right_arguments(2)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3964,7 +3916,7 @@ static void cont__compiler__function_call__expand_expression_34(void) {
     invalid_results_error();
     return;
   }
-  // 174: push &arguments right
+  // 191: push &arguments right
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* arguments */;
@@ -3980,7 +3932,7 @@ static void cont__compiler__function_call__expand_expression_35(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* arguments */ = arguments->slots[0];
-  // 175: !self.functor_of std_identifier("sequence")
+  // 192: !self.functor_of std_identifier("sequence")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__6480ae5e84ccc225;
@@ -3995,7 +3947,7 @@ static void cont__compiler__function_call__expand_expression_37(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 175: !self.functor_of
+  // 192: !self.functor_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -4003,7 +3955,7 @@ static void cont__compiler__function_call__expand_expression_37(void) {
     ((CELL *)frame->slots[0])->contents /* self */ = temp;
 
   }
-  // 176: !self.arguments_of expand_arguments(arguments)
+  // 193: !self.arguments_of expand_arguments(arguments)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* arguments */;
@@ -4018,7 +3970,7 @@ static void cont__compiler__function_call__expand_expression_38(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 176: !self.arguments_of
+  // 193: !self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -4041,7 +3993,7 @@ static void entry__compiler__function_call__expand_expression_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 178: ... self.arguments_of
+  // 195: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -4056,7 +4008,7 @@ static void cont__compiler__function_call__expand_expression_40(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 178: expand_arguments &self.arguments_of
+  // 195: expand_arguments &self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4071,7 +4023,7 @@ static void cont__compiler__function_call__expand_expression_41(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 178: ... &self.arguments_of
+  // 195: ... &self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -4079,7 +4031,7 @@ static void cont__compiler__function_call__expand_expression_41(void) {
     ((CELL *)frame->slots[0])->contents /* self */ = temp;
 
   }
-  // 179: expand_operator_call &self
+  // 196: expand_operator_call &self
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -4111,7 +4063,7 @@ static void entry__compiler__function_call__expand_expression_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 164: ... self.functor_of
+  // 181: ... self.functor_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -4126,7 +4078,7 @@ static void cont__compiler__function_call__expand_expression_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 164: expand_expression &self.functor_of
+  // 181: expand_expression &self.functor_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4141,7 +4093,7 @@ static void cont__compiler__function_call__expand_expression_8(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 164: ... &self.functor_of
+  // 181: ... &self.functor_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -4149,7 +4101,7 @@ static void cont__compiler__function_call__expand_expression_8(void) {
     ((CELL *)frame->slots[0])->contents /* self */ = temp;
 
   }
-  // 165: $functor functor_of(self)
+  // 182: $functor functor_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -4164,7 +4116,7 @@ static void cont__compiler__function_call__expand_expression_9(void) {
     return;
   }
   initialize_future(frame->slots[1] /* functor */, arguments->slots[0]);
-  // 167: functor.is_an_operator_symbol
+  // 184: functor.is_an_operator_symbol
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* functor */;
@@ -4179,9 +4131,9 @@ static void cont__compiler__function_call__expand_expression_10(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 167: ... name_of(functor) == ","
+  // 184: ... name_of(functor) == ","
   frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__function_call__expand_expression_11, 0);
-  // 167: functor.is_an_operator_symbol && name_of(functor) == ","
+  // 184: functor.is_an_operator_symbol && name_of(functor) == ","
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -4200,7 +4152,7 @@ static void entry__compiler__function_call__expand_expression_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 167: ... name_of(functor)
+  // 184: ... name_of(functor)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* functor */;
@@ -4215,7 +4167,7 @@ static void cont__compiler__function_call__expand_expression_12(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 167: ... name_of(functor) == ","
+  // 184: ... name_of(functor) == ","
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4231,7 +4183,7 @@ static void cont__compiler__function_call__expand_expression_14(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 167: ... name_of(functor) == ","
+  // 184: ... name_of(functor) == ","
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4245,31 +4197,31 @@ static void cont__compiler__function_call__expand_expression_15(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 167: ... :
-  // 168:   $$arguments list(arguments_of(self)(1))
-  // 169:   $$right arguments_of(self)(2)
-  // 170:   while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
-  // 171:     $right_arguments arguments_of(right)
-  // 172:     push &arguments right_arguments(1)
-  // 173:     !right right_arguments(2)
-  // 174:   push &arguments right
-  // 175:   !self.functor_of std_identifier("sequence")
-  // 176:   !self.arguments_of expand_arguments(arguments)
+  // 184: ... :
+  // 185:   $$arguments list(arguments_of(self)(1))
+  // 186:   $$right arguments_of(self)(2)
+  // 187:   while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
+  // 188:     $right_arguments arguments_of(right)
+  // 189:     push &arguments right_arguments(1)
+  // 190:     !right right_arguments(2)
+  // 191:   push &arguments right
+  // 192:   !self.functor_of std_identifier("sequence")
+  // 193:   !self.arguments_of expand_arguments(arguments)
   frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__function_call__expand_expression_16, 0);
-  // 177: :
-  // 178:   expand_arguments &self.arguments_of
-  // 179:   expand_operator_call &self
+  // 194: :
+  // 195:   expand_arguments &self.arguments_of
+  // 196:   expand_operator_call &self
   frame->slots[6] /* temp__5 */ = create_closure(entry__compiler__function_call__expand_expression_39, 0);
-  // 166: if
-  // 167:   functor.is_an_operator_symbol && name_of(functor) == ",":
-  // 168:     $$arguments list(arguments_of(self)(1))
-  // 169:     $$right arguments_of(self)(2)
-  // 170:     while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
-  // 171:       $right_arguments arguments_of(right)
-  // 172:       push &arguments right_arguments(1)
-  // 173:       !right right_arguments(2)
-  // 174:     push &arguments right
-  // 175:     !self.functor_of std_identifier("sequence")
+  // 183: if
+  // 184:   functor.is_an_operator_symbol && name_of(functor) == ",":
+  // 185:     $$arguments list(arguments_of(self)(1))
+  // 186:     $$right arguments_of(self)(2)
+  // 187:     while -> right.is_a_function_call && name_of(functor_of(right)) == ",":
+  // 188:       $right_arguments arguments_of(right)
+  // 189:       push &arguments right_arguments(1)
+  // 190:       !right right_arguments(2)
+  // 191:     push &arguments right
+  // 192:     !self.functor_of std_identifier("sequence")
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -4301,7 +4253,7 @@ static void entry__compiler__attribute_value_pair__expand_expression_1(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 185: show_compiler_debug_info "expand attribute-value pair"
+  // 202: show_compiler_debug_info "expand attribute-value pair"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__30246dda36d83a54;
@@ -4315,7 +4267,7 @@ static void cont__compiler__attribute_value_pair__expand_expression_3(void) {
     invalid_results_error();
     return;
   }
-  // 186: ... self.arguments_of
+  // 203: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -4330,7 +4282,7 @@ static void cont__compiler__attribute_value_pair__expand_expression_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 186: expand_arguments &self.arguments_of
+  // 203: expand_arguments &self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4345,7 +4297,7 @@ static void cont__compiler__attribute_value_pair__expand_expression_5(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 186: ... &self.arguments_of
+  // 203: ... &self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -4369,7 +4321,7 @@ static void entry__compiler__attribute_function_pair__expand_expression_1(void) 
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 192: show_compiler_debug_info "expand attribute-function pair"
+  // 209: show_compiler_debug_info "expand attribute-function pair"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2c1ce19c26092926;
@@ -4383,7 +4335,7 @@ static void cont__compiler__attribute_function_pair__expand_expression_3(void) {
     invalid_results_error();
     return;
   }
-  // 193: ... self.arguments_of
+  // 210: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -4398,7 +4350,7 @@ static void cont__compiler__attribute_function_pair__expand_expression_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 193: expand_arguments &self.arguments_of
+  // 210: expand_arguments &self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4413,7 +4365,7 @@ static void cont__compiler__attribute_function_pair__expand_expression_5(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 193: ... &self.arguments_of
+  // 210: ... &self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -4556,7 +4508,6 @@ EXPORT void phase_4__expander(void) {
   use_read_only(NULL, "list", &get__list, &get_value_or_future__list);
   use_read_only(NULL, "name_of", &get__name_of, &get_value_or_future__name_of);
   use_polymorphic_function("node", "text_of", &get__node__text_of, &poly_idx__node__text_of);
-  use_polymorphic_function(NULL, "output_arguments_of", &get__output_arguments_of, &poly_idx__output_arguments_of);
   use_polymorphic_function(NULL, "parameters_of", &get__parameters_of, &poly_idx__parameters_of);
   use_read_only(NULL, "push", &get__push, &get_value_or_future__push);
   use_polymorphic_function(NULL, "result_count_of", &get__result_count_of, &poly_idx__result_count_of);

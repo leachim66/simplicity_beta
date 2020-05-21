@@ -170,8 +170,7 @@ $types::string/dup:
     n # the duplication count
     -> return
   )
-  case
-    n
+  case n
     0:
       return ""
     1:

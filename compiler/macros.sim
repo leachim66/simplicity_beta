@@ -69,7 +69,11 @@ define_macro "VAR": (arguments)
   $name arguments(1)
   if
     global_names(name).is_defined
-    -> if(name .contains. "__" (-> "var.@(name)") -> "var._@(name)")
+    ->
+      if
+	name .contains. "__"
+	-> "var.@(name)"
+	-> "var._@(name)"
     -> "get__@(name)()"
 define_macro "EVENT": (arguments)
   !event_name arguments(1)
@@ -93,8 +97,7 @@ define_macro "DATA":
     -> "  if (event__mode == EM__RECORD) {"
 define_macro "INT": (arguments)
   $name arguments(1)
-  case
-    event_phase
+  case event_phase
     DATA:
       push &data_variables put(arguments "integer")
       if event_kind == EVENT (-> "  store__integer(@(name));") -> "
@@ -110,8 +113,7 @@ define_macro "INT": (arguments)
       -> ""
 define_macro "LONG": (arguments)
   $name arguments(1)
-  case
-    event_phase
+  case event_phase
     DATA:
       push &data_variables put(arguments "long_integer")
       if event_kind == EVENT (-> "  store__long_integer(@(name));") -> "
@@ -127,8 +129,7 @@ define_macro "LONG": (arguments)
       -> ""
 define_macro "POINTER": (arguments)
   $name arguments(1)
-  case
-    event_phase
+  case event_phase
     DATA:
       push &data_variables put(arguments "pointer")
       if event_kind == EVENT (-> "  store__pointer(@(name));") -> "
@@ -145,8 +146,7 @@ define_macro "POINTER": (arguments)
 define_macro "INT_ARRAY": (arguments)
   $name arguments(1)
   $length arguments(2)
-  case
-    event_phase
+  case event_phase
     DATA:
       push &data_variables put(arguments "int_array")
       -> "  store__int_array(@(name), @(length));"
@@ -156,8 +156,7 @@ define_macro "INT_ARRAY": (arguments)
 define_macro "MEMORY": (arguments)
   $name arguments(1)
   $length arguments(2)
-  case
-    event_phase
+  case event_phase
     DATA:
       push &data_variables put(arguments "memory")
       -> "  store__memory(@(name), @(length));"
@@ -166,8 +165,7 @@ define_macro "MEMORY": (arguments)
       -> ""
 define_macro "C_STRING": (arguments)
   $name arguments(1)
-  case
-    event_phase
+  case event_phase
     DATA:
       push &data_variables put(arguments "c_string")
       -> "  store__c_string(@(name));"
@@ -176,20 +174,27 @@ define_macro "C_STRING": (arguments)
       -> ""
 define_macro "END":
   $retrieve_variables:
-    $indent if(event_kind == ACTION (-> "      ") -> "  ")
+    $indent
+      if
+	event_kind == ACTION
+	-> "      "
+	-> "  "
+
     for_each data_variables: (var)
       $type var(1)
       $name var(2)
-      case
-	type
-	"pointer":
+      case type
+	"pointer"
+	:
 	  writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
-	"int_array":
+	"int_array"
+	:
 	  writeln_to
 	    &buf
 	    indent
 	    "@(var(3)) = retrieve__int_array((int **)&@(name));"
-	"memory":
+	"memory"
+	:
 	  writeln_to
 	    &buf
 	    indent
@@ -198,17 +203,24 @@ define_macro "END":
 	  writeln_to &buf indent "retrieve__@(type)(&@(name));"
 
   $print_variables:
-    $indent if(event_kind == ACTION (-> "      ") -> "  ")
+    $indent
+      if
+	event_kind == ACTION
+	-> "      "
+	-> "  "
+
     for_each info_variables: (var)
       $type var(1)
       $name var(2)
-      case
-	type
-	"pointer":
+      case type
+	"pointer"
+	:
 	  writeln_to &buf indent "print__pointer(@(name));"
-	"int_array":
+	"int_array"
+	:
 	  writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
-	"memory":
+	"memory"
+	:
 	  writeln_to &buf indent "print__memory(@(name), @(var(3)));"
 	:
 	  writeln_to &buf indent "print__@(type)(@(name));"
@@ -241,7 +253,13 @@ define_macro "END":
       $var data_variables(1)
       $type var(1)
       $name var(2)
-      $default if(type == "pointer" (-> "SAMPLE_POINTER") -> var(3))
+
+      $default
+	if
+	  type == "pointer"
+	  -> "SAMPLE_POINTER"
+	  -> var(3)
+
       write_to &buf "
 	@
 	      @(name) = @(default);
@@ -410,8 +428,7 @@ $compiler::converted: ($code)
 	inc &i
       :
 	$chr code(i)
-	case
-	  chr
+	case chr
 	  '_', 'a' .. 'z', 'A' .. 'Z':
 	    unless s.is_defined: !s i
 	  '0' .. '9':
@@ -438,8 +455,7 @@ $compiler::converted: ($code)
 			  $$level 1
 			  do: (-> break)
 			    while -> i <= len:
-			      case
-				code(i)
+			      case code(i)
 				',':
 				  if level == 1:
 				    push &arguments trim(range(code a i-1))

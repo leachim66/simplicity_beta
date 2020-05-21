@@ -64,7 +64,8 @@ $VALUE:
     alt
       :
 	expect '@quot;'
-	capture $value
+	capture
+	  $value
 	  some
 	    :
 	      not_followed_by '@quot;'
@@ -119,7 +120,8 @@ $ELEMENT:
   $$contents undefined
   expect
     alt
-      "/>":
+      "/>"
+      :
 	insist '>'
 	unless is_a_void_element(tag):
 	  if
@@ -171,7 +173,8 @@ $DOCUMENT_TYPE:
     optional
       "<!DOCTYPE"
       WHITESPACE:
-	capture !document_type
+	capture
+	  !document_type
 	  many
 	    :
 	      not_followed_by '>'
@@ -241,7 +244,7 @@ $types::html_element/select:
 	      for_each value: (alternative) if attribute == alternative succeed
 	      fail
 	    -> value.is_a_string: if attribute != value fail
-	    : # value should be a function
+	    :
 	      unless value(attribute) fail
 	:
 	  if

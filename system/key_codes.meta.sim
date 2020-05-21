@@ -26,8 +26,9 @@
 <using meta>
 
 write "@(lgpl_header("2015" "Dipl.-Ing. Michael Niederle"))@nl;"
-
-write "<namespace key>@nl;@nl;"
+write "
+  <namespace key>
+  @;
 
 $write_ctrl_and_alt_key: (key)
   write "

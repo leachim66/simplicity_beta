@@ -124,6 +124,7 @@ $types::list.is_a_list true # obvious
   <argument NULL>
 
   // an empty list object
+
 }
 
 {
@@ -447,6 +448,37 @@ $types::generic_list/for_each:
 	if body2.is_defined && i < n: body2
 	plus &i 1
 
+$types::generic_list/for_each_downwards:
+  #
+    iterates over all items of the list in reverse order
+
+    For each item the statement sequence supplied as *body* is called
+    with one or two arguments (depending on *body*'s parameter count).
+
+    If called with two arguments the first argument is the position no.
+    of the item within the list.
+
+    If a second statement sequence (*body2*) is supplied it is called
+    between two calls to *body* (without any arguments).
+  (
+    self # the list to iterate over
+    body # the statement sequence to call for each item
+    body2? # a statement sequence to call between two item-calls
+  )
+  $i 1
+  $$n length_of(self)
+  if
+    parameter_count_of(body) == 2:
+      while -> n >= i:
+	body n self(n)
+	if body2.is_defined && n > i: body2
+	minus &n 1
+    :
+      while -> i <= n:
+	body self(n)
+	if body2.is_defined && n > i: body2
+	minus &n 1
+
 $types::generic_list/update_each:
   #
     updates all items of the list
@@ -580,8 +612,7 @@ $types::list/sort:
     -> return
   )
   $n length_of(self)
-  case
-    n
+  case n
     0, 1:
       return self
     2:

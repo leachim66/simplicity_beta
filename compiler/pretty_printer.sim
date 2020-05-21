@@ -82,13 +82,16 @@ $FUNC .
   and return statements
 
 $UNLIMITED 999'999
+
 %compiler::line_width 80
   #
     the maxiumm length for source code lines
     if set to <UNLIMITED> expressions *must* be printed inline!
+
 %expression_indent 0
   #
     for multi-line-expressions *this* is the indentation to be used
+
 %line_end_expression_width 0
   #
     if set to 1 this will enable
@@ -151,6 +154,7 @@ $INDENTATION/grammar::match: (_self stream)
     if a statement sets a tag then it will be surrounded by blank lines;
     two consecutive lines with the same tag (with the exception of <ALWAYS>)
     will not be separated by a blank line
+
 %spaces std::spaces
 
 $indentation_string: ($indent)
@@ -198,7 +202,10 @@ $compiler::print_trees: (trees)
 	!n i-1
     add_line
       string
-	spaces(0) # add a zero indent for the first line of a tree
+	spaces(0)
+
+	# add a zero indent for the first line of a tree
+
 	range(str 1 n)
     for_each lines: (line) writeln line
 
@@ -223,7 +230,12 @@ $add_remark_lines:
       line-end expression if it's the last argument and there is enough room
       left on the line
 
-  $remark_prefix if(str == "" (-> "#") -> " #")
+  $remark_prefix
+    if
+      str == ""
+      -> "#"
+      -> " #"
+
   if
     ||
       length_of(remark_lines) > 1
@@ -241,7 +253,7 @@ $add_remark_lines:
 	unless is_a_statement: !buf string('@nl;' spaces(expression_indent) str)
 	plus &indent 2
       -> append(buf line_start_remark_to_string(remark_lines indent))
-    : # special line-end form
+    :
       if
 	>
 	  length_of(str)+length_of(remark_prefix)+length_of(remark_lines(1))
@@ -263,13 +275,13 @@ $add_remark_lines:
 		    remark_lines(1)
 	-> string(str remark_prefix remark_lines(1))
 
-$add_remark: (self str)
-  $remark_lines remark_lines_of(self)
-  if remark_lines.is_empty (-> str) -> add_remark_lines(str remark_lines)
-
 $add_statement_remark: (self str)
   $remark_lines remark_lines_of(self)
   if remark_lines.is_empty (-> str) -> add_remark_lines(str remark_lines true)
+
+$add_remark: (self str)
+  $remark_lines remark_lines_of(self)
+  if remark_lines.is_empty (-> str) -> add_remark_lines(str remark_lines)
 
 $add_indented_remark: (self str)
   $indent expression_indent
@@ -287,33 +299,32 @@ $types::grammar_node/to_string: (_self) -> "<???>"
 
 $compiler::require_instruction/to_string: (self)
   !statement_tag REQUIRE
-  -> add_statement_remark(self "<require @(node::filename_of(self))>")
+  add_statement_remark self "<require @(node::filename_of(self))>"
 
 $compiler::namespace_instruction/to_string: (self)
   !statement_tag NAMESPACE
-  ->
-    add_remark
-      self
-      if
-	namespace_alias_of(self).is_defined
-	-> "<namespace @(namespace_alias_of(self)) = @(namespace_of(self))>"
-	-> "<namespace @(namespace_of(self))>"
+  add_statement_remark
+    self
+    if
+      namespace_alias_of(self).is_defined
+      -> "<namespace @(namespace_alias_of(self)) = @(namespace_of(self))>"
+      -> "<namespace @(namespace_of(self))>"
 
 $compiler::using_instruction/to_string: (self)
   !statement_tag USING
-  -> add_statement_remark(self "<using @(namespace_of(self))>")
+  add_statement_remark self "<using @(namespace_of(self))>"
 
 $compiler::include_instruction/to_string: (self)
   !statement_tag INCLUDE
-  -> add_statement_remark(self "<include @(node::filename_of(self))>")
+  add_statement_remark self "<include @(node::filename_of(self))>"
 
 $compiler::link_instruction/to_string: (self)
   !statement_tag LINK
-  -> add_statement_remark(self "<link @(node::filename_of(self))>")
+  add_statement_remark self "<link @(node::filename_of(self))>"
 
 $compiler::data_instruction/to_string: (self)
   !statement_tag DATA
-  -> add_statement_remark(self "<data @(node::filemask_of(self))>")
+  add_statement_remark self "<data @(node::filemask_of(self))>"
 
 ###
 # REMARK STATEMENT
@@ -378,8 +389,6 @@ $compiler::body/to_string: (self)
 	  :
 	    push &parameter_text ' '
 	push &parameter_text ')'
-	unless remark_lines.is_empty:
-	  add_remark_lines &parameter_text remark_lines true
 	$parameter_text_length length_of(parameter_text)
 	if
 	  parameter_text_length <= line_end_expression_width:
@@ -395,6 +404,7 @@ $compiler::body/to_string: (self)
       $handle_complex_parameters:
 	check_for_line_end_expression
 	$parameter_indentation spaces(indent+2)
+	%expression_indent indent
 	unless remark_lines.is_empty: add_remark_lines &buf remark_lines
 	push &buf '@nl;'
 	write_to &buf spaces(indent) "("
@@ -410,10 +420,10 @@ $compiler::body/to_string: (self)
       if
 	length_of(parameters) == 0:
 	  check_for_line_end_expression
-	  unless remark_lines.is_empty: add_remark_lines &buf remark_lines true
 	:
 	  $has_simple_parameters
 	    &&
+	      remark_lines.is_empty
 	      ||
 		length_of(parameters) == 1
 		not
@@ -474,58 +484,6 @@ $compiler::body/to_string: (self)
 ###
 # CALL
 
-$all_arguments_of:
-  (
-    self
-    -> return
-  )
-  $$output_arguments output_arguments_of(self)
-  if output_arguments.is_undefined: return output_arguments
-  $$input_arguments arguments_of(self)
-  $$all_arguments empty_list
-  while -> length_of(output_arguments)+length_of(input_arguments) > 0: (-> continue)
-    unless output_arguments.is_empty:
-      # there is at least one more output argument
-
-      $next_output_argument output_arguments(1)
-      $output_enumeration_no enumeration_no_of(next_output_argument)
-      if output_enumeration_no.is_undefined:
-	# undefined enumeration numbers have the highest priority
-
-	push &all_arguments next_output_argument
-	range &output_arguments 2 -1
-	continue
-      unless input_arguments.is_empty:
-	$next_input_argument input_arguments(1)
-	$input_enumeration_no enumeration_no_of(next_input_argument)
-	if input_enumeration_no.is_undefined:
-	  # undefined enumeration numbers have the highest priority
-
-	  push &all_arguments next_input_argument
-	  range &input_arguments 2 -1
-	  continue
-
-	#
-	  there are enumeration items on both argument lists
-	  let's compare them
-
-	if input_enumeration_no < output_enumeration_no:
-	  push &all_arguments next_input_argument
-	  range &input_arguments 2 -1
-	  continue
-
-      # the default case - add the next output argument
-
-      push &all_arguments next_output_argument
-      range &output_arguments 2 -1
-      continue
-
-    # the output arguments are exhausted
-
-    append &all_arguments input_arguments
-    !input_arguments empty_list
-  -> all_arguments
-
 $argument_to_string: (argument)
   $width line_width
   do:
@@ -551,205 +509,226 @@ $argument_to_string: (argument)
     $first_chr str(1)
     if
       argument.is_a_destination && first_chr != '$' && first_chr != '%'
-      -> string('!' str)
+      ->
+	if
+	  argument.is_an_input_output_argument
+	  -> string('&' str)
+	  -> string('!' str)
       -> str
 
 $arguments_to_string:
   (
     self
     mode
-    $available_width # inside parentheses or after the functor
+    available_width # inside parentheses or after the functor
     -> return
   )
   $line_end_width line_end_expression_width
-  $arguments all_arguments_of(self)
+  $arguments arguments_of(self)
   if arguments.is_empty: return ""
-  $len length_of(arguments)
-  $$do_use_multiple_lines false
+  $$first 1
+  $n length_of(arguments)
   $$total_length 0
   $$strings empty_list
-  $$do_skip_next false
-  if mode == PROC && arguments(1).is_an_attribute_value_pair:
-    !do_use_multiple_lines true
+  $$has_final_remark false
+
+  $$do_use_multiple_lines
+    &&
+      line_width != UNLIMITED
+      ||
+	mode == PROC && arguments(1).is_an_attribute_value_pair
+	mode == FUNC && any_of(arguments is_a_body)
+	any_of(range(arguments_of(self) 1 -2) is_a_remark)
+
   for_each arguments: (idx argument)
+    %line_end_expression_width
+      if
+	&&
+	  mode == PROC
+	  idx == n
+	  total_length < line_end_width
+	  not(do_use_multiple_lines)
+	-> line_end_width-total_length
+	-> 0
+
+    $str argument_to_string(argument)
     if
-      do_skip_next:
-	!do_skip_next false
-      :
-	$remark_lines_behind remark_lines_behind_of(argument)
-
-	%line_end_expression_width
+      str .contains. '@nl;':
+	if mode == FUNC || str(1) == '@nl;':
 	  if
-	    &&
-	      mode == PROC
-	      idx == len
-	      total_length < line_end_width
-	      not(do_use_multiple_lines)
-	      remark_lines_of(self).is_empty
-	      remark_lines_behind_of(self).is_empty
-	    -> line_end_width-total_length
-	    -> 0
-
-	$$str argument_to_string(argument)
+	    mode == PROC && idx == n && argument.is_a_remark:
+	      !has_final_remark true
+	    :
+	      !do_use_multiple_lines true
+      :
 	if
-	  &&
-	    str(1) == '!'
-	    idx < len
-	    enumeration_no_of(arguments(idx+1)) == enumeration_no_of(argument)
+	  idx < n:
+	    if mode == PROC || idx > 1: inc &total_length # separating space
+	    plus &total_length length_of(str)
+	    if str .has_prefix. "->": plus &total_length 2 # needs parentheses
+	    if total_length > available_width: !do_use_multiple_lines true
 	  :
-	    !str(1) '&'
-	    !do_skip_next true
-	if
-	  str .contains. '@nl;':
-	    if str(1) == '@nl;': !do_use_multiple_lines true
-	  :
-	    if
-	      idx < len: # not the last argument
-		if mode == PROC || idx > 1: inc &total_length # separating space
-		plus &total_length length_of(str)
-		if str .has_prefix. "->":
-		  plus &total_length 2 # needs parentheses
-		if total_length > available_width: !do_use_multiple_lines true
-	      : # last argument
-		if (mode == PROC || idx > 1) && str(1) != ':':
-		  inc &total_length # separating space
-		plus &total_length length_of(str)
-		if total_length > available_width: !do_use_multiple_lines true
-	push &strings str
-	unless remark_lines_behind.is_empty:
-	  $$remark add_remark_lines("" remark_lines_behind)
-	  if remark(1) != '@nl;':
-	    !remark string('@nl;' spaces(expression_indent) remark)
-	  push &strings string('@nl;' remark)
-	  if idx < len: push &strings "@nl;" # empty line behind
-	  !do_use_multiple_lines true
-  unless
-    ||
-      &&
-	mode == PROC
-	remark_lines_of(self).is_empty || not(do_use_multiple_lines)
-      mode == FUNC && remark_lines_behind_of(functor_of(self)).is_empty
-    :
-      put &strings "@nl;" # prepend an empty line
-      !do_use_multiple_lines true
+	    if (mode == PROC || idx > 1) && str(1) != ':':
+	      inc &total_length # separating space
+	    plus &total_length length_of(str)
+	    if total_length > available_width:
+	      if
+		mode == PROC && argument.is_a_remark:
+		  !has_final_remark true
+		:
+		  !do_use_multiple_lines true
+    push &strings str
   $$buf ""
+
+  $print_on_one_line: (from to)
+    for_each_from_to strings from to: (idx str)
+      unless buf.is_empty || str(1) == ':' || str(1) == '@nl;': push &buf ' '
+      if
+	idx < n && str .has_prefix. "->" && not(str .contains. '@nl;'):
+	  push &buf '('
+	  append &buf str
+	  push &buf ')'
+	:
+	  append &buf str
+
+  $print_on_multiple_lines: (from to)
+    $indentation spaces(expression_indent)
+    $$line_end_conversion_is_allowed false
+    for_each_from_to strings from to: (idx str)
+      # check for possible "line-end-form conversion"
+
+      if
+	&&
+	  line_end_conversion_is_allowed
+	  str .has_prefix. ('@nl;', INDENTATION, alt(':' '@quot;'))
+	  not(strings(idx-1) .contains. '@nl;')
+	  <=
+	    +
+	      expression_indent
+	      length_of(strings(idx-1))
+	      if
+		str(3) == ':'
+		-> 1 # ':'
+		-> 2 # ' "'
+	      length_of(range(str 3 -1) .truncate_from. '@nl;')
+	    line_width
+	:
+	  if str(3) == '@quot;': push &buf ' '
+	  append &buf range(str 3 -1)
+	  !line_end_conversion_is_allowed false
+	:
+	  if idx > first && str(1) == '#': push &buf '@nl;'
+	  unless str(1) == '@nl;':
+	    push &buf '@nl;'
+	    append &buf indentation
+	  append &buf str
+	  if idx < n && str(1) == '#': push &buf '@nl;'
+	  !line_end_conversion_is_allowed
+	    &&
+	      str(1) != ':'
+	      str(1) != '@quot;'
+	      str(1) != '#'
+	      not(str .has_prefix. "->")
+
   if
-    do_use_multiple_lines:
+    do_use_multiple_lines: (-> done)
       # spread arguments over multiple lines
 
-      $indentation spaces(expression_indent)
-      if mode == PROC:
-	while
-	  # append output parameters to the starting line
-
-	  ->
-	    &&
-	      length_of(strings) > 0
-	      strings(1) .has_prefix. alt('$' '!')
-	      length_of(strings(1)) < available_width
-	    :
-	      if buf != "": push &buf ' '
-	      append &buf strings(1)
-	      range &strings 2 -1
-	      minus &available_width length_of(strings(1))+1
-      $$line_end_conversion_is_allowed true
-      for_each strings: (idx str)
+      $print_strings:
+	(
+	  from
+	  to
+	  on_first_line = false
+	)
 	if
-	  line_end_conversion_is_allowed && str .contains. '@nl;':
-	    # check for possible "line-end-form conversion"
-
-	    if
-	      &&
-		str .has_prefix. ('@nl;', INDENTATION, ':')
-		idx > 1 && not(strings(idx-1) .contains. '@nl;')
-		<=
-		  +
-		    expression_indent
-		    length_of(strings(idx-1))
-		    length_of(str .from. ':' .truncate_from. '@nl;')
-		  line_width
-	      :
-		append &buf str .from. ':'
-	      :
-		append &buf str
+	  on_first_line && not(any_of(range(strings from to) contains '@nl;')):
+	    print_on_one_line from to
 	  :
-	    unless str(1) == '@nl;':
-	      push &buf '@nl;'
-	      append &buf indentation
-	    append &buf str
-	    !line_end_conversion_is_allowed
-	      str(1) != ':' && not(str .has_prefix. "->")
+	    print_on_multiple_lines from to
+
+      if n >= 4:
+	# try to find argument patterns
+
+	$$pattern ""
+	for_each strings: (string)
+	  push
+	    &pattern
+	    check_case
+	      string
+	      has_prefix
+	      '#', list(newline INDENTATION '#')
+	      -> 'r'
+	      '$', '!'
+	      -> 'o'
+	      '&'
+	      -> 'O'
+	      ':', "->", list(newline INDENTATION alt(':' "->"))
+	      -> 'b'
+	      '@quot;', list(newline INDENTATION '@quot;')
+	      -> 's'
+	      '@apos;'
+	      -> 'c'
+	      '@nl;'
+	      -> 'm'
+	      -> 'i'
+	do:
+	  from_to 2 3: (pat_len)
+	    from_to 1 pat_len: ($s)
+	      if s+pat_len-1 <= n:
+		$pat range(pattern s s+pat_len-1)
+		$rep n-s+1 .div. pat_len
+		if rep > 1:
+		  $rep_pat dup(pat rep)
+		  if range(pattern s s+length_of(rep_pat)-1) == rep_pat:
+		    if s > 1: print_strings 1 s-1 mode == PROC
+		    repeat rep:
+		      print_on_multiple_lines s s+pat_len-1
+		      plus &s pat_len
+		    if s <= n: print_on_multiple_lines s n
+		    done
+      if
+	&&
+	  arguments(1).is_a_remark
+	  not(any_of(range(arguments 2 n) is_a_remark))
+	:
+	  print_strings 1 1 mode == PROC
+	  print_on_multiple_lines 2 n
+	:
+	  print_strings 1 n
     :
-      # all arguments on a single line (and maybe a line-end-expression)
+      #
+	all arguments on a single line
+	there might be a line-end-expression
+	or a remark at the end
 
-      $n length_of(strings)
-      for_each strings: (idx str)
-	unless buf.is_empty || str(1) == ':' || str(1) == '@nl;': push &buf ' '
-	if
-	  idx < n && str .has_prefix. "->" && not(str .contains. '@nl;'):
-	    push &buf '('
-	    append &buf str
-	    push &buf ')'
-	  :
-	    append &buf str
-  -> buf
-
-$call_with_remark_to_string: (functor $arguments remark_lines)
-  $$remark add_remark_lines("" remark_lines)
-  unless remark(1) == '@nl;':
-    !remark string('@nl;' spaces(expression_indent) remark)
-  unless arguments .contains. '@nl;':
-    !arguments string('@nl;' spaces(expression_indent) arguments)
-  -> string(functor remark arguments)
+      if
+	has_final_remark:
+	  print_on_one_line 1 n-1
+	  !first n
+	  print_on_multiple_lines n n
+	:
+	  print_on_one_line 1 n
+  if mode == FUNC && buf(1) != '@nl;' && arguments(-1).is_a_remark:
+    !buf string('@nl;' spaces(expression_indent) buf)
+  if
+    mode == FUNC || buf.is_empty || buf(1) == ':' || buf(1) == '@nl;'
+    -> buf
+    -> put(buf ' ')
 
 $compiler::call/to_string: ($self)
   $indent expression_indent
   $outer_line_end_expression_width line_end_expression_width
   if
     self.is_a_return:
-      $has_no_remarks
-	remark_lines_of(self).is_empty && remark_lines_behind_of(self).is_empty
-
       %expression_indent
 	if
-	  outer_line_end_expression_width > 0 && has_no_remarks
+	  outer_line_end_expression_width > 0
 	  -> indent
 	  -> indent+2
 
       %line_end_expression_width line_width-indent-2 # "->"
-      $$arguments arguments_to_string(self PROC line_end_expression_width)
-      if
-	has_no_remarks:
-	  if
-	    arguments(1) == '@nl;'
-	    -> string("->" arguments)
-	    -> string("-> " arguments)
-	:
-	  $remark_lines
-	    append(remark_lines_of(self) remark_lines_behind_of(self))
-
-	  %expression_indent indent
-	  if
-	    arguments .contains. '@nl;':
-	      $$functor add_remark_lines("->" remark_lines)
-
-	      # ATTENTION: some weird fixes!
-
-	      unless functor(1) == '@nl;':
-		!functor string('@nl;' spaces(expression_indent) functor)
-		if arguments .has_prefix. "@nl;@nl;": range &arguments 2 -1
-	      unless arguments(1) == '@nl;':
-		!arguments string('@nl;' spaces(expression_indent) arguments)
-	      -> append(functor arguments)
-	    :
-	      if
-		3+length_of(arguments) <= line_end_expression_width
-		->
-		  string
-		    "-> "
-		    arguments
-		    line_start_remark_to_string(remark_lines indent+2)
-		-> add_remark_lines(string("-> " arguments) remark_lines true)
+      $arguments arguments_to_string(self PROC line_end_expression_width)
+      -> string("->" arguments)
     :
       %expression_indent indent+2
       $$functor undefined
@@ -758,10 +737,10 @@ $compiler::call/to_string: ($self)
 	%line_width UNLIMITED # force inline output
 	if
 	  self.is_an_assignment:
-	    !functor output_arguments_of(self)(1)
+	    !functor arguments_of(self)(1)
+	    range &self.arguments_of 2 -1
 	    !this_is_a_definition functor.is_a_definition
 	    argument_to_string &functor
-	    !self.output_arguments_of empty_list
 	    $source arguments_of(self)(1)
 	    cond
 	      -> source.is_a_body: !statement_tag ALWAYS
@@ -774,33 +753,7 @@ $compiler::call/to_string: ($self)
       $arguments arguments_to_string(self PROC line_end_expression_width)
       if this_is_a_definition && arguments .contains. '@nl;':
 	!statement_tag ALWAYS
-      $remark_lines append(remark_lines_of(self) remark_lines_behind_of(self))
-      if
-	remark_lines.is_empty
-	->
-	  if
-	    arguments == "" || arguments(1) == ':' || arguments(1) == '@nl;'
-	    -> string(functor arguments)
-	    -> string(functor ' ' arguments)
-	:
-	  cond
-	    ->
-	      arguments == ""
-	      -> string(add_remark_lines(functor remark_lines true) arguments)
-	    ->
-	      ||
-		arguments .contains. '@nl;'
-		any_of
-		  arguments_of(self): (argument)
-		    -> argument.is_a_body
-	      -> call_with_remark_to_string(functor arguments remark_lines)
-	    -> true:
-	      %expression_indent indent
-	      ->
-		add_remark_lines
-		  string(functor ' ' arguments)
-		  remark_lines
-		  true
+      -> string(functor arguments)
 
 $definition_to_string: (prefix definition)
   $$buf ""
@@ -831,8 +784,7 @@ $compiler::define_static_single/to_string: (self)
       -> "$"
 
   definition_to_string $$buf prefix self
-  case
-    attribute_kind_of(self)
+  case attribute_kind_of(self)
     ATTRIBUTE_KIND:
       write_to &buf '.' attribute_of(self)
     METHOD_KIND:
@@ -860,14 +812,12 @@ $compiler::define_static_multi/to_string: (self)
 ###
 # DEFINE DYNAMIC SINGLE
 
-$compiler::define_dynamic_single/to_string: (self)
-  add_indented_remark self definition_to_string("%" self)
+$compiler::define_dynamic_single/to_string: (self) definition_to_string "%" self
 
 ###
 # DEFINE DYNAMIC MULTI
 
-$compiler::define_dynamic_multi/to_string: (self)
-  add_indented_remark self definition_to_string("%%" self)
+$compiler::define_dynamic_multi/to_string: (self) definition_to_string "%%" self
 
 ###
 # FUNCTION CALL
@@ -917,34 +867,10 @@ $compiler::function_call/to_string: (self)
 	FUNC
 	line_width-indent-length_of(functor_string)-2
 
-    $remark_lines
-      append(remark_lines_of(self) remark_lines_behind_of(functor_of(self)))
-
     if
-      remark_lines.is_empty:
-	if
-	  arguments_string .contains. '@nl;'
-	  -> string('@nl;' spaces(indent) functor_string arguments_string)
-	  -> string(functor_string '(' arguments_string ')')
-      :
-	if
-	  arguments_string .contains. '@nl;':
-	    $$remark add_remark_lines("" remark_lines)
-	    unless remark(1) == '@nl;':
-	      !remark string('@nl;' spaces(expression_indent) remark)
-	    ->
-	      string
-		'@nl;'
-		spaces(indent)
-		functor_string
-		remark
-		arguments_string
-	  :
-	    %expression_indent indent
-	    ->
-	      add_remark_lines
-		string(functor_string '(' arguments_string ')')
-		remark_lines
+      arguments_string .contains. '@nl;'
+      -> string('@nl;' spaces(indent) functor_string arguments_string)
+      -> string(functor_string '(' arguments_string ')')
 
   $arguments arguments_of(self)
   cond
@@ -974,15 +900,9 @@ $compiler::function_call/to_string: (self)
 	  $length length_of(left)+length_of(functor_string)+length_of(right)+4
 	  if
 	    expression_indent+length <= line_width
-	    -> add_remark(self string(left " ." functor_string ". " right))
+	    -> string(left " ." functor_string ". " right)
 	    default_call
-	-> self.is_a_string_template:
-	  if
-	    remark_lines_of(self).is_empty
-	    -> string_template_to_string(self)
-	    :
-	      %line_width UNLIMITED # force inline output
-	      add_remark self string_template_to_string(self)
+	-> self.is_a_string_template -> string_template_to_string(self)
 	->
 	  &&
 	    functor.is_an_identifier
@@ -995,7 +915,7 @@ $compiler::function_call/to_string: (self)
 	    name_of(arguments(2)) == "true"
 	  -> "--@(arguments(1))"
 	-> true default_call
-    -> true: # operator symbols
+    -> true:
       %expression_indent indent+2
       if
 	length_of(arguments) == 1:
@@ -1033,7 +953,7 @@ $compiler::function_call/to_string: (self)
 		put &strings stringify_le(left_operands(2))
 		!left left_operands(1)
 	      put &strings stringify_lt(left)
-	    : # no two right associative operatores have the same precedence
+	    :
 	      push &strings stringify_le(left)
 	      while -> operator_of(right) == functor_string:
 		$right_operands arguments_of(right)
@@ -1062,7 +982,7 @@ $compiler::function_call/to_string: (self)
 	    if indent+total_width > line_width: !total_width undefined
 	  $$buf ""
 	  if
-	    total_width.is_defined: # inline
+	    total_width.is_defined:
 	      for_each
 		strings: (str)
 		  if str.needs_parenthesis: push &buf '('
@@ -1070,7 +990,7 @@ $compiler::function_call/to_string: (self)
 		  if str.needs_parenthesis: push &buf ')'
 		:
 		  append &buf inline_functor
-	    : # multi-line
+	    :
 	      case functor_string ",": !functor_string "sequence"
 	      $indentation spaces(expression_indent)
 	      !buf string('@nl;' spaces(indent) functor_string)
@@ -1080,6 +1000,21 @@ $compiler::function_call/to_string: (self)
 		  append &buf indentation
 		append &buf str
 	  -> buf
+
+###
+# REMARK ARGUMENT
+
+$compiler::remark_argument/to_string: (self)
+  $remark_lines remark_lines_of(self)
+  if
+    length_of(remark_lines) > 1:
+      $$buf "@nl;"
+      $indentation spaces(expression_indent+2)
+      write_to &buf spaces(expression_indent) '#' remark_lines(1)
+      for_each_from_to remark_lines 2 -1: (remark_line)
+	write_to &buf '@nl;' indentation remark_line
+      -> buf
+    -> "#@(remark_lines(1))"
 
 ###
 # BACKQUOTED
@@ -1093,33 +1028,11 @@ $pair_to_string: (self symbol)
   $indent expression_indent
   do:
     %expression_indent indent+2
-    $$identifier identifier_of(self)
-    if
-      identifier.is_defined:
-	to_string &identifier
-      :
-	!identifier ""
-    %line_end_expression_width line_width-(indent+length_of(identifier)+1)
-    $value arguments_of(self)(1).to_string
-    $separator if(value(1) == ':' (-> "") -> " ")
-    cond
-      ->
-	value(1) == '@nl;'
-	-> string('@nl;' spaces(indent) symbol identifier value)
-
-      -> # line-end expression
-	value .contains. '@nl;'
-	-> string('@nl;' spaces(indent) symbol identifier separator value)
-      -> indent+1+length_of(identifier)+1+length_of(value) > line_width ->
-	string
-	  '@nl;'
-	  spaces(indent)
-	  symbol
-	  identifier
-	  '@nl;'
-	  spaces(expression_indent)
-	  value
-      -> true -> string(symbol identifier separator value)
+    $identifier default_value(identifier_of(self) "").to_string
+    %line_end_expression_width line_width-indent-(length_of(identifier)+2)
+    $arguments arguments_to_string(self PROC line_end_expression_width)
+    $pair string(symbol identifier arguments)
+    if arguments(1) == '@nl;' (-> string('@nl;' spaces(indent) pair)) -> pair
 
 $compiler::attribute_value_pair/to_string: (self) pair_to_string self '.'
 
@@ -1128,7 +1041,7 @@ $compiler::attribute_function_pair/to_string: (self) pair_to_string self '/'
 ###
 # NUMERIC LITERAL
 
-$compiler::numeric_literal/to_string: (self) add_remark self node::value_of(self)
+$compiler::numeric_literal/to_string: (self) -> node::value_of(self)
 
 ###
 # CHARACTER LITERAL
@@ -1153,28 +1066,24 @@ $escaped_character:
     use_numerical_encoding = false
   )
   $numerical_encoding -> string("@@0x" hex(chr.to_integer) ';')
-  if
-    use_numerical_encoding
-    -> numerical_encoding()
-    :
-      unless character_to_name.is_defined create_character_table
-      $name character_to_name(chr)
-      if
-	name.is_defined:
-	  case name "at" (-> "@@@@") "amp" (-> "&") -> string('@@' name ';')
-	:
-	  if
-	    chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
-	    -> numerical_encoding()
-	    -> chr.to_string
+
+  if use_numerical_encoding (-> numerical_encoding()):
+    unless character_to_name.is_defined create_character_table
+    $name character_to_name(chr)
+    if
+      name.is_defined:
+	case name "at" (-> "@@@@") "amp" (-> "&") -> string('@@' name ';')
+      :
+	if
+	  chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
+	  -> numerical_encoding()
+	  -> chr.to_string
 
 $compiler::character_literal/to_string: (self)
-  add_remark
-    self
-    string
-      '@apos;'
-      escaped_character(node::value_of(self) self.is_in_numeric_notation)
-      '@apos;'
+  string
+    '@apos;'
+    escaped_character(node::value_of(self) self.is_in_numeric_notation)
+    '@apos;'
 
 ###
 # STRING LITERAL
@@ -1213,7 +1122,7 @@ $analyze_string_literal:
 	    push &lines part
 	    !part ""
 	!s idx+1
-      '@quot;': # strings containing quotes are never printed in inline form
+      '@quot;':
 	if
 	  use_single_line_form:
 	    append &part range(text s idx-1)
@@ -1244,12 +1153,13 @@ $analyze_string_literal:
     :
       # if the current part is not empty there was no trainling newline
 
-      $max_width
-	# the maximum width is computed for multi-line-strings
-
+      $max_width # the maximum width is computed for multi-line-strings
 	-
 	  max(line_width-expression_indent 20)
-	  if(line_end_expression_width >= 2 (-> 0) -> 2)
+	  if
+	    line_end_expression_width >= 2
+	    -> 0
+	    -> 2
 
       unless lines.is_empty && length_of(part)+2 <= max_width: !is_inline false
       if
@@ -1265,17 +1175,19 @@ $print_string_literal: ($lines $is_inline)
 	push &lines(1) '@@'
 	!is_inline false
   if is_inline (-> string('@quot;' lines(1) '@quot;')):
-    $max_width
-      # the maximum width is computed for multi-line-strings
-
+    $max_width # the maximum width is computed for multi-line-strings
       -
 	max(line_width-expression_indent 20)
-	if(line_end_expression_width >= 2 (-> 0) -> 2)
+	if
+	  line_end_expression_width >= 2
+	  -> 0
+	  -> 2
 
     $$has_leading_spaces lines(-1) != ""
       #
 	if the last line is empty then it is replaced by "@;" and so there
 	are no leading spaces
+
     $$split_lines empty_list
     for_each lines: ($line)
       if line != "" && line(1) != ' ': !has_leading_spaces false
@@ -1307,7 +1219,7 @@ $print_string_literal: ($lines $is_inline)
 	    if
 	      line(pos) == '(':
 		skip_till_close
-	      : # it's a special character
+	      :
 		while -> line(pos) != ';': inc &pos
 
 	$$best_split_pos undefined
@@ -1430,38 +1342,30 @@ $string_template_to_string: (self)
   print_string_literal lines template_is_inline
 
 $compiler::string_literal/to_string: (self)
-  if
-    remark_lines_of(self).is_empty:
-      analyze_string_literal $lines $is_inline node::text_of(self)
-      print_string_literal lines is_inline
-    :
-      %line_width UNLIMITED # force inline output
-      analyze_string_literal $lines $is_inline node::text_of(self)
-      add_remark self print_string_literal(lines is_inline)
+  analyze_string_literal $lines $is_inline node::text_of(self)
+  print_string_literal lines is_inline
 
 ###
 # UNIQUE ITEM
 
-$compiler::unique_item/to_string: (self) add_remark self "."
+$compiler::unique_item/to_string: (_self) -> "."
 
 ###
 # POLYMORPHIC FUNCTION
 
 $compiler::polymorphic_function/to_string: (self)
-  add_remark self if(self.is_a_setter (-> "(!)") -> "()")
+  if self.is_a_setter (-> "(!)") -> "()"
 
 ###
 # IDENTIFIER
 
 $compiler::identifier/to_string: (self)
-  add_remark
-    self
-    cond
-      ->
-	namespace_of(self).is_defined
-	-> string(namespace_of(self) "::" name_of(self))
-      -> self.is_not_used -> string('_' name_of(self))
-      -> true -> name_of(self)
+  cond
+    ->
+      namespace_of(self).is_defined
+      -> string(namespace_of(self) "::" name_of(self))
+    -> self.is_not_used -> string('_' name_of(self))
+    -> true -> name_of(self)
 
 ###
 # C-CODE

@@ -84,6 +84,7 @@ $std::command_line_arguments arguments
     The name of the application program is stored in <program_name>.
 
     See also: program_name, environment
+
 $$env_1 empty_table
 from_to 1 envc(): (i)
   $str envv(i).from_utf8

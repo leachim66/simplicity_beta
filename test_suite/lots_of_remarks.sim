@@ -1,0 +1,78 @@
+#!/usr/bin/env simple
+
+$a_of () # remark 1
+  # remark 2
+
+$b_of () # remark 1
+  # remark 2
+
+$a # remark1
+  # remark 2
+  # remark 3
+  47
+  # remark 4
+  # remark 5
+
+$obj # remark 1
+  # remark 2
+  # remark 3
+  types::object
+    # remark 4
+    # remark 5
+    .a_of # remark 6
+      # remark 7
+      # remark 8
+      a
+      # remark 9
+      # remark 10
+    # remark 11
+    # remark 12
+    .b_of # remark 13
+      # remark 14
+      # remark 15
+      11
+      # remark 16
+      # remark 17
+    # remark 18
+    # remark 19
+
+writeln # remark 1
+  # remark 2
+  # remark 3
+  a_of # remark 4
+    # remark 5
+    # remark 6
+    obj # remark 7
+    # remark 8
+    # remark 9
+  # remark 10
+  # remark 11
+  b_of # remark 12
+    # remark 13
+    # remark 14
+    obj # remark 15
+    # remark 16
+    # remark 17
+  # remark 18
+  # remark 19
+
+writeln # remark 1
+  + # remark 2
+    # remark 3
+    # remark 4
+    a_of # remark 5
+      # remark 6
+      # remark 7
+      obj # remark 8
+      # remark 9
+      # remark 10
+    # remark 11
+    # remark 12
+    b_of # remark 13
+      # remark 14
+      # remark 15
+      obj # remark 16
+      # remark 17
+      # remark 18
+    # remark 19
+    # remark 20

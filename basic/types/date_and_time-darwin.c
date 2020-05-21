@@ -140,10 +140,11 @@ typedef struct SIMPLE_NODE {
 #else
   #define ASM(x)
 #endif
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 REGISTER NODE *myself ASM("r13");
 IMPORT NODE *get_attribute(NODE *node, int idx);
 REGISTER FRAME *arguments ASM("r12");
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -533,8 +534,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__date_and_time__to_string_17, &frame__types__date_and_time__to_string_1, 493, 493, 22, 47, 1},
   {cont__types__date_and_time__to_string_18, &frame__types__date_and_time__to_string_1, 493, 493, 16, 49, 1},
   {cont__types__date_and_time__to_string_19, &frame__types__date_and_time__to_string_1, 493, 493, 7, 56, 1},
-  {cont__types__date_and_time__to_string_20, &frame__types__date_and_time__to_string_1, 495, 498, 7, 20, 1},
-  {cont__types__date_and_time__to_string_33, &frame__types__date_and_time__to_string_1, 480, 498, 5, 21, 1},
+  {cont__types__date_and_time__to_string_20, &frame__types__date_and_time__to_string_1, 497, 497, 9, 28, 1},
+  {cont__types__date_and_time__to_string_33, &frame__types__date_and_time__to_string_1, },
   {cont__types__date_and_time__to_string_37, &frame__types__date_and_time__to_string_1, 479, 498, 3, 23, 1},
   {entry__std__sleep_1, NULL, 507, 517, 3, 2, 1}
 };
@@ -550,6 +551,10 @@ union NODE {
   DATE_AND_TIME date_and_time;
 };
 static void type__std__year_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__year_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -572,6 +577,10 @@ static void type__std__year_of(void) {
   }
 }
 static void type__std__month_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__month_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -594,6 +603,10 @@ static void type__std__month_of(void) {
   }
 }
 static void type__std__day_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__day_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -616,6 +629,10 @@ static void type__std__day_of(void) {
   }
 }
 static void type__std__day_of_week_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__day_of_week_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -638,6 +655,10 @@ static void type__std__day_of_week_of(void) {
   }
 }
 static void type__std__hour_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__hour_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -660,6 +681,10 @@ static void type__std__hour_of(void) {
   }
 }
 static void type__std__minute_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__minute_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -682,6 +707,10 @@ static void type__std__minute_of(void) {
   }
 }
 static void type__std__second_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__second_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -704,6 +733,10 @@ static void type__std__second_of(void) {
   }
 }
 static void type__std__time_shift_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__time_shift_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1572,10 +1605,6 @@ static void cont__types__date_and_time__to_string_20(void) {
   frame->slots[21] /* temp__18 */ = create_closure(entry__types__date_and_time__to_string_21, 0);
   // 497: -> ts < 0 -> ts/3600
   frame->slots[22] /* temp__19 */ = create_closure(entry__types__date_and_time__to_string_27, 0);
-  // 495: cond
-  // 496:   -> ts > 0 -> string("+" ts/3600)
-  // 497:   -> ts < 0 -> ts/3600
-  // 498:   -> true -> ""
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[21] /* temp__18 */;
@@ -1777,17 +1806,6 @@ static void cont__types__date_and_time__to_string_33(void) {
     return;
   }
   frame->slots[20] /* temp__17 */ = arguments->slots[0];
-  // 480: string
-  // 481:   year_of(t)
-  // 482:   "-"
-  // 483:   pad_left(month_of(t) 2 "0")
-  // 484:   "-"
-  // 485:   pad_left(day_of(t) 2 "0")
-  // 486:   ' '
-  // 487:   hour_of(t)
-  // 488:   ":"
-  // 489:   pad_left(minute_of(t) 2 "0")
-  // ...
   argument_count = 15;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;

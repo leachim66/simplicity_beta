@@ -165,10 +165,11 @@ typedef struct CLOSURE {
 #else
   #define ASM(x)
 #endif
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 REGISTER NODE *myself ASM("r13");
 IMPORT NODE *get_attribute(NODE *node, int idx);
 REGISTER FRAME *arguments ASM("r12");
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -201,7 +202,6 @@ IMPORT void invalid_results_error(void);
 IMPORT NODE *create_continuation(void);
 IMPORT NODE *create_future(void);
 IMPORT NODE *create_cell(void);
-IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void allocate_arguments(void);
@@ -402,7 +402,7 @@ void run__basic__types__set(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_set, NULL, 69, 69, 2, 14},
-  {run__basic__types__set, NULL, 77, 77, 1, 32},
+  {run__basic__types__set, NULL, 76, 78, 1, 48},
   {entry__types__generic_set__union_2, NULL, 34, 34, 25, 34},
   {cont__types__generic_set__union_3, &frame__types__generic_set__union_2, 34, 34, 39, 39},
   {entry__types__generic_set__union_1, NULL, 34, 34, 3, 39},
@@ -427,10 +427,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__generic_set__to_list_3, &frame__types__generic_set__to_list_2, 66, 66, 40, 40},
   {entry__types__generic_set__to_list_1, NULL, 66, 66, 3, 40},
   {cont__types__generic_set__to_list_4, &frame__types__generic_set__to_list_1, 67, 67, 3, 10},
-  {entry__std__set_2, NULL, 98, 98, 24, 32},
-  {cont__std__set_3, &frame__std__set_2, 98, 98, 37, 37},
-  {entry__std__set_1, NULL, 98, 98, 3, 37},
-  {cont__std__set_4, &frame__std__set_1, 99, 99, 3, 8}
+  {entry__std__set_2, NULL, 97, 97, 24, 32},
+  {cont__std__set_3, &frame__std__set_2, 97, 97, 37, 37},
+  {entry__std__set_1, NULL, 97, 97, 3, 37},
+  {cont__std__set_4, &frame__std__set_1, 98, 98, 3, 8}
 };
 
 union NODE {
@@ -442,6 +442,10 @@ union NODE {
   CLOSURE closure;
 };
 static void type__std__is_a_set(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_a_set);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -499,8 +503,12 @@ EXPORT void run__basic__types__set(void) {
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
   // 23: $types::generic_set types::object
+  // 24:   #
+  // 25:     the prototype object for all kinds of sets
   initialize_maybe_future(var.types__generic_set, get__types__object());
-  // 77: $types::set types::unordered_set
+  // 76: $types::set types::unordered_set
+  // 77:   #
+  // 78:     the prototype object for all unordered sets
   initialize_maybe_future(var.types__set, get__types__unordered_set());
   frame = frame->caller_frame;
   func = frame->cont;
@@ -531,7 +539,7 @@ static void entry__types__generic_set__union_1(void) {
   frame->cont = cont__types__generic_set__union_4;
 }
 static void entry__types__generic_set__union_2(void) {
-  allocate_initialized_frame_gc(2, 3);
+  allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // key: 0
   // left: 1
@@ -540,13 +548,11 @@ static void entry__types__generic_set__union_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 34: ... !left(key) true
-  frame->slots[2] /* temp__1 */ = get__true();
   // 34: ... !left(key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
-  arguments->slots[1] = frame->slots[2] /* temp__1 */;
+  arguments->slots[1] = get__true();
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* left */;
   func = myself->type;
@@ -936,11 +942,11 @@ static void entry__std__set_1(void) {
   // tab: 1
   frame->slots[1] /* tab */ = create_cell();
   frame->slots[0] /* args */ = from_arguments(0, argument_count-0);
-  // 97: $$tab types::set
+  // 96: $$tab types::set
   ((CELL *)frame->slots[1])->contents /* tab */ = var.types__set;
-  // 98: ... : (key) !tab(key) true
+  // 97: ... : (key) !tab(key) true
   frame->slots[2] /* temp__1 */ = create_closure(entry__std__set_2, 1);
-  // 98: for_each args: (key) !tab(key) true
+  // 97: for_each args: (key) !tab(key) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* args */;
@@ -951,7 +957,7 @@ static void entry__std__set_1(void) {
   frame->cont = cont__std__set_4;
 }
 static void entry__std__set_2(void) {
-  allocate_initialized_frame_gc(2, 3);
+  allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // key: 0
   // tab: 1
@@ -960,13 +966,11 @@ static void entry__std__set_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 98: ... !tab(key) true
-  frame->slots[2] /* temp__1 */ = get__true();
-  // 98: ... !tab(key)
+  // 97: ... !tab(key)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
-  arguments->slots[1] = frame->slots[2] /* temp__1 */;
+  arguments->slots[1] = get__true();
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* tab */;
   func = myself->type;
@@ -989,7 +993,7 @@ static void cont__std__set_4(void) {
     invalid_results_error();
     return;
   }
-  // 99: -> tab
+  // 98: -> tab
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* tab */;

@@ -1,0 +1,5 @@
+____________________________________
+SYNTAX ERROR IN LINE 8 OF FILE "invalid_return_statement":
+Return statement is followed by another statement!
+  -> y
+  ^

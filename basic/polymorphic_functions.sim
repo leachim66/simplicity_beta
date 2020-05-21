@@ -28,7 +28,7 @@ $std::plus ()
 
     See also: std::minus, std::times, std::over, std::div, std::mod
 
-$std::minus () #
+$std::minus ()
   #
     subtract two numbers of any kind
 
@@ -36,7 +36,7 @@ $std::minus () #
 
     See also: std::negate, std::plus, std::times, std::over, std::div, std::mod
 
-$std::times () #
+$std::times ()
   #
     multiply two numbers of any kind
 
@@ -44,7 +44,7 @@ $std::times () #
 
     See also: std::over, std::div, std::mod, std::plus, std::minus
 
-$std::over () #
+$std::over ()
   #
     divide two numbers of any kind
 
@@ -52,7 +52,7 @@ $std::over () #
 
     See also: std::div, std::mod, std::times, std::plus, std::minus
 
-$std::div () #
+$std::div ()
   #
     divide two integer numbers
 
@@ -60,7 +60,7 @@ $std::div () #
 
     See also: std::times, std::over, std::mod, std::plus, std::minus
 
-$std::mod () #
+$std::mod ()
   #
     compute the remainder of two integer numbers
 
@@ -68,7 +68,7 @@ $std::mod () #
 
     See also: std::div,  std::times, std::over, std::plus, std::minus
 
-$std::negate () #
+$std::negate ()
   #
     negate the numeric argument
 
@@ -78,7 +78,7 @@ $std::negate () #
 
     See also: std::minus
 
-$std::equal () #
+$std::equal ()
   #
     compares two objects for equality
 
@@ -97,7 +97,6 @@ $std::equal () #
     <std::not>(<std::equal>(*a* *b*))
 
     See also: std::equal_type_and_value, std::less
-
 
 $std::equal_type_and_value ()
   #
@@ -149,7 +148,6 @@ $std::less ()
     <std::not>(<std::less>(*a* *b*))
 
     See also: std::numerically_less, std::equal
-
 
 $std::numerically_less ()
   #
@@ -602,14 +600,14 @@ $std::first_index_of (!)
     returns the first valid index of a collection
 
     See also: std::last_index_of, std::for_each_from_to,
-	      std::for_each_from_down_to
+              std::for_each_from_down_to
 
 $std::last_index_of (!)
   #
     returns the last valid index of a collection
 
     See also: std::first_index_of, std::for_each_from_to,
-	      std::for_each_from_down_to
+              std::for_each_from_down_to
 
 $std::delete_at ()
   #
@@ -618,7 +616,7 @@ $std::delete_at ()
     **Attention**: The removed item is **not** returned!
 
     See also: std::insert_before, std::insert_behind, std::get, std::pop,
-	      std::first_index_of, std::last_index_of
+              std::first_index_of, std::last_index_of
 
 $std::union ()
   #
@@ -671,7 +669,7 @@ $std::match ()
     Topic: Strings
 
     See also: std::matches, std::contains, std::has_prefix, std::has_suffix,
-	      std::match_string, std::match_character, std::search
+              std::match_string, std::match_character, std::search
 
 $std::search ()
   #
@@ -724,7 +722,7 @@ $std::without_prefix ()
     Topic: Strings
 
     See also: std::without_suffix, std::has_prefix, std::has_suffix,
-	      std::behind, std::truncate_from
+              std::behind, std::truncate_from
 
 $std::without_suffix ()
   #
@@ -739,7 +737,7 @@ $std::without_suffix ()
     Topic: Strings
 
     See also: std::without_prefix, std::has_suffix, std::has_prefix,
-	      std::before, std::truncate_until
+              std::before, std::truncate_until
 
 $std::before ()
   #
@@ -778,7 +776,7 @@ $std::truncate_from ()
     Topic: Strings
 
     See also: std::before, std::truncate_until,
-	      std::truncate_before, std::truncate_behind
+              std::truncate_before, std::truncate_behind
 
 $std::behind ()
   #
@@ -817,7 +815,7 @@ $std::truncate_until ()
     Topic: Strings
 
     See also: std::behind, std::truncate_from,
-	      std::truncate_before, std::truncate_behind
+              std::truncate_before, std::truncate_behind
 
 $std::from ()
   #
@@ -856,7 +854,7 @@ $std::truncate_before ()
     Topic: Strings
 
     See also: std::from, std::truncate_behind,
-	      std::truncate_from, std::truncate_until
+              std::truncate_from, std::truncate_until
 
 $std::until ()
   #
@@ -895,7 +893,7 @@ $std::truncate_behind ()
     Topic: Strings
 
     See also: std::until, std::truncate_before,
-	      std::truncate_from, std::truncate_until
+              std::truncate_from, std::truncate_until
 
 $std::between ()
   #
@@ -1037,56 +1035,56 @@ $std::for_each_from_to ()
     iterates over a subrange of the items of a collection
 
     See also: std::for_each, std::for_each_from_down_to,
-	      std::update_each_from_to
+              std::update_each_from_to
 
 $std::for_each_from_down_to ()
   #
     iterates over a subrange of the items of a collection in reverse order
 
     See also: std::for_each_downwards, std::for_each_from_to,
-	      std::update_each_from_down_to
+              std::update_each_from_down_to
 
 $std::for_each ()
   #
     iterates over all items of a collection
 
     See also: std::for_each_downwards, std::for_each_from_to,
-	      std::update_each
+              std::update_each
 
 $std::for_each_downwards ()
   #
     iterates over all items of a collection in reverse order
 
     See also: std::for_each, std::for_each_from_down_to,
-	      std::update_each_downwards
+              std::update_each_downwards
 
 $std::update_each_from_to ()
   #
     updates a subrange of the items of a collection
 
     See also: std::update_each, std::update_each_from_down_to,
-	      std::for_each_from_to
+              std::for_each_from_to
 
 $std::update_each_from_down_to ()
   #
     updates a subrange of the items of a collection in reverse order
 
     See also: std::update_each_downwards, std::update_each_from_to,
-	      std::for_each_from_down_to
+              std::for_each_from_down_to
 
 $std::update_each ()
   #
     updates all items of a collection
 
     See also: std::update_each_downwards, std::update_each_from_to,
-	      std::for_each
+              std::for_each
 
 $std::update_each_downwards ()
   #
     updates all items of a collection in reverse order
 
     See also: std::update_each, std::update_each_from_down_to,
-	      std::for_each_downwards
+              std::for_each_downwards
 
 $std::for_each_pair ()
   #

@@ -1,0 +1,9 @@
+#!/usr/bin/env simple
+
+$p:
+  -> x
+  # remark
+
+$q:
+  -> y
+  stmt

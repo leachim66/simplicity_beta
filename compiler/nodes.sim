@@ -65,7 +65,6 @@ $node::defined_names_of (!)
 $node::definitions_of (!)
 $node::destination_of (!)
 $node::end_position_of (!)
-$node::enumeration_no_of (!)
 $node::expression_of (!)
 $node::filemask_of (!)
 $node::filename_of (!)
@@ -94,7 +93,7 @@ $node::kind_of (!)
 $node::last_line_end_specifier_of (!)
 $node::line_end_specifier_of (!)
 $node::lowest_precedence_of (!)
-$node::mangled_name_of (!)
+$node::mangled_name_of ()
 $node::max_length_of (!)
 $node::message_of (!)
 $node::name_of (!)
@@ -102,7 +101,6 @@ $node::namespace_of (!)
 $node::namespace_alias_of (!)
 $node::node_of (!)
 $node::operators_of (!)
-$node::output_arguments_of (!)
 $node::parameter_kind_of (!)
 $node::parameters_of (!)
 $node::parent_of (!)
@@ -111,7 +109,6 @@ $node::continuation_of (!)
 $node::source_position_of (!)
 $node::temporary_count_of (!)
 $node::remark_lines_of ()
-$node::remark_lines_behind_of ()
 $node::scope_of (!)
 $node::section_of (!)
 $node::statements_of (!)
@@ -129,7 +126,6 @@ $node::variable_kind_of (!)
 # DEFAULT GRAMMAR NODE
 
 $types::grammar_node.remark_lines_of empty_list
-$types::grammar_node.remark_lines_behind_of empty_list
 $types::grammar_node.is_a_constant false
 $types::grammar_node.is_a_single_assign_definition false
 $types::grammar_node.is_a_multi_assign_definition false
@@ -221,7 +217,6 @@ $node::is_a_call ()
 $types::grammar_node.is_a_call false
 $compiler::call.is_a_call true
 $compiler::call compiler::statement
-$compiler::call.output_arguments_of empty_list
 $compiler::call.arguments_of empty_list
 
 ###
@@ -255,10 +250,15 @@ $compiler::assignment compiler::call
 # DEFINITION
 
 $node::is_a_definition ()
+$node::is_a_destination ()
+$node::is_an_input_output_argument ()
 
 $types::grammar_node.is_a_definition false
-$compiler::definition.is_a_definition true
+$types::grammar_node.is_a_destination false
+$types::grammar_node.is_an_input_output_argument false
 $compiler::definition types::grammar_node
+$compiler::definition.is_a_definition true
+$compiler::definition.is_a_destination true
 $compiler::definition.attribute_kind_of NONE
 $compiler::definition.parameter_kind_of NO_PARAMETER
 
@@ -323,7 +323,6 @@ $compiler::function_call.is_an_attribute_access false
 $compiler::function_call.is_in_infix_notation false
 $compiler::function_call.is_a_string_template false
 $compiler::function_call.arguments_of empty_list
-$compiler::function_call.output_arguments_of empty_list
 
 ###
 # EXPRESSION
@@ -336,6 +335,12 @@ $compiler::expression.is_an_expression true
 $compiler::expression types::grammar_node
 $compiler::expression.arguments_of empty_list
 $compiler::expression.operators_of empty_list
+
+###
+# REMARK_ARGUMENT
+
+$compiler::remark_argument.is_a_remark true
+$compiler::remark_argument types::grammar_node
 
 ###
 # BACKQUOTED
@@ -443,13 +448,11 @@ $node::is_an_identifier ()
 $types::grammar_node.is_an_identifier false
 $compiler::identifier.is_an_identifier true
 
-$node::is_a_destination ()
-
-$types::grammar_node.is_a_destination false
-
 $node::is_used_as_a_polymorphic_function ()
+$node::is_used_as_a_destination ()
 
 $compiler::identifier.is_used_as_a_polymorphic_function false
+$compiler::identifier.is_used_as_a_destination false
 $compiler::identifier.is_not_used false
 $compiler::identifier types::grammar_node
 

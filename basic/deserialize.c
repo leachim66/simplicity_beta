@@ -740,235 +740,235 @@ static void cont__11_4(void);
 void run__basic__deserialize(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {run__basic__deserialize, NULL, 29, 29, 16, 32},
-  {cont__10_1, NULL, 29, 29, 11, 33},
-  {cont__10_2, NULL, 29, 29, 51, 67},
-  {cont__10_3, NULL, 29, 29, 46, 68},
-  {cont__10_4, NULL, 29, 29, 41, 68},
-  {cont__10_5, NULL, 29, 29, 36, 69},
-  {cont__10_6, NULL, 23, 29, 1, 69},
-  {cont__10_7, NULL, 37, 37, 18, 27},
-  {cont__11_2, NULL, 37, 37, 9, 28},
-  {cont__11_3, NULL, 31, 37, 1, 28},
-  {cont__11_4, NULL, 39, 39, 1, 27},
-  {entry__std__register_deserializer_1, NULL, 52, 52, 3, 21},
-  {cont__std__register_deserializer_2, &frame__std__register_deserializer_1, 52, 52, 34, 34},
-  {entry__std__get_deserialization_indent_6, NULL, 65, 65, 22, 28},
-  {cont__std__get_deserialization_indent_7, &frame__std__get_deserialization_indent_6, 65, 65, 22, 38},
-  {cont__std__get_deserialization_indent_8, &frame__std__get_deserialization_indent_6, 65, 65, 22, 38},
-  {entry__std__get_deserialization_indent_10, NULL, 66, 66, 5, 10},
-  {cont__std__get_deserialization_indent_11, &frame__std__get_deserialization_indent_10, 67, 67, 5, 18},
-  {cont__std__get_deserialization_indent_12, &frame__std__get_deserialization_indent_10, 67, 67, 18, 18},
-  {entry__std__get_deserialization_indent_3, NULL, 65, 65, 12, 17},
-  {cont__std__get_deserialization_indent_4, &frame__std__get_deserialization_indent_3, 65, 65, 12, 17},
-  {cont__std__get_deserialization_indent_5, &frame__std__get_deserialization_indent_3, 65, 65, 12, 38},
-  {cont__std__get_deserialization_indent_9, &frame__std__get_deserialization_indent_3, 65, 67, 9, 18},
-  {entry__std__get_deserialization_indent_17, NULL, 68, 68, 22, 28},
-  {cont__std__get_deserialization_indent_18, &frame__std__get_deserialization_indent_17, 68, 68, 22, 35},
-  {cont__std__get_deserialization_indent_19, &frame__std__get_deserialization_indent_17, 68, 68, 22, 35},
-  {entry__std__get_deserialization_indent_21, NULL, 69, 69, 5, 10},
-  {cont__std__get_deserialization_indent_22, &frame__std__get_deserialization_indent_21, 70, 70, 5, 15},
-  {cont__std__get_deserialization_indent_23, &frame__std__get_deserialization_indent_21, 70, 70, 15, 15},
-  {entry__std__get_deserialization_indent_14, NULL, 68, 68, 12, 17},
-  {cont__std__get_deserialization_indent_15, &frame__std__get_deserialization_indent_14, 68, 68, 12, 17},
-  {cont__std__get_deserialization_indent_16, &frame__std__get_deserialization_indent_14, 68, 68, 12, 35},
-  {cont__std__get_deserialization_indent_20, &frame__std__get_deserialization_indent_14, 68, 70, 9, 15},
-  {entry__std__get_deserialization_indent_1, NULL, 63, 63, 3, 20},
-  {cont__std__get_deserialization_indent_2, &frame__std__get_deserialization_indent_1, 65, 67, 3, 18},
-  {cont__std__get_deserialization_indent_13, &frame__std__get_deserialization_indent_1, 68, 70, 3, 15},
-  {cont__std__get_deserialization_indent_24, &frame__std__get_deserialization_indent_1, 71, 71, 18, 18},
-  {cont__std__get_deserialization_indent_25, &frame__std__get_deserialization_indent_1, 71, 71, 3, 18},
-  {cont__std__get_deserialization_indent_26, &frame__std__get_deserialization_indent_1, 72, 72, 3, 11},
-  {entry__std__deserialize_item_5, NULL, 84, 84, 29, 35},
-  {cont__std__deserialize_item_6, &frame__std__deserialize_item_5, 84, 84, 29, 45},
-  {cont__std__deserialize_item_7, &frame__std__deserialize_item_5, 84, 84, 29, 45},
-  {entry__std__deserialize_item_12, NULL, 88, 88, 11, 40},
-  {entry__std__deserialize_item_13, NULL, 89, 89, 9, 30},
-  {entry__std__deserialize_item_9, NULL, 85, 85, 7, 47},
-  {cont__std__deserialize_item_10, &frame__std__deserialize_item_9, 87, 87, 9, 28},
-  {cont__std__deserialize_item_11, &frame__std__deserialize_item_9, 86, 89, 7, 30},
-  {entry__std__deserialize_item_18, NULL, 91, 91, 47, 47},
-  {cont__std__deserialize_item_19, &frame__std__deserialize_item_18, 91, 91, 32, 47},
-  {cont__std__deserialize_item_20, &frame__std__deserialize_item_18, 91, 91, 47, 47},
-  {entry__std__deserialize_item_15, NULL, 91, 91, 16, 22},
-  {cont__std__deserialize_item_16, &frame__std__deserialize_item_15, 91, 91, 16, 29},
-  {cont__std__deserialize_item_17, &frame__std__deserialize_item_15, 91, 91, 13, 47},
-  {entry__std__deserialize_item_14, NULL, 91, 91, 7, 47},
-  {cont__std__deserialize_item_21, &frame__std__deserialize_item_14, 92, 92, 7, 41},
-  {entry__std__deserialize_item_1, NULL, 84, 84, 5, 19},
-  {cont__std__deserialize_item_2, &frame__std__deserialize_item_1, 84, 84, 5, 24},
-  {cont__std__deserialize_item_3, &frame__std__deserialize_item_1, 84, 84, 5, 24},
-  {cont__std__deserialize_item_4, &frame__std__deserialize_item_1, 84, 84, 5, 45},
-  {cont__std__deserialize_item_8, &frame__std__deserialize_item_1, 83, 92, 3, 42},
-  {entry__std__create_deserializer_2, NULL, 106, 106, 48, 48},
-  {cont__std__create_deserializer_3, &frame__std__create_deserializer_2, 106, 106, 24, 49},
-  {cont__std__create_deserializer_4, &frame__std__create_deserializer_2, 106, 106, 5, 50},
-  {cont__std__create_deserializer_5, &frame__std__create_deserializer_2, 106, 106, 67, 67},
-  {entry__std__create_deserializer_10, NULL, 113, 113, 53, 53},
-  {cont__std__create_deserializer_11, &frame__std__create_deserializer_10, 113, 113, 39, 54},
-  {cont__std__create_deserializer_12, &frame__std__create_deserializer_10, 113, 113, 32, 64},
-  {entry__std__create_deserializer_17, NULL, 115, 115, 13, 72},
-  {cont__std__create_deserializer_20, &frame__std__create_deserializer_17, 115, 115, 7, 72},
-  {entry__std__create_deserializer_25, NULL, 118, 118, 34, 40},
-  {cont__std__create_deserializer_26, &frame__std__create_deserializer_25, 118, 118, 34, 50},
-  {cont__std__create_deserializer_27, &frame__std__create_deserializer_25, 118, 118, 34, 50},
-  {cont__std__create_deserializer_28, &frame__std__create_deserializer_25, 118, 118, 34, 50},
-  {entry__std__create_deserializer_30, NULL, 118, 118, 53, 67},
-  {entry__std__create_deserializer_35, NULL, 120, 120, 33, 47},
-  {entry__std__create_deserializer_39, NULL, 123, 123, 35, 39},
-  {cont__std__create_deserializer_40, &frame__std__create_deserializer_39, 123, 123, 30, 40},
-  {cont__std__create_deserializer_41, &frame__std__create_deserializer_39, 123, 123, 30, 47},
-  {cont__std__create_deserializer_42, &frame__std__create_deserializer_39, 123, 123, 30, 47},
-  {cont__std__create_deserializer_43, &frame__std__create_deserializer_39, 123, 123, 30, 47},
-  {entry__std__create_deserializer_45, NULL, 124, 124, 15, 77},
-  {cont__std__create_deserializer_48, &frame__std__create_deserializer_45, 124, 124, 9, 77},
-  {entry__std__create_deserializer_53, NULL, 128, 128, 15, 77},
-  {cont__std__create_deserializer_55, &frame__std__create_deserializer_53, 128, 128, 9, 77},
-  {entry__std__create_deserializer_22, NULL, 118, 118, 10, 24},
-  {cont__std__create_deserializer_23, &frame__std__create_deserializer_22, 118, 118, 10, 29},
-  {cont__std__create_deserializer_24, &frame__std__create_deserializer_22, 118, 118, 10, 50},
-  {cont__std__create_deserializer_29, &frame__std__create_deserializer_22, 118, 118, 7, 67},
-  {cont__std__create_deserializer_31, &frame__std__create_deserializer_22, 119, 119, 7, 61},
-  {cont__std__create_deserializer_32, &frame__std__create_deserializer_22, 120, 120, 10, 30},
-  {cont__std__create_deserializer_33, &frame__std__create_deserializer_22, 120, 120, 10, 30},
-  {cont__std__create_deserializer_34, &frame__std__create_deserializer_22, 120, 120, 7, 47},
-  {cont__std__create_deserializer_36, &frame__std__create_deserializer_22, 122, 122, 7, 32},
-  {cont__std__create_deserializer_37, &frame__std__create_deserializer_22, 123, 123, 10, 25},
-  {cont__std__create_deserializer_38, &frame__std__create_deserializer_22, 123, 123, 10, 47},
-  {cont__std__create_deserializer_44, &frame__std__create_deserializer_22, 123, 124, 7, 77},
-  {cont__std__create_deserializer_49, &frame__std__create_deserializer_22, 125, 125, 7, 28},
-  {cont__std__create_deserializer_50, &frame__std__create_deserializer_22, 126, 126, 7, 46},
-  {cont__std__create_deserializer_51, &frame__std__create_deserializer_22, 127, 127, 10, 38},
-  {cont__std__create_deserializer_52, &frame__std__create_deserializer_22, 127, 128, 7, 77},
-  {cont__std__create_deserializer_56, &frame__std__create_deserializer_22, 129, 129, 19, 23},
-  {cont__std__create_deserializer_57, &frame__std__create_deserializer_22, 129, 129, 26, 26},
-  {cont__std__create_deserializer_58, &frame__std__create_deserializer_22, 129, 129, 7, 26},
-  {cont__std__create_deserializer_59, &frame__std__create_deserializer_22, 130, 130, 29, 58},
-  {cont__std__create_deserializer_60, &frame__std__create_deserializer_22, 130, 130, 7, 58},
-  {cont__std__create_deserializer_61, &frame__std__create_deserializer_22, 130, 130, 58, 58},
-  {entry__std__create_deserializer_7, NULL, 113, 113, 8, 29},
-  {cont__std__create_deserializer_9, &frame__std__create_deserializer_7, 113, 113, 5, 64},
-  {cont__std__create_deserializer_13, &frame__std__create_deserializer_7, 114, 114, 8, 14},
-  {cont__std__create_deserializer_14, &frame__std__create_deserializer_7, 114, 114, 8, 24},
-  {cont__std__create_deserializer_15, &frame__std__create_deserializer_7, 114, 114, 8, 24},
-  {cont__std__create_deserializer_16, &frame__std__create_deserializer_7, 114, 115, 5, 72},
-  {cont__std__create_deserializer_21, &frame__std__create_deserializer_7, 117, 130, 5, 58},
-  {cont__std__create_deserializer_62, &frame__std__create_deserializer_7, 130, 130, 58, 58},
-  {entry__std__create_deserializer_1, NULL, 105, 106, 3, 67},
-  {cont__std__create_deserializer_6, &frame__std__create_deserializer_1, 107, 130, 3, 59},
-  {entry__deserialize_stream_10, NULL, 149, 149, 31, 33},
-  {cont__deserialize_stream_11, &frame__deserialize_stream_10, 149, 149, 36, 36},
-  {cont__deserialize_stream_12, &frame__deserialize_stream_10, 149, 149, 20, 37},
-  {cont__deserialize_stream_13, &frame__deserialize_stream_10, 149, 149, 13, 41},
-  {entry__deserialize_stream_27, NULL, 154, 154, 47, 53},
-  {cont__deserialize_stream_28, &frame__deserialize_stream_27, 154, 154, 47, 60},
-  {cont__deserialize_stream_29, &frame__deserialize_stream_27, 154, 154, 47, 60},
-  {cont__deserialize_stream_30, &frame__deserialize_stream_27, 154, 154, 47, 60},
-  {entry__deserialize_stream_25, NULL, 154, 154, 38, 42},
-  {cont__deserialize_stream_26, &frame__deserialize_stream_25, 154, 154, 38, 60},
-  {cont__deserialize_stream_31, &frame__deserialize_stream_25, 154, 154, 38, 60},
-  {entry__deserialize_stream_33, NULL, 155, 155, 15, 79},
-  {entry__deserialize_stream_14, NULL, 151, 151, 37, 39},
-  {cont__deserialize_stream_15, &frame__deserialize_stream_14, 151, 151, 42, 42},
-  {cont__deserialize_stream_16, &frame__deserialize_stream_14, 151, 151, 13, 43},
-  {cont__deserialize_stream_17, &frame__deserialize_stream_14, 152, 152, 13, 55},
-  {cont__deserialize_stream_18, &frame__deserialize_stream_14, 153, 153, 23, 44},
-  {cont__deserialize_stream_19, &frame__deserialize_stream_14, 153, 153, 21, 44},
-  {cont__deserialize_stream_20, &frame__deserialize_stream_14, 153, 153, 46, 65},
-  {cont__deserialize_stream_21, &frame__deserialize_stream_14, 153, 153, 21, 65},
-  {cont__deserialize_stream_22, &frame__deserialize_stream_14, 153, 153, 13, 65},
-  {cont__deserialize_stream_23, &frame__deserialize_stream_14, 154, 154, 16, 33},
-  {cont__deserialize_stream_24, &frame__deserialize_stream_14, 154, 154, 16, 60},
-  {cont__deserialize_stream_32, &frame__deserialize_stream_14, 154, 155, 13, 79},
-  {cont__deserialize_stream_35, &frame__deserialize_stream_14, 156, 156, 23, 38},
-  {cont__deserialize_stream_36, &frame__deserialize_stream_14, 156, 156, 13, 38},
-  {cont__deserialize_stream_37, &frame__deserialize_stream_14, 156, 156, 38, 38},
-  {entry__deserialize_stream_38, NULL, 158, 158, 13, 25},
-  {cont__deserialize_stream_39, &frame__deserialize_stream_38, 158, 158, 25, 25},
-  {entry__deserialize_stream_8, NULL, 145, 145, 9, 20},
-  {cont__deserialize_stream_9, &frame__deserialize_stream_8, 146, 158, 9, 26},
-  {cont__deserialize_stream_40, &frame__deserialize_stream_8, 159, 159, 9, 14},
-  {cont__deserialize_stream_41, &frame__deserialize_stream_8, 159, 159, 14, 14},
-  {entry__deserialize_stream_5, NULL, 144, 144, 16, 21},
-  {cont__deserialize_stream_6, &frame__deserialize_stream_5, 144, 144, 16, 21},
-  {cont__deserialize_stream_7, &frame__deserialize_stream_5, 144, 159, 13, 14},
-  {entry__deserialize_stream_3, NULL, 143, 143, 7, 24},
-  {cont__deserialize_stream_4, &frame__deserialize_stream_3, 144, 159, 7, 14},
-  {cont__deserialize_stream_42, &frame__deserialize_stream_3, 160, 160, 7, 69},
-  {entry__deserialize_stream_47, NULL, 164, 164, 9, 78},
-  {entry__deserialize_stream_68, NULL, 176, 176, 20, 22},
-  {cont__deserialize_stream_69, &frame__deserialize_stream_68, 176, 176, 15, 23},
-  {cont__deserialize_stream_70, &frame__deserialize_stream_68, 176, 176, 15, 35},
-  {cont__deserialize_stream_71, &frame__deserialize_stream_68, 176, 176, 15, 35},
-  {cont__deserialize_stream_72, &frame__deserialize_stream_68, 176, 176, 15, 35},
-  {entry__deserialize_stream_64, NULL, 175, 175, 15, 21},
-  {cont__deserialize_stream_65, &frame__deserialize_stream_64, 175, 175, 15, 28},
-  {cont__deserialize_stream_66, &frame__deserialize_stream_64, 175, 175, 15, 28},
-  {cont__deserialize_stream_67, &frame__deserialize_stream_64, 176, 176, 15, 35},
+  {run__basic__deserialize, NULL, 28, 28, 16, 32},
+  {cont__10_1, NULL, 28, 28, 11, 33},
+  {cont__10_2, NULL, 28, 28, 51, 67},
+  {cont__10_3, NULL, 28, 28, 46, 68},
+  {cont__10_4, NULL, 28, 28, 41, 68},
+  {cont__10_5, NULL, 28, 28, 36, 69},
+  {cont__10_6, NULL, 23, 28, 1, 69},
+  {cont__10_7, NULL, 35, 35, 18, 27},
+  {cont__11_2, NULL, 35, 35, 9, 28},
+  {cont__11_3, NULL, 30, 35, 1, 28},
+  {cont__11_4, NULL, 37, 37, 1, 27},
+  {entry__std__register_deserializer_1, NULL, 50, 50, 3, 21},
+  {cont__std__register_deserializer_2, &frame__std__register_deserializer_1, 50, 50, 34, 34},
+  {entry__std__get_deserialization_indent_6, NULL, 63, 63, 22, 28},
+  {cont__std__get_deserialization_indent_7, &frame__std__get_deserialization_indent_6, 63, 63, 22, 38},
+  {cont__std__get_deserialization_indent_8, &frame__std__get_deserialization_indent_6, 63, 63, 22, 38},
+  {entry__std__get_deserialization_indent_10, NULL, 64, 64, 5, 10},
+  {cont__std__get_deserialization_indent_11, &frame__std__get_deserialization_indent_10, 65, 65, 5, 18},
+  {cont__std__get_deserialization_indent_12, &frame__std__get_deserialization_indent_10, 65, 65, 18, 18},
+  {entry__std__get_deserialization_indent_3, NULL, 63, 63, 12, 17},
+  {cont__std__get_deserialization_indent_4, &frame__std__get_deserialization_indent_3, 63, 63, 12, 17},
+  {cont__std__get_deserialization_indent_5, &frame__std__get_deserialization_indent_3, 63, 63, 12, 38},
+  {cont__std__get_deserialization_indent_9, &frame__std__get_deserialization_indent_3, 63, 65, 9, 18},
+  {entry__std__get_deserialization_indent_17, NULL, 66, 66, 22, 28},
+  {cont__std__get_deserialization_indent_18, &frame__std__get_deserialization_indent_17, 66, 66, 22, 35},
+  {cont__std__get_deserialization_indent_19, &frame__std__get_deserialization_indent_17, 66, 66, 22, 35},
+  {entry__std__get_deserialization_indent_21, NULL, 67, 67, 5, 10},
+  {cont__std__get_deserialization_indent_22, &frame__std__get_deserialization_indent_21, 68, 68, 5, 15},
+  {cont__std__get_deserialization_indent_23, &frame__std__get_deserialization_indent_21, 68, 68, 15, 15},
+  {entry__std__get_deserialization_indent_14, NULL, 66, 66, 12, 17},
+  {cont__std__get_deserialization_indent_15, &frame__std__get_deserialization_indent_14, 66, 66, 12, 17},
+  {cont__std__get_deserialization_indent_16, &frame__std__get_deserialization_indent_14, 66, 66, 12, 35},
+  {cont__std__get_deserialization_indent_20, &frame__std__get_deserialization_indent_14, 66, 68, 9, 15},
+  {entry__std__get_deserialization_indent_1, NULL, 61, 61, 3, 20},
+  {cont__std__get_deserialization_indent_2, &frame__std__get_deserialization_indent_1, 63, 65, 3, 18},
+  {cont__std__get_deserialization_indent_13, &frame__std__get_deserialization_indent_1, 66, 68, 3, 15},
+  {cont__std__get_deserialization_indent_24, &frame__std__get_deserialization_indent_1, 69, 69, 18, 18},
+  {cont__std__get_deserialization_indent_25, &frame__std__get_deserialization_indent_1, 69, 69, 3, 18},
+  {cont__std__get_deserialization_indent_26, &frame__std__get_deserialization_indent_1, 70, 70, 3, 11},
+  {entry__std__deserialize_item_5, NULL, 82, 82, 29, 35},
+  {cont__std__deserialize_item_6, &frame__std__deserialize_item_5, 82, 82, 29, 45},
+  {cont__std__deserialize_item_7, &frame__std__deserialize_item_5, 82, 82, 29, 45},
+  {entry__std__deserialize_item_12, NULL, 86, 86, 11, 40},
+  {entry__std__deserialize_item_13, NULL, 87, 87, 9, 30},
+  {entry__std__deserialize_item_9, NULL, 83, 83, 7, 47},
+  {cont__std__deserialize_item_10, &frame__std__deserialize_item_9, 85, 85, 9, 28},
+  {cont__std__deserialize_item_11, &frame__std__deserialize_item_9, 84, 87, 7, 30},
+  {entry__std__deserialize_item_18, NULL, 89, 89, 47, 47},
+  {cont__std__deserialize_item_19, &frame__std__deserialize_item_18, 89, 89, 32, 47},
+  {cont__std__deserialize_item_20, &frame__std__deserialize_item_18, 89, 89, 47, 47},
+  {entry__std__deserialize_item_15, NULL, 89, 89, 16, 22},
+  {cont__std__deserialize_item_16, &frame__std__deserialize_item_15, 89, 89, 16, 29},
+  {cont__std__deserialize_item_17, &frame__std__deserialize_item_15, 89, 89, 13, 47},
+  {entry__std__deserialize_item_14, NULL, 89, 89, 7, 47},
+  {cont__std__deserialize_item_21, &frame__std__deserialize_item_14, 90, 90, 7, 41},
+  {entry__std__deserialize_item_1, NULL, 82, 82, 5, 19},
+  {cont__std__deserialize_item_2, &frame__std__deserialize_item_1, 82, 82, 5, 24},
+  {cont__std__deserialize_item_3, &frame__std__deserialize_item_1, 82, 82, 5, 24},
+  {cont__std__deserialize_item_4, &frame__std__deserialize_item_1, 82, 82, 5, 45},
+  {cont__std__deserialize_item_8, &frame__std__deserialize_item_1, 81, 90, 3, 42},
+  {entry__std__create_deserializer_2, NULL, 104, 104, 48, 48},
+  {cont__std__create_deserializer_3, &frame__std__create_deserializer_2, 104, 104, 24, 49},
+  {cont__std__create_deserializer_4, &frame__std__create_deserializer_2, 104, 104, 5, 50},
+  {cont__std__create_deserializer_5, &frame__std__create_deserializer_2, 104, 104, 67, 67},
+  {entry__std__create_deserializer_10, NULL, 111, 111, 53, 53},
+  {cont__std__create_deserializer_11, &frame__std__create_deserializer_10, 111, 111, 39, 54},
+  {cont__std__create_deserializer_12, &frame__std__create_deserializer_10, 111, 111, 32, 64},
+  {entry__std__create_deserializer_17, NULL, 113, 113, 13, 72},
+  {cont__std__create_deserializer_20, &frame__std__create_deserializer_17, 113, 113, 7, 72},
+  {entry__std__create_deserializer_25, NULL, 116, 116, 34, 40},
+  {cont__std__create_deserializer_26, &frame__std__create_deserializer_25, 116, 116, 34, 50},
+  {cont__std__create_deserializer_27, &frame__std__create_deserializer_25, 116, 116, 34, 50},
+  {cont__std__create_deserializer_28, &frame__std__create_deserializer_25, 116, 116, 34, 50},
+  {entry__std__create_deserializer_30, NULL, 116, 116, 53, 67},
+  {entry__std__create_deserializer_35, NULL, 118, 118, 33, 47},
+  {entry__std__create_deserializer_39, NULL, 121, 121, 35, 39},
+  {cont__std__create_deserializer_40, &frame__std__create_deserializer_39, 121, 121, 30, 40},
+  {cont__std__create_deserializer_41, &frame__std__create_deserializer_39, 121, 121, 30, 47},
+  {cont__std__create_deserializer_42, &frame__std__create_deserializer_39, 121, 121, 30, 47},
+  {cont__std__create_deserializer_43, &frame__std__create_deserializer_39, 121, 121, 30, 47},
+  {entry__std__create_deserializer_45, NULL, 122, 122, 15, 77},
+  {cont__std__create_deserializer_48, &frame__std__create_deserializer_45, 122, 122, 9, 77},
+  {entry__std__create_deserializer_53, NULL, 126, 126, 15, 77},
+  {cont__std__create_deserializer_55, &frame__std__create_deserializer_53, 126, 126, 9, 77},
+  {entry__std__create_deserializer_22, NULL, 116, 116, 10, 24},
+  {cont__std__create_deserializer_23, &frame__std__create_deserializer_22, 116, 116, 10, 29},
+  {cont__std__create_deserializer_24, &frame__std__create_deserializer_22, 116, 116, 10, 50},
+  {cont__std__create_deserializer_29, &frame__std__create_deserializer_22, 116, 116, 7, 67},
+  {cont__std__create_deserializer_31, &frame__std__create_deserializer_22, 117, 117, 7, 61},
+  {cont__std__create_deserializer_32, &frame__std__create_deserializer_22, 118, 118, 10, 30},
+  {cont__std__create_deserializer_33, &frame__std__create_deserializer_22, 118, 118, 10, 30},
+  {cont__std__create_deserializer_34, &frame__std__create_deserializer_22, 118, 118, 7, 47},
+  {cont__std__create_deserializer_36, &frame__std__create_deserializer_22, 120, 120, 7, 32},
+  {cont__std__create_deserializer_37, &frame__std__create_deserializer_22, 121, 121, 10, 25},
+  {cont__std__create_deserializer_38, &frame__std__create_deserializer_22, 121, 121, 10, 47},
+  {cont__std__create_deserializer_44, &frame__std__create_deserializer_22, 121, 122, 7, 77},
+  {cont__std__create_deserializer_49, &frame__std__create_deserializer_22, 123, 123, 7, 28},
+  {cont__std__create_deserializer_50, &frame__std__create_deserializer_22, 124, 124, 7, 46},
+  {cont__std__create_deserializer_51, &frame__std__create_deserializer_22, 125, 125, 10, 38},
+  {cont__std__create_deserializer_52, &frame__std__create_deserializer_22, 125, 126, 7, 77},
+  {cont__std__create_deserializer_56, &frame__std__create_deserializer_22, 127, 127, 19, 23},
+  {cont__std__create_deserializer_57, &frame__std__create_deserializer_22, 127, 127, 26, 26},
+  {cont__std__create_deserializer_58, &frame__std__create_deserializer_22, 127, 127, 7, 26},
+  {cont__std__create_deserializer_59, &frame__std__create_deserializer_22, 128, 128, 29, 58},
+  {cont__std__create_deserializer_60, &frame__std__create_deserializer_22, 128, 128, 7, 58},
+  {cont__std__create_deserializer_61, &frame__std__create_deserializer_22, 128, 128, 58, 58},
+  {entry__std__create_deserializer_7, NULL, 111, 111, 8, 29},
+  {cont__std__create_deserializer_9, &frame__std__create_deserializer_7, 111, 111, 5, 64},
+  {cont__std__create_deserializer_13, &frame__std__create_deserializer_7, 112, 112, 8, 14},
+  {cont__std__create_deserializer_14, &frame__std__create_deserializer_7, 112, 112, 8, 24},
+  {cont__std__create_deserializer_15, &frame__std__create_deserializer_7, 112, 112, 8, 24},
+  {cont__std__create_deserializer_16, &frame__std__create_deserializer_7, 112, 113, 5, 72},
+  {cont__std__create_deserializer_21, &frame__std__create_deserializer_7, 115, 128, 5, 58},
+  {cont__std__create_deserializer_62, &frame__std__create_deserializer_7, 128, 128, 58, 58},
+  {entry__std__create_deserializer_1, NULL, 103, 104, 3, 67},
+  {cont__std__create_deserializer_6, &frame__std__create_deserializer_1, 105, 128, 3, 59},
+  {entry__deserialize_stream_10, NULL, 145, 145, 31, 33},
+  {cont__deserialize_stream_11, &frame__deserialize_stream_10, 145, 145, 36, 36},
+  {cont__deserialize_stream_12, &frame__deserialize_stream_10, 145, 145, 20, 37},
+  {cont__deserialize_stream_13, &frame__deserialize_stream_10, 145, 145, 13, 41},
+  {entry__deserialize_stream_27, NULL, 150, 150, 47, 53},
+  {cont__deserialize_stream_28, &frame__deserialize_stream_27, 150, 150, 47, 60},
+  {cont__deserialize_stream_29, &frame__deserialize_stream_27, 150, 150, 47, 60},
+  {cont__deserialize_stream_30, &frame__deserialize_stream_27, 150, 150, 47, 60},
+  {entry__deserialize_stream_25, NULL, 150, 150, 38, 42},
+  {cont__deserialize_stream_26, &frame__deserialize_stream_25, 150, 150, 38, 60},
+  {cont__deserialize_stream_31, &frame__deserialize_stream_25, 150, 150, 38, 60},
+  {entry__deserialize_stream_33, NULL, 151, 151, 15, 79},
+  {entry__deserialize_stream_14, NULL, 147, 147, 37, 39},
+  {cont__deserialize_stream_15, &frame__deserialize_stream_14, 147, 147, 42, 42},
+  {cont__deserialize_stream_16, &frame__deserialize_stream_14, 147, 147, 13, 43},
+  {cont__deserialize_stream_17, &frame__deserialize_stream_14, 148, 148, 13, 55},
+  {cont__deserialize_stream_18, &frame__deserialize_stream_14, 149, 149, 23, 44},
+  {cont__deserialize_stream_19, &frame__deserialize_stream_14, 149, 149, 21, 44},
+  {cont__deserialize_stream_20, &frame__deserialize_stream_14, 149, 149, 46, 65},
+  {cont__deserialize_stream_21, &frame__deserialize_stream_14, 149, 149, 21, 65},
+  {cont__deserialize_stream_22, &frame__deserialize_stream_14, 149, 149, 13, 65},
+  {cont__deserialize_stream_23, &frame__deserialize_stream_14, 150, 150, 16, 33},
+  {cont__deserialize_stream_24, &frame__deserialize_stream_14, 150, 150, 16, 60},
+  {cont__deserialize_stream_32, &frame__deserialize_stream_14, 150, 151, 13, 79},
+  {cont__deserialize_stream_35, &frame__deserialize_stream_14, 152, 152, 23, 38},
+  {cont__deserialize_stream_36, &frame__deserialize_stream_14, 152, 152, 13, 38},
+  {cont__deserialize_stream_37, &frame__deserialize_stream_14, 152, 152, 38, 38},
+  {entry__deserialize_stream_38, NULL, 154, 154, 13, 25},
+  {cont__deserialize_stream_39, &frame__deserialize_stream_38, 154, 154, 25, 25},
+  {entry__deserialize_stream_8, NULL, 142, 142, 9, 20},
+  {cont__deserialize_stream_9, &frame__deserialize_stream_8, 143, 154, 9, 26},
+  {cont__deserialize_stream_40, &frame__deserialize_stream_8, 155, 155, 9, 14},
+  {cont__deserialize_stream_41, &frame__deserialize_stream_8, 155, 155, 14, 14},
+  {entry__deserialize_stream_5, NULL, 141, 141, 16, 21},
+  {cont__deserialize_stream_6, &frame__deserialize_stream_5, 141, 141, 16, 21},
+  {cont__deserialize_stream_7, &frame__deserialize_stream_5, 141, 155, 13, 14},
+  {entry__deserialize_stream_3, NULL, 140, 140, 7, 24},
+  {cont__deserialize_stream_4, &frame__deserialize_stream_3, 141, 155, 7, 14},
+  {cont__deserialize_stream_42, &frame__deserialize_stream_3, 156, 156, 7, 69},
+  {entry__deserialize_stream_47, NULL, 160, 160, 9, 78},
+  {entry__deserialize_stream_68, NULL, 172, 172, 20, 22},
+  {cont__deserialize_stream_69, &frame__deserialize_stream_68, 172, 172, 15, 23},
+  {cont__deserialize_stream_70, &frame__deserialize_stream_68, 172, 172, 15, 35},
+  {cont__deserialize_stream_71, &frame__deserialize_stream_68, 172, 172, 15, 35},
+  {cont__deserialize_stream_72, &frame__deserialize_stream_68, 172, 172, 15, 35},
+  {entry__deserialize_stream_64, NULL, 171, 171, 15, 21},
+  {cont__deserialize_stream_65, &frame__deserialize_stream_64, 171, 171, 15, 28},
+  {cont__deserialize_stream_66, &frame__deserialize_stream_64, 171, 171, 15, 28},
+  {cont__deserialize_stream_67, &frame__deserialize_stream_64, 172, 172, 15, 35},
   {cont__deserialize_stream_73, &frame__deserialize_stream_64, },
-  {entry__deserialize_stream_61, NULL, 174, 174, 15, 17},
-  {cont__deserialize_stream_62, &frame__deserialize_stream_61, 174, 174, 15, 21},
+  {entry__deserialize_stream_61, NULL, 170, 170, 15, 17},
+  {cont__deserialize_stream_62, &frame__deserialize_stream_61, 170, 170, 15, 21},
   {cont__deserialize_stream_63, &frame__deserialize_stream_61, },
   {cont__deserialize_stream_74, &frame__deserialize_stream_61, },
-  {entry__deserialize_stream_76, NULL, 178, 179, 15, 78},
-  {entry__deserialize_stream_52, NULL, 168, 168, 38, 38},
-  {cont__deserialize_stream_53, &frame__deserialize_stream_52, 168, 168, 11, 39},
-  {cont__deserialize_stream_54, &frame__deserialize_stream_52, 169, 169, 11, 53},
-  {cont__deserialize_stream_55, &frame__deserialize_stream_52, 170, 170, 16, 37},
-  {cont__deserialize_stream_56, &frame__deserialize_stream_52, 170, 170, 14, 37},
-  {cont__deserialize_stream_57, &frame__deserialize_stream_52, 170, 170, 39, 58},
-  {cont__deserialize_stream_58, &frame__deserialize_stream_52, 170, 170, 11, 58},
-  {cont__deserialize_stream_59, &frame__deserialize_stream_52, 173, 173, 15, 32},
+  {entry__deserialize_stream_76, NULL, 174, 175, 15, 78},
+  {entry__deserialize_stream_52, NULL, 164, 164, 38, 38},
+  {cont__deserialize_stream_53, &frame__deserialize_stream_52, 164, 164, 11, 39},
+  {cont__deserialize_stream_54, &frame__deserialize_stream_52, 165, 165, 11, 53},
+  {cont__deserialize_stream_55, &frame__deserialize_stream_52, 166, 166, 16, 37},
+  {cont__deserialize_stream_56, &frame__deserialize_stream_52, 166, 166, 14, 37},
+  {cont__deserialize_stream_57, &frame__deserialize_stream_52, 166, 166, 39, 58},
+  {cont__deserialize_stream_58, &frame__deserialize_stream_52, 166, 166, 11, 58},
+  {cont__deserialize_stream_59, &frame__deserialize_stream_52, 169, 169, 15, 32},
   {cont__deserialize_stream_60, &frame__deserialize_stream_52, },
-  {cont__deserialize_stream_75, &frame__deserialize_stream_52, 171, 179, 11, 80},
-  {cont__deserialize_stream_78, &frame__deserialize_stream_52, 180, 180, 29, 31},
-  {cont__deserialize_stream_79, &frame__deserialize_stream_52, 180, 180, 34, 34},
-  {cont__deserialize_stream_80, &frame__deserialize_stream_52, 180, 180, 18, 35},
-  {cont__deserialize_stream_81, &frame__deserialize_stream_52, 180, 180, 37, 52},
-  {cont__deserialize_stream_82, &frame__deserialize_stream_52, 180, 180, 11, 52},
-  {entry__deserialize_stream_87, NULL, 183, 184, 13, 78},
-  {entry__deserialize_stream_83, NULL, 182, 182, 14, 20},
-  {cont__deserialize_stream_84, &frame__deserialize_stream_83, 182, 182, 14, 32},
-  {cont__deserialize_stream_85, &frame__deserialize_stream_83, 182, 182, 14, 32},
-  {cont__deserialize_stream_86, &frame__deserialize_stream_83, 182, 184, 11, 79},
-  {cont__deserialize_stream_88, &frame__deserialize_stream_83, 185, 185, 32, 32},
-  {cont__deserialize_stream_89, &frame__deserialize_stream_83, 185, 185, 18, 33},
-  {cont__deserialize_stream_90, &frame__deserialize_stream_83, 185, 185, 11, 37},
-  {entry__deserialize_stream_44, NULL, 162, 162, 7, 24},
-  {cont__deserialize_stream_45, &frame__deserialize_stream_44, 163, 163, 10, 14},
-  {cont__deserialize_stream_46, &frame__deserialize_stream_44, 163, 164, 7, 78},
-  {cont__deserialize_stream_49, &frame__deserialize_stream_44, 165, 165, 7, 18},
-  {cont__deserialize_stream_50, &frame__deserialize_stream_44, 167, 167, 9, 19},
-  {cont__deserialize_stream_51, &frame__deserialize_stream_44, 166, 185, 7, 38},
-  {entry__deserialize_stream_95, NULL, 189, 189, 9, 76},
-  {entry__deserialize_stream_92, NULL, 187, 187, 7, 30},
-  {cont__deserialize_stream_93, &frame__deserialize_stream_92, 188, 188, 10, 25},
-  {cont__deserialize_stream_94, &frame__deserialize_stream_92, 188, 189, 7, 76},
-  {cont__deserialize_stream_97, &frame__deserialize_stream_92, 190, 190, 7, 21},
-  {entry__deserialize_stream_105, NULL, 199, 199, 27, 31},
-  {cont__deserialize_stream_106, &frame__deserialize_stream_105, 199, 199, 34, 34},
-  {cont__deserialize_stream_107, &frame__deserialize_stream_105, 199, 199, 15, 34},
-  {cont__deserialize_stream_108, &frame__deserialize_stream_105, 200, 200, 15, 38},
-  {entry__deserialize_stream_109, NULL, 202, 203, 21, 59},
-  {cont__deserialize_stream_112, &frame__deserialize_stream_109, 202, 203, 15, 59},
-  {entry__deserialize_stream_101, NULL, 195, 195, 11, 32},
-  {cont__deserialize_stream_102, &frame__deserialize_stream_101, 196, 196, 11, 42},
-  {cont__deserialize_stream_103, &frame__deserialize_stream_101, 198, 198, 13, 35},
-  {cont__deserialize_stream_104, &frame__deserialize_stream_101, 197, 203, 11, 61},
-  {entry__deserialize_stream_113, NULL, 205, 205, 11, 74},
-  {entry__deserialize_stream_98, NULL, 192, 192, 7, 32},
-  {cont__deserialize_stream_99, &frame__deserialize_stream_98, 194, 194, 9, 22},
-  {cont__deserialize_stream_100, &frame__deserialize_stream_98, 193, 205, 7, 75},
-  {entry__deserialize_stream_1, NULL, 139, 139, 5, 11},
-  {cont__deserialize_stream_2, &frame__deserialize_stream_1, 186, 186, 5, 14},
-  {cont__deserialize_stream_91, &frame__deserialize_stream_1, 138, 205, 3, 77},
-  {cont__deserialize_stream_115, &frame__deserialize_stream_1, 205, 205, 77, 77},
-  {entry__std__deserialize_4, NULL, 218, 218, 31, 36},
-  {entry__std__deserialize_5, NULL, 218, 218, 39, 50},
-  {entry__std__deserialize_1, NULL, 217, 217, 3, 48},
-  {cont__std__deserialize_2, &frame__std__deserialize_1, 218, 218, 9, 28},
-  {cont__std__deserialize_3, &frame__std__deserialize_1, 218, 218, 6, 51},
-  {cont__std__deserialize_6, &frame__std__deserialize_1, 218, 218, 3, 51}
+  {cont__deserialize_stream_75, &frame__deserialize_stream_52, 167, 175, 11, 80},
+  {cont__deserialize_stream_78, &frame__deserialize_stream_52, 176, 176, 29, 31},
+  {cont__deserialize_stream_79, &frame__deserialize_stream_52, 176, 176, 34, 34},
+  {cont__deserialize_stream_80, &frame__deserialize_stream_52, 176, 176, 18, 35},
+  {cont__deserialize_stream_81, &frame__deserialize_stream_52, 176, 176, 37, 52},
+  {cont__deserialize_stream_82, &frame__deserialize_stream_52, 176, 176, 11, 52},
+  {entry__deserialize_stream_87, NULL, 179, 180, 13, 78},
+  {entry__deserialize_stream_83, NULL, 178, 178, 14, 20},
+  {cont__deserialize_stream_84, &frame__deserialize_stream_83, 178, 178, 14, 32},
+  {cont__deserialize_stream_85, &frame__deserialize_stream_83, 178, 178, 14, 32},
+  {cont__deserialize_stream_86, &frame__deserialize_stream_83, 178, 180, 11, 79},
+  {cont__deserialize_stream_88, &frame__deserialize_stream_83, 181, 181, 32, 32},
+  {cont__deserialize_stream_89, &frame__deserialize_stream_83, 181, 181, 18, 33},
+  {cont__deserialize_stream_90, &frame__deserialize_stream_83, 181, 181, 11, 37},
+  {entry__deserialize_stream_44, NULL, 158, 158, 7, 24},
+  {cont__deserialize_stream_45, &frame__deserialize_stream_44, 159, 159, 10, 14},
+  {cont__deserialize_stream_46, &frame__deserialize_stream_44, 159, 160, 7, 78},
+  {cont__deserialize_stream_49, &frame__deserialize_stream_44, 161, 161, 7, 18},
+  {cont__deserialize_stream_50, &frame__deserialize_stream_44, 163, 163, 9, 19},
+  {cont__deserialize_stream_51, &frame__deserialize_stream_44, 162, 181, 7, 38},
+  {entry__deserialize_stream_95, NULL, 185, 185, 9, 76},
+  {entry__deserialize_stream_92, NULL, 183, 183, 7, 30},
+  {cont__deserialize_stream_93, &frame__deserialize_stream_92, 184, 184, 10, 25},
+  {cont__deserialize_stream_94, &frame__deserialize_stream_92, 184, 185, 7, 76},
+  {cont__deserialize_stream_97, &frame__deserialize_stream_92, 186, 186, 7, 21},
+  {entry__deserialize_stream_105, NULL, 195, 195, 27, 31},
+  {cont__deserialize_stream_106, &frame__deserialize_stream_105, 195, 195, 34, 34},
+  {cont__deserialize_stream_107, &frame__deserialize_stream_105, 195, 195, 15, 34},
+  {cont__deserialize_stream_108, &frame__deserialize_stream_105, 196, 196, 15, 38},
+  {entry__deserialize_stream_109, NULL, 198, 199, 21, 59},
+  {cont__deserialize_stream_112, &frame__deserialize_stream_109, 198, 199, 15, 59},
+  {entry__deserialize_stream_101, NULL, 191, 191, 11, 32},
+  {cont__deserialize_stream_102, &frame__deserialize_stream_101, 192, 192, 11, 42},
+  {cont__deserialize_stream_103, &frame__deserialize_stream_101, 194, 194, 13, 35},
+  {cont__deserialize_stream_104, &frame__deserialize_stream_101, 193, 199, 11, 61},
+  {entry__deserialize_stream_113, NULL, 201, 201, 11, 74},
+  {entry__deserialize_stream_98, NULL, 188, 188, 7, 32},
+  {cont__deserialize_stream_99, &frame__deserialize_stream_98, 190, 190, 9, 22},
+  {cont__deserialize_stream_100, &frame__deserialize_stream_98, 189, 201, 7, 75},
+  {entry__deserialize_stream_1, NULL, 136, 136, 8, 14},
+  {cont__deserialize_stream_2, &frame__deserialize_stream_1, 182, 182, 5, 14},
+  {cont__deserialize_stream_91, &frame__deserialize_stream_1, 136, 201, 3, 77},
+  {cont__deserialize_stream_115, &frame__deserialize_stream_1, 201, 201, 77, 77},
+  {entry__std__deserialize_4, NULL, 217, 217, 7, 12},
+  {entry__std__deserialize_5, NULL, 218, 218, 7, 18},
+  {entry__std__deserialize_1, NULL, 213, 213, 3, 48},
+  {cont__std__deserialize_2, &frame__std__deserialize_1, 216, 216, 7, 26},
+  {cont__std__deserialize_3, &frame__std__deserialize_1, 217, 217, 7, 12},
+  {cont__std__deserialize_6, &frame__std__deserialize_1, 214, 218, 3, 19}
 };
 
 union NODE {
@@ -1028,7 +1028,7 @@ EXPORT void run__basic__deserialize(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 6);
-  // 29: ... alt(LETTER DIGIT)
+  // 28: ... alt(LETTER DIGIT)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__LETTER();
@@ -1044,7 +1044,7 @@ static void cont__10_1(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 29: ... some(alt(LETTER DIGIT))
+  // 28: ... some(alt(LETTER DIGIT))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
@@ -1059,7 +1059,7 @@ static void cont__10_2(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 29: ... alt(LETTER DIGIT)
+  // 28: ... alt(LETTER DIGIT)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__LETTER();
@@ -1075,7 +1075,7 @@ static void cont__10_3(void) {
     return;
   }
   frame->slots[5] /* temp__6 */ = arguments->slots[0];
-  // 29: ... many(alt(LETTER DIGIT))
+  // 28: ... many(alt(LETTER DIGIT))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__6 */;
@@ -1090,7 +1090,7 @@ static void cont__10_4(void) {
     return;
   }
   frame->slots[4] /* temp__5 */ = arguments->slots[0];
-  // 29: ... '_', many(alt(LETTER DIGIT))
+  // 28: ... '_', many(alt(LETTER DIGIT))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__95;
@@ -1106,7 +1106,7 @@ static void cont__10_5(void) {
     return;
   }
   frame->slots[3] /* temp__4 */ = arguments->slots[0];
-  // 29: ... some('_', many(alt(LETTER DIGIT)))
+  // 28: ... some('_', many(alt(LETTER DIGIT)))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__4 */;
@@ -1126,8 +1126,7 @@ static void cont__10_6(void) {
   // 25:     a grammar expression to match a valid Simplicity name
   // 26:     
   // 27:     See also: IDENTIFIER
-  // 28:   
-  // 29:   LETTER, some(alt(LETTER DIGIT)), some('_', many(alt(LETTER DIGIT)))
+  // 28:   LETTER, some(alt(LETTER DIGIT)), some('_', many(alt(LETTER DIGIT)))
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__LETTER();
@@ -1144,7 +1143,7 @@ static void cont__10_7(void) {
     return;
   }
   initialize_future(var.std__NAME, arguments->slots[0]);
-  // 37: ... "::", NAME
+  // 35: ... "::", NAME
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e6d82bff;
@@ -1160,7 +1159,7 @@ static void cont__11_2(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 37: ... optional("::", NAME)
+  // 35: ... optional("::", NAME)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
@@ -1175,13 +1174,12 @@ static void cont__11_3(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 31: $std::IDENTIFIER
-  // 32:   #
-  // 33:     a grammar expression to match a valid Simplicity name (with optional namespace)
-  // 34:     
-  // 35:     See also: NAME
-  // 36:   
-  // 37:   NAME, optional("::", NAME)
+  // 30: $std::IDENTIFIER
+  // 31:   #
+  // 32:     a grammar expression to match a valid Simplicity name (with optional namespace)
+  // 33:     
+  // 34:     See also: NAME
+  // 35:   NAME, optional("::", NAME)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__NAME();
@@ -1197,14 +1195,14 @@ static void cont__11_4(void) {
     return;
   }
   initialize_future(var.std__IDENTIFIER, arguments->slots[0]);
-  // 39: $$deserializers empty_table
+  // 37: $$deserializers empty_table
   var._deserializers = get__empty_table();
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
 static void entry__std__register_deserializer_1(void) {
-  allocate_initialized_frame_gc(2, 3);
+  allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // tag: 0
   // deserializer: 1
@@ -1212,13 +1210,11 @@ static void entry__std__register_deserializer_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 52: !deserializers(tag) deserializer
-  frame->slots[2] /* temp__1 */ = frame->slots[1] /* deserializer */;
-  // 52: !deserializers(tag)
+  // 50: !deserializers(tag)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* tag */;
-  arguments->slots[1] = frame->slots[2] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* deserializer */;
   result_count = 1;
   myself = var._deserializers;
   func = myself->type;
@@ -1251,9 +1247,9 @@ static void entry__std__get_deserialization_indent_1(void) {
     return;
   }
   frame->slots[0] /* text */ = create_cell_with_contents(arguments->slots[0]);
-  // 62: $$i 2
+  // 60: $$i 2
   ((CELL *)frame->slots[1])->contents /* i */ = number__2;
-  // 63: $n length_of(text)
+  // 61: $n length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1268,15 +1264,15 @@ static void cont__std__get_deserialization_indent_2(void) {
     return;
   }
   initialize_future(frame->slots[2] /* n */, arguments->slots[0]);
-  // 64: $$indent 0
+  // 62: $$indent 0
   ((CELL *)frame->slots[3])->contents /* indent */ = number__0;
-  // 65: ... -> i <= n && text(i) == '@ht;':
-  // 66:   inc &i
-  // 67:   plus &indent 8
+  // 63: ... -> i <= n && text(i) == '@ht;':
+  // 64:   inc &i
+  // 65:   plus &indent 8
   frame->slots[4] /* temp__1 */ = create_closure(entry__std__get_deserialization_indent_3, 0);
-  // 65: while -> i <= n && text(i) == '@ht;':
-  // 66:   inc &i
-  // 67:   plus &indent 8
+  // 63: while -> i <= n && text(i) == '@ht;':
+  // 64:   inc &i
+  // 65:   plus &indent 8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1296,7 +1292,7 @@ static void entry__std__get_deserialization_indent_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 66: inc &i
+  // 64: inc &i
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* i */;
@@ -1311,7 +1307,7 @@ static void cont__std__get_deserialization_indent_11(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* i */ = arguments->slots[0];
-  // 67: plus &indent 8
+  // 65: plus &indent 8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* indent */;
@@ -1348,7 +1344,7 @@ static void entry__std__get_deserialization_indent_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 65: ... i <= n
+  // 63: ... i <= n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -1364,7 +1360,7 @@ static void cont__std__get_deserialization_indent_4(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 65: ... i <= n
+  // 63: ... i <= n
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -1379,9 +1375,9 @@ static void cont__std__get_deserialization_indent_5(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 65: ... text(i) == '@ht;'
+  // 63: ... text(i) == '@ht;'
   frame->slots[7] /* temp__4 */ = create_closure(entry__std__get_deserialization_indent_6, 0);
-  // 65: ... i <= n && text(i) == '@ht;'
+  // 63: ... i <= n && text(i) == '@ht;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -1402,7 +1398,7 @@ static void entry__std__get_deserialization_indent_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 65: ... text(i)
+  // 63: ... text(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -1417,7 +1413,7 @@ static void cont__std__get_deserialization_indent_7(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 65: ... text(i) == '@ht;'
+  // 63: ... text(i) == '@ht;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -1433,7 +1429,7 @@ static void cont__std__get_deserialization_indent_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 65: ... text(i) == '@ht;'
+  // 63: ... text(i) == '@ht;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1447,13 +1443,13 @@ static void cont__std__get_deserialization_indent_9(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 65: ... :
-  // 66:   inc &i
-  // 67:   plus &indent 8
+  // 63: ... :
+  // 64:   inc &i
+  // 65:   plus &indent 8
   frame->slots[8] /* temp__5 */ = create_closure(entry__std__get_deserialization_indent_10, 0);
-  // 65: ... -> i <= n && text(i) == '@ht;':
-  // 66:   inc &i
-  // 67:   plus &indent 8
+  // 63: ... -> i <= n && text(i) == '@ht;':
+  // 64:   inc &i
+  // 65:   plus &indent 8
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1467,13 +1463,13 @@ static void cont__std__get_deserialization_indent_13(void) {
     invalid_results_error();
     return;
   }
-  // 68: ... -> i <= n && text(i) == ' ':
-  // 69:   inc &i
-  // 70:   inc &indent
+  // 66: ... -> i <= n && text(i) == ' ':
+  // 67:   inc &i
+  // 68:   inc &indent
   frame->slots[4] /* temp__1 */ = create_closure(entry__std__get_deserialization_indent_14, 0);
-  // 68: while -> i <= n && text(i) == ' ':
-  // 69:   inc &i
-  // 70:   inc &indent
+  // 66: while -> i <= n && text(i) == ' ':
+  // 67:   inc &i
+  // 68:   inc &indent
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1493,7 +1489,7 @@ static void entry__std__get_deserialization_indent_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 69: inc &i
+  // 67: inc &i
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* i */;
@@ -1508,7 +1504,7 @@ static void cont__std__get_deserialization_indent_22(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* i */ = arguments->slots[0];
-  // 70: inc &indent
+  // 68: inc &indent
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* indent */;
@@ -1544,7 +1540,7 @@ static void entry__std__get_deserialization_indent_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 68: ... i <= n
+  // 66: ... i <= n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -1560,7 +1556,7 @@ static void cont__std__get_deserialization_indent_15(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 68: ... i <= n
+  // 66: ... i <= n
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -1575,9 +1571,9 @@ static void cont__std__get_deserialization_indent_16(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 68: ... text(i) == ' '
+  // 66: ... text(i) == ' '
   frame->slots[7] /* temp__4 */ = create_closure(entry__std__get_deserialization_indent_17, 0);
-  // 68: ... i <= n && text(i) == ' '
+  // 66: ... i <= n && text(i) == ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -1598,7 +1594,7 @@ static void entry__std__get_deserialization_indent_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 68: ... text(i)
+  // 66: ... text(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -1613,7 +1609,7 @@ static void cont__std__get_deserialization_indent_18(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 68: ... text(i) == ' '
+  // 66: ... text(i) == ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -1629,7 +1625,7 @@ static void cont__std__get_deserialization_indent_19(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 68: ... text(i) == ' '
+  // 66: ... text(i) == ' '
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1643,13 +1639,13 @@ static void cont__std__get_deserialization_indent_20(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 68: ... :
-  // 69:   inc &i
-  // 70:   inc &indent
+  // 66: ... :
+  // 67:   inc &i
+  // 68:   inc &indent
   frame->slots[8] /* temp__5 */ = create_closure(entry__std__get_deserialization_indent_21, 0);
-  // 68: ... -> i <= n && text(i) == ' ':
-  // 69:   inc &i
-  // 70:   inc &indent
+  // 66: ... -> i <= n && text(i) == ' ':
+  // 67:   inc &i
+  // 68:   inc &indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1663,7 +1659,7 @@ static void cont__std__get_deserialization_indent_24(void) {
     invalid_results_error();
     return;
   }
-  // 71: ... 1
+  // 69: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1678,7 +1674,7 @@ static void cont__std__get_deserialization_indent_25(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 71: range &text i -1
+  // 69: range &text i -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1695,7 +1691,7 @@ static void cont__std__get_deserialization_indent_26(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* text */ = arguments->slots[0];
-  // 72: -> indent
+  // 70: -> indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1715,7 +1711,7 @@ static void entry__std__deserialize_item_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 88: deserialize_stream text indent
+  // 86: deserialize_stream text indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1732,7 +1728,7 @@ static void entry__std__deserialize_item_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 89: -> undefined undefined
+  // 87: -> undefined undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -1754,7 +1750,7 @@ static void entry__std__deserialize_item_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 85: $indent get_deserialization_indent(&text)
+  // 83: $indent get_deserialization_indent(&text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1769,10 +1765,8 @@ static void cont__std__deserialize_item_10(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* text */ = arguments->slots[0];
-  frame->slots[3] /* temp__1 */ = arguments->slots[1];
-  // 85: ... indent
-  initialize_future(frame->slots[2] /* indent */, frame->slots[3] /* temp__1 */);
-  // 87: indent > base_indent
+  initialize_future(frame->slots[2] /* indent */, arguments->slots[1]);
+  // 85: indent > base_indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* base_indent */;
@@ -1788,13 +1782,13 @@ static void cont__std__deserialize_item_11(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 87: ... :
-  // 88:   deserialize_stream text indent
+  // 85: ... :
+  // 86:   deserialize_stream text indent
   frame->slots[4] /* temp__2 */ = create_closure(entry__std__deserialize_item_12, 0);
-  // 86: if
-  // 87:   indent > base_indent:
-  // 88:     deserialize_stream text indent
-  // 89:   -> undefined undefined
+  // 84: if
+  // 85:   indent > base_indent:
+  // 86:     deserialize_stream text indent
+  // 87:   -> undefined undefined
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -1816,9 +1810,9 @@ static void entry__std__deserialize_item_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 91: ... -> text(1) == ' ': range &text 2 -1
+  // 89: ... -> text(1) == ' ': range &text 2 -1
   frame->slots[2] /* temp__1 */ = create_closure(entry__std__deserialize_item_15, 0);
-  // 91: while -> text(1) == ' ': range &text 2 -1
+  // 89: while -> text(1) == ' ': range &text 2 -1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1836,7 +1830,7 @@ static void entry__std__deserialize_item_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 91: ... 1
+  // 89: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1851,7 +1845,7 @@ static void cont__std__deserialize_item_19(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 91: ... range &text 2 -1
+  // 89: ... range &text 2 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1883,7 +1877,7 @@ static void entry__std__deserialize_item_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 91: ... text(1)
+  // 89: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1898,7 +1892,7 @@ static void cont__std__deserialize_item_16(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 91: ... text(1) == ' '
+  // 89: ... text(1) == ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -1914,9 +1908,9 @@ static void cont__std__deserialize_item_17(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 91: ... : range &text 2 -1
+  // 89: ... : range &text 2 -1
   frame->slots[3] /* temp__3 */ = create_closure(entry__std__deserialize_item_18, 0);
-  // 91: ... -> text(1) == ' ': range &text 2 -1
+  // 89: ... -> text(1) == ' ': range &text 2 -1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1930,7 +1924,7 @@ static void cont__std__deserialize_item_21(void) {
     invalid_results_error();
     return;
   }
-  // 92: deserialize_stream text base_indent
+  // 90: deserialize_stream text base_indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1950,7 +1944,7 @@ static void entry__std__deserialize_item_1(void) {
     return;
   }
   frame->slots[0] /* text */ = create_cell_with_contents(arguments->slots[0]);
-  // 84: length_of(text)
+  // 82: length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1965,7 +1959,7 @@ static void cont__std__deserialize_item_2(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 84: length_of(text) >= 1
+  // 82: length_of(text) >= 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__4 */;
@@ -1981,7 +1975,7 @@ static void cont__std__deserialize_item_3(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 84: length_of(text) >= 1
+  // 82: length_of(text) >= 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -1996,9 +1990,9 @@ static void cont__std__deserialize_item_4(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 84: ... text(1) == '@nl;'
+  // 82: ... text(1) == '@nl;'
   frame->slots[6] /* temp__5 */ = create_closure(entry__std__deserialize_item_5, 0);
-  // 84: length_of(text) >= 1 && text(1) == '@nl;'
+  // 82: length_of(text) >= 1 && text(1) == '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -2017,7 +2011,7 @@ static void entry__std__deserialize_item_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 84: ... text(1)
+  // 82: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2032,7 +2026,7 @@ static void cont__std__deserialize_item_6(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 84: ... text(1) == '@nl;'
+  // 82: ... text(1) == '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -2048,7 +2042,7 @@ static void cont__std__deserialize_item_7(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 84: ... text(1) == '@nl;'
+  // 82: ... text(1) == '@nl;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2062,27 +2056,27 @@ static void cont__std__deserialize_item_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 84: ... :
-  // 85:   $indent get_deserialization_indent(&text)
-  // 86:   if
-  // 87:     indent > base_indent:
-  // 88:       deserialize_stream text indent
-  // 89:     -> undefined undefined
+  // 82: ... :
+  // 83:   $indent get_deserialization_indent(&text)
+  // 84:   if
+  // 85:     indent > base_indent:
+  // 86:       deserialize_stream text indent
+  // 87:     -> undefined undefined
   frame->slots[7] /* temp__6 */ = create_closure(entry__std__deserialize_item_9, 0);
-  // 90: :
-  // 91:   while -> text(1) == ' ': range &text 2 -1
-  // 92:   deserialize_stream text base_indent
+  // 88: :
+  // 89:   while -> text(1) == ' ': range &text 2 -1
+  // 90:   deserialize_stream text base_indent
   frame->slots[8] /* temp__7 */ = create_closure(entry__std__deserialize_item_14, 0);
-  // 83: if
-  // 84:   length_of(text) >= 1 && text(1) == '@nl;':
-  // 85:     $indent get_deserialization_indent(&text)
-  // 86:     if
-  // 87:       indent > base_indent:
-  // 88:         deserialize_stream text indent
-  // 89:       -> undefined undefined
-  // 90:   :
-  // 91:     while -> text(1) == ' ': range &text 2 -1
-  // 92:     deserialize_stream text base_indent
+  // 81: if
+  // 82:   length_of(text) >= 1 && text(1) == '@nl;':
+  // 83:     $indent get_deserialization_indent(&text)
+  // 84:     if
+  // 85:       indent > base_indent:
+  // 86:         deserialize_stream text indent
+  // 87:       -> undefined undefined
+  // 88:   :
+  // 89:     while -> text(1) == ' ': range &text 2 -1
+  // 90:     deserialize_stream text base_indent
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2113,7 +2107,7 @@ static void entry__std__create_deserializer_7(void) {
     return;
   }
   frame->slots[0] /* text */ = create_cell_with_contents(arguments->slots[0]);
-  // 113: ... text .has_prefix. "()"
+  // 111: ... text .has_prefix. "()"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2129,9 +2123,9 @@ static void cont__std__create_deserializer_9(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 113: ... : return range(text 3 -1) prototype
+  // 111: ... : return range(text 3 -1) prototype
   frame->slots[8] /* temp__2 */ = create_closure(entry__std__create_deserializer_10, 0);
-  // 113: if text .has_prefix. "()": return range(text 3 -1) prototype
+  // 111: if text .has_prefix. "()": return range(text 3 -1) prototype
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -2154,7 +2148,7 @@ static void entry__std__create_deserializer_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 113: ... 1
+  // 111: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2169,7 +2163,7 @@ static void cont__std__create_deserializer_11(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 113: ... range(text 3 -1)
+  // 111: ... range(text 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -2186,7 +2180,7 @@ static void cont__std__create_deserializer_12(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 113: ... return range(text 3 -1) prototype
+  // 111: ... return range(text 3 -1) prototype
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -2201,7 +2195,7 @@ static void cont__std__create_deserializer_13(void) {
     invalid_results_error();
     return;
   }
-  // 114: ... text(1)
+  // 112: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2216,7 +2210,7 @@ static void cont__std__create_deserializer_14(void) {
     return;
   }
   frame->slots[9] /* temp__3 */ = arguments->slots[0];
-  // 114: ... text(1) != '@nl;'
+  // 112: ... text(1) != '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__3 */;
@@ -2232,7 +2226,7 @@ static void cont__std__create_deserializer_15(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 114: ... text(1) != '@nl;'
+  // 112: ... text(1) != '@nl;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -2247,11 +2241,11 @@ static void cont__std__create_deserializer_16(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 114: ... :
-  // 115:   raise "Invalid @(name) object encountered during deserialisation!"
+  // 112: ... :
+  // 113:   raise "Invalid @(name) object encountered during deserialisation!"
   frame->slots[10] /* temp__4 */ = create_closure(entry__std__create_deserializer_17, 0);
-  // 114: if text(1) != '@nl;':
-  // 115:   raise "Invalid @(name) object encountered during deserialisation!"
+  // 112: if text(1) != '@nl;':
+  // 113:   raise "Invalid @(name) object encountered during deserialisation!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -2270,7 +2264,7 @@ static void entry__std__create_deserializer_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 115: ... "Invalid @(name) object encountered during deserialisation!"
+  // 113: ... "Invalid @(name) object encountered during deserialisation!"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__76acaf9d04f58520;
@@ -2287,7 +2281,7 @@ static void cont__std__create_deserializer_20(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 115: raise "Invalid @(name) object encountered during deserialisation!"
+  // 113: raise "Invalid @(name) object encountered during deserialisation!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2301,30 +2295,30 @@ static void cont__std__create_deserializer_21(void) {
     invalid_results_error();
     return;
   }
-  // 116: $$obj prototype
+  // 114: $$obj prototype
   ((CELL *)frame->slots[6])->contents /* obj */ = frame->slots[3] /* prototype */;
-  // 117: ... :
-  // 118:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
-  // 119:   get_deserialization_indent $remaining_text $indent text
-  // 120:   if indent <= base_indent: return text obj
-  // 121:   !text remaining_text
-  // 122:   match text IDENTIFIER $len
-  // 123:   if len.is_undefined || text(len+1) != ':':
-  // 124:     raise "Encountered invalid @(name) component during deserialisation!"
-  // 125:   $tag range(text 1 len)
-  // 126:   $attribute_setter attribute_setters(tag)
+  // 115: ... :
+  // 116:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
+  // 117:   get_deserialization_indent $remaining_text $indent text
+  // 118:   if indent <= base_indent: return text obj
+  // 119:   !text remaining_text
+  // 120:   match text IDENTIFIER $len
+  // 121:   if len.is_undefined || text(len+1) != ':':
+  // 122:     raise "Encountered invalid @(name) component during deserialisation!"
+  // 123:   $tag range(text 1 len)
+  // 124:   $attribute_setter attribute_setters(tag)
   // ...
   frame->slots[7] /* temp__1 */ = create_closure(entry__std__create_deserializer_22, 0);
-  // 117: forever:
-  // 118:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
-  // 119:   get_deserialization_indent $remaining_text $indent text
-  // 120:   if indent <= base_indent: return text obj
-  // 121:   !text remaining_text
-  // 122:   match text IDENTIFIER $len
-  // 123:   if len.is_undefined || text(len+1) != ':':
-  // 124:     raise "Encountered invalid @(name) component during deserialisation!"
-  // 125:   $tag range(text 1 len)
-  // 126:   $attribute_setter attribute_setters(tag)
+  // 115: forever:
+  // 116:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
+  // 117:   get_deserialization_indent $remaining_text $indent text
+  // 118:   if indent <= base_indent: return text obj
+  // 119:   !text remaining_text
+  // 120:   match text IDENTIFIER $len
+  // 121:   if len.is_undefined || text(len+1) != ':':
+  // 122:     raise "Encountered invalid @(name) component during deserialisation!"
+  // 123:   $tag range(text 1 len)
+  // 124:   $attribute_setter attribute_setters(tag)
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -2363,7 +2357,7 @@ static void entry__std__create_deserializer_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 118: ... length_of(text)
+  // 116: ... length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2378,7 +2372,7 @@ static void cont__std__create_deserializer_23(void) {
     return;
   }
   frame->slots[13] /* temp__3 */ = arguments->slots[0];
-  // 118: ... length_of(text) == 0
+  // 116: ... length_of(text) == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[13] /* temp__3 */;
@@ -2394,9 +2388,9 @@ static void cont__std__create_deserializer_24(void) {
     return;
   }
   frame->slots[12] /* temp__2 */ = arguments->slots[0];
-  // 118: ... text(1) != '@nl;'
+  // 116: ... text(1) != '@nl;'
   frame->slots[14] /* temp__4 */ = create_closure(entry__std__create_deserializer_25, 0);
-  // 118: ... length_of(text) == 0 || text(1) != '@nl;'
+  // 116: ... length_of(text) == 0 || text(1) != '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[12] /* temp__2 */;
@@ -2415,7 +2409,7 @@ static void entry__std__create_deserializer_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 118: ... text(1)
+  // 116: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2430,7 +2424,7 @@ static void cont__std__create_deserializer_26(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 118: ... text(1) != '@nl;'
+  // 116: ... text(1) != '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -2446,7 +2440,7 @@ static void cont__std__create_deserializer_27(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 118: ... text(1) != '@nl;'
+  // 116: ... text(1) != '@nl;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -2461,7 +2455,7 @@ static void cont__std__create_deserializer_28(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 118: ... text(1) != '@nl;'
+  // 116: ... text(1) != '@nl;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2475,9 +2469,9 @@ static void cont__std__create_deserializer_29(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 118: ... : return text obj
+  // 116: ... : return text obj
   frame->slots[15] /* temp__5 */ = create_closure(entry__std__create_deserializer_30, 0);
-  // 118: if length_of(text) == 0 || text(1) != '@nl;': return text obj
+  // 116: if length_of(text) == 0 || text(1) != '@nl;': return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__1 */;
@@ -2500,7 +2494,7 @@ static void entry__std__create_deserializer_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 118: ... return text obj
+  // 116: ... return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -2515,7 +2509,7 @@ static void cont__std__create_deserializer_31(void) {
     invalid_results_error();
     return;
   }
-  // 119: get_deserialization_indent $remaining_text $indent text
+  // 117: get_deserialization_indent $remaining_text $indent text
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2529,13 +2523,9 @@ static void cont__std__create_deserializer_32(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  frame->slots[12] /* temp__2 */ = arguments->slots[1];
-  // 119: ... remaining_text
-  initialize_future(frame->slots[6] /* remaining_text */, frame->slots[11] /* temp__1 */);
-  // 119: ... indent
-  initialize_future(frame->slots[7] /* indent */, frame->slots[12] /* temp__2 */);
-  // 120: ... indent <= base_indent
+  initialize_future(frame->slots[6] /* remaining_text */, arguments->slots[0]);
+  initialize_future(frame->slots[7] /* indent */, arguments->slots[1]);
+  // 118: ... indent <= base_indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* base_indent */;
@@ -2551,7 +2541,7 @@ static void cont__std__create_deserializer_33(void) {
     return;
   }
   frame->slots[12] /* temp__2 */ = arguments->slots[0];
-  // 120: ... indent <= base_indent
+  // 118: ... indent <= base_indent
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[12] /* temp__2 */;
@@ -2566,9 +2556,9 @@ static void cont__std__create_deserializer_34(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 120: ... : return text obj
+  // 118: ... : return text obj
   frame->slots[13] /* temp__3 */ = create_closure(entry__std__create_deserializer_35, 0);
-  // 120: if indent <= base_indent: return text obj
+  // 118: if indent <= base_indent: return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__1 */;
@@ -2591,7 +2581,7 @@ static void entry__std__create_deserializer_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 120: ... return text obj
+  // 118: ... return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -2606,9 +2596,9 @@ static void cont__std__create_deserializer_36(void) {
     invalid_results_error();
     return;
   }
-  // 121: !text remaining_text
+  // 119: !text remaining_text
   ((CELL *)frame->slots[0])->contents /* text */ = frame->slots[6] /* remaining_text */;
-  // 122: match text IDENTIFIER $len
+  // 120: match text IDENTIFIER $len
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2624,7 +2614,7 @@ static void cont__std__create_deserializer_37(void) {
     return;
   }
   initialize_future(frame->slots[8] /* len */, arguments->slots[0]);
-  // 123: ... len.is_undefined
+  // 121: ... len.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* len */;
@@ -2639,9 +2629,9 @@ static void cont__std__create_deserializer_38(void) {
     return;
   }
   frame->slots[12] /* temp__2 */ = arguments->slots[0];
-  // 123: ... text(len+1) != ':'
+  // 121: ... text(len+1) != ':'
   frame->slots[13] /* temp__3 */ = create_closure(entry__std__create_deserializer_39, 0);
-  // 123: ... len.is_undefined || text(len+1) != ':'
+  // 121: ... len.is_undefined || text(len+1) != ':'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[12] /* temp__2 */;
@@ -2662,7 +2652,7 @@ static void entry__std__create_deserializer_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 123: ... len+1
+  // 121: ... len+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* len */;
@@ -2678,7 +2668,7 @@ static void cont__std__create_deserializer_40(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 123: ... text(len+1)
+  // 121: ... text(len+1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__4 */;
@@ -2693,7 +2683,7 @@ static void cont__std__create_deserializer_41(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 123: ... text(len+1) != ':'
+  // 121: ... text(len+1) != ':'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -2709,7 +2699,7 @@ static void cont__std__create_deserializer_42(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 123: ... text(len+1) != ':'
+  // 121: ... text(len+1) != ':'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -2724,7 +2714,7 @@ static void cont__std__create_deserializer_43(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 123: ... text(len+1) != ':'
+  // 121: ... text(len+1) != ':'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -2738,11 +2728,11 @@ static void cont__std__create_deserializer_44(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 123: ... :
-  // 124:   raise "Encountered invalid @(name) component during deserialisation!"
+  // 121: ... :
+  // 122:   raise "Encountered invalid @(name) component during deserialisation!"
   frame->slots[14] /* temp__4 */ = create_closure(entry__std__create_deserializer_45, 0);
-  // 123: if len.is_undefined || text(len+1) != ':':
-  // 124:   raise "Encountered invalid @(name) component during deserialisation!"
+  // 121: if len.is_undefined || text(len+1) != ':':
+  // 122:   raise "Encountered invalid @(name) component during deserialisation!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__1 */;
@@ -2761,7 +2751,7 @@ static void entry__std__create_deserializer_45(void) {
     invalid_arguments_error();
     return;
   }
-  // 124: ... "Encountered invalid @(name) component during deserialisation!"
+  // 122: ... "Encountered invalid @(name) component during deserialisation!"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__deed742f6908f861;
@@ -2778,7 +2768,7 @@ static void cont__std__create_deserializer_48(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 124: raise "Encountered invalid @(name) component during deserialisation!"
+  // 122: raise "Encountered invalid @(name) component during deserialisation!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2792,7 +2782,7 @@ static void cont__std__create_deserializer_49(void) {
     invalid_results_error();
     return;
   }
-  // 125: $tag range(text 1 len)
+  // 123: $tag range(text 1 len)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2809,7 +2799,7 @@ static void cont__std__create_deserializer_50(void) {
     return;
   }
   initialize_future(frame->slots[9] /* tag */, arguments->slots[0]);
-  // 126: $attribute_setter attribute_setters(tag)
+  // 124: $attribute_setter attribute_setters(tag)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* tag */;
@@ -2824,7 +2814,7 @@ static void cont__std__create_deserializer_51(void) {
     return;
   }
   initialize_future(frame->slots[10] /* attribute_setter */, arguments->slots[0]);
-  // 127: ... attribute_setter.is_undefined
+  // 125: ... attribute_setter.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* attribute_setter */;
@@ -2839,11 +2829,11 @@ static void cont__std__create_deserializer_52(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 127: ... :
-  // 128:   raise "Encountered unknown @(name) component during deserialisation!"
+  // 125: ... :
+  // 126:   raise "Encountered unknown @(name) component during deserialisation!"
   frame->slots[12] /* temp__2 */ = create_closure(entry__std__create_deserializer_53, 0);
-  // 127: if attribute_setter.is_undefined:
-  // 128:   raise "Encountered unknown @(name) component during deserialisation!"
+  // 125: if attribute_setter.is_undefined:
+  // 126:   raise "Encountered unknown @(name) component during deserialisation!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__1 */;
@@ -2862,7 +2852,7 @@ static void entry__std__create_deserializer_53(void) {
     invalid_arguments_error();
     return;
   }
-  // 128: ... "Encountered unknown @(name) component during deserialisation!"
+  // 126: ... "Encountered unknown @(name) component during deserialisation!"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__d8ed73a1e9580be1;
@@ -2879,7 +2869,7 @@ static void cont__std__create_deserializer_55(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 128: raise "Encountered unknown @(name) component during deserialisation!"
+  // 126: raise "Encountered unknown @(name) component during deserialisation!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -2893,7 +2883,7 @@ static void cont__std__create_deserializer_56(void) {
     invalid_results_error();
     return;
   }
-  // 129: ... len+2
+  // 127: ... len+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* len */;
@@ -2909,7 +2899,7 @@ static void cont__std__create_deserializer_57(void) {
     return;
   }
   frame->slots[11] /* temp__1 */ = arguments->slots[0];
-  // 129: ... 1
+  // 127: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -2924,7 +2914,7 @@ static void cont__std__create_deserializer_58(void) {
     return;
   }
   frame->slots[12] /* temp__2 */ = arguments->slots[0];
-  // 129: range &text len+2 -1
+  // 127: range &text len+2 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2941,7 +2931,7 @@ static void cont__std__create_deserializer_59(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* text */ = arguments->slots[0];
-  // 130: ... deserialize_item(&text indent)
+  // 128: ... deserialize_item(&text indent)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2958,7 +2948,7 @@ static void cont__std__create_deserializer_60(void) {
   }
   ((CELL *)frame->slots[0])->contents /* text */ = arguments->slots[0];
   frame->slots[11] /* temp__1 */ = arguments->slots[1];
-  // 130: attribute_setter &obj deserialize_item(&text indent)
+  // 128: attribute_setter &obj deserialize_item(&text indent)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* obj */;
@@ -3001,13 +2991,13 @@ static void entry__std__create_deserializer_1(void) {
   frame->slots[0] /* name */ = arguments->slots[0];
   frame->slots[1] /* prototype */ = arguments->slots[1];
   frame->slots[2] /* attributes */ = from_arguments(2, argument_count-2);
-  // 104: $$attribute_setters empty_table
+  // 102: $$attribute_setters empty_table
   ((CELL *)frame->slots[3])->contents /* attribute_setters */ = get__empty_table();
-  // 105: ... : (attribute_name attribute_setter)
-  // 106:   !attribute_setters(range(attribute_name 3 -1)) attribute_setter
+  // 103: ... : (attribute_name attribute_setter)
+  // 104:   !attribute_setters(range(attribute_name 3 -1)) attribute_setter
   frame->slots[4] /* temp__1 */ = create_closure(entry__std__create_deserializer_2, 2);
-  // 105: for_each_pair attributes: (attribute_name attribute_setter)
-  // 106:   !attribute_setters(range(attribute_name 3 -1)) attribute_setter
+  // 103: for_each_pair attributes: (attribute_name attribute_setter)
+  // 104:   !attribute_setters(range(attribute_name 3 -1)) attribute_setter
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* attributes */;
@@ -3018,7 +3008,7 @@ static void entry__std__create_deserializer_1(void) {
   frame->cont = cont__std__create_deserializer_6;
 }
 static void entry__std__create_deserializer_2(void) {
-  allocate_initialized_frame_gc(3, 6);
+  allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // attribute_name: 0
   // attribute_setter: 1
@@ -3028,9 +3018,7 @@ static void entry__std__create_deserializer_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 106: !attribute_setters(range(attribute_name 3 -1)) attribute_setter
-  frame->slots[3] /* temp__1 */ = frame->slots[1] /* attribute_setter */;
-  // 106: ... 1
+  // 104: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3044,13 +3032,13 @@ static void cont__std__create_deserializer_3(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 106: ... range(attribute_name 3 -1)
+  frame->slots[4] /* temp__2 */ = arguments->slots[0];
+  // 104: ... range(attribute_name 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* attribute_name */;
   arguments->slots[1] = number__3;
-  arguments->slots[2] = frame->slots[5] /* temp__3 */;
+  arguments->slots[2] = frame->slots[4] /* temp__2 */;
   result_count = 1;
   myself = get__range();
   func = myself->type;
@@ -3061,12 +3049,12 @@ static void cont__std__create_deserializer_4(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 106: !attribute_setters(range(attribute_name 3 -1))
+  frame->slots[3] /* temp__1 */ = arguments->slots[0];
+  // 104: !attribute_setters(range(attribute_name 3 -1))
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[4] /* temp__2 */;
-  arguments->slots[1] = frame->slots[3] /* temp__1 */;
+  arguments->slots[0] = frame->slots[3] /* temp__1 */;
+  arguments->slots[1] = frame->slots[1] /* attribute_setter */;
   result_count = 1;
   myself = ((CELL *)frame->slots[2])->contents /* attribute_setters */;
   func = myself->type;
@@ -3089,28 +3077,28 @@ static void cont__std__create_deserializer_6(void) {
     invalid_results_error();
     return;
   }
-  // 107: ... :
-  // 108:   (
-  // 109:     $text
-  // 110:     base_indent
-  // 111:     -> return
-  // 112:   )
-  // 113:   if text .has_prefix. "()": return range(text 3 -1) prototype
-  // 114:   if text(1) != '@nl;':
-  // 115:     raise "Invalid @(name) object encountered during deserialisation!"
-  // 116:   $$obj prototype
+  // 105: ... :
+  // 106:   (
+  // 107:     $text
+  // 108:     base_indent
+  // 109:     -> return
+  // 110:   )
+  // 111:   if text .has_prefix. "()": return range(text 3 -1) prototype
+  // 112:   if text(1) != '@nl;':
+  // 113:     raise "Invalid @(name) object encountered during deserialisation!"
+  // 114:   $$obj prototype
   // ...
   frame->slots[4] /* temp__1 */ = create_closure(entry__std__create_deserializer_7, 2);
-  // 107: -> :
-  // 108:   (
-  // 109:     $text
-  // 110:     base_indent
-  // 111:     -> return
-  // 112:   )
-  // 113:   if text .has_prefix. "()": return range(text 3 -1) prototype
-  // 114:   if text(1) != '@nl;':
-  // 115:     raise "Invalid @(name) object encountered during deserialisation!"
-  // 116:   $$obj prototype
+  // 105: ->:
+  // 106:   (
+  // 107:     $text
+  // 108:     base_indent
+  // 109:     -> return
+  // 110:   )
+  // 111:   if text .has_prefix. "()": return range(text 3 -1) prototype
+  // 112:   if text(1) != '@nl;':
+  // 113:     raise "Invalid @(name) object encountered during deserialisation!"
+  // 114:   $$obj prototype
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -3131,7 +3119,7 @@ static void entry__deserialize_stream_1(void) {
     return;
   }
   frame->slots[0] /* text */ = create_cell_with_contents(arguments->slots[0]);
-  // 139: text(1)
+  // 136: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3146,31 +3134,31 @@ static void cont__deserialize_stream_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 140: ... :
-  // 141:   $$str ""
-  // 142:   $$i 2
-  // 143:   $n length_of(text)
-  // 144:   while -> i <= n:
-  // 145:     $chr text(i)
-  // 146:     case
-  // 147:       chr
-  // 148:       '@quot;':
-  // 149:         return range(text i+1 -1) str
+  // 137: ... :
+  // 138:   $$str ""
+  // 139:   $$i 2
+  // 140:   $n length_of(text)
+  // 141:   while -> i <= n:
+  // 142:     $chr text(i)
+  // 143:     case chr
+  // 144:       '@quot;':
+  // 145:         return range(text i+1 -1) str
+  // 146:       '@@':
   // ...
   frame->slots[4] /* temp__2 */ = create_closure(entry__deserialize_stream_3, 0);
-  // 161: ... :
-  // 162:   $n length_of(text)
-  // 163:   if n < 3:
-  // 164:     raise "Invalid character constant encountered during deserialization!"
-  // 165:   $chr text(2)
-  // 166:   if
-  // 167:     chr == '@@':
-  // 168:       $escape_text range(text 3 -1)
-  // 169:       parse_integer escape_text $rest_text $value
-  // 170:       $i 3+length_of(escape_text)-length_of(rest_text)
+  // 157: ... :
+  // 158:   $n length_of(text)
+  // 159:   if n < 3:
+  // 160:     raise "Invalid character constant encountered during deserialization!"
+  // 161:   $chr text(2)
+  // 162:   if
+  // 163:     chr == '@@':
+  // 164:       $escape_text range(text 3 -1)
+  // 165:       parse_integer escape_text $rest_text $value
+  // 166:       $i 3+length_of(escape_text)-length_of(rest_text)
   // ...
   frame->slots[5] /* temp__3 */ = create_closure(entry__deserialize_stream_44, 0);
-  // 186: '0' .. '9'
+  // 182: '0' .. '9'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__48;
@@ -3201,7 +3189,7 @@ static void entry__deserialize_stream_52(void) {
     invalid_arguments_error();
     return;
   }
-  // 168: ... 1
+  // 164: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3216,7 +3204,7 @@ static void cont__deserialize_stream_53(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 168: $escape_text range(text 3 -1)
+  // 164: $escape_text range(text 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -3233,7 +3221,7 @@ static void cont__deserialize_stream_54(void) {
     return;
   }
   initialize_future(frame->slots[3] /* escape_text */, arguments->slots[0]);
-  // 169: parse_integer escape_text $rest_text $value
+  // 165: parse_integer escape_text $rest_text $value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* escape_text */;
@@ -3247,13 +3235,9 @@ static void cont__deserialize_stream_55(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  frame->slots[8] /* temp__2 */ = arguments->slots[1];
-  // 169: ... rest_text
-  initialize_future(frame->slots[4] /* rest_text */, frame->slots[7] /* temp__1 */);
-  // 169: ... value
-  initialize_future(frame->slots[5] /* value */, frame->slots[8] /* temp__2 */);
-  // 170: ... length_of(escape_text)
+  initialize_future(frame->slots[4] /* rest_text */, arguments->slots[0]);
+  initialize_future(frame->slots[5] /* value */, arguments->slots[1]);
+  // 166: ... length_of(escape_text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* escape_text */;
@@ -3268,7 +3252,7 @@ static void cont__deserialize_stream_56(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 170: ... 3+length_of(escape_text)
+  // 166: ... 3+length_of(escape_text)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__3;
@@ -3284,7 +3268,7 @@ static void cont__deserialize_stream_57(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 170: ... length_of(rest_text)
+  // 166: ... length_of(rest_text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* rest_text */;
@@ -3299,7 +3283,7 @@ static void cont__deserialize_stream_58(void) {
     return;
   }
   frame->slots[9] /* temp__3 */ = arguments->slots[0];
-  // 170: $i 3+length_of(escape_text)-length_of(rest_text)
+  // 166: $i 3+length_of(escape_text)-length_of(rest_text)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -3315,7 +3299,7 @@ static void cont__deserialize_stream_59(void) {
     return;
   }
   initialize_future(frame->slots[6] /* i */, arguments->slots[0]);
-  // 173: value.is_undefined
+  // 169: value.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* value */;
@@ -3353,7 +3337,7 @@ static void entry__deserialize_stream_61(void) {
     invalid_arguments_error();
     return;
   }
-  // 174: i+1
+  // 170: i+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* i */;
@@ -3369,7 +3353,7 @@ static void cont__deserialize_stream_62(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 174: i+1 > n
+  // 170: i+1 > n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -3406,7 +3390,7 @@ static void entry__deserialize_stream_64(void) {
     invalid_arguments_error();
     return;
   }
-  // 175: text(i)
+  // 171: text(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* i */;
@@ -3421,7 +3405,7 @@ static void cont__deserialize_stream_65(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 175: text(i) != ';'
+  // 171: text(i) != ';'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__4 */;
@@ -3437,7 +3421,7 @@ static void cont__deserialize_stream_66(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 175: text(i) != ';'
+  // 171: text(i) != ';'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -3452,7 +3436,7 @@ static void cont__deserialize_stream_67(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 176: text(i+1) != '@apos;'
+  // 172: text(i+1) != '@apos;'
   frame->slots[6] /* temp__5 */ = create_closure(entry__deserialize_stream_68, 0);
   argument_count = 2;
   arguments = node_p;
@@ -3474,7 +3458,7 @@ static void entry__deserialize_stream_68(void) {
     invalid_arguments_error();
     return;
   }
-  // 176: ... i+1
+  // 172: ... i+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* i */;
@@ -3490,7 +3474,7 @@ static void cont__deserialize_stream_69(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 176: text(i+1)
+  // 172: text(i+1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__4 */;
@@ -3505,7 +3489,7 @@ static void cont__deserialize_stream_70(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 176: text(i+1) != '@apos;'
+  // 172: text(i+1) != '@apos;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -3521,7 +3505,7 @@ static void cont__deserialize_stream_71(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 176: text(i+1) != '@apos;'
+  // 172: text(i+1) != '@apos;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -3536,7 +3520,7 @@ static void cont__deserialize_stream_72(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 176: text(i+1) != '@apos;'
+  // 172: text(i+1) != '@apos;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3576,15 +3560,15 @@ static void cont__deserialize_stream_75(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 171: if
-  // 172:   ||
-  // 173:     value.is_undefined
-  // 174:     i+1 > n
-  // 175:     text(i) != ';'
-  // 176:     text(i+1) != '@apos;'
-  // 177:   :
-  // 178:     raise
-  // 179:       "Invalid character escape encountered during deserialization!"
+  // 167: if
+  // 168:   ||
+  // 169:     value.is_undefined
+  // 170:     i+1 > n
+  // 171:     text(i) != ';'
+  // 172:     text(i+1) != '@apos;'
+  // 173:   :
+  // 174:     raise
+  // 175:       "Invalid character escape encountered during deserialization!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -3601,8 +3585,8 @@ static void entry__deserialize_stream_76(void) {
     invalid_arguments_error();
     return;
   }
-  // 178: raise
-  // 179:   "Invalid character escape encountered during deserialization!"
+  // 174: raise
+  // 175:   "Invalid character escape encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__c08bfa6e27fae532;
@@ -3616,7 +3600,7 @@ static void cont__deserialize_stream_78(void) {
     invalid_results_error();
     return;
   }
-  // 180: ... i+2
+  // 176: ... i+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* i */;
@@ -3632,7 +3616,7 @@ static void cont__deserialize_stream_79(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 180: ... 1
+  // 176: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3647,7 +3631,7 @@ static void cont__deserialize_stream_80(void) {
     return;
   }
   frame->slots[9] /* temp__3 */ = arguments->slots[0];
-  // 180: ... range(text i+2 -1)
+  // 176: ... range(text i+2 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -3664,7 +3648,7 @@ static void cont__deserialize_stream_81(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 180: ... character(value)
+  // 176: ... character(value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* value */;
@@ -3679,7 +3663,7 @@ static void cont__deserialize_stream_82(void) {
     return;
   }
   frame->slots[10] /* temp__4 */ = arguments->slots[0];
-  // 180: return range(text i+2 -1) character(value)
+  // 176: return range(text i+2 -1) character(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -3702,7 +3686,7 @@ static void entry__deserialize_stream_83(void) {
     invalid_arguments_error();
     return;
   }
-  // 182: ... text(3)
+  // 178: ... text(3)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__3;
@@ -3717,7 +3701,7 @@ static void cont__deserialize_stream_84(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 182: ... text(3) != '@apos;'
+  // 178: ... text(3) != '@apos;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -3733,7 +3717,7 @@ static void cont__deserialize_stream_85(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 182: ... text(3) != '@apos;'
+  // 178: ... text(3) != '@apos;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -3748,9 +3732,9 @@ static void cont__deserialize_stream_86(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 182: if text(3) != '@apos;':
-  // 183:   raise
-  // 184:     "Invalid character constant encountered during deserialization!"
+  // 178: if text(3) != '@apos;':
+  // 179:   raise
+  // 180:     "Invalid character constant encountered during deserialization!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -3767,8 +3751,8 @@ static void entry__deserialize_stream_87(void) {
     invalid_arguments_error();
     return;
   }
-  // 183: raise
-  // 184:   "Invalid character constant encountered during deserialization!"
+  // 179: raise
+  // 180:   "Invalid character constant encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__6ce496bd70576317;
@@ -3782,7 +3766,7 @@ static void cont__deserialize_stream_88(void) {
     invalid_results_error();
     return;
   }
-  // 185: ... 1
+  // 181: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -3797,7 +3781,7 @@ static void cont__deserialize_stream_89(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 185: ... range(text 4 -1)
+  // 181: ... range(text 4 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -3814,7 +3798,7 @@ static void cont__deserialize_stream_90(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 185: return range(text 4 -1) chr
+  // 181: return range(text 4 -1) chr
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -3841,11 +3825,11 @@ static void entry__deserialize_stream_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 141: $$str ""
+  // 138: $$str ""
   ((CELL *)frame->slots[2])->contents /* str */ = empty_string;
-  // 142: $$i 2
+  // 139: $$i 2
   ((CELL *)frame->slots[3])->contents /* i */ = number__2;
-  // 143: $n length_of(text)
+  // 140: $n length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -3860,28 +3844,28 @@ static void cont__deserialize_stream_4(void) {
     return;
   }
   initialize_future(frame->slots[4] /* n */, arguments->slots[0]);
-  // 144: ... -> i <= n:
-  // 145:   $chr text(i)
-  // 146:   case
-  // 147:     chr
-  // 148:     '@quot;':
-  // 149:       return range(text i+1 -1) str
-  // 150:     '@@':
-  // 151:       $escape_text range(text i+1 -1)
-  // 152:       parse_integer escape_text $rest_text $value
-  // 153:       plus &i 1+length_of(escape_text)-length_of(rest_text)
+  // 141: ... -> i <= n:
+  // 142:   $chr text(i)
+  // 143:   case chr
+  // 144:     '@quot;':
+  // 145:       return range(text i+1 -1) str
+  // 146:     '@@':
+  // 147:       $escape_text range(text i+1 -1)
+  // 148:       parse_integer escape_text $rest_text $value
+  // 149:       plus &i 1+length_of(escape_text)-length_of(rest_text)
+  // 150:       if value.is_undefined || i > n || text(i) != ';':
   // ...
   frame->slots[5] /* temp__1 */ = create_closure(entry__deserialize_stream_5, 0);
-  // 144: while -> i <= n:
-  // 145:   $chr text(i)
-  // 146:   case
-  // 147:     chr
-  // 148:     '@quot;':
-  // 149:       return range(text i+1 -1) str
-  // 150:     '@@':
-  // 151:       $escape_text range(text i+1 -1)
-  // 152:       parse_integer escape_text $rest_text $value
-  // 153:       plus &i 1+length_of(escape_text)-length_of(rest_text)
+  // 141: while -> i <= n:
+  // 142:   $chr text(i)
+  // 143:   case chr
+  // 144:     '@quot;':
+  // 145:       return range(text i+1 -1) str
+  // 146:     '@@':
+  // 147:       $escape_text range(text i+1 -1)
+  // 148:       parse_integer escape_text $rest_text $value
+  // 149:       plus &i 1+length_of(escape_text)-length_of(rest_text)
+  // 150:       if value.is_undefined || i > n || text(i) != ';':
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -3910,7 +3894,7 @@ static void entry__deserialize_stream_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 145: $chr text(i)
+  // 142: $chr text(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -3925,30 +3909,30 @@ static void cont__deserialize_stream_9(void) {
     return;
   }
   initialize_future(frame->slots[5] /* chr */, arguments->slots[0]);
-  // 148: ... :
-  // 149:   return range(text i+1 -1) str
+  // 144: ... :
+  // 145:   return range(text i+1 -1) str
   frame->slots[6] /* temp__1 */ = create_closure(entry__deserialize_stream_10, 0);
-  // 150: ... :
-  // 151:   $escape_text range(text i+1 -1)
-  // 152:   parse_integer escape_text $rest_text $value
-  // 153:   plus &i 1+length_of(escape_text)-length_of(rest_text)
-  // 154:   if value.is_undefined || i > n || text(i) != ';':
-  // 155:     raise "Invalid string escape encountered during deserialization!"
-  // 156:   push &str character(value)
+  // 146: ... :
+  // 147:   $escape_text range(text i+1 -1)
+  // 148:   parse_integer escape_text $rest_text $value
+  // 149:   plus &i 1+length_of(escape_text)-length_of(rest_text)
+  // 150:   if value.is_undefined || i > n || text(i) != ';':
+  // 151:     raise "Invalid string escape encountered during deserialization!"
+  // 152:   push &str character(value)
   frame->slots[7] /* temp__2 */ = create_closure(entry__deserialize_stream_14, 0);
-  // 157: :
-  // 158:   push &str chr
+  // 153: :
+  // 154:   push &str chr
   frame->slots[8] /* temp__3 */ = create_closure(entry__deserialize_stream_38, 0);
-  // 146: case
-  // 147:   chr
-  // 148:   '@quot;':
-  // 149:     return range(text i+1 -1) str
-  // 150:   '@@':
-  // 151:     $escape_text range(text i+1 -1)
-  // 152:     parse_integer escape_text $rest_text $value
-  // 153:     plus &i 1+length_of(escape_text)-length_of(rest_text)
-  // 154:     if value.is_undefined || i > n || text(i) != ';':
-  // 155:       raise "Invalid string escape encountered during deserialization!"
+  // 143: case chr
+  // 144:   '@quot;':
+  // 145:     return range(text i+1 -1) str
+  // 146:   '@@':
+  // 147:     $escape_text range(text i+1 -1)
+  // 148:     parse_integer escape_text $rest_text $value
+  // 149:     plus &i 1+length_of(escape_text)-length_of(rest_text)
+  // 150:     if value.is_undefined || i > n || text(i) != ';':
+  // 151:       raise "Invalid string escape encountered during deserialization!"
+  // 152:     push &str character(value)
   // ...
   argument_count = 6;
   arguments = node_p;
@@ -3978,7 +3962,7 @@ static void entry__deserialize_stream_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 149: ... i+1
+  // 145: ... i+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* i */;
@@ -3994,7 +3978,7 @@ static void cont__deserialize_stream_11(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 149: ... 1
+  // 145: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -4009,7 +3993,7 @@ static void cont__deserialize_stream_12(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 149: ... range(text i+1 -1)
+  // 145: ... range(text i+1 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -4026,7 +4010,7 @@ static void cont__deserialize_stream_13(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 149: return range(text i+1 -1) str
+  // 145: return range(text i+1 -1) str
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -4057,7 +4041,7 @@ static void entry__deserialize_stream_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 151: ... i+1
+  // 147: ... i+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -4073,7 +4057,7 @@ static void cont__deserialize_stream_15(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 151: ... 1
+  // 147: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -4088,7 +4072,7 @@ static void cont__deserialize_stream_16(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 151: $escape_text range(text i+1 -1)
+  // 147: $escape_text range(text i+1 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -4105,7 +4089,7 @@ static void cont__deserialize_stream_17(void) {
     return;
   }
   initialize_future(frame->slots[4] /* escape_text */, arguments->slots[0]);
-  // 152: parse_integer escape_text $rest_text $value
+  // 148: parse_integer escape_text $rest_text $value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* escape_text */;
@@ -4119,13 +4103,9 @@ static void cont__deserialize_stream_18(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  frame->slots[8] /* temp__2 */ = arguments->slots[1];
-  // 152: ... rest_text
-  initialize_future(frame->slots[5] /* rest_text */, frame->slots[7] /* temp__1 */);
-  // 152: ... value
-  initialize_future(frame->slots[6] /* value */, frame->slots[8] /* temp__2 */);
-  // 153: ... length_of(escape_text)
+  initialize_future(frame->slots[5] /* rest_text */, arguments->slots[0]);
+  initialize_future(frame->slots[6] /* value */, arguments->slots[1]);
+  // 149: ... length_of(escape_text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* escape_text */;
@@ -4140,7 +4120,7 @@ static void cont__deserialize_stream_19(void) {
     return;
   }
   frame->slots[9] /* temp__3 */ = arguments->slots[0];
-  // 153: ... 1+length_of(escape_text)
+  // 149: ... 1+length_of(escape_text)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -4156,7 +4136,7 @@ static void cont__deserialize_stream_20(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 153: ... length_of(rest_text)
+  // 149: ... length_of(rest_text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* rest_text */;
@@ -4171,7 +4151,7 @@ static void cont__deserialize_stream_21(void) {
     return;
   }
   frame->slots[10] /* temp__4 */ = arguments->slots[0];
-  // 153: ... 1+length_of(escape_text)-length_of(rest_text)
+  // 149: ... 1+length_of(escape_text)-length_of(rest_text)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -4187,7 +4167,7 @@ static void cont__deserialize_stream_22(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 153: plus &i 1+length_of(escape_text)-length_of(rest_text)
+  // 149: plus &i 1+length_of(escape_text)-length_of(rest_text)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -4203,7 +4183,7 @@ static void cont__deserialize_stream_23(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* i */ = arguments->slots[0];
-  // 154: ... value.is_undefined
+  // 150: ... value.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* value */;
@@ -4218,9 +4198,9 @@ static void cont__deserialize_stream_24(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 154: ... i > n || text(i) != ';'
+  // 150: ... i > n || text(i) != ';'
   frame->slots[9] /* temp__3 */ = create_closure(entry__deserialize_stream_25, 0);
-  // 154: ... value.is_undefined || i > n || text(i) != ';'
+  // 150: ... value.is_undefined || i > n || text(i) != ';'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -4243,7 +4223,7 @@ static void entry__deserialize_stream_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 154: ... i > n
+  // 150: ... i > n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -4259,9 +4239,9 @@ static void cont__deserialize_stream_26(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 154: ... text(i) != ';'
+  // 150: ... text(i) != ';'
   frame->slots[5] /* temp__3 */ = create_closure(entry__deserialize_stream_27, 0);
-  // 154: ... i > n || text(i) != ';'
+  // 150: ... i > n || text(i) != ';'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -4282,7 +4262,7 @@ static void entry__deserialize_stream_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 154: ... text(i)
+  // 150: ... text(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -4297,7 +4277,7 @@ static void cont__deserialize_stream_28(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 154: ... text(i) != ';'
+  // 150: ... text(i) != ';'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -4313,7 +4293,7 @@ static void cont__deserialize_stream_29(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 154: ... text(i) != ';'
+  // 150: ... text(i) != ';'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -4328,7 +4308,7 @@ static void cont__deserialize_stream_30(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 154: ... text(i) != ';'
+  // 150: ... text(i) != ';'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4342,7 +4322,7 @@ static void cont__deserialize_stream_31(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 154: ... i > n || text(i) != ';'
+  // 150: ... i > n || text(i) != ';'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -4356,8 +4336,8 @@ static void cont__deserialize_stream_32(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 154: if value.is_undefined || i > n || text(i) != ';':
-  // 155:   raise "Invalid string escape encountered during deserialization!"
+  // 150: if value.is_undefined || i > n || text(i) != ';':
+  // 151:   raise "Invalid string escape encountered during deserialization!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -4374,7 +4354,7 @@ static void entry__deserialize_stream_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 155: raise "Invalid string escape encountered during deserialization!"
+  // 151: raise "Invalid string escape encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__8d42cc379b749591;
@@ -4388,7 +4368,7 @@ static void cont__deserialize_stream_35(void) {
     invalid_results_error();
     return;
   }
-  // 156: ... character(value)
+  // 152: ... character(value)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* value */;
@@ -4403,7 +4383,7 @@ static void cont__deserialize_stream_36(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 156: push &str character(value)
+  // 152: push &str character(value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* str */;
@@ -4436,7 +4416,7 @@ static void entry__deserialize_stream_38(void) {
     invalid_arguments_error();
     return;
   }
-  // 158: push &str chr
+  // 154: push &str chr
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* str */;
@@ -4463,7 +4443,7 @@ static void cont__deserialize_stream_40(void) {
     invalid_results_error();
     return;
   }
-  // 159: inc &i
+  // 155: inc &i
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* i */;
@@ -4501,7 +4481,7 @@ static void entry__deserialize_stream_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 144: ... i <= n
+  // 141: ... i <= n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -4517,7 +4497,7 @@ static void cont__deserialize_stream_6(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 144: ... i <= n
+  // 141: ... i <= n
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -4532,28 +4512,28 @@ static void cont__deserialize_stream_7(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 144: ... :
-  // 145:   $chr text(i)
-  // 146:   case
-  // 147:     chr
-  // 148:     '@quot;':
-  // 149:       return range(text i+1 -1) str
-  // 150:     '@@':
-  // 151:       $escape_text range(text i+1 -1)
-  // 152:       parse_integer escape_text $rest_text $value
-  // 153:       plus &i 1+length_of(escape_text)-length_of(rest_text)
+  // 141: ... :
+  // 142:   $chr text(i)
+  // 143:   case chr
+  // 144:     '@quot;':
+  // 145:       return range(text i+1 -1) str
+  // 146:     '@@':
+  // 147:       $escape_text range(text i+1 -1)
+  // 148:       parse_integer escape_text $rest_text $value
+  // 149:       plus &i 1+length_of(escape_text)-length_of(rest_text)
+  // 150:       if value.is_undefined || i > n || text(i) != ';':
   // ...
   frame->slots[7] /* temp__3 */ = create_closure(entry__deserialize_stream_8, 0);
-  // 144: ... -> i <= n:
-  // 145:   $chr text(i)
-  // 146:   case
-  // 147:     chr
-  // 148:     '@quot;':
-  // 149:       return range(text i+1 -1) str
-  // 150:     '@@':
-  // 151:       $escape_text range(text i+1 -1)
-  // 152:       parse_integer escape_text $rest_text $value
-  // 153:       plus &i 1+length_of(escape_text)-length_of(rest_text)
+  // 141: ... -> i <= n:
+  // 142:   $chr text(i)
+  // 143:   case chr
+  // 144:     '@quot;':
+  // 145:       return range(text i+1 -1) str
+  // 146:     '@@':
+  // 147:       $escape_text range(text i+1 -1)
+  // 148:       parse_integer escape_text $rest_text $value
+  // 149:       plus &i 1+length_of(escape_text)-length_of(rest_text)
+  // 150:       if value.is_undefined || i > n || text(i) != ';':
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -4568,7 +4548,7 @@ static void cont__deserialize_stream_42(void) {
     invalid_results_error();
     return;
   }
-  // 160: raise "Unterminated string encountered during deserialization!"
+  // 156: raise "Unterminated string encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__e4bd1ec7a051e115;
@@ -4592,7 +4572,7 @@ static void entry__deserialize_stream_44(void) {
     invalid_arguments_error();
     return;
   }
-  // 162: $n length_of(text)
+  // 158: $n length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -4607,7 +4587,7 @@ static void cont__deserialize_stream_45(void) {
     return;
   }
   initialize_future(frame->slots[2] /* n */, arguments->slots[0]);
-  // 163: ... n < 3
+  // 159: ... n < 3
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* n */;
@@ -4623,8 +4603,8 @@ static void cont__deserialize_stream_46(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 163: if n < 3:
-  // 164:   raise "Invalid character constant encountered during deserialization!"
+  // 159: if n < 3:
+  // 160:   raise "Invalid character constant encountered during deserialization!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -4641,7 +4621,7 @@ static void entry__deserialize_stream_47(void) {
     invalid_arguments_error();
     return;
   }
-  // 164: raise "Invalid character constant encountered during deserialization!"
+  // 160: raise "Invalid character constant encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__6ce496bd70576317;
@@ -4655,7 +4635,7 @@ static void cont__deserialize_stream_49(void) {
     invalid_results_error();
     return;
   }
-  // 165: $chr text(2)
+  // 161: $chr text(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -4670,7 +4650,7 @@ static void cont__deserialize_stream_50(void) {
     return;
   }
   initialize_future(frame->slots[3] /* chr */, arguments->slots[0]);
-  // 167: chr == '@@'
+  // 163: chr == '@@'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* chr */;
@@ -4686,34 +4666,34 @@ static void cont__deserialize_stream_51(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 167: ... :
-  // 168:   $escape_text range(text 3 -1)
-  // 169:   parse_integer escape_text $rest_text $value
-  // 170:   $i 3+length_of(escape_text)-length_of(rest_text)
-  // 171:   if
-  // 172:     ||
-  // 173:       value.is_undefined
-  // 174:       i+1 > n
-  // 175:       text(i) != ';'
-  // 176:       text(i+1) != '@apos;'
+  // 163: ... :
+  // 164:   $escape_text range(text 3 -1)
+  // 165:   parse_integer escape_text $rest_text $value
+  // 166:   $i 3+length_of(escape_text)-length_of(rest_text)
+  // 167:   if
+  // 168:     ||
+  // 169:       value.is_undefined
+  // 170:       i+1 > n
+  // 171:       text(i) != ';'
+  // 172:       text(i+1) != '@apos;'
   // ...
   frame->slots[5] /* temp__2 */ = create_closure(entry__deserialize_stream_52, 0);
-  // 181: :
-  // 182:   if text(3) != '@apos;':
-  // 183:     raise
-  // 184:       "Invalid character constant encountered during deserialization!"
-  // 185:   return range(text 4 -1) chr
+  // 177: :
+  // 178:   if text(3) != '@apos;':
+  // 179:     raise
+  // 180:       "Invalid character constant encountered during deserialization!"
+  // 181:   return range(text 4 -1) chr
   frame->slots[6] /* temp__3 */ = create_closure(entry__deserialize_stream_83, 0);
-  // 166: if
-  // 167:   chr == '@@':
-  // 168:     $escape_text range(text 3 -1)
-  // 169:     parse_integer escape_text $rest_text $value
-  // 170:     $i 3+length_of(escape_text)-length_of(rest_text)
-  // 171:     if
-  // 172:       ||
-  // 173:         value.is_undefined
-  // 174:         i+1 > n
-  // 175:         text(i) != ';'
+  // 162: if
+  // 163:   chr == '@@':
+  // 164:     $escape_text range(text 3 -1)
+  // 165:     parse_integer escape_text $rest_text $value
+  // 166:     $i 3+length_of(escape_text)-length_of(rest_text)
+  // 167:     if
+  // 168:       ||
+  // 169:         value.is_undefined
+  // 170:         i+1 > n
+  // 171:         text(i) != ';'
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -4731,34 +4711,34 @@ static void cont__deserialize_stream_91(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 186: ... :
-  // 187:   $val parse_number(&text)
-  // 188:   if val.is_undefined:
-  // 189:     raise "Invalid numeric constant encountered during deserialization!"
-  // 190:   return text val
+  // 182: ... :
+  // 183:   $val parse_number(&text)
+  // 184:   if val.is_undefined:
+  // 185:     raise "Invalid numeric constant encountered during deserialization!"
+  // 186:   return text val
   frame->slots[7] /* temp__5 */ = create_closure(entry__deserialize_stream_92, 0);
-  // 191: :
-  // 192:   match text IDENTIFIER $len
-  // 193:   if
-  // 194:     len.is_defined:
-  // 195:       $tag range(text 1 len)
-  // 196:       $deserializer deserializers(tag)
-  // 197:       if
-  // 198:         deserializer.is_defined:
-  // 199:           range &text len+1 -1
-  // 200:           deserializer text indent
+  // 187: :
+  // 188:   match text IDENTIFIER $len
+  // 189:   if
+  // 190:     len.is_defined:
+  // 191:       $tag range(text 1 len)
+  // 192:       $deserializer deserializers(tag)
+  // 193:       if
+  // 194:         deserializer.is_defined:
+  // 195:           range &text len+1 -1
+  // 196:           deserializer text indent
   // ...
   frame->slots[8] /* temp__6 */ = create_closure(entry__deserialize_stream_98, 0);
-  // 138: case
-  // 139:   text(1)
-  // 140:   '@quot;':
-  // 141:     $$str ""
-  // 142:     $$i 2
-  // 143:     $n length_of(text)
-  // 144:     while -> i <= n:
-  // 145:       $chr text(i)
-  // 146:       case
-  // 147:         chr
+  // 136: case text(1)
+  // 137:   '@quot;':
+  // 138:     $$str ""
+  // 139:     $$i 2
+  // 140:     $n length_of(text)
+  // 141:     while -> i <= n:
+  // 142:       $chr text(i)
+  // 143:       case chr
+  // 144:         '@quot;':
+  // 145:           return range(text i+1 -1) str
   // ...
   argument_count = 8;
   arguments = node_p;
@@ -4790,7 +4770,7 @@ static void entry__deserialize_stream_105(void) {
     invalid_arguments_error();
     return;
   }
-  // 199: ... len+1
+  // 195: ... len+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* len */;
@@ -4806,7 +4786,7 @@ static void cont__deserialize_stream_106(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 199: ... 1
+  // 195: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -4821,7 +4801,7 @@ static void cont__deserialize_stream_107(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 199: range &text len+1 -1
+  // 195: range &text len+1 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -4838,7 +4818,7 @@ static void cont__deserialize_stream_108(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* text */ = arguments->slots[0];
-  // 200: deserializer text indent
+  // 196: deserializer text indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -4857,8 +4837,8 @@ static void entry__deserialize_stream_109(void) {
     invalid_arguments_error();
     return;
   }
-  // 202: ... "
-  // 203:   No deserializer defined for "@(tag)@quot;!@
+  // 198: ... "
+  // 199:   No deserializer defined for "@(tag)@quot;!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__8b7292a23e049581;
@@ -4875,8 +4855,8 @@ static void cont__deserialize_stream_112(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 202: raise "
-  // 203:   No deserializer defined for "@(tag)@quot;!@
+  // 198: raise "
+  // 199:   No deserializer defined for "@(tag)@quot;!@
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4902,7 +4882,7 @@ static void entry__deserialize_stream_101(void) {
     invalid_arguments_error();
     return;
   }
-  // 195: $tag range(text 1 len)
+  // 191: $tag range(text 1 len)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -4919,7 +4899,7 @@ static void cont__deserialize_stream_102(void) {
     return;
   }
   initialize_future(frame->slots[3] /* tag */, arguments->slots[0]);
-  // 196: $deserializer deserializers(tag)
+  // 192: $deserializer deserializers(tag)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* tag */;
@@ -4934,7 +4914,7 @@ static void cont__deserialize_stream_103(void) {
     return;
   }
   initialize_future(frame->slots[4] /* deserializer */, arguments->slots[0]);
-  // 198: deserializer.is_defined
+  // 194: deserializer.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* deserializer */;
@@ -4949,21 +4929,21 @@ static void cont__deserialize_stream_104(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 198: ... :
-  // 199:   range &text len+1 -1
-  // 200:   deserializer text indent
+  // 194: ... :
+  // 195:   range &text len+1 -1
+  // 196:   deserializer text indent
   frame->slots[6] /* temp__2 */ = create_closure(entry__deserialize_stream_105, 0);
-  // 201: :
-  // 202:   raise "
-  // 203:     No deserializer defined for "@(tag)@quot;!@
+  // 197: :
+  // 198:   raise "
+  // 199:     No deserializer defined for "@(tag)@quot;!@
   frame->slots[7] /* temp__3 */ = create_closure(entry__deserialize_stream_109, 0);
-  // 197: if
-  // 198:   deserializer.is_defined:
-  // 199:     range &text len+1 -1
-  // 200:     deserializer text indent
-  // 201:   :
-  // 202:     raise "
-  // 203:       No deserializer defined for "@(tag)@quot;!@
+  // 193: if
+  // 194:   deserializer.is_defined:
+  // 195:     range &text len+1 -1
+  // 196:     deserializer text indent
+  // 197:   :
+  // 198:     raise "
+  // 199:       No deserializer defined for "@(tag)@quot;!@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -4981,7 +4961,7 @@ static void entry__deserialize_stream_113(void) {
     invalid_arguments_error();
     return;
   }
-  // 205: raise "No valid tag found while attempting to deserialize text!"
+  // 201: raise "No valid tag found while attempting to deserialize text!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__e89843a7c2547e3c;
@@ -5003,7 +4983,7 @@ static void entry__deserialize_stream_92(void) {
     invalid_arguments_error();
     return;
   }
-  // 187: $val parse_number(&text)
+  // 183: $val parse_number(&text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -5018,10 +4998,8 @@ static void cont__deserialize_stream_93(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* text */ = arguments->slots[0];
-  frame->slots[3] /* temp__1 */ = arguments->slots[1];
-  // 187: ... val
-  initialize_future(frame->slots[2] /* val */, frame->slots[3] /* temp__1 */);
-  // 188: ... val.is_undefined
+  initialize_future(frame->slots[2] /* val */, arguments->slots[1]);
+  // 184: ... val.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* val */;
@@ -5036,8 +5014,8 @@ static void cont__deserialize_stream_94(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 188: if val.is_undefined:
-  // 189:   raise "Invalid numeric constant encountered during deserialization!"
+  // 184: if val.is_undefined:
+  // 185:   raise "Invalid numeric constant encountered during deserialization!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -5054,7 +5032,7 @@ static void entry__deserialize_stream_95(void) {
     invalid_arguments_error();
     return;
   }
-  // 189: raise "Invalid numeric constant encountered during deserialization!"
+  // 185: raise "Invalid numeric constant encountered during deserialization!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__a7e8c0fdec6da36f;
@@ -5068,7 +5046,7 @@ static void cont__deserialize_stream_97(void) {
     invalid_results_error();
     return;
   }
-  // 190: return text val
+  // 186: return text val
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -5091,7 +5069,7 @@ static void entry__deserialize_stream_98(void) {
     invalid_arguments_error();
     return;
   }
-  // 192: match text IDENTIFIER $len
+  // 188: match text IDENTIFIER $len
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -5107,7 +5085,7 @@ static void cont__deserialize_stream_99(void) {
     return;
   }
   initialize_future(frame->slots[2] /* len */, arguments->slots[0]);
-  // 194: len.is_defined
+  // 190: len.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* len */;
@@ -5122,27 +5100,27 @@ static void cont__deserialize_stream_100(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 194: ... :
-  // 195:   $tag range(text 1 len)
-  // 196:   $deserializer deserializers(tag)
-  // 197:   if
-  // 198:     deserializer.is_defined:
-  // 199:       range &text len+1 -1
-  // 200:       deserializer text indent
-  // 201:     :
-  // 202:       raise "
-  // 203:         No deserializer defined for "@(tag)@quot;!@
+  // 190: ... :
+  // 191:   $tag range(text 1 len)
+  // 192:   $deserializer deserializers(tag)
+  // 193:   if
+  // 194:     deserializer.is_defined:
+  // 195:       range &text len+1 -1
+  // 196:       deserializer text indent
+  // 197:     :
+  // 198:       raise "
+  // 199:         No deserializer defined for "@(tag)@quot;!@
   frame->slots[4] /* temp__2 */ = create_closure(entry__deserialize_stream_101, 0);
-  // 193: if
-  // 194:   len.is_defined:
-  // 195:     $tag range(text 1 len)
-  // 196:     $deserializer deserializers(tag)
-  // 197:     if
-  // 198:       deserializer.is_defined:
-  // 199:         range &text len+1 -1
-  // 200:         deserializer text indent
-  // 201:       :
-  // 202:         raise "
+  // 189: if
+  // 190:   len.is_defined:
+  // 191:     $tag range(text 1 len)
+  // 192:     $deserializer deserializers(tag)
+  // 193:     if
+  // 194:       deserializer.is_defined:
+  // 195:         range &text len+1 -1
+  // 196:         deserializer text indent
+  // 197:       :
+  // 198:         raise "
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -5171,7 +5149,7 @@ static void entry__std__deserialize_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 217: deserialize_stream text 0 $remaining_text $obj
+  // 213: deserialize_stream text 0 $remaining_text $obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -5186,13 +5164,9 @@ static void cont__std__deserialize_2(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  frame->slots[4] /* temp__2 */ = arguments->slots[1];
-  // 217: ... remaining_text
-  initialize_future(frame->slots[1] /* remaining_text */, frame->slots[3] /* temp__1 */);
-  // 217: ... obj
-  initialize_future(frame->slots[2] /* obj */, frame->slots[4] /* temp__2 */);
-  // 218: ... remaining_text == ""
+  initialize_future(frame->slots[1] /* remaining_text */, arguments->slots[0]);
+  initialize_future(frame->slots[2] /* obj */, arguments->slots[1]);
+  // 216: remaining_text == ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* remaining_text */;
@@ -5208,9 +5182,8 @@ static void cont__std__deserialize_3(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 218: ... -> obj
+  // 217: -> obj
   frame->slots[5] /* temp__3 */ = create_closure(entry__std__deserialize_4, 0);
-  // 218: ... if(remaining_text == "" (-> obj) -> undefined)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -5230,7 +5203,7 @@ static void entry__std__deserialize_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 218: ... -> obj
+  // 217: -> obj
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* obj */;
@@ -5245,7 +5218,7 @@ static void entry__std__deserialize_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 218: ... -> undefined
+  // 218: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -5259,7 +5232,11 @@ static void cont__std__deserialize_6(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 218: -> if(remaining_text == "" (-> obj) -> undefined)
+  // 214: ->
+  // 215:   if
+  // 216:     remaining_text == ""
+  // 217:     -> obj
+  // 218:     -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;

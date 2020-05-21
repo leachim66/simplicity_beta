@@ -1,6 +1,7 @@
 #!/usr/bin/env simrun
 
-program_parameters $from
+program_parameters
+  $from
   -> std::MANDATORY_PARAMETER "from" "the text to replace"
   $to
   -> std::MANDATORY_PARAMETER "to" "the replacement text"
@@ -30,7 +31,10 @@ $replace: (folder)
 $$folders list("compiler" "system" "tools" "benchmarks" "examples" "runtime")
 for_each_line load("configure"): (line)
   if
-    line .has_prefix. "BASIC_LIBRARIES=" || line .has_prefix. "OPTIONAL_LIBRARIES=":
+    ||
+      line .has_prefix. "BASIC_LIBRARIES="
+      line .has_prefix. "OPTIONAL_LIBRARIES="
+    :
       append &folders between(line '@apos;' '@apos;').split
 for_each folders: (folder) replace folder
 writeln "updated " updated " of " total " files"

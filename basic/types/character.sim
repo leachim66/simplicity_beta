@@ -217,7 +217,7 @@ $std::is_a_letter:
     Only the roman characters ('a' .. 'z'), 'A' .. 'Z') are considered letters!
 
     See also: is_a_digit, is_a_lower_case_letter, is_an_upper_case_letter,
-	      is_a_letter_character, is_a_whitespace_character
+              is_a_letter_character, is_a_whitespace_character
   (
     chr
   )
@@ -230,7 +230,7 @@ $std::is_a_lower_case_letter:
     Only the roman characters ('a' .. 'z') are considered letters!
 
     See also: is_an_upper_case_letter, is_a_letter,
-	      is_a_lower_case_letter_character
+              is_a_lower_case_letter_character
   (
     chr
   )
@@ -243,7 +243,7 @@ $std::is_an_upper_case_letter:
     Only the roman characters ('A' .. 'Z') are considered letters!
 
     See also: is_a_lower_case_letter, is_a_letter,
-	      is_an_upper_case_letter_character
+              is_an_upper_case_letter_character
   (
     chr
   )
@@ -257,7 +257,7 @@ $std::is_a_letter_character:
     characters.
 
     See also: is_a_letter,
-	      is_a_lower_case_letter_character, is_an_upper_case_letter_character
+              is_a_lower_case_letter_character, is_an_upper_case_letter_character
   (
     chr
   )
@@ -275,7 +275,7 @@ $std::is_a_lower_case_letter_character:
     characters.
 
     See also: is_a_letter_character, is_a_letter, is_a_letter_character,
-	      is_an_upper_case_letter_character
+              is_an_upper_case_letter_character
   (
     chr
   )
@@ -292,7 +292,7 @@ $std::is_an_upper_case_letter_character:
     characters.
 
     See also: is_a_letter_character, is_a_letter, is_an_upper_case_letter,
-	      is_a_lower_case_letter_character
+              is_a_lower_case_letter_character
   (
     chr
   )

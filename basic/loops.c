@@ -2619,7 +2619,7 @@ static void cont__std__while_4(void) {
   frame = frame->caller_frame;
 }
 static void entry__std__while_1(void) {
-  allocate_initialized_frame_gc(1, 5);
+  allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // cond_and_body: 0
   // cond: 1
@@ -2643,12 +2643,8 @@ static void cont__std__while_2(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  frame->slots[4] /* temp__2 */ = arguments->slots[1];
-  // 453: ... cond
-  initialize_future(frame->slots[1] /* cond */, frame->slots[3] /* temp__1 */);
-  // 453: ... body
-  initialize_future(frame->slots[2] /* body */, frame->slots[4] /* temp__2 */);
+  initialize_future(frame->slots[1] /* cond */, arguments->slots[0]);
+  initialize_future(frame->slots[2] /* body */, arguments->slots[1]);
   // 454: ... :
   // 455:   body
   // 456:   while cond_and_body

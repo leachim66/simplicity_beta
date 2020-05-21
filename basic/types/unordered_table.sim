@@ -826,6 +826,7 @@ $types::unordered_table/private::set_item:
     #
       start looking for possibly matching keys at the first key with
       identical hash
+
   forever:
     insert_item &self h &cmp_key key value
     if cmp_key == NONE: return self
@@ -850,6 +851,7 @@ $types::unordered_table/private::get_item:
   $$cmp_key NONE
     #
       start the search with the first key with a matching hash value
+
   forever:
     retrieve_item self h &cmp_key $retrieved_value
 
@@ -1148,25 +1150,25 @@ $types::unordered_table/update_each_from_down_to:
             UNORDERED_TABLE_REVISION *revision = key_collision->revisions;
             while (revision) {
               if (revision->rev_no <= rev_no) {
-		if (revision->value != UNDEFINED) {
-		  ++count;
-		  if (max_depth > 1) {
-		    long len;
-		    n += print(&buf, contents_indent);
-		    n += print(&buf, "=\n");
-		    n += print(&buf, contents_indent_2);
-		    len = debug_string(key_collision->key, indent+2, max_depth-1, buf);
-		    if (buf) buf += len;
-		    n += len;
-		    n += print(&buf, contents_indent_2);
-		    len = debug_string(revision->value, indent+2, max_depth-1, buf);
-		    if (buf) buf += len;
-		    n += len;
-		  }
-		  break;
-		}
-		revision = revision->link;
-	      }
+                if (revision->value != UNDEFINED) {
+                  ++count;
+                  if (max_depth > 1) {
+                    long len;
+                    n += print(&buf, contents_indent);
+                    n += print(&buf, "=\n");
+                    n += print(&buf, contents_indent_2);
+                    len = debug_string(key_collision->key, indent+2, max_depth-1, buf);
+                    if (buf) buf += len;
+                    n += len;
+                    n += print(&buf, contents_indent_2);
+                    len = debug_string(revision->value, indent+2, max_depth-1, buf);
+                    if (buf) buf += len;
+                    n += len;
+                  }
+                  break;
+                }
+                revision = revision->link;
+              }
             }
             key_collision = key_collision->link;
           }
@@ -1181,7 +1183,7 @@ $types::unordered_table/update_each_from_down_to:
       return n;
     } else {
       return
-	debug_print(indent, buf, "<unordered_table with %ld entries>", count);
+        debug_print(indent, buf, "<unordered_table with %ld entries>", count);
     }
   }
 }

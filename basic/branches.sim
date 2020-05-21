@@ -68,7 +68,7 @@ $std::cond:
 $cond_list: (args)
   unless args.is_empty:
     args(1) $cond_or_body? $body?
-    if cond_or_body.is_defined: # if not it's the default case
+    if cond_or_body.is_defined:
       if
 	body.is_defined:
 	  if cond_or_body body: cond_list range(args 2 -1)

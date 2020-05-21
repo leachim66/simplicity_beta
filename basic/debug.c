@@ -417,66 +417,66 @@ void run__basic__debug(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__debug, NULL, },
-  {entry__std__debug_string_1, NULL, 47, 66, 3, 2},
-  {entry__std__dump_4, NULL, 89, 89, 5, 18},
-  {cont__std__dump_5, &frame__std__dump_4, 90, 90, 20, 20},
-  {cont__std__dump_6, &frame__std__dump_4, 90, 90, 5, 20},
-  {cont__std__dump_7, &frame__std__dump_4, 90, 90, 20, 20},
-  {entry__std__dump_9, NULL, 91, 91, 69, 69},
-  {cont__std__dump_10, &frame__std__dump_9, 91, 91, 50, 76},
-  {cont__std__dump_11, &frame__std__dump_9, 91, 91, 35, 76},
-  {entry__std__dump_1, NULL, 88, 88, 6, 20},
-  {cont__std__dump_2, &frame__std__dump_1, 88, 88, 6, 27},
-  {cont__std__dump_3, &frame__std__dump_1, 88, 90, 3, 20},
-  {cont__std__dump_8, &frame__std__dump_1, 91, 91, 3, 76},
-  {entry__std__edump_4, NULL, 114, 114, 5, 18},
-  {cont__std__edump_5, &frame__std__edump_4, 115, 115, 20, 20},
-  {cont__std__edump_6, &frame__std__edump_4, 115, 115, 5, 20},
-  {cont__std__edump_7, &frame__std__edump_4, 115, 115, 20, 20},
-  {entry__std__edump_9, NULL, 116, 116, 70, 70},
-  {cont__std__edump_10, &frame__std__edump_9, 116, 116, 51, 77},
-  {cont__std__edump_11, &frame__std__edump_9, 116, 116, 35, 77},
-  {entry__std__edump_1, NULL, 113, 113, 6, 20},
-  {cont__std__edump_2, &frame__std__edump_1, 113, 113, 6, 27},
-  {cont__std__edump_3, &frame__std__edump_1, 113, 115, 3, 20},
-  {cont__std__edump_8, &frame__std__edump_1, 116, 116, 3, 77},
-  {entry__std__collect_garbage_1, NULL, 126, 130, 3, 2},
-  {entry__std__instruction_counter_1, NULL, 145, 148, 3, 2},
-  {entry__std__total_garbage_collections_1, NULL, 158, 161, 3, 2},
-  {entry__std__hexdump_15, NULL, 175, 175, 45, 51},
-  {cont__std__hexdump_16, &frame__std__hexdump_15, 175, 175, 45, 62},
-  {cont__std__hexdump_17, &frame__std__hexdump_15, 175, 175, 41, 63},
-  {cont__std__hexdump_18, &frame__std__hexdump_15, 175, 175, 32, 70},
-  {cont__std__hexdump_19, &frame__std__hexdump_15, 175, 175, 22, 70},
-  {entry__std__hexdump_31, NULL, 180, 180, 23, 35},
-  {cont__std__hexdump_32, &frame__std__hexdump_31, 180, 180, 23, 35},
-  {entry__std__hexdump_34, NULL, 181, 181, 11, 19},
-  {entry__std__hexdump_35, NULL, 183, 183, 11, 19},
-  {entry__std__hexdump_27, NULL, 178, 178, 7, 18},
-  {cont__std__hexdump_28, &frame__std__hexdump_27, 180, 180, 9, 18},
-  {cont__std__hexdump_29, &frame__std__hexdump_27, 180, 180, 9, 18},
-  {cont__std__hexdump_30, &frame__std__hexdump_27, 180, 180, 9, 35},
-  {cont__std__hexdump_33, &frame__std__hexdump_27, 179, 183, 7, 20},
-  {entry__std__hexdump_5, NULL, 172, 172, 12, 18},
-  {cont__std__hexdump_6, &frame__std__hexdump_5, 172, 172, 5, 22},
-  {cont__std__hexdump_7, &frame__std__hexdump_5, 173, 173, 21, 25},
-  {cont__std__hexdump_8, &frame__std__hexdump_5, 173, 173, 27, 31},
-  {cont__std__hexdump_9, &frame__std__hexdump_5, 173, 173, 5, 32},
-  {cont__std__hexdump_10, &frame__std__hexdump_5, 174, 174, 20, 27},
-  {cont__std__hexdump_11, &frame__std__hexdump_5, 174, 174, 11, 34},
-  {cont__std__hexdump_13, &frame__std__hexdump_5, 174, 174, 5, 38},
-  {cont__std__hexdump_14, &frame__std__hexdump_5, 175, 175, 5, 70},
-  {cont__std__hexdump_21, &frame__std__hexdump_5, 176, 176, 21, 24},
-  {cont__std__hexdump_22, &frame__std__hexdump_5, 176, 176, 11, 25},
-  {cont__std__hexdump_24, &frame__std__hexdump_5, 176, 176, 5, 30},
-  {cont__std__hexdump_26, &frame__std__hexdump_5, 177, 183, 5, 21},
-  {cont__std__hexdump_37, &frame__std__hexdump_5, 184, 184, 5, 11},
-  {cont__std__hexdump_38, &frame__std__hexdump_5, 185, 185, 5, 15},
-  {cont__std__hexdump_39, &frame__std__hexdump_5, 185, 185, 15, 15},
-  {entry__std__hexdump_3, NULL, 171, 171, 12, 20},
-  {cont__std__hexdump_4, &frame__std__hexdump_3, 171, 185, 9, 15},
-  {entry__std__hexdump_1, NULL, 169, 169, 3, 21},
-  {cont__std__hexdump_2, &frame__std__hexdump_1, 171, 185, 3, 15}
+  {entry__std__debug_string_1, NULL, 46, 65, 3, 2},
+  {entry__std__dump_4, NULL, 88, 88, 5, 18},
+  {cont__std__dump_5, &frame__std__dump_4, 89, 89, 20, 20},
+  {cont__std__dump_6, &frame__std__dump_4, 89, 89, 5, 20},
+  {cont__std__dump_7, &frame__std__dump_4, 89, 89, 20, 20},
+  {entry__std__dump_9, NULL, 90, 90, 69, 69},
+  {cont__std__dump_10, &frame__std__dump_9, 90, 90, 50, 76},
+  {cont__std__dump_11, &frame__std__dump_9, 90, 90, 35, 76},
+  {entry__std__dump_1, NULL, 87, 87, 6, 20},
+  {cont__std__dump_2, &frame__std__dump_1, 87, 87, 6, 27},
+  {cont__std__dump_3, &frame__std__dump_1, 87, 89, 3, 20},
+  {cont__std__dump_8, &frame__std__dump_1, 90, 90, 3, 76},
+  {entry__std__edump_4, NULL, 113, 113, 5, 18},
+  {cont__std__edump_5, &frame__std__edump_4, 114, 114, 20, 20},
+  {cont__std__edump_6, &frame__std__edump_4, 114, 114, 5, 20},
+  {cont__std__edump_7, &frame__std__edump_4, 114, 114, 20, 20},
+  {entry__std__edump_9, NULL, 115, 115, 70, 70},
+  {cont__std__edump_10, &frame__std__edump_9, 115, 115, 51, 77},
+  {cont__std__edump_11, &frame__std__edump_9, 115, 115, 35, 77},
+  {entry__std__edump_1, NULL, 112, 112, 6, 20},
+  {cont__std__edump_2, &frame__std__edump_1, 112, 112, 6, 27},
+  {cont__std__edump_3, &frame__std__edump_1, 112, 114, 3, 20},
+  {cont__std__edump_8, &frame__std__edump_1, 115, 115, 3, 77},
+  {entry__std__collect_garbage_1, NULL, 125, 129, 3, 2},
+  {entry__std__instruction_counter_1, NULL, 144, 147, 3, 2},
+  {entry__std__total_garbage_collections_1, NULL, 157, 160, 3, 2},
+  {entry__std__hexdump_15, NULL, 174, 174, 45, 51},
+  {cont__std__hexdump_16, &frame__std__hexdump_15, 174, 174, 45, 62},
+  {cont__std__hexdump_17, &frame__std__hexdump_15, 174, 174, 41, 63},
+  {cont__std__hexdump_18, &frame__std__hexdump_15, 174, 174, 32, 70},
+  {cont__std__hexdump_19, &frame__std__hexdump_15, 174, 174, 22, 70},
+  {entry__std__hexdump_31, NULL, 179, 179, 23, 35},
+  {cont__std__hexdump_32, &frame__std__hexdump_31, 179, 179, 23, 35},
+  {entry__std__hexdump_34, NULL, 180, 180, 11, 19},
+  {entry__std__hexdump_35, NULL, 182, 182, 11, 19},
+  {entry__std__hexdump_27, NULL, 177, 177, 7, 18},
+  {cont__std__hexdump_28, &frame__std__hexdump_27, 179, 179, 9, 18},
+  {cont__std__hexdump_29, &frame__std__hexdump_27, 179, 179, 9, 18},
+  {cont__std__hexdump_30, &frame__std__hexdump_27, 179, 179, 9, 35},
+  {cont__std__hexdump_33, &frame__std__hexdump_27, 178, 182, 7, 20},
+  {entry__std__hexdump_5, NULL, 171, 171, 12, 18},
+  {cont__std__hexdump_6, &frame__std__hexdump_5, 171, 171, 5, 22},
+  {cont__std__hexdump_7, &frame__std__hexdump_5, 172, 172, 21, 25},
+  {cont__std__hexdump_8, &frame__std__hexdump_5, 172, 172, 27, 31},
+  {cont__std__hexdump_9, &frame__std__hexdump_5, 172, 172, 5, 32},
+  {cont__std__hexdump_10, &frame__std__hexdump_5, 173, 173, 20, 27},
+  {cont__std__hexdump_11, &frame__std__hexdump_5, 173, 173, 11, 34},
+  {cont__std__hexdump_13, &frame__std__hexdump_5, 173, 173, 5, 38},
+  {cont__std__hexdump_14, &frame__std__hexdump_5, 174, 174, 5, 70},
+  {cont__std__hexdump_21, &frame__std__hexdump_5, 175, 175, 21, 24},
+  {cont__std__hexdump_22, &frame__std__hexdump_5, 175, 175, 11, 25},
+  {cont__std__hexdump_24, &frame__std__hexdump_5, 175, 175, 5, 30},
+  {cont__std__hexdump_26, &frame__std__hexdump_5, 176, 182, 5, 21},
+  {cont__std__hexdump_37, &frame__std__hexdump_5, 183, 183, 5, 11},
+  {cont__std__hexdump_38, &frame__std__hexdump_5, 184, 184, 5, 15},
+  {cont__std__hexdump_39, &frame__std__hexdump_5, 184, 184, 15, 15},
+  {entry__std__hexdump_3, NULL, 170, 170, 12, 20},
+  {cont__std__hexdump_4, &frame__std__hexdump_3, 170, 184, 9, 15},
+  {entry__std__hexdump_1, NULL, 168, 168, 3, 21},
+  {cont__std__hexdump_2, &frame__std__hexdump_1, 170, 184, 3, 15}
 };
 
 union NODE {
@@ -576,7 +576,7 @@ static void entry__std__dump_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 91: ... 2
+  // 90: ... 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -591,7 +591,7 @@ static void cont__std__dump_10(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 91: ... debug_string(expr -2 depth)
+  // 90: ... debug_string(expr -2 depth)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* expr */;
@@ -608,7 +608,7 @@ static void cont__std__dump_11(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 91: ... write name ":" debug_string(expr -2 depth)
+  // 90: ... write name ":" debug_string(expr -2 depth)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -627,9 +627,9 @@ static void entry__std__dump_1(void) {
   // depth: 1
   frame->slots[1] /* depth */ = create_cell();
   frame->slots[0] /* args */ = create_cell_with_contents(from_arguments(0, argument_count-0));
-  // 87: $$depth 1
+  // 86: $$depth 1
   ((CELL *)frame->slots[1])->contents /* depth */ = number__1;
-  // 88: ... length_of(args)
+  // 87: ... length_of(args)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* args */;
@@ -644,7 +644,7 @@ static void cont__std__dump_2(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 88: ... length_of(args).is_odd
+  // 87: ... length_of(args).is_odd
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -659,13 +659,13 @@ static void cont__std__dump_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 88: ... :
-  // 89:   !depth args(1)
-  // 90:   range &args 2 -1
+  // 87: ... :
+  // 88:   !depth args(1)
+  // 89:   range &args 2 -1
   frame->slots[4] /* temp__3 */ = create_closure(entry__std__dump_4, 0);
-  // 88: if length_of(args).is_odd:
-  // 89:   !depth args(1)
-  // 90:   range &args 2 -1
+  // 87: if length_of(args).is_odd:
+  // 88:   !depth args(1)
+  // 89:   range &args 2 -1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -686,7 +686,7 @@ static void entry__std__dump_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 89: !depth args(1)
+  // 88: !depth args(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -701,7 +701,7 @@ static void cont__std__dump_5(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* depth */ = arguments->slots[0];
-  // 90: ... 1
+  // 89: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -716,7 +716,7 @@ static void cont__std__dump_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 90: range &args 2 -1
+  // 89: range &args 2 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* args */;
@@ -744,9 +744,9 @@ static void cont__std__dump_8(void) {
     invalid_results_error();
     return;
   }
-  // 91: ... : (name expr) write name ":" debug_string(expr -2 depth)
+  // 90: ... : (name expr) write name ":" debug_string(expr -2 depth)
   frame->slots[2] /* temp__1 */ = create_closure(entry__std__dump_9, 2);
-  // 91: for_each_pair args: (name expr) write name ":" debug_string(expr -2 depth)
+  // 90: for_each_pair args: (name expr) write name ":" debug_string(expr -2 depth)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* args */;
@@ -767,7 +767,7 @@ static void entry__std__edump_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 116: ... 2
+  // 115: ... 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -782,7 +782,7 @@ static void cont__std__edump_10(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 116: ... debug_string(expr -2 depth)
+  // 115: ... debug_string(expr -2 depth)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* expr */;
@@ -799,7 +799,7 @@ static void cont__std__edump_11(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 116: ... ewrite name ":" debug_string(expr -2 depth)
+  // 115: ... ewrite name ":" debug_string(expr -2 depth)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -818,9 +818,9 @@ static void entry__std__edump_1(void) {
   // depth: 1
   frame->slots[1] /* depth */ = create_cell();
   frame->slots[0] /* args */ = create_cell_with_contents(from_arguments(0, argument_count-0));
-  // 112: $$depth 1
+  // 111: $$depth 1
   ((CELL *)frame->slots[1])->contents /* depth */ = number__1;
-  // 113: ... length_of(args)
+  // 112: ... length_of(args)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* args */;
@@ -835,7 +835,7 @@ static void cont__std__edump_2(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 113: ... length_of(args).is_odd
+  // 112: ... length_of(args).is_odd
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -850,13 +850,13 @@ static void cont__std__edump_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 113: ... :
-  // 114:   !depth args(1)
-  // 115:   range &args 2 -1
+  // 112: ... :
+  // 113:   !depth args(1)
+  // 114:   range &args 2 -1
   frame->slots[4] /* temp__3 */ = create_closure(entry__std__edump_4, 0);
-  // 113: if length_of(args).is_odd:
-  // 114:   !depth args(1)
-  // 115:   range &args 2 -1
+  // 112: if length_of(args).is_odd:
+  // 113:   !depth args(1)
+  // 114:   range &args 2 -1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -877,7 +877,7 @@ static void entry__std__edump_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 114: !depth args(1)
+  // 113: !depth args(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -892,7 +892,7 @@ static void cont__std__edump_5(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* depth */ = arguments->slots[0];
-  // 115: ... 1
+  // 114: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -907,7 +907,7 @@ static void cont__std__edump_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 115: range &args 2 -1
+  // 114: range &args 2 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* args */;
@@ -935,9 +935,9 @@ static void cont__std__edump_8(void) {
     invalid_results_error();
     return;
   }
-  // 116: ... : (name expr) ewrite name ":" debug_string(expr -2 depth)
+  // 115: ... : (name expr) ewrite name ":" debug_string(expr -2 depth)
   frame->slots[2] /* temp__1 */ = create_closure(entry__std__edump_9, 2);
-  // 116: for_each_pair args: (name expr) ewrite name ":" debug_string(expr -2 depth)
+  // 115: for_each_pair args: (name expr) ewrite name ":" debug_string(expr -2 depth)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* args */;
@@ -1007,7 +1007,7 @@ static void entry__std__hexdump_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 172: ... len-pos
+  // 171: ... len-pos
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* len */;
@@ -1023,7 +1023,7 @@ static void cont__std__hexdump_6(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 172: $n min(len-pos 16)
+  // 171: $n min(len-pos 16)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -1039,7 +1039,7 @@ static void cont__std__hexdump_7(void) {
     return;
   }
   initialize_future(frame->slots[3] /* n */, arguments->slots[0]);
-  // 173: ... pos+1
+  // 172: ... pos+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -1055,7 +1055,7 @@ static void cont__std__hexdump_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 173: ... pos+n
+  // 172: ... pos+n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -1071,7 +1071,7 @@ static void cont__std__hexdump_9(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 173: $line range(str pos+1 pos+n)
+  // 172: $line range(str pos+1 pos+n)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* str */;
@@ -1088,7 +1088,7 @@ static void cont__std__hexdump_10(void) {
     return;
   }
   initialize_future(frame->slots[4] /* line */, arguments->slots[0]);
-  // 174: ... hex(pos)
+  // 173: ... hex(pos)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -1103,7 +1103,7 @@ static void cont__std__hexdump_11(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 174: ... pad_left(hex(pos) 8 "0")
+  // 173: ... pad_left(hex(pos) 8 "0")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -1120,7 +1120,7 @@ static void cont__std__hexdump_13(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 174: write pad_left(hex(pos) 8 "0") ":"
+  // 173: write pad_left(hex(pos) 8 "0") ":"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -1135,9 +1135,9 @@ static void cont__std__hexdump_14(void) {
     invalid_results_error();
     return;
   }
-  // 175: ... : (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
+  // 174: ... : (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
   frame->slots[5] /* temp__1 */ = create_closure(entry__std__hexdump_15, 1);
-  // 175: from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
+  // 174: from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1158,7 +1158,7 @@ static void entry__std__hexdump_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 175: ... line(i)
+  // 174: ... line(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* i */;
@@ -1173,7 +1173,7 @@ static void cont__std__hexdump_16(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 175: ... line(i).to_integer
+  // 174: ... line(i).to_integer
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__4 */;
@@ -1188,7 +1188,7 @@ static void cont__std__hexdump_17(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 175: ... hex(line(i).to_integer)
+  // 174: ... hex(line(i).to_integer)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -1203,7 +1203,7 @@ static void cont__std__hexdump_18(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 175: ... pad_left(hex(line(i).to_integer) 2 "0")
+  // 174: ... pad_left(hex(line(i).to_integer) 2 "0")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -1220,7 +1220,7 @@ static void cont__std__hexdump_19(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 175: ... write " " pad_left(hex(line(i).to_integer) 2 "0")
+  // 174: ... write " " pad_left(hex(line(i).to_integer) 2 "0")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__578a5af303e9cc1;
@@ -1235,7 +1235,7 @@ static void cont__std__hexdump_21(void) {
     invalid_results_error();
     return;
   }
-  // 176: ... 16-n
+  // 175: ... 16-n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__16;
@@ -1251,7 +1251,7 @@ static void cont__std__hexdump_22(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 176: ... dup("   " 16-n)
+  // 175: ... dup("   " 16-n)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__fa730415f296bec;
@@ -1267,7 +1267,7 @@ static void cont__std__hexdump_24(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 176: write dup("   " 16-n) "  "
+  // 175: write dup("   " 16-n) "  "
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -1282,21 +1282,21 @@ static void cont__std__hexdump_26(void) {
     invalid_results_error();
     return;
   }
-  // 177: ... : (i)
-  // 178:   $chr line(i)
-  // 179:   if
-  // 180:     chr >= ' ' && chr < '@del;':
-  // 181:       write chr
-  // 182:     :
-  // 183:       write "."
+  // 176: ... : (i)
+  // 177:   $chr line(i)
+  // 178:   if
+  // 179:     chr >= ' ' && chr < '@del;':
+  // 180:       write chr
+  // 181:     :
+  // 182:       write "."
   frame->slots[5] /* temp__1 */ = create_closure(entry__std__hexdump_27, 1);
-  // 177: from_to 1 n: (i)
-  // 178:   $chr line(i)
-  // 179:   if
-  // 180:     chr >= ' ' && chr < '@del;':
-  // 181:       write chr
-  // 182:     :
-  // 183:       write "."
+  // 176: from_to 1 n: (i)
+  // 177:   $chr line(i)
+  // 178:   if
+  // 179:     chr >= ' ' && chr < '@del;':
+  // 180:       write chr
+  // 181:     :
+  // 182:       write "."
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1316,7 +1316,7 @@ static void entry__std__hexdump_34(void) {
     invalid_arguments_error();
     return;
   }
-  // 181: write chr
+  // 180: write chr
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -1332,7 +1332,7 @@ static void entry__std__hexdump_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 183: write "."
+  // 182: write "."
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__578a5af303e9ccf;
@@ -1353,7 +1353,7 @@ static void entry__std__hexdump_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 178: $chr line(i)
+  // 177: $chr line(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* i */;
@@ -1368,7 +1368,7 @@ static void cont__std__hexdump_28(void) {
     return;
   }
   initialize_future(frame->slots[2] /* chr */, arguments->slots[0]);
-  // 180: chr >= ' '
+  // 179: chr >= ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* chr */;
@@ -1384,7 +1384,7 @@ static void cont__std__hexdump_29(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 180: chr >= ' '
+  // 179: chr >= ' '
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -1399,9 +1399,9 @@ static void cont__std__hexdump_30(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 180: ... chr < '@del;'
+  // 179: ... chr < '@del;'
   frame->slots[6] /* temp__4 */ = create_closure(entry__std__hexdump_31, 0);
-  // 180: chr >= ' ' && chr < '@del;'
+  // 179: chr >= ' ' && chr < '@del;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -1420,7 +1420,7 @@ static void entry__std__hexdump_31(void) {
     invalid_arguments_error();
     return;
   }
-  // 180: ... chr < '@del;'
+  // 179: ... chr < '@del;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -1436,7 +1436,7 @@ static void cont__std__hexdump_32(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 180: ... chr < '@del;'
+  // 179: ... chr < '@del;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1450,14 +1450,14 @@ static void cont__std__hexdump_33(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 180: ... :
-  // 181:   write chr
+  // 179: ... :
+  // 180:   write chr
   frame->slots[7] /* temp__5 */ = create_closure(entry__std__hexdump_34, 0);
-  // 179: if
-  // 180:   chr >= ' ' && chr < '@del;':
-  // 181:     write chr
-  // 182:   :
-  // 183:     write "."
+  // 178: if
+  // 179:   chr >= ' ' && chr < '@del;':
+  // 180:     write chr
+  // 181:   :
+  // 182:     write "."
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -1473,7 +1473,7 @@ static void cont__std__hexdump_37(void) {
     invalid_results_error();
     return;
   }
-  // 184: writeln
+  // 183: writeln
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -1486,7 +1486,7 @@ static void cont__std__hexdump_38(void) {
     invalid_results_error();
     return;
   }
-  // 185: plus &pos n
+  // 184: plus &pos n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -1521,7 +1521,7 @@ static void entry__std__hexdump_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 171: ... pos < len
+  // 170: ... pos < len
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -1537,28 +1537,28 @@ static void cont__std__hexdump_4(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 171: ... :
-  // 172:   $n min(len-pos 16)
-  // 173:   $line range(str pos+1 pos+n)
-  // 174:   write pad_left(hex(pos) 8 "0") ":"
-  // 175:   from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
-  // 176:   write dup("   " 16-n) "  "
-  // 177:   from_to 1 n: (i)
-  // 178:     $chr line(i)
-  // 179:     if
-  // 180:       chr >= ' ' && chr < '@del;':
+  // 170: ... :
+  // 171:   $n min(len-pos 16)
+  // 172:   $line range(str pos+1 pos+n)
+  // 173:   write pad_left(hex(pos) 8 "0") ":"
+  // 174:   from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
+  // 175:   write dup("   " 16-n) "  "
+  // 176:   from_to 1 n: (i)
+  // 177:     $chr line(i)
+  // 178:     if
+  // 179:       chr >= ' ' && chr < '@del;':
   // ...
   frame->slots[4] /* temp__2 */ = create_closure(entry__std__hexdump_5, 0);
-  // 171: ... -> pos < len:
-  // 172:   $n min(len-pos 16)
-  // 173:   $line range(str pos+1 pos+n)
-  // 174:   write pad_left(hex(pos) 8 "0") ":"
-  // 175:   from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
-  // 176:   write dup("   " 16-n) "  "
-  // 177:   from_to 1 n: (i)
-  // 178:     $chr line(i)
-  // 179:     if
-  // 180:       chr >= ' ' && chr < '@del;':
+  // 170: ... -> pos < len:
+  // 171:   $n min(len-pos 16)
+  // 172:   $line range(str pos+1 pos+n)
+  // 173:   write pad_left(hex(pos) 8 "0") ":"
+  // 174:   from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
+  // 175:   write dup("   " 16-n) "  "
+  // 176:   from_to 1 n: (i)
+  // 177:     $chr line(i)
+  // 178:     if
+  // 179:       chr >= ' ' && chr < '@del;':
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -1580,7 +1580,7 @@ static void entry__std__hexdump_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 169: $len length_of(str)
+  // 168: $len length_of(str)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* str */;
@@ -1595,30 +1595,30 @@ static void cont__std__hexdump_2(void) {
     return;
   }
   initialize_future(frame->slots[1] /* len */, arguments->slots[0]);
-  // 170: $$pos 0
+  // 169: $$pos 0
   ((CELL *)frame->slots[2])->contents /* pos */ = number__0;
-  // 171: ... -> pos < len:
-  // 172:   $n min(len-pos 16)
-  // 173:   $line range(str pos+1 pos+n)
-  // 174:   write pad_left(hex(pos) 8 "0") ":"
-  // 175:   from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
-  // 176:   write dup("   " 16-n) "  "
-  // 177:   from_to 1 n: (i)
-  // 178:     $chr line(i)
-  // 179:     if
-  // 180:       chr >= ' ' && chr < '@del;':
+  // 170: ... -> pos < len:
+  // 171:   $n min(len-pos 16)
+  // 172:   $line range(str pos+1 pos+n)
+  // 173:   write pad_left(hex(pos) 8 "0") ":"
+  // 174:   from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
+  // 175:   write dup("   " 16-n) "  "
+  // 176:   from_to 1 n: (i)
+  // 177:     $chr line(i)
+  // 178:     if
+  // 179:       chr >= ' ' && chr < '@del;':
   // ...
   frame->slots[3] /* temp__1 */ = create_closure(entry__std__hexdump_3, 0);
-  // 171: while -> pos < len:
-  // 172:   $n min(len-pos 16)
-  // 173:   $line range(str pos+1 pos+n)
-  // 174:   write pad_left(hex(pos) 8 "0") ":"
-  // 175:   from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
-  // 176:   write dup("   " 16-n) "  "
-  // 177:   from_to 1 n: (i)
-  // 178:     $chr line(i)
-  // 179:     if
-  // 180:       chr >= ' ' && chr < '@del;':
+  // 170: while -> pos < len:
+  // 171:   $n min(len-pos 16)
+  // 172:   $line range(str pos+1 pos+n)
+  // 173:   write pad_left(hex(pos) 8 "0") ":"
+  // 174:   from_to 1 n: (i) write " " pad_left(hex(line(i).to_integer) 2 "0")
+  // 175:   write dup("   " 16-n) "  "
+  // 176:   from_to 1 n: (i)
+  // 177:     $chr line(i)
+  // 178:     if
+  // 179:       chr >= ' ' && chr < '@del;':
   // ...
   argument_count = 1;
   arguments = node_p;

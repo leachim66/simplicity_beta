@@ -95,7 +95,7 @@ $std::fold:
 
 $std::find_first:
   #
-    find an item within a collection
+    find first appropriate item within a collection
 
     Looks for an element for which the *test*-function returns true and
     returns this element. If no matching element is found then <std::undefined>
@@ -107,12 +107,22 @@ $std::find_first:
   (
     collection
     test
+    arguments* # additional arguments that are passed to the test function
     -> return
   )
   if
     parameter_count_of(return) == 2:
-      for_each collection: (idx item) if test(item): return idx item
-      return undefined undefined
+      if
+	arguments.is_empty:
+	  for_each collection: (idx item) if test(item): return idx item
+	:
+	  for_each collection: (idx item)
+	    if test(item arguments*): return idx item
+      -> undefined undefined
     :
-      for_each collection: (item) if test(item): return item
-      return undefined
+      if
+	arguments.is_empty:
+	  for_each collection: (item) if test(item): return item
+	:
+	  for_each collection: (item) if test(item arguments*): return undefined
+      -> undefined

@@ -543,7 +543,6 @@ $microhttpd::start
     Example:
 
     microhttpd::start $web_server 8888
-
   {
     CHECK_ARGUMENTS(1)
     int port_no = to_int(ARGUMENTS(0));
@@ -584,8 +583,7 @@ $microhttpd_types::daemon/get_file_descriptors:
   (
     self # the web server to ask for active file descriptors
   )
-  get_descriptors
-    self
+  get_descriptors self
     $input_count
     $output_count
     $_exception_count
@@ -640,7 +638,6 @@ $handle_socket_io
         upload_data
       )
       -> HTTP_OK "<html><body>Hi, folks!</body></html>"
-
   {
     CHECK_ARGUMENTS(5)
     struct MHD_Daemon *daemon = ARGUMENTS(0)->daemon.data->daemon;
@@ -704,9 +701,9 @@ $microhttpd_types::daemon/handle_requests:
       $$headers empty_insert_order_table
       if headers_list.is_defined:
 	for_each_pair headers_list: (key value) !headers(key) value
-      case
-	method
-	"GET":
+      case method
+	"GET"
+	:
 	  $websocket_key headers("Sec-WebSocket-Key")
 	  if
 	    websocket_key.is_defined:
@@ -718,13 +715,15 @@ $microhttpd_types::daemon/handle_requests:
 		  .connection_of connection
 		  .url_of url
 		  .headers_of headers
-	"WEBSOCKET_TEXT_FRAME":
+	"WEBSOCKET_TEXT_FRAME"
+	:
 	  create_event
 	    types::event
 	      .type_of WEBSOCKET_TEXT_FRAME
 	      .connection_of connection
 	      .text_of upload_data.from_utf8
-	"DISCONNECT":
+	"DISCONNECT"
+	:
 	  create_event
 	    types::event(.type_of DISCONNECT .connection_of connection)
 
@@ -740,7 +739,6 @@ $microhttpd_types::daemon/stop
     Example:
 
     stop web_server
-
   {
     CHECK_ARGUMENTS(1)
     MHD_DAEMON *data = ARGUMENTS(0)->daemon.data;
@@ -777,11 +775,12 @@ $microhttpd::dom_event_preprocessor: (&event)
   if type_of(event) == WEBSOCKET_TEXT_FRAME:
     $msg text_of(event).from_json
     $connection connection_of(event)
-    case
-      msg("type")
-      "CONNECT":
+    case msg("type")
+      "CONNECT"
+      :
 	!event types::event(.type_of CONNECT .connection_of connection)
-      "KEY_PRESS":
+      "KEY_PRESS"
+      :
 	$key_code msg.to_key_code
 	if
 	  key_code.is_defined:
@@ -792,7 +791,8 @@ $microhttpd::dom_event_preprocessor: (&event)
 		.connection_of connection
 	  :
 	    !event undefined
-      "MOUSE_CLICK":
+      "MOUSE_CLICK"
+      :
 	$name msg("name")
 	if
 	  name.is_defined:
@@ -805,7 +805,8 @@ $microhttpd::dom_event_preprocessor: (&event)
 		.selection_of msg("selection")
 	  :
 	    !event undefined
-      "PASTE":
+      "PASTE"
+      :
 	$name msg("name")
 	if
 	  name.is_defined:
@@ -818,7 +819,8 @@ $microhttpd::dom_event_preprocessor: (&event)
 		.value_of msg("value")
 	  :
 	    !event undefined
-      "GET_RESOURCES":
+      "GET_RESOURCES"
+      :
 	!event
 	  types::event
 	    .type_of GET_RESOURCES
@@ -906,7 +908,10 @@ $types::widget/to_json: (self)
     -> value
 
   $contents
-    if(self.uses_markup (-> contents_of(self).to_html) -> contents_of(self))
+    if
+      self.uses_markup
+      -> contents_of(self).to_html
+      -> contents_of(self)
 
   $$buf "{"
   if type_of(self).is_defined: append_property "type" type_of(self).to_string
@@ -957,7 +962,7 @@ $types::widget/to_json: (self)
       colour.is_defined:
 	append_property "background-color" colour
       :
-	#raise "Invalid tag encountered in background attribute!"
+	raise "Invalid tag encountered in background attribute!"
   append_property "cursor_position" cursor_position_of(self)
   append_property "selection" selection_of(self)
   append_property "has_focus" has_focus(self)
@@ -966,7 +971,11 @@ $types::widget/to_json: (self)
     "contents"
     if
       contents.is_defined
-      -> if(self.is_a_password (-> dup("*" length_of(contents))) -> contents)
+      ->
+	if
+	  self.is_a_password
+	  -> dup("*" length_of(contents))
+	  -> contents
       -> tree_nodes_of(self)
   -> push(buf '}')
 
@@ -1074,8 +1083,7 @@ $microhttpd::dispatch_connection_event:
     event
     -> continuation
   )
-  case
-    type_of(event)
+  case type_of(event)
     DISCONNECT, KEY_PRESS, MOUSE_CLICK, PASTE, MESSAGE:
       $thread connection_threads(connection_of(event))
       if thread.is_defined:
@@ -1270,8 +1278,7 @@ $microhttpd::handle_widget_event:
 	  :
 	    insert_character key_code
       :
-	case
-	  key_code
+	case key_code
 	  FIRST:
 	    !cursor_position start_of_line_position()
 	    !selection undefined
@@ -1391,16 +1398,14 @@ $microhttpd::handle_widget_event:
   $$focused undefined
   $$default_button undefined
   $$event_handled true
-  case
-    type_of(event)
+  case type_of(event)
     KEY_PRESS:
       for_each_leaf widget_tree: (key widget)
 	if focused.is_undefined && widget.is_focusable && widget.has_focus:
 	  !focused key
 	if widget.is_default: !default_button key
       $key_code key_code_of(event)
-      case
-	key_code
+      case key_code
 	TAB:
 	  do: (-> break)
 	    for_each_leaf_from_to widget_tree focused undefined: (key widget)

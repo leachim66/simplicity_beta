@@ -59,17 +59,18 @@ $hex_digit_value:
 
 $hex_digit alt('0' .. '9' 'a' .. 'f' 'A' .. 'F')
 
-$types::string/convert_from_percent_encoding
-  : (&self) # converts a percent encoded string into iso-8859-1
-    replace_all &self "+" = " "
-    replace_all
-      &self
-      =
-	"%", hex_digit, hex_digit
-	: (capture)
-	  ->
-	    character
-	      16*hex_digit_value(capture(2))+hex_digit_value(capture(3))
+$types::string/convert_from_percent_encoding:
+  # converts a percent encoded string into iso-8859-1
+  (
+    &self
+  )
+  replace_all &self "+" = " "
+  replace_all
+    &self
+    =
+      "%", hex_digit, hex_digit
+      : (capture)
+	-> character(16*hex_digit_value(capture(2))+hex_digit_value(capture(3)))
 
 $html::define_tag:
   # define a function to create HTML-code for a specific HTML-tag
@@ -95,7 +96,7 @@ $html::define_tag:
 	VOID:        ...<tag>...       (if no contents)
 	FOREIGN:     ...<tag/>...      (if no contents)
   )
-  -> : (args*)
+  ->: (args*)
     $$i 1
     $n length_of(args)
     $$arg_str ""
@@ -131,8 +132,7 @@ $html::define_tag:
 	      encode cts.to_string name arg_str
 	  emit "</" name ">"
 	:
-	  case
-	    tag_mode
+	  case tag_mode
 	    html::NORMAL:
 	      emit "></" name ">"
 	    VOID:

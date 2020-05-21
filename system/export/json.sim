@@ -23,8 +23,7 @@
 $json_encode: (str)
   $$buf ""
   for_each str: (chr)
-    case
-      chr
+    case chr
       '@nl;':
 	write_to &buf "\u000a"
       '@quot;':

@@ -38,9 +38,8 @@ $temporary_identifier:
   $id temporary(.name_of "temp__@(temp_idx)")
   -> id
 
-$simplify_arguments: (&self)
-  $$arguments arguments_of(self)
-  update_each &arguments: (&argument)
+$simplify_input_arguments: (&input_arguments)
+  update_each &input_arguments: (&argument)
     cond
       -> argument.is_an_optional_item:
 	!argument.is_an_optional_item false
@@ -52,24 +51,26 @@ $simplify_arguments: (&self)
 	!argument.is_an_expanded_item true
       :
 	simplify_expression &argument
-  !self.arguments_of arguments
 
+$simplify_output_arguments: (&output_arguments)
   # the evaluation order must not be changed!
   # check whether temporaries are necessary
 
   $$final_destinations undefined
-  $$output_arguments output_arguments_of(self)
   if output_arguments.is_defined:
     $$first_temporary_index undefined
     do: (-> break)
       for_each output_arguments: (idx argument)
 	unless
 	  ||
-	    argument.is_an_identifier
+	    not(argument.is_a_function_call)
 	    &&
 	      argument.is_a_single_assign_definition
 	      length_of(output_arguments) == 1
 	    argument.is_a_multi_assign_definition
+	    #&&
+	      argument.is_a_function_call
+	      functor_of(argument).is_used_as_a_polymorphic_function
 	  :
 	    !first_temporary_index idx
 	    break
@@ -93,29 +94,31 @@ $simplify_arguments: (&self)
 		!argument.is_an_expanded_item false
 		!temp.is_an_expanded_item true
 	    push &final_destinations argument
-	    !argument temp
-    !self.output_arguments_of output_arguments
+	    !argument temp(.is_a_destination true)
   -> final_destinations
 
 $compiler::check_usage: (name definition info)
-  case
-    variable_kind_of(definition)
+  case variable_kind_of(definition)
     POLYMORPHIC:
       case variable_kind_of(info) STATIC_MULTI, DYNAMIC_SINGLE, DYNAMIC_MULTI:
 	SyntaxError identifier_of(info) "
 	  Invalid access to polymorphic function "@(name)@quot;@
     STATIC_SINGLE:
-      case variable_kind_of(info) STATIC_MULTI, DYNAMIC_SINGLE, DYNAMIC_MULTI, POLYMORPHIC:
-	SyntaxError identifier_of(info) "
-	  Invalid access to read-only variable "@(name)@quot;@
+      case
+	variable_kind_of(info)
+	STATIC_MULTI, DYNAMIC_SINGLE, DYNAMIC_MULTI, POLYMORPHIC:
+	  SyntaxError identifier_of(info) "
+	    Invalid access to read-only variable "@(name)@quot;@
     STATIC_MULTI:
       case variable_kind_of(info) DYNAMIC_SINGLE, DYNAMIC_MULTI, POLYMORPHIC:
 	SyntaxError identifier_of(info) "
 	  Invalid access to static read-write variable "@(name)@quot;@
     DYNAMIC_SINGLE:
-      case variable_kind_of(info) POLYMORPHIC, STATIC_MULTI, DYNAMIC_MULTI, POLYMORPHIC:
-	SyntaxError identifier_of(info) "
-	  Invalid access to dynamic read-only variable "@(name)@quot;@
+      case
+	variable_kind_of(info)
+	POLYMORPHIC, STATIC_MULTI, DYNAMIC_MULTI, POLYMORPHIC:
+	  SyntaxError identifier_of(info) "
+	    Invalid access to dynamic read-only variable "@(name)@quot;@
     DYNAMIC_MULTI:
       case variable_kind_of(info) POLYMORPHIC, DYNAMIC_SINGLE, POLYMORPHIC:
 	SyntaxError identifier_of(info) "
@@ -169,8 +172,8 @@ $compiler::body/simplify_expression: (&self)
 	    $identifier identifier_of(parameter)
 	    simplify_statement
 	      assignment
-		.output_arguments_of list(parameter(.is_an_optional_item false))
-		.arguments_of list(default_value)
+		.arguments_of
+		  list(parameter(.is_an_optional_item false) default_value)
 		.fragment_of fragment_of(identifier)
 		.source_position_of source_position_of(identifier)
 		.end_position_of end_position_of(identifier)
@@ -187,8 +190,8 @@ $compiler::body/simplify_expression: (&self)
 	if
 	  &&
 	    statement.is_an_assignment
-	    output_arguments_of(statement)(1).is_a_static_single_definition
-	    arguments_of(statement)(1).is_a_constant
+	    arguments_of(statement)(1).is_a_static_single_definition
+	    arguments_of(statement)(2).is_a_constant
 	  :
 	    %%compiler::temp_idx 0
 	    simplify_statement statement
@@ -201,8 +204,8 @@ $compiler::body/simplify_expression: (&self)
 	unless
 	  &&
 	    statement.is_an_assignment
-	    output_arguments_of(statement)(1).is_a_static_single_definition
-	    arguments_of(statement)(1).is_a_constant
+	    arguments_of(statement)(1).is_a_static_single_definition
+	    arguments_of(statement)(2).is_a_constant
 	  :
 	    %%compiler::temp_idx 0
 	    simplify_statement statement
@@ -219,8 +222,7 @@ $compiler::body/simplify_expression: (&self)
     push
       &statements
       assignment
-	.output_arguments_of list(temp)
-	.arguments_of list(self)
+	.arguments_of list(temp(.is_a_destination true) self)
 	.fragment_of fragment_of(self)
 	.source_position_of source_position_of(self)
 	.end_position_of end_position_of(self)
@@ -232,7 +234,7 @@ $compiler::body/simplify_expression: (&self)
 $do_store: (functor $arguments $result rest $infos)
   pop &infos $info
   if
-    arguments.is_a_list: # container access
+    arguments.is_a_list:
       update_each &arguments: (&argument) simplify_expression &argument
       if length_of(rest) > 0:
 	$temp temporary_identifier()
@@ -240,8 +242,7 @@ $do_store: (functor $arguments $result rest $infos)
 	  &statements
 	  procedure_call
 	    .functor_of functor
-	    .arguments_of arguments
-	    .output_arguments_of list(temp)
+	    .arguments_of put(arguments temp(.is_a_destination true))
 	    .fragment_of fragment_of(info)
 	    .source_position_of source_position_of(info)
 	    .end_position_of end_position_of(info)
@@ -251,20 +252,21 @@ $do_store: (functor $arguments $result rest $infos)
 	&statements
 	procedure_call
 	  .functor_of functor
-	  .arguments_of push(arguments result)
-	  .output_arguments_of list(functor)
+	  .arguments_of
+	    push
+	      put(arguments functor(.is_a_destination true))
+	      result(.is_a_destination false)
 	  .fragment_of fragment_of(info)
 	  .source_position_of source_position_of(info)+1
 	  .end_position_of end_position_of(info)
-    : # attribute value or attribute function definition
+    :
       if length_of(rest) > 0:
 	$temp temporary_identifier()
 	push
 	  &statements
 	  procedure_call
 	    .functor_of functor_of(arguments)
-	    .arguments_of list(functor)
-	    .output_arguments_of list(temp)
+	    .arguments_of list(temp(.is_a_destination true) functor)
 	    .fragment_of fragment_of(info)
 	    .source_position_of source_position_of(info)
 	    .end_position_of end_position_of(info)
@@ -280,9 +282,9 @@ $do_store: (functor $arguments $result rest $infos)
       push
 	&statements
 	assignment
-	  .output_arguments_of list(functor)
 	  .arguments_of
 	    list
+	      functor(.is_a_destination true)
 	      attribute_pair
 		.identifier_of functor_of(arguments)
 		.arguments_of list(result)
@@ -320,19 +322,43 @@ $compiler::call/simplify_statement:
     -> return
   )
   show_compiler_debug_info "simplify statement"
-  if self.is_an_assignment && length_of(arguments_of(self)) == 1:
-    $source arguments_of(self)(1)
+  $$output_arguments empty_list
+  $$input_arguments empty_list
+
+  $add_arguments: (arguments)
+    for_each arguments: ($argument)
+      cond
+	-> argument.is_an_input_output_argument:
+	  !argument.is_an_input_output_argument false
+	  push &output_arguments argument
+	  push &input_arguments argument(.is_a_destination false)
+	-> argument.is_a_destination: push &output_arguments argument
+	:
+	  push &input_arguments argument
+
+  add_arguments arguments_of(self)
+  if self.is_an_assignment && length_of(input_arguments) == 1:
+    $source input_arguments(1)
     if source.is_a_function_call:
+      $destination output_arguments(1)
+      !output_arguments empty_list
+      !input_arguments empty_list
+      add_arguments arguments_of(source)
+      push &output_arguments destination
       !self
 	procedure_call
 	  .functor_of functor_of(source)
-	  .output_arguments_of
-	    push(output_arguments_of(source) output_arguments_of(self)(1))
-	  .arguments_of arguments_of(source)
 	  .fragment_of fragment_of(self)
 	  .source_position_of source_position_of(self)
 	  .end_position_of end_position_of(self)
-  $final_destinations simplify_arguments(&self)
+  simplify_input_arguments &input_arguments
+
+  $final_destinations
+    if
+      self.is_an_assignment
+      -> undefined
+      -> simplify_output_arguments(&output_arguments)
+
   if functor_of(self).is_defined:
     if result_count_of(self).is_defined:
       simplify_expression &self.result_count_of
@@ -341,11 +367,11 @@ $compiler::call/simplify_statement:
     simplify_expression &self.functor_of
   if
     self.is_an_assignment:
-      $destination output_arguments_of(self)(1)
+      $destination output_arguments(1)
       if destination.is_a_definition:
 	if
 	  destination.is_a_single_assign_definition:
-	    $source arguments_of(self)(1)
+	    $source input_arguments(1)
 	    if attribute_kind_of(destination) != NONE:
 	      push &definitions destination = source
 	      return
@@ -355,26 +381,35 @@ $compiler::call/simplify_statement:
 		return
 	      -> source.might_be_constant:
 		push &definitions destination = source
-		!self.output_arguments_of(1).is_an_initialization true
+		!output_arguments(1).is_an_initialization true
 	      :
 		push &definitions destination
-		!self.output_arguments_of(1).is_an_initialization true
+		!output_arguments(1).is_an_initialization true
 	  :
 	    push &definitions destination
-	    !self.output_arguments_of(1).is_an_initialization true
+	    !output_arguments(1).is_an_initialization true
+      if
+	destination.is_a_function_call:
+	  store_result destination input_arguments(1)
+	:
+	  !self.arguments_of append(output_arguments input_arguments)
+	  push &statements self
+      return
     :
-      update_each &self.output_arguments_of: (&argument)
+      update_each &output_arguments: (&argument)
 	if argument.is_a_definition:
 	  push &definitions argument
 	  !argument.is_an_initialization true
+  !self.arguments_of append(output_arguments input_arguments)
   push &statements self
   if final_destinations.is_defined:
     for_each final_destinations: (idx destination)
       if destination.is_defined:
 	$result
-	  output_arguments_of(self)(idx)
+	  output_arguments(idx)
 	    .is_an_optional_item false
 	    .is_an_expanded_item false
+	    .is_a_destination false
 
 	if
 	  destination.is_a_function_call:
@@ -392,8 +427,7 @@ $compiler::call/simplify_statement:
 
 	    simplify_statement
 	      assignment
-		.output_arguments_of list(destination)
-		.arguments_of list(result)
+		.arguments_of list(destination result)
 		.fragment_of fragment_of(identifier)
 		.source_position_of source_position_of(identifier)
 		.end_position_of end_position_of(identifier)
@@ -407,8 +441,7 @@ $compiler::function_call/simplify_expression: (self)
   simplify_statement
     procedure_call
       .functor_of functor_of(self)
-      .output_arguments_of push(output_arguments_of(self) temp)
-      .arguments_of arguments_of(self)
+      .arguments_of push(arguments_of(self) temp(.is_a_destination true))
       .fragment_of fragment_of(self)
       .source_position_of source_position_of(self)
       .end_position_of end_position_of(self)
@@ -419,7 +452,7 @@ $compiler::function_call/simplify_expression: (self)
 
 $compiler::attribute_value_pair/simplify_expression: (&self)
   show_compiler_debug_info "simplify attribute-value pair"
-  simplify_arguments &self $_dummy_destinations
+  simplify_input_arguments &self.arguments_of
     # There must not be any output arguments!!!
 
 ###
@@ -427,7 +460,7 @@ $compiler::attribute_value_pair/simplify_expression: (&self)
 
 $compiler::attribute_function_pair/simplify_expression: (&self)
   show_compiler_debug_info "simplify attribute-function pair"
-  simplify_arguments &self $_dummy_destinations
+  simplify_input_arguments &self.arguments_of
     # There must not be any output arguments!!!
 
 ###
@@ -436,15 +469,17 @@ $compiler::attribute_function_pair/simplify_expression: (&self)
 $compiler::c_code/simplify_statement: (self)
   show_compiler_debug_info "simplify C-code"
   push &actions: !use_inline_c true
-  case
-    kind_of(self)
-    "struct":
+  case kind_of(self)
+    "struct"
+    :
       $name name_of(identifier_of(self))
       push &actions: !defined_structs(name) true
-    "node":
+    "node"
+    :
       $name name_of(identifier_of(self))
       push &actions: !defined_nodes(name) self
-    "function":
+    "function"
+    :
       $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
       push &actions: !defined_functions(name) true
   push &definitions self

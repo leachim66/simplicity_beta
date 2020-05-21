@@ -43,7 +43,6 @@ $std::debug_string
 
     $SYMBOL .
     write debug_string(SYMBOL)
-
   {
     MIN_ARGUMENTS(1)
     MAX_ARGUMENTS(3)

@@ -44,11 +44,7 @@ $std::has_minimum_length ()
 $types::object/has_minimum_length
   #
     default implementation for streams with known length
-  :
-    (
-      self
-      len
-    )
+  : (self len)
     -> length_of(self) >= len
 
 $std::ignore:
@@ -103,7 +99,6 @@ $std::pass
         pass # not yet impemented
       :
         Error "Some error occurred!"
-
   {
     CHECK_ARGUMENTS(0)
     RETURN_NOTHING
@@ -121,9 +116,9 @@ $std::eval:
 
     $functor
       eval
-	:
-	  %line_width 999999 # force inline output
-	  to_string functor_of(self)
+        :
+          %line_width 999999 # force inline output
+          to_string functor_of(self)
   (
     body
   )
@@ -192,7 +187,6 @@ $std::assign
         -> double
 
     writeln func(a)
-
   {
     RETURN
   }

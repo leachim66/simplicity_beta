@@ -25,7 +25,6 @@ $std::is_a_continuation ()
     returns true for continuation functions
 
 $types::object.is_a_continuation false # obvious
-
 $types::continuation.is_a_continuation true # obvious
 
 {

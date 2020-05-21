@@ -53,20 +53,20 @@ writeln "
   a very long string to test the pretty printer and force consideration of the @
   string layout@
 writeln
-  # a long string
-
   "
     a very long string to test the pretty printer and force consideration of @
     the string layout@
+
+  # a long string
 writeln "
   a very long string template @(insert_something_here) to test the pretty @
   printer@
 writeln
-  # a long template
-
   "
     a very long string template @(insert_something_here) to test the pretty @
     printer@
+
+  # a long template
 
 ####
 # Lambda Functions
@@ -143,40 +143,47 @@ $p:
 p a b f(x y) # p's remark
 p a b f(x y) # f(x y)'s remark
 p # p's remark
-p a b
+p
   #
     p's multi-line
     remark
-p
-  # p's remark
-
+  a
+  b
+p # p's remark
   :
     pass
-p
-  # p's remark
-
-  a # a's remark
-  b # b's remark
+p # p's remark
+  a
+    # a's remark
+  b
+    # b's remark
   f
     # f's remark
-    x # x's remark
-    y # y's remark
-  g(z) # g's remark
+
+    x
+      # x's remark
+    y
+      # y's remark
+  g(z)
+    # g's remark
 p:
   q
     #
       q's multi-line
       remark
-
     a
     b
-    f(x y) # f(x y)'s remark
+    f(x y)
+
+    # f(x y)'s remark
 p
   # p's remark
 
   a
   b
-  f(x y) # f(x y)'s remark
+  f(x y)
+
+  # f(x y)'s remark
 p
   a
     #

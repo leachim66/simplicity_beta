@@ -50,8 +50,7 @@ do:
     truncate_from &line "/*"
     trim &line
     if line .has_prefix. "extern NCURSES_EXPORT(":
-      replace_all
-	&line
+      replace_all &line
 	"chtype" = "long"
 	"NCURSES_ATTR_T" = "long"
 	"NCURSES_PAIRS_T" = "int"

@@ -1,0 +1,5 @@
+#!/usr/bin/env simple
+
+if
+  on_first_line && not(any_of(strings contains '@nl;'):
+    print_on_first_line

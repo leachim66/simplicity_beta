@@ -30,7 +30,7 @@ $std::year_of (!)
     the calendar year of a <types::date_and_time> object
 
     See also: month_of, day_of, day_of_week_of, hour_of, minute_of, second_of,
-	      time_shift_of
+              time_shift_of
 
 $std::month_of (!)
   #
@@ -42,7 +42,7 @@ $std::month_of (!)
     December: 12
 
     See also: year_of, day_of, day_of_week_of, hour_of, minute_of, second_of,
-	      time_shift_of
+              time_shift_of
 
 $std::day_of (!)
   #
@@ -51,9 +51,9 @@ $std::day_of (!)
     Returned values are in the range 1 to 31.
 
     See also: year_of, month_of, day_of_week_of, hour_of, minute_of, second_of,
-	      time_shift_of
+              time_shift_of
 
-$std::day_of_week_of (!) #
+$std::day_of_week_of (!)
   #
     the day of the of a <types::date_and_time> object
 
@@ -63,7 +63,7 @@ $std::day_of_week_of (!) #
     sunday: 7
 
     See also: year_of, month_of, day_of, hour_of, minute_of, second_of,
-	      time_shift_of
+              time_shift_of
 
 $std::hour_of (!)
   #
@@ -72,7 +72,7 @@ $std::hour_of (!)
     Returned values are in the range 0 to 23.
 
     See also: year_of, month_of, day_of, day_of_week_of, minute_of, second_of,
-	      time_shift_of
+              time_shift_of
 
 $std::minute_of (!)
   #
@@ -81,7 +81,7 @@ $std::minute_of (!)
     Returned values are in the range 0 to 59.
 
     See also: year_of, month_of, day_of, day_of_week_of, hour_of, minute_of, second_of,
-	      time_shift_of
+              time_shift_of
 
 $std::second_of (!)
   #
@@ -90,7 +90,7 @@ $std::second_of (!)
     Returned values are in the range 0.0 to 59.999...
 
     See also: year_of, month_of, day_of, day_of_week_of, hour_of, minute_of, second_of,
-	      time_shift_of
+              time_shift_of
 
 $std::time_shift_of (!)
   #
@@ -99,7 +99,7 @@ $std::time_shift_of (!)
     The time shift of the time zone (in seconds).
 
     See also: year_of, month_of, day_of, day_of_week_of, hour_of, minute_of, second_of,
-	      time_shift_of
+              time_shift_of
 
 {
   <kind node>

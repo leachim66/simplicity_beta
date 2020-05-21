@@ -25,19 +25,15 @@
 #$std::CLEANUP .
 #$std::ERROR_MESSAGE .
 
-$resource_id_of (!)
-  # maybe depredated
-$retain_id_of (!)
-  # maybe depredated
+$resource_id_of (!) # maybe depredated
+$retain_id_of (!) # maybe depredated
 
-$types::object.retain_id_of undefined
-  # maybe depredated
+$types::object.retain_id_of undefined # maybe depredated
 %first_resource_id undefined
 $$next_resource_id 0
 $$resources empty_list
 
-$std::register_resource:
-  # maybe depredated
+$std::register_resource: # maybe depredated
   (
     &resource
   )
@@ -45,8 +41,7 @@ $std::register_resource:
   inc &next_resource_id
   push &resources resource
 
-$std::deregister_resource:
-  # maybe depredated
+$std::deregister_resource: # maybe depredated
   (
     resource
     -> return
@@ -76,8 +71,7 @@ $std::deregister_resource:
       :
         return out
 
-$cleanup_till:
-  # maybe depredated
+$cleanup_till: # maybe depredated
   (
     id
   )
@@ -192,7 +186,12 @@ $std::try:
   $outer_raise raise
   do:
     %raise: (args*)
-      $handler if(bodies.is_empty (-> outer_raise) -> get(&bodies))
+      $handler
+	if
+	  bodies.is_empty
+	  -> outer_raise
+	  -> get(&bodies)
+
       if
 	parameter_count_of(handler) == 0:
 	  handler
@@ -205,9 +204,7 @@ $std::try:
     if bodies.is_empty: push &bodies: (_args*) pass
     body
 
-$std::transaction:
-  # maybe depredated
-
+$std::transaction: # maybe depredated
   (
     body
   )
@@ -218,8 +215,7 @@ $std::transaction:
     cleanup_till first_id
     raise args*
 
-$std::retain:
-  # maybe depredated
+$std::retain: # maybe depredated
   (
     resource
   )

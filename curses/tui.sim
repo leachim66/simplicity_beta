@@ -34,19 +34,28 @@ $$desktop_win undefined
 
 $window_tags_of (!)
   # a list of all windows tags in the order of appearance (position order)
+
 $window_positions_of (!) # position of each window (indexed by window tag)
+
 $window_y_coordinates_of (!)
   # y-coordinate of each window (indexed by window tag)
+
 $window_heights_of (!) # height of each window (indexed by window tag)
+
 $minimum_window_heights_of (!)
   # minimum height for each window (indexed by window tag)
+
 $desired_window_heights_of (!)
   # desired height for each window (indexed by window tag)
+
 $window_text_widths_of (!) # text width of each window (indexed by window tag)
+
 $first_visible_window_lines_of (!)
   # first_visible line of each window (indexed by window tag)
+
 $first_visible_window_columns_of (!)
   # first_visible column of each window (indexed by window tag)
+
 $focused_widget_of (!) # tag of the focused window
 
 $$desired_heights empty_table
@@ -58,8 +67,7 @@ $$state undefined
 $get_width_and_height: (widget)
   $$width 0
   $$height 0
-  case
-    type_of(widget)
+  case type_of(widget)
     TEXT_WIDGET:
       $text text_of(widget)
       $text_lines text_lines_of(widget)
@@ -83,8 +91,7 @@ $get_width_and_height: (widget)
     GROUP:
       $contents contents_of(widget)
       for_each contents: (tag item)
-	get_width_and_height
-	  item
+	get_width_and_height item
 	  !desired_widths(tag)
 	  !desired_heights(tag)
 	  !minimum_widths(tag)
@@ -148,8 +155,7 @@ $print_at: (x y text)
 $spaces dup("          " 100)
 
 $draw: (widget x $y width _height)
-  case
-    type_of(widget)
+  case type_of(widget)
     TEXT_WIDGET:
       $style style_of(widget)
       set_fg_on_bg foreground_colour_of(style) background_colour_of(style)
@@ -185,8 +191,7 @@ $gui::display: (widget)
     ignore use_default_colors()
     $$handle types::object(/close: (_self) endwin $_success)
     register_resource &handle
-  get_width_and_height
-    widget
+  get_width_and_height widget
     $desired_width
     $desired_height
     $_minimum_width
@@ -599,7 +604,6 @@ $gui::apply_key_press:
   case
     #KEY_RESIZE:
       display previous_windows
-
     key
     TAB:
       # switch focus to next window
@@ -610,7 +614,12 @@ $gui::apply_key_press:
     SHIFT_TAB:
       # switch focus to previous window
 
-      $prev_idx if(idx == 1 (-> length_of(windows)) -> idx-1)
+      $prev_idx
+	if
+	  idx == 1
+	  -> length_of(windows)
+	  -> idx-1
+
       !state.focused_widget_of window_tags_of(state)(prev_idx)
       return true
     UP:

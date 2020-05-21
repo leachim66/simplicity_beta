@@ -359,33 +359,33 @@ static void cont__27_8(void);
 void run__basic__environment(void);
 
 static CONTINUATION_INFO continuation_info[] = {
-  {run__basic__environment, NULL, 69, 69, 1, 26},
+  {run__basic__environment, NULL, 69, 73, 1, 50},
   {cont__22_1, NULL, 76, 76, 11, 16},
   {cont__24_1, NULL, 76, 76, 11, 18},
   {cont__24_2, NULL, 76, 76, 1, 47},
-  {cont__24_6, NULL, 88, 88, 11, 16},
-  {cont__27_1, NULL, 88, 90, 1, 43},
-  {cont__27_8, NULL, 118, 118, 1, 24},
+  {cont__24_6, NULL, 89, 89, 11, 16},
+  {cont__27_1, NULL, 89, 91, 1, 43},
+  {cont__27_8, NULL, 119, 131, 1, 36},
   {entry__argv_1, NULL, 26, 31, 3, 2},
   {entry__argc_1, NULL, 34, 37, 3, 2},
   {entry__envv_1, NULL, 45, 56, 3, 2},
   {entry__envc_1, NULL, 59, 67, 3, 2},
-  {entry__putenv_1, NULL, 93, 97, 3, 2},
-  {entry__env_2_3, NULL, 111, 111, 7, 34},
-  {entry__env_2_4, NULL, 115, 115, 14, 30},
-  {cont__env_2_6, &frame__env_2_4, 115, 115, 7, 30},
-  {cont__env_2_7, &frame__env_2_4, 116, 116, 7, 40},
-  {entry__env_2_1, NULL, 110, 110, 5, 17},
-  {cont__env_2_2, &frame__env_2_1, 109, 116, 3, 41},
+  {entry__putenv_1, NULL, 94, 98, 3, 2},
+  {entry__env_2_3, NULL, 112, 112, 7, 34},
+  {entry__env_2_4, NULL, 116, 116, 14, 30},
+  {cont__env_2_6, &frame__env_2_4, 116, 116, 7, 30},
+  {cont__env_2_7, &frame__env_2_4, 117, 117, 7, 40},
+  {entry__env_2_1, NULL, 111, 111, 5, 17},
+  {cont__env_2_2, &frame__env_2_1, 110, 117, 3, 41},
   {entry__24_3, NULL, 76, 76, 41, 47},
   {cont__24_4, &frame__24_3, 76, 76, 25, 47},
   {cont__24_5, &frame__24_3, 76, 76, 47, 47},
-  {entry__27_2, NULL, 89, 89, 8, 14},
-  {cont__27_3, &frame__27_2, 89, 89, 3, 24},
-  {cont__27_4, &frame__27_2, 90, 90, 3, 43},
-  {cont__27_5, &frame__27_2, 90, 90, 10, 25},
-  {cont__27_6, &frame__27_2, 90, 90, 3, 26},
-  {cont__27_7, &frame__27_2, 90, 90, 43, 43}
+  {entry__27_2, NULL, 90, 90, 8, 14},
+  {cont__27_3, &frame__27_2, 90, 90, 3, 24},
+  {cont__27_4, &frame__27_2, 91, 91, 3, 43},
+  {cont__27_5, &frame__27_2, 91, 91, 10, 25},
+  {cont__27_6, &frame__27_2, 91, 91, 3, 26},
+  {cont__27_7, &frame__27_2, 91, 91, 43, 43}
 };
 
 union NODE {
@@ -433,6 +433,10 @@ EXPORT void run__basic__environment(void) {
   already_run = true;
   allocate_initialized_frame_gc(0, 2);
   // 69: $std::program_name argv(0)
+  // 70:   #
+  // 71:     the name of the application program
+  // 72:     
+  // 73:     See also: command_line_arguments, environment
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -541,10 +545,18 @@ static void cont__24_6(void) {
     return;
   }
   // 78: $std::command_line_arguments arguments
+  // 79:   #
+  // 80:     the application's command line arguments
+  // 81:     
+  // 82:     **Attention**: The first argument is **really** the first **argument**.
+  // 83:     
+  // 84:     The name of the application program is stored in <program_name>.
+  // 85:     
+  // 86:     See also: program_name, environment
   initialize_future(var.std__command_line_arguments, var._arguments);
-  // 87: $$env_1 empty_table
+  // 88: $$env_1 empty_table
   var._env_1 = get__empty_table();
-  // 88: ... envc()
+  // 89: ... envc()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -558,9 +570,9 @@ static void cont__27_1(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 88: from_to 1 envc(): (i)
-  // 89:   $str envv(i).from_utf8
-  // 90:   !env_1(str .before. '=') str .behind. '='
+  // 89: from_to 1 envc(): (i)
+  // 90:   $str envv(i).from_utf8
+  // 91:   !env_1(str .before. '=') str .behind. '='
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -581,7 +593,7 @@ static void entry__27_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 89: ... envv(i)
+  // 90: ... envv(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* i */;
@@ -596,7 +608,7 @@ static void cont__27_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 89: $str envv(i).from_utf8
+  // 90: $str envv(i).from_utf8
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -611,7 +623,7 @@ static void cont__27_4(void) {
     return;
   }
   initialize_future(frame->slots[1] /* str */, arguments->slots[0]);
-  // 90: !env_1(str .before. '=') str .behind. '='
+  // 91: !env_1(str .before. '=') str .behind. '='
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* str */;
@@ -627,7 +639,7 @@ static void cont__27_5(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 90: ... str .before. '='
+  // 91: ... str .before. '='
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* str */;
@@ -643,7 +655,7 @@ static void cont__27_6(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 90: !env_1(str .before. '=')
+  // 91: !env_1(str .before. '=')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -670,9 +682,19 @@ static void cont__27_8(void) {
     invalid_results_error();
     return;
   }
-  // 101: $env_2 env_1
+  // 102: $env_2 env_1
   initialize_future(var._env_2, var._env_1);
-  // 118: $$std::environment env_2
+  // 119: $$std::environment env_2
+  // 120:   #
+  // 121:     allows access to the process' environment
+  // 122:     
+  // 123:     See also: program_name, command_line_arguments
+  // 124:     
+  // 125:     Example 1:
+  // 126:     
+  // 127:     writeln environment("user")
+  // 128:     
+  // ...
   var.std__environment = var._env_2;
   frame = frame->caller_frame;
   func = frame->cont;
@@ -791,7 +813,7 @@ static void entry__env_2_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 111: private::get_item myself key
+  // 112: private::get_item myself key
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* myself */;
@@ -814,7 +836,7 @@ static void entry__env_2_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 115: ... "@(key)=@(value)"
+  // 116: ... "@(key)=@(value)"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* key */;
@@ -831,7 +853,7 @@ static void cont__env_2_6(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 115: putenv "@(key)=@(value)"
+  // 116: putenv "@(key)=@(value)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -845,7 +867,7 @@ static void cont__env_2_7(void) {
     invalid_results_error();
     return;
   }
-  // 116: private::set_item myself key value
+  // 117: private::set_item myself key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* myself */;
@@ -878,7 +900,7 @@ static void entry__env_2_1(void) {
     case 1: frame->slots[1] /* value */ = var._NONE;
   }
   frame->slots[2] /* myself */ = myself;
-  // 110: NONE == value
+  // 111: NONE == value
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._NONE;
@@ -894,23 +916,23 @@ static void cont__env_2_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 110: ... :
-  // 111:   private::get_item myself key
+  // 111: ... :
+  // 112:   private::get_item myself key
   frame->slots[4] /* temp__2 */ = create_closure(entry__env_2_3, 0);
-  // 112: :
-  // 113:   #ewriteln key ": " value
-  // 114:   
-  // 115:   putenv "@(key)=@(value)"
-  // 116:   private::set_item myself key value
+  // 113: :
+  // 114:   #ewriteln key ": " value
+  // 115:   
+  // 116:   putenv "@(key)=@(value)"
+  // 117:   private::set_item myself key value
   frame->slots[5] /* temp__3 */ = create_closure(entry__env_2_4, 0);
-  // 109: if
-  // 110:   NONE == value:
-  // 111:     private::get_item myself key
-  // 112:   :
-  // 113:     #ewriteln key ": " value
-  // 114:     
-  // 115:     putenv "@(key)=@(value)"
-  // 116:     private::set_item myself key value
+  // 110: if
+  // 111:   NONE == value:
+  // 112:     private::get_item myself key
+  // 113:   :
+  // 114:     #ewriteln key ": " value
+  // 115:     
+  // 116:     putenv "@(key)=@(value)"
+  // 117:     private::set_item myself key value
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;

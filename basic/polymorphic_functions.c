@@ -164,10 +164,11 @@ typedef struct CLOSURE {
 #else
   #define ASM(x)
 #endif
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 REGISTER NODE *myself ASM("r13");
 IMPORT NODE *get_attribute(NODE *node, int idx);
 REGISTER FRAME *arguments ASM("r12");
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -966,115 +967,115 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__mod, NULL, 63, 63, 2, 9},
   {type__std__negate, NULL, 71, 71, 2, 12},
   {type__std__equal, NULL, 81, 81, 2, 11},
-  {type__std__equal_type_and_value, NULL, 102, 102, 2, 26},
-  {type__std__less, NULL, 119, 119, 2, 10},
-  {type__std__numerically_less, NULL, 154, 154, 2, 22},
-  {type__std__not, NULL, 160, 160, 2, 9},
-  {type__std__and, NULL, 170, 170, 2, 9},
-  {type__std__or, NULL, 187, 187, 2, 8},
-  {type__std__if, NULL, 204, 204, 2, 8},
-  {type__std__unless, NULL, 224, 224, 2, 12},
-  {type__std__shift_left, NULL, 241, 241, 2, 16},
-  {type__std__shift_right, NULL, 253, 253, 2, 17},
-  {type__std__bit_and, NULL, 267, 267, 2, 13},
-  {type__std__bit_or, NULL, 276, 276, 2, 12},
-  {type__std__bit_xor, NULL, 285, 285, 2, 13},
-  {type__std__parameter_count_of, NULL, 294, 294, 2, 24},
-  {type__std__is_defined, NULL, 306, 306, 2, 16},
-  {type__std__is_undefined, NULL, 310, 310, 2, 18},
-  {type__std__default_value, NULL, 316, 316, 2, 19},
-  {type__std__is_valid, NULL, 326, 326, 2, 14},
-  {type__std__to_string, NULL, 332, 332, 2, 15},
-  {type__std__to_list, NULL, 344, 344, 2, 13},
-  {type__std__serialize, NULL, 354, 354, 2, 15},
-  {type__std__serialization_tag_of, NULL, 364, 364, 2, 26},
-  {type__std__to_number, NULL, 375, 375, 2, 15},
-  {type__std__parse_number, NULL, 381, 381, 2, 18},
-  {type__std__to_integer, NULL, 392, 392, 2, 16},
-  {type__std__parse_integer, NULL, 398, 398, 2, 19},
-  {type__std__to_real, NULL, 409, 409, 2, 13},
-  {type__std__parse_real, NULL, 415, 415, 2, 16},
-  {type__std__to_lower_case, NULL, 426, 426, 2, 19},
-  {type__std__to_upper_case, NULL, 434, 434, 2, 19},
-  {type__std__to_title_case, NULL, 442, 442, 2, 19},
-  {type__std__is_empty, NULL, 453, 453, 2, 14},
-  {type__std__length_of, NULL, 465, 465, 2, 15},
-  {type__std__type_of, NULL, 479, 479, 2, 13},
-  {type__std__hash, NULL, 486, 486, 2, 10},
-  {type__std__hash2, NULL, 499, 499, 2, 11},
-  {type__std__push, NULL, 512, 512, 2, 10},
-  {type__std__pop, NULL, 520, 520, 2, 9},
-  {type__std__peek, NULL, 528, 528, 2, 10},
-  {type__std__drop, NULL, 536, 536, 2, 10},
-  {type__std__put, NULL, 544, 544, 2, 9},
-  {type__std__get, NULL, 552, 552, 2, 9},
-  {type__std__next, NULL, 560, 560, 2, 10},
-  {type__std__append, NULL, 566, 566, 2, 12},
-  {type__std__insert_before, NULL, 574, 574, 2, 19},
-  {type__std__insert_behind, NULL, 587, 587, 2, 19},
-  {type__std__first_index_of, NULL, 600, 600, 2, 20},
-  {type__std__last_index_of, NULL, 607, 607, 2, 19},
-  {type__std__delete_at, NULL, 614, 614, 2, 15},
-  {type__std__union, NULL, 623, 623, 2, 11},
-  {type__std__intersection, NULL, 629, 629, 2, 18},
-  {type__std__match_character, NULL, 635, 635, 2, 21},
-  {type__std__match_string, NULL, 643, 643, 2, 18},
-  {type__std__search_character, NULL, 651, 651, 2, 22},
-  {type__std__search_string, NULL, 659, 659, 2, 19},
-  {type__std__match, NULL, 667, 667, 2, 11},
-  {type__std__search, NULL, 676, 676, 2, 12},
-  {type__std__matches, NULL, 684, 684, 2, 13},
-  {type__std__contains, NULL, 692, 692, 2, 14},
-  {type__std__has_prefix, NULL, 700, 700, 2, 16},
-  {type__std__has_suffix, NULL, 706, 706, 2, 16},
-  {type__std__without_prefix, NULL, 714, 714, 2, 20},
-  {type__std__without_suffix, NULL, 729, 729, 2, 20},
-  {type__std__before, NULL, 744, 744, 2, 12},
-  {type__std__truncate_from, NULL, 763, 763, 2, 19},
-  {type__std__behind, NULL, 783, 783, 2, 12},
-  {type__std__truncate_until, NULL, 802, 802, 2, 20},
-  {type__std__from, NULL, 822, 822, 2, 10},
-  {type__std__truncate_before, NULL, 841, 841, 2, 21},
-  {type__std__until, NULL, 861, 861, 2, 11},
-  {type__std__truncate_behind, NULL, 880, 880, 2, 21},
-  {type__std__between, NULL, 900, 900, 2, 13},
-  {type__std__range, NULL, 921, 921, 2, 11},
-  {type__std__merge, NULL, 948, 948, 2, 11},
-  {type__std__sort, NULL, 954, 954, 2, 10},
-  {type__std__close, NULL, 960, 960, 2, 11},
-  {type__std__write_some_bytes_to, NULL, 967, 967, 2, 25},
-  {type__std__write_to, NULL, 975, 975, 2, 14},
-  {type__std__flush, NULL, 981, 981, 2, 11},
-  {type__std__read_some_bytes_from, NULL, 985, 985, 2, 26},
-  {type__std__read_from, NULL, 993, 993, 2, 15},
-  {type__std__key_of, NULL, 999, 999, 2, 12},
-  {type__std__value_of, NULL, 1005, 1005, 2, 14},
-  {type__std__keys_of, NULL, 1011, 1011, 2, 13},
-  {type__std__values_of, NULL, 1017, 1017, 2, 15},
-  {type__std__lower_bound_of, NULL, 1023, 1023, 2, 20},
-  {type__std__upper_bound_of, NULL, 1029, 1029, 2, 20},
-  {type__std__for_each_from_to, NULL, 1035, 1035, 2, 22},
-  {type__std__for_each_from_down_to, NULL, 1042, 1042, 2, 27},
-  {type__std__for_each, NULL, 1049, 1049, 2, 14},
-  {type__std__for_each_downwards, NULL, 1056, 1056, 2, 24},
-  {type__std__update_each_from_to, NULL, 1063, 1063, 2, 25},
-  {type__std__update_each_from_down_to, NULL, 1070, 1070, 2, 30},
-  {type__std__update_each, NULL, 1077, 1077, 2, 17},
-  {type__std__update_each_downwards, NULL, 1084, 1084, 2, 27},
-  {type__std__for_each_pair, NULL, 1091, 1091, 2, 19},
-  {type__std__new_empty_collection, NULL, 1099, 1099, 2, 26},
-  {type__std__filter, NULL, 1105, 1105, 2, 12},
-  {type__std__apply, NULL, 1111, 1111, 2, 11},
-  {type__std__map, NULL, 1119, 1119, 2, 9},
-  {type__std__dup, NULL, 1127, 1127, 2, 9},
-  {type__std__interleave, NULL, 1133, 1133, 2, 16},
-  {type__std__stop, NULL, 1137, 1137, 2, 10},
-  {type__std__get_file_descriptors, NULL, 1141, 1141, 2, 26},
-  {type__std__handle_requests, NULL, 1148, 1148, 2, 21},
-  {type__std__select, NULL, 1155, 1155, 2, 12},
-  {type__std__delete, NULL, 1161, 1161, 2, 12},
-  {type__std__update, NULL, 1167, 1167, 2, 12},
-  {type__std__call_command, NULL, 1173, 1173, 2, 18},
+  {type__std__equal_type_and_value, NULL, 101, 101, 2, 26},
+  {type__std__less, NULL, 118, 118, 2, 10},
+  {type__std__numerically_less, NULL, 152, 152, 2, 22},
+  {type__std__not, NULL, 158, 158, 2, 9},
+  {type__std__and, NULL, 168, 168, 2, 9},
+  {type__std__or, NULL, 185, 185, 2, 8},
+  {type__std__if, NULL, 202, 202, 2, 8},
+  {type__std__unless, NULL, 222, 222, 2, 12},
+  {type__std__shift_left, NULL, 239, 239, 2, 16},
+  {type__std__shift_right, NULL, 251, 251, 2, 17},
+  {type__std__bit_and, NULL, 265, 265, 2, 13},
+  {type__std__bit_or, NULL, 274, 274, 2, 12},
+  {type__std__bit_xor, NULL, 283, 283, 2, 13},
+  {type__std__parameter_count_of, NULL, 292, 292, 2, 24},
+  {type__std__is_defined, NULL, 304, 304, 2, 16},
+  {type__std__is_undefined, NULL, 308, 308, 2, 18},
+  {type__std__default_value, NULL, 314, 314, 2, 19},
+  {type__std__is_valid, NULL, 324, 324, 2, 14},
+  {type__std__to_string, NULL, 330, 330, 2, 15},
+  {type__std__to_list, NULL, 342, 342, 2, 13},
+  {type__std__serialize, NULL, 352, 352, 2, 15},
+  {type__std__serialization_tag_of, NULL, 362, 362, 2, 26},
+  {type__std__to_number, NULL, 373, 373, 2, 15},
+  {type__std__parse_number, NULL, 379, 379, 2, 18},
+  {type__std__to_integer, NULL, 390, 390, 2, 16},
+  {type__std__parse_integer, NULL, 396, 396, 2, 19},
+  {type__std__to_real, NULL, 407, 407, 2, 13},
+  {type__std__parse_real, NULL, 413, 413, 2, 16},
+  {type__std__to_lower_case, NULL, 424, 424, 2, 19},
+  {type__std__to_upper_case, NULL, 432, 432, 2, 19},
+  {type__std__to_title_case, NULL, 440, 440, 2, 19},
+  {type__std__is_empty, NULL, 451, 451, 2, 14},
+  {type__std__length_of, NULL, 463, 463, 2, 15},
+  {type__std__type_of, NULL, 477, 477, 2, 13},
+  {type__std__hash, NULL, 484, 484, 2, 10},
+  {type__std__hash2, NULL, 497, 497, 2, 11},
+  {type__std__push, NULL, 510, 510, 2, 10},
+  {type__std__pop, NULL, 518, 518, 2, 9},
+  {type__std__peek, NULL, 526, 526, 2, 10},
+  {type__std__drop, NULL, 534, 534, 2, 10},
+  {type__std__put, NULL, 542, 542, 2, 9},
+  {type__std__get, NULL, 550, 550, 2, 9},
+  {type__std__next, NULL, 558, 558, 2, 10},
+  {type__std__append, NULL, 564, 564, 2, 12},
+  {type__std__insert_before, NULL, 572, 572, 2, 19},
+  {type__std__insert_behind, NULL, 585, 585, 2, 19},
+  {type__std__first_index_of, NULL, 598, 598, 2, 20},
+  {type__std__last_index_of, NULL, 605, 605, 2, 19},
+  {type__std__delete_at, NULL, 612, 612, 2, 15},
+  {type__std__union, NULL, 621, 621, 2, 11},
+  {type__std__intersection, NULL, 627, 627, 2, 18},
+  {type__std__match_character, NULL, 633, 633, 2, 21},
+  {type__std__match_string, NULL, 641, 641, 2, 18},
+  {type__std__search_character, NULL, 649, 649, 2, 22},
+  {type__std__search_string, NULL, 657, 657, 2, 19},
+  {type__std__match, NULL, 665, 665, 2, 11},
+  {type__std__search, NULL, 674, 674, 2, 12},
+  {type__std__matches, NULL, 682, 682, 2, 13},
+  {type__std__contains, NULL, 690, 690, 2, 14},
+  {type__std__has_prefix, NULL, 698, 698, 2, 16},
+  {type__std__has_suffix, NULL, 704, 704, 2, 16},
+  {type__std__without_prefix, NULL, 712, 712, 2, 20},
+  {type__std__without_suffix, NULL, 727, 727, 2, 20},
+  {type__std__before, NULL, 742, 742, 2, 12},
+  {type__std__truncate_from, NULL, 761, 761, 2, 19},
+  {type__std__behind, NULL, 781, 781, 2, 12},
+  {type__std__truncate_until, NULL, 800, 800, 2, 20},
+  {type__std__from, NULL, 820, 820, 2, 10},
+  {type__std__truncate_before, NULL, 839, 839, 2, 21},
+  {type__std__until, NULL, 859, 859, 2, 11},
+  {type__std__truncate_behind, NULL, 878, 878, 2, 21},
+  {type__std__between, NULL, 898, 898, 2, 13},
+  {type__std__range, NULL, 919, 919, 2, 11},
+  {type__std__merge, NULL, 946, 946, 2, 11},
+  {type__std__sort, NULL, 952, 952, 2, 10},
+  {type__std__close, NULL, 958, 958, 2, 11},
+  {type__std__write_some_bytes_to, NULL, 965, 965, 2, 25},
+  {type__std__write_to, NULL, 973, 973, 2, 14},
+  {type__std__flush, NULL, 979, 979, 2, 11},
+  {type__std__read_some_bytes_from, NULL, 983, 983, 2, 26},
+  {type__std__read_from, NULL, 991, 991, 2, 15},
+  {type__std__key_of, NULL, 997, 997, 2, 12},
+  {type__std__value_of, NULL, 1003, 1003, 2, 14},
+  {type__std__keys_of, NULL, 1009, 1009, 2, 13},
+  {type__std__values_of, NULL, 1015, 1015, 2, 15},
+  {type__std__lower_bound_of, NULL, 1021, 1021, 2, 20},
+  {type__std__upper_bound_of, NULL, 1027, 1027, 2, 20},
+  {type__std__for_each_from_to, NULL, 1033, 1033, 2, 22},
+  {type__std__for_each_from_down_to, NULL, 1040, 1040, 2, 27},
+  {type__std__for_each, NULL, 1047, 1047, 2, 14},
+  {type__std__for_each_downwards, NULL, 1054, 1054, 2, 24},
+  {type__std__update_each_from_to, NULL, 1061, 1061, 2, 25},
+  {type__std__update_each_from_down_to, NULL, 1068, 1068, 2, 30},
+  {type__std__update_each, NULL, 1075, 1075, 2, 17},
+  {type__std__update_each_downwards, NULL, 1082, 1082, 2, 27},
+  {type__std__for_each_pair, NULL, 1089, 1089, 2, 19},
+  {type__std__new_empty_collection, NULL, 1097, 1097, 2, 26},
+  {type__std__filter, NULL, 1103, 1103, 2, 12},
+  {type__std__apply, NULL, 1109, 1109, 2, 11},
+  {type__std__map, NULL, 1117, 1117, 2, 9},
+  {type__std__dup, NULL, 1125, 1125, 2, 9},
+  {type__std__interleave, NULL, 1131, 1131, 2, 16},
+  {type__std__stop, NULL, 1135, 1135, 2, 10},
+  {type__std__get_file_descriptors, NULL, 1139, 1139, 2, 26},
+  {type__std__handle_requests, NULL, 1146, 1146, 2, 21},
+  {type__std__select, NULL, 1153, 1153, 2, 12},
+  {type__std__delete, NULL, 1159, 1159, 2, 12},
+  {type__std__update, NULL, 1165, 1165, 2, 12},
+  {type__std__call_command, NULL, 1171, 1171, 2, 18},
   {run__basic__polymorphic_functions, NULL, }
 };
 
@@ -1087,6 +1088,10 @@ union NODE {
   CLOSURE closure;
 };
 static void type__std__plus(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__plus);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1109,6 +1114,10 @@ static void type__std__plus(void) {
   }
 }
 static void type__std__minus(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__minus);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1131,6 +1140,10 @@ static void type__std__minus(void) {
   }
 }
 static void type__std__times(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__times);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1153,6 +1166,10 @@ static void type__std__times(void) {
   }
 }
 static void type__std__over(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__over);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1175,6 +1192,10 @@ static void type__std__over(void) {
   }
 }
 static void type__std__div(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__div);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1197,6 +1218,10 @@ static void type__std__div(void) {
   }
 }
 static void type__std__mod(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__mod);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1219,6 +1244,10 @@ static void type__std__mod(void) {
   }
 }
 static void type__std__negate(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__negate);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1241,6 +1270,10 @@ static void type__std__negate(void) {
   }
 }
 static void type__std__equal(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__equal); // 2
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1263,6 +1296,10 @@ static void type__std__equal(void) {
   }
 }
 static void type__std__equal_type_and_value(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__equal_type_and_value);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1285,6 +1322,10 @@ static void type__std__equal_type_and_value(void) {
   }
 }
 static void type__std__less(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__less); // 3
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1307,6 +1348,10 @@ static void type__std__less(void) {
   }
 }
 static void type__std__numerically_less(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__numerically_less);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1329,6 +1374,10 @@ static void type__std__numerically_less(void) {
   }
 }
 static void type__std__not(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__not);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1351,6 +1400,10 @@ static void type__std__not(void) {
   }
 }
 static void type__std__and(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__and);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1373,6 +1426,10 @@ static void type__std__and(void) {
   }
 }
 static void type__std__or(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__or);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1395,6 +1452,10 @@ static void type__std__or(void) {
   }
 }
 static void type__std__if(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__if); // 0
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1417,6 +1478,10 @@ static void type__std__if(void) {
   }
 }
 static void type__std__unless(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__unless); // 6
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1439,6 +1504,10 @@ static void type__std__unless(void) {
   }
 }
 static void type__std__shift_left(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__shift_left);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1461,6 +1530,10 @@ static void type__std__shift_left(void) {
   }
 }
 static void type__std__shift_right(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__shift_right);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1483,6 +1556,10 @@ static void type__std__shift_right(void) {
   }
 }
 static void type__std__bit_and(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__bit_and);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1505,6 +1582,10 @@ static void type__std__bit_and(void) {
   }
 }
 static void type__std__bit_or(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__bit_or);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1527,6 +1608,10 @@ static void type__std__bit_or(void) {
   }
 }
 static void type__std__bit_xor(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__bit_xor);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1549,6 +1634,10 @@ static void type__std__bit_xor(void) {
   }
 }
 static void type__std__parameter_count_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__parameter_count_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1571,6 +1660,10 @@ static void type__std__parameter_count_of(void) {
   }
 }
 static void type__std__is_defined(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_defined); // 1
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1593,6 +1686,10 @@ static void type__std__is_defined(void) {
   }
 }
 static void type__std__is_undefined(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_undefined);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1615,6 +1712,10 @@ static void type__std__is_undefined(void) {
   }
 }
 static void type__std__default_value(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__default_value);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1637,6 +1738,10 @@ static void type__std__default_value(void) {
   }
 }
 static void type__std__is_valid(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_valid);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1659,6 +1764,10 @@ static void type__std__is_valid(void) {
   }
 }
 static void type__std__to_string(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__to_string);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1681,6 +1790,10 @@ static void type__std__to_string(void) {
   }
 }
 static void type__std__to_list(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__to_list);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1703,6 +1816,10 @@ static void type__std__to_list(void) {
   }
 }
 static void type__std__serialize(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__serialize);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1725,6 +1842,10 @@ static void type__std__serialize(void) {
   }
 }
 static void type__std__serialization_tag_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__serialization_tag_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1747,6 +1868,10 @@ static void type__std__serialization_tag_of(void) {
   }
 }
 static void type__std__to_number(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__to_number);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1769,6 +1894,10 @@ static void type__std__to_number(void) {
   }
 }
 static void type__std__parse_number(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__parse_number);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1791,6 +1920,10 @@ static void type__std__parse_number(void) {
   }
 }
 static void type__std__to_integer(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__to_integer);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1813,6 +1946,10 @@ static void type__std__to_integer(void) {
   }
 }
 static void type__std__parse_integer(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__parse_integer);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1835,6 +1972,10 @@ static void type__std__parse_integer(void) {
   }
 }
 static void type__std__to_real(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__to_real);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1857,6 +1998,10 @@ static void type__std__to_real(void) {
   }
 }
 static void type__std__parse_real(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__parse_real);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1879,6 +2024,10 @@ static void type__std__parse_real(void) {
   }
 }
 static void type__std__to_lower_case(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__to_lower_case);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1901,6 +2050,10 @@ static void type__std__to_lower_case(void) {
   }
 }
 static void type__std__to_upper_case(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__to_upper_case);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1923,6 +2076,10 @@ static void type__std__to_upper_case(void) {
   }
 }
 static void type__std__to_title_case(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__to_title_case);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1945,6 +2102,10 @@ static void type__std__to_title_case(void) {
   }
 }
 static void type__std__is_empty(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_empty); // 5
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1967,6 +2128,10 @@ static void type__std__is_empty(void) {
   }
 }
 static void type__std__length_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__length_of); // 4
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1989,6 +2154,10 @@ static void type__std__length_of(void) {
   }
 }
 static void type__std__type_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__type_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2011,6 +2180,10 @@ static void type__std__type_of(void) {
   }
 }
 static void type__std__hash(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__hash);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2033,6 +2206,10 @@ static void type__std__hash(void) {
   }
 }
 static void type__std__hash2(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__hash2);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2055,6 +2232,10 @@ static void type__std__hash2(void) {
   }
 }
 static void type__std__push(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__push);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2077,6 +2258,10 @@ static void type__std__push(void) {
   }
 }
 static void type__std__pop(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__pop);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2099,6 +2284,10 @@ static void type__std__pop(void) {
   }
 }
 static void type__std__peek(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__peek);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2121,6 +2310,10 @@ static void type__std__peek(void) {
   }
 }
 static void type__std__drop(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__drop);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2143,6 +2336,10 @@ static void type__std__drop(void) {
   }
 }
 static void type__std__put(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__put);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2165,6 +2362,10 @@ static void type__std__put(void) {
   }
 }
 static void type__std__get(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__get);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2187,6 +2388,10 @@ static void type__std__get(void) {
   }
 }
 static void type__std__next(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__next);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2209,6 +2414,10 @@ static void type__std__next(void) {
   }
 }
 static void type__std__append(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__append);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2231,6 +2440,10 @@ static void type__std__append(void) {
   }
 }
 static void type__std__insert_before(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__insert_before);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2253,6 +2466,10 @@ static void type__std__insert_before(void) {
   }
 }
 static void type__std__insert_behind(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__insert_behind);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2275,6 +2492,10 @@ static void type__std__insert_behind(void) {
   }
 }
 static void type__std__first_index_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__first_index_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2297,6 +2518,10 @@ static void type__std__first_index_of(void) {
   }
 }
 static void type__std__last_index_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__last_index_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2319,6 +2544,10 @@ static void type__std__last_index_of(void) {
   }
 }
 static void type__std__delete_at(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__delete_at);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2341,6 +2570,10 @@ static void type__std__delete_at(void) {
   }
 }
 static void type__std__union(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__union);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2363,6 +2596,10 @@ static void type__std__union(void) {
   }
 }
 static void type__std__intersection(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__intersection);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2385,6 +2622,10 @@ static void type__std__intersection(void) {
   }
 }
 static void type__std__match_character(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__match_character);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2407,6 +2648,10 @@ static void type__std__match_character(void) {
   }
 }
 static void type__std__match_string(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__match_string);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2429,6 +2674,10 @@ static void type__std__match_string(void) {
   }
 }
 static void type__std__search_character(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__search_character);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2451,6 +2700,10 @@ static void type__std__search_character(void) {
   }
 }
 static void type__std__search_string(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__search_string);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2473,6 +2726,10 @@ static void type__std__search_string(void) {
   }
 }
 static void type__std__match(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__match);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2495,6 +2752,10 @@ static void type__std__match(void) {
   }
 }
 static void type__std__search(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__search);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2517,6 +2778,10 @@ static void type__std__search(void) {
   }
 }
 static void type__std__matches(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__matches);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2539,6 +2804,10 @@ static void type__std__matches(void) {
   }
 }
 static void type__std__contains(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__contains);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2561,6 +2830,10 @@ static void type__std__contains(void) {
   }
 }
 static void type__std__has_prefix(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__has_prefix);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2583,6 +2856,10 @@ static void type__std__has_prefix(void) {
   }
 }
 static void type__std__has_suffix(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__has_suffix);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2605,6 +2882,10 @@ static void type__std__has_suffix(void) {
   }
 }
 static void type__std__without_prefix(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__without_prefix);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2627,6 +2908,10 @@ static void type__std__without_prefix(void) {
   }
 }
 static void type__std__without_suffix(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__without_suffix);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2649,6 +2934,10 @@ static void type__std__without_suffix(void) {
   }
 }
 static void type__std__before(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__before);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2671,6 +2960,10 @@ static void type__std__before(void) {
   }
 }
 static void type__std__truncate_from(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__truncate_from);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2693,6 +2986,10 @@ static void type__std__truncate_from(void) {
   }
 }
 static void type__std__behind(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__behind);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2715,6 +3012,10 @@ static void type__std__behind(void) {
   }
 }
 static void type__std__truncate_until(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__truncate_until);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2737,6 +3038,10 @@ static void type__std__truncate_until(void) {
   }
 }
 static void type__std__from(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__from);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2759,6 +3064,10 @@ static void type__std__from(void) {
   }
 }
 static void type__std__truncate_before(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__truncate_before);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2781,6 +3090,10 @@ static void type__std__truncate_before(void) {
   }
 }
 static void type__std__until(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__until);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2803,6 +3116,10 @@ static void type__std__until(void) {
   }
 }
 static void type__std__truncate_behind(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__truncate_behind);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2825,6 +3142,10 @@ static void type__std__truncate_behind(void) {
   }
 }
 static void type__std__between(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__between);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2847,6 +3168,10 @@ static void type__std__between(void) {
   }
 }
 static void type__std__range(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__range);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2869,6 +3194,10 @@ static void type__std__range(void) {
   }
 }
 static void type__std__merge(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__merge);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2891,6 +3220,10 @@ static void type__std__merge(void) {
   }
 }
 static void type__std__sort(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__sort);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2913,6 +3246,10 @@ static void type__std__sort(void) {
   }
 }
 static void type__std__close(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__close);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2935,6 +3272,10 @@ static void type__std__close(void) {
   }
 }
 static void type__std__write_some_bytes_to(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__write_some_bytes_to);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2957,6 +3298,10 @@ static void type__std__write_some_bytes_to(void) {
   }
 }
 static void type__std__write_to(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__write_to);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -2979,6 +3324,10 @@ static void type__std__write_to(void) {
   }
 }
 static void type__std__flush(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__flush);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3001,6 +3350,10 @@ static void type__std__flush(void) {
   }
 }
 static void type__std__read_some_bytes_from(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__read_some_bytes_from);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3023,6 +3376,10 @@ static void type__std__read_some_bytes_from(void) {
   }
 }
 static void type__std__read_from(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__read_from);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3045,6 +3402,10 @@ static void type__std__read_from(void) {
   }
 }
 static void type__std__key_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__key_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3067,6 +3428,10 @@ static void type__std__key_of(void) {
   }
 }
 static void type__std__value_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__value_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3089,6 +3454,10 @@ static void type__std__value_of(void) {
   }
 }
 static void type__std__keys_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__keys_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3111,6 +3480,10 @@ static void type__std__keys_of(void) {
   }
 }
 static void type__std__values_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__values_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3133,6 +3506,10 @@ static void type__std__values_of(void) {
   }
 }
 static void type__std__lower_bound_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__lower_bound_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3155,6 +3532,10 @@ static void type__std__lower_bound_of(void) {
   }
 }
 static void type__std__upper_bound_of(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__upper_bound_of);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3177,6 +3558,10 @@ static void type__std__upper_bound_of(void) {
   }
 }
 static void type__std__for_each_from_to(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__for_each_from_to);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3199,6 +3584,10 @@ static void type__std__for_each_from_to(void) {
   }
 }
 static void type__std__for_each_from_down_to(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__for_each_from_down_to);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3221,6 +3610,10 @@ static void type__std__for_each_from_down_to(void) {
   }
 }
 static void type__std__for_each(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__for_each);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3243,6 +3636,10 @@ static void type__std__for_each(void) {
   }
 }
 static void type__std__for_each_downwards(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__for_each_downwards);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3265,6 +3662,10 @@ static void type__std__for_each_downwards(void) {
   }
 }
 static void type__std__update_each_from_to(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__update_each_from_to);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3287,6 +3688,10 @@ static void type__std__update_each_from_to(void) {
   }
 }
 static void type__std__update_each_from_down_to(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__update_each_from_down_to);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3309,6 +3714,10 @@ static void type__std__update_each_from_down_to(void) {
   }
 }
 static void type__std__update_each(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__update_each);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3331,6 +3740,10 @@ static void type__std__update_each(void) {
   }
 }
 static void type__std__update_each_downwards(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__update_each_downwards);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3353,6 +3766,10 @@ static void type__std__update_each_downwards(void) {
   }
 }
 static void type__std__for_each_pair(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__for_each_pair);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3375,6 +3792,10 @@ static void type__std__for_each_pair(void) {
   }
 }
 static void type__std__new_empty_collection(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__new_empty_collection);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3397,6 +3818,10 @@ static void type__std__new_empty_collection(void) {
   }
 }
 static void type__std__filter(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__filter);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3419,6 +3844,10 @@ static void type__std__filter(void) {
   }
 }
 static void type__std__apply(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__apply);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3441,6 +3870,10 @@ static void type__std__apply(void) {
   }
 }
 static void type__std__map(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__map);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3463,6 +3896,10 @@ static void type__std__map(void) {
   }
 }
 static void type__std__dup(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__dup);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3485,6 +3922,10 @@ static void type__std__dup(void) {
   }
 }
 static void type__std__interleave(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__interleave);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3507,6 +3948,10 @@ static void type__std__interleave(void) {
   }
 }
 static void type__std__stop(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__stop);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3529,6 +3974,10 @@ static void type__std__stop(void) {
   }
 }
 static void type__std__get_file_descriptors(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__get_file_descriptors);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3551,6 +4000,10 @@ static void type__std__get_file_descriptors(void) {
   }
 }
 static void type__std__handle_requests(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__handle_requests);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3573,6 +4026,10 @@ static void type__std__handle_requests(void) {
   }
 }
 static void type__std__select(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__select);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3595,6 +4052,10 @@ static void type__std__select(void) {
   }
 }
 static void type__std__delete(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__delete);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3617,6 +4078,10 @@ static void type__std__delete(void) {
   }
 }
 static void type__std__update(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__update);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -3639,6 +4104,10 @@ static void type__std__update(void) {
   }
 }
 static void type__std__call_command(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__call_command);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {

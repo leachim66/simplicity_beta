@@ -20,8 +20,7 @@
   Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-$BOOLEAN_OPTION .
-  # used internly
+$BOOLEAN_OPTION . # used internly
 
 $std::VALUED_OPTION .
   #
@@ -63,11 +62,8 @@ $std::MANY_PARAMETERS .
 
     See also: SOME_PARAMETERS
 
-$$program_version undefined
-  # stores the version of the application
-
-$$program_copyright undefined
-  # stores the copyright notice the application
+$$program_version undefined # stores the version of the application
+$$program_copyright undefined # stores the copyright notice the application
 
 $std::copyright:
   #
@@ -105,8 +101,8 @@ $std::extract_options:
 
     $std::load_csv: (options\* filename)
       extract_options options
-	ENCODING = UTF8 $encoding
-	SEPARATOR = ';' $separator
+        ENCODING = UTF8 $encoding
+        SEPARATOR = ';' $separator
       load $buf filename
       ...
   (
@@ -172,7 +168,7 @@ $std::extract_some_options:
 
     $gui::button: ($args\*)
       extract_some_options &args
-	gui::ID = undefined $id
+        gui::ID = undefined $id
       ...
   (
     &options
@@ -243,13 +239,16 @@ $check_arguments: (command? $arguments templates)
       append &message "valid values:"
       for_each possible_value: (value) write_to &message ' ' value ','
       !message(-1) '@nl;'
+    $default_value default_values(idx)
+    if default_value.is_defined:
+      !message(-1) ' '
+      append &message "(default value: @(default_value))"
     -> message
 
   $show_usage:
     $parameter_name: (parameter idx)
       $$buf parameter.to_upper_case
-      case
-	kinds(idx)
+      case kinds(idx)
 	OPTIONAL_PARAMETER:
 	  push &buf '?'
 	SOME_PARAMETERS:
@@ -269,7 +268,10 @@ $check_arguments: (command? $arguments templates)
     ewrite
       "  "
       command_name
-      if(command.is_defined (-> string(' ' command)) -> "")
+      if
+	command.is_defined
+	-> string(' ' command)
+	-> ""
     for_each parameters: (parameter idx)
       ewrite " " parameter_name(parameter idx)
     ewriteln
@@ -290,8 +292,7 @@ $check_arguments: (command? $arguments templates)
 	for_each options: (option idx)
 	  $option_name:
 	    $$buf string("--" option)
-	    case
-	      kinds(idx)
+	    case kinds(idx)
 	      VALUED_OPTION:
 		append &buf " VALUE"
 	      MULTI_VALUED_OPTION:
@@ -326,7 +327,12 @@ $check_arguments: (command? $arguments templates)
 	!option key_of(option)
       :
 	push &possible_values undefined
-    push &names if(name.is_defined (-> name) -> option)
+    push
+      &names
+      if
+	name.is_defined
+	-> name
+	-> option
     push &kinds option
     push &default_values default_value
     push &conversions conversion
@@ -371,8 +377,7 @@ $check_arguments: (command? $arguments templates)
 	  fetch_option_value:
 	    !fetch_option_value false
 	    delete_at &arguments idx
-	    case
-	      kinds(option_idx)
+	    case kinds(option_idx)
 	      VALUED_OPTION:
 		!results(option_idx) argument
 	      MULTI_VALUED_OPTION:
@@ -395,8 +400,7 @@ $check_arguments: (command? $arguments templates)
     for_each_from_down_to templates -1 1: (idx template)
       template $$option $_name? $_default_value? $_conversion? $_help
       if option.is_a_key_value_pair: !option key_of(option)
-      case
-	option
+      case option
 	MANDATORY_PARAMETER:
 	  if arguments.is_empty too_few_arguments_error
 	  pop &arguments !results(idx)
@@ -406,8 +410,7 @@ $check_arguments: (command? $arguments templates)
   for_each_from_to templates 1 last_idx: (idx template)
     template $$option $_name? $_default_value? $_conversion? $_help
     if option.is_a_key_value_pair: !option key_of(option)
-    case
-      option
+    case option
       MANDATORY_PARAMETER:
 	if length_of(arguments) == 0 too_few_arguments_error
 	get &arguments !results(idx)
@@ -530,78 +533,78 @@ $std::program_parameters:
       # the following options act on a single file only
 
       $compiler::do_check_only -> "check-only" "
-	do not compile; just check for syntax errors
+        do not compile; just check for syntax errors
 
       $compiler::do_dump_trees -> "dump-trees" "
-	dump abstract syntax trees
+        dump abstract syntax trees
 
       $compiler::do_pretty_print -> "pretty-print" "
-	do not compile; just pretty print the source file
+        do not compile; just pretty print the source file
 
       $compiler::do_print_simplified_source -> "print-simplified-source" "
-	do not generate a C-file; just print the simplified source text
+        do not generate a C-file; just print the simplified source text
 
       $do_print_c -> "print-c" "
-	print C source code for a single module
+        print C source code for a single module
 
       $do_time_passes -> "time-passes" "
-	print running time for the individual compiler passes
+        print running time for the individual compiler passes
 
       $module_prefix -> VALUED_OPTION "module-prefix" "
-	needed to compile a single file within a subdirectory;
-	if the subdirectories are nested use slashes to separate
-	the directory names
+        needed to compile a single file within a subdirectory;
+        if the subdirectories are nested use slashes to separate
+        the directory names
 
       # the following options change the diagnostic output
 
       $compiler::do_show_brief_messages -> "brief" "
-	show brief error messages
+        show brief error messages
 
       $compiler::do_print_warnings -> "warnings" "
-	show warning messages
+        show warning messages
 
       $compiler::do_print_missing -> "missing" "
-	inform about missing documentation
+        inform about missing documentation
 
       $compiler::do_print_summary -> "summary" "
-	show a statistical summary
+        show a statistical summary
 
       $compiler::verbose -> "verbose" "
-	output verbose informations
+        output verbose informations
 
       $compiler::do_show_debug_infos -> "debug" "
-	show C-compiler and linker calls
+        show C-compiler and linker calls
 
       $compiler::do_show_compiler_debug_infos -> "debug_compiler" "
-	show internal debug messages of the Simplicity compiler
+        show internal debug messages of the Simplicity compiler
 
       # the following options create meta-informations
 
       $do_build_codeblocks_project -> "codeblocks" "
-	create Code::Blocks project
+        create Code::Blocks project
 
       $do_extract_documentation -> "extract-documentation" "
-	extract documentation encoded as HTML
+        extract documentation encoded as HTML
 
       $do_list_dependencies -> "list-dependencies" "
-	list all dependencies
+        list all dependencies
 
       # the following options influence the build process for all modules
 
       $do_rebuild -> "rebuild" "
-	rebuild all source files
+        rebuild all source files
 
       $do_omit_meta -> "omit-meta" "
-	do not rebuild meta files
+        do not rebuild meta files
 
       $do_build_static -> "static" "
-	create statically linked executable
+        create statically linked executable
 
       $do_link_profiler -> "profile" "
-	link with libprofiler
+        link with libprofiler
 
       $input_filename -> std::MANDATORY_PARAMETER "filename" "
-	the name of the source file to compile
+        the name of the source file to compile
   (
     templates*
   )
@@ -615,28 +618,29 @@ $std::program_parameters:
 	    show_commands
 	    exit 1
 	  :
-	    case
-	      command_line_arguments(1)
-	      "copyright":
+	    case command_line_arguments(1)
+	      "copyright"
+	      :
 		if program_copyright.is_defined:
 		  show_copyright
 		  terminate
-	      "help":
-		case
-		  length_of(command_line_arguments)
+	      "help"
+	      :
+		case length_of(command_line_arguments)
 		  1:
 		    show_commands
 		    terminate
 		  2:
-		    case
-		      command_line_arguments(2)
-		      "copyright":
+		    case command_line_arguments(2)
+		      "copyright"
+		      :
 			if program_copyright.is_defined:
 			  ewrite "
 			    Usage:
 			      sigi copyright
 			  terminate
-		      "help":
+		      "help"
+		      :
 			ewrite "
 			  Usage:
 			    sigi help COMMAND
@@ -644,7 +648,8 @@ $std::program_parameters:
 			  Parameter:
 			    COMMAND  the command for which to retrieve help
 			terminate
-		      "version":
+		      "version"
+		      :
 			if program_version.is_defined:
 			  ewrite "
 			    Usage:
@@ -659,7 +664,8 @@ $std::program_parameters:
 		      Too many arguments!
 		    show_commands
 		    exit 1
-	      "version":
+	      "version"
+	      :
 		if program_version.is_defined:
 		  $command_name truncate_until(program_name '/' -1)
 		  show_version command_name

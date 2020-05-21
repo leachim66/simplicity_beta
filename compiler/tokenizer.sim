@@ -47,14 +47,14 @@ $compiler::tokenize: (&fragment)
     to_upper_case &msg(1)
     ewrite "
       ____________________________________
-      TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)":@nl;@(msg)!
+      TOKENIZATION ERROR IN LINE @(line_no) OF FILE "@(module_name)@
+      @quot;:@nl;@(msg)!
     exit 1
 
   $skip_line:
     !quote_count 0
     while -> text(i) != newline:
-      case
-	text(i)
+      case text(i)
 	'@quot;':
 	  inc &quote_count
 	'@ht;':

@@ -1,3 +1,1 @@
-$std::tree_nodes_of: (self)
-  -> table_of(self)
-    # allows only read-access
+$std::tree_nodes_of: (self) -> table_of(self) # allows only read-access

@@ -42,7 +42,6 @@ $types::xml_element.xml::contents_of empty_list
     checks whether the element specified by the tag contains text or not
 
     by default no element contains text
-
   : (_tag)
     -> false
 
@@ -75,8 +74,7 @@ $types::xml_element/serialize:
   write_to
     &buf
     '@nl;'
-    spaces(indent+2)
-    "
+    spaces(indent+2) "
       contents:
     spaces(indent+4)
     serialize(contents_of(self) indent+4)
@@ -285,11 +283,9 @@ $check_sets:
 	cond
 	  -> value.is_undefined -> attribute.is_undefined
 	  -> value.is_a_string -> attribute == value
-	  -> true -> value(attribute)
-	      # value should be a function
+	  -> true -> value(attribute) # value should be a function
       -> clause.is_a_string -> tag == clause
-      -> true -> clause(element)
-	  # clause should be a function
+      -> true -> clause(element) # clause should be a function
 
   for_each clauses_sets: (clauses)
     if
@@ -298,8 +294,7 @@ $check_sets:
 	return true # all clauses of a set succeeded
       :
 	if check(clauses): return true # it's a single clause
-  -> false
-    # all sets of clauses failed
+  -> false # all sets of clauses failed
 
 $types::xml_element/select:
   #

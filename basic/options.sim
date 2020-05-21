@@ -25,11 +25,13 @@ $std::VERBOSE .
     asks for verbose output
 
     See also: SORT, TRIM
+
 $std::SORT .
   #
     asks for sorted results
 
     See also: VERBOSE, TRIM
+
 $std::TRIM .
   #
     asks for output without leading or trailing whitespace

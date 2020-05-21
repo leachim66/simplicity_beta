@@ -84,12 +84,7 @@ $compile:
 		:
 		  writeln "  FAILED TO COMPILE"
 
-#remove_object_files "system"
-
 remove_object_files "test_suite"
-
-#compile "system" "system"
-
 compile "test_suite"
 $$total_c_compilations 0
 $$attempted_c_compilations 0
@@ -99,13 +94,18 @@ $cc_options
   list
     "-O1"
     "-fno-stack-protector"
-    "-falign-functions=16" # this is essential or the garbage collector will crash!!!
+    "-falign-functions=16"
+
+    # this is essential or the garbage collector will crash!!!
+
     "-Wall"
     "-Wno-unused-function"
     "-Wno-unused-variable"
     "-Wno-parentheses"
     "-Wno-switch"
+
     #"-Wno-maybe-uninitialized"
+
     "-Werror"
     "-I."
 
@@ -125,7 +125,10 @@ $c_compile:
 	  if file_exists(c_filename):
 	    $o_filename string(plainname ".o")
 	    inc &attempted_c_compilations
-	    writeln "@(c_compiler()) -c " range(c_filename prefix_len+2 -1) " ..."
+	    writeln
+	      "@(c_compiler()) -c "
+	      range(c_filename prefix_len+2 -1)
+	      " ..."
 	    cc $out $err $success cc_options* "-c" c_filename "-o" o_filename
 	    inc &total_c_compilations
 	    if
@@ -133,9 +136,7 @@ $c_compile:
 		inc &successful_c_compilations
 	      :
 		writeln "  FAILED TO COMPILE C-CODE"
-		writeln err
-
-#c_compile "system"
+		write_to STDOUT_FILENO err # err was not converted to utf-8
 
 c_compile "test_suite"
 $$entries empty_list
@@ -149,11 +150,14 @@ $$successful_program_builds 0
 for_each entries: (name)
   $filename "test_suite/@(name)"
   inc &total_program_builds
+  $c_filename string(filename ".c")
   $object_filename string(filename ".o")
   writeln "generating program for " name " ..."
   if
     file_exists(object_filename):
       simple $sg_out $sg_err $sg_success string(filename ".sim")
+      delete_file c_filename
+      delete_file object_filename
       inc &attempted_program_builds
       if
 	sg_success:
@@ -173,6 +177,7 @@ for_each entries: (name)
   if
     file_exists(bin_filename):
       call $out $err $success bin_filename
+      delete_file bin_filename
       inc &attempted_runs
       if
 	success:
@@ -192,9 +197,7 @@ for_each entries: (name)
 	  writeln "  THE COMPILED C-CODE FAILED TO RUN"
     :
       writeln "  NOT ATTEMPTED"
-
-#compile "test_syntax_errors" true
-
+compile "error_suite" undefined true
 writeln
 write "
   Simplicity module compilations: @(successful_compilations) of @
@@ -214,11 +217,9 @@ writeln
 write "Runs: @(successful_runs) of @(total_runs) succeeded"
 if attempted_runs < total_runs: write " (only " attempted_runs " attempted)"
 writeln
-
-#write "
+write "
   Syntax error checks: @(successful_syntax_error_detections) of @
   @(total_syntax_error_checks) succeeded@
-#writeln
-
+writeln
 writeln
 writeln "There are more programs than modules and C source files!"

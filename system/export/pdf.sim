@@ -52,7 +52,15 @@ $DPI 600
 $F 1/(64*DPI/25.4)
 
 $character_width: (font chr)
-  $f case(chr ' ', 'i' (-> 0.8) 'W' (-> 2) -> 1)
+  $f
+    case
+      chr
+      ' ', 'i'
+      -> 0.8
+      'W'
+      -> 2
+      -> 1
+
   case point_size_of(font) 8 (-> 1.28*f) 12 (-> 2*f) 16 (-> 2.8*f) 24 -> 3.85*f
 
 $factor_of: (font) case point_size_of(font) 8 (-> 2) 12 (-> 3) 16 (-> 4) 24 -> 6
@@ -171,8 +179,7 @@ $std::PDF: (pdf_body)
     box_body
 
   %markup::P: (options* $text)
-    extract_options
-      options
+    extract_options options
       markup::CLASS = markup::NORMAL
       $class
       markup::TEXT_ALIGN = markup::LEFT
@@ -196,7 +203,7 @@ $std::PDF: (pdf_body)
     replace_all &text WHITESPACE = " "
     if text != "":
       $$commands ""
-      if set_font("@(font_name)-@(font_size)"): # font changed
+      if set_font("@(font_name)-@(font_size)"):
 	write_to &commands "
 	  /times @(font_size) Tf
       $line_height line_height_of(current_font)

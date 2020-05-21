@@ -191,8 +191,8 @@ IMPORT void invalid_results_error(void);
 IMPORT NODE *create_closure(FUNC type, int par_count);
 IMPORT NODE *create_future(void);
 IMPORT void too_many_results_error(void);
-IMPORT NODE *undefined;
 IMPORT void initialize_future(NODE *var, NODE *val);
+IMPORT NODE *undefined;
 IMPORT NODE *create_cell(void);
 typedef struct CELL {
   FUNC type;
@@ -534,7 +534,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__case_23, NULL, 131, 131, 39, 63},
   {cont__std__case_24, &frame__std__case_23, 131, 131, 31, 63},
   {cont__std__case_25, &frame__std__case_23, 131, 131, 31, 63},
-  {cont__std__case_26, &frame__std__case_23, 130, 132, 29, 62},
+  {cont__std__case_26, &frame__std__case_23, 130, 132, 29, 63},
   {cont__std__case_31, &frame__std__case_23, 129, 135, 27, 36},
   {entry__std__case_35, NULL, 139, 139, 29, 33},
   {entry__std__case_33, NULL, 137, 137, 30, 46},
@@ -555,7 +555,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__case_39, NULL, 143, 143, 31, 51},
   {cont__std__case_40, &frame__std__case_39, 143, 143, 23, 51},
   {cont__std__case_41, &frame__std__case_39, 143, 143, 23, 51},
-  {cont__std__case_42, &frame__std__case_39, 142, 144, 21, 50},
+  {cont__std__case_42, &frame__std__case_39, 142, 144, 21, 51},
   {cont__std__case_47, &frame__std__case_39, 141, 146, 19, 36},
   {entry__std__case_37, NULL, 140, 140, 20, 41},
   {cont__std__case_38, &frame__std__case_37, 140, 146, 17, 37},
@@ -813,7 +813,7 @@ static void cont__cond_list_8(void) {
   frame = frame->caller_frame;
 }
 static void entry__cond_list_3(void) {
-  allocate_initialized_frame_gc(1, 6);
+  allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // args: 0
   // cond_or_body: 1
@@ -839,12 +839,12 @@ static void cont__cond_list_4(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[5] /* temp__3 */ = arguments->slots[0];
+  frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 70: args(1) $cond_or_body? $body?
   argument_count = 0;
   arguments = node_p;
   result_count = -1;
-  myself = frame->slots[5] /* temp__3 */;
+  myself = frame->slots[3] /* temp__1 */;
   func = myself->type;
   frame->cont = cont__cond_list_5;
 }
@@ -854,18 +854,14 @@ static void cont__cond_list_5(void) {
     return;
   }
   switch(argument_count) {
-    default: frame->slots[4] /* temp__2 */ = arguments->slots[1];
-    case 1: frame->slots[3] /* temp__1 */ = arguments->slots[0];
+    default: initialize_future(frame->slots[2] /* body */, arguments->slots[1]);
+    case 1: initialize_future(frame->slots[1] /* cond_or_body */, arguments->slots[0]);
     case 0:;
   }
   switch(argument_count) {
-    case 0: frame->slots[3] /* temp__1 */ = undefined;
-    case 1: frame->slots[4] /* temp__2 */ = undefined;
+    case 0: initialize_future(frame->slots[1] /* cond_or_body */, undefined);
+    case 1: initialize_future(frame->slots[2] /* body */, undefined);
   }
-  // 70: ... cond_or_body
-  initialize_future(frame->slots[1] /* cond_or_body */, frame->slots[3] /* temp__1 */);
-  // 70: ... body
-  initialize_future(frame->slots[2] /* body */, frame->slots[4] /* temp__2 */);
   // 71: ... cond_or_body.is_defined
   argument_count = 1;
   arguments = node_p;
@@ -881,14 +877,14 @@ static void cont__cond_list_6(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 71: ... : # if not it's the default case
+  // 71: ... :
   // 72:   if
   // 73:     body.is_defined:
   // 74:       if cond_or_body body: cond_list range(args 2 -1)
   // 75:     :
   // 76:       cond_or_body
   frame->slots[4] /* temp__2 */ = create_closure(entry__cond_list_7, 0);
-  // 71: if cond_or_body.is_defined: # if not it's the default case
+  // 71: if cond_or_body.is_defined:
   // 72:   if
   // 73:     body.is_defined:
   // 74:       if cond_or_body body: cond_list range(args 2 -1)
@@ -928,7 +924,7 @@ static void cont__cond_list_2(void) {
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
   // 69: ... :
   // 70:   args(1) $cond_or_body? $body?
-  // 71:   if cond_or_body.is_defined: # if not it's the default case
+  // 71:   if cond_or_body.is_defined:
   // 72:     if
   // 73:       body.is_defined:
   // 74:         if cond_or_body body: cond_list range(args 2 -1)
@@ -937,7 +933,7 @@ static void cont__cond_list_2(void) {
   frame->slots[2] /* temp__2 */ = create_closure(entry__cond_list_3, 0);
   // 69: unless args.is_empty:
   // 70:   args(1) $cond_or_body? $body?
-  // 71:   if cond_or_body.is_defined: # if not it's the default case
+  // 71:   if cond_or_body.is_defined:
   // 72:     if
   // 73:       body.is_defined:
   // 74:         if cond_or_body body: cond_list range(args 2 -1)

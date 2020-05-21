@@ -133,8 +133,7 @@ $types::key_order_set/:
     value = NONE
     -> return
   )
-  case
-    value
+  case value
     NONE:
       return get_item(tree_of(myself) key)
     true:

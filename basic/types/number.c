@@ -143,10 +143,11 @@ typedef struct SIMPLE_NODE {
 #else
   #define ASM(x)
 #endif
+REGISTER int argument_count ASM("ebx");
+IMPORT void too_few_arguments_error(void);
 REGISTER NODE *myself ASM("r13");
 IMPORT NODE *get_attribute(NODE *node, int idx);
 REGISTER FRAME *arguments ASM("r12");
-REGISTER int argument_count ASM("ebx");
 IMPORT void invalid_arguments_error(void);
 IMPORT NODE *clone_object_and_attributes(NODE *node);
 IMPORT void *update_start_p;
@@ -193,7 +194,6 @@ IMPORT int result_count;
 IMPORT void invalid_results_error(void);
 IMPORT NODE *create_continuation(void);
 IMPORT NODE *create_cell(void);
-IMPORT void too_few_arguments_error(void);
 IMPORT void too_many_arguments_error(void);
 IMPORT NODE *create_cell_with_contents(NODE *contents);
 IMPORT NODE *undefined;
@@ -918,149 +918,149 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_number, NULL, 56, 56, 2, 17},
   {type__std__is_an_integer, NULL, 57, 57, 2, 19},
   {type__std__is_a_real, NULL, 58, 58, 2, 15},
-  {type__std__floor, NULL, 59, 59, 2, 11},
-  {type__std__ceil, NULL, 67, 67, 2, 10},
-  {type__std__round, NULL, 75, 75, 2, 11},
-  {type__std__ln, NULL, 83, 83, 2, 8},
+  {type__std__floor, NULL, 60, 60, 2, 11},
+  {type__std__ceil, NULL, 68, 68, 2, 10},
+  {type__std__round, NULL, 76, 76, 2, 11},
+  {type__std__ln, NULL, 84, 84, 2, 8},
   {run__basic__types__number, NULL, },
-  {entry__types__positive_integer__negate_1, NULL, 495, 500, 3, 2},
-  {entry__types__negative_integer__negate_1, NULL, 505, 509, 3, 2},
-  {entry__types__positive_large_integer__negate_1, NULL, 514, 518, 3, 2},
-  {entry__types__negative_large_integer__negate_1, NULL, 523, 527, 3, 2},
-  {entry__types__real__negate_1, NULL, 532, 535, 3, 2},
-  {entry__types__positive_integer__plus_1, NULL, 595, 622, 3, 2},
-  {entry__types__positive_integer__minus_1, NULL, 627, 654, 3, 2},
-  {entry__types__negative_integer__plus_1, NULL, 659, 686, 3, 2},
-  {entry__types__negative_integer__minus_1, NULL, 691, 718, 3, 2},
-  {entry__types__positive_large_integer__plus_1, NULL, 794, 830, 3, 2},
-  {entry__types__positive_large_integer__minus_1, NULL, 835, 871, 3, 2},
-  {entry__types__negative_large_integer__plus_1, NULL, 876, 912, 3, 2},
-  {entry__types__negative_large_integer__minus_1, NULL, 917, 953, 3, 2},
-  {entry__types__real__plus_1, NULL, 958, 985, 3, 2},
-  {entry__types__real__minus_1, NULL, 990, 1017, 3, 2},
-  {entry__types__positive_integer__times_1, NULL, 1060, 1085, 3, 2},
-  {entry__types__negative_integer__times_1, NULL, 1090, 1115, 3, 2},
-  {entry__types__positive_large_integer__times_1, NULL, 1150, 1186, 3, 2},
-  {entry__types__negative_large_integer__times_1, NULL, 1191, 1227, 3, 2},
-  {entry__types__real__times_1, NULL, 1232, 1257, 3, 2},
-  {entry__types__positive_integer__over_1, NULL, 1279, 1302, 3, 2},
-  {entry__types__negative_integer__over_1, NULL, 1307, 1330, 3, 2},
-  {entry__types__positive_large_integer__over_1, NULL, 1380, 1416, 3, 2},
-  {entry__types__negative_large_integer__over_1, NULL, 1421, 1457, 3, 2},
-  {entry__types__real__over_1, NULL, 1462, 1487, 3, 2},
-  {entry__types__positive_integer__div_1, NULL, 1492, 1500, 3, 2},
-  {entry__types__positive_integer__mod_1, NULL, 1505, 1513, 3, 2},
-  {entry__types__positive_integer__equal_1, NULL, 1521, 1529, 3, 2},
-  {entry__types__positive_integer__equal_type_and_value_1, NULL, 1537, 1543, 3, 2},
-  {entry__types__negative_integer__equal_1, NULL, 1551, 1559, 3, 2},
-  {entry__types__negative_integer__equal_type_and_value_1, NULL, 1567, 1573, 3, 2},
-  {entry__types__positive_large_integer__equal_1, NULL, 1581, 1599, 3, 2},
-  {entry__types__positive_large_integer__equal_type_and_value_1, NULL, 1607, 1620, 3, 2},
-  {entry__types__negative_large_integer__equal_1, NULL, 1628, 1646, 3, 2},
-  {entry__types__negative_large_integer__equal_type_and_value_1, NULL, 1654, 1667, 3, 2},
-  {entry__types__real__equal_1, NULL, 1675, 1695, 3, 2},
-  {entry__types__real__equal_type_and_value_1, NULL, 1703, 1709, 3, 2},
-  {entry__types__positive_integer__less_1, NULL, 1714, 1730, 3, 2},
-  {entry__types__negative_integer__less_1, NULL, 1735, 1751, 3, 2},
-  {entry__types__positive_large_integer__less_1, NULL, 1756, 1781, 3, 2},
-  {entry__types__negative_large_integer__less_1, NULL, 1786, 1811, 3, 2},
-  {entry__types__real__less_1, NULL, 1816, 1836, 3, 2},
-  {entry__types__positive_integer__shift_left_1, NULL, 1869, 1910, 3, 2},
-  {entry__types__positive_large_integer__shift_left_1, NULL, 1917, 1940, 3, 2},
-  {entry__types__positive_integer__shift_right_1, NULL, 1947, 1953, 3, 2},
-  {entry__types__positive_large_integer__shift_right_1, NULL, 1960, 1998, 3, 2},
-  {entry__types__positive_integer__bit_or_1, NULL, 2005, 2013, 3, 2},
-  {entry__types__positive_integer__bit_and_1, NULL, 2020, 2028, 3, 2},
-  {entry__types__positive_integer__bit_xor_1, NULL, 2035, 2043, 3, 2},
-  {entry__types__positive_integer__hash_1, NULL, 2048, 2057, 3, 2},
-  {entry__types__negative_integer__hash_1, NULL, 2062, 2071, 3, 2},
-  {entry__types__positive_integer__to_string_1, NULL, 2076, 2081, 3, 2},
-  {entry__types__negative_integer__to_string_1, NULL, 2094, 2099, 3, 2},
-  {entry__types__positive_large_integer__to_string_1, NULL, 2140, 2143, 3, 2},
-  {entry__types__negative_large_integer__to_string_1, NULL, 2156, 2159, 3, 2},
-  {entry__types__real__to_string_1, NULL, 2172, 2177, 3, 2},
-  {entry__std__is_odd_1, NULL, 2193, 2193, 6, 10},
-  {cont__std__is_odd_2, &frame__std__is_odd_1, 2193, 2193, 6, 15},
-  {cont__std__is_odd_3, &frame__std__is_odd_1, 2193, 2193, 3, 15},
-  {entry__std__is_even_1, NULL, 2201, 2201, 6, 10},
-  {cont__std__is_even_2, &frame__std__is_even_1, 2201, 2201, 6, 15},
-  {cont__std__is_even_3, &frame__std__is_even_1, 2201, 2201, 3, 15},
-  {entry__std__bin_5, NULL, 2221, 2221, 16, 28},
-  {cont__std__bin_7, &frame__std__bin_5, 2221, 2221, 9, 28},
-  {entry__std__bin_8, NULL, 2223, 2223, 9, 18},
-  {entry__std__bin_3, NULL, 2220, 2220, 7, 21},
-  {cont__std__bin_4, &frame__std__bin_3, 2219, 2223, 5, 19},
-  {entry__std__bin_12, NULL, 2226, 2226, 19, 25},
-  {cont__std__bin_13, &frame__std__bin_12, 2226, 2226, 14, 25},
-  {cont__std__bin_14, &frame__std__bin_12, 2226, 2226, 5, 26},
-  {cont__std__bin_15, &frame__std__bin_12, 2227, 2227, 5, 17},
-  {cont__std__bin_16, &frame__std__bin_12, 2227, 2227, 17, 17},
-  {entry__std__bin_10, NULL, 2225, 2225, 12, 18},
-  {cont__std__bin_11, &frame__std__bin_10, 2225, 2227, 9, 17},
-  {entry__std__bin_19, NULL, 2228, 2228, 30, 51},
-  {cont__std__bin_20, &frame__std__bin_19, 2228, 2228, 23, 51},
-  {entry__std__bin_1, NULL, 2218, 2218, 6, 13},
-  {cont__std__bin_2, &frame__std__bin_1, 2218, 2223, 3, 20},
-  {cont__std__bin_9, &frame__std__bin_1, 2225, 2227, 3, 17},
-  {cont__std__bin_17, &frame__std__bin_1, 2228, 2228, 6, 20},
-  {cont__std__bin_18, &frame__std__bin_1, 2228, 2228, 3, 51},
-  {cont__std__bin_21, &frame__std__bin_1, 2229, 2229, 3, 8},
-  {entry__std__oct_5, NULL, 2249, 2249, 16, 28},
-  {cont__std__oct_6, &frame__std__oct_5, 2249, 2249, 9, 28},
-  {entry__std__oct_7, NULL, 2251, 2251, 9, 18},
-  {entry__std__oct_3, NULL, 2248, 2248, 7, 21},
-  {cont__std__oct_4, &frame__std__oct_3, 2247, 2251, 5, 19},
-  {entry__std__oct_11, NULL, 2254, 2254, 19, 28},
-  {cont__std__oct_12, &frame__std__oct_11, 2254, 2254, 14, 28},
-  {cont__std__oct_13, &frame__std__oct_11, 2254, 2254, 5, 29},
-  {cont__std__oct_14, &frame__std__oct_11, 2255, 2255, 5, 17},
-  {cont__std__oct_15, &frame__std__oct_11, 2255, 2255, 17, 17},
-  {entry__std__oct_9, NULL, 2253, 2253, 12, 18},
-  {cont__std__oct_10, &frame__std__oct_9, 2253, 2255, 9, 17},
-  {entry__std__oct_18, NULL, 2256, 2256, 30, 51},
-  {cont__std__oct_19, &frame__std__oct_18, 2256, 2256, 23, 51},
-  {entry__std__oct_1, NULL, 2246, 2246, 6, 13},
-  {cont__std__oct_2, &frame__std__oct_1, 2246, 2251, 3, 20},
-  {cont__std__oct_8, &frame__std__oct_1, 2253, 2255, 3, 17},
-  {cont__std__oct_16, &frame__std__oct_1, 2256, 2256, 6, 20},
-  {cont__std__oct_17, &frame__std__oct_1, 2256, 2256, 3, 51},
-  {cont__std__oct_20, &frame__std__oct_1, 2257, 2257, 3, 8},
-  {entry__std__hex_5, NULL, 2277, 2277, 16, 28},
-  {cont__std__hex_6, &frame__std__hex_5, 2277, 2277, 9, 28},
-  {entry__std__hex_7, NULL, 2279, 2279, 9, 18},
-  {entry__std__hex_3, NULL, 2276, 2276, 7, 21},
-  {cont__std__hex_4, &frame__std__hex_3, 2275, 2279, 5, 19},
-  {entry__std__hex_15, NULL, 2285, 2285, 20, 32},
-  {cont__std__hex_16, &frame__std__hex_15, 2285, 2285, 9, 35},
-  {cont__std__hex_17, &frame__std__hex_15, 2285, 2285, 35, 35},
-  {entry__std__hex_18, NULL, 2287, 2287, 9, 32},
-  {cont__std__hex_19, &frame__std__hex_18, 2287, 2287, 32, 32},
-  {entry__std__hex_11, NULL, 2282, 2282, 5, 26},
-  {cont__std__hex_12, &frame__std__hex_11, 2284, 2284, 7, 21},
-  {cont__std__hex_13, &frame__std__hex_11, 2284, 2284, 7, 21},
-  {cont__std__hex_14, &frame__std__hex_11, 2283, 2287, 5, 33},
-  {cont__std__hex_20, &frame__std__hex_11, 2288, 2288, 5, 22},
-  {cont__std__hex_21, &frame__std__hex_11, 2289, 2289, 5, 17},
-  {cont__std__hex_22, &frame__std__hex_11, 2289, 2289, 17, 17},
-  {entry__std__hex_9, NULL, 2281, 2281, 12, 18},
-  {cont__std__hex_10, &frame__std__hex_9, 2281, 2289, 9, 17},
-  {entry__std__hex_25, NULL, 2290, 2290, 30, 51},
-  {cont__std__hex_26, &frame__std__hex_25, 2290, 2290, 23, 51},
-  {entry__std__hex_1, NULL, 2274, 2274, 6, 13},
-  {cont__std__hex_2, &frame__std__hex_1, 2274, 2279, 3, 20},
-  {cont__std__hex_8, &frame__std__hex_1, 2281, 2289, 3, 17},
-  {cont__std__hex_23, &frame__std__hex_1, 2290, 2290, 6, 20},
-  {cont__std__hex_24, &frame__std__hex_1, 2290, 2290, 3, 51},
-  {cont__std__hex_27, &frame__std__hex_1, 2291, 2291, 3, 8},
-  {entry__types__integer__to_integer_1, NULL, 2299, 2299, 3, 10},
-  {entry__types__real__to_integer_1, NULL, 2304, 2308, 3, 2},
-  {entry__types__number__floor_1, NULL, 2316, 2316, 3, 9},
-  {entry__types__number__ceil_1, NULL, 2324, 2324, 3, 9},
-  {entry__types__number__round_1, NULL, 2332, 2332, 3, 9},
-  {entry__types__real__floor_1, NULL, 2337, 2340, 3, 2},
-  {entry__types__real__ceil_1, NULL, 2345, 2348, 3, 2},
-  {entry__types__real__round_1, NULL, 2354, 2357, 3, 2},
-  {entry__types__real__ln_1, NULL, 2362, 2365, 3, 2}
+  {entry__types__positive_integer__negate_1, NULL, 497, 502, 3, 2},
+  {entry__types__negative_integer__negate_1, NULL, 507, 511, 3, 2},
+  {entry__types__positive_large_integer__negate_1, NULL, 516, 520, 3, 2},
+  {entry__types__negative_large_integer__negate_1, NULL, 525, 529, 3, 2},
+  {entry__types__real__negate_1, NULL, 534, 537, 3, 2},
+  {entry__types__positive_integer__plus_1, NULL, 597, 624, 3, 2},
+  {entry__types__positive_integer__minus_1, NULL, 629, 656, 3, 2},
+  {entry__types__negative_integer__plus_1, NULL, 661, 688, 3, 2},
+  {entry__types__negative_integer__minus_1, NULL, 693, 720, 3, 2},
+  {entry__types__positive_large_integer__plus_1, NULL, 796, 832, 3, 2},
+  {entry__types__positive_large_integer__minus_1, NULL, 837, 873, 3, 2},
+  {entry__types__negative_large_integer__plus_1, NULL, 878, 914, 3, 2},
+  {entry__types__negative_large_integer__minus_1, NULL, 919, 955, 3, 2},
+  {entry__types__real__plus_1, NULL, 960, 987, 3, 2},
+  {entry__types__real__minus_1, NULL, 992, 1019, 3, 2},
+  {entry__types__positive_integer__times_1, NULL, 1062, 1087, 3, 2},
+  {entry__types__negative_integer__times_1, NULL, 1092, 1117, 3, 2},
+  {entry__types__positive_large_integer__times_1, NULL, 1152, 1188, 3, 2},
+  {entry__types__negative_large_integer__times_1, NULL, 1193, 1229, 3, 2},
+  {entry__types__real__times_1, NULL, 1234, 1259, 3, 2},
+  {entry__types__positive_integer__over_1, NULL, 1281, 1304, 3, 2},
+  {entry__types__negative_integer__over_1, NULL, 1309, 1332, 3, 2},
+  {entry__types__positive_large_integer__over_1, NULL, 1382, 1418, 3, 2},
+  {entry__types__negative_large_integer__over_1, NULL, 1423, 1459, 3, 2},
+  {entry__types__real__over_1, NULL, 1464, 1489, 3, 2},
+  {entry__types__positive_integer__div_1, NULL, 1494, 1502, 3, 2},
+  {entry__types__positive_integer__mod_1, NULL, 1507, 1515, 3, 2},
+  {entry__types__positive_integer__equal_1, NULL, 1523, 1531, 3, 2},
+  {entry__types__positive_integer__equal_type_and_value_1, NULL, 1539, 1545, 3, 2},
+  {entry__types__negative_integer__equal_1, NULL, 1553, 1561, 3, 2},
+  {entry__types__negative_integer__equal_type_and_value_1, NULL, 1569, 1575, 3, 2},
+  {entry__types__positive_large_integer__equal_1, NULL, 1583, 1601, 3, 2},
+  {entry__types__positive_large_integer__equal_type_and_value_1, NULL, 1609, 1622, 3, 2},
+  {entry__types__negative_large_integer__equal_1, NULL, 1630, 1648, 3, 2},
+  {entry__types__negative_large_integer__equal_type_and_value_1, NULL, 1656, 1669, 3, 2},
+  {entry__types__real__equal_1, NULL, 1677, 1697, 3, 2},
+  {entry__types__real__equal_type_and_value_1, NULL, 1705, 1711, 3, 2},
+  {entry__types__positive_integer__less_1, NULL, 1716, 1732, 3, 2},
+  {entry__types__negative_integer__less_1, NULL, 1737, 1753, 3, 2},
+  {entry__types__positive_large_integer__less_1, NULL, 1758, 1783, 3, 2},
+  {entry__types__negative_large_integer__less_1, NULL, 1788, 1813, 3, 2},
+  {entry__types__real__less_1, NULL, 1818, 1838, 3, 2},
+  {entry__types__positive_integer__shift_left_1, NULL, 1871, 1912, 3, 2},
+  {entry__types__positive_large_integer__shift_left_1, NULL, 1919, 1942, 3, 2},
+  {entry__types__positive_integer__shift_right_1, NULL, 1949, 1955, 3, 2},
+  {entry__types__positive_large_integer__shift_right_1, NULL, 1962, 2000, 3, 2},
+  {entry__types__positive_integer__bit_or_1, NULL, 2007, 2015, 3, 2},
+  {entry__types__positive_integer__bit_and_1, NULL, 2022, 2030, 3, 2},
+  {entry__types__positive_integer__bit_xor_1, NULL, 2037, 2045, 3, 2},
+  {entry__types__positive_integer__hash_1, NULL, 2050, 2059, 3, 2},
+  {entry__types__negative_integer__hash_1, NULL, 2064, 2073, 3, 2},
+  {entry__types__positive_integer__to_string_1, NULL, 2078, 2083, 3, 2},
+  {entry__types__negative_integer__to_string_1, NULL, 2096, 2101, 3, 2},
+  {entry__types__positive_large_integer__to_string_1, NULL, 2142, 2145, 3, 2},
+  {entry__types__negative_large_integer__to_string_1, NULL, 2158, 2161, 3, 2},
+  {entry__types__real__to_string_1, NULL, 2174, 2179, 3, 2},
+  {entry__std__is_odd_1, NULL, 2195, 2195, 6, 10},
+  {cont__std__is_odd_2, &frame__std__is_odd_1, 2195, 2195, 6, 15},
+  {cont__std__is_odd_3, &frame__std__is_odd_1, 2195, 2195, 3, 15},
+  {entry__std__is_even_1, NULL, 2203, 2203, 6, 10},
+  {cont__std__is_even_2, &frame__std__is_even_1, 2203, 2203, 6, 15},
+  {cont__std__is_even_3, &frame__std__is_even_1, 2203, 2203, 3, 15},
+  {entry__std__bin_5, NULL, 2223, 2223, 16, 28},
+  {cont__std__bin_7, &frame__std__bin_5, 2223, 2223, 9, 28},
+  {entry__std__bin_8, NULL, 2225, 2225, 9, 18},
+  {entry__std__bin_3, NULL, 2222, 2222, 7, 21},
+  {cont__std__bin_4, &frame__std__bin_3, 2221, 2225, 5, 19},
+  {entry__std__bin_12, NULL, 2228, 2228, 19, 25},
+  {cont__std__bin_13, &frame__std__bin_12, 2228, 2228, 14, 25},
+  {cont__std__bin_14, &frame__std__bin_12, 2228, 2228, 5, 26},
+  {cont__std__bin_15, &frame__std__bin_12, 2229, 2229, 5, 17},
+  {cont__std__bin_16, &frame__std__bin_12, 2229, 2229, 17, 17},
+  {entry__std__bin_10, NULL, 2227, 2227, 12, 18},
+  {cont__std__bin_11, &frame__std__bin_10, 2227, 2229, 9, 17},
+  {entry__std__bin_19, NULL, 2230, 2230, 30, 51},
+  {cont__std__bin_20, &frame__std__bin_19, 2230, 2230, 23, 51},
+  {entry__std__bin_1, NULL, 2220, 2220, 6, 13},
+  {cont__std__bin_2, &frame__std__bin_1, 2220, 2225, 3, 20},
+  {cont__std__bin_9, &frame__std__bin_1, 2227, 2229, 3, 17},
+  {cont__std__bin_17, &frame__std__bin_1, 2230, 2230, 6, 20},
+  {cont__std__bin_18, &frame__std__bin_1, 2230, 2230, 3, 51},
+  {cont__std__bin_21, &frame__std__bin_1, 2231, 2231, 3, 8},
+  {entry__std__oct_5, NULL, 2251, 2251, 16, 28},
+  {cont__std__oct_6, &frame__std__oct_5, 2251, 2251, 9, 28},
+  {entry__std__oct_7, NULL, 2253, 2253, 9, 18},
+  {entry__std__oct_3, NULL, 2250, 2250, 7, 21},
+  {cont__std__oct_4, &frame__std__oct_3, 2249, 2253, 5, 19},
+  {entry__std__oct_11, NULL, 2256, 2256, 19, 28},
+  {cont__std__oct_12, &frame__std__oct_11, 2256, 2256, 14, 28},
+  {cont__std__oct_13, &frame__std__oct_11, 2256, 2256, 5, 29},
+  {cont__std__oct_14, &frame__std__oct_11, 2257, 2257, 5, 17},
+  {cont__std__oct_15, &frame__std__oct_11, 2257, 2257, 17, 17},
+  {entry__std__oct_9, NULL, 2255, 2255, 12, 18},
+  {cont__std__oct_10, &frame__std__oct_9, 2255, 2257, 9, 17},
+  {entry__std__oct_18, NULL, 2258, 2258, 30, 51},
+  {cont__std__oct_19, &frame__std__oct_18, 2258, 2258, 23, 51},
+  {entry__std__oct_1, NULL, 2248, 2248, 6, 13},
+  {cont__std__oct_2, &frame__std__oct_1, 2248, 2253, 3, 20},
+  {cont__std__oct_8, &frame__std__oct_1, 2255, 2257, 3, 17},
+  {cont__std__oct_16, &frame__std__oct_1, 2258, 2258, 6, 20},
+  {cont__std__oct_17, &frame__std__oct_1, 2258, 2258, 3, 51},
+  {cont__std__oct_20, &frame__std__oct_1, 2259, 2259, 3, 8},
+  {entry__std__hex_5, NULL, 2279, 2279, 16, 28},
+  {cont__std__hex_6, &frame__std__hex_5, 2279, 2279, 9, 28},
+  {entry__std__hex_7, NULL, 2281, 2281, 9, 18},
+  {entry__std__hex_3, NULL, 2278, 2278, 7, 21},
+  {cont__std__hex_4, &frame__std__hex_3, 2277, 2281, 5, 19},
+  {entry__std__hex_15, NULL, 2287, 2287, 20, 32},
+  {cont__std__hex_16, &frame__std__hex_15, 2287, 2287, 9, 35},
+  {cont__std__hex_17, &frame__std__hex_15, 2287, 2287, 35, 35},
+  {entry__std__hex_18, NULL, 2289, 2289, 9, 32},
+  {cont__std__hex_19, &frame__std__hex_18, 2289, 2289, 32, 32},
+  {entry__std__hex_11, NULL, 2284, 2284, 5, 26},
+  {cont__std__hex_12, &frame__std__hex_11, 2286, 2286, 7, 21},
+  {cont__std__hex_13, &frame__std__hex_11, 2286, 2286, 7, 21},
+  {cont__std__hex_14, &frame__std__hex_11, 2285, 2289, 5, 33},
+  {cont__std__hex_20, &frame__std__hex_11, 2290, 2290, 5, 22},
+  {cont__std__hex_21, &frame__std__hex_11, 2291, 2291, 5, 17},
+  {cont__std__hex_22, &frame__std__hex_11, 2291, 2291, 17, 17},
+  {entry__std__hex_9, NULL, 2283, 2283, 12, 18},
+  {cont__std__hex_10, &frame__std__hex_9, 2283, 2291, 9, 17},
+  {entry__std__hex_25, NULL, 2292, 2292, 30, 51},
+  {cont__std__hex_26, &frame__std__hex_25, 2292, 2292, 23, 51},
+  {entry__std__hex_1, NULL, 2276, 2276, 6, 13},
+  {cont__std__hex_2, &frame__std__hex_1, 2276, 2281, 3, 20},
+  {cont__std__hex_8, &frame__std__hex_1, 2283, 2291, 3, 17},
+  {cont__std__hex_23, &frame__std__hex_1, 2292, 2292, 6, 20},
+  {cont__std__hex_24, &frame__std__hex_1, 2292, 2292, 3, 51},
+  {cont__std__hex_27, &frame__std__hex_1, 2293, 2293, 3, 8},
+  {entry__types__integer__to_integer_1, NULL, 2301, 2301, 3, 10},
+  {entry__types__real__to_integer_1, NULL, 2306, 2310, 3, 2},
+  {entry__types__number__floor_1, NULL, 2318, 2318, 3, 9},
+  {entry__types__number__ceil_1, NULL, 2326, 2326, 3, 9},
+  {entry__types__number__round_1, NULL, 2334, 2334, 3, 9},
+  {entry__types__real__floor_1, NULL, 2339, 2342, 3, 2},
+  {entry__types__real__ceil_1, NULL, 2347, 2350, 3, 2},
+  {entry__types__real__round_1, NULL, 2355, 2358, 3, 2},
+  {entry__types__real__ln_1, NULL, 2363, 2366, 3, 2}
 };
 
 union NODE {
@@ -1076,6 +1076,10 @@ union NODE {
   REAL real;
 };
 static void type__std__integer_plus_me(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__integer_plus_me);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1098,6 +1102,10 @@ static void type__std__integer_plus_me(void) {
   }
 }
 static void type__std__integer_minus_me(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__integer_minus_me);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1120,6 +1128,10 @@ static void type__std__integer_minus_me(void) {
   }
 }
 static void type__std__integer_times_me(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__integer_times_me);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1142,6 +1154,10 @@ static void type__std__integer_times_me(void) {
   }
 }
 static void type__std__integer_over_me(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__integer_over_me);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1164,6 +1180,10 @@ static void type__std__integer_over_me(void) {
   }
 }
 static void type__std__real_plus_me(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__real_plus_me);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1186,6 +1206,10 @@ static void type__std__real_plus_me(void) {
   }
 }
 static void type__std__real_minus_me(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__real_minus_me);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1208,6 +1232,10 @@ static void type__std__real_minus_me(void) {
   }
 }
 static void type__std__real_times_me(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__real_times_me);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1230,6 +1258,10 @@ static void type__std__real_times_me(void) {
   }
 }
 static void type__std__real_over_me(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__real_over_me);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1252,6 +1284,10 @@ static void type__std__real_over_me(void) {
   }
 }
 static void type__std__is_a_number(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_a_number);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1274,6 +1310,10 @@ static void type__std__is_a_number(void) {
   }
 }
 static void type__std__is_an_integer(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_an_integer);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1296,6 +1336,10 @@ static void type__std__is_an_integer(void) {
   }
 }
 static void type__std__is_a_real(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__is_a_real);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1318,6 +1362,10 @@ static void type__std__is_a_real(void) {
   }
 }
 static void type__std__floor(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__floor);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1340,6 +1388,10 @@ static void type__std__floor(void) {
   }
 }
 static void type__std__ceil(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__ceil);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1362,6 +1414,10 @@ static void type__std__ceil(void) {
   }
 }
 static void type__std__round(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__round);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -1384,6 +1440,10 @@ static void type__std__round(void) {
   }
 }
 static void type__std__ln(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
   myself = get_attribute(arguments->slots[0], poly_idx__std__ln);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
@@ -4885,7 +4945,7 @@ static void entry__std__is_odd_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 2193: ... n & 1
+  // 2195: ... n & 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -4901,7 +4961,7 @@ static void cont__std__is_odd_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 2193: ... n & 1 == 1
+  // 2195: ... n & 1 == 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4917,7 +4977,7 @@ static void cont__std__is_odd_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2193: -> n & 1 == 1
+  // 2195: -> n & 1 == 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4933,7 +4993,7 @@ static void entry__std__is_even_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 2201: ... n & 1
+  // 2203: ... n & 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -4949,7 +5009,7 @@ static void cont__std__is_even_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 2201: ... n & 1 == 0
+  // 2203: ... n & 1 == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4965,7 +5025,7 @@ static void cont__std__is_even_3(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2201: -> n & 1 == 0
+  // 2203: -> n & 1 == 0
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4998,7 +5058,7 @@ static void entry__std__bin_1(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* size */ = undefined;
   }
-  // 2218: ... val == 0
+  // 2220: ... val == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* val */;
@@ -5014,19 +5074,19 @@ static void cont__std__bin_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2218: ... :
-  // 2219:   if
-  // 2220:     size.is_defined:
-  // 2221:       return dup("0" size)
-  // 2222:     :
-  // 2223:       return "0"
+  // 2220: ... :
+  // 2221:   if
+  // 2222:     size.is_defined:
+  // 2223:       return dup("0" size)
+  // 2224:     :
+  // 2225:       return "0"
   frame->slots[5] /* temp__2 */ = create_closure(entry__std__bin_3, 0);
-  // 2218: if val == 0:
-  // 2219:   if
-  // 2220:     size.is_defined:
-  // 2221:       return dup("0" size)
-  // 2222:     :
-  // 2223:       return "0"
+  // 2220: if val == 0:
+  // 2221:   if
+  // 2222:     size.is_defined:
+  // 2223:       return dup("0" size)
+  // 2224:     :
+  // 2225:       return "0"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5047,7 +5107,7 @@ static void entry__std__bin_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 2221: ... dup("0" size)
+  // 2223: ... dup("0" size)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__578a5af303e9cd1;
@@ -5063,7 +5123,7 @@ static void cont__std__bin_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2221: return dup("0" size)
+  // 2223: return dup("0" size)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5081,7 +5141,7 @@ static void entry__std__bin_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 2223: return "0"
+  // 2225: return "0"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__578a5af303e9cd1;
@@ -5101,7 +5161,7 @@ static void entry__std__bin_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 2220: size.is_defined
+  // 2222: size.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* size */;
@@ -5116,17 +5176,17 @@ static void cont__std__bin_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2220: ... :
-  // 2221:   return dup("0" size)
+  // 2222: ... :
+  // 2223:   return dup("0" size)
   frame->slots[3] /* temp__2 */ = create_closure(entry__std__bin_5, 0);
-  // 2222: :
-  // 2223:   return "0"
+  // 2224: :
+  // 2225:   return "0"
   frame->slots[4] /* temp__3 */ = create_closure(entry__std__bin_8, 0);
-  // 2219: if
-  // 2220:   size.is_defined:
-  // 2221:     return dup("0" size)
-  // 2222:   :
-  // 2223:     return "0"
+  // 2221: if
+  // 2222:   size.is_defined:
+  // 2223:     return dup("0" size)
+  // 2224:   :
+  // 2225:     return "0"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5142,15 +5202,15 @@ static void cont__std__bin_9(void) {
     invalid_results_error();
     return;
   }
-  // 2224: $$str ""
+  // 2226: $$str ""
   ((CELL *)frame->slots[3])->contents /* str */ = empty_string;
-  // 2225: ... -> val > 0:
-  // 2226:   put &str '0'+(val & 1)
-  // 2227:   !val val >> 1
+  // 2227: ... -> val > 0:
+  // 2228:   put &str '0'+(val & 1)
+  // 2229:   !val val >> 1
   frame->slots[4] /* temp__1 */ = create_closure(entry__std__bin_10, 0);
-  // 2225: while -> val > 0:
-  // 2226:   put &str '0'+(val & 1)
-  // 2227:   !val val >> 1
+  // 2227: while -> val > 0:
+  // 2228:   put &str '0'+(val & 1)
+  // 2229:   !val val >> 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5170,7 +5230,7 @@ static void entry__std__bin_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 2226: ... val & 1
+  // 2228: ... val & 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* val */;
@@ -5186,7 +5246,7 @@ static void cont__std__bin_13(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 2226: ... '0'+(val & 1
+  // 2228: ... '0'+(val & 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__48;
@@ -5202,7 +5262,7 @@ static void cont__std__bin_14(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2226: put &str '0'+(val & 1)
+  // 2228: put &str '0'+(val & 1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* str */;
@@ -5218,7 +5278,7 @@ static void cont__std__bin_15(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* str */ = arguments->slots[0];
-  // 2227: !val val >> 1
+  // 2229: !val val >> 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* val */;
@@ -5251,7 +5311,7 @@ static void entry__std__bin_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 2225: ... val > 0
+  // 2227: ... val > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -5267,13 +5327,13 @@ static void cont__std__bin_11(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2225: ... :
-  // 2226:   put &str '0'+(val & 1)
-  // 2227:   !val val >> 1
+  // 2227: ... :
+  // 2228:   put &str '0'+(val & 1)
+  // 2229:   !val val >> 1
   frame->slots[3] /* temp__2 */ = create_closure(entry__std__bin_12, 0);
-  // 2225: ... -> val > 0:
-  // 2226:   put &str '0'+(val & 1)
-  // 2227:   !val val >> 1
+  // 2227: ... -> val > 0:
+  // 2228:   put &str '0'+(val & 1)
+  // 2229:   !val val >> 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5287,7 +5347,7 @@ static void cont__std__bin_17(void) {
     invalid_results_error();
     return;
   }
-  // 2228: ... size.is_defined
+  // 2230: ... size.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* size */;
@@ -5302,9 +5362,9 @@ static void cont__std__bin_18(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2228: ... : return pad_left(str size "0")
+  // 2230: ... : return pad_left(str size "0")
   frame->slots[5] /* temp__2 */ = create_closure(entry__std__bin_19, 0);
-  // 2228: if size.is_defined: return pad_left(str size "0")
+  // 2230: if size.is_defined: return pad_left(str size "0")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5327,7 +5387,7 @@ static void entry__std__bin_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 2228: ... pad_left(str size "0")
+  // 2230: ... pad_left(str size "0")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* str */;
@@ -5344,7 +5404,7 @@ static void cont__std__bin_20(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 2228: ... return pad_left(str size "0")
+  // 2230: ... return pad_left(str size "0")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -5358,7 +5418,7 @@ static void cont__std__bin_21(void) {
     invalid_results_error();
     return;
   }
-  // 2229: -> str
+  // 2231: -> str
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* str */;
@@ -5391,7 +5451,7 @@ static void entry__std__oct_1(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* size */ = undefined;
   }
-  // 2246: ... val == 0
+  // 2248: ... val == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* val */;
@@ -5407,19 +5467,19 @@ static void cont__std__oct_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2246: ... :
-  // 2247:   if
-  // 2248:     size.is_defined:
-  // 2249:       return dup("0" size)
-  // 2250:     :
-  // 2251:       return "0"
+  // 2248: ... :
+  // 2249:   if
+  // 2250:     size.is_defined:
+  // 2251:       return dup("0" size)
+  // 2252:     :
+  // 2253:       return "0"
   frame->slots[5] /* temp__2 */ = create_closure(entry__std__oct_3, 0);
-  // 2246: if val == 0:
-  // 2247:   if
-  // 2248:     size.is_defined:
-  // 2249:       return dup("0" size)
-  // 2250:     :
-  // 2251:       return "0"
+  // 2248: if val == 0:
+  // 2249:   if
+  // 2250:     size.is_defined:
+  // 2251:       return dup("0" size)
+  // 2252:     :
+  // 2253:       return "0"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5440,7 +5500,7 @@ static void entry__std__oct_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 2249: ... dup("0" size)
+  // 2251: ... dup("0" size)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__578a5af303e9cd1;
@@ -5456,7 +5516,7 @@ static void cont__std__oct_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2249: return dup("0" size)
+  // 2251: return dup("0" size)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5474,7 +5534,7 @@ static void entry__std__oct_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 2251: return "0"
+  // 2253: return "0"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__578a5af303e9cd1;
@@ -5494,7 +5554,7 @@ static void entry__std__oct_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 2248: size.is_defined
+  // 2250: size.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* size */;
@@ -5509,17 +5569,17 @@ static void cont__std__oct_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2248: ... :
-  // 2249:   return dup("0" size)
+  // 2250: ... :
+  // 2251:   return dup("0" size)
   frame->slots[3] /* temp__2 */ = create_closure(entry__std__oct_5, 0);
-  // 2250: :
-  // 2251:   return "0"
+  // 2252: :
+  // 2253:   return "0"
   frame->slots[4] /* temp__3 */ = create_closure(entry__std__oct_7, 0);
-  // 2247: if
-  // 2248:   size.is_defined:
-  // 2249:     return dup("0" size)
-  // 2250:   :
-  // 2251:     return "0"
+  // 2249: if
+  // 2250:   size.is_defined:
+  // 2251:     return dup("0" size)
+  // 2252:   :
+  // 2253:     return "0"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5535,15 +5595,15 @@ static void cont__std__oct_8(void) {
     invalid_results_error();
     return;
   }
-  // 2252: $$str ""
+  // 2254: $$str ""
   ((CELL *)frame->slots[3])->contents /* str */ = empty_string;
-  // 2253: ... -> val > 0:
-  // 2254:   put &str '0'+(val & 0x07)
-  // 2255:   !val val >> 3
+  // 2255: ... -> val > 0:
+  // 2256:   put &str '0'+(val & 0x07)
+  // 2257:   !val val >> 3
   frame->slots[4] /* temp__1 */ = create_closure(entry__std__oct_9, 0);
-  // 2253: while -> val > 0:
-  // 2254:   put &str '0'+(val & 0x07)
-  // 2255:   !val val >> 3
+  // 2255: while -> val > 0:
+  // 2256:   put &str '0'+(val & 0x07)
+  // 2257:   !val val >> 3
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5563,7 +5623,7 @@ static void entry__std__oct_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 2254: ... val & 0x07
+  // 2256: ... val & 0x07
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* val */;
@@ -5579,7 +5639,7 @@ static void cont__std__oct_12(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 2254: ... '0'+(val & 0x07
+  // 2256: ... '0'+(val & 0x07
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__48;
@@ -5595,7 +5655,7 @@ static void cont__std__oct_13(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2254: put &str '0'+(val & 0x07)
+  // 2256: put &str '0'+(val & 0x07)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* str */;
@@ -5611,7 +5671,7 @@ static void cont__std__oct_14(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* str */ = arguments->slots[0];
-  // 2255: !val val >> 3
+  // 2257: !val val >> 3
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* val */;
@@ -5644,7 +5704,7 @@ static void entry__std__oct_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 2253: ... val > 0
+  // 2255: ... val > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -5660,13 +5720,13 @@ static void cont__std__oct_10(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2253: ... :
-  // 2254:   put &str '0'+(val & 0x07)
-  // 2255:   !val val >> 3
+  // 2255: ... :
+  // 2256:   put &str '0'+(val & 0x07)
+  // 2257:   !val val >> 3
   frame->slots[3] /* temp__2 */ = create_closure(entry__std__oct_11, 0);
-  // 2253: ... -> val > 0:
-  // 2254:   put &str '0'+(val & 0x07)
-  // 2255:   !val val >> 3
+  // 2255: ... -> val > 0:
+  // 2256:   put &str '0'+(val & 0x07)
+  // 2257:   !val val >> 3
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5680,7 +5740,7 @@ static void cont__std__oct_16(void) {
     invalid_results_error();
     return;
   }
-  // 2256: ... size.is_defined
+  // 2258: ... size.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* size */;
@@ -5695,9 +5755,9 @@ static void cont__std__oct_17(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2256: ... : return pad_left(str size "0")
+  // 2258: ... : return pad_left(str size "0")
   frame->slots[5] /* temp__2 */ = create_closure(entry__std__oct_18, 0);
-  // 2256: if size.is_defined: return pad_left(str size "0")
+  // 2258: if size.is_defined: return pad_left(str size "0")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5720,7 +5780,7 @@ static void entry__std__oct_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 2256: ... pad_left(str size "0")
+  // 2258: ... pad_left(str size "0")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* str */;
@@ -5737,7 +5797,7 @@ static void cont__std__oct_19(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 2256: ... return pad_left(str size "0")
+  // 2258: ... return pad_left(str size "0")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -5751,7 +5811,7 @@ static void cont__std__oct_20(void) {
     invalid_results_error();
     return;
   }
-  // 2257: -> str
+  // 2259: -> str
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* str */;
@@ -5784,7 +5844,7 @@ static void entry__std__hex_1(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* size */ = undefined;
   }
-  // 2274: ... val == 0
+  // 2276: ... val == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* val */;
@@ -5800,19 +5860,19 @@ static void cont__std__hex_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2274: ... :
-  // 2275:   if
-  // 2276:     size.is_defined:
-  // 2277:       return dup("0" size)
-  // 2278:     :
-  // 2279:       return "0"
+  // 2276: ... :
+  // 2277:   if
+  // 2278:     size.is_defined:
+  // 2279:       return dup("0" size)
+  // 2280:     :
+  // 2281:       return "0"
   frame->slots[5] /* temp__2 */ = create_closure(entry__std__hex_3, 0);
-  // 2274: if val == 0:
-  // 2275:   if
-  // 2276:     size.is_defined:
-  // 2277:       return dup("0" size)
-  // 2278:     :
-  // 2279:       return "0"
+  // 2276: if val == 0:
+  // 2277:   if
+  // 2278:     size.is_defined:
+  // 2279:       return dup("0" size)
+  // 2280:     :
+  // 2281:       return "0"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5833,7 +5893,7 @@ static void entry__std__hex_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 2277: ... dup("0" size)
+  // 2279: ... dup("0" size)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__578a5af303e9cd1;
@@ -5849,7 +5909,7 @@ static void cont__std__hex_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2277: return dup("0" size)
+  // 2279: return dup("0" size)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5867,7 +5927,7 @@ static void entry__std__hex_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 2279: return "0"
+  // 2281: return "0"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__578a5af303e9cd1;
@@ -5887,7 +5947,7 @@ static void entry__std__hex_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 2276: size.is_defined
+  // 2278: size.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* size */;
@@ -5902,17 +5962,17 @@ static void cont__std__hex_4(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2276: ... :
-  // 2277:   return dup("0" size)
+  // 2278: ... :
+  // 2279:   return dup("0" size)
   frame->slots[3] /* temp__2 */ = create_closure(entry__std__hex_5, 0);
-  // 2278: :
-  // 2279:   return "0"
+  // 2280: :
+  // 2281:   return "0"
   frame->slots[4] /* temp__3 */ = create_closure(entry__std__hex_7, 0);
-  // 2275: if
-  // 2276:   size.is_defined:
-  // 2277:     return dup("0" size)
-  // 2278:   :
-  // 2279:     return "0"
+  // 2277: if
+  // 2278:   size.is_defined:
+  // 2279:     return dup("0" size)
+  // 2280:   :
+  // 2281:     return "0"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5928,27 +5988,27 @@ static void cont__std__hex_8(void) {
     invalid_results_error();
     return;
   }
-  // 2280: $$str ""
+  // 2282: $$str ""
   ((CELL *)frame->slots[3])->contents /* str */ = empty_string;
-  // 2281: ... -> val > 0:
-  // 2282:   $$hex_digit val & 0x0f
-  // 2283:   if
-  // 2284:     hex_digit >= 10:
-  // 2285:       !hex_digit 'a'+hex_digit-10
-  // 2286:     :
-  // 2287:       !hex_digit '0'+hex_digit
-  // 2288:   put &str hex_digit
-  // 2289:   !val val >> 4
+  // 2283: ... -> val > 0:
+  // 2284:   $$hex_digit val & 0x0f
+  // 2285:   if
+  // 2286:     hex_digit >= 10:
+  // 2287:       !hex_digit 'a'+hex_digit-10
+  // 2288:     :
+  // 2289:       !hex_digit '0'+hex_digit
+  // 2290:   put &str hex_digit
+  // 2291:   !val val >> 4
   frame->slots[4] /* temp__1 */ = create_closure(entry__std__hex_9, 0);
-  // 2281: while -> val > 0:
-  // 2282:   $$hex_digit val & 0x0f
-  // 2283:   if
-  // 2284:     hex_digit >= 10:
-  // 2285:       !hex_digit 'a'+hex_digit-10
-  // 2286:     :
-  // 2287:       !hex_digit '0'+hex_digit
-  // 2288:   put &str hex_digit
-  // 2289:   !val val >> 4
+  // 2283: while -> val > 0:
+  // 2284:   $$hex_digit val & 0x0f
+  // 2285:   if
+  // 2286:     hex_digit >= 10:
+  // 2287:       !hex_digit 'a'+hex_digit-10
+  // 2288:     :
+  // 2289:       !hex_digit '0'+hex_digit
+  // 2290:   put &str hex_digit
+  // 2291:   !val val >> 4
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -5970,7 +6030,7 @@ static void entry__std__hex_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 2282: $$hex_digit val & 0x0f
+  // 2284: $$hex_digit val & 0x0f
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* val */;
@@ -5986,7 +6046,7 @@ static void cont__std__hex_12(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* hex_digit */ = arguments->slots[0];
-  // 2284: hex_digit >= 10
+  // 2286: hex_digit >= 10
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* hex_digit */;
@@ -6002,7 +6062,7 @@ static void cont__std__hex_13(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 2284: hex_digit >= 10
+  // 2286: hex_digit >= 10
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -6017,17 +6077,17 @@ static void cont__std__hex_14(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 2284: ... :
-  // 2285:   !hex_digit 'a'+hex_digit-10
+  // 2286: ... :
+  // 2287:   !hex_digit 'a'+hex_digit-10
   frame->slots[5] /* temp__3 */ = create_closure(entry__std__hex_15, 0);
-  // 2286: :
-  // 2287:   !hex_digit '0'+hex_digit
+  // 2288: :
+  // 2289:   !hex_digit '0'+hex_digit
   frame->slots[6] /* temp__4 */ = create_closure(entry__std__hex_18, 0);
-  // 2283: if
-  // 2284:   hex_digit >= 10:
-  // 2285:     !hex_digit 'a'+hex_digit-10
-  // 2286:   :
-  // 2287:     !hex_digit '0'+hex_digit
+  // 2285: if
+  // 2286:   hex_digit >= 10:
+  // 2287:     !hex_digit 'a'+hex_digit-10
+  // 2288:   :
+  // 2289:     !hex_digit '0'+hex_digit
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -6047,7 +6107,7 @@ static void entry__std__hex_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 2285: ... 'a'+hex_digit
+  // 2287: ... 'a'+hex_digit
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__97;
@@ -6063,7 +6123,7 @@ static void cont__std__hex_16(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 2285: !hex_digit 'a'+hex_digit-10
+  // 2287: !hex_digit 'a'+hex_digit-10
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6094,7 +6154,7 @@ static void entry__std__hex_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 2287: !hex_digit '0'+hex_digit
+  // 2289: !hex_digit '0'+hex_digit
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__48;
@@ -6121,7 +6181,7 @@ static void cont__std__hex_20(void) {
     invalid_results_error();
     return;
   }
-  // 2288: put &str hex_digit
+  // 2290: put &str hex_digit
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* str */;
@@ -6137,7 +6197,7 @@ static void cont__std__hex_21(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* str */ = arguments->slots[0];
-  // 2289: !val val >> 4
+  // 2291: !val val >> 4
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* val */;
@@ -6170,7 +6230,7 @@ static void entry__std__hex_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 2281: ... val > 0
+  // 2283: ... val > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -6186,25 +6246,25 @@ static void cont__std__hex_10(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 2281: ... :
-  // 2282:   $$hex_digit val & 0x0f
-  // 2283:   if
-  // 2284:     hex_digit >= 10:
-  // 2285:       !hex_digit 'a'+hex_digit-10
-  // 2286:     :
-  // 2287:       !hex_digit '0'+hex_digit
-  // 2288:   put &str hex_digit
-  // 2289:   !val val >> 4
+  // 2283: ... :
+  // 2284:   $$hex_digit val & 0x0f
+  // 2285:   if
+  // 2286:     hex_digit >= 10:
+  // 2287:       !hex_digit 'a'+hex_digit-10
+  // 2288:     :
+  // 2289:       !hex_digit '0'+hex_digit
+  // 2290:   put &str hex_digit
+  // 2291:   !val val >> 4
   frame->slots[3] /* temp__2 */ = create_closure(entry__std__hex_11, 0);
-  // 2281: ... -> val > 0:
-  // 2282:   $$hex_digit val & 0x0f
-  // 2283:   if
-  // 2284:     hex_digit >= 10:
-  // 2285:       !hex_digit 'a'+hex_digit-10
-  // 2286:     :
-  // 2287:       !hex_digit '0'+hex_digit
-  // 2288:   put &str hex_digit
-  // 2289:   !val val >> 4
+  // 2283: ... -> val > 0:
+  // 2284:   $$hex_digit val & 0x0f
+  // 2285:   if
+  // 2286:     hex_digit >= 10:
+  // 2287:       !hex_digit 'a'+hex_digit-10
+  // 2288:     :
+  // 2289:       !hex_digit '0'+hex_digit
+  // 2290:   put &str hex_digit
+  // 2291:   !val val >> 4
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -6218,7 +6278,7 @@ static void cont__std__hex_23(void) {
     invalid_results_error();
     return;
   }
-  // 2290: ... size.is_defined
+  // 2292: ... size.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* size */;
@@ -6233,9 +6293,9 @@ static void cont__std__hex_24(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 2290: ... : return pad_left(str size "0")
+  // 2292: ... : return pad_left(str size "0")
   frame->slots[5] /* temp__2 */ = create_closure(entry__std__hex_25, 0);
-  // 2290: if size.is_defined: return pad_left(str size "0")
+  // 2292: if size.is_defined: return pad_left(str size "0")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -6258,7 +6318,7 @@ static void entry__std__hex_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 2290: ... pad_left(str size "0")
+  // 2292: ... pad_left(str size "0")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* str */;
@@ -6275,7 +6335,7 @@ static void cont__std__hex_26(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 2290: ... return pad_left(str size "0")
+  // 2292: ... return pad_left(str size "0")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -6289,7 +6349,7 @@ static void cont__std__hex_27(void) {
     invalid_results_error();
     return;
   }
-  // 2291: -> str
+  // 2293: -> str
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* str */;
@@ -6305,7 +6365,7 @@ static void entry__types__integer__to_integer_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 2299: -> value
+  // 2301: -> value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* value */;
@@ -6337,7 +6397,7 @@ static void entry__types__number__floor_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 2316: -> self
+  // 2318: -> self
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -6353,7 +6413,7 @@ static void entry__types__number__ceil_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 2324: -> self
+  // 2326: -> self
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -6369,7 +6429,7 @@ static void entry__types__number__round_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 2332: -> self
+  // 2334: -> self
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
