@@ -53,7 +53,7 @@ $INLINE_C_OBJECT .
 $INLINE_C_FUNCTION .
 $UNIQUE_ITEM .
 $CONSTANT .
-$OTHER . #
+$OTHER .
 
 $PARAMETER_COUNT_OR_MYSELF
   alt
@@ -182,7 +182,7 @@ $extract_remark_lines: (node)
 	-> remark_lines_of(arguments(-1))
 
 $extract_documentation_from_file: (filename)
-  ewrite "extracting documentation from @(filename)@nl;"
+  if verbose: ewriteln "extracting documentation from @(filename)"
   $buf load(filename).from_utf8
   if length_of(buf) == 0: Error "Empty source text!"
   if buf(1) <= ' ': Error "Whitespace at start of source text!"
@@ -199,6 +199,7 @@ $extract_documentation_from_file: (filename)
   %%compiler::included_files empty_insert_order_set
   %%compiler::linked_libraries empty_insert_order_set
   %%compiler::enumeration_count 0
+  %%compiler::dependent_data empty_insert_order_set
   $$fragments cut_into_fragments(buf)
   update_each &fragments: (&fragment) tokenize &fragment
   $$trees empty_list
@@ -733,6 +734,40 @@ $get_short_description: (name info)
 	@(short_description)
   add_links &short_description
   -> short_description
+
+$compiler::extract_exports: (paths)
+  !path_prefix truncate_behind(paths(1) '/' -1)
+  for_each paths: (path) extract_documentation_from_directory path
+  for_each definitions: (iname info)
+    $name name_of(info)
+    if name.is_defined:
+      write name ' '
+      case
+	kind_of(info)
+	POLYMORPHIC_ATTRIBUTE:
+	  write "(!)"
+	POLYMORPHIC_FUNCTION:
+	  write "()"
+	OTHER:
+	  case variable_kind_of(info)
+	    STATIC_SINGLE:
+	      write '$'
+	    STATIC_MULTI:
+	      write "$$"
+	    DYNAMIC_SINGLE:
+	      write '%'
+	    DYNAMIC_MULTI:
+	      write "%%"
+	:
+	  write '$'
+      writeln
+    for_each methods_of(info): (method_name _method_info)
+      $obj_name
+	string
+	  behind(iname '/' -1)
+	  "::"
+	  between(iname '/' '/' 2)
+      writeln obj_name '/' method_name
 
 $compiler::extract_documentation: (paths)
   !path_prefix truncate_behind(paths(1) '/' -1)

@@ -94,14 +94,14 @@ copyright "
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 $MAJOR runtime_major_version()
 $MINOR runtime_minor_version()
-$REVISION runtime_revision()
-$VERSION "@(MAJOR).@(MINOR).@(REVISION)"
+$PATCH runtime_patch_version()
+$VERSION "@(MAJOR).@(MINOR).@(PATCH)"
 version VERSION
 extern $cc c_compiler()
 extern $mkdir "mkdir" # would be nice to have one in the system library!
 $SIMLIBPATH environment("SIMLIBPATH")
 $SIMDATAPATH environment("SIMDATAPATH")
-$default_paths list(string(PREFIX() "/share/simplicity-@(VERSION)"))
+$default_paths list(string(PREFIX() "/share/simplicity-@(PACKAGE_VERSION())"))
 
 $simlibpaths
   if
@@ -157,6 +157,7 @@ $$compiler::do_print_summary false
 $$compiler::verbose false
 $$do_print_c false
 $$compiler::do_extract_documentation false
+$$do_extract_exports false
 $$do_build_codeblocks_project false
 $$do_list_dependencies false
 $$do_build_static false
@@ -164,7 +165,7 @@ $$do_link_profiler false
 $$compiler::do_time_passes false
 $$module_prefix undefined
 $$input_filename undefined
-$$additional_libraries undefined
+$$additional_libraries empty_list
 $action truncate_until(program_name '/' -1) .truncate_from. '-'
 if
   action == "simrun":
@@ -230,6 +231,9 @@ if
       !do_extract_documentation
       -> "extract-documentation" "
 	extract documentation encoded as HTML
+      !do_extract_exports
+      -> "extract-exports" "
+	extract a list of exported symbols
       !do_list_dependencies
       -> "list-dependencies" "
 	list all dependencies
@@ -254,6 +258,13 @@ if
       !additional_libraries
       -> std::SOME_PARAMETERS "additional_libraries" "
 	the names of additional libraries (used for --extract-documentation)
+unless
+  ||
+    do_extract_exports
+    do_extract_documentation
+    additional_libraries.is_empty
+  :
+    Error "To many arguments!"
 %main_filename fullname(input_filename)
 %main_info stat(main_filename)
 %do_build_static_executable do_build_static
@@ -858,12 +869,17 @@ $build_codeblocks_project:
 $build_library:
   if action == "simrun": Error "Cannot run a directory!"
   %mode LIB
-  if
-    do_extract_documentation:
+  cond
+    -> do_extract_documentation:
       $$doc_libraries list(main_filename)
       for_each additional_libraries: (library)
 	push &doc_libraries fullname(library)
       extract_documentation doc_libraries
+    -> do_extract_exports:
+      $$doc_libraries list(main_filename)
+      for_each additional_libraries: (library)
+	push &doc_libraries fullname(library)
+      extract_exports doc_libraries
     :
       $$version ""
       $version_filename string(main_filename "/VERSION")

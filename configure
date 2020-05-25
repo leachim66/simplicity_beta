@@ -172,10 +172,10 @@ RUNTIME_MAJOR_VERSION=`cat runtime/linker.c | grep '^#define RUNTIME_MAJOR_VERSI
 RUNTIME_MINOR_VERSION=`cat runtime/linker.c | grep '^#define RUNTIME_MINOR_VERSION' | cut -d ' ' -f 3`
   # denotes a runtime API extension
 
-RUNTIME_REVISION=`cat runtime/linker.c | grep '^#define RUNTIME_REVISION' | cut -d ' ' -f 3`
+RUNTIME_PATCH=`cat runtime/linker.c | grep '^#define RUNTIME_PATCH' | cut -d ' ' -f 3`
   # denotes an internal change in the runtime library
 
-RUNTIME_VERSION="$RUNTIME_MAJOR_VERSION.$RUNTIME_MINOR_VERSION.$RUNTIME_REVISION"
+RUNTIME_VERSION="$RUNTIME_MAJOR_VERSION.$RUNTIME_MINOR_VERSION.$RUNTIME_PATCH"
   # version of the Simplicity runtime DLL (e.g. libsim.so)
 
 DLL_VERSION="$RUNTIME_MAJOR_VERSION"
@@ -183,7 +183,7 @@ DLL_VERSION="$RUNTIME_MAJOR_VERSION"
   # and used for all DLLs built for Simplicity libraries
   # they don't care about the runtime minor version or revision
 
-PACKAGE_VERSION="$RUNTIME_VERSION"
+PACKAGE_VERSION=`cat VERSION`
   # the version used for creating distribution packages
 
 BASEDIR="simplicity-$PACKAGE_VERSION"
@@ -279,6 +279,7 @@ echo "#define CC \"$CC\"" >>runtime/platform.h
 echo "#define CPPFLAGS \"$CPPFLAGS\"" >>runtime/platform.h
 echo "#define LDFLAGS \"$LDFLAGS\"" >>runtime/platform.h
 echo "#define PREFIX \"$PREFIX\"" >>runtime/platform.h
+echo "#define PACKAGE_VERSION \"$PACKAGE_VERSION\"" >>runtime/platform.h
 
 INSTALLED_LIBRARIES=''
   # the set of libraries within MORE_LIBRARIES that is actually installed
@@ -622,12 +623,14 @@ echo
 echo '.PHONY: install'
 echo 'install: all'
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/bin/\""
-echo "${TAB}cp -f compiler/simple$EXE_EXTENSION \"\$(DESTDIR)$PREFIX/bin/simple-$RUNTIME_MAJOR_VERSION\""
+echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/bin/simple-$RUNTIME_MAJOR_VERSION\""
+echo "${TAB}cp compiler/simple$EXE_EXTENSION \"\$(DESTDIR)$PREFIX/bin/simple-$RUNTIME_MAJOR_VERSION\""
 echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\";ln -fs simple-$RUNTIME_MAJOR_VERSION simple"
 echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\";ln -fs simple-$RUNTIME_MAJOR_VERSION simrun-$RUNTIME_MAJOR_VERSION"
 echo "${TAB}cd \"\$(DESTDIR)$PREFIX/bin/\";ln -fs simple-$RUNTIME_MAJOR_VERSION simrun"
 echo "${TAB}mkdir -p -- \"\$(DESTDIR)$PREFIX/lib/\""
-echo "${TAB}cp -f libsim$RUNTIME_DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
+echo "${TAB}rm -f  \"\$(DESTDIR)$PREFIX/lib/libsim$RUNTIME_DLL_EXTENSION\""
+echo "${TAB}cp libsim$RUNTIME_DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
 if [ $OS = 'linux' -o $OS = 'bsd' ]
 then
   echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\";ln -fs libsim$RUNTIME_DLL_EXTENSION libsim.so.$RUNTIME_MAJOR_VERSION"
@@ -642,7 +645,8 @@ for LIBNAME in $ALL_LIBRARIES
 do
   VERSION=`cat $LIBNAME/VERSION`
   MAJOR_VERSION="${VERSION%%.*}"
-  echo "${TAB}cp -f libsim-$LIBNAME-$VERSION$DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
+  echo "${TAB}rm -f \"\$(DESTDIR)$PREFIX/lib/libsim-$LIBNAME-$VERSION$DLL_EXTENSION\""
+  echo "${TAB}cp libsim-$LIBNAME-$VERSION$DLL_EXTENSION \"\$(DESTDIR)$PREFIX/lib/\""
   echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\";ln -fs libsim-$LIBNAME-${VERSION}${DLL_EXTENSION} libsim-$LIBNAME-${MAJOR_VERSION}${DLL_EXTENSION}"
   echo "${TAB}cd \"\$(DESTDIR)$PREFIX/lib/\";ln -fs libsim-$LIBNAME-${VERSION}${DLL_EXTENSION} libsim-${LIBNAME}${DLL_EXTENSION}"
 done

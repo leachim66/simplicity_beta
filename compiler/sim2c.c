@@ -10270,20 +10270,20 @@ static void cont__compiler__sim2c_295(void) {
   // 440:     define non-garbage-collected objects:
   // 441:       numeric literals
   // 442:       character literals
-  // 443:       function literals
-  // 444:       inline-C functions
+  // 443:       string literals
+  // 444:       function literals
+  // 445:       inline-C functions
   ((CELL *)frame->slots[22])->contents /* generated_phase_2 */ = empty_string;
-  // 446: $$generated_phase_3 ""
-  // 447:   #
-  // 448:     reassign memory pool to save literals from garbage collection
-  // 449:     create futures
-  // 450:     create futures with prototypes
-  // 451:     define garbage-collectec objects:
-  // 452:       string literals
+  // 447: $$generated_phase_3 ""
+  // 448:   #
+  // 449:     reassign memory pool to save literals from garbage collection
+  // 450:     create futures
+  // 451:     create futures with prototypes
+  // 452:     define garbage-collectec objects:
   // 453:       single-assign static variables
   // 454:       multi-assign static variables
   // 455:       single-assign dynamic variables
-  // ...
+  // 456:       multi-assign dynamic variables
   ((CELL *)frame->slots[23])->contents /* generated_phase_3 */ = empty_string;
   // 458: $$generated_phase_4 ""
   // 459:   #

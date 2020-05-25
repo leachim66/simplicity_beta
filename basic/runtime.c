@@ -166,6 +166,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT int runtime_patch_version(void);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -213,6 +214,7 @@ IMPORT void register_collector(FUNC collector);
 static struct {
   NODE *std__runtime_major_version;
   NODE *std__runtime_minor_version;
+  NODE *std__runtime_patch_version;
   NODE *std__runtime_revision;
 } var;
 static const char *var_names[] = {
@@ -227,8 +229,11 @@ static NODE *func__std__runtime_minor_version_1;
 static NODE *get__std__runtime_minor_version(void) {
   return var.std__runtime_minor_version;
 }
-static void entry__std__runtime_revision_1(void);
-static NODE *func__std__runtime_revision_1;
+static void entry__std__runtime_patch_version_1(void);
+static NODE *func__std__runtime_patch_version_1;
+static NODE *get__std__runtime_patch_version(void) {
+  return var.std__runtime_patch_version;
+}
 static NODE *get__std__runtime_revision(void) {
   return var.std__runtime_revision;
 }
@@ -238,7 +243,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {run__basic__runtime, NULL, },
   {entry__std__runtime_major_version_1, NULL, 30, 33, 3, 2},
   {entry__std__runtime_minor_version_1, NULL, 42, 45, 3, 2},
-  {entry__std__runtime_revision_1, NULL, 54, 57, 3, 2}
+  {entry__std__runtime_patch_version_1, NULL, 54, 57, 3, 2}
 };
 
 union NODE {
@@ -316,7 +321,7 @@ static void entry__std__runtime_minor_version_1(void) {
     return;
   }
 }
-static void entry__std__runtime_revision_1(void) {
+static void entry__std__runtime_patch_version_1(void) {
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -334,6 +339,7 @@ static void entry__std__runtime_revision_1(void) {
 EXPORT void collect__basic__runtime(void) {
   var.std__runtime_major_version = collect_node(var.std__runtime_major_version);
   var.std__runtime_minor_version = collect_node(var.std__runtime_minor_version);
+  var.std__runtime_patch_version = collect_node(var.std__runtime_patch_version);
   var.std__runtime_revision = collect_node(var.std__runtime_revision);
 }
 
@@ -353,7 +359,7 @@ EXPORT void phase_2__basic__runtime(void) {
   set_module("basic__runtime");
   func__std__runtime_major_version_1 = create_function(entry__std__runtime_major_version_1, 0);
   func__std__runtime_minor_version_1 = create_function(entry__std__runtime_minor_version_1, 0);
-  func__std__runtime_revision_1 = create_function(entry__std__runtime_revision_1, 0);
+  func__std__runtime_patch_version_1 = create_function(entry__std__runtime_patch_version_1, 0);
 }
 
 static int already_run_phase_3 = false;
@@ -365,6 +371,7 @@ EXPORT void phase_3__basic__runtime(void) {
   set_used_namespaces(used_namespaces);
   define_single_assign_static("std", "runtime_major_version", get__std__runtime_major_version, &var.std__runtime_major_version);
   define_single_assign_static("std", "runtime_minor_version", get__std__runtime_minor_version, &var.std__runtime_minor_version);
+  define_single_assign_static("std", "runtime_patch_version", get__std__runtime_patch_version, &var.std__runtime_patch_version);
   define_single_assign_static("std", "runtime_revision", get__std__runtime_revision, &var.std__runtime_revision);
 }
 
@@ -384,7 +391,8 @@ EXPORT void phase_5__basic__runtime(void) {
   already_run_phase_5 = true;
   assign_variable(&var.std__runtime_major_version, &func__std__runtime_major_version_1);
   assign_variable(&var.std__runtime_minor_version, &func__std__runtime_minor_version_1);
-  assign_variable(&var.std__runtime_revision, &func__std__runtime_revision_1);
+  assign_variable(&var.std__runtime_patch_version, &func__std__runtime_patch_version_1);
+  assign_variable(&var.std__runtime_revision, &var.std__runtime_patch_version);
 }
 
 static int already_run_phase_6 = false;

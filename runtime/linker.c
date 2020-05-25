@@ -27,7 +27,7 @@
 #define RUNTIME_MINOR_VERSION 0
 // denotes a runtime API extension
 
-#define RUNTIME_REVISION 0
+#define RUNTIME_PATCH_VERSION 2
 // denotes an internal change in the runtime library
 
 #include <stdarg.h>
@@ -56,7 +56,11 @@ EXPORT int runtime_minor_version(void) {
 }
 
 EXPORT int runtime_revision(void) {
-  return RUNTIME_REVISION;
+  return RUNTIME_PATCH_VERSION;
+}
+
+EXPORT int runtime_patch_version(void) {
+  return RUNTIME_PATCH_VERSION;
 }
 
 HASH_ENTRY *hash_table[HASH_TABLE_SIZE];

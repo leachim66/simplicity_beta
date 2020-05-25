@@ -1,0 +1,43 @@
+2020-05-25
+
+  * Simplicity 2.2.0
+
+    fixed version handling
+
+    fixed the compiler's search path for platform.h
+
+  * runtime/compiler 2.0.2
+
+  * libsim-basic-1.2.0
+
+    one new symbol has been added to the basic library:
+
+      std::PACKAGE_VERSION
+
+
+2020-05-25
+
+  * Simplicity 2.1.0
+
+    separate versions for package and runtime/compiler
+
+    added an option to print all exported symbols
+
+    old files are now removed before the installation
+
+    added an error message for too many arguments
+
+  * runtime/compiler 2.0.1
+
+  * libsim-basic-1.1.0
+
+    one new symbol has been added to the basic library:
+
+      std::runtime_patch_version
+
+
+2020-05-21
+
+  * Simplicity 2.0
+
+  * first tagged version

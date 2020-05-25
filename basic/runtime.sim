@@ -44,7 +44,7 @@ $std::runtime_minor_version
     RETURN_SINGLE_RESULT(from_int(runtime_minor_version()))
   }
 
-$std::runtime_revision
+$std::runtime_patch_version
   #
     returns the runtime's revision number
 
@@ -55,3 +55,9 @@ $std::runtime_revision
     CHECK_ARGUMENTS(0)
     RETURN_SINGLE_RESULT(from_int(runtime_revision()))
   }
+
+$std::runtime_revision std::runtime_patch_version
+  #
+    obsolete
+
+    See also: runtime_patch_version

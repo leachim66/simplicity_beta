@@ -440,6 +440,7 @@ $compiler::sim2c:
       define non-garbage-collected objects:
         numeric literals
         character literals
+        string literals
         function literals
         inline-C functions
 
@@ -449,7 +450,6 @@ $compiler::sim2c:
       create futures
       create futures with prototypes
       define garbage-collectec objects:
-        string literals
         single-assign static variables
         multi-assign static variables
         single-assign dynamic variables

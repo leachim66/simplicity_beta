@@ -98,8 +98,8 @@ $std::CPPFLAGS
     Topic: Platform
 
     See also:
-      operating_system, hardware_architecture, c_compiler, LDFLAGS,
-      current_directory_separator, current_path_separator
+      operating_system, hardware_architecture, c_compiler, LDFLAGS, PREFIX,
+      PACKAGE_VERSION, current_directory_separator, current_path_separator
   {
     CHECK_ARGUMENTS(0)
     RETURN_SINGLE_RESULT(from_c_string(CPPFLAGS))
@@ -115,8 +115,8 @@ $std::LDFLAGS
     Topic: Platform
 
     See also:
-      operating_system, hardware_architecture, c_compiler, CPPFLAGS,
-      current_directory_separator, current_path_separator
+      operating_system, hardware_architecture, c_compiler, CPPFLAGS, PREFIX,
+      PACKAGE_VERSION, current_directory_separator, current_path_separator
   {
     CHECK_ARGUMENTS(0)
     RETURN_SINGLE_RESULT(from_c_string(LDFLAGS))
@@ -134,11 +134,28 @@ $std::PREFIX
     Topic: Platform
 
     See also:
-      operating_system, hardware_architecture, c_compiler, CPPFLAGS,
-      current_directory_separator, current_path_separator
+      operating_system, hardware_architecture, c_compiler, CPPFLAGS, LDFLAGS,
+      PACKAGE_VERSION, current_directory_separator, current_path_separator
   {
     CHECK_ARGUMENTS(0)
     RETURN_SINGLE_RESULT(from_c_string(PREFIX))
+  }
+
+$std::PACKAGE_VERSION
+  #
+    returns version of the installed Simplicity package as a string
+
+    This information is retrieved and stored during the installation of the
+    Simplicity runtime (while running the configure-script).
+
+    Topic: Platform
+
+    See also:
+      operating_system, hardware_architecture, c_compiler, CPPFLAGS, LDFLAGS,
+      PREFIX, current_directory_separator, current_path_separator
+  {
+    CHECK_ARGUMENTS(0)
+    RETURN_SINGLE_RESULT(from_c_string(PACKAGE_VERSION))
   }
 
 $std::current_directory_separator

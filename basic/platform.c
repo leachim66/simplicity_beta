@@ -229,6 +229,7 @@ static struct {
   NODE *std__CPPFLAGS;
   NODE *std__LDFLAGS;
   NODE *std__PREFIX;
+  NODE *std__PACKAGE_VERSION;
   NODE *std__current_directory_separator;
   NODE *std__current_path_separator;
 } var;
@@ -263,6 +264,11 @@ static void entry__std__PREFIX_1(void);
 static NODE *func__std__PREFIX_1;
 static NODE *get__std__PREFIX(void) {
   return var.std__PREFIX;
+}
+static void entry__std__PACKAGE_VERSION_1(void);
+static NODE *func__std__PACKAGE_VERSION_1;
+static NODE *get__std__PACKAGE_VERSION(void) {
+  return var.std__PACKAGE_VERSION;
 }
 static NODE *func__std__current_directory_separator_1;
 static void entry__std__current_directory_separator_1(void);
@@ -303,16 +309,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__CPPFLAGS_1, NULL, 103, 106, 3, 2},
   {entry__std__LDFLAGS_1, NULL, 120, 123, 3, 2},
   {entry__std__PREFIX_1, NULL, 139, 142, 3, 2},
-  {entry__std__current_directory_separator_5, NULL, 160, 160, 37, 42},
-  {entry__std__current_directory_separator_6, NULL, 160, 160, 45, 50},
-  {entry__std__current_directory_separator_1, NULL, 160, 160, 8, 25},
-  {cont__std__current_directory_separator_2, &frame__std__current_directory_separator_1, 160, 160, 8, 34},
-  {cont__std__current_directory_separator_4, &frame__std__current_directory_separator_1, 160, 160, 5, 50},
-  {entry__std__current_path_separator_4, NULL, 178, 178, 37, 42},
-  {entry__std__current_path_separator_5, NULL, 178, 178, 45, 50},
-  {entry__std__current_path_separator_1, NULL, 178, 178, 8, 25},
-  {cont__std__current_path_separator_2, &frame__std__current_path_separator_1, 178, 178, 8, 34},
-  {cont__std__current_path_separator_3, &frame__std__current_path_separator_1, 178, 178, 5, 50}
+  {entry__std__PACKAGE_VERSION_1, NULL, 156, 159, 3, 2},
+  {entry__std__current_directory_separator_5, NULL, 177, 177, 37, 42},
+  {entry__std__current_directory_separator_6, NULL, 177, 177, 45, 50},
+  {entry__std__current_directory_separator_1, NULL, 177, 177, 8, 25},
+  {cont__std__current_directory_separator_2, &frame__std__current_directory_separator_1, 177, 177, 8, 34},
+  {cont__std__current_directory_separator_4, &frame__std__current_directory_separator_1, 177, 177, 5, 50},
+  {entry__std__current_path_separator_4, NULL, 195, 195, 37, 42},
+  {entry__std__current_path_separator_5, NULL, 195, 195, 45, 50},
+  {entry__std__current_path_separator_1, NULL, 195, 195, 8, 25},
+  {cont__std__current_path_separator_2, &frame__std__current_path_separator_1, 195, 195, 8, 34},
+  {cont__std__current_path_separator_3, &frame__std__current_path_separator_1, 195, 195, 5, 50}
 };
 
 union NODE {
@@ -454,6 +461,21 @@ static void entry__std__PREFIX_1(void) {
     return;
   }
 }
+static void entry__std__PACKAGE_VERSION_1(void) {
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  {
+    NODE *result__node = (NODE *)(from_c_string(PACKAGE_VERSION));
+    arguments = node_p;
+    arguments->slots[0] = result__node;
+    argument_count = 1;
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+    return;
+  }
+}
 static void entry__std__current_directory_separator_5(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
@@ -461,7 +483,7 @@ static void entry__std__current_directory_separator_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 160: ... -> '\'
+  // 177: ... -> '\'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__92;
@@ -476,7 +498,7 @@ static void entry__std__current_directory_separator_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 160: ... -> '/'
+  // 177: ... -> '/'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__47;
@@ -491,7 +513,7 @@ static void entry__std__current_directory_separator_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 160: ... operating_system()
+  // 177: ... operating_system()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -505,7 +527,7 @@ static void cont__std__current_directory_separator_2(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 160: ... operating_system() == "win"
+  // 177: ... operating_system() == "win"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
@@ -521,7 +543,7 @@ static void cont__std__current_directory_separator_4(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 160: if operating_system() == "win" (-> '\') -> '/'
+  // 177: if operating_system() == "win" (-> '\') -> '/'
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -539,7 +561,7 @@ static void entry__std__current_path_separator_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 178: ... -> ';'
+  // 195: ... -> ';'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__59;
@@ -554,7 +576,7 @@ static void entry__std__current_path_separator_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 178: ... -> ':'
+  // 195: ... -> ':'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__58;
@@ -569,7 +591,7 @@ static void entry__std__current_path_separator_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 178: ... operating_system()
+  // 195: ... operating_system()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -583,7 +605,7 @@ static void cont__std__current_path_separator_2(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 178: ... operating_system() == "win"
+  // 195: ... operating_system() == "win"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
@@ -599,7 +621,7 @@ static void cont__std__current_path_separator_3(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 178: if operating_system() == "win" (-> ';') -> ':'
+  // 195: if operating_system() == "win" (-> ';') -> ':'
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -617,6 +639,7 @@ EXPORT void collect__basic__platform(void) {
   var.std__CPPFLAGS = collect_node(var.std__CPPFLAGS);
   var.std__LDFLAGS = collect_node(var.std__LDFLAGS);
   var.std__PREFIX = collect_node(var.std__PREFIX);
+  var.std__PACKAGE_VERSION = collect_node(var.std__PACKAGE_VERSION);
   var.std__current_directory_separator = collect_node(var.std__current_directory_separator);
   var.std__current_path_separator = collect_node(var.std__current_path_separator);
 }
@@ -645,6 +668,7 @@ EXPORT void phase_2__basic__platform(void) {
   func__std__CPPFLAGS_1 = create_function(entry__std__CPPFLAGS_1, 0);
   func__std__LDFLAGS_1 = create_function(entry__std__LDFLAGS_1, 0);
   func__std__PREFIX_1 = create_function(entry__std__PREFIX_1, 0);
+  func__std__PACKAGE_VERSION_1 = create_function(entry__std__PACKAGE_VERSION_1, 0);
   string__fa725815d616ba2 = from_latin_1_string("win", 3);
   func__std__current_directory_separator_5 = create_function(entry__std__current_directory_separator_5, 0);
   func__std__current_directory_separator_6 = create_function(entry__std__current_directory_separator_6, 0);
@@ -667,6 +691,7 @@ EXPORT void phase_3__basic__platform(void) {
   define_single_assign_static("std", "CPPFLAGS", get__std__CPPFLAGS, &var.std__CPPFLAGS);
   define_single_assign_static("std", "LDFLAGS", get__std__LDFLAGS, &var.std__LDFLAGS);
   define_single_assign_static("std", "PREFIX", get__std__PREFIX, &var.std__PREFIX);
+  define_single_assign_static("std", "PACKAGE_VERSION", get__std__PACKAGE_VERSION, &var.std__PACKAGE_VERSION);
   define_single_assign_static("std", "current_directory_separator", get__std__current_directory_separator, &var.std__current_directory_separator);
   define_single_assign_static("std", "current_path_separator", get__std__current_path_separator, &var.std__current_path_separator);
 }
@@ -694,6 +719,7 @@ EXPORT void phase_5__basic__platform(void) {
   assign_variable(&var.std__CPPFLAGS, &func__std__CPPFLAGS_1);
   assign_variable(&var.std__LDFLAGS, &func__std__LDFLAGS_1);
   assign_variable(&var.std__PREFIX, &func__std__PREFIX_1);
+  assign_variable(&var.std__PACKAGE_VERSION, &func__std__PACKAGE_VERSION_1);
   assign_variable(&var.std__current_directory_separator, &func__std__current_directory_separator_1);
   assign_variable(&var.std__current_path_separator, &func__std__current_path_separator_1);
 }
