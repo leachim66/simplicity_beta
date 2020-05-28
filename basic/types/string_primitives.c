@@ -215,6 +215,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *create_future(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -236,6 +237,7 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
+IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -5343,6 +5345,7 @@ EXPORT void phase_3__basic__types__string_primitives(void) {
   already_run_phase_3 = true;
   set_module("basic__types__string_primitives");
   set_used_namespaces(used_namespaces);
+  var.types__string = create_future();
   define_single_assign_static("types", "string", get__types__string, &var.types__string);
   var.types__octet_string = create_future_with_prototype(create__types__octet_string(0, 0, NULL));
   define_single_assign_static("types", "octet_string", get__types__octet_string, &var.types__octet_string);
@@ -5350,7 +5353,9 @@ EXPORT void phase_3__basic__types__string_primitives(void) {
   define_single_assign_static("types", "quad_octet_string", get__types__quad_octet_string, &var.types__quad_octet_string);
   var.std__empty_string = create__types__octet_string(0, 0, NULL);
   define_single_assign_static("std", "empty_string", get__std__empty_string, &var.std__empty_string);
+  var.std__matches_file_pattern = create_future();
   define_single_assign_static("std", "matches_file_pattern", get__std__matches_file_pattern, &var.std__matches_file_pattern);
+  var.std__from_utf8 = create_future();
   define_single_assign_static("std", "from_utf8", get__std__from_utf8, &var.std__from_utf8);
 }
 
@@ -5441,11 +5446,11 @@ EXPORT void phase_5__basic__types__string_primitives(void) {
   assign_value(&var.std__count_character_occurrences, create_function(type__std__count_character_occurrences, -1));
   assign_value(&var.std__to_utf8, create_function(type__std__to_utf8, -1));
   assign_value(&var.std__is_a_latin_1_string, create_function(type__std__is_a_latin_1_string, -1));
-  assign_value(&var.types__string, get__types__generic_list());
+  initialize_future(var.types__string, get__types__generic_list());
   assign_variable(&var.types__octet_string, &var.types__string);
   assign_variable(&var.types__quad_octet_string, &var.types__string);
-  assign_variable(&var.std__matches_file_pattern, &func__std__matches_file_pattern_1);
-  assign_variable(&var.std__from_utf8, &func__std__from_utf8_1);
+  initialize_future(var.std__matches_file_pattern, func__std__matches_file_pattern_1);
+  initialize_future(var.std__from_utf8, func__std__from_utf8_1);
 }
 
 static int already_run_phase_6 = false;

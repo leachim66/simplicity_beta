@@ -214,7 +214,6 @@ IMPORT void use_read_only(
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -3334,21 +3333,37 @@ EXPORT void phase_3__basic__math(void) {
   already_run_phase_3 = true;
   set_module("basic__math");
   set_used_namespaces(used_namespaces);
+  var.std__inc = create_future();
   define_single_assign_static("std", "inc", get__std__inc, &var.std__inc);
+  var.std__dec = create_future();
   define_single_assign_static("std", "dec", get__std__dec, &var.std__dec);
+  var.std__extend_to = create_future();
   define_single_assign_static("std", "extend_to", get__std__extend_to, &var.std__extend_to);
+  var.std__reduce_to = create_future();
   define_single_assign_static("std", "reduce_to", get__std__reduce_to, &var.std__reduce_to);
+  var.std__abs = create_future();
   define_single_assign_static("std", "abs", get__std__abs, &var.std__abs);
+  var.std__sgn = create_future();
   define_single_assign_static("std", "sgn", get__std__sgn, &var.std__sgn);
+  var.std__sqr = create_future();
   define_single_assign_static("std", "sqr", get__std__sqr, &var.std__sqr);
+  var.std__min = create_future();
   define_single_assign_static("std", "min", get__std__min, &var.std__min);
+  var.std__max = create_future();
   define_single_assign_static("std", "max", get__std__max, &var.std__max);
+  var.std__pow = create_future();
   define_single_assign_static("std", "pow", get__std__pow, &var.std__pow);
+  var.std__sqrt = create_future();
   define_single_assign_static("std", "sqrt", get__std__sqrt, &var.std__sqrt);
+  var.std__PI = create_future();
   define_single_assign_static("std", "PI", get__std__PI, &var.std__PI);
+  var.std__sin = create_future();
   define_single_assign_static("std", "sin", get__std__sin, &var.std__sin);
+  var.std__cos = create_future();
   define_single_assign_static("std", "cos", get__std__cos, &var.std__cos);
+  var.std__tan = create_future();
   define_single_assign_static("std", "tan", get__std__tan, &var.std__tan);
+  var.std__atan = create_future();
   define_single_assign_static("std", "atan", get__std__atan, &var.std__atan);
 }
 
@@ -3391,22 +3406,22 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__math(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__inc, &func__std__inc_1);
-  assign_variable(&var.std__dec, &func__std__dec_1);
-  assign_variable(&var.std__extend_to, &func__std__extend_to_1);
-  assign_variable(&var.std__reduce_to, &func__std__reduce_to_1);
-  assign_variable(&var.std__abs, &func__std__abs_1);
-  assign_variable(&var.std__sgn, &func__std__sgn_1);
-  assign_variable(&var.std__sqr, &func__std__sqr_1);
-  assign_variable(&var.std__min, &func__std__min_1);
-  assign_variable(&var.std__max, &func__std__max_1);
-  assign_variable(&var.std__pow, &func__std__pow_1);
-  assign_variable(&var.std__sqrt, &func__std__sqrt_1);
-  assign_value(&var.std__PI, number__3_1415926535897932);
-  assign_variable(&var.std__sin, &func__std__sin_1);
-  assign_variable(&var.std__cos, &func__std__cos_1);
-  assign_variable(&var.std__tan, &func__std__tan_1);
-  assign_variable(&var.std__atan, &func__std__atan_1);
+  initialize_future(var.std__inc, func__std__inc_1);
+  initialize_future(var.std__dec, func__std__dec_1);
+  initialize_future(var.std__extend_to, func__std__extend_to_1);
+  initialize_future(var.std__reduce_to, func__std__reduce_to_1);
+  initialize_future(var.std__abs, func__std__abs_1);
+  initialize_future(var.std__sgn, func__std__sgn_1);
+  initialize_future(var.std__sqr, func__std__sqr_1);
+  initialize_future(var.std__min, func__std__min_1);
+  initialize_future(var.std__max, func__std__max_1);
+  initialize_future(var.std__pow, func__std__pow_1);
+  initialize_future(var.std__sqrt, func__std__sqrt_1);
+  initialize_future(var.std__PI, number__3_1415926535897932);
+  initialize_future(var.std__sin, func__std__sin_1);
+  initialize_future(var.std__cos, func__std__cos_1);
+  initialize_future(var.std__tan, func__std__tan_1);
+  initialize_future(var.std__atan, func__std__atan_1);
   assign_variable(&var._atan2, &func__atan2_1);
   assign_variable(&var._atan3, &func__atan3_1);
   assign_variable(&var._atan4, &func__atan4_1);

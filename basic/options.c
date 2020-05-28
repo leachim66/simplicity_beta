@@ -183,12 +183,13 @@ IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void set_module(const char *name);
 IMPORT NODE *register_unique_item(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT void assign_value(NODE **dest, NODE *val);
+IMPORT NODE *create_future(void);
 typedef NODE *(*NODE_GETTER)(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -333,11 +334,11 @@ EXPORT void phase_3__basic__options(void) {
   already_run_phase_3 = true;
   set_module("basic__options");
   set_used_namespaces(used_namespaces);
-  assign_value(&var.std__VERBOSE, unique__std__VERBOSE);
+  var.std__VERBOSE = create_future();
   define_single_assign_static("std", "VERBOSE", get__std__VERBOSE, &var.std__VERBOSE);
-  assign_value(&var.std__SORT, unique__std__SORT);
+  var.std__SORT = create_future();
   define_single_assign_static("std", "SORT", get__std__SORT, &var.std__SORT);
-  assign_value(&var.std__TRIM, unique__std__TRIM);
+  var.std__TRIM = create_future();
   define_single_assign_static("std", "TRIM", get__std__TRIM, &var.std__TRIM);
 }
 
@@ -355,6 +356,9 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__options(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+  initialize_future(var.std__VERBOSE, unique__std__VERBOSE);
+  initialize_future(var.std__SORT, unique__std__SORT);
+  initialize_future(var.std__TRIM, unique__std__TRIM);
 }
 
 static int already_run_phase_6 = false;

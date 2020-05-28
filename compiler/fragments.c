@@ -203,6 +203,7 @@ IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *create_future(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -214,7 +215,7 @@ IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -964,6 +965,7 @@ EXPORT void phase_3__fragments(void) {
   already_run_phase_3 = true;
   set_module("fragments");
   set_used_namespaces(used_namespaces);
+  var.compiler__cut_into_fragments = create_future();
   define_single_assign_static("compiler", "cut_into_fragments", get__compiler__cut_into_fragments, &var.compiler__cut_into_fragments);
 }
 
@@ -999,7 +1001,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__fragments(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.compiler__cut_into_fragments, &func__compiler__cut_into_fragments_1);
+  initialize_future(var.compiler__cut_into_fragments, func__compiler__cut_into_fragments_1);
 }
 
 static int already_run_phase_6 = false;

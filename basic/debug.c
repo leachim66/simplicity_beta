@@ -193,7 +193,6 @@ IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -1682,12 +1681,19 @@ EXPORT void phase_3__basic__debug(void) {
   already_run_phase_3 = true;
   set_module("basic__debug");
   set_used_namespaces(used_namespaces);
+  var.std__debug_string = create_future();
   define_single_assign_static("std", "debug_string", get__std__debug_string, &var.std__debug_string);
+  var.std__dump = create_future();
   define_single_assign_static("std", "dump", get__std__dump, &var.std__dump);
+  var.std__edump = create_future();
   define_single_assign_static("std", "edump", get__std__edump, &var.std__edump);
+  var.std__collect_garbage = create_future();
   define_single_assign_static("std", "collect_garbage", get__std__collect_garbage, &var.std__collect_garbage);
+  var.std__instruction_counter = create_future();
   define_single_assign_static("std", "instruction_counter", get__std__instruction_counter, &var.std__instruction_counter);
+  var.std__total_garbage_collections = create_future();
   define_single_assign_static("std", "total_garbage_collections", get__std__total_garbage_collections, &var.std__total_garbage_collections);
+  var.std__hexdump = create_future();
   define_single_assign_static("std", "hexdump", get__std__hexdump, &var.std__hexdump);
 }
 
@@ -1728,13 +1734,13 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__debug(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__debug_string, &func__std__debug_string_1);
-  assign_variable(&var.std__dump, &func__std__dump_1);
-  assign_variable(&var.std__edump, &func__std__edump_1);
-  assign_variable(&var.std__collect_garbage, &func__std__collect_garbage_1);
-  assign_variable(&var.std__instruction_counter, &func__std__instruction_counter_1);
-  assign_variable(&var.std__total_garbage_collections, &func__std__total_garbage_collections_1);
-  assign_variable(&var.std__hexdump, &func__std__hexdump_1);
+  initialize_future(var.std__debug_string, func__std__debug_string_1);
+  initialize_future(var.std__dump, func__std__dump_1);
+  initialize_future(var.std__edump, func__std__edump_1);
+  initialize_future(var.std__collect_garbage, func__std__collect_garbage_1);
+  initialize_future(var.std__instruction_counter, func__std__instruction_counter_1);
+  initialize_future(var.std__total_garbage_collections, func__std__total_garbage_collections_1);
+  initialize_future(var.std__hexdump, func__std__hexdump_1);
 }
 
 static int already_run_phase_6 = false;

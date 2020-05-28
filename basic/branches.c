@@ -2910,8 +2910,11 @@ EXPORT void phase_3__basic__branches(void) {
   already_run_phase_3 = true;
   set_module("basic__branches");
   set_used_namespaces(used_namespaces);
+  var.std__cond = create_future();
   define_single_assign_static("std", "cond", get__std__cond, &var.std__cond);
+  var.std__case = create_future();
   define_single_assign_static("std", "case", get__std__case, &var.std__case);
+  var.std__check_case = create_future();
   define_single_assign_static("std", "check_case", get__std__check_case, &var.std__check_case);
 }
 
@@ -2950,10 +2953,10 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__branches(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__cond, &func__std__cond_1);
+  initialize_future(var.std__cond, func__std__cond_1);
   assign_variable(&var._cond_list, &func__cond_list_1);
-  assign_variable(&var.std__case, &func__std__case_1);
-  assign_variable(&var.std__check_case, &func__std__check_case_1);
+  initialize_future(var.std__case, func__std__case_1);
+  initialize_future(var.std__check_case, func__std__check_case_1);
 }
 
 static int already_run_phase_6 = false;

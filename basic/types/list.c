@@ -9456,8 +9456,11 @@ EXPORT void phase_3__basic__types__list(void) {
   define_single_assign_static("types", "list", get__types__list, &var.types__list);
   var.std__empty_list = create__types__list(0, NULL);
   define_single_assign_static("std", "empty_list", get__std__empty_list, &var.std__empty_list);
+  var.std__list = create_future();
   define_single_assign_static("std", "list", get__std__list, &var.std__list);
+  var.std__normalized_index = create_future();
   define_single_assign_static("std", "normalized_index", get__std__normalized_index, &var.std__normalized_index);
+  var.std__sequence = create_future();
   define_single_assign_static("std", "sequence", get__std__sequence, &var.std__sequence);
 }
 
@@ -9574,10 +9577,10 @@ EXPORT void phase_5__basic__types__list(void) {
   assign_value(&var.std__is_a_list, create_function(type__std__is_a_list, -1));
   assign_value(&var.types__generic_list, get__types__object());
   assign_variable(&var.types__list, &var.types__generic_list);
-  assign_variable(&var.std__list, &func__std__list_1);
-  assign_variable(&var.std__normalized_index, &func__std__normalized_index_1);
+  initialize_future(var.std__list, func__std__list_1);
+  initialize_future(var.std__normalized_index, func__std__normalized_index_1);
   assign_value(&var.std__is_a_sequence, create_function(type__std__is_a_sequence, -1));
-  assign_variable(&var.std__sequence, &func__std__sequence_1);
+  initialize_future(var.std__sequence, func__std__sequence_1);
 }
 
 static int already_run_phase_6 = false;

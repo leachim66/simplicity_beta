@@ -221,7 +221,6 @@ IMPORT void define_polymorphic_function_with_setter(
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -241,6 +240,7 @@ IMPORT void use_read_write(
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
+IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -5531,40 +5531,56 @@ EXPORT void phase_3__basic__event(void) {
   already_run_phase_3 = true;
   set_module("basic__event");
   set_used_namespaces(used_namespaces);
-  assign_value(&var.std__WRITE_TO, unique__std__WRITE_TO);
+  var.std__WRITE_TO = create_future();
   define_single_assign_static("std", "WRITE_TO", get__std__WRITE_TO, &var.std__WRITE_TO);
-  assign_value(&var.std__READ_FROM, unique__std__READ_FROM);
+  var.std__READ_FROM = create_future();
   define_single_assign_static("std", "READ_FROM", get__std__READ_FROM, &var.std__READ_FROM);
-  assign_value(&var.std__TERMINATED, unique__std__TERMINATED);
+  var.std__TERMINATED = create_future();
   define_single_assign_static("std", "TERMINATED", get__std__TERMINATED, &var.std__TERMINATED);
-  assign_value(&var.std__TIMEOUT, unique__std__TIMEOUT);
+  var.std__TIMEOUT = create_future();
   define_single_assign_static("std", "TIMEOUT", get__std__TIMEOUT, &var.std__TIMEOUT);
-  assign_value(&var.std__SCREEN_SIZE_CHANGE, unique__std__SCREEN_SIZE_CHANGE);
+  var.std__SCREEN_SIZE_CHANGE = create_future();
   define_single_assign_static("std", "SCREEN_SIZE_CHANGE", get__std__SCREEN_SIZE_CHANGE, &var.std__SCREEN_SIZE_CHANGE);
-  assign_value(&var.std__KEY_PRESS, unique__std__KEY_PRESS);
+  var.std__KEY_PRESS = create_future();
   define_single_assign_static("std", "KEY_PRESS", get__std__KEY_PRESS, &var.std__KEY_PRESS);
-  assign_value(&var.std__MOUSE_CLICK, unique__std__MOUSE_CLICK);
+  var.std__MOUSE_CLICK = create_future();
   define_single_assign_static("std", "MOUSE_CLICK", get__std__MOUSE_CLICK, &var.std__MOUSE_CLICK);
-  assign_value(&var.std__PASTE, unique__std__PASTE);
+  var.std__PASTE = create_future();
   define_single_assign_static("std", "PASTE", get__std__PASTE, &var.std__PASTE);
-  assign_value(&var.std__MESSAGE, unique__std__MESSAGE);
+  var.std__MESSAGE = create_future();
   define_single_assign_static("std", "MESSAGE", get__std__MESSAGE, &var.std__MESSAGE);
+  var.types__event = create_future();
   define_single_assign_static("types", "event", get__types__event, &var.types__event);
   define_multi_assign_static("std", "events", get__std__events, set__std__events);
+  var.std__want_to_write_to = create_future();
   define_single_assign_static("std", "want_to_write_to", get__std__want_to_write_to, &var.std__want_to_write_to);
+  var.std__no_longer_want_to_write_to = create_future();
   define_single_assign_static("std", "no_longer_want_to_write_to", get__std__no_longer_want_to_write_to, &var.std__no_longer_want_to_write_to);
+  var.std__want_to_read_from = create_future();
   define_single_assign_static("std", "want_to_read_from", get__std__want_to_read_from, &var.std__want_to_read_from);
+  var.std__no_longer_want_to_read_from = create_future();
   define_single_assign_static("std", "no_longer_want_to_read_from", get__std__no_longer_want_to_read_from, &var.std__no_longer_want_to_read_from);
+  var.std__wanting_to_write_to = create_future();
   define_single_assign_static("std", "wanting_to_write_to", get__std__wanting_to_write_to, &var.std__wanting_to_write_to);
+  var.std__wanting_to_read_from = create_future();
   define_single_assign_static("std", "wanting_to_read_from", get__std__wanting_to_read_from, &var.std__wanting_to_read_from);
+  var.std__wait_to_read_from = create_future();
   define_single_assign_static("std", "wait_to_read_from", get__std__wait_to_read_from, &var.std__wait_to_read_from);
+  var.std__wait_to_write_to = create_future();
   define_single_assign_static("std", "wait_to_write_to", get__std__wait_to_write_to, &var.std__wait_to_write_to);
+  var.std__wait_for_termination = create_future();
   define_single_assign_static("std", "wait_for_termination", get__std__wait_for_termination, &var.std__wait_for_termination);
+  var.std__discard = create_future();
   define_single_assign_static("std", "discard", get__std__discard, &var.std__discard);
+  var.std__create_event = create_future();
   define_single_assign_static("std", "create_event", get__std__create_event, &var.std__create_event);
+  var.std__get_event = create_future();
   define_single_assign_static("std", "get_event", get__std__get_event, &var.std__get_event);
+  var.std__process_events = create_future();
   define_single_assign_static("std", "process_events", get__std__process_events, &var.std__process_events);
+  var.std__wait_to = create_future();
   define_single_assign_static("std", "wait_to", get__std__wait_to, &var.std__wait_to);
+  var.std__par = create_future();
   define_single_assign_static("std", "par", get__std__par, &var.std__par);
 }
 
@@ -5641,31 +5657,40 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__event(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
+  initialize_future(var.std__WRITE_TO, unique__std__WRITE_TO);
+  initialize_future(var.std__READ_FROM, unique__std__READ_FROM);
   assign_value(&var.std__file_descriptor_of, create_function(type__std__file_descriptor_of, -1));
+  initialize_future(var.std__TERMINATED, unique__std__TERMINATED);
   assign_value(&var.std__pid_of, create_function(type__std__pid_of, -1));
   assign_value(&var.std__status_of, create_function(type__std__status_of, -1));
+  initialize_future(var.std__TIMEOUT, unique__std__TIMEOUT);
+  initialize_future(var.std__SCREEN_SIZE_CHANGE, unique__std__SCREEN_SIZE_CHANGE);
   assign_value(&var.std__width_of, create_function(type__std__width_of, -1));
   assign_value(&var.std__height_of, create_function(type__std__height_of, -1));
+  initialize_future(var.std__KEY_PRESS, unique__std__KEY_PRESS);
   assign_value(&var.std__key_code_of, create_function(type__std__key_code_of, -1));
+  initialize_future(var.std__MOUSE_CLICK, unique__std__MOUSE_CLICK);
   assign_value(&var.std__target_of, create_function(type__std__target_of, -1));
-  assign_value(&var.types__event, get__types__object());
-  assign_variable(&var.std__want_to_write_to, &func__std__want_to_write_to_1);
-  assign_variable(&var.std__no_longer_want_to_write_to, &func__std__no_longer_want_to_write_to_1);
-  assign_variable(&var.std__want_to_read_from, &func__std__want_to_read_from_1);
-  assign_variable(&var.std__no_longer_want_to_read_from, &func__std__no_longer_want_to_read_from_1);
-  assign_variable(&var.std__wanting_to_write_to, &func__std__wanting_to_write_to_1);
-  assign_variable(&var.std__wanting_to_read_from, &func__std__wanting_to_read_from_1);
-  assign_variable(&var.std__wait_to_read_from, &func__std__wait_to_read_from_1);
-  assign_variable(&var.std__wait_to_write_to, &func__std__wait_to_write_to_1);
-  assign_variable(&var.std__wait_for_termination, &func__std__wait_for_termination_1);
-  assign_variable(&var.std__discard, &func__std__discard_1);
-  assign_variable(&var.std__create_event, &func__std__create_event_1);
+  initialize_future(var.std__PASTE, unique__std__PASTE);
+  initialize_future(var.std__MESSAGE, unique__std__MESSAGE);
+  initialize_future(var.types__event, get__types__object());
+  initialize_future(var.std__want_to_write_to, func__std__want_to_write_to_1);
+  initialize_future(var.std__no_longer_want_to_write_to, func__std__no_longer_want_to_write_to_1);
+  initialize_future(var.std__want_to_read_from, func__std__want_to_read_from_1);
+  initialize_future(var.std__no_longer_want_to_read_from, func__std__no_longer_want_to_read_from_1);
+  initialize_future(var.std__wanting_to_write_to, func__std__wanting_to_write_to_1);
+  initialize_future(var.std__wanting_to_read_from, func__std__wanting_to_read_from_1);
+  initialize_future(var.std__wait_to_read_from, func__std__wait_to_read_from_1);
+  initialize_future(var.std__wait_to_write_to, func__std__wait_to_write_to_1);
+  initialize_future(var.std__wait_for_termination, func__std__wait_for_termination_1);
+  initialize_future(var.std__discard, func__std__discard_1);
+  initialize_future(var.std__create_event, func__std__create_event_1);
   assign_variable(&var._get_low_level_events, &func__get_low_level_events_1);
   assign_variable(&var._get_event_handler, &func__get_event_handler_1);
-  assign_variable(&var.std__get_event, &func__std__get_event_1);
-  assign_variable(&var.std__process_events, &func__std__process_events_1);
-  assign_variable(&var.std__wait_to, &func__std__wait_to_1);
-  assign_variable(&var.std__par, &func__std__par_1);
+  initialize_future(var.std__get_event, func__std__get_event_1);
+  initialize_future(var.std__process_events, func__std__process_events_1);
+  initialize_future(var.std__wait_to, func__std__wait_to_1);
+  initialize_future(var.std__par, func__std__par_1);
 }
 
 static int already_run_phase_6 = false;

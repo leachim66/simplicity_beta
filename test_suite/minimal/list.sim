@@ -1,0 +1,23 @@
+$std::head_of ()
+$std::tail_of ()
+
+$std::reverse ()
+
+$types::list types::object
+
+$std::list: (head tail)
+  ->
+    types::list
+      .head_of head
+      .tail_of tail
+
+$reverse2: (front tail)
+  $tail_of_front tail_of(front)
+  $new_tail list(head_of(front) tail)
+  if
+    tail_of_front.is_defined
+    -> reverse2(tail_of_front new_tail)
+    -> new_tail
+
+$types::list/reverse: (self)
+  reverse2 self undefined

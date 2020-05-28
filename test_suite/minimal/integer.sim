@@ -1,0 +1,121 @@
+$types::zero .
+$types::one .
+
+$std::zero types::zero
+$std::one types::one
+
+$is_zero ()
+$is_one ()
+
+$value_of ()
+
+$std::bit_and ()
+$std::bit_or ()
+$std::bit_xor ()
+$std::plus ()
+
+$types::object.is_zero false
+$std::zero.is_zero true
+
+$types::object.is_one false
+$std::one.is_one true
+
+$std::zero/equal: (_left right)
+  -> is_zero(right)
+
+$std::one/equal: (_left right)
+  -> is_one(right)
+
+$std::zero/bit_or: (_left right) -> right
+
+$std::one/bit_or: (left _right) -> left
+
+$std::zero/bit_and: (left _right) -> left
+
+$std::one/bit_and: (_left right) -> right
+
+$std::zero/bit_xor: (_left right) -> right
+
+$std::one/bit_xor: (_left right)
+  if
+    right == zero
+    -> one
+    -> zero
+
+$std::value_range: (from to)
+  if
+    to == zero || to == one
+    -> list(from list(to undefined))
+    -> list(from to)
+
+$types::zero/print: (_self) put_zero
+
+$types::one/print: (_self) put_one
+
+$types::integer types::object
+
+$std::integer: (arg)
+  $val
+    if
+      arg == zero
+      -> list(zero undefined)
+      :
+	if
+	  arg == one
+	  :
+	    -> list(one undefined)
+	  -> reverse(arg)
+  -> types::integer(.value_of val)
+
+$print_value: (val)
+  $tail tail_of(val)
+  if
+    tail.is_defined:
+      print_value tail
+    pass
+  print head_of(val)
+
+$types::integer/print: (num)
+  print_value value_of(num)
+
+$add_values: (left right carry)
+  $left_digit head_of(left)
+  $right_digit head_of(right)
+  $first_digit  left_digit ^ right_digit ^ carry
+  $new_carry
+    |
+      left_digit & right_digit
+      left_digit & carry
+      right_digit & carry
+  $left_digits tail_of(left)
+  $right_digits tail_of(right)
+  if
+    left_digits.is_defined:
+      if
+	right_digits.is_defined
+	-> list(first_digit add_values(left_digits right_digits new_carry))
+	:
+	  if
+	    new_carry == one
+	    ->
+	      list
+		first_digit
+		add_values(left_digits list(one undefined) zero)
+	    -> list(first_digit left_digits)
+    :
+      if
+	right_digits.is_defined
+	->
+	  list
+	    first_digit
+	    add_values(list(new_carry undefined) right_digits zero)
+	:
+	  if
+	    new_carry == one
+	    -> list(first_digit list(one undefined))
+	    -> list(first_digit undefined)
+
+$types::integer/plus: (left right)
+  ->
+    types::integer
+      .value_of add_values(value_of(left) value_of(right) zero)

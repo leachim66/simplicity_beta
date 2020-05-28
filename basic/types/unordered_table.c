@@ -4506,7 +4506,9 @@ EXPORT void phase_3__basic__types__unordered_table(void) {
   assign_value(&var._NONE, unique__NONE);
   var.types__unordered_table = create_future_with_prototype(create__types__unordered_table(0, NULL));
   define_single_assign_static("types", "unordered_table", get__types__unordered_table, &var.types__unordered_table);
+  var.std__empty_unordered_table = create_future();
   define_single_assign_static("std", "empty_unordered_table", get__std__empty_unordered_table, &var.std__empty_unordered_table);
+  var.std__unordered_table = create_future();
   define_single_assign_static("std", "unordered_table", get__std__unordered_table, &var.std__unordered_table);
 }
 
@@ -4571,8 +4573,8 @@ EXPORT void phase_5__basic__types__unordered_table(void) {
   assign_value(&var.types__unordered_table, get__types__generic_table());
   assign_variable(&var._next_key_and_value, &func__next_key_and_value_1);
   assign_variable(&var._previous_key_and_value, &func__previous_key_and_value_1);
-  assign_variable(&var.std__empty_unordered_table, &var.types__unordered_table);
-  assign_variable(&var.std__unordered_table, &func__std__unordered_table_1);
+  initialize_future(var.std__empty_unordered_table, var.types__unordered_table);
+  initialize_future(var.std__unordered_table, func__std__unordered_table_1);
 }
 
 static int already_run_phase_6 = false;

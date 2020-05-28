@@ -203,7 +203,6 @@ IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -2214,21 +2213,37 @@ EXPORT void phase_3__basic__exec(void) {
   already_run_phase_3 = true;
   set_module("basic__exec");
   set_used_namespaces(used_namespaces);
+  var.std__SIGHUP = create_future();
   define_single_assign_static("std", "SIGHUP", get__std__SIGHUP, &var.std__SIGHUP);
+  var.std__SIGINT = create_future();
   define_single_assign_static("std", "SIGINT", get__std__SIGINT, &var.std__SIGINT);
+  var.std__SIGQUIT = create_future();
   define_single_assign_static("std", "SIGQUIT", get__std__SIGQUIT, &var.std__SIGQUIT);
+  var.std__SIGABRT = create_future();
   define_single_assign_static("std", "SIGABRT", get__std__SIGABRT, &var.std__SIGABRT);
+  var.std__SIGKILL = create_future();
   define_single_assign_static("std", "SIGKILL", get__std__SIGKILL, &var.std__SIGKILL);
+  var.std__SIGUSR1 = create_future();
   define_single_assign_static("std", "SIGUSR1", get__std__SIGUSR1, &var.std__SIGUSR1);
+  var.std__SIGUSR2 = create_future();
   define_single_assign_static("std", "SIGUSR2", get__std__SIGUSR2, &var.std__SIGUSR2);
+  var.std__SIGPIPE = create_future();
   define_single_assign_static("std", "SIGPIPE", get__std__SIGPIPE, &var.std__SIGPIPE);
+  var.std__SIGALRM = create_future();
   define_single_assign_static("std", "SIGALRM", get__std__SIGALRM, &var.std__SIGALRM);
+  var.std__SIGTERM = create_future();
   define_single_assign_static("std", "SIGTERM", get__std__SIGTERM, &var.std__SIGTERM);
+  var.std__launch = create_future();
   define_single_assign_static("std", "launch", get__std__launch, &var.std__launch);
+  var.std__kill = create_future();
   define_single_assign_static("std", "kill", get__std__kill, &var.std__kill);
+  var.std__exec = create_future();
   define_single_assign_static("std", "exec", get__std__exec, &var.std__exec);
+  var.std__call = create_future();
   define_single_assign_static("std", "call", get__std__call, &var.std__call);
+  var.std__pipe = create_future();
   define_single_assign_static("std", "pipe", get__std__pipe, &var.std__pipe);
+  var.std__extern = create_future();
   define_single_assign_static("std", "extern", get__std__extern, &var.std__extern);
 }
 
@@ -2263,26 +2278,26 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__exec(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_value(&var.std__SIGHUP, number__1);
-  assign_value(&var.std__SIGINT, number__2);
-  assign_value(&var.std__SIGQUIT, number__3);
-  assign_value(&var.std__SIGABRT, number__6);
-  assign_value(&var.std__SIGKILL, number__9);
-  assign_value(&var.std__SIGUSR1, number__10);
-  assign_value(&var.std__SIGUSR2, number__12);
-  assign_value(&var.std__SIGPIPE, number__13);
-  assign_value(&var.std__SIGALRM, number__14);
-  assign_value(&var.std__SIGTERM, number__15);
+  initialize_future(var.std__SIGHUP, number__1);
+  initialize_future(var.std__SIGINT, number__2);
+  initialize_future(var.std__SIGQUIT, number__3);
+  initialize_future(var.std__SIGABRT, number__6);
+  initialize_future(var.std__SIGKILL, number__9);
+  initialize_future(var.std__SIGUSR1, number__10);
+  initialize_future(var.std__SIGUSR2, number__12);
+  initialize_future(var.std__SIGPIPE, number__13);
+  initialize_future(var.std__SIGALRM, number__14);
+  initialize_future(var.std__SIGTERM, number__15);
   assign_variable(&var._posix_exec, &func__posix_exec_1);
   assign_variable(&var._posix_launch, &func__posix_launch_1);
-  assign_variable(&var.std__launch, &func__std__launch_1);
+  initialize_future(var.std__launch, func__std__launch_1);
   assign_variable(&var._posix_call, &func__posix_call_1);
-  assign_variable(&var.std__kill, &func__std__kill_1);
+  initialize_future(var.std__kill, func__std__kill_1);
   assign_variable(&var._posix_pipe, &func__posix_pipe_1);
-  assign_variable(&var.std__exec, &func__std__exec_1);
-  assign_variable(&var.std__call, &func__std__call_1);
-  assign_variable(&var.std__pipe, &func__std__pipe_1);
-  assign_variable(&var.std__extern, &func__std__extern_1);
+  initialize_future(var.std__exec, func__std__exec_1);
+  initialize_future(var.std__call, func__std__call_1);
+  initialize_future(var.std__pipe, func__std__pipe_1);
+  initialize_future(var.std__extern, func__std__extern_1);
 }
 
 static int already_run_phase_6 = false;

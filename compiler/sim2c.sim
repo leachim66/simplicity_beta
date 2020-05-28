@@ -226,6 +226,7 @@ $compiler::sim2c:
   %%compiler::needed_names empty_key_order_table
   %%compiler::assigned_names empty_set
   %%compiler::string_literals empty_table
+  %%compiler::unique_item_index 1
   %%compiler::use_inline_c false # set, if an inline-C expression is encountered
   %%compiler::defined_structs set("NODE")
   %%compiler::defined_nodes table("SIMPLE_NODE" = c_code(.source_of ""))
@@ -569,6 +570,16 @@ $compiler::sim2c:
       need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
 
   show_compiler_debug_info "GENERATE DEFINITIONS"
+
+  $$is_a_prototype empty_set
+
+  for_each all_definitions: (defs)
+    for_each defs: ($definition)
+      if definition.is_a_key_value_pair:
+	!definition key_of(definition)
+	unless attribute_kind_of(definition) == NONE:
+	  !is_a_prototype(identifier_of(definition).to_string) true
+
   for_each all_definitions: (defs)
     %%compiler::actions empty_list
     %%compiler::delayed_code ""
@@ -604,6 +615,9 @@ $compiler::sim2c:
 			define_type_function definition source
 		  :
 		    define_variable definition source
+		      ||
+			identifier_of(definition).to_string.is_a_prototype
+			namespace_of(identifier_of(definition)).is_defined
     if delayed_code != "": write_to_delayed_statements delayed_code
     push &actions: append &generated_code code
     push &all_actions actions

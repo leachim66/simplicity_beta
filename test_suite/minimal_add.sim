@@ -1,0 +1,29 @@
+#!/usr/bin/env simple
+
+<require ./minimal/stdlib>
+
+$O zero
+$I one
+
+$num_3 integer(I..I)
+$num_4 integer(I..O..O)
+$num_6 integer(I..I..O)
+
+$add: (left right)
+  print left
+  put_space
+  put_plus
+  put_space
+  print right
+  put_space
+  put_equal
+  put_space
+  print left + right
+  put_nl
+
+add num_3 num_4
+add num_4 num_3
+add num_3 num_6
+add num_6 num_3
+add num_4 num_6
+add num_6 num_4

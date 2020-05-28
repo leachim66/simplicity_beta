@@ -1,0 +1,33 @@
+<require ./inline_c>
+<require ./undefined>
+<require ./boolean>
+<require ./integer>
+<require ./list>
+
+<namespace std>
+<namespace types>
+
+# the following symbols need to be defined
+
+$types::function .
+$types::continuation .
+
+$std::empty_string .
+$std::raise .
+
+$std::parameter_count_of ()
+
+# some trivial functions
+
+$std::pass: $zz zero # do nothing
+
+# by default no two objects are equal
+
+$std::equal ()
+
+$types::undefined/equal: (_left _right) -> std::false
+$types::object/equal: (_left _right) -> std::false
+
+# a prototype for printing
+
+$std::print ()

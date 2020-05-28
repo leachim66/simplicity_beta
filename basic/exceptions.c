@@ -3541,17 +3541,27 @@ EXPORT void phase_3__basic__exceptions(void) {
   set_used_namespaces(used_namespaces);
   register_dynamic(&dyna_idx__first_resource_id);
   define__first_resource_id(create_future());
+  var.std__register_resource = create_future();
   define_single_assign_static("std", "register_resource", get__std__register_resource, &var.std__register_resource);
+  var.std__deregister_resource = create_future();
   define_single_assign_static("std", "deregister_resource", get__std__deregister_resource, &var.std__deregister_resource);
+  var.std__at_exit = create_future();
   define_single_assign_static("std", "at_exit", get__std__at_exit, &var.std__at_exit);
+  var.std__exit = create_future();
   define_single_assign_static("std", "exit", get__std__exit, &var.std__exit);
+  var.std__terminate = create_future();
   define_single_assign_static("std", "terminate", get__std__terminate, &var.std__terminate);
+  var.std__ErrorMessage = create_future();
   define_single_assign_static("std", "ErrorMessage", get__std__ErrorMessage, &var.std__ErrorMessage);
+  var.std__Error = create_future();
   define_single_assign_static("std", "Error", get__std__Error, &var.std__Error);
   define_single_assign_dynamic("std", "raise", get__std__raise, define__std__raise, &dyna_idx__std__raise);
   define__std__raise(create_future());
+  var.std__try = create_future();
   define_single_assign_static("std", "try", get__std__try, &var.std__try);
+  var.std__transaction = create_future();
   define_single_assign_static("std", "transaction", get__std__transaction, &var.std__transaction);
+  var.std__retain = create_future();
   define_single_assign_static("std", "retain", get__std__retain, &var.std__retain);
 }
 
@@ -3611,22 +3621,22 @@ EXPORT void phase_5__basic__exceptions(void) {
   assign_value(&var._resource_id_of, create_function(type__resource_id_of, -1));
   assign_value(&var._retain_id_of, create_function(type__retain_id_of, -1));
   maybe_initialize_future(get__first_resource_id(), get__undefined());
-  assign_variable(&var.std__register_resource, &func__std__register_resource_1);
-  assign_variable(&var.std__deregister_resource, &func__std__deregister_resource_1);
+  initialize_future(var.std__register_resource, func__std__register_resource_1);
+  initialize_future(var.std__deregister_resource, func__std__deregister_resource_1);
   assign_variable(&var._cleanup_till, &func__cleanup_till_1);
   assign_variable(&var._cleanup, &func__cleanup_1);
   assign_variable(&var._clib_exit, &func__clib_exit_1);
-  assign_variable(&var.std__at_exit, &func__std__at_exit_1);
-  assign_variable(&var.std__exit, &func__std__exit_1);
-  assign_variable(&var.std__terminate, &func__std__terminate_1);
-  assign_variable(&var.std__ErrorMessage, &func__std__ErrorMessage_1);
-  assign_variable(&var.std__Error, &func__std__Error_1);
+  initialize_future(var.std__at_exit, func__std__at_exit_1);
+  initialize_future(var.std__exit, func__std__exit_1);
+  initialize_future(var.std__terminate, func__std__terminate_1);
+  initialize_future(var.std__ErrorMessage, func__std__ErrorMessage_1);
+  initialize_future(var.std__Error, func__std__Error_1);
   assign_variable(&var._crash_dump, &func__crash_dump_1);
   assign_variable(&var._RuntimeError, &func__RuntimeError_1);
   initialize_future(get__std__raise(), var._RuntimeError);
-  assign_variable(&var.std__try, &func__std__try_1);
-  assign_variable(&var.std__transaction, &func__std__transaction_1);
-  assign_variable(&var.std__retain, &func__std__retain_1);
+  initialize_future(var.std__try, func__std__try_1);
+  initialize_future(var.std__transaction, func__std__transaction_1);
+  initialize_future(var.std__retain, func__std__retain_1);
 }
 
 static int already_run_phase_6 = false;

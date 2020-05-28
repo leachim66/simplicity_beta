@@ -314,8 +314,8 @@ IMPORT void use_read_write(
   NODE_GETTER *getter, NODE_SETTER *setter
 );
 IMPORT void resolve_attributes(void);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void maybe_initialize_future(NODE *var, NODE *val);
+IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void initialize_function_attributes(void);
 IMPORT void register_collector(FUNC collector);
 IMPORT __attribute__ ((noreturn)) void execute(FUNC entry);
@@ -24724,6 +24724,7 @@ int main(int argc, char **argv) {
   define__main_info(create_future());
   register_dynamic(&dyna_idx__do_build_static_executable);
   define__do_build_static_executable(create_future());
+  var.compiler__show_compiler_debug_info = create_future();
   define_single_assign_static("compiler", "show_compiler_debug_info", get__compiler__show_compiler_debug_info, &var.compiler__show_compiler_debug_info);
   assign_value(&var._EXE, unique__EXE);
   assign_value(&var._LIB, unique__LIB);
@@ -24740,6 +24741,7 @@ int main(int argc, char **argv) {
   define__do_link(undefined);
   register_dynamic(&dyna_idx__last_modification_time);
   define__last_modification_time(undefined);
+  var.compiler__write_timing_info = create_future();
   define_single_assign_static("compiler", "write_timing_info", get__compiler__write_timing_info, &var.compiler__write_timing_info);
 
   // initialization phase 4
@@ -25006,7 +25008,7 @@ int main(int argc, char **argv) {
   phase_5__sim2c();
   phase_5__extractor();
   phase_5__runtime_definitions();
-  assign_variable(&var.compiler__show_compiler_debug_info, &func__compiler__show_compiler_debug_info_1);
+  initialize_future(var.compiler__show_compiler_debug_info, func__compiler__show_compiler_debug_info_1);
   maybe_initialize_future(get__mode(), get__undefined());
   maybe_initialize_future(get__on_top_level(), get__true());
   assign_variable(&var._resolve_filename, &func__resolve_filename_1);
@@ -25029,7 +25031,7 @@ int main(int argc, char **argv) {
   assign_variable(&var._build_library, &func__build_library_1);
   assign_variable(&var._maybe_compile_c_file, &func__maybe_compile_c_file_1);
   assign_variable(&var._format_number, &func__format_number_1);
-  assign_variable(&var.compiler__write_timing_info, &func__compiler__write_timing_info_1);
+  initialize_future(var.compiler__write_timing_info, func__compiler__write_timing_info_1);
   assign_variable(&var._build_executable, &func__build_executable_1);
   initialize_function_attributes();
 

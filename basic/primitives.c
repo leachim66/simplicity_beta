@@ -173,6 +173,7 @@ IMPORT void define_polymorphic_function(
 );
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *create_future(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -189,7 +190,7 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -643,13 +644,21 @@ EXPORT void phase_3__basic__primitives(void) {
   already_run_phase_3 = true;
   set_module("basic__primitives");
   set_used_namespaces(used_namespaces);
+  var.std__ignore = create_future();
   define_single_assign_static("std", "ignore", get__std__ignore, &var.std__ignore);
+  var.std__writeln_to = create_future();
   define_single_assign_static("std", "writeln_to", get__std__writeln_to, &var.std__writeln_to);
+  var.std__swap = create_future();
   define_single_assign_static("std", "swap", get__std__swap, &var.std__swap);
+  var.std__pass = create_future();
   define_single_assign_static("std", "pass", get__std__pass, &var.std__pass);
+  var.std__eval = create_future();
   define_single_assign_static("std", "eval", get__std__eval, &var.std__eval);
+  var.std__do = create_future();
   define_single_assign_static("std", "do", get__std__do, &var.std__do);
+  var.std__assign = create_future();
   define_single_assign_static("std", "assign", get__std__assign, &var.std__assign);
+  var.std__goto = create_future();
   define_single_assign_static("std", "goto", get__std__goto, &var.std__goto);
 }
 
@@ -676,14 +685,14 @@ EXPORT void phase_5__basic__primitives(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
   assign_value(&var.std__has_minimum_length, create_function(type__std__has_minimum_length, -1));
-  assign_variable(&var.std__ignore, &func__std__ignore_1);
-  assign_variable(&var.std__writeln_to, &func__std__writeln_to_1);
-  assign_variable(&var.std__swap, &func__std__swap_1);
-  assign_variable(&var.std__pass, &func__std__pass_1);
-  assign_variable(&var.std__eval, &func__std__eval_1);
-  assign_variable(&var.std__do, &func__std__do_1);
-  assign_variable(&var.std__assign, &func__std__assign_1);
-  assign_variable(&var.std__goto, &func__std__goto_1);
+  initialize_future(var.std__ignore, func__std__ignore_1);
+  initialize_future(var.std__writeln_to, func__std__writeln_to_1);
+  initialize_future(var.std__swap, func__std__swap_1);
+  initialize_future(var.std__pass, func__std__pass_1);
+  initialize_future(var.std__eval, func__std__eval_1);
+  initialize_future(var.std__do, func__std__do_1);
+  initialize_future(var.std__assign, func__std__assign_1);
+  initialize_future(var.std__goto, func__std__goto_1);
 }
 
 static int already_run_phase_6 = false;

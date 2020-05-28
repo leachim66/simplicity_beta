@@ -207,6 +207,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *create_future(void);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -223,7 +224,7 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -4035,15 +4036,25 @@ EXPORT void phase_3__basic__types__character(void) {
   set_used_namespaces(used_namespaces);
   var.types__character = create_future_with_prototype(create__types__character(0));
   define_single_assign_static("types", "character", get__types__character, &var.types__character);
+  var.std__character = create_future();
   define_single_assign_static("std", "character", get__std__character, &var.std__character);
+  var.std__is_a_whitespace_character = create_future();
   define_single_assign_static("std", "is_a_whitespace_character", get__std__is_a_whitespace_character, &var.std__is_a_whitespace_character);
+  var.std__is_a_digit = create_future();
   define_single_assign_static("std", "is_a_digit", get__std__is_a_digit, &var.std__is_a_digit);
+  var.std__is_a_letter = create_future();
   define_single_assign_static("std", "is_a_letter", get__std__is_a_letter, &var.std__is_a_letter);
+  var.std__is_a_lower_case_letter = create_future();
   define_single_assign_static("std", "is_a_lower_case_letter", get__std__is_a_lower_case_letter, &var.std__is_a_lower_case_letter);
+  var.std__is_an_upper_case_letter = create_future();
   define_single_assign_static("std", "is_an_upper_case_letter", get__std__is_an_upper_case_letter, &var.std__is_an_upper_case_letter);
+  var.std__is_a_letter_character = create_future();
   define_single_assign_static("std", "is_a_letter_character", get__std__is_a_letter_character, &var.std__is_a_letter_character);
+  var.std__is_a_lower_case_letter_character = create_future();
   define_single_assign_static("std", "is_a_lower_case_letter_character", get__std__is_a_lower_case_letter_character, &var.std__is_a_lower_case_letter_character);
+  var.std__is_an_upper_case_letter_character = create_future();
   define_single_assign_static("std", "is_an_upper_case_letter_character", get__std__is_an_upper_case_letter_character, &var.std__is_an_upper_case_letter_character);
+  var.std__is_a_vowel = create_future();
   define_single_assign_static("std", "is_a_vowel", get__std__is_a_vowel, &var.std__is_a_vowel);
 }
 
@@ -4105,16 +4116,16 @@ EXPORT void phase_5__basic__types__character(void) {
   already_run_phase_5 = true;
   assign_value(&var.std__is_a_character, create_function(type__std__is_a_character, -1));
   assign_value(&var.types__character, get__types__object());
-  assign_variable(&var.std__character, &func__std__character_1);
-  assign_variable(&var.std__is_a_whitespace_character, &func__std__is_a_whitespace_character_1);
-  assign_variable(&var.std__is_a_digit, &func__std__is_a_digit_1);
-  assign_variable(&var.std__is_a_letter, &func__std__is_a_letter_1);
-  assign_variable(&var.std__is_a_lower_case_letter, &func__std__is_a_lower_case_letter_1);
-  assign_variable(&var.std__is_an_upper_case_letter, &func__std__is_an_upper_case_letter_1);
-  assign_variable(&var.std__is_a_letter_character, &func__std__is_a_letter_character_1);
-  assign_variable(&var.std__is_a_lower_case_letter_character, &func__std__is_a_lower_case_letter_character_1);
-  assign_variable(&var.std__is_an_upper_case_letter_character, &func__std__is_an_upper_case_letter_character_1);
-  assign_variable(&var.std__is_a_vowel, &func__std__is_a_vowel_1);
+  initialize_future(var.std__character, func__std__character_1);
+  initialize_future(var.std__is_a_whitespace_character, func__std__is_a_whitespace_character_1);
+  initialize_future(var.std__is_a_digit, func__std__is_a_digit_1);
+  initialize_future(var.std__is_a_letter, func__std__is_a_letter_1);
+  initialize_future(var.std__is_a_lower_case_letter, func__std__is_a_lower_case_letter_1);
+  initialize_future(var.std__is_an_upper_case_letter, func__std__is_an_upper_case_letter_1);
+  initialize_future(var.std__is_a_letter_character, func__std__is_a_letter_character_1);
+  initialize_future(var.std__is_a_lower_case_letter_character, func__std__is_a_lower_case_letter_character_1);
+  initialize_future(var.std__is_an_upper_case_letter_character, func__std__is_an_upper_case_letter_character_1);
+  initialize_future(var.std__is_a_vowel, func__std__is_a_vowel_1);
 }
 
 static int already_run_phase_6 = false;

@@ -714,6 +714,16 @@ static void set__compiler__string_literals(NODE *node) {
 static void define__compiler__string_literals(NODE *node) {
   define_dynamic_cell(dyna_idx__compiler__string_literals, node);
 }
+static int dyna_idx__compiler__unique_item_index;
+static NODE *get__compiler__unique_item_index(void) {
+  return get_dynamic_cell(dyna_idx__compiler__unique_item_index);
+}
+static void set__compiler__unique_item_index(NODE *node) {
+  set_dynamic_cell(dyna_idx__compiler__unique_item_index, node);
+}
+static void define__compiler__unique_item_index(NODE *node) {
+  define_dynamic_cell(dyna_idx__compiler__unique_item_index, node);
+}
 static NODE *get__compiler__vtable_entries(void) {
   return var.compiler__vtable_entries;
 }
@@ -736,7 +746,7 @@ static NODE *string__5af91691bb71fca7;
 static NODE *string__7e88296f0e7a3463;
 static NODE *string__541f558a01dab2b3;
 static NODE *string__ee216a04cf7d466f;
-static void cont__104_20(void);
+static void cont__106_20(void);
 void run__shared_variables(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -744,8 +754,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__compiler__text_of, NULL, 32, 32, 2, 18},
   {type__compiler__source_of, NULL, 33, 33, 2, 20},
   {type__compiler__indents_of, NULL, 34, 34, 2, 21},
-  {run__shared_variables, NULL, 126, 146, 1, 19},
-  {cont__104_20, NULL, }
+  {run__shared_variables, NULL, 130, 150, 1, 19},
+  {cont__106_20, NULL, }
 };
 
 union NODE {
@@ -999,16 +1009,20 @@ EXPORT void run__shared_variables(void) {
   // 121:   #
   // 122:     a table that matches string hashes to string literals
   set__compiler__string_literals(get__undefined());
-  // 126: $compiler::vtable_entries
-  // 127:   list
-  // 128:     "to_int8"
-  // 129:     "to_int16"
-  // 130:     "to_int32"
-  // 131:     "to_int64"
-  // 132:     "to_uint8"
-  // 133:     "to_uint16"
-  // 134:     "to_uint32"
-  // 135:     "to_uint64"
+  // 124: %%compiler::unique_item_index undefined
+  // 125:   #
+  // 126:     the index no. of the next anonymous unique item
+  set__compiler__unique_item_index(get__undefined());
+  // 130: $compiler::vtable_entries
+  // 131:   list
+  // 132:     "to_int8"
+  // 133:     "to_int16"
+  // 134:     "to_int32"
+  // 135:     "to_int64"
+  // 136:     "to_uint8"
+  // 137:     "to_uint16"
+  // 138:     "to_uint32"
+  // 139:     "to_uint64"
   // ...
   argument_count = 19;
   arguments = node_p;
@@ -1034,9 +1048,9 @@ EXPORT void run__shared_variables(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__104_20;
+  frame->cont = cont__106_20;
 }
-static void cont__104_20(void) {
+static void cont__106_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1194,6 +1208,8 @@ EXPORT void phase_3__shared_variables(void) {
   define__compiler__current_continuation_info(undefined);
   define_multi_assign_dynamic("compiler", "string_literals", get__compiler__string_literals, set__compiler__string_literals, define__compiler__string_literals, &dyna_idx__compiler__string_literals);
   define__compiler__string_literals(undefined);
+  define_multi_assign_dynamic("compiler", "unique_item_index", get__compiler__unique_item_index, set__compiler__unique_item_index, define__compiler__unique_item_index, &dyna_idx__compiler__unique_item_index);
+  define__compiler__unique_item_index(undefined);
   define_single_assign_static("compiler", "vtable_entries", get__compiler__vtable_entries, &var.compiler__vtable_entries);
 }
 

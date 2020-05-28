@@ -243,7 +243,6 @@ IMPORT void define_attribute(
   const char *namespace, const char *name,
   int id, NODE *attribute
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -2710,11 +2709,16 @@ EXPORT void phase_3__basic__types__table(void) {
   already_run_phase_3 = true;
   set_module("basic__types__table");
   set_used_namespaces(used_namespaces);
+  var.types__generic_table = create_future();
   define_single_assign_static("types", "generic_table", get__types__generic_table, &var.types__generic_table);
   assign_value(&var._NONE, unique__NONE);
+  var.types__table = create_future();
   define_single_assign_static("types", "table", get__types__table, &var.types__table);
+  var.std__empty_table = create_future();
   define_single_assign_static("std", "empty_table", get__std__empty_table, &var.std__empty_table);
+  var.std__table = create_future();
   define_single_assign_static("std", "table", get__std__table, &var.std__table);
+  var.std__register_collection_serializer = create_future();
   define_single_assign_static("std", "register_collection_serializer", get__std__register_collection_serializer, &var.std__register_collection_serializer);
 }
 
@@ -2784,12 +2788,12 @@ EXPORT void phase_5__basic__types__table(void) {
   already_run_phase_5 = true;
   assign_value(&var.private__set_item, create_function(type__private__set_item, -1));
   assign_value(&var.private__get_item, create_function(type__private__get_item, -1));
-  assign_value(&var.types__generic_table, get__types__object());
+  initialize_future(var.types__generic_table, get__types__object());
   assign_value(&var.std__is_a_table, create_function(type__std__is_a_table, -1));
-  assign_value(&var.types__table, get__types__unordered_table());
-  assign_variable(&var.std__empty_table, &var.types__table);
-  assign_variable(&var.std__table, &func__std__table_1);
-  assign_variable(&var.std__register_collection_serializer, &func__std__register_collection_serializer_1);
+  initialize_future(var.types__table, get__types__unordered_table());
+  initialize_future(var.std__empty_table, var.types__table);
+  initialize_future(var.std__table, func__std__table_1);
+  initialize_future(var.std__register_collection_serializer, func__std__register_collection_serializer_1);
 }
 
 static int already_run_phase_6 = false;

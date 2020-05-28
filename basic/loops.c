@@ -2826,14 +2826,23 @@ EXPORT void phase_3__basic__loops(void) {
   already_run_phase_3 = true;
   set_module("basic__loops");
   set_used_namespaces(used_namespaces);
+  var.std__from_to = create_future();
   define_single_assign_static("std", "from_to", get__std__from_to, &var.std__from_to);
+  var.std__from_to_by = create_future();
   define_single_assign_static("std", "from_to_by", get__std__from_to_by, &var.std__from_to_by);
+  var.std__from_down_to = create_future();
   define_single_assign_static("std", "from_down_to", get__std__from_down_to, &var.std__from_down_to);
+  var.std__from_down_to_by = create_future();
   define_single_assign_static("std", "from_down_to_by", get__std__from_down_to_by, &var.std__from_down_to_by);
+  var.std__repeat = create_future();
   define_single_assign_static("std", "repeat", get__std__repeat, &var.std__repeat);
+  var.std__forever = create_future();
   define_single_assign_static("std", "forever", get__std__forever, &var.std__forever);
+  var.std__while = create_future();
   define_single_assign_static("std", "while", get__std__while, &var.std__while);
+  var.std__do_while = create_future();
   define_single_assign_static("std", "do_while", get__std__do_while, &var.std__do_while);
+  var.std__do_until = create_future();
   define_single_assign_static("std", "do_until", get__std__do_until, &var.std__do_until);
 }
 
@@ -2863,23 +2872,23 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__loops(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__from_to, &func__std__from_to_1);
+  initialize_future(var.std__from_to, func__std__from_to_1);
   assign_variable(&var._from_to_1, &func__from_to_1_1);
   assign_variable(&var._from_to_2, &func__from_to_2_1);
-  assign_variable(&var.std__from_to_by, &func__std__from_to_by_1);
+  initialize_future(var.std__from_to_by, func__std__from_to_by_1);
   assign_variable(&var._from_to_by_1, &func__from_to_by_1_1);
   assign_variable(&var._from_to_by_2, &func__from_to_by_2_1);
-  assign_variable(&var.std__from_down_to, &func__std__from_down_to_1);
+  initialize_future(var.std__from_down_to, func__std__from_down_to_1);
   assign_variable(&var._from_down_to_1, &func__from_down_to_1_1);
   assign_variable(&var._from_down_to_2, &func__from_down_to_2_1);
-  assign_variable(&var.std__from_down_to_by, &func__std__from_down_to_by_1);
+  initialize_future(var.std__from_down_to_by, func__std__from_down_to_by_1);
   assign_variable(&var._from_down_to_by_1, &func__from_down_to_by_1_1);
   assign_variable(&var._from_down_to_by_2, &func__from_down_to_by_2_1);
-  assign_variable(&var.std__repeat, &func__std__repeat_1);
-  assign_variable(&var.std__forever, &func__std__forever_1);
-  assign_variable(&var.std__while, &func__std__while_1);
-  assign_variable(&var.std__do_while, &func__std__do_while_1);
-  assign_variable(&var.std__do_until, &func__std__do_until_1);
+  initialize_future(var.std__repeat, func__std__repeat_1);
+  initialize_future(var.std__forever, func__std__forever_1);
+  initialize_future(var.std__while, func__std__while_1);
+  initialize_future(var.std__do_while, func__std__do_while_1);
+  initialize_future(var.std__do_until, func__std__do_until_1);
 }
 
 static int already_run_phase_6 = false;

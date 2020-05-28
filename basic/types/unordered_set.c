@@ -2992,7 +2992,9 @@ EXPORT void phase_3__basic__types__unordered_set(void) {
   assign_value(&var._NONE, unique__NONE);
   var.types__unordered_set = create_future_with_prototype(create__types__unordered_set(0, NULL));
   define_single_assign_static("types", "unordered_set", get__types__unordered_set, &var.types__unordered_set);
+  var.std__empty_unordered_set = create_future();
   define_single_assign_static("std", "empty_unordered_set", get__std__empty_unordered_set, &var.std__empty_unordered_set);
+  var.std__unordered_set = create_future();
   define_single_assign_static("std", "unordered_set", get__std__unordered_set, &var.std__unordered_set);
 }
 
@@ -3049,8 +3051,8 @@ EXPORT void phase_5__basic__types__unordered_set(void) {
   assign_value(&var.types__unordered_set, get__types__generic_set());
   assign_variable(&var._next_key, &func__next_key_1);
   assign_variable(&var._previous_key, &func__previous_key_1);
-  assign_variable(&var.std__empty_unordered_set, &var.types__unordered_set);
-  assign_variable(&var.std__unordered_set, &func__std__unordered_set_1);
+  initialize_future(var.std__empty_unordered_set, var.types__unordered_set);
+  initialize_future(var.std__unordered_set, func__std__unordered_set_1);
 }
 
 static int already_run_phase_6 = false;

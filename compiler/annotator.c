@@ -7230,6 +7230,7 @@ EXPORT void phase_3__annotator(void) {
   set_used_namespaces(used_namespaces);
   register_dynamic(&dyna_idx__defines_dynamics);
   define__defines_dynamics(undefined);
+  var.compiler__check_definitions = create_future();
   define_single_assign_static("compiler", "check_definitions", get__compiler__check_definitions, &var.compiler__check_definitions);
 }
 
@@ -7361,7 +7362,7 @@ EXPORT void phase_5__annotator(void) {
   assign_value(&var.compiler__annotate_statement, create_function(type__compiler__annotate_statement, -1));
   assign_value(&var.compiler__annotate_expression, create_function(type__compiler__annotate_expression, -1));
   assign_variable(&var._annotate_arguments, &func__annotate_arguments_1);
-  assign_variable(&var.compiler__check_definitions, &func__compiler__check_definitions_1);
+  initialize_future(var.compiler__check_definitions, func__compiler__check_definitions_1);
 }
 
 static int already_run_phase_6 = false;

@@ -1,0 +1,104 @@
+<include stdio.h>
+
+{
+  <kind type>
+  <name types::undefined>
+  <node SIMPLE_NODE>
+
+  // the prototype for <std::undefined>
+
+  RUNTIME_ERROR("Attempt to call an undefined value as a function!")
+}
+
+{
+  <kind type>
+  <name types::object>
+  <node SIMPLE_NODE>
+
+  // the prototype for <std::object>
+
+  RUNTIME_ERROR("Attempt to call an object as a function!")
+}
+
+{
+  static long unique_idx = 1;
+}
+
+# we definitly need <types::unique_item>
+
+{
+  <kind node>
+  <name UNIQUE_ITEM>
+
+  long id;
+}
+
+{
+  <kind type>
+  <name types::unique_item>
+  <node UNIQUE_ITEM>
+  <base types::object>
+  <argument 0>
+
+  RUNTIME_ERROR("Attempt to call a unique item as a function!")
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *register_unique_item(const char *name) {
+    return create__types__unique_item(unique_idx++);
+  }
+}
+
+# a call to <std::terminate> is automatically inserted by the compiler
+
+$std::terminate {
+  exit(0);
+}
+
+#
+  to be able to print binary digits, some symbols and whitespace:
+
+$std::put_zero {
+  CHECK_ARGUMENTS(0)
+  putchar('0');
+  RETURN_NOTHING
+}
+
+$std::put_one {
+  CHECK_ARGUMENTS(0)
+  putchar('1');
+  RETURN_NOTHING
+}
+
+$std::put_question_mark {
+  CHECK_ARGUMENTS(0)
+  putchar('?');
+  RETURN_NOTHING
+}
+
+$std::put_plus {
+  CHECK_ARGUMENTS(0)
+  putchar('+');
+  RETURN_NOTHING
+}
+
+$std::put_equal {
+  CHECK_ARGUMENTS(0)
+  putchar('=');
+  RETURN_NOTHING
+}
+
+$std::put_space {
+  CHECK_ARGUMENTS(0)
+  putchar(' ');
+  RETURN_NOTHING
+}
+
+$std::put_nl {
+  CHECK_ARGUMENTS(0)
+  putchar('\n');
+  RETURN_NOTHING
+}

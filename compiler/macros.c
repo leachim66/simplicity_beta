@@ -9983,6 +9983,7 @@ EXPORT void phase_3__macros(void) {
   define__data_variables(undefined);
   register_dynamic(&dyna_idx__info_variables);
   define__info_variables(undefined);
+  var.compiler__converted = create_future();
   define_single_assign_static("compiler", "converted", get__compiler__converted, &var.compiler__converted);
 }
 
@@ -10045,7 +10046,7 @@ EXPORT void phase_5__macros(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
   assign_variable(&var._define_macro, &func__define_macro_1);
-  assign_variable(&var.compiler__converted, &func__compiler__converted_1);
+  initialize_future(var.compiler__converted, func__compiler__converted_1);
 }
 
 static int already_run_phase_6 = false;

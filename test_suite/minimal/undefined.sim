@@ -1,0 +1,6 @@
+$std::undefined types::undefined
+
+$std::is_defined ()
+
+$types::object.is_defined true
+$types::undefined.is_defined false

@@ -242,7 +242,6 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -1652,8 +1651,11 @@ EXPORT void phase_3__basic__types__insert_order_set(void) {
   set_module("basic__types__insert_order_set");
   set_used_namespaces(used_namespaces);
   assign_value(&var._NONE, unique__NONE);
+  var.types__insert_order_set = create_future();
   define_single_assign_static("types", "insert_order_set", get__types__insert_order_set, &var.types__insert_order_set);
+  var.std__empty_insert_order_set = create_future();
   define_single_assign_static("std", "empty_insert_order_set", get__std__empty_insert_order_set, &var.std__empty_insert_order_set);
+  var.std__insert_order_set = create_future();
   define_single_assign_static("std", "insert_order_set", get__std__insert_order_set, &var.std__insert_order_set);
 }
 
@@ -1708,9 +1710,9 @@ EXPORT void phase_5__basic__types__insert_order_set(void) {
   assign_value(&var.std__is_an_insert_order_set, create_function(type__std__is_an_insert_order_set, -1));
   assign_value(&var._index_table_of, create_function(type__index_table_of, -1));
   assign_value(&var._keys_of, create_function(type__keys_of, -1));
-  assign_value(&var.types__insert_order_set, get__types__generic_set());
-  assign_variable(&var.std__empty_insert_order_set, &var.types__insert_order_set);
-  assign_variable(&var.std__insert_order_set, &func__std__insert_order_set_1);
+  initialize_future(var.types__insert_order_set, get__types__generic_set());
+  initialize_future(var.std__empty_insert_order_set, var.types__insert_order_set);
+  initialize_future(var.std__insert_order_set, func__std__insert_order_set_1);
 }
 
 static int already_run_phase_6 = false;

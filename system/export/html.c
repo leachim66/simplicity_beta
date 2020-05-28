@@ -220,7 +220,6 @@ IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -239,6 +238,7 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
+IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
@@ -5999,24 +5999,26 @@ EXPORT void phase_3__system__export__html(void) {
   already_run_phase_3 = true;
   set_module("system__export__html");
   set_used_namespaces(used_namespaces);
-  assign_value(&var.html__SIMPLE, unique__html__SIMPLE);
+  var.html__SIMPLE = create_future();
   define_single_assign_static("html", "SIMPLE", get__html__SIMPLE, &var.html__SIMPLE);
-  assign_value(&var.html__SINGLE_LINE, unique__html__SINGLE_LINE);
+  var.html__SINGLE_LINE = create_future();
   define_single_assign_static("html", "SINGLE_LINE", get__html__SINGLE_LINE, &var.html__SINGLE_LINE);
-  assign_value(&var.html__MULTI_LINE, unique__html__MULTI_LINE);
+  var.html__MULTI_LINE = create_future();
   define_single_assign_static("html", "MULTI_LINE", get__html__MULTI_LINE, &var.html__MULTI_LINE);
-  assign_value(&var.html__MULTI_PARAGRAPH, unique__html__MULTI_PARAGRAPH);
+  var.html__MULTI_PARAGRAPH = create_future();
   define_single_assign_static("html", "MULTI_PARAGRAPH", get__html__MULTI_PARAGRAPH, &var.html__MULTI_PARAGRAPH);
-  assign_value(&var.html__NORMAL, unique__html__NORMAL);
+  var.html__NORMAL = create_future();
   define_single_assign_static("html", "NORMAL", get__html__NORMAL, &var.html__NORMAL);
-  assign_value(&var.html__VOID, unique__html__VOID);
+  var.html__VOID = create_future();
   define_single_assign_static("html", "VOID", get__html__VOID, &var.html__VOID);
-  assign_value(&var.html__FOREIGN, unique__html__FOREIGN);
+  var.html__FOREIGN = create_future();
   define_single_assign_static("html", "FOREIGN", get__html__FOREIGN, &var.html__FOREIGN);
   define_single_assign_dynamic("html", "emit", get__html__emit, define__html__emit, &dyna_idx__html__emit);
   define_single_assign_dynamic("html", "encode", get__html__encode, define__html__encode, &dyna_idx__html__encode);
+  var.html__TEXT = create_future();
   define_single_assign_static("html", "TEXT", get__html__TEXT, &var.html__TEXT);
   var._hex_digit = create_future();
+  var.html__define_tag = create_future();
   define_single_assign_static("html", "define_tag", get__html__define_tag, &var.html__define_tag);
   define_single_assign_static("html", "HTML", get__html__HTML, &var.html__HTML);
   define_single_assign_static("html", "HEAD", get__html__HEAD, &var.html__HEAD);
@@ -6068,9 +6070,13 @@ EXPORT void phase_3__system__export__html(void) {
   define_single_assign_static("html", "VIDEO", get__html__VIDEO, &var.html__VIDEO);
   define_single_assign_static("html", "SOURCE", get__html__SOURCE, &var.html__SOURCE);
   define_single_assign_static("html", "CANVAS", get__html__CANVAS, &var.html__CANVAS);
+  var.html__HTTP_HEADER = create_future();
   define_single_assign_static("html", "HTTP_HEADER", get__html__HTTP_HEADER, &var.html__HTTP_HEADER);
+  var.html__HTML_HEADER = create_future();
   define_single_assign_static("html", "HTML_HEADER", get__html__HTML_HEADER, &var.html__HTML_HEADER);
+  var.html__ERROR_PAGE = create_future();
   define_single_assign_static("html", "ERROR_PAGE", get__html__ERROR_PAGE, &var.html__ERROR_PAGE);
+  var.html__DUMP_PAGE = create_future();
   define_single_assign_static("html", "DUMP_PAGE", get__html__DUMP_PAGE, &var.html__DUMP_PAGE);
 }
 
@@ -6153,15 +6159,22 @@ EXPORT void phase_5__system__export__html(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
   assign_value(&var._convert_from_percent_encoding, create_function(type__convert_from_percent_encoding, -1));
+  initialize_future(var.html__SIMPLE, unique__html__SIMPLE);
+  initialize_future(var.html__SINGLE_LINE, unique__html__SINGLE_LINE);
+  initialize_future(var.html__MULTI_LINE, unique__html__MULTI_LINE);
+  initialize_future(var.html__MULTI_PARAGRAPH, unique__html__MULTI_PARAGRAPH);
+  initialize_future(var.html__NORMAL, unique__html__NORMAL);
+  initialize_future(var.html__VOID, unique__html__VOID);
+  initialize_future(var.html__FOREIGN, unique__html__FOREIGN);
   define__html__emit(func__html__emit_1);
   define__html__encode(func__html__encode_1);
-  assign_variable(&var.html__TEXT, &func__html__TEXT_1);
+  initialize_future(var.html__TEXT, func__html__TEXT_1);
   assign_variable(&var._hex_digit_value, &func__hex_digit_value_1);
-  assign_variable(&var.html__define_tag, &func__html__define_tag_1);
-  assign_variable(&var.html__HTTP_HEADER, &func__html__HTTP_HEADER_1);
-  assign_variable(&var.html__HTML_HEADER, &func__html__HTML_HEADER_1);
-  assign_variable(&var.html__ERROR_PAGE, &func__html__ERROR_PAGE_1);
-  assign_variable(&var.html__DUMP_PAGE, &func__html__DUMP_PAGE_1);
+  initialize_future(var.html__define_tag, func__html__define_tag_1);
+  initialize_future(var.html__HTTP_HEADER, func__html__HTTP_HEADER_1);
+  initialize_future(var.html__HTML_HEADER, func__html__HTML_HEADER_1);
+  initialize_future(var.html__ERROR_PAGE, func__html__ERROR_PAGE_1);
+  initialize_future(var.html__DUMP_PAGE, func__html__DUMP_PAGE_1);
 }
 
 static int already_run_phase_6 = false;

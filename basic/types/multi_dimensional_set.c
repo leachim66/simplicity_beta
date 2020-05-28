@@ -1750,7 +1750,9 @@ EXPORT void phase_3__basic__types__multi_dimensional_set(void) {
   already_run_phase_3 = true;
   set_module("basic__types__multi_dimensional_set");
   set_used_namespaces(used_namespaces);
+  var.types__multi_dimensional_set = create_future();
   define_single_assign_static("types", "multi_dimensional_set", get__types__multi_dimensional_set, &var.types__multi_dimensional_set);
+  var.std__multi_dimensional_set = create_future();
   define_single_assign_static("std", "multi_dimensional_set", get__std__multi_dimensional_set, &var.std__multi_dimensional_set);
 }
 
@@ -1788,8 +1790,8 @@ EXPORT void phase_5__basic__types__multi_dimensional_set(void) {
   assign_value(&var._table_of, create_function(type__table_of, -1));
   assign_variable(&var._insert_into, &func__insert_into_1);
   assign_variable(&var._get_item, &func__get_item_1);
-  assign_variable(&var.types__multi_dimensional_set, &func__types__multi_dimensional_set_1);
-  assign_variable(&var.std__multi_dimensional_set, &func__std__multi_dimensional_set_1);
+  initialize_future(var.types__multi_dimensional_set, func__types__multi_dimensional_set_1);
+  initialize_future(var.std__multi_dimensional_set, func__std__multi_dimensional_set_1);
   assign_variable(&var._for_each_dimension, &func__for_each_dimension_1);
 }
 

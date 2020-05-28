@@ -214,7 +214,6 @@ IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -829,6 +828,7 @@ EXPORT void phase_3__basic__serialize(void) {
   already_run_phase_3 = true;
   set_module("basic__serialize");
   set_used_namespaces(used_namespaces);
+  var.std__serialize_object = create_future();
   define_single_assign_static("std", "serialize_object", get__std__serialize_object, &var.std__serialize_object);
 }
 
@@ -855,7 +855,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__serialize(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__serialize_object, &func__std__serialize_object_1);
+  initialize_future(var.std__serialize_object, func__std__serialize_object_1);
 }
 
 static int already_run_phase_6 = false;

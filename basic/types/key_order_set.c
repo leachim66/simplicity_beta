@@ -3523,8 +3523,12 @@ EXPORT void phase_3__basic__types__key_order_set(void) {
   set_module("basic__types__key_order_set");
   set_used_namespaces(used_namespaces);
   assign_value(&var._NONE, unique__NONE);
+  var.types__key_order_set = create_future();
   define_single_assign_static("types", "key_order_set", get__types__key_order_set, &var.types__key_order_set);
+  var._empty_node = create_future();
+  var.std__empty_key_order_set = create_future();
   define_single_assign_static("std", "empty_key_order_set", get__std__empty_key_order_set, &var.std__empty_key_order_set);
+  var.std__key_order_set = create_future();
   define_single_assign_static("std", "key_order_set", get__std__key_order_set, &var.std__key_order_set);
 }
 
@@ -3578,14 +3582,14 @@ EXPORT void phase_5__basic__types__key_order_set(void) {
   assign_value(&var._tree_of, create_function(type__tree_of, -1));
   assign_value(&var._left_of, create_function(type__left_of, -1));
   assign_value(&var._right_of, create_function(type__right_of, -1));
-  assign_value(&var.types__key_order_set, get__types__generic_set());
-  assign_value(&var._empty_node, get__types__object());
+  initialize_future(var.types__key_order_set, get__types__generic_set());
+  initialize_future(var._empty_node, get__types__object());
   assign_variable(&var._fetch_first, &func__fetch_first_1);
   assign_variable(&var._get_item, &func__get_item_1);
   assign_variable(&var._add_item, &func__add_item_1);
   assign_variable(&var._remove_item, &func__remove_item_1);
-  assign_variable(&var.std__empty_key_order_set, &var.types__key_order_set);
-  assign_variable(&var.std__key_order_set, &func__std__key_order_set_1);
+  initialize_future(var.std__empty_key_order_set, var.types__key_order_set);
+  initialize_future(var.std__key_order_set, func__std__key_order_set_1);
   assign_variable(&var._for_each_item, &func__for_each_item_1);
 }
 

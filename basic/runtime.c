@@ -161,13 +161,14 @@ IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void set_module(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *create_future(void);
 typedef NODE *(*NODE_GETTER)(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT int runtime_patch_version(void);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -369,9 +370,13 @@ EXPORT void phase_3__basic__runtime(void) {
   already_run_phase_3 = true;
   set_module("basic__runtime");
   set_used_namespaces(used_namespaces);
+  var.std__runtime_major_version = create_future();
   define_single_assign_static("std", "runtime_major_version", get__std__runtime_major_version, &var.std__runtime_major_version);
+  var.std__runtime_minor_version = create_future();
   define_single_assign_static("std", "runtime_minor_version", get__std__runtime_minor_version, &var.std__runtime_minor_version);
+  var.std__runtime_patch_version = create_future();
   define_single_assign_static("std", "runtime_patch_version", get__std__runtime_patch_version, &var.std__runtime_patch_version);
+  var.std__runtime_revision = create_future();
   define_single_assign_static("std", "runtime_revision", get__std__runtime_revision, &var.std__runtime_revision);
 }
 
@@ -389,10 +394,10 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__runtime(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__runtime_major_version, &func__std__runtime_major_version_1);
-  assign_variable(&var.std__runtime_minor_version, &func__std__runtime_minor_version_1);
-  assign_variable(&var.std__runtime_patch_version, &func__std__runtime_patch_version_1);
-  assign_variable(&var.std__runtime_revision, &var.std__runtime_patch_version);
+  initialize_future(var.std__runtime_major_version, func__std__runtime_major_version_1);
+  initialize_future(var.std__runtime_minor_version, func__std__runtime_minor_version_1);
+  initialize_future(var.std__runtime_patch_version, func__std__runtime_patch_version_1);
+  initialize_future(var.std__runtime_revision, var.std__runtime_patch_version);
 }
 
 static int already_run_phase_6 = false;

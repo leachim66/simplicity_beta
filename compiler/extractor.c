@@ -25146,7 +25146,9 @@ EXPORT void phase_3__extractor(void) {
   var._symbol_info = create_future();
   var._TOPIC = create_future();
   var._EXAMPLE = create_future();
+  var.compiler__extract_exports = create_future();
   define_single_assign_static("compiler", "extract_exports", get__compiler__extract_exports, &var.compiler__extract_exports);
+  var.compiler__extract_documentation = create_future();
   define_single_assign_static("compiler", "extract_documentation", get__compiler__extract_documentation, &var.compiler__extract_documentation);
 }
 
@@ -25351,8 +25353,8 @@ EXPORT void phase_5__extractor(void) {
   assign_variable(&var._add_links, &func__add_links_1);
   assign_variable(&var._create_info_page, &func__create_info_page_1);
   assign_variable(&var._get_short_description, &func__get_short_description_1);
-  assign_variable(&var.compiler__extract_exports, &func__compiler__extract_exports_1);
-  assign_variable(&var.compiler__extract_documentation, &func__compiler__extract_documentation_1);
+  initialize_future(var.compiler__extract_exports, func__compiler__extract_exports_1);
+  initialize_future(var.compiler__extract_documentation, func__compiler__extract_documentation_1);
 }
 
 static int already_run_phase_6 = false;

@@ -1097,7 +1097,14 @@ $compiler::string_literal/to_c: (self)
 
 $compiler::unique_item/to_c: (self)
   show_compiler_debug_info "generate unique item"
-  $name string("unique__" name_of(self))
+  $name
+    string
+      "unique__"
+      if
+	name_of(self).is_defined
+	-> name_of(self)
+	-> unique_item_index
+  inc &unique_item_index
 
   $reg_name
     if
@@ -1235,7 +1242,7 @@ $assign: (dest src)
     :
       write_to_phase_5 "  assign_value(&@(dest), @(src));@nl;"
 
-$compiler::define_variable: (definition source)
+$compiler::define_variable: (definition source is_a_prototype)
   extract_destination definition $namespace $name $mangled_name
   if definition.is_a_static_definition:
     write_to_generated_collections "
@@ -1244,7 +1251,17 @@ $compiler::define_variable: (definition source)
       );@nl;@
   $kind variable_kind_of(definition)
   if source.is_defined && kind == STATIC_SINGLE:
-    assign var_entry(mangled_name) source.to_c
+    if
+      is_a_prototype:
+	write_to_phase_3 "
+	  @
+	    @(var_entry(mangled_name)) = create_future();
+	write_to_phase_5 "
+	  @
+	    initialize_future(@(var_entry(mangled_name)), @(source.to_c)@
+	  );@nl;@
+      :
+	assign var_entry(mangled_name) source.to_c
 
     #if
       source.is_a_constant:
@@ -1527,12 +1544,6 @@ $compiler::define_c_code: (self)
 	"extern"
 	-> "extern "
 	-> "static "
-
-    #$scope
-      if
-        scope_of(self) == "extern"
-        -> "extern "
-        -> "static "
 
     $identifier identifier_of(self)
 

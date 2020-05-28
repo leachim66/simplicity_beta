@@ -5327,10 +5327,15 @@ EXPORT void phase_3__basic__deserialize(void) {
   set_used_namespaces(used_namespaces);
   define_single_assign_static("std", "NAME", get__std__NAME, &var.std__NAME);
   define_single_assign_static("std", "IDENTIFIER", get__std__IDENTIFIER, &var.std__IDENTIFIER);
+  var.std__register_deserializer = create_future();
   define_single_assign_static("std", "register_deserializer", get__std__register_deserializer, &var.std__register_deserializer);
+  var.std__get_deserialization_indent = create_future();
   define_single_assign_static("std", "get_deserialization_indent", get__std__get_deserialization_indent, &var.std__get_deserialization_indent);
+  var.std__deserialize_item = create_future();
   define_single_assign_static("std", "deserialize_item", get__std__deserialize_item, &var.std__deserialize_item);
+  var.std__create_deserializer = create_future();
   define_single_assign_static("std", "create_deserializer", get__std__create_deserializer, &var.std__create_deserializer);
+  var.std__deserialize = create_future();
   define_single_assign_static("std", "deserialize", get__std__deserialize, &var.std__deserialize);
 }
 
@@ -5389,12 +5394,12 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__deserialize(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__register_deserializer, &func__std__register_deserializer_1);
-  assign_variable(&var.std__get_deserialization_indent, &func__std__get_deserialization_indent_1);
-  assign_variable(&var.std__deserialize_item, &func__std__deserialize_item_1);
-  assign_variable(&var.std__create_deserializer, &func__std__create_deserializer_1);
+  initialize_future(var.std__register_deserializer, func__std__register_deserializer_1);
+  initialize_future(var.std__get_deserialization_indent, func__std__get_deserialization_indent_1);
+  initialize_future(var.std__deserialize_item, func__std__deserialize_item_1);
+  initialize_future(var.std__create_deserializer, func__std__create_deserializer_1);
   assign_variable(&var._deserialize_stream, &func__deserialize_stream_1);
-  assign_variable(&var.std__deserialize, &func__std__deserialize_1);
+  initialize_future(var.std__deserialize, func__std__deserialize_1);
 }
 
 static int already_run_phase_6 = false;

@@ -11121,6 +11121,7 @@ EXPORT void phase_3__simplifier(void) {
   define__defined_names(create_future());
   register_dynamic(&dyna_idx__inherited_names);
   define__inherited_names(create_future());
+  var.compiler__check_usage = create_future();
   define_single_assign_static("compiler", "check_usage", get__compiler__check_usage, &var.compiler__check_usage);
 }
 
@@ -11267,7 +11268,7 @@ EXPORT void phase_5__simplifier(void) {
   assign_variable(&var._temporary_identifier, &func__temporary_identifier_1);
   assign_variable(&var._simplify_input_arguments, &func__simplify_input_arguments_1);
   assign_variable(&var._simplify_output_arguments, &func__simplify_output_arguments_1);
-  assign_variable(&var.compiler__check_usage, &func__compiler__check_usage_1);
+  initialize_future(var.compiler__check_usage, func__compiler__check_usage_1);
   assign_variable(&var._do_store, &func__do_store_1);
   assign_variable(&var._store_result, &func__store_result_1);
 }

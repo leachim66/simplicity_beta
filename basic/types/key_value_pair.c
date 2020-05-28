@@ -193,6 +193,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *create_future(void);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -209,7 +210,7 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -789,6 +790,7 @@ EXPORT void phase_3__basic__types__key_value_pair(void) {
   set_used_namespaces(used_namespaces);
   var.types__key_value_pair = create_future_with_prototype(create__types__key_value_pair(NULL, NULL));
   define_single_assign_static("types", "key_value_pair", get__types__key_value_pair, &var.types__key_value_pair);
+  var.std__key_value_pair = create_future();
   define_single_assign_static("std", "key_value_pair", get__std__key_value_pair, &var.std__key_value_pair);
 }
 
@@ -823,7 +825,7 @@ EXPORT void phase_5__basic__types__key_value_pair(void) {
   already_run_phase_5 = true;
   assign_value(&var.std__is_a_key_value_pair, create_function(type__std__is_a_key_value_pair, -1));
   assign_value(&var.types__key_value_pair, get__types__object());
-  assign_variable(&var.std__key_value_pair, &func__std__key_value_pair_1);
+  initialize_future(var.std__key_value_pair, func__std__key_value_pair_1);
 }
 
 static int already_run_phase_6 = false;

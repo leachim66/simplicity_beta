@@ -238,7 +238,6 @@ IMPORT void define_attribute(
   int id, NODE *attribute
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -1043,9 +1042,13 @@ EXPORT void phase_3__basic__types__set(void) {
   already_run_phase_3 = true;
   set_module("basic__types__set");
   set_used_namespaces(used_namespaces);
+  var.types__generic_set = create_future();
   define_single_assign_static("types", "generic_set", get__types__generic_set, &var.types__generic_set);
+  var.types__set = create_future();
   define_single_assign_static("types", "set", get__types__set, &var.types__set);
+  var.std__empty_set = create_future();
   define_single_assign_static("std", "empty_set", get__std__empty_set, &var.std__empty_set);
+  var.std__set = create_future();
   define_single_assign_static("std", "set", get__std__set, &var.std__set);
 }
 
@@ -1090,11 +1093,11 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__types__set(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_value(&var.types__generic_set, get__types__object());
+  initialize_future(var.types__generic_set, get__types__object());
   assign_value(&var.std__is_a_set, create_function(type__std__is_a_set, -1));
-  assign_value(&var.types__set, get__types__unordered_set());
-  assign_variable(&var.std__empty_set, &var.types__set);
-  assign_variable(&var.std__set, &func__std__set_1);
+  initialize_future(var.types__set, get__types__unordered_set());
+  initialize_future(var.std__empty_set, var.types__set);
+  initialize_future(var.std__set, func__std__set_1);
 }
 
 static int already_run_phase_6 = false;

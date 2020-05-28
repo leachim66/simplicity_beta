@@ -121,6 +121,10 @@ $compiler::indents_of (!)
   #
     a table that matches string hashes to string literals
 
+%%compiler::unique_item_index undefined
+  #
+    the index no. of the next anonymous unique item
+
 # vtable contents
 
 $compiler::vtable_entries

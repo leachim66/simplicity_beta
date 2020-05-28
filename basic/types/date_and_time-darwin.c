@@ -218,7 +218,6 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
@@ -1950,11 +1949,15 @@ EXPORT void phase_3__basic__types__date_and_time(void) {
   already_run_phase_3 = true;
   set_module("basic__types__date_and_time");
   set_used_namespaces(used_namespaces);
+  var.std__current_time = create_future();
   define_single_assign_static("std", "current_time", get__std__current_time, &var.std__current_time);
   var.types__date_and_time = create_future_with_prototype(create__types__date_and_time(0, 0));
   define_single_assign_static("types", "date_and_time", get__types__date_and_time, &var.types__date_and_time);
+  var.std__from_unix_time = create_future();
   define_single_assign_static("std", "from_unix_time", get__std__from_unix_time, &var.std__from_unix_time);
+  var.std__date_and_time = create_future();
   define_single_assign_static("std", "date_and_time", get__std__date_and_time, &var.std__date_and_time);
+  var.std__sleep = create_future();
   define_single_assign_static("std", "sleep", get__std__sleep, &var.std__sleep);
 }
 
@@ -2009,7 +2012,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__types__date_and_time(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__current_time, &func__std__current_time_1);
+  initialize_future(var.std__current_time, func__std__current_time_1);
   assign_value(&var.std__year_of, create_function(type__std__year_of, -1));
   assign_value(&var.std__month_of, create_function(type__std__month_of, -1));
   assign_value(&var.std__day_of, create_function(type__std__day_of, -1));
@@ -2019,9 +2022,9 @@ EXPORT void phase_5__basic__types__date_and_time(void) {
   assign_value(&var.std__second_of, create_function(type__std__second_of, -1));
   assign_value(&var.std__time_shift_of, create_function(type__std__time_shift_of, -1));
   assign_value(&var.types__date_and_time, get__types__object());
-  assign_variable(&var.std__from_unix_time, &func__std__from_unix_time_1);
-  assign_variable(&var.std__date_and_time, &func__std__date_and_time_1);
-  assign_variable(&var.std__sleep, &func__std__sleep_1);
+  initialize_future(var.std__from_unix_time, func__std__from_unix_time_1);
+  initialize_future(var.std__date_and_time, func__std__date_and_time_1);
+  initialize_future(var.std__sleep, func__std__sleep_1);
 }
 
 static int already_run_phase_6 = false;

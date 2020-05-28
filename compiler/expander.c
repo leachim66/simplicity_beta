@@ -4469,6 +4469,7 @@ EXPORT void phase_3__expander(void) {
   already_run_phase_3 = true;
   set_module("expander");
   set_used_namespaces(used_namespaces);
+  var.compiler__expand_operator_call = create_future();
   define_single_assign_static("compiler", "expand_operator_call", get__compiler__expand_operator_call, &var.compiler__expand_operator_call);
 }
 
@@ -4541,7 +4542,7 @@ EXPORT void phase_5__expander(void) {
   assign_value(&var.compiler__expand_statement, create_function(type__compiler__expand_statement, -1));
   assign_value(&var.compiler__expand_expression, create_function(type__compiler__expand_expression, -1));
   assign_variable(&var._expand_arguments, &func__expand_arguments_1);
-  assign_variable(&var.compiler__expand_operator_call, &func__compiler__expand_operator_call_1);
+  initialize_future(var.compiler__expand_operator_call, func__compiler__expand_operator_call_1);
 }
 
 static int already_run_phase_6 = false;

@@ -239,7 +239,6 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
@@ -19251,23 +19250,40 @@ EXPORT void phase_3__basic__types__string(void) {
   already_run_phase_3 = true;
   set_module("basic__types__string");
   set_used_namespaces(used_namespaces);
+  var.std__string = create_future();
   define_single_assign_static("std", "string", get__std__string, &var.std__string);
+  var.std__pad_left = create_future();
   define_single_assign_static("std", "pad_left", get__std__pad_left, &var.std__pad_left);
+  var.std__pad_right = create_future();
   define_single_assign_static("std", "pad_right", get__std__pad_right, &var.std__pad_right);
+  var.std__truncate = create_future();
   define_single_assign_static("std", "truncate", get__std__truncate, &var.std__truncate);
+  var.std__pad_or_truncate = create_future();
   define_single_assign_static("std", "pad_or_truncate", get__std__pad_or_truncate, &var.std__pad_or_truncate);
+  var.std__trim = create_future();
   define_single_assign_static("std", "trim", get__std__trim, &var.std__trim);
+  var.std__normalize = create_future();
   define_single_assign_static("std", "normalize", get__std__normalize, &var.std__normalize);
+  var.std__split = create_future();
   define_single_assign_static("std", "split", get__std__split, &var.std__split);
+  var.std__join = create_future();
   define_single_assign_static("std", "join", get__std__join, &var.std__join);
+  var.std__count_occurrences = create_future();
   define_single_assign_static("std", "count_occurrences", get__std__count_occurrences, &var.std__count_occurrences);
   var._umlaut_conversions = create_future();
+  var.std__replace_umlauts = create_future();
   define_single_assign_static("std", "replace_umlauts", get__std__replace_umlauts, &var.std__replace_umlauts);
+  var.std__replace_all = create_future();
   define_single_assign_static("std", "replace_all", get__std__replace_all, &var.std__replace_all);
+  var.std__delete_all = create_future();
   define_single_assign_static("std", "delete_all", get__std__delete_all, &var.std__delete_all);
+  var.std__spaces = create_future();
   define_single_assign_static("std", "spaces", get__std__spaces, &var.std__spaces);
+  var.std__indented = create_future();
   define_single_assign_static("std", "indented", get__std__indented, &var.std__indented);
+  var.std__for_each_line = create_future();
   define_single_assign_static("std", "for_each_line", get__std__for_each_line, &var.std__for_each_line);
+  var.std__collect_output = create_future();
   define_single_assign_static("std", "collect_output", get__std__collect_output, &var.std__collect_output);
 }
 
@@ -19416,24 +19432,24 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__types__string(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__string, &func__std__string_1);
-  assign_variable(&var.std__pad_left, &func__std__pad_left_1);
-  assign_variable(&var.std__pad_right, &func__std__pad_right_1);
-  assign_variable(&var.std__truncate, &func__std__truncate_1);
-  assign_variable(&var.std__pad_or_truncate, &func__std__pad_or_truncate_1);
-  assign_variable(&var.std__trim, &func__std__trim_1);
-  assign_variable(&var.std__normalize, &func__std__normalize_1);
-  assign_variable(&var.std__split, &func__std__split_1);
-  assign_variable(&var.std__join, &func__std__join_1);
-  assign_variable(&var.std__count_occurrences, &func__std__count_occurrences_1);
-  assign_variable(&var.std__replace_umlauts, &func__std__replace_umlauts_1);
-  assign_variable(&var.std__replace_all, &func__std__replace_all_1);
-  assign_variable(&var.std__delete_all, &func__std__delete_all_1);
+  initialize_future(var.std__string, func__std__string_1);
+  initialize_future(var.std__pad_left, func__std__pad_left_1);
+  initialize_future(var.std__pad_right, func__std__pad_right_1);
+  initialize_future(var.std__truncate, func__std__truncate_1);
+  initialize_future(var.std__pad_or_truncate, func__std__pad_or_truncate_1);
+  initialize_future(var.std__trim, func__std__trim_1);
+  initialize_future(var.std__normalize, func__std__normalize_1);
+  initialize_future(var.std__split, func__std__split_1);
+  initialize_future(var.std__join, func__std__join_1);
+  initialize_future(var.std__count_occurrences, func__std__count_occurrences_1);
+  initialize_future(var.std__replace_umlauts, func__std__replace_umlauts_1);
+  initialize_future(var.std__replace_all, func__std__replace_all_1);
+  initialize_future(var.std__delete_all, func__std__delete_all_1);
   assign_value(&var._eighty_spaces, string__49792677fe126f62);
-  assign_variable(&var.std__spaces, &func__std__spaces_1);
-  assign_variable(&var.std__indented, &func__std__indented_1);
-  assign_variable(&var.std__for_each_line, &func__std__for_each_line_1);
-  assign_variable(&var.std__collect_output, &func__std__collect_output_1);
+  initialize_future(var.std__spaces, func__std__spaces_1);
+  initialize_future(var.std__indented, func__std__indented_1);
+  initialize_future(var.std__for_each_line, func__std__for_each_line_1);
+  initialize_future(var.std__collect_output, func__std__collect_output_1);
 }
 
 static int already_run_phase_6 = false;

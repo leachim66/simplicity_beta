@@ -1,0 +1,143 @@
+#!/usr/bin/env simrun
+
+<require basic/exceptions>
+<require basic/serialize>
+<require basic/deserialize>
+<require basic/persistent>
+<require basic/branches>
+<require basic/constants>
+<require basic/debug>
+<require basic/environment>
+<require basic/event>
+<require basic/exec>
+<require basic/functional>
+<require basic/grammar>
+<require basic/io>
+<require basic/locale>
+<require basic/logical>
+<require basic/loops>
+<require basic/machine_info>
+<require basic/math>
+<require basic/mersenne_twister>
+<require basic/options>
+<require basic/parameters>
+<require basic/platform>
+<require basic/polymorphic_functions>
+<require basic/primitives>
+<require basic/random>
+<require basic/types/boolean>
+<require basic/types/bresenham>
+<require basic/types/character>
+<require basic/types/continuation>
+<require basic/types/date_and_time>
+<require basic/types/function>
+<require basic/types/insert_order_set>
+<require basic/types/insert_order_table>
+<require basic/types/iterator>
+<require basic/types/key_order_set>
+<require basic/types/list>
+<require basic/types/multi_dimensional_set>
+<require basic/types/multi_dimensional_table>
+<require basic/types/number>
+<require basic/types/object>
+<require basic/types/key_order_table>
+<require basic/types/key_value_pair>
+<require basic/types/set>
+<require basic/types/string_primitives>
+<require basic/types/string>
+<require basic/types/table>
+<require basic/types/tree>
+<require basic/types/undefined>
+<require basic/types/unordered_set>
+<require basic/types/unordered_table>
+<require basic/types/value_order_table>
+<require basic/types/value_range>
+<require basic/meta/wrapper>
+
+<require ./linker_test_module/sub>
+
+<namespace std>
+<namespace types>
+
+{
+  static long unique_idx = 1;
+}
+
+{
+  <kind node>
+  <name UNIQUE_ITEM>
+
+  long id;
+}
+
+{
+  <kind type>
+  <name types::unique_item>
+  <node UNIQUE_ITEM>
+  <base types::object>
+  <argument 0>
+
+  RUNTIME_ERROR("Attempt to call a unique item as a function!")
+}
+
+{
+  <kind function>
+  <scope runtime>
+
+  NODE *register_unique_item(const char *name) {
+    return create__types__unique_item(unique_idx++);
+  }
+}
+
+$types::unique_item/std::equal
+  #
+    compares two unique items for equality
+  {
+    CHECK_ARGUMENTS(2)
+    NODE *right = ARGUMENTS(1);
+    if (TYPEOF(right) != TYPE(types::unique_item)) RETURN_FALSE
+    RETURN_SINGLE_RESULT(
+      from_bool(ARGUMENTS(0)->unique_item.id == right->unique_item.id))
+  }
+
+$types::unique_item/hash
+  #
+    returns a numerical hash value
+  {
+    CHECK_ARGUMENTS(1)
+    uint32_t hash = ARGUMENTS(0)->unique_item.id;
+    hash *= 1893456841;
+    hash ^= hash >> 25 | hash << 7;
+    RETURN_SINGLE_RESULT(from_uint32(hash));
+  }
+
+$a types::unique_item
+
+$a.value_of 47
+
+writeln value_of(a)
+
+{
+  <kind object>
+  <name b>
+  <type types::unique_item>
+  <argument 999>
+}
+
+$b.value_of 11
+
+writeln value_of(b)
+
+$c .
+
+$c.value_of 8
+
+writeln value_of(c)
+
+$std::d .
+
+writeln value_of(d)
+
+$e 39
+
+writeln e

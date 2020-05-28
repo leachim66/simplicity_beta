@@ -164,6 +164,7 @@ IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_used_namespaces(const char **namespaces);
+IMPORT NODE *create_future(void);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -172,7 +173,7 @@ IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -685,14 +686,23 @@ EXPORT void phase_3__basic__platform(void) {
   already_run_phase_3 = true;
   set_module("basic__platform");
   set_used_namespaces(used_namespaces);
+  var.std__operating_system = create_future();
   define_single_assign_static("std", "operating_system", get__std__operating_system, &var.std__operating_system);
+  var.std__hardware_architecture = create_future();
   define_single_assign_static("std", "hardware_architecture", get__std__hardware_architecture, &var.std__hardware_architecture);
+  var.std__c_compiler = create_future();
   define_single_assign_static("std", "c_compiler", get__std__c_compiler, &var.std__c_compiler);
+  var.std__CPPFLAGS = create_future();
   define_single_assign_static("std", "CPPFLAGS", get__std__CPPFLAGS, &var.std__CPPFLAGS);
+  var.std__LDFLAGS = create_future();
   define_single_assign_static("std", "LDFLAGS", get__std__LDFLAGS, &var.std__LDFLAGS);
+  var.std__PREFIX = create_future();
   define_single_assign_static("std", "PREFIX", get__std__PREFIX, &var.std__PREFIX);
+  var.std__PACKAGE_VERSION = create_future();
   define_single_assign_static("std", "PACKAGE_VERSION", get__std__PACKAGE_VERSION, &var.std__PACKAGE_VERSION);
+  var.std__current_directory_separator = create_future();
   define_single_assign_static("std", "current_directory_separator", get__std__current_directory_separator, &var.std__current_directory_separator);
+  var.std__current_path_separator = create_future();
   define_single_assign_static("std", "current_path_separator", get__std__current_path_separator, &var.std__current_path_separator);
 }
 
@@ -713,15 +723,15 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__platform(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__operating_system, &func__std__operating_system_1);
-  assign_variable(&var.std__hardware_architecture, &func__std__hardware_architecture_1);
-  assign_variable(&var.std__c_compiler, &func__std__c_compiler_1);
-  assign_variable(&var.std__CPPFLAGS, &func__std__CPPFLAGS_1);
-  assign_variable(&var.std__LDFLAGS, &func__std__LDFLAGS_1);
-  assign_variable(&var.std__PREFIX, &func__std__PREFIX_1);
-  assign_variable(&var.std__PACKAGE_VERSION, &func__std__PACKAGE_VERSION_1);
-  assign_variable(&var.std__current_directory_separator, &func__std__current_directory_separator_1);
-  assign_variable(&var.std__current_path_separator, &func__std__current_path_separator_1);
+  initialize_future(var.std__operating_system, func__std__operating_system_1);
+  initialize_future(var.std__hardware_architecture, func__std__hardware_architecture_1);
+  initialize_future(var.std__c_compiler, func__std__c_compiler_1);
+  initialize_future(var.std__CPPFLAGS, func__std__CPPFLAGS_1);
+  initialize_future(var.std__LDFLAGS, func__std__LDFLAGS_1);
+  initialize_future(var.std__PREFIX, func__std__PREFIX_1);
+  initialize_future(var.std__PACKAGE_VERSION, func__std__PACKAGE_VERSION_1);
+  initialize_future(var.std__current_directory_separator, func__std__current_directory_separator_1);
+  initialize_future(var.std__current_path_separator, func__std__current_path_separator_1);
 }
 
 static int already_run_phase_6 = false;

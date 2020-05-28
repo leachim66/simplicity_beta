@@ -1,0 +1,75 @@
+$types::true .
+$types::false .
+
+$std::true types::true
+$std::false types::false
+
+$std::not ()
+$std::and ()
+$std::or ()
+$std::if ()
+
+$types::true.not false # returns <false>
+$types::false.not true # returns <true>
+
+$types::true/and:
+  #
+    evaluates and returns its second argument
+
+    The first argument is already <true>, so the second argument decides
+    whether the *and*-expression ist *true* or not.
+  (
+    _left
+    right
+  )
+  -> right()
+
+$types::false/and:
+  #
+    return <false>
+
+    The second argument is not evaluated at all!
+  (
+    _left
+    _right
+  )
+  -> false
+
+$types::true/or:
+  #
+    return <true>
+
+    The second argument is not evaluated at all!
+  (
+    _left
+    _right
+  )
+  -> true
+
+$types::false/or:
+  #
+    evaluates and returns its second argument
+
+    The first argument is already <false>, so the second argument decides
+    whether the *or*-expression ist *true* or not.
+  (
+    _left
+    right
+  )
+  -> right()
+
+$types::true/if:
+  (
+    _condition
+    then
+    _else
+  )
+  then
+
+$types::false/if:
+  (
+    _condition
+    _then
+    else
+  )
+  else

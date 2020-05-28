@@ -227,6 +227,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *create_future(void);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -244,6 +245,7 @@ IMPORT void define_method(
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -6676,10 +6678,15 @@ EXPORT void phase_3__basic__types__number(void) {
   define_single_assign_static("types", "negative_large_integer", get__types__negative_large_integer, &var.types__negative_large_integer);
   var.types__real = create_future_with_prototype(create__types__real(0.0));
   define_single_assign_static("types", "real", get__types__real, &var.types__real);
+  var.std__is_odd = create_future();
   define_single_assign_static("std", "is_odd", get__std__is_odd, &var.std__is_odd);
+  var.std__is_even = create_future();
   define_single_assign_static("std", "is_even", get__std__is_even, &var.std__is_even);
+  var.std__bin = create_future();
   define_single_assign_static("std", "bin", get__std__bin, &var.std__bin);
+  var.std__oct = create_future();
   define_single_assign_static("std", "oct", get__std__oct, &var.std__oct);
+  var.std__hex = create_future();
   define_single_assign_static("std", "hex", get__std__hex, &var.std__hex);
 }
 
@@ -6831,11 +6838,11 @@ EXPORT void phase_5__basic__types__number(void) {
   assign_variable(&var.types__positive_large_integer, &var.types__integer);
   assign_variable(&var.types__negative_large_integer, &var.types__integer);
   assign_variable(&var.types__real, &var.types__number);
-  assign_variable(&var.std__is_odd, &func__std__is_odd_1);
-  assign_variable(&var.std__is_even, &func__std__is_even_1);
-  assign_variable(&var.std__bin, &func__std__bin_1);
-  assign_variable(&var.std__oct, &func__std__oct_1);
-  assign_variable(&var.std__hex, &func__std__hex_1);
+  initialize_future(var.std__is_odd, func__std__is_odd_1);
+  initialize_future(var.std__is_even, func__std__is_even_1);
+  initialize_future(var.std__bin, func__std__bin_1);
+  initialize_future(var.std__oct, func__std__oct_1);
+  initialize_future(var.std__hex, func__std__hex_1);
 }
 
 static int already_run_phase_6 = false;

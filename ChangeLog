@@ -1,3 +1,20 @@
+2020-05-28
+
+  * Simplicity 2.2.1
+
+    improved support for "object inheritance"
+
+    added a test for implementing a minimal library
+
+    fixed handling of anonymous unique items
+
+    all global definitions now support "inheritance"
+
+    improved "inheritance" of local definitions
+
+  * runtime/compiler 2.0.3
+
+
 2020-05-25
 
   * Simplicity 2.2.0

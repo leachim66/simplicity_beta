@@ -8714,8 +8714,12 @@ EXPORT void phase_3__basic__types__insert_order_table(void) {
   assign_value(&var._NONE, unique__NONE);
   assign_value(&var._INSERT, unique__INSERT);
   assign_value(&var._UPDATE, unique__UPDATE);
+  var.types__insert_order_table = create_future();
   define_single_assign_static("types", "insert_order_table", get__types__insert_order_table, &var.types__insert_order_table);
+  var._empty_node = create_future();
+  var.std__empty_insert_order_table = create_future();
   define_single_assign_static("std", "empty_insert_order_table", get__std__empty_insert_order_table, &var.std__empty_insert_order_table);
+  var.std__insert_order_table = create_future();
   define_single_assign_static("std", "insert_order_table", get__std__insert_order_table, &var.std__insert_order_table);
 }
 
@@ -8807,15 +8811,15 @@ EXPORT void phase_5__basic__types__insert_order_table(void) {
   assign_value(&var._previous_of, create_function(type__previous_of, -1));
   assign_variable(&var._remove_leftmost, &func__remove_leftmost_1);
   assign_variable(&var._remove_rightmost, &func__remove_rightmost_1);
-  assign_value(&var.types__insert_order_table, get__types__generic_table());
-  assign_value(&var._empty_node, get__types__object());
+  initialize_future(var.types__insert_order_table, get__types__generic_table());
+  initialize_future(var._empty_node, get__types__object());
   assign_variable(&var._fetch_first, &func__fetch_first_1);
   assign_variable(&var._retrieve_item, &func__retrieve_item_1);
   assign_variable(&var._add_item, &func__add_item_1);
   assign_variable(&var._update_item, &func__update_item_1);
   assign_variable(&var._remove_item, &func__remove_item_1);
-  assign_variable(&var.std__empty_insert_order_table, &var.types__insert_order_table);
-  assign_variable(&var.std__insert_order_table, &func__std__insert_order_table_1);
+  initialize_future(var.std__empty_insert_order_table, var.types__insert_order_table);
+  initialize_future(var.std__insert_order_table, func__std__insert_order_table_1);
 }
 
 static int already_run_phase_6 = false;

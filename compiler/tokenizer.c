@@ -222,8 +222,6 @@ IMPORT void use_read_only(
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
-IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -3642,9 +3640,13 @@ EXPORT void phase_3__tokenizer(void) {
   already_run_phase_3 = true;
   set_module("tokenizer");
   set_used_namespaces(used_namespaces);
+  var.compiler__indent_marker = create_future();
   define_single_assign_static("compiler", "indent_marker", get__compiler__indent_marker, &var.compiler__indent_marker);
+  var.compiler__outdent_marker = create_future();
   define_single_assign_static("compiler", "outdent_marker", get__compiler__outdent_marker, &var.compiler__outdent_marker);
+  var.compiler__newline = create_future();
   define_single_assign_static("compiler", "newline", get__compiler__newline, &var.compiler__newline);
+  var.compiler__tokenize = create_future();
   define_single_assign_static("compiler", "tokenize", get__compiler__tokenize, &var.compiler__tokenize);
 }
 
@@ -3700,10 +3702,10 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__tokenizer(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_value(&var.compiler__indent_marker, character__1);
-  assign_value(&var.compiler__outdent_marker, character__2);
-  assign_value(&var.compiler__newline, character__10);
-  assign_variable(&var.compiler__tokenize, &func__compiler__tokenize_1);
+  initialize_future(var.compiler__indent_marker, character__1);
+  initialize_future(var.compiler__outdent_marker, character__2);
+  initialize_future(var.compiler__newline, character__10);
+  initialize_future(var.compiler__tokenize, func__compiler__tokenize_1);
 }
 
 static int already_run_phase_6 = false;

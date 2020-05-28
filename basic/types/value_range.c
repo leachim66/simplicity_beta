@@ -194,6 +194,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *create_future(void);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -210,7 +211,7 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -1291,6 +1292,7 @@ EXPORT void phase_3__basic__types__value_range(void) {
   set_used_namespaces(used_namespaces);
   var.types__value_range = create_future_with_prototype(create__types__value_range(NULL, NULL));
   define_single_assign_static("types", "value_range", get__types__value_range, &var.types__value_range);
+  var.std__value_range = create_future();
   define_single_assign_static("std", "value_range", get__std__value_range, &var.std__value_range);
 }
 
@@ -1336,7 +1338,7 @@ EXPORT void phase_5__basic__types__value_range(void) {
   already_run_phase_5 = true;
   assign_value(&var.std__is_a_value_range, create_function(type__std__is_a_value_range, -1));
   assign_value(&var.types__value_range, get__types__object());
-  assign_variable(&var.std__value_range, &func__std__value_range_1);
+  initialize_future(var.std__value_range, func__std__value_range_1);
 }
 
 static int already_run_phase_6 = false;

@@ -36770,10 +36770,12 @@ EXPORT void phase_3__pretty_printer(void) {
   register_dynamic(&dyna_idx__line_end_expression_width);
   var._INDENTATION_MARKER = create_future();
   var._INDENTATION_MARKER_HIGH = create_future();
+  var._INDENTATION = create_future();
   register_dynamic(&dyna_idx__statement_tag);
   define__statement_tag(undefined);
   register_dynamic(&dyna_idx__spaces);
   define__spaces(create_future());
+  var.compiler__print_trees = create_future();
   define_single_assign_static("compiler", "print_trees", get__compiler__print_trees, &var.compiler__print_trees);
 }
 
@@ -36984,10 +36986,10 @@ EXPORT void phase_5__pretty_printer(void) {
   define__compiler__line_width(number__80);
   define__expression_indent(number__0);
   define__line_end_expression_width(number__0);
-  assign_value(&var._INDENTATION, get__types__grammar_object());
+  initialize_future(var._INDENTATION, get__types__grammar_object());
   maybe_initialize_future(get__spaces(), get__std__spaces());
   assign_variable(&var._indentation_string, &func__indentation_string_1);
-  assign_variable(&var.compiler__print_trees, &func__compiler__print_trees_1);
+  initialize_future(var.compiler__print_trees, func__compiler__print_trees_1);
   assign_variable(&var._line_start_remark_to_string, &func__line_start_remark_to_string_1);
   assign_variable(&var._add_remark_lines, &func__add_remark_lines_1);
   assign_variable(&var._add_statement_remark, &func__add_statement_remark_1);

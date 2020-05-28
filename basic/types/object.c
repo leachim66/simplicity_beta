@@ -189,6 +189,7 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
+IMPORT NODE *create_future(void);
 IMPORT void use_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER *getter, int *id
 );
@@ -204,7 +205,7 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void initialize_future(NODE *var, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -588,6 +589,7 @@ EXPORT void phase_3__basic__types__object(void) {
   set_used_namespaces(used_namespaces);
   var.types__object = create__types__object();
   define_single_assign_static("types", "object", get__types__object, &var.types__object);
+  var.std__current_address_of = create_future();
   define_single_assign_static("std", "current_address_of", get__std__current_address_of, &var.std__current_address_of);
 }
 
@@ -620,7 +622,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__types__object(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var.std__current_address_of, &func__std__current_address_of_1);
+  initialize_future(var.std__current_address_of, func__std__current_address_of_1);
 }
 
 static int already_run_phase_6 = false;
