@@ -46,7 +46,10 @@ $types::xml_element.xml::contents_of empty_list
     -> false
 
 $serialize_tag: (tag indent)
-  if tag.is_defined (-> "@nl;@(spaces(indent))tag: @(tag)") -> ""
+  if
+    tag.is_defined
+    -> "@nl;@(spaces(indent))tag: @(tag)"
+    -> ""
 
 $serialize_attributes: (attributes indent)
   if
@@ -317,14 +320,17 @@ $types::xml_element/select:
     self # the xml-tree to search
     clauses_sets* # specifies the subtrees that shall be returned
   )
-  if check_sets(self clauses_sets) (-> list(self)):
-    $$results empty_list
-    $contents contents_of(self)
-    if contents.is_defined:
-      for_each contents: (element)
-	unless element.is_a_string:
-	  append &results select(element clauses_sets*)
-    -> results
+  if
+    check_sets(self clauses_sets)
+    -> list(self)
+    :
+      $$results empty_list
+      $contents contents_of(self)
+      if contents.is_defined:
+	for_each contents: (element)
+	  unless element.is_a_string:
+	    append &results select(element clauses_sets*)
+      -> results
 
 $types::xml_element/delete:
   #

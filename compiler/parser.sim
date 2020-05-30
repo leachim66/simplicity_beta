@@ -228,7 +228,10 @@ $precedence_table
     "=" = 1
 
 $compiler::precedence: (op)
-  if op.is_a_string (-> precedence_table(op)) -> INFIX_PRECEDENCE
+  if
+    op.is_a_string
+    -> precedence_table(op)
+    -> INFIX_PRECEDENCE
 
 $compiler::is_left_associative: (prec) -> prec > 5
 
@@ -1320,7 +1323,7 @@ $check_functor: (functor)
     :
       SyntaxError functor "invalid functor"
 
-$check_arguments: (node kind wanted_outputs? wanted_inputs?)
+$check_arguments: (node $kind $wanted_outputs? wanted_inputs?)
   $$outputs 0
   $$inputs 0
   $$contains_attribute_value_pair false
@@ -1348,6 +1351,9 @@ $check_arguments: (node kind wanted_outputs? wanted_inputs?)
 	  add_argument expression_of(argument)
 	:
 	  add_argument argument
+  if kind == "procedure call" && contains_attribute_value_pair:
+    !kind "object definition"
+    !wanted_outputs 1
   if wanted_outputs.is_defined:
     if outputs > wanted_outputs:
       SyntaxError node "too many output arguments for @(kind)"

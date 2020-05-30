@@ -54,20 +54,26 @@ $extract: (buf fields separator)
 $std::load_csv: (options* filename)
   extract_options options ENCODING = UTF8 $encoding SEPARATOR = ';' $separator
   load $$buf filename
-  if buf.is_undefined (-> undefined):
-    if buf .has_prefix. UTF8_BYTE_ORDER_MARKER:
-      without_prefix &buf UTF8_BYTE_ORDER_MARKER
-    if encoding == UTF8: from_utf8 &buf
-    replace_all &buf '@cr;' = ""
-    $header parse_line(buf .before. '@nl;' separator)
-    extract buf .behind. '@nl;' header separator
+  if
+    buf.is_undefined
+    -> undefined
+    :
+      if buf .has_prefix. UTF8_BYTE_ORDER_MARKER:
+	without_prefix &buf UTF8_BYTE_ORDER_MARKER
+      if encoding == UTF8: from_utf8 &buf
+      replace_all &buf '@cr;' = ""
+      $header parse_line(buf .before. '@nl;' separator)
+      extract buf .behind. '@nl;' header separator
 
 $std::load_dif: (fields options* filename)
   extract_options options ENCODING = UTF8 $encoding SEPARATOR = ';' $separator
   load $$buf filename
-  if buf.is_undefined (-> undefined):
-    if buf .has_prefix. UTF8_BYTE_ORDER_MARKER:
-      without_prefix &buf UTF8_BYTE_ORDER_MARKER
-    if encoding == UTF8: from_utf8 &buf
-    replace_all &buf '@cr;' = ""
-    extract buf fields separator
+  if
+    buf.is_undefined
+    -> undefined
+    :
+      if buf .has_prefix. UTF8_BYTE_ORDER_MARKER:
+	without_prefix &buf UTF8_BYTE_ORDER_MARKER
+      if encoding == UTF8: from_utf8 &buf
+      replace_all &buf '@cr;' = ""
+      extract buf fields separator

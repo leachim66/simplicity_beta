@@ -100,14 +100,17 @@ define_macro "INT": (arguments)
   case event_phase
     DATA:
       push &data_variables put(arguments "integer")
-      if event_kind == EVENT (-> "  store__integer(@(name));") -> "
-	@
-	  if (@(name) == @(arguments(2))) {
-	      successful__action("@(event_name)");
-	    } else {
-	      failed__action("@(event_name)");
-	      store__integer(@(name));
-	    }@
+      if
+	event_kind == EVENT
+	-> "  store__integer(@(name));"
+	-> "
+	  @
+	    if (@(name) == @(arguments(2))) {
+	        successful__action("@(event_name)");
+	      } else {
+	        failed__action("@(event_name)");
+	        store__integer(@(name));
+	      }@
     INFO:
       push &info_variables put(arguments "integer")
       -> ""
@@ -116,14 +119,17 @@ define_macro "LONG": (arguments)
   case event_phase
     DATA:
       push &data_variables put(arguments "long_integer")
-      if event_kind == EVENT (-> "  store__long_integer(@(name));") -> "
-	@
-	  if (@(name) == @(arguments(2))) {
-	      successful__action("@(event_name)");
-	    } else {
-	      failed__action("@(event_name)");
-	      store__long_integer(@(name));
-	    }@
+      if
+	event_kind == EVENT
+	-> "  store__long_integer(@(name));"
+	-> "
+	  @
+	    if (@(name) == @(arguments(2))) {
+	        successful__action("@(event_name)");
+	      } else {
+	        failed__action("@(event_name)");
+	        store__long_integer(@(name));
+	      }@
     INFO:
       push &info_variables put(arguments "long_integer")
       -> ""
@@ -132,14 +138,17 @@ define_macro "POINTER": (arguments)
   case event_phase
     DATA:
       push &data_variables put(arguments "pointer")
-      if event_kind == EVENT (-> "  store__pointer(@(name));") -> "
-	@
-	  if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
-	      successful__action("@(event_name)");
-	    } else {
-	      failed__action("@(event_name)");
-	      store__pointer(@(name));
-	    }@
+      if
+	event_kind == EVENT
+	-> "  store__pointer(@(name));"
+	-> "
+	  @
+	    if (@(name) && @(name) != (void *)FIRST_INVALID_ADDRESS) {
+	        successful__action("@(event_name)");
+	      } else {
+	        failed__action("@(event_name)");
+	        store__pointer(@(name));
+	      }@
     INFO:
       push &info_variables put(arguments "pointer")
       -> ""
@@ -184,17 +193,14 @@ define_macro "END":
       $type var(1)
       $name var(2)
       case type
-	"pointer"
-	:
+	"pointer":
 	  writeln_to &buf indent "retrieve__pointer((void **)&@(name));"
-	"int_array"
-	:
+	"int_array":
 	  writeln_to
 	    &buf
 	    indent
 	    "@(var(3)) = retrieve__int_array((int **)&@(name));"
-	"memory"
-	:
+	"memory":
 	  writeln_to
 	    &buf
 	    indent
@@ -213,14 +219,11 @@ define_macro "END":
       $type var(1)
       $name var(2)
       case type
-	"pointer"
-	:
+	"pointer":
 	  writeln_to &buf indent "print__pointer(@(name));"
-	"int_array"
-	:
+	"int_array":
 	  writeln_to &buf indent "print__int_array(@(name), @(var(3)));"
-	"memory"
-	:
+	"memory":
 	  writeln_to &buf indent "print__memory(@(name), @(var(3)));"
 	:
 	  writeln_to &buf indent "print__@(type)(@(name));"

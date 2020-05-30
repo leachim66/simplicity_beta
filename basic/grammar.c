@@ -1216,7 +1216,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__setter_of, NULL, 57, 57, 2, 10},
   {type__node_of, NULL, 58, 58, 2, 8},
   {type__function_of, NULL, 59, 59, 2, 12},
-  {run__basic__grammar, NULL, 790, 794, 1, 19},
+  {run__basic__grammar, NULL, 793, 797, 1, 19},
   {cont__152_1, NULL, },
   {entry__types__optional__grammar__match_1, NULL, 77, 77, 21, 33},
   {cont__types__optional__grammar__match_2, &frame__types__optional__grammar__match_1, 77, 77, 6, 41},
@@ -1388,212 +1388,212 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__set_field__grammar__match_3, &frame__types__set_field__grammar__match_1, 644, 644, 3, 54},
   {cont__types__set_field__grammar__match_4, &frame__types__set_field__grammar__match_1, 645, 645, 3, 6},
   {entry__std__set_field_1, NULL, 658, 658, 3, 54},
-  {entry__std__END_OF_TEXT__grammar__match_3, NULL, 676, 676, 37, 48},
-  {entry__std__END_OF_TEXT__grammar__match_4, NULL, 676, 676, 51, 54},
-  {entry__std__END_OF_TEXT__grammar__match_1, NULL, 676, 676, 6, 34},
-  {cont__std__END_OF_TEXT__grammar__match_2, &frame__std__END_OF_TEXT__grammar__match_1, 676, 676, 3, 54},
-  {entry__std__LETTER__grammar__match_3, NULL, 695, 695, 41, 56},
-  {entry__std__LETTER__grammar__match_8, NULL, 697, 697, 25, 33},
-  {cont__std__LETTER__grammar__match_9, &frame__std__LETTER__grammar__match_8, 697, 697, 25, 40},
-  {cont__std__LETTER__grammar__match_10, &frame__std__LETTER__grammar__match_8, 697, 697, 25, 40},
-  {cont__std__LETTER__grammar__match_11, &frame__std__LETTER__grammar__match_8, 697, 697, 25, 40},
-  {entry__std__LETTER__grammar__match_17, NULL, 697, 697, 65, 73},
-  {cont__std__LETTER__grammar__match_18, &frame__std__LETTER__grammar__match_17, 697, 697, 65, 80},
-  {cont__std__LETTER__grammar__match_19, &frame__std__LETTER__grammar__match_17, 697, 697, 65, 80},
-  {cont__std__LETTER__grammar__match_20, &frame__std__LETTER__grammar__match_17, 697, 697, 65, 80},
-  {entry__std__LETTER__grammar__match_13, NULL, 697, 697, 45, 53},
-  {cont__std__LETTER__grammar__match_14, &frame__std__LETTER__grammar__match_13, 697, 697, 45, 60},
-  {cont__std__LETTER__grammar__match_15, &frame__std__LETTER__grammar__match_13, 697, 697, 45, 60},
-  {cont__std__LETTER__grammar__match_16, &frame__std__LETTER__grammar__match_13, 697, 697, 45, 80},
-  {cont__std__LETTER__grammar__match_21, &frame__std__LETTER__grammar__match_13, 697, 697, 45, 80},
-  {entry__std__LETTER__grammar__match_23, NULL, 699, 699, 7, 14},
-  {entry__std__LETTER__grammar__match_1, NULL, 695, 695, 10, 38},
-  {cont__std__LETTER__grammar__match_2, &frame__std__LETTER__grammar__match_1, 695, 695, 3, 56},
-  {cont__std__LETTER__grammar__match_4, &frame__std__LETTER__grammar__match_1, 697, 697, 5, 13},
-  {cont__std__LETTER__grammar__match_5, &frame__std__LETTER__grammar__match_1, 697, 697, 5, 20},
-  {cont__std__LETTER__grammar__match_6, &frame__std__LETTER__grammar__match_1, 697, 697, 5, 20},
-  {cont__std__LETTER__grammar__match_7, &frame__std__LETTER__grammar__match_1, 697, 697, 5, 40},
-  {cont__std__LETTER__grammar__match_12, &frame__std__LETTER__grammar__match_1, 697, 697, 5, 80},
-  {cont__std__LETTER__grammar__match_22, &frame__std__LETTER__grammar__match_1, 696, 699, 3, 15},
-  {cont__std__LETTER__grammar__match_24, &frame__std__LETTER__grammar__match_1, 700, 700, 3, 14},
-  {entry__std__UPPER_CASE_LETTER__grammar__match_3, NULL, 719, 719, 41, 56},
-  {entry__std__UPPER_CASE_LETTER__grammar__match_8, NULL, 720, 720, 26, 34},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_9, &frame__std__UPPER_CASE_LETTER__grammar__match_8, 720, 720, 26, 41},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_10, &frame__std__UPPER_CASE_LETTER__grammar__match_8, 720, 720, 26, 41},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_11, &frame__std__UPPER_CASE_LETTER__grammar__match_8, 720, 720, 26, 41},
-  {entry__std__UPPER_CASE_LETTER__grammar__match_13, NULL, 720, 720, 44, 51},
-  {entry__std__UPPER_CASE_LETTER__grammar__match_1, NULL, 719, 719, 10, 38},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_2, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 719, 719, 3, 56},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_4, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 720, 720, 6, 14},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_5, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 720, 720, 6, 21},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_6, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 720, 720, 6, 21},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_7, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 720, 720, 6, 41},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_12, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 720, 720, 3, 51},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_14, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 721, 721, 3, 14},
-  {entry__std__LOWER_CASE_LETTER__grammar__match_3, NULL, 740, 740, 41, 56},
-  {entry__std__LOWER_CASE_LETTER__grammar__match_8, NULL, 741, 741, 26, 34},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_9, &frame__std__LOWER_CASE_LETTER__grammar__match_8, 741, 741, 26, 41},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_10, &frame__std__LOWER_CASE_LETTER__grammar__match_8, 741, 741, 26, 41},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_11, &frame__std__LOWER_CASE_LETTER__grammar__match_8, 741, 741, 26, 41},
-  {entry__std__LOWER_CASE_LETTER__grammar__match_13, NULL, 741, 741, 44, 51},
-  {entry__std__LOWER_CASE_LETTER__grammar__match_1, NULL, 740, 740, 10, 38},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_2, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 740, 740, 3, 56},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_4, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 741, 741, 6, 14},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_5, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 741, 741, 6, 21},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_6, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 741, 741, 6, 21},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_7, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 741, 741, 6, 41},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_12, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 741, 741, 3, 51},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_14, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 742, 742, 3, 14},
-  {entry__std__DIGIT__grammar__match_3, NULL, 761, 761, 41, 56},
-  {entry__std__DIGIT__grammar__match_8, NULL, 762, 762, 26, 34},
-  {cont__std__DIGIT__grammar__match_9, &frame__std__DIGIT__grammar__match_8, 762, 762, 26, 41},
-  {cont__std__DIGIT__grammar__match_10, &frame__std__DIGIT__grammar__match_8, 762, 762, 26, 41},
-  {cont__std__DIGIT__grammar__match_11, &frame__std__DIGIT__grammar__match_8, 762, 762, 26, 41},
-  {entry__std__DIGIT__grammar__match_13, NULL, 762, 762, 44, 51},
-  {entry__std__DIGIT__grammar__match_1, NULL, 761, 761, 10, 38},
-  {cont__std__DIGIT__grammar__match_2, &frame__std__DIGIT__grammar__match_1, 761, 761, 3, 56},
-  {cont__std__DIGIT__grammar__match_4, &frame__std__DIGIT__grammar__match_1, 762, 762, 6, 14},
-  {cont__std__DIGIT__grammar__match_5, &frame__std__DIGIT__grammar__match_1, 762, 762, 6, 21},
-  {cont__std__DIGIT__grammar__match_6, &frame__std__DIGIT__grammar__match_1, 762, 762, 6, 21},
-  {cont__std__DIGIT__grammar__match_7, &frame__std__DIGIT__grammar__match_1, 762, 762, 6, 41},
-  {cont__std__DIGIT__grammar__match_12, &frame__std__DIGIT__grammar__match_1, 762, 762, 3, 51},
-  {cont__std__DIGIT__grammar__match_14, &frame__std__DIGIT__grammar__match_1, 763, 763, 3, 14},
-  {entry__std__WHITESPACE_CHARACTER__grammar__match_3, NULL, 782, 782, 41, 56},
-  {entry__std__WHITESPACE_CHARACTER__grammar__match_8, NULL, 784, 784, 20, 33},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_9, &frame__std__WHITESPACE_CHARACTER__grammar__match_8, 784, 784, 20, 33},
-  {entry__std__WHITESPACE_CHARACTER__grammar__match_11, NULL, 784, 784, 36, 43},
-  {entry__std__WHITESPACE_CHARACTER__grammar__match_1, NULL, 782, 782, 10, 38},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_2, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 782, 782, 3, 56},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_4, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 783, 783, 3, 16},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_5, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 784, 784, 6, 15},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_6, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 784, 784, 6, 15},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_7, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 784, 784, 6, 33},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_10, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 784, 784, 3, 43},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_12, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 785, 785, 3, 14},
-  {entry__std__PRINTABLE_CHARACTER__grammar__match_3, NULL, 813, 813, 41, 56},
-  {entry__std__PRINTABLE_CHARACTER__grammar__match_8, NULL, 815, 815, 20, 32},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_9, &frame__std__PRINTABLE_CHARACTER__grammar__match_8, 815, 815, 20, 32},
-  {entry__std__PRINTABLE_CHARACTER__grammar__match_11, NULL, 815, 815, 37, 51},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_12, &frame__std__PRINTABLE_CHARACTER__grammar__match_11, 815, 815, 37, 51},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_13, &frame__std__PRINTABLE_CHARACTER__grammar__match_11, 815, 815, 37, 51},
-  {entry__std__PRINTABLE_CHARACTER__grammar__match_15, NULL, 815, 815, 54, 61},
-  {entry__std__PRINTABLE_CHARACTER__grammar__match_1, NULL, 813, 813, 10, 38},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_2, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 813, 813, 3, 56},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_4, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 814, 814, 3, 16},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_5, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 815, 815, 6, 15},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_6, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 815, 815, 6, 15},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_7, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 815, 815, 6, 32},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_10, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 815, 815, 6, 51},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_14, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 815, 815, 3, 61},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_16, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 816, 816, 3, 14},
-  {entry__std__NON_SPACE_CHARACTER__grammar__match_3, NULL, 835, 835, 41, 56},
-  {entry__std__NON_SPACE_CHARACTER__grammar__match_7, NULL, 837, 837, 19, 31},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_8, &frame__std__NON_SPACE_CHARACTER__grammar__match_7, 837, 837, 19, 31},
-  {entry__std__NON_SPACE_CHARACTER__grammar__match_10, NULL, 837, 837, 36, 50},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_11, &frame__std__NON_SPACE_CHARACTER__grammar__match_10, 837, 837, 36, 50},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_12, &frame__std__NON_SPACE_CHARACTER__grammar__match_10, 837, 837, 36, 50},
-  {entry__std__NON_SPACE_CHARACTER__grammar__match_14, NULL, 837, 837, 53, 60},
-  {entry__std__NON_SPACE_CHARACTER__grammar__match_1, NULL, 835, 835, 10, 38},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_2, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 835, 835, 3, 56},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_4, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 836, 836, 3, 16},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_5, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 837, 837, 6, 14},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_6, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 837, 837, 6, 31},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_9, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 837, 837, 6, 50},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_13, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 837, 837, 3, 60},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_15, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 838, 838, 3, 14},
-  {entry__std__ANY_CHARACTER__grammar__match_3, NULL, 857, 857, 41, 56},
-  {entry__std__ANY_CHARACTER__grammar__match_1, NULL, 857, 857, 10, 38},
-  {cont__std__ANY_CHARACTER__grammar__match_2, &frame__std__ANY_CHARACTER__grammar__match_1, 857, 857, 3, 56},
-  {cont__std__ANY_CHARACTER__grammar__match_4, &frame__std__ANY_CHARACTER__grammar__match_1, 858, 858, 3, 6},
-  {entry__types__character__grammar__match_1, NULL, 872, 872, 3, 28},
-  {entry__types__value_range__grammar__match_3, NULL, 887, 887, 41, 56},
-  {entry__types__value_range__grammar__match_9, NULL, 889, 889, 44, 63},
-  {cont__types__value_range__grammar__match_10, &frame__types__value_range__grammar__match_9, 889, 889, 37, 63},
-  {cont__types__value_range__grammar__match_11, &frame__types__value_range__grammar__match_9, 889, 889, 37, 63},
-  {cont__types__value_range__grammar__match_12, &frame__types__value_range__grammar__match_9, 889, 889, 37, 63},
-  {entry__types__value_range__grammar__match_14, NULL, 889, 889, 66, 73},
-  {entry__types__value_range__grammar__match_1, NULL, 887, 887, 10, 38},
-  {cont__types__value_range__grammar__match_2, &frame__types__value_range__grammar__match_1, 887, 887, 3, 56},
-  {cont__types__value_range__grammar__match_4, &frame__types__value_range__grammar__match_1, 888, 888, 3, 16},
-  {cont__types__value_range__grammar__match_5, &frame__types__value_range__grammar__match_1, 889, 889, 13, 32},
-  {cont__types__value_range__grammar__match_6, &frame__types__value_range__grammar__match_1, 889, 889, 6, 32},
-  {cont__types__value_range__grammar__match_7, &frame__types__value_range__grammar__match_1, 889, 889, 6, 32},
-  {cont__types__value_range__grammar__match_8, &frame__types__value_range__grammar__match_1, 889, 889, 6, 63},
-  {cont__types__value_range__grammar__match_13, &frame__types__value_range__grammar__match_1, 889, 889, 3, 73},
-  {cont__types__value_range__grammar__match_15, &frame__types__value_range__grammar__match_1, 890, 890, 3, 14},
-  {entry__types__list__grammar__match_5, NULL, 912, 912, 7, 22},
-  {entry__types__list__grammar__match_2, NULL, 909, 909, 5, 34},
-  {cont__types__list__grammar__match_3, &frame__types__list__grammar__match_2, 910, 910, 12, 23},
-  {cont__types__list__grammar__match_4, &frame__types__list__grammar__match_2, 910, 912, 5, 22},
-  {cont__types__list__grammar__match_6, &frame__types__list__grammar__match_2, 913, 913, 19, 21},
-  {cont__types__list__grammar__match_7, &frame__types__list__grammar__match_2, 913, 913, 24, 24},
-  {cont__types__list__grammar__match_8, &frame__types__list__grammar__match_2, 913, 913, 5, 24},
-  {cont__types__list__grammar__match_9, &frame__types__list__grammar__match_2, 914, 914, 5, 15},
-  {cont__types__list__grammar__match_10, &frame__types__list__grammar__match_2, 914, 914, 15, 15},
-  {entry__types__list__grammar__match_1, NULL, 908, 914, 3, 15},
-  {cont__types__list__grammar__match_11, &frame__types__list__grammar__match_1, 915, 915, 3, 8},
-  {entry__types__object__grammar__search_9, NULL, 935, 935, 24, 37},
-  {entry__types__object__grammar__search_12, NULL, 937, 937, 23, 27},
-  {cont__types__object__grammar__search_13, &frame__types__object__grammar__search_12, 937, 937, 13, 27},
-  {cont__types__object__grammar__search_14, &frame__types__object__grammar__search_12, 938, 938, 27, 27},
-  {cont__types__object__grammar__search_15, &frame__types__object__grammar__search_12, 938, 938, 13, 27},
-  {cont__types__object__grammar__search_16, &frame__types__object__grammar__search_12, 938, 938, 27, 27},
-  {entry__types__object__grammar__search_7, NULL, 935, 935, 14, 21},
-  {cont__types__object__grammar__search_8, &frame__types__object__grammar__search_7, 935, 935, 11, 37},
-  {cont__types__object__grammar__search_10, &frame__types__object__grammar__search_7, 936, 936, 14, 20},
-  {cont__types__object__grammar__search_11, &frame__types__object__grammar__search_7, 936, 938, 11, 27},
-  {cont__types__object__grammar__search_17, &frame__types__object__grammar__search_7, 939, 939, 11, 22},
-  {cont__types__object__grammar__search_18, &frame__types__object__grammar__search_7, 939, 939, 22, 22},
-  {entry__types__object__grammar__search_21, NULL, 940, 940, 42, 67},
-  {entry__types__object__grammar__search_4, NULL, 933, 933, 9, 35},
-  {cont__types__object__grammar__search_5, &frame__types__object__grammar__search_4, 934, 934, 12, 25},
-  {cont__types__object__grammar__search_6, &frame__types__object__grammar__search_4, 934, 939, 9, 22},
-  {cont__types__object__grammar__search_19, &frame__types__object__grammar__search_4, 940, 940, 16, 39},
-  {cont__types__object__grammar__search_20, &frame__types__object__grammar__search_4, 940, 940, 9, 67},
-  {cont__types__object__grammar__search_22, &frame__types__object__grammar__search_4, 941, 941, 9, 19},
-  {cont__types__object__grammar__search_23, &frame__types__object__grammar__search_4, 942, 942, 21, 21},
-  {cont__types__object__grammar__search_24, &frame__types__object__grammar__search_4, 942, 942, 9, 21},
-  {cont__types__object__grammar__search_25, &frame__types__object__grammar__search_4, 942, 942, 21, 21},
-  {entry__types__object__grammar__search_3, NULL, 932, 942, 7, 21},
-  {entry__types__object__grammar__search_35, NULL, 951, 951, 33, 33},
-  {cont__types__object__grammar__search_36, &frame__types__object__grammar__search_35, 951, 951, 13, 33},
-  {cont__types__object__grammar__search_37, &frame__types__object__grammar__search_35, 952, 952, 31, 31},
-  {cont__types__object__grammar__search_38, &frame__types__object__grammar__search_35, 952, 952, 13, 31},
-  {cont__types__object__grammar__search_39, &frame__types__object__grammar__search_35, 952, 952, 31, 31},
-  {entry__types__object__grammar__search_44, NULL, 956, 956, 23, 27},
-  {cont__types__object__grammar__search_45, &frame__types__object__grammar__search_44, 956, 956, 13, 27},
-  {cont__types__object__grammar__search_46, &frame__types__object__grammar__search_44, 957, 957, 27, 27},
-  {cont__types__object__grammar__search_47, &frame__types__object__grammar__search_44, 957, 957, 13, 27},
-  {cont__types__object__grammar__search_48, &frame__types__object__grammar__search_44, 957, 957, 27, 27},
-  {entry__types__object__grammar__search_31, NULL, 950, 950, 14, 33},
-  {cont__types__object__grammar__search_32, &frame__types__object__grammar__search_31, 950, 950, 14, 40},
-  {cont__types__object__grammar__search_33, &frame__types__object__grammar__search_31, 950, 950, 14, 40},
-  {cont__types__object__grammar__search_34, &frame__types__object__grammar__search_31, 950, 952, 11, 31},
-  {cont__types__object__grammar__search_40, &frame__types__object__grammar__search_31, 953, 953, 11, 29},
-  {cont__types__object__grammar__search_41, &frame__types__object__grammar__search_31, 954, 954, 11, 27},
-  {cont__types__object__grammar__search_42, &frame__types__object__grammar__search_31, 955, 955, 14, 20},
-  {cont__types__object__grammar__search_43, &frame__types__object__grammar__search_31, 955, 957, 11, 27},
-  {entry__types__object__grammar__search_54, NULL, 959, 959, 42, 67},
-  {entry__types__object__grammar__search_51, NULL, 959, 959, 14, 33},
-  {cont__types__object__grammar__search_52, &frame__types__object__grammar__search_51, 959, 959, 14, 39},
-  {cont__types__object__grammar__search_53, &frame__types__object__grammar__search_51, 959, 959, 11, 67},
-  {cont__types__object__grammar__search_55, &frame__types__object__grammar__search_51, 960, 960, 18, 29},
-  {cont__types__object__grammar__search_56, &frame__types__object__grammar__search_51, 960, 960, 31, 40},
-  {cont__types__object__grammar__search_57, &frame__types__object__grammar__search_51, 960, 960, 11, 40},
-  {entry__types__object__grammar__search_28, NULL, 948, 948, 9, 35},
-  {cont__types__object__grammar__search_29, &frame__types__object__grammar__search_28, 949, 949, 12, 25},
-  {cont__types__object__grammar__search_30, &frame__types__object__grammar__search_28, 949, 957, 9, 28},
-  {cont__types__object__grammar__search_49, &frame__types__object__grammar__search_28, 958, 958, 16, 39},
-  {cont__types__object__grammar__search_50, &frame__types__object__grammar__search_28, 958, 960, 9, 40},
-  {cont__types__object__grammar__search_58, &frame__types__object__grammar__search_28, 961, 961, 9, 19},
-  {cont__types__object__grammar__search_59, &frame__types__object__grammar__search_28, 962, 962, 21, 21},
-  {cont__types__object__grammar__search_60, &frame__types__object__grammar__search_28, 962, 962, 9, 21},
-  {cont__types__object__grammar__search_61, &frame__types__object__grammar__search_28, 962, 962, 21, 21},
-  {entry__types__object__grammar__search_26, NULL, 944, 944, 7, 17},
-  {cont__types__object__grammar__search_27, &frame__types__object__grammar__search_26, 947, 962, 7, 21},
-  {entry__types__object__grammar__search_1, NULL, 931, 931, 5, 11},
-  {cont__types__object__grammar__search_2, &frame__types__object__grammar__search_1, 930, 962, 3, 23},
-  {cont__types__object__grammar__search_62, &frame__types__object__grammar__search_1, 962, 962, 23, 23}
+  {entry__std__END_OF_TEXT__grammar__match_3, NULL, 678, 678, 5, 16},
+  {entry__std__END_OF_TEXT__grammar__match_4, NULL, 679, 679, 5, 8},
+  {entry__std__END_OF_TEXT__grammar__match_1, NULL, 677, 677, 5, 33},
+  {cont__std__END_OF_TEXT__grammar__match_2, &frame__std__END_OF_TEXT__grammar__match_1, 676, 679, 3, 8},
+  {entry__std__LETTER__grammar__match_3, NULL, 698, 698, 41, 56},
+  {entry__std__LETTER__grammar__match_8, NULL, 700, 700, 25, 33},
+  {cont__std__LETTER__grammar__match_9, &frame__std__LETTER__grammar__match_8, 700, 700, 25, 40},
+  {cont__std__LETTER__grammar__match_10, &frame__std__LETTER__grammar__match_8, 700, 700, 25, 40},
+  {cont__std__LETTER__grammar__match_11, &frame__std__LETTER__grammar__match_8, 700, 700, 25, 40},
+  {entry__std__LETTER__grammar__match_17, NULL, 700, 700, 65, 73},
+  {cont__std__LETTER__grammar__match_18, &frame__std__LETTER__grammar__match_17, 700, 700, 65, 80},
+  {cont__std__LETTER__grammar__match_19, &frame__std__LETTER__grammar__match_17, 700, 700, 65, 80},
+  {cont__std__LETTER__grammar__match_20, &frame__std__LETTER__grammar__match_17, 700, 700, 65, 80},
+  {entry__std__LETTER__grammar__match_13, NULL, 700, 700, 45, 53},
+  {cont__std__LETTER__grammar__match_14, &frame__std__LETTER__grammar__match_13, 700, 700, 45, 60},
+  {cont__std__LETTER__grammar__match_15, &frame__std__LETTER__grammar__match_13, 700, 700, 45, 60},
+  {cont__std__LETTER__grammar__match_16, &frame__std__LETTER__grammar__match_13, 700, 700, 45, 80},
+  {cont__std__LETTER__grammar__match_21, &frame__std__LETTER__grammar__match_13, 700, 700, 45, 80},
+  {entry__std__LETTER__grammar__match_23, NULL, 702, 702, 7, 14},
+  {entry__std__LETTER__grammar__match_1, NULL, 698, 698, 10, 38},
+  {cont__std__LETTER__grammar__match_2, &frame__std__LETTER__grammar__match_1, 698, 698, 3, 56},
+  {cont__std__LETTER__grammar__match_4, &frame__std__LETTER__grammar__match_1, 700, 700, 5, 13},
+  {cont__std__LETTER__grammar__match_5, &frame__std__LETTER__grammar__match_1, 700, 700, 5, 20},
+  {cont__std__LETTER__grammar__match_6, &frame__std__LETTER__grammar__match_1, 700, 700, 5, 20},
+  {cont__std__LETTER__grammar__match_7, &frame__std__LETTER__grammar__match_1, 700, 700, 5, 40},
+  {cont__std__LETTER__grammar__match_12, &frame__std__LETTER__grammar__match_1, 700, 700, 5, 80},
+  {cont__std__LETTER__grammar__match_22, &frame__std__LETTER__grammar__match_1, 699, 702, 3, 15},
+  {cont__std__LETTER__grammar__match_24, &frame__std__LETTER__grammar__match_1, 703, 703, 3, 14},
+  {entry__std__UPPER_CASE_LETTER__grammar__match_3, NULL, 722, 722, 41, 56},
+  {entry__std__UPPER_CASE_LETTER__grammar__match_8, NULL, 723, 723, 26, 34},
+  {cont__std__UPPER_CASE_LETTER__grammar__match_9, &frame__std__UPPER_CASE_LETTER__grammar__match_8, 723, 723, 26, 41},
+  {cont__std__UPPER_CASE_LETTER__grammar__match_10, &frame__std__UPPER_CASE_LETTER__grammar__match_8, 723, 723, 26, 41},
+  {cont__std__UPPER_CASE_LETTER__grammar__match_11, &frame__std__UPPER_CASE_LETTER__grammar__match_8, 723, 723, 26, 41},
+  {entry__std__UPPER_CASE_LETTER__grammar__match_13, NULL, 723, 723, 44, 51},
+  {entry__std__UPPER_CASE_LETTER__grammar__match_1, NULL, 722, 722, 10, 38},
+  {cont__std__UPPER_CASE_LETTER__grammar__match_2, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 722, 722, 3, 56},
+  {cont__std__UPPER_CASE_LETTER__grammar__match_4, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 723, 723, 6, 14},
+  {cont__std__UPPER_CASE_LETTER__grammar__match_5, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 723, 723, 6, 21},
+  {cont__std__UPPER_CASE_LETTER__grammar__match_6, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 723, 723, 6, 21},
+  {cont__std__UPPER_CASE_LETTER__grammar__match_7, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 723, 723, 6, 41},
+  {cont__std__UPPER_CASE_LETTER__grammar__match_12, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 723, 723, 3, 51},
+  {cont__std__UPPER_CASE_LETTER__grammar__match_14, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 724, 724, 3, 14},
+  {entry__std__LOWER_CASE_LETTER__grammar__match_3, NULL, 743, 743, 41, 56},
+  {entry__std__LOWER_CASE_LETTER__grammar__match_8, NULL, 744, 744, 26, 34},
+  {cont__std__LOWER_CASE_LETTER__grammar__match_9, &frame__std__LOWER_CASE_LETTER__grammar__match_8, 744, 744, 26, 41},
+  {cont__std__LOWER_CASE_LETTER__grammar__match_10, &frame__std__LOWER_CASE_LETTER__grammar__match_8, 744, 744, 26, 41},
+  {cont__std__LOWER_CASE_LETTER__grammar__match_11, &frame__std__LOWER_CASE_LETTER__grammar__match_8, 744, 744, 26, 41},
+  {entry__std__LOWER_CASE_LETTER__grammar__match_13, NULL, 744, 744, 44, 51},
+  {entry__std__LOWER_CASE_LETTER__grammar__match_1, NULL, 743, 743, 10, 38},
+  {cont__std__LOWER_CASE_LETTER__grammar__match_2, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 743, 743, 3, 56},
+  {cont__std__LOWER_CASE_LETTER__grammar__match_4, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 744, 744, 6, 14},
+  {cont__std__LOWER_CASE_LETTER__grammar__match_5, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 744, 744, 6, 21},
+  {cont__std__LOWER_CASE_LETTER__grammar__match_6, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 744, 744, 6, 21},
+  {cont__std__LOWER_CASE_LETTER__grammar__match_7, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 744, 744, 6, 41},
+  {cont__std__LOWER_CASE_LETTER__grammar__match_12, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 744, 744, 3, 51},
+  {cont__std__LOWER_CASE_LETTER__grammar__match_14, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 745, 745, 3, 14},
+  {entry__std__DIGIT__grammar__match_3, NULL, 764, 764, 41, 56},
+  {entry__std__DIGIT__grammar__match_8, NULL, 765, 765, 26, 34},
+  {cont__std__DIGIT__grammar__match_9, &frame__std__DIGIT__grammar__match_8, 765, 765, 26, 41},
+  {cont__std__DIGIT__grammar__match_10, &frame__std__DIGIT__grammar__match_8, 765, 765, 26, 41},
+  {cont__std__DIGIT__grammar__match_11, &frame__std__DIGIT__grammar__match_8, 765, 765, 26, 41},
+  {entry__std__DIGIT__grammar__match_13, NULL, 765, 765, 44, 51},
+  {entry__std__DIGIT__grammar__match_1, NULL, 764, 764, 10, 38},
+  {cont__std__DIGIT__grammar__match_2, &frame__std__DIGIT__grammar__match_1, 764, 764, 3, 56},
+  {cont__std__DIGIT__grammar__match_4, &frame__std__DIGIT__grammar__match_1, 765, 765, 6, 14},
+  {cont__std__DIGIT__grammar__match_5, &frame__std__DIGIT__grammar__match_1, 765, 765, 6, 21},
+  {cont__std__DIGIT__grammar__match_6, &frame__std__DIGIT__grammar__match_1, 765, 765, 6, 21},
+  {cont__std__DIGIT__grammar__match_7, &frame__std__DIGIT__grammar__match_1, 765, 765, 6, 41},
+  {cont__std__DIGIT__grammar__match_12, &frame__std__DIGIT__grammar__match_1, 765, 765, 3, 51},
+  {cont__std__DIGIT__grammar__match_14, &frame__std__DIGIT__grammar__match_1, 766, 766, 3, 14},
+  {entry__std__WHITESPACE_CHARACTER__grammar__match_3, NULL, 785, 785, 41, 56},
+  {entry__std__WHITESPACE_CHARACTER__grammar__match_8, NULL, 787, 787, 20, 33},
+  {cont__std__WHITESPACE_CHARACTER__grammar__match_9, &frame__std__WHITESPACE_CHARACTER__grammar__match_8, 787, 787, 20, 33},
+  {entry__std__WHITESPACE_CHARACTER__grammar__match_11, NULL, 787, 787, 36, 43},
+  {entry__std__WHITESPACE_CHARACTER__grammar__match_1, NULL, 785, 785, 10, 38},
+  {cont__std__WHITESPACE_CHARACTER__grammar__match_2, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 785, 785, 3, 56},
+  {cont__std__WHITESPACE_CHARACTER__grammar__match_4, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 786, 786, 3, 16},
+  {cont__std__WHITESPACE_CHARACTER__grammar__match_5, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 787, 787, 6, 15},
+  {cont__std__WHITESPACE_CHARACTER__grammar__match_6, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 787, 787, 6, 15},
+  {cont__std__WHITESPACE_CHARACTER__grammar__match_7, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 787, 787, 6, 33},
+  {cont__std__WHITESPACE_CHARACTER__grammar__match_10, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 787, 787, 3, 43},
+  {cont__std__WHITESPACE_CHARACTER__grammar__match_12, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 788, 788, 3, 14},
+  {entry__std__PRINTABLE_CHARACTER__grammar__match_3, NULL, 816, 816, 41, 56},
+  {entry__std__PRINTABLE_CHARACTER__grammar__match_8, NULL, 818, 818, 20, 32},
+  {cont__std__PRINTABLE_CHARACTER__grammar__match_9, &frame__std__PRINTABLE_CHARACTER__grammar__match_8, 818, 818, 20, 32},
+  {entry__std__PRINTABLE_CHARACTER__grammar__match_11, NULL, 818, 818, 37, 51},
+  {cont__std__PRINTABLE_CHARACTER__grammar__match_12, &frame__std__PRINTABLE_CHARACTER__grammar__match_11, 818, 818, 37, 51},
+  {cont__std__PRINTABLE_CHARACTER__grammar__match_13, &frame__std__PRINTABLE_CHARACTER__grammar__match_11, 818, 818, 37, 51},
+  {entry__std__PRINTABLE_CHARACTER__grammar__match_15, NULL, 818, 818, 54, 61},
+  {entry__std__PRINTABLE_CHARACTER__grammar__match_1, NULL, 816, 816, 10, 38},
+  {cont__std__PRINTABLE_CHARACTER__grammar__match_2, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 816, 816, 3, 56},
+  {cont__std__PRINTABLE_CHARACTER__grammar__match_4, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 817, 817, 3, 16},
+  {cont__std__PRINTABLE_CHARACTER__grammar__match_5, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 818, 818, 6, 15},
+  {cont__std__PRINTABLE_CHARACTER__grammar__match_6, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 818, 818, 6, 15},
+  {cont__std__PRINTABLE_CHARACTER__grammar__match_7, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 818, 818, 6, 32},
+  {cont__std__PRINTABLE_CHARACTER__grammar__match_10, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 818, 818, 6, 51},
+  {cont__std__PRINTABLE_CHARACTER__grammar__match_14, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 818, 818, 3, 61},
+  {cont__std__PRINTABLE_CHARACTER__grammar__match_16, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 819, 819, 3, 14},
+  {entry__std__NON_SPACE_CHARACTER__grammar__match_3, NULL, 838, 838, 41, 56},
+  {entry__std__NON_SPACE_CHARACTER__grammar__match_7, NULL, 840, 840, 19, 31},
+  {cont__std__NON_SPACE_CHARACTER__grammar__match_8, &frame__std__NON_SPACE_CHARACTER__grammar__match_7, 840, 840, 19, 31},
+  {entry__std__NON_SPACE_CHARACTER__grammar__match_10, NULL, 840, 840, 36, 50},
+  {cont__std__NON_SPACE_CHARACTER__grammar__match_11, &frame__std__NON_SPACE_CHARACTER__grammar__match_10, 840, 840, 36, 50},
+  {cont__std__NON_SPACE_CHARACTER__grammar__match_12, &frame__std__NON_SPACE_CHARACTER__grammar__match_10, 840, 840, 36, 50},
+  {entry__std__NON_SPACE_CHARACTER__grammar__match_14, NULL, 840, 840, 53, 60},
+  {entry__std__NON_SPACE_CHARACTER__grammar__match_1, NULL, 838, 838, 10, 38},
+  {cont__std__NON_SPACE_CHARACTER__grammar__match_2, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 838, 838, 3, 56},
+  {cont__std__NON_SPACE_CHARACTER__grammar__match_4, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 839, 839, 3, 16},
+  {cont__std__NON_SPACE_CHARACTER__grammar__match_5, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 840, 840, 6, 14},
+  {cont__std__NON_SPACE_CHARACTER__grammar__match_6, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 840, 840, 6, 31},
+  {cont__std__NON_SPACE_CHARACTER__grammar__match_9, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 840, 840, 6, 50},
+  {cont__std__NON_SPACE_CHARACTER__grammar__match_13, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 840, 840, 3, 60},
+  {cont__std__NON_SPACE_CHARACTER__grammar__match_15, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 841, 841, 3, 14},
+  {entry__std__ANY_CHARACTER__grammar__match_3, NULL, 860, 860, 41, 56},
+  {entry__std__ANY_CHARACTER__grammar__match_1, NULL, 860, 860, 10, 38},
+  {cont__std__ANY_CHARACTER__grammar__match_2, &frame__std__ANY_CHARACTER__grammar__match_1, 860, 860, 3, 56},
+  {cont__std__ANY_CHARACTER__grammar__match_4, &frame__std__ANY_CHARACTER__grammar__match_1, 861, 861, 3, 6},
+  {entry__types__character__grammar__match_1, NULL, 875, 875, 3, 28},
+  {entry__types__value_range__grammar__match_3, NULL, 890, 890, 41, 56},
+  {entry__types__value_range__grammar__match_9, NULL, 892, 892, 44, 63},
+  {cont__types__value_range__grammar__match_10, &frame__types__value_range__grammar__match_9, 892, 892, 37, 63},
+  {cont__types__value_range__grammar__match_11, &frame__types__value_range__grammar__match_9, 892, 892, 37, 63},
+  {cont__types__value_range__grammar__match_12, &frame__types__value_range__grammar__match_9, 892, 892, 37, 63},
+  {entry__types__value_range__grammar__match_14, NULL, 892, 892, 66, 73},
+  {entry__types__value_range__grammar__match_1, NULL, 890, 890, 10, 38},
+  {cont__types__value_range__grammar__match_2, &frame__types__value_range__grammar__match_1, 890, 890, 3, 56},
+  {cont__types__value_range__grammar__match_4, &frame__types__value_range__grammar__match_1, 891, 891, 3, 16},
+  {cont__types__value_range__grammar__match_5, &frame__types__value_range__grammar__match_1, 892, 892, 13, 32},
+  {cont__types__value_range__grammar__match_6, &frame__types__value_range__grammar__match_1, 892, 892, 6, 32},
+  {cont__types__value_range__grammar__match_7, &frame__types__value_range__grammar__match_1, 892, 892, 6, 32},
+  {cont__types__value_range__grammar__match_8, &frame__types__value_range__grammar__match_1, 892, 892, 6, 63},
+  {cont__types__value_range__grammar__match_13, &frame__types__value_range__grammar__match_1, 892, 892, 3, 73},
+  {cont__types__value_range__grammar__match_15, &frame__types__value_range__grammar__match_1, 893, 893, 3, 14},
+  {entry__types__list__grammar__match_5, NULL, 915, 915, 7, 22},
+  {entry__types__list__grammar__match_2, NULL, 912, 912, 5, 34},
+  {cont__types__list__grammar__match_3, &frame__types__list__grammar__match_2, 913, 913, 12, 23},
+  {cont__types__list__grammar__match_4, &frame__types__list__grammar__match_2, 913, 915, 5, 22},
+  {cont__types__list__grammar__match_6, &frame__types__list__grammar__match_2, 916, 916, 19, 21},
+  {cont__types__list__grammar__match_7, &frame__types__list__grammar__match_2, 916, 916, 24, 24},
+  {cont__types__list__grammar__match_8, &frame__types__list__grammar__match_2, 916, 916, 5, 24},
+  {cont__types__list__grammar__match_9, &frame__types__list__grammar__match_2, 917, 917, 5, 15},
+  {cont__types__list__grammar__match_10, &frame__types__list__grammar__match_2, 917, 917, 15, 15},
+  {entry__types__list__grammar__match_1, NULL, 911, 917, 3, 15},
+  {cont__types__list__grammar__match_11, &frame__types__list__grammar__match_1, 918, 918, 3, 8},
+  {entry__types__object__grammar__search_9, NULL, 938, 938, 24, 37},
+  {entry__types__object__grammar__search_12, NULL, 940, 940, 23, 27},
+  {cont__types__object__grammar__search_13, &frame__types__object__grammar__search_12, 940, 940, 13, 27},
+  {cont__types__object__grammar__search_14, &frame__types__object__grammar__search_12, 941, 941, 27, 27},
+  {cont__types__object__grammar__search_15, &frame__types__object__grammar__search_12, 941, 941, 13, 27},
+  {cont__types__object__grammar__search_16, &frame__types__object__grammar__search_12, 941, 941, 27, 27},
+  {entry__types__object__grammar__search_7, NULL, 938, 938, 14, 21},
+  {cont__types__object__grammar__search_8, &frame__types__object__grammar__search_7, 938, 938, 11, 37},
+  {cont__types__object__grammar__search_10, &frame__types__object__grammar__search_7, 939, 939, 14, 20},
+  {cont__types__object__grammar__search_11, &frame__types__object__grammar__search_7, 939, 941, 11, 27},
+  {cont__types__object__grammar__search_17, &frame__types__object__grammar__search_7, 942, 942, 11, 22},
+  {cont__types__object__grammar__search_18, &frame__types__object__grammar__search_7, 942, 942, 22, 22},
+  {entry__types__object__grammar__search_21, NULL, 943, 943, 42, 67},
+  {entry__types__object__grammar__search_4, NULL, 936, 936, 9, 35},
+  {cont__types__object__grammar__search_5, &frame__types__object__grammar__search_4, 937, 937, 12, 25},
+  {cont__types__object__grammar__search_6, &frame__types__object__grammar__search_4, 937, 942, 9, 22},
+  {cont__types__object__grammar__search_19, &frame__types__object__grammar__search_4, 943, 943, 16, 39},
+  {cont__types__object__grammar__search_20, &frame__types__object__grammar__search_4, 943, 943, 9, 67},
+  {cont__types__object__grammar__search_22, &frame__types__object__grammar__search_4, 944, 944, 9, 19},
+  {cont__types__object__grammar__search_23, &frame__types__object__grammar__search_4, 945, 945, 21, 21},
+  {cont__types__object__grammar__search_24, &frame__types__object__grammar__search_4, 945, 945, 9, 21},
+  {cont__types__object__grammar__search_25, &frame__types__object__grammar__search_4, 945, 945, 21, 21},
+  {entry__types__object__grammar__search_3, NULL, 935, 945, 7, 21},
+  {entry__types__object__grammar__search_35, NULL, 954, 954, 33, 33},
+  {cont__types__object__grammar__search_36, &frame__types__object__grammar__search_35, 954, 954, 13, 33},
+  {cont__types__object__grammar__search_37, &frame__types__object__grammar__search_35, 955, 955, 31, 31},
+  {cont__types__object__grammar__search_38, &frame__types__object__grammar__search_35, 955, 955, 13, 31},
+  {cont__types__object__grammar__search_39, &frame__types__object__grammar__search_35, 955, 955, 31, 31},
+  {entry__types__object__grammar__search_44, NULL, 959, 959, 23, 27},
+  {cont__types__object__grammar__search_45, &frame__types__object__grammar__search_44, 959, 959, 13, 27},
+  {cont__types__object__grammar__search_46, &frame__types__object__grammar__search_44, 960, 960, 27, 27},
+  {cont__types__object__grammar__search_47, &frame__types__object__grammar__search_44, 960, 960, 13, 27},
+  {cont__types__object__grammar__search_48, &frame__types__object__grammar__search_44, 960, 960, 27, 27},
+  {entry__types__object__grammar__search_31, NULL, 953, 953, 14, 33},
+  {cont__types__object__grammar__search_32, &frame__types__object__grammar__search_31, 953, 953, 14, 40},
+  {cont__types__object__grammar__search_33, &frame__types__object__grammar__search_31, 953, 953, 14, 40},
+  {cont__types__object__grammar__search_34, &frame__types__object__grammar__search_31, 953, 955, 11, 31},
+  {cont__types__object__grammar__search_40, &frame__types__object__grammar__search_31, 956, 956, 11, 29},
+  {cont__types__object__grammar__search_41, &frame__types__object__grammar__search_31, 957, 957, 11, 27},
+  {cont__types__object__grammar__search_42, &frame__types__object__grammar__search_31, 958, 958, 14, 20},
+  {cont__types__object__grammar__search_43, &frame__types__object__grammar__search_31, 958, 960, 11, 27},
+  {entry__types__object__grammar__search_54, NULL, 962, 962, 42, 67},
+  {entry__types__object__grammar__search_51, NULL, 962, 962, 14, 33},
+  {cont__types__object__grammar__search_52, &frame__types__object__grammar__search_51, 962, 962, 14, 39},
+  {cont__types__object__grammar__search_53, &frame__types__object__grammar__search_51, 962, 962, 11, 67},
+  {cont__types__object__grammar__search_55, &frame__types__object__grammar__search_51, 963, 963, 18, 29},
+  {cont__types__object__grammar__search_56, &frame__types__object__grammar__search_51, 963, 963, 31, 40},
+  {cont__types__object__grammar__search_57, &frame__types__object__grammar__search_51, 963, 963, 11, 40},
+  {entry__types__object__grammar__search_28, NULL, 951, 951, 9, 35},
+  {cont__types__object__grammar__search_29, &frame__types__object__grammar__search_28, 952, 952, 12, 25},
+  {cont__types__object__grammar__search_30, &frame__types__object__grammar__search_28, 952, 960, 9, 28},
+  {cont__types__object__grammar__search_49, &frame__types__object__grammar__search_28, 961, 961, 16, 39},
+  {cont__types__object__grammar__search_50, &frame__types__object__grammar__search_28, 961, 963, 9, 40},
+  {cont__types__object__grammar__search_58, &frame__types__object__grammar__search_28, 964, 964, 9, 19},
+  {cont__types__object__grammar__search_59, &frame__types__object__grammar__search_28, 965, 965, 21, 21},
+  {cont__types__object__grammar__search_60, &frame__types__object__grammar__search_28, 965, 965, 9, 21},
+  {cont__types__object__grammar__search_61, &frame__types__object__grammar__search_28, 965, 965, 21, 21},
+  {entry__types__object__grammar__search_26, NULL, 947, 947, 7, 17},
+  {cont__types__object__grammar__search_27, &frame__types__object__grammar__search_26, 950, 965, 7, 21},
+  {entry__types__object__grammar__search_1, NULL, 934, 934, 5, 11},
+  {cont__types__object__grammar__search_2, &frame__types__object__grammar__search_1, 933, 965, 3, 23},
+  {cont__types__object__grammar__search_62, &frame__types__object__grammar__search_1, 965, 965, 23, 23}
 };
 
 union NODE {
@@ -1848,11 +1848,11 @@ EXPORT void run__basic__grammar(void) {
   // 52:     
   // 53:     Topic: Grammar
   set__grammar__current_node(get__undefined());
-  // 790: $std::WHITESPACE many(WHITESPACE_CHARACTER)
-  // 791:   #
-  // 792:     matches one or more whitespace characters
-  // 793:     
-  // 794:     Topic: Grammar
+  // 793: $std::WHITESPACE many(WHITESPACE_CHARACTER)
+  // 794:   #
+  // 795:     matches one or more whitespace characters
+  // 796:     
+  // 797:     Topic: Grammar
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__WHITESPACE_CHARACTER();
@@ -5142,7 +5142,7 @@ static void entry__std__END_OF_TEXT__grammar__match_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 676: ... -> undefined
+  // 678: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -5157,7 +5157,7 @@ static void entry__std__END_OF_TEXT__grammar__match_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 676: ... -> 0
+  // 679: -> 0
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -5174,7 +5174,7 @@ static void entry__std__END_OF_TEXT__grammar__match_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 676: ... stream .has_minimum_length. 1
+  // 677: stream .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* stream */;
@@ -5190,7 +5190,10 @@ static void cont__std__END_OF_TEXT__grammar__match_2(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 676: if stream .has_minimum_length. 1 (-> undefined) -> 0
+  // 676: if
+  // 677:   stream .has_minimum_length. 1
+  // 678:   -> undefined
+  // 679:   -> 0
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5212,7 +5215,7 @@ static void entry__std__LETTER__grammar__match_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 695: ... stream .has_minimum_length. 1
+  // 698: ... stream .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* stream */;
@@ -5228,9 +5231,9 @@ static void cont__std__LETTER__grammar__match_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 695: ... : return undefined
+  // 698: ... : return undefined
   frame->slots[4] /* temp__2 */ = create_closure(entry__std__LETTER__grammar__match_3, 0);
-  // 695: unless stream .has_minimum_length. 1: return undefined
+  // 698: unless stream .has_minimum_length. 1: return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -5249,7 +5252,7 @@ static void entry__std__LETTER__grammar__match_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 695: ... return undefined
+  // 698: ... return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -5263,7 +5266,7 @@ static void cont__std__LETTER__grammar__match_4(void) {
     invalid_results_error();
     return;
   }
-  // 697: stream(1)
+  // 700: stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5278,7 +5281,7 @@ static void cont__std__LETTER__grammar__match_5(void) {
     return;
   }
   frame->slots[7] /* temp__5 */ = arguments->slots[0];
-  // 697: stream(1) >= 'a'
+  // 700: stream(1) >= 'a'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__5 */;
@@ -5294,7 +5297,7 @@ static void cont__std__LETTER__grammar__match_6(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 697: stream(1) >= 'a'
+  // 700: stream(1) >= 'a'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__4 */;
@@ -5309,9 +5312,9 @@ static void cont__std__LETTER__grammar__match_7(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 697: ... stream(1) <= 'z'
+  // 700: ... stream(1) <= 'z'
   frame->slots[8] /* temp__6 */ = create_closure(entry__std__LETTER__grammar__match_8, 0);
-  // 697: stream(1) >= 'a' && stream(1) <= 'z'
+  // 700: stream(1) >= 'a' && stream(1) <= 'z'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -5330,7 +5333,7 @@ static void entry__std__LETTER__grammar__match_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 697: ... stream(1)
+  // 700: ... stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5345,7 +5348,7 @@ static void cont__std__LETTER__grammar__match_9(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 697: ... stream(1) <= 'z'
+  // 700: ... stream(1) <= 'z'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__122;
@@ -5361,7 +5364,7 @@ static void cont__std__LETTER__grammar__match_10(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 697: ... stream(1) <= 'z'
+  // 700: ... stream(1) <= 'z'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -5376,7 +5379,7 @@ static void cont__std__LETTER__grammar__match_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 697: ... stream(1) <= 'z'
+  // 700: ... stream(1) <= 'z'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -5390,9 +5393,9 @@ static void cont__std__LETTER__grammar__match_12(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 697: ... stream(1) >= 'A' && stream(1) <= 'Z'
+  // 700: ... stream(1) >= 'A' && stream(1) <= 'Z'
   frame->slots[9] /* temp__7 */ = create_closure(entry__std__LETTER__grammar__match_13, 0);
-  // 697: stream(1) >= 'a' && stream(1) <= 'z' || stream(1) >= 'A' && stream(1) <= 'Z'
+  // 700: stream(1) >= 'a' && stream(1) <= 'z' || stream(1) >= 'A' && stream(1) <= 'Z'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -5411,7 +5414,7 @@ static void entry__std__LETTER__grammar__match_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 697: ... stream(1)
+  // 700: ... stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5426,7 +5429,7 @@ static void cont__std__LETTER__grammar__match_14(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 697: ... stream(1) >= 'A'
+  // 700: ... stream(1) >= 'A'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__4 */;
@@ -5442,7 +5445,7 @@ static void cont__std__LETTER__grammar__match_15(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 697: ... stream(1) >= 'A'
+  // 700: ... stream(1) >= 'A'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -5457,9 +5460,9 @@ static void cont__std__LETTER__grammar__match_16(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 697: ... stream(1) <= 'Z'
+  // 700: ... stream(1) <= 'Z'
   frame->slots[5] /* temp__5 */ = create_closure(entry__std__LETTER__grammar__match_17, 0);
-  // 697: ... stream(1) >= 'A' && stream(1) <= 'Z'
+  // 700: ... stream(1) >= 'A' && stream(1) <= 'Z'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -5478,7 +5481,7 @@ static void entry__std__LETTER__grammar__match_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 697: ... stream(1)
+  // 700: ... stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5493,7 +5496,7 @@ static void cont__std__LETTER__grammar__match_18(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 697: ... stream(1) <= 'Z'
+  // 700: ... stream(1) <= 'Z'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__90;
@@ -5509,7 +5512,7 @@ static void cont__std__LETTER__grammar__match_19(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 697: ... stream(1) <= 'Z'
+  // 700: ... stream(1) <= 'Z'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -5524,7 +5527,7 @@ static void cont__std__LETTER__grammar__match_20(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 697: ... stream(1) <= 'Z'
+  // 700: ... stream(1) <= 'Z'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -5538,7 +5541,7 @@ static void cont__std__LETTER__grammar__match_21(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 697: ... stream(1) >= 'A' && stream(1) <= 'Z'
+  // 700: ... stream(1) >= 'A' && stream(1) <= 'Z'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -5552,13 +5555,13 @@ static void cont__std__LETTER__grammar__match_22(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 698: :
-  // 699:   return 1
+  // 701: :
+  // 702:   return 1
   frame->slots[10] /* temp__8 */ = create_closure(entry__std__LETTER__grammar__match_23, 0);
-  // 696: if
-  // 697:   stream(1) >= 'a' && stream(1) <= 'z' || stream(1) >= 'A' && stream(1) <= 'Z'
-  // 698:   :
-  // 699:     return 1
+  // 699: if
+  // 700:   stream(1) >= 'a' && stream(1) <= 'z' || stream(1) >= 'A' && stream(1) <= 'Z'
+  // 701:   :
+  // 702:     return 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -5577,7 +5580,7 @@ static void entry__std__LETTER__grammar__match_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 699: return 1
+  // 702: return 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5591,7 +5594,7 @@ static void cont__std__LETTER__grammar__match_24(void) {
     invalid_results_error();
     return;
   }
-  // 700: -> undefined
+  // 703: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -5610,7 +5613,7 @@ static void entry__std__UPPER_CASE_LETTER__grammar__match_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 719: ... stream .has_minimum_length. 1
+  // 722: ... stream .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* stream */;
@@ -5626,9 +5629,9 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 719: ... : return undefined
+  // 722: ... : return undefined
   frame->slots[4] /* temp__2 */ = create_closure(entry__std__UPPER_CASE_LETTER__grammar__match_3, 0);
-  // 719: unless stream .has_minimum_length. 1: return undefined
+  // 722: unless stream .has_minimum_length. 1: return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -5647,7 +5650,7 @@ static void entry__std__UPPER_CASE_LETTER__grammar__match_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 719: ... return undefined
+  // 722: ... return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -5661,7 +5664,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_4(void) {
     invalid_results_error();
     return;
   }
-  // 720: ... stream(1)
+  // 723: ... stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5676,7 +5679,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_5(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 720: ... stream(1) >= 'A'
+  // 723: ... stream(1) >= 'A'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__4 */;
@@ -5692,7 +5695,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_6(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 720: ... stream(1) >= 'A'
+  // 723: ... stream(1) >= 'A'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -5707,9 +5710,9 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_7(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 720: ... stream(1) <= 'Z'
+  // 723: ... stream(1) <= 'Z'
   frame->slots[7] /* temp__5 */ = create_closure(entry__std__UPPER_CASE_LETTER__grammar__match_8, 0);
-  // 720: ... stream(1) >= 'A' && stream(1) <= 'Z'
+  // 723: ... stream(1) >= 'A' && stream(1) <= 'Z'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -5728,7 +5731,7 @@ static void entry__std__UPPER_CASE_LETTER__grammar__match_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 720: ... stream(1)
+  // 723: ... stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5743,7 +5746,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_9(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 720: ... stream(1) <= 'Z'
+  // 723: ... stream(1) <= 'Z'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__90;
@@ -5759,7 +5762,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_10(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 720: ... stream(1) <= 'Z'
+  // 723: ... stream(1) <= 'Z'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -5774,7 +5777,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 720: ... stream(1) <= 'Z'
+  // 723: ... stream(1) <= 'Z'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -5788,9 +5791,9 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_12(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 720: ... : return 1
+  // 723: ... : return 1
   frame->slots[8] /* temp__6 */ = create_closure(entry__std__UPPER_CASE_LETTER__grammar__match_13, 0);
-  // 720: if stream(1) >= 'A' && stream(1) <= 'Z': return 1
+  // 723: if stream(1) >= 'A' && stream(1) <= 'Z': return 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -5809,7 +5812,7 @@ static void entry__std__UPPER_CASE_LETTER__grammar__match_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 720: ... return 1
+  // 723: ... return 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5823,7 +5826,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_14(void) {
     invalid_results_error();
     return;
   }
-  // 721: -> undefined
+  // 724: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -5842,7 +5845,7 @@ static void entry__std__LOWER_CASE_LETTER__grammar__match_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 740: ... stream .has_minimum_length. 1
+  // 743: ... stream .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* stream */;
@@ -5858,9 +5861,9 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 740: ... : return undefined
+  // 743: ... : return undefined
   frame->slots[4] /* temp__2 */ = create_closure(entry__std__LOWER_CASE_LETTER__grammar__match_3, 0);
-  // 740: unless stream .has_minimum_length. 1: return undefined
+  // 743: unless stream .has_minimum_length. 1: return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -5879,7 +5882,7 @@ static void entry__std__LOWER_CASE_LETTER__grammar__match_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 740: ... return undefined
+  // 743: ... return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -5893,7 +5896,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_4(void) {
     invalid_results_error();
     return;
   }
-  // 741: ... stream(1)
+  // 744: ... stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5908,7 +5911,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_5(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 741: ... stream(1) >= 'a'
+  // 744: ... stream(1) >= 'a'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__4 */;
@@ -5924,7 +5927,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_6(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 741: ... stream(1) >= 'a'
+  // 744: ... stream(1) >= 'a'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -5939,9 +5942,9 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_7(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 741: ... stream(1) <= 'z'
+  // 744: ... stream(1) <= 'z'
   frame->slots[7] /* temp__5 */ = create_closure(entry__std__LOWER_CASE_LETTER__grammar__match_8, 0);
-  // 741: ... stream(1) >= 'a' && stream(1) <= 'z'
+  // 744: ... stream(1) >= 'a' && stream(1) <= 'z'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -5960,7 +5963,7 @@ static void entry__std__LOWER_CASE_LETTER__grammar__match_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 741: ... stream(1)
+  // 744: ... stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -5975,7 +5978,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_9(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 741: ... stream(1) <= 'z'
+  // 744: ... stream(1) <= 'z'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__122;
@@ -5991,7 +5994,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_10(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 741: ... stream(1) <= 'z'
+  // 744: ... stream(1) <= 'z'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -6006,7 +6009,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 741: ... stream(1) <= 'z'
+  // 744: ... stream(1) <= 'z'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6020,9 +6023,9 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_12(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 741: ... : return 1
+  // 744: ... : return 1
   frame->slots[8] /* temp__6 */ = create_closure(entry__std__LOWER_CASE_LETTER__grammar__match_13, 0);
-  // 741: if stream(1) >= 'a' && stream(1) <= 'z': return 1
+  // 744: if stream(1) >= 'a' && stream(1) <= 'z': return 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -6041,7 +6044,7 @@ static void entry__std__LOWER_CASE_LETTER__grammar__match_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 741: ... return 1
+  // 744: ... return 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6055,7 +6058,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_14(void) {
     invalid_results_error();
     return;
   }
-  // 742: -> undefined
+  // 745: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -6074,7 +6077,7 @@ static void entry__std__DIGIT__grammar__match_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 761: ... stream .has_minimum_length. 1
+  // 764: ... stream .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* stream */;
@@ -6090,9 +6093,9 @@ static void cont__std__DIGIT__grammar__match_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 761: ... : return undefined
+  // 764: ... : return undefined
   frame->slots[4] /* temp__2 */ = create_closure(entry__std__DIGIT__grammar__match_3, 0);
-  // 761: unless stream .has_minimum_length. 1: return undefined
+  // 764: unless stream .has_minimum_length. 1: return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -6111,7 +6114,7 @@ static void entry__std__DIGIT__grammar__match_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 761: ... return undefined
+  // 764: ... return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -6125,7 +6128,7 @@ static void cont__std__DIGIT__grammar__match_4(void) {
     invalid_results_error();
     return;
   }
-  // 762: ... stream(1)
+  // 765: ... stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6140,7 +6143,7 @@ static void cont__std__DIGIT__grammar__match_5(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 762: ... stream(1) >= '0'
+  // 765: ... stream(1) >= '0'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__4 */;
@@ -6156,7 +6159,7 @@ static void cont__std__DIGIT__grammar__match_6(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 762: ... stream(1) >= '0'
+  // 765: ... stream(1) >= '0'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -6171,9 +6174,9 @@ static void cont__std__DIGIT__grammar__match_7(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 762: ... stream(1) <= '9'
+  // 765: ... stream(1) <= '9'
   frame->slots[7] /* temp__5 */ = create_closure(entry__std__DIGIT__grammar__match_8, 0);
-  // 762: ... stream(1) >= '0' && stream(1) <= '9'
+  // 765: ... stream(1) >= '0' && stream(1) <= '9'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -6192,7 +6195,7 @@ static void entry__std__DIGIT__grammar__match_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 762: ... stream(1)
+  // 765: ... stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6207,7 +6210,7 @@ static void cont__std__DIGIT__grammar__match_9(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 762: ... stream(1) <= '9'
+  // 765: ... stream(1) <= '9'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__57;
@@ -6223,7 +6226,7 @@ static void cont__std__DIGIT__grammar__match_10(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 762: ... stream(1) <= '9'
+  // 765: ... stream(1) <= '9'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -6238,7 +6241,7 @@ static void cont__std__DIGIT__grammar__match_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 762: ... stream(1) <= '9'
+  // 765: ... stream(1) <= '9'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6252,9 +6255,9 @@ static void cont__std__DIGIT__grammar__match_12(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 762: ... : return 1
+  // 765: ... : return 1
   frame->slots[8] /* temp__6 */ = create_closure(entry__std__DIGIT__grammar__match_13, 0);
-  // 762: if stream(1) >= '0' && stream(1) <= '9': return 1
+  // 765: if stream(1) >= '0' && stream(1) <= '9': return 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -6273,7 +6276,7 @@ static void entry__std__DIGIT__grammar__match_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 762: ... return 1
+  // 765: ... return 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6287,7 +6290,7 @@ static void cont__std__DIGIT__grammar__match_14(void) {
     invalid_results_error();
     return;
   }
-  // 763: -> undefined
+  // 766: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -6308,7 +6311,7 @@ static void entry__std__WHITESPACE_CHARACTER__grammar__match_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 782: ... stream .has_minimum_length. 1
+  // 785: ... stream .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* stream */;
@@ -6324,9 +6327,9 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 782: ... : return undefined
+  // 785: ... : return undefined
   frame->slots[5] /* temp__2 */ = create_closure(entry__std__WHITESPACE_CHARACTER__grammar__match_3, 0);
-  // 782: unless stream .has_minimum_length. 1: return undefined
+  // 785: unless stream .has_minimum_length. 1: return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -6345,7 +6348,7 @@ static void entry__std__WHITESPACE_CHARACTER__grammar__match_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 782: ... return undefined
+  // 785: ... return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -6359,7 +6362,7 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_4(void) {
     invalid_results_error();
     return;
   }
-  // 783: $chr stream(1)
+  // 786: $chr stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6374,7 +6377,7 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_5(void) {
     return;
   }
   initialize_future(frame->slots[3] /* chr */, arguments->slots[0]);
-  // 784: ... chr <= ' '
+  // 787: ... chr <= ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__32;
@@ -6390,7 +6393,7 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_6(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 784: ... chr <= ' '
+  // 787: ... chr <= ' '
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -6405,9 +6408,9 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_7(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 784: ... chr == '@del;'
+  // 787: ... chr == '@del;'
   frame->slots[7] /* temp__4 */ = create_closure(entry__std__WHITESPACE_CHARACTER__grammar__match_8, 0);
-  // 784: ... chr <= ' ' || chr == '@del;'
+  // 787: ... chr <= ' ' || chr == '@del;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -6426,7 +6429,7 @@ static void entry__std__WHITESPACE_CHARACTER__grammar__match_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 784: ... chr == '@del;'
+  // 787: ... chr == '@del;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -6442,7 +6445,7 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_9(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 784: ... chr == '@del;'
+  // 787: ... chr == '@del;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6456,9 +6459,9 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_10(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 784: ... : return 1
+  // 787: ... : return 1
   frame->slots[8] /* temp__5 */ = create_closure(entry__std__WHITESPACE_CHARACTER__grammar__match_11, 0);
-  // 784: if chr <= ' ' || chr == '@del;': return 1
+  // 787: if chr <= ' ' || chr == '@del;': return 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -6477,7 +6480,7 @@ static void entry__std__WHITESPACE_CHARACTER__grammar__match_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 784: ... return 1
+  // 787: ... return 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6491,7 +6494,7 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_12(void) {
     invalid_results_error();
     return;
   }
-  // 785: -> undefined
+  // 788: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -6512,7 +6515,7 @@ static void entry__std__PRINTABLE_CHARACTER__grammar__match_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 813: ... stream .has_minimum_length. 1
+  // 816: ... stream .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* stream */;
@@ -6528,9 +6531,9 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 813: ... : return undefined
+  // 816: ... : return undefined
   frame->slots[5] /* temp__2 */ = create_closure(entry__std__PRINTABLE_CHARACTER__grammar__match_3, 0);
-  // 813: unless stream .has_minimum_length. 1: return undefined
+  // 816: unless stream .has_minimum_length. 1: return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -6549,7 +6552,7 @@ static void entry__std__PRINTABLE_CHARACTER__grammar__match_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 813: ... return undefined
+  // 816: ... return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -6563,7 +6566,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_4(void) {
     invalid_results_error();
     return;
   }
-  // 814: $chr stream(1)
+  // 817: $chr stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6578,7 +6581,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_5(void) {
     return;
   }
   initialize_future(frame->slots[3] /* chr */, arguments->slots[0]);
-  // 815: ... chr >= ' '
+  // 818: ... chr >= ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* chr */;
@@ -6594,7 +6597,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_6(void) {
     return;
   }
   frame->slots[7] /* temp__4 */ = arguments->slots[0];
-  // 815: ... chr >= ' '
+  // 818: ... chr >= ' '
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__4 */;
@@ -6609,9 +6612,9 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_7(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 815: ... chr < '@del;'
+  // 818: ... chr < '@del;'
   frame->slots[8] /* temp__5 */ = create_closure(entry__std__PRINTABLE_CHARACTER__grammar__match_8, 0);
-  // 815: ... chr >= ' ' && chr < '@del;'
+  // 818: ... chr >= ' ' && chr < '@del;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -6630,7 +6633,7 @@ static void entry__std__PRINTABLE_CHARACTER__grammar__match_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 815: ... chr < '@del;'
+  // 818: ... chr < '@del;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -6646,7 +6649,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_9(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 815: ... chr < '@del;'
+  // 818: ... chr < '@del;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6660,9 +6663,9 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_10(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 815: ... chr >= '@nbsp;'
+  // 818: ... chr >= '@nbsp;'
   frame->slots[9] /* temp__6 */ = create_closure(entry__std__PRINTABLE_CHARACTER__grammar__match_11, 0);
-  // 815: ... chr >= ' ' && chr < '@del;' || chr >= '@nbsp;'
+  // 818: ... chr >= ' ' && chr < '@del;' || chr >= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -6681,7 +6684,7 @@ static void entry__std__PRINTABLE_CHARACTER__grammar__match_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 815: ... chr >= '@nbsp;'
+  // 818: ... chr >= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -6697,7 +6700,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_12(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 815: ... chr >= '@nbsp;'
+  // 818: ... chr >= '@nbsp;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -6712,7 +6715,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_13(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 815: ... chr >= '@nbsp;'
+  // 818: ... chr >= '@nbsp;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6726,9 +6729,9 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_14(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 815: ... : return 1
+  // 818: ... : return 1
   frame->slots[10] /* temp__7 */ = create_closure(entry__std__PRINTABLE_CHARACTER__grammar__match_15, 0);
-  // 815: if chr >= ' ' && chr < '@del;' || chr >= '@nbsp;': return 1
+  // 818: if chr >= ' ' && chr < '@del;' || chr >= '@nbsp;': return 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -6747,7 +6750,7 @@ static void entry__std__PRINTABLE_CHARACTER__grammar__match_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 815: ... return 1
+  // 818: ... return 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6761,7 +6764,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_16(void) {
     invalid_results_error();
     return;
   }
-  // 816: -> undefined
+  // 819: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -6782,7 +6785,7 @@ static void entry__std__NON_SPACE_CHARACTER__grammar__match_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 835: ... stream .has_minimum_length. 1
+  // 838: ... stream .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* stream */;
@@ -6798,9 +6801,9 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 835: ... : return undefined
+  // 838: ... : return undefined
   frame->slots[5] /* temp__2 */ = create_closure(entry__std__NON_SPACE_CHARACTER__grammar__match_3, 0);
-  // 835: unless stream .has_minimum_length. 1: return undefined
+  // 838: unless stream .has_minimum_length. 1: return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -6819,7 +6822,7 @@ static void entry__std__NON_SPACE_CHARACTER__grammar__match_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 835: ... return undefined
+  // 838: ... return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -6833,7 +6836,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_4(void) {
     invalid_results_error();
     return;
   }
-  // 836: $chr stream(1)
+  // 839: $chr stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -6848,7 +6851,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_5(void) {
     return;
   }
   initialize_future(frame->slots[3] /* chr */, arguments->slots[0]);
-  // 837: ... chr > ' '
+  // 840: ... chr > ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__32;
@@ -6864,9 +6867,9 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_6(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 837: ... chr < '@del;'
+  // 840: ... chr < '@del;'
   frame->slots[7] /* temp__4 */ = create_closure(entry__std__NON_SPACE_CHARACTER__grammar__match_7, 0);
-  // 837: ... chr > ' ' && chr < '@del;'
+  // 840: ... chr > ' ' && chr < '@del;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -6885,7 +6888,7 @@ static void entry__std__NON_SPACE_CHARACTER__grammar__match_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 837: ... chr < '@del;'
+  // 840: ... chr < '@del;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -6901,7 +6904,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_8(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 837: ... chr < '@del;'
+  // 840: ... chr < '@del;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6915,9 +6918,9 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_9(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 837: ... chr >= '@nbsp;'
+  // 840: ... chr >= '@nbsp;'
   frame->slots[8] /* temp__5 */ = create_closure(entry__std__NON_SPACE_CHARACTER__grammar__match_10, 0);
-  // 837: ... chr > ' ' && chr < '@del;' || chr >= '@nbsp;'
+  // 840: ... chr > ' ' && chr < '@del;' || chr >= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -6936,7 +6939,7 @@ static void entry__std__NON_SPACE_CHARACTER__grammar__match_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 837: ... chr >= '@nbsp;'
+  // 840: ... chr >= '@nbsp;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -6952,7 +6955,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_11(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 837: ... chr >= '@nbsp;'
+  // 840: ... chr >= '@nbsp;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -6967,7 +6970,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_12(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 837: ... chr >= '@nbsp;'
+  // 840: ... chr >= '@nbsp;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -6981,9 +6984,9 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_13(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 837: ... : return 1
+  // 840: ... : return 1
   frame->slots[9] /* temp__6 */ = create_closure(entry__std__NON_SPACE_CHARACTER__grammar__match_14, 0);
-  // 837: if chr > ' ' && chr < '@del;' || chr >= '@nbsp;': return 1
+  // 840: if chr > ' ' && chr < '@del;' || chr >= '@nbsp;': return 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7002,7 +7005,7 @@ static void entry__std__NON_SPACE_CHARACTER__grammar__match_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 837: ... return 1
+  // 840: ... return 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7016,7 +7019,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_15(void) {
     invalid_results_error();
     return;
   }
-  // 838: -> undefined
+  // 841: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -7035,7 +7038,7 @@ static void entry__std__ANY_CHARACTER__grammar__match_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 857: ... stream .has_minimum_length. 1
+  // 860: ... stream .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* stream */;
@@ -7051,9 +7054,9 @@ static void cont__std__ANY_CHARACTER__grammar__match_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 857: ... : return undefined
+  // 860: ... : return undefined
   frame->slots[4] /* temp__2 */ = create_closure(entry__std__ANY_CHARACTER__grammar__match_3, 0);
-  // 857: unless stream .has_minimum_length. 1: return undefined
+  // 860: unless stream .has_minimum_length. 1: return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -7072,7 +7075,7 @@ static void entry__std__ANY_CHARACTER__grammar__match_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 857: ... return undefined
+  // 860: ... return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -7086,7 +7089,7 @@ static void cont__std__ANY_CHARACTER__grammar__match_4(void) {
     invalid_results_error();
     return;
   }
-  // 858: -> 1
+  // 861: -> 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7103,7 +7106,7 @@ static void entry__types__character__grammar__match_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 872: match_character stream chr
+  // 875: match_character stream chr
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* stream */;
@@ -7126,7 +7129,7 @@ static void entry__types__value_range__grammar__match_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 887: ... stream .has_minimum_length. 1
+  // 890: ... stream .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* stream */;
@@ -7142,9 +7145,9 @@ static void cont__types__value_range__grammar__match_2(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 887: ... : return undefined
+  // 890: ... : return undefined
   frame->slots[5] /* temp__2 */ = create_closure(entry__types__value_range__grammar__match_3, 0);
-  // 887: unless stream .has_minimum_length. 1: return undefined
+  // 890: unless stream .has_minimum_length. 1: return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7163,7 +7166,7 @@ static void entry__types__value_range__grammar__match_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 887: ... return undefined
+  // 890: ... return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -7177,7 +7180,7 @@ static void cont__types__value_range__grammar__match_4(void) {
     invalid_results_error();
     return;
   }
-  // 888: $chr stream(1)
+  // 891: $chr stream(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7192,7 +7195,7 @@ static void cont__types__value_range__grammar__match_5(void) {
     return;
   }
   initialize_future(frame->slots[3] /* chr */, arguments->slots[0]);
-  // 889: ... lower_bound_of(self)
+  // 892: ... lower_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -7207,7 +7210,7 @@ static void cont__types__value_range__grammar__match_6(void) {
     return;
   }
   frame->slots[7] /* temp__4 */ = arguments->slots[0];
-  // 889: ... chr >= lower_bound_of(self)
+  // 892: ... chr >= lower_bound_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* chr */;
@@ -7223,7 +7226,7 @@ static void cont__types__value_range__grammar__match_7(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 889: ... chr >= lower_bound_of(self)
+  // 892: ... chr >= lower_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -7238,9 +7241,9 @@ static void cont__types__value_range__grammar__match_8(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 889: ... chr <= upper_bound_of(self)
+  // 892: ... chr <= upper_bound_of(self)
   frame->slots[8] /* temp__5 */ = create_closure(entry__types__value_range__grammar__match_9, 0);
-  // 889: ... chr >= lower_bound_of(self) && chr <= upper_bound_of(self)
+  // 892: ... chr >= lower_bound_of(self) && chr <= upper_bound_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -7261,7 +7264,7 @@ static void entry__types__value_range__grammar__match_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 889: ... upper_bound_of(self)
+  // 892: ... upper_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -7276,7 +7279,7 @@ static void cont__types__value_range__grammar__match_10(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 889: ... chr <= upper_bound_of(self)
+  // 892: ... chr <= upper_bound_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -7292,7 +7295,7 @@ static void cont__types__value_range__grammar__match_11(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 889: ... chr <= upper_bound_of(self)
+  // 892: ... chr <= upper_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -7307,7 +7310,7 @@ static void cont__types__value_range__grammar__match_12(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 889: ... chr <= upper_bound_of(self)
+  // 892: ... chr <= upper_bound_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -7321,9 +7324,9 @@ static void cont__types__value_range__grammar__match_13(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 889: ... : return 1
+  // 892: ... : return 1
   frame->slots[9] /* temp__6 */ = create_closure(entry__types__value_range__grammar__match_14, 0);
-  // 889: if chr >= lower_bound_of(self) && chr <= upper_bound_of(self): return 1
+  // 892: if chr >= lower_bound_of(self) && chr <= upper_bound_of(self): return 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -7342,7 +7345,7 @@ static void entry__types__value_range__grammar__match_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 889: ... return 1
+  // 892: ... return 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7356,7 +7359,7 @@ static void cont__types__value_range__grammar__match_15(void) {
     invalid_results_error();
     return;
   }
-  // 890: -> undefined
+  // 893: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -7380,25 +7383,25 @@ static void entry__types__list__grammar__match_1(void) {
     return;
   }
   frame->slots[1] /* stream */ = create_cell_with_contents(arguments->slots[1]);
-  // 906: $$len 0
+  // 909: $$len 0
   ((CELL *)frame->slots[3])->contents /* len */ = number__0;
-  // 907: $original_node grammar::current_node
+  // 910: $original_node grammar::current_node
   initialize_future(frame->slots[4] /* original_node */, get__grammar__current_node());
-  // 908: ... : (expr)
-  // 909:   $n grammar::match(expr stream)
-  // 910:   unless n.is_defined:
-  // 911:     !grammar::current_node original_node
-  // 912:     return undefined
-  // 913:   range &stream n+1 -1
-  // 914:   plus &len n
+  // 911: ... : (expr)
+  // 912:   $n grammar::match(expr stream)
+  // 913:   unless n.is_defined:
+  // 914:     !grammar::current_node original_node
+  // 915:     return undefined
+  // 916:   range &stream n+1 -1
+  // 917:   plus &len n
   frame->slots[5] /* temp__1 */ = create_closure(entry__types__list__grammar__match_2, 1);
-  // 908: for_each self: (expr)
-  // 909:   $n grammar::match(expr stream)
-  // 910:   unless n.is_defined:
-  // 911:     !grammar::current_node original_node
-  // 912:     return undefined
-  // 913:   range &stream n+1 -1
-  // 914:   plus &len n
+  // 911: for_each self: (expr)
+  // 912:   $n grammar::match(expr stream)
+  // 913:   unless n.is_defined:
+  // 914:     !grammar::current_node original_node
+  // 915:     return undefined
+  // 916:   range &stream n+1 -1
+  // 917:   plus &len n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -7426,7 +7429,7 @@ static void entry__types__list__grammar__match_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 909: $n grammar::match(expr stream)
+  // 912: $n grammar::match(expr stream)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* expr */;
@@ -7442,7 +7445,7 @@ static void cont__types__list__grammar__match_3(void) {
     return;
   }
   initialize_future(frame->slots[5] /* n */, arguments->slots[0]);
-  // 910: ... n.is_defined
+  // 913: ... n.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* n */;
@@ -7457,13 +7460,13 @@ static void cont__types__list__grammar__match_4(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 910: ... :
-  // 911:   !grammar::current_node original_node
-  // 912:   return undefined
+  // 913: ... :
+  // 914:   !grammar::current_node original_node
+  // 915:   return undefined
   frame->slots[7] /* temp__2 */ = create_closure(entry__types__list__grammar__match_5, 0);
-  // 910: unless n.is_defined:
-  // 911:   !grammar::current_node original_node
-  // 912:   return undefined
+  // 913: unless n.is_defined:
+  // 914:   !grammar::current_node original_node
+  // 915:   return undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -7484,9 +7487,9 @@ static void entry__types__list__grammar__match_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 911: !grammar::current_node original_node
+  // 914: !grammar::current_node original_node
   set__grammar__current_node(frame->slots[0] /* original_node */);
-  // 912: return undefined
+  // 915: return undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -7500,7 +7503,7 @@ static void cont__types__list__grammar__match_6(void) {
     invalid_results_error();
     return;
   }
-  // 913: ... n+1
+  // 916: ... n+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* n */;
@@ -7516,7 +7519,7 @@ static void cont__types__list__grammar__match_7(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 913: ... 1
+  // 916: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7531,7 +7534,7 @@ static void cont__types__list__grammar__match_8(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 913: range &stream n+1 -1
+  // 916: range &stream n+1 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* stream */;
@@ -7548,7 +7551,7 @@ static void cont__types__list__grammar__match_9(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* stream */ = arguments->slots[0];
-  // 914: plus &len n
+  // 917: plus &len n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* len */;
@@ -7575,7 +7578,7 @@ static void cont__types__list__grammar__match_11(void) {
     invalid_results_error();
     return;
   }
-  // 915: -> len
+  // 918: -> len
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* len */;
@@ -7610,11 +7613,11 @@ static void entry__types__object__grammar__search_1(void) {
   switch(argument_count) {
     case 2: frame->slots[2] /* nth */ = create_cell_with_contents(number__1);
   }
-  // 928: $$pos 1
+  // 931: $$pos 1
   ((CELL *)frame->slots[4])->contents /* pos */ = number__1;
-  // 929: $$s stream
+  // 932: $$s stream
   ((CELL *)frame->slots[5])->contents /* s */ = frame->slots[1] /* stream */;
-  // 931: nth > 0
+  // 934: nth > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -7630,40 +7633,40 @@ static void cont__types__object__grammar__search_2(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 931: ... :
-  // 932:   forever:
-  // 933:     $len grammar::match(expr s)
-  // 934:     if len.is_defined:
-  // 935:       if nth == 1: return pos len
-  // 936:       if len > 0:
-  // 937:         plus &pos len-1
-  // 938:         range &s len -1
-  // 939:       minus &nth 1
-  // 940:     unless s .has_minimum_length. 1: return undefined undefined
+  // 934: ... :
+  // 935:   forever:
+  // 936:     $len grammar::match(expr s)
+  // 937:     if len.is_defined:
+  // 938:       if nth == 1: return pos len
+  // 939:       if len > 0:
+  // 940:         plus &pos len-1
+  // 941:         range &s len -1
+  // 942:       minus &nth 1
+  // 943:     unless s .has_minimum_length. 1: return undefined undefined
   // ...
   frame->slots[7] /* temp__2 */ = create_closure(entry__types__object__grammar__search_3, 0);
-  // 943: :
-  // 944:   negate &nth
-  // 945:   $$positions empty_list
-  // 946:   $$lengths empty_list
-  // 947:   forever:
-  // 948:     $len grammar::match(expr s)
-  // 949:     if len.is_defined:
-  // 950:       if length_of(positions) >= nth:
-  // 951:         range &positions 2 -1
-  // 952:         range &lengths 2 -1
+  // 946: :
+  // 947:   negate &nth
+  // 948:   $$positions empty_list
+  // 949:   $$lengths empty_list
+  // 950:   forever:
+  // 951:     $len grammar::match(expr s)
+  // 952:     if len.is_defined:
+  // 953:       if length_of(positions) >= nth:
+  // 954:         range &positions 2 -1
+  // 955:         range &lengths 2 -1
   // ...
   frame->slots[8] /* temp__3 */ = create_closure(entry__types__object__grammar__search_26, 0);
-  // 930: if
-  // 931:   nth > 0:
-  // 932:     forever:
-  // 933:       $len grammar::match(expr s)
-  // 934:       if len.is_defined:
-  // 935:         if nth == 1: return pos len
-  // 936:         if len > 0:
-  // 937:           plus &pos len-1
-  // 938:           range &s len -1
-  // 939:         minus &nth 1
+  // 933: if
+  // 934:   nth > 0:
+  // 935:     forever:
+  // 936:       $len grammar::match(expr s)
+  // 937:       if len.is_defined:
+  // 938:         if nth == 1: return pos len
+  // 939:         if len > 0:
+  // 940:           plus &pos len-1
+  // 941:           range &s len -1
+  // 942:         minus &nth 1
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -7698,7 +7701,7 @@ static void entry__types__object__grammar__search_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 948: $len grammar::match(expr s)
+  // 951: $len grammar::match(expr s)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* expr */;
@@ -7714,7 +7717,7 @@ static void cont__types__object__grammar__search_29(void) {
     return;
   }
   initialize_future(frame->slots[7] /* len */, arguments->slots[0]);
-  // 949: ... len.is_defined
+  // 952: ... len.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* len */;
@@ -7729,25 +7732,25 @@ static void cont__types__object__grammar__search_30(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 949: ... :
-  // 950:   if length_of(positions) >= nth:
-  // 951:     range &positions 2 -1
-  // 952:     range &lengths 2 -1
-  // 953:   push &positions pos
-  // 954:   push &lengths len
-  // 955:   if len > 0:
-  // 956:     plus &pos len-1
-  // 957:     range &s len -1
+  // 952: ... :
+  // 953:   if length_of(positions) >= nth:
+  // 954:     range &positions 2 -1
+  // 955:     range &lengths 2 -1
+  // 956:   push &positions pos
+  // 957:   push &lengths len
+  // 958:   if len > 0:
+  // 959:     plus &pos len-1
+  // 960:     range &s len -1
   frame->slots[9] /* temp__2 */ = create_closure(entry__types__object__grammar__search_31, 0);
-  // 949: if len.is_defined:
-  // 950:   if length_of(positions) >= nth:
-  // 951:     range &positions 2 -1
-  // 952:     range &lengths 2 -1
-  // 953:   push &positions pos
-  // 954:   push &lengths len
-  // 955:   if len > 0:
-  // 956:     plus &pos len-1
-  // 957:     range &s len -1
+  // 952: if len.is_defined:
+  // 953:   if length_of(positions) >= nth:
+  // 954:     range &positions 2 -1
+  // 955:     range &lengths 2 -1
+  // 956:   push &positions pos
+  // 957:   push &lengths len
+  // 958:   if len > 0:
+  // 959:     plus &pos len-1
+  // 960:     range &s len -1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -7770,7 +7773,7 @@ static void entry__types__object__grammar__search_44(void) {
     invalid_arguments_error();
     return;
   }
-  // 956: ... len-1
+  // 959: ... len-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* len */;
@@ -7786,7 +7789,7 @@ static void cont__types__object__grammar__search_45(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 956: plus &pos len-1
+  // 959: plus &pos len-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -7802,7 +7805,7 @@ static void cont__types__object__grammar__search_46(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* pos */ = arguments->slots[0];
-  // 957: ... 1
+  // 960: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7817,7 +7820,7 @@ static void cont__types__object__grammar__search_47(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 957: range &s len -1
+  // 960: range &s len -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* s */;
@@ -7859,7 +7862,7 @@ static void entry__types__object__grammar__search_31(void) {
     invalid_arguments_error();
     return;
   }
-  // 950: ... length_of(positions)
+  // 953: ... length_of(positions)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* positions */;
@@ -7874,7 +7877,7 @@ static void cont__types__object__grammar__search_32(void) {
     return;
   }
   frame->slots[8] /* temp__3 */ = arguments->slots[0];
-  // 950: ... length_of(positions) >= nth
+  // 953: ... length_of(positions) >= nth
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__3 */;
@@ -7890,7 +7893,7 @@ static void cont__types__object__grammar__search_33(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 950: ... length_of(positions) >= nth
+  // 953: ... length_of(positions) >= nth
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -7905,13 +7908,13 @@ static void cont__types__object__grammar__search_34(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 950: ... :
-  // 951:   range &positions 2 -1
-  // 952:   range &lengths 2 -1
+  // 953: ... :
+  // 954:   range &positions 2 -1
+  // 955:   range &lengths 2 -1
   frame->slots[9] /* temp__4 */ = create_closure(entry__types__object__grammar__search_35, 0);
-  // 950: if length_of(positions) >= nth:
-  // 951:   range &positions 2 -1
-  // 952:   range &lengths 2 -1
+  // 953: if length_of(positions) >= nth:
+  // 954:   range &positions 2 -1
+  // 955:   range &lengths 2 -1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -7932,7 +7935,7 @@ static void entry__types__object__grammar__search_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 951: ... 1
+  // 954: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7947,7 +7950,7 @@ static void cont__types__object__grammar__search_36(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 951: range &positions 2 -1
+  // 954: range &positions 2 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* positions */;
@@ -7964,7 +7967,7 @@ static void cont__types__object__grammar__search_37(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* positions */ = arguments->slots[0];
-  // 952: ... 1
+  // 955: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7979,7 +7982,7 @@ static void cont__types__object__grammar__search_38(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 952: range &lengths 2 -1
+  // 955: range &lengths 2 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* lengths */;
@@ -8007,7 +8010,7 @@ static void cont__types__object__grammar__search_40(void) {
     invalid_results_error();
     return;
   }
-  // 953: push &positions pos
+  // 956: push &positions pos
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* positions */;
@@ -8023,7 +8026,7 @@ static void cont__types__object__grammar__search_41(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* positions */ = arguments->slots[0];
-  // 954: push &lengths len
+  // 957: push &lengths len
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* lengths */;
@@ -8039,7 +8042,7 @@ static void cont__types__object__grammar__search_42(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* lengths */ = arguments->slots[0];
-  // 955: ... len > 0
+  // 958: ... len > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -8055,13 +8058,13 @@ static void cont__types__object__grammar__search_43(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 955: ... :
-  // 956:   plus &pos len-1
-  // 957:   range &s len -1
+  // 958: ... :
+  // 959:   plus &pos len-1
+  // 960:   range &s len -1
   frame->slots[7] /* temp__2 */ = create_closure(entry__types__object__grammar__search_44, 0);
-  // 955: if len > 0:
-  // 956:   plus &pos len-1
-  // 957:   range &s len -1
+  // 958: if len > 0:
+  // 959:   plus &pos len-1
+  // 960:   range &s len -1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -8076,7 +8079,7 @@ static void cont__types__object__grammar__search_49(void) {
     invalid_results_error();
     return;
   }
-  // 958: ... s .has_minimum_length. 1
+  // 961: ... s .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* s */;
@@ -8092,13 +8095,13 @@ static void cont__types__object__grammar__search_50(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 958: ... :
-  // 959:   if length_of(positions) < nth: return undefined undefined
-  // 960:   return positions(1) lengths(1)
+  // 961: ... :
+  // 962:   if length_of(positions) < nth: return undefined undefined
+  // 963:   return positions(1) lengths(1)
   frame->slots[9] /* temp__2 */ = create_closure(entry__types__object__grammar__search_51, 0);
-  // 958: unless s .has_minimum_length. 1:
-  // 959:   if length_of(positions) < nth: return undefined undefined
-  // 960:   return positions(1) lengths(1)
+  // 961: unless s .has_minimum_length. 1:
+  // 962:   if length_of(positions) < nth: return undefined undefined
+  // 963:   return positions(1) lengths(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__1 */;
@@ -8123,7 +8126,7 @@ static void entry__types__object__grammar__search_51(void) {
     invalid_arguments_error();
     return;
   }
-  // 959: ... length_of(positions)
+  // 962: ... length_of(positions)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* positions */;
@@ -8138,7 +8141,7 @@ static void cont__types__object__grammar__search_52(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 959: ... length_of(positions) < nth
+  // 962: ... length_of(positions) < nth
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -8154,9 +8157,9 @@ static void cont__types__object__grammar__search_53(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 959: ... : return undefined undefined
+  // 962: ... : return undefined undefined
   frame->slots[6] /* temp__3 */ = create_closure(entry__types__object__grammar__search_54, 0);
-  // 959: if length_of(positions) < nth: return undefined undefined
+  // 962: if length_of(positions) < nth: return undefined undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -8175,7 +8178,7 @@ static void entry__types__object__grammar__search_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 959: ... return undefined undefined
+  // 962: ... return undefined undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -8190,7 +8193,7 @@ static void cont__types__object__grammar__search_55(void) {
     invalid_results_error();
     return;
   }
-  // 960: ... positions(1)
+  // 963: ... positions(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8205,7 +8208,7 @@ static void cont__types__object__grammar__search_56(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 960: ... lengths(1)
+  // 963: ... lengths(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8220,7 +8223,7 @@ static void cont__types__object__grammar__search_57(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 960: return positions(1) lengths(1)
+  // 963: return positions(1) lengths(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -8235,7 +8238,7 @@ static void cont__types__object__grammar__search_58(void) {
     invalid_results_error();
     return;
   }
-  // 961: plus &pos 1
+  // 964: plus &pos 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* pos */;
@@ -8251,7 +8254,7 @@ static void cont__types__object__grammar__search_59(void) {
     return;
   }
   ((CELL *)frame->slots[5])->contents /* pos */ = arguments->slots[0];
-  // 962: ... 1
+  // 965: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8266,7 +8269,7 @@ static void cont__types__object__grammar__search_60(void) {
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
-  // 962: range &s 2 -1
+  // 965: range &s 2 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* s */;
@@ -8308,7 +8311,7 @@ static void entry__types__object__grammar__search_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 933: $len grammar::match(expr s)
+  // 936: $len grammar::match(expr s)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* expr */;
@@ -8324,7 +8327,7 @@ static void cont__types__object__grammar__search_5(void) {
     return;
   }
   initialize_future(frame->slots[5] /* len */, arguments->slots[0]);
-  // 934: ... len.is_defined
+  // 937: ... len.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* len */;
@@ -8339,19 +8342,19 @@ static void cont__types__object__grammar__search_6(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 934: ... :
-  // 935:   if nth == 1: return pos len
-  // 936:   if len > 0:
-  // 937:     plus &pos len-1
-  // 938:     range &s len -1
-  // 939:   minus &nth 1
+  // 937: ... :
+  // 938:   if nth == 1: return pos len
+  // 939:   if len > 0:
+  // 940:     plus &pos len-1
+  // 941:     range &s len -1
+  // 942:   minus &nth 1
   frame->slots[7] /* temp__2 */ = create_closure(entry__types__object__grammar__search_7, 0);
-  // 934: if len.is_defined:
-  // 935:   if nth == 1: return pos len
-  // 936:   if len > 0:
-  // 937:     plus &pos len-1
-  // 938:     range &s len -1
-  // 939:   minus &nth 1
+  // 937: if len.is_defined:
+  // 938:   if nth == 1: return pos len
+  // 939:   if len > 0:
+  // 940:     plus &pos len-1
+  // 941:     range &s len -1
+  // 942:   minus &nth 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -8378,7 +8381,7 @@ static void entry__types__object__grammar__search_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 935: ... nth == 1
+  // 938: ... nth == 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* nth */;
@@ -8394,9 +8397,9 @@ static void cont__types__object__grammar__search_8(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 935: ... : return pos len
+  // 938: ... : return pos len
   frame->slots[6] /* temp__2 */ = create_closure(entry__types__object__grammar__search_9, 0);
-  // 935: if nth == 1: return pos len
+  // 938: if nth == 1: return pos len
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -8419,7 +8422,7 @@ static void entry__types__object__grammar__search_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 935: ... return pos len
+  // 938: ... return pos len
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -8434,7 +8437,7 @@ static void cont__types__object__grammar__search_10(void) {
     invalid_results_error();
     return;
   }
-  // 936: ... len > 0
+  // 939: ... len > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -8450,13 +8453,13 @@ static void cont__types__object__grammar__search_11(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 936: ... :
-  // 937:   plus &pos len-1
-  // 938:   range &s len -1
+  // 939: ... :
+  // 940:   plus &pos len-1
+  // 941:   range &s len -1
   frame->slots[6] /* temp__2 */ = create_closure(entry__types__object__grammar__search_12, 0);
-  // 936: if len > 0:
-  // 937:   plus &pos len-1
-  // 938:   range &s len -1
+  // 939: if len > 0:
+  // 940:   plus &pos len-1
+  // 941:   range &s len -1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -8479,7 +8482,7 @@ static void entry__types__object__grammar__search_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 937: ... len-1
+  // 940: ... len-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* len */;
@@ -8495,7 +8498,7 @@ static void cont__types__object__grammar__search_13(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 937: plus &pos len-1
+  // 940: plus &pos len-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -8511,7 +8514,7 @@ static void cont__types__object__grammar__search_14(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* pos */ = arguments->slots[0];
-  // 938: ... 1
+  // 941: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8526,7 +8529,7 @@ static void cont__types__object__grammar__search_15(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 938: range &s len -1
+  // 941: range &s len -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* s */;
@@ -8554,7 +8557,7 @@ static void cont__types__object__grammar__search_17(void) {
     invalid_results_error();
     return;
   }
-  // 939: minus &nth 1
+  // 942: minus &nth 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* nth */;
@@ -8581,7 +8584,7 @@ static void cont__types__object__grammar__search_19(void) {
     invalid_results_error();
     return;
   }
-  // 940: ... s .has_minimum_length. 1
+  // 943: ... s .has_minimum_length. 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* s */;
@@ -8597,9 +8600,9 @@ static void cont__types__object__grammar__search_20(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 940: ... : return undefined undefined
+  // 943: ... : return undefined undefined
   frame->slots[7] /* temp__2 */ = create_closure(entry__types__object__grammar__search_21, 0);
-  // 940: unless s .has_minimum_length. 1: return undefined undefined
+  // 943: unless s .has_minimum_length. 1: return undefined undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -8618,7 +8621,7 @@ static void entry__types__object__grammar__search_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 940: ... return undefined undefined
+  // 943: ... return undefined undefined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -8633,7 +8636,7 @@ static void cont__types__object__grammar__search_22(void) {
     invalid_results_error();
     return;
   }
-  // 941: plus &pos 1
+  // 944: plus &pos 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* pos */;
@@ -8649,7 +8652,7 @@ static void cont__types__object__grammar__search_23(void) {
     return;
   }
   ((CELL *)frame->slots[4])->contents /* pos */ = arguments->slots[0];
-  // 942: ... 1
+  // 945: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8664,7 +8667,7 @@ static void cont__types__object__grammar__search_24(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 942: range &s 2 -1
+  // 945: range &s 2 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* s */;
@@ -8704,28 +8707,28 @@ static void entry__types__object__grammar__search_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 932: ... :
-  // 933:   $len grammar::match(expr s)
-  // 934:   if len.is_defined:
-  // 935:     if nth == 1: return pos len
-  // 936:     if len > 0:
-  // 937:       plus &pos len-1
-  // 938:       range &s len -1
-  // 939:     minus &nth 1
-  // 940:   unless s .has_minimum_length. 1: return undefined undefined
-  // 941:   plus &pos 1
+  // 935: ... :
+  // 936:   $len grammar::match(expr s)
+  // 937:   if len.is_defined:
+  // 938:     if nth == 1: return pos len
+  // 939:     if len > 0:
+  // 940:       plus &pos len-1
+  // 941:       range &s len -1
+  // 942:     minus &nth 1
+  // 943:   unless s .has_minimum_length. 1: return undefined undefined
+  // 944:   plus &pos 1
   // ...
   frame->slots[5] /* temp__1 */ = create_closure(entry__types__object__grammar__search_4, 0);
-  // 932: forever:
-  // 933:   $len grammar::match(expr s)
-  // 934:   if len.is_defined:
-  // 935:     if nth == 1: return pos len
-  // 936:     if len > 0:
-  // 937:       plus &pos len-1
-  // 938:       range &s len -1
-  // 939:     minus &nth 1
-  // 940:   unless s .has_minimum_length. 1: return undefined undefined
-  // 941:   plus &pos 1
+  // 935: forever:
+  // 936:   $len grammar::match(expr s)
+  // 937:   if len.is_defined:
+  // 938:     if nth == 1: return pos len
+  // 939:     if len > 0:
+  // 940:       plus &pos len-1
+  // 941:       range &s len -1
+  // 942:     minus &nth 1
+  // 943:   unless s .has_minimum_length. 1: return undefined undefined
+  // 944:   plus &pos 1
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -8756,7 +8759,7 @@ static void entry__types__object__grammar__search_26(void) {
     invalid_arguments_error();
     return;
   }
-  // 944: negate &nth
+  // 947: negate &nth
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* nth */;
@@ -8771,32 +8774,32 @@ static void cont__types__object__grammar__search_27(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* nth */ = arguments->slots[0];
-  // 945: $$positions empty_list
+  // 948: $$positions empty_list
   ((CELL *)frame->slots[5])->contents /* positions */ = get__empty_list();
-  // 946: $$lengths empty_list
+  // 949: $$lengths empty_list
   ((CELL *)frame->slots[6])->contents /* lengths */ = get__empty_list();
-  // 947: ... :
-  // 948:   $len grammar::match(expr s)
-  // 949:   if len.is_defined:
-  // 950:     if length_of(positions) >= nth:
-  // 951:       range &positions 2 -1
-  // 952:       range &lengths 2 -1
-  // 953:     push &positions pos
-  // 954:     push &lengths len
-  // 955:     if len > 0:
-  // 956:       plus &pos len-1
+  // 950: ... :
+  // 951:   $len grammar::match(expr s)
+  // 952:   if len.is_defined:
+  // 953:     if length_of(positions) >= nth:
+  // 954:       range &positions 2 -1
+  // 955:       range &lengths 2 -1
+  // 956:     push &positions pos
+  // 957:     push &lengths len
+  // 958:     if len > 0:
+  // 959:       plus &pos len-1
   // ...
   frame->slots[7] /* temp__1 */ = create_closure(entry__types__object__grammar__search_28, 0);
-  // 947: forever:
-  // 948:   $len grammar::match(expr s)
-  // 949:   if len.is_defined:
-  // 950:     if length_of(positions) >= nth:
-  // 951:       range &positions 2 -1
-  // 952:       range &lengths 2 -1
-  // 953:     push &positions pos
-  // 954:     push &lengths len
-  // 955:     if len > 0:
-  // 956:       plus &pos len-1
+  // 950: forever:
+  // 951:   $len grammar::match(expr s)
+  // 952:   if len.is_defined:
+  // 953:     if length_of(positions) >= nth:
+  // 954:       range &positions 2 -1
+  // 955:       range &lengths 2 -1
+  // 956:     push &positions pos
+  // 957:     push &lengths len
+  // 958:     if len > 0:
+  // 959:       plus &pos len-1
   // ...
   argument_count = 1;
   arguments = node_p;

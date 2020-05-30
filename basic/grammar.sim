@@ -673,7 +673,10 @@ $std::END_OF_TEXT/grammar::match:
     _self
     stream
   )
-  if stream .has_minimum_length. 1 (-> undefined) -> 0
+  if
+    stream .has_minimum_length. 1
+    -> undefined
+    -> 0
 
 ###
 # LETTER

@@ -277,11 +277,17 @@ $add_remark_lines:
 
 $add_statement_remark: (self str)
   $remark_lines remark_lines_of(self)
-  if remark_lines.is_empty (-> str) -> add_remark_lines(str remark_lines true)
+  if
+    remark_lines.is_empty
+    -> str
+    -> add_remark_lines(str remark_lines true)
 
 $add_remark: (self str)
   $remark_lines remark_lines_of(self)
-  if remark_lines.is_empty (-> str) -> add_remark_lines(str remark_lines)
+  if
+    remark_lines.is_empty
+    -> str
+    -> add_remark_lines(str remark_lines)
 
 $add_indented_remark: (self str)
   $indent expression_indent
@@ -539,6 +545,7 @@ $arguments_to_string:
 	mode == PROC && arguments(1).is_an_attribute_value_pair
 	mode == FUNC && any_of(arguments is_a_body)
 	any_of(range(arguments_of(self) 1 -2) is_a_remark)
+	any_of(range(arguments_of(self) 1 -2) is_a_body)
 
   for_each arguments: (idx argument)
     %line_end_expression_width
@@ -626,8 +633,8 @@ $arguments_to_string:
 	  !line_end_conversion_is_allowed
 	    &&
 	      str(1) != ':'
-	      str(1) != '@quot;'
 	      str(1) != '#'
+	      not(str .has_prefix. "@quot;@nl;")
 	      not(str .has_prefix. "->")
 
   if
@@ -1032,7 +1039,10 @@ $pair_to_string: (self symbol)
     %line_end_expression_width line_width-indent-(length_of(identifier)+2)
     $arguments arguments_to_string(self PROC line_end_expression_width)
     $pair string(symbol identifier arguments)
-    if arguments(1) == '@nl;' (-> string('@nl;' spaces(indent) pair)) -> pair
+    if
+      arguments(1) == '@nl;'
+      -> string('@nl;' spaces(indent) pair)
+      -> pair
 
 $compiler::attribute_value_pair/to_string: (self) pair_to_string self '.'
 
@@ -1067,17 +1077,25 @@ $escaped_character:
   )
   $numerical_encoding -> string("@@0x" hex(chr.to_integer) ';')
 
-  if use_numerical_encoding (-> numerical_encoding()):
-    unless character_to_name.is_defined create_character_table
-    $name character_to_name(chr)
-    if
-      name.is_defined:
-	case name "at" (-> "@@@@") "amp" (-> "&") -> string('@@' name ';')
-      :
-	if
-	  chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
-	  -> numerical_encoding()
-	  -> chr.to_string
+  if
+    use_numerical_encoding
+    -> numerical_encoding()
+    :
+      unless character_to_name.is_defined create_character_table
+      $name character_to_name(chr)
+      if
+	name.is_defined:
+	  case name
+	    "at"
+	    -> "@@@@"
+	    "amp"
+	    -> "&"
+	    -> string('@@' name ';')
+	:
+	  if
+	    chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
+	    -> numerical_encoding()
+	    -> chr.to_string
 
 $compiler::character_literal/to_string: (self)
   string
@@ -1174,104 +1192,108 @@ $print_string_literal: ($lines $is_inline)
       if length_of(lines(1))+2 > line_width-expression_indent:
 	push &lines(1) '@@'
 	!is_inline false
-  if is_inline (-> string('@quot;' lines(1) '@quot;')):
-    $max_width # the maximum width is computed for multi-line-strings
-      -
-	max(line_width-expression_indent 20)
-	if
-	  line_end_expression_width >= 2
-	  -> 0
-	  -> 2
-
-    $$has_leading_spaces lines(-1) != ""
-      #
-	if the last line is empty then it is replaced by "@;" and so there
-	are no leading spaces
-
-    $$split_lines empty_list
-    for_each lines: ($line)
-      if line != "" && line(1) != ' ': !has_leading_spaces false
-      while -> length_of(line) > max_width:
-	# split long lines (if possible after a space)
-
-	$skip_till_end_of_string:
-	  do_while:
-	    inc &pos
-	    if line(pos) == '@@':
-	      skip_special
-	      inc &pos
-	    -> line(pos) != '@quot;'
-
-	$skip_till_close:
-	  do_while:
-	    inc &pos
-	    if line(pos) == '(':
-	      skip_till_close
-	      inc &pos
-	    if line(pos) == '@quot;':
-	      skip_till_end_of_string
-	      inc &pos
-	    -> line(pos) != ')'
-
-	$skip_special:
-	  inc &pos
-	  unless line(pos) == '@@':
-	    if
-	      line(pos) == '(':
-		skip_till_close
-	      :
-		while -> line(pos) != ';': inc &pos
-
-	$$best_split_pos undefined
-	$$last_valid_pos undefined
-	$$pos 1
-	while -> pos < max_width:
-	  $chr line(pos)
+  if
+    is_inline
+    -> string('@quot;' lines(1) '@quot;')
+    :
+      $max_width # the maximum width is computed for multi-line-strings
+	-
+	  max(line_width-expression_indent 20)
 	  if
-	    chr == ' ':
-	      !best_split_pos pos
-	    :
+	    line_end_expression_width >= 2
+	    -> 0
+	    -> 2
+
+      $$has_leading_spaces lines(-1) != ""
+	#
+	  if the last line is empty then it is replaced by "@;" and so there
+	  are no leading spaces
+
+      $$split_lines empty_list
+      for_each lines: ($line)
+	if line != "" && line(1) != ' ': !has_leading_spaces false
+	while -> length_of(line) > max_width:
+	  # split long lines (if possible after a space)
+
+	  $skip_till_end_of_string:
+	    do_while:
+	      inc &pos
+	      if line(pos) == '@@':
+		skip_special
+		inc &pos
+	      -> line(pos) != '@quot;'
+
+	  $skip_till_close:
+	    do_while:
+	      inc &pos
+	      if line(pos) == '(':
+		skip_till_close
+		inc &pos
+	      if line(pos) == '@quot;':
+		skip_till_end_of_string
+		inc &pos
+	      -> line(pos) != ')'
+
+	  $skip_special:
+	    inc &pos
+	    unless line(pos) == '@@':
 	      if
-		chr == '@@':
-		  skip_special
-		  cond
-		    -> pos < max_width && line(pos) == ')': !best_split_pos pos
-		    -> last_valid_pos.is_undefined: !last_valid_pos pos
+		line(pos) == '(':
+		  skip_till_close
 		:
-		  !last_valid_pos pos
-	  inc &pos
-	if best_split_pos.is_undefined: !best_split_pos last_valid_pos
-	push &split_lines push(range(line 1 best_split_pos) '@@')
-	range &line best_split_pos+1 -1
-      push &split_lines line
-    !lines split_lines
-    if has_leading_spaces:
-      #
-	no single line starts at the indent position;
-	so we have to add a line at the start that contains no characters
+		  while -> line(pos) != ';': inc &pos
 
-      put &lines "@@"
-    if lines(-1) == "":
-      #
-	the last line is empty;
-	so we replace it with an empty special sequence
+	  $$best_split_pos undefined
+	  $$last_valid_pos undefined
+	  $$pos 1
+	  while -> pos < max_width:
+	    $chr line(pos)
+	    if
+	      chr == ' ':
+		!best_split_pos pos
+	      :
+		if
+		  chr == '@@':
+		    skip_special
+		    cond
+		      -> pos < max_width && line(pos) == ')':
+			!best_split_pos pos
+		      -> last_valid_pos.is_undefined: !last_valid_pos pos
+		  :
+		    !last_valid_pos pos
+	    inc &pos
+	  if best_split_pos.is_undefined: !best_split_pos last_valid_pos
+	  push &split_lines push(range(line 1 best_split_pos) '@@')
+	  range &line best_split_pos+1 -1
+	push &split_lines line
+      !lines split_lines
+      if has_leading_spaces:
+	#
+	  no single line starts at the indent position;
+	  so we have to add a line at the start that contains no characters
 
-      !lines(-1) "@@;"
-    $$buf undefined
-    $$indent expression_indent
-    if
-      line_end_expression_width >= 2:
-	!buf "@quot;"
-      :
-	!buf string('@nl;' spaces(indent) '@quot;')
-	plus &indent 2
-    $indentation spaces(indent)
-    for_each lines: (line)
-      push &buf '@nl;'
-      unless line == "":
-	append &buf indentation
-	append &buf line
-    -> buf
+	put &lines "@@"
+      if lines(-1) == "":
+	#
+	  the last line is empty;
+	  so we replace it with an empty special sequence
+
+	!lines(-1) "@@;"
+      $$buf undefined
+      $$indent expression_indent
+      if
+	line_end_expression_width >= 2:
+	  !buf "@quot;"
+	:
+	  !buf string('@nl;' spaces(indent) '@quot;')
+	  plus &indent 2
+      $indentation spaces(indent)
+      for_each lines: (line)
+	push &buf '@nl;'
+	unless line == "":
+	  append &buf indentation
+	  append &buf line
+      -> buf
 
 $string_template_to_string: (self)
   $$lines empty_list
@@ -1354,7 +1376,10 @@ $compiler::unique_item/to_string: (_self) -> "."
 # POLYMORPHIC FUNCTION
 
 $compiler::polymorphic_function/to_string: (self)
-  if self.is_a_setter (-> "(!)") -> "()"
+  if
+    self.is_a_setter
+    -> "(!)"
+    -> "()"
 
 ###
 # IDENTIFIER
@@ -1372,35 +1397,38 @@ $compiler::identifier/to_string: (self)
 
 $compiler::c_code/to_string: (self)
   !statement_tag ALWAYS
-  if hide_body_statements (-> "{...}"):
-    $$buf
-      if
-	expression_indent > 0
-	-> string('@nl;' spaces(expression_indent) "{@nl;")
-	-> "{@nl;"
+  if
+    hide_body_statements
+    -> "{...}"
+    :
+      $$buf
+	if
+	  expression_indent > 0
+	  -> string('@nl;' spaces(expression_indent) "{@nl;")
+	  -> "{@nl;"
 
-    $indent expression_indent+2
-    $indentation spaces(indent)
-    if kind_of(self).is_defined:
-      writeln_to &buf indentation "<kind @(kind_of(self))>"
-    if identifier_of(self).is_defined:
-      writeln_to &buf indentation "<name @(identifier_of(self))>"
-    if node_of(self).is_defined:
-      writeln_to &buf indentation "<node @(node_of(self))>"
-    if node::type_of(self).is_defined:
-      writeln_to &buf indentation "<type @(node::type_of(self))>"
-    if base_of(self).is_defined:
-      writeln_to &buf indentation "<base @(base_of(self))>"
-    if scope_of(self).is_defined && scope_of(self) != "local":
-      writeln_to &buf indentation "<scope @(scope_of(self))>"
-    for_each arguments_of(self): (argument)
-      writeln_to &buf indentation "<argument @(argument)>"
-    unless remark_lines_of(self).is_empty:
-      push &buf '@nl;'
-      for_each remark_lines_of(self): (remark_line)
-	writeln_to &buf indentation "//" remark_line
-    if source_of(self).is_defined:
-      if length_of(buf) > 4: writeln_to &buf
-      for_each_line source_of(self): (line) writeln_to &buf indentation line
-    append &buf string(spaces(expression_indent) '}')
-    -> buf
+      $indent expression_indent+2
+      $indentation spaces(indent)
+      if kind_of(self).is_defined:
+	writeln_to &buf indentation "<kind @(kind_of(self))>"
+      if identifier_of(self).is_defined:
+	writeln_to &buf indentation "<name @(identifier_of(self))>"
+      if node_of(self).is_defined:
+	writeln_to &buf indentation "<node @(node_of(self))>"
+      if node::type_of(self).is_defined:
+	writeln_to &buf indentation "<type @(node::type_of(self))>"
+      if base_of(self).is_defined:
+	writeln_to &buf indentation "<base @(base_of(self))>"
+      if scope_of(self).is_defined && scope_of(self) != "local":
+	writeln_to &buf indentation "<scope @(scope_of(self))>"
+      for_each arguments_of(self): (argument)
+	writeln_to &buf indentation "<argument @(argument)>"
+      unless remark_lines_of(self).is_empty:
+	push &buf '@nl;'
+	for_each remark_lines_of(self): (remark_line)
+	  writeln_to &buf indentation "//" remark_line
+      if source_of(self).is_defined:
+	if length_of(buf) > 4: writeln_to &buf
+	for_each_line source_of(self): (line) writeln_to &buf indentation line
+      append &buf string(spaces(expression_indent) '}')
+      -> buf

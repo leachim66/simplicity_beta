@@ -86,7 +86,10 @@ $std::sgn:
   (
     x
   )
-  cond (-> x > 0 -> 1) (-> x < 0 -> -1) -> true -> 0
+  cond
+    -> x > 0 -> 1
+    -> x < 0 -> -1
+    -> true -> 0
 
 $std::sqr:
   #
@@ -213,12 +216,22 @@ $std::atan:
   (
     x
   )
-  if x > 0 (-> atan2(x)) -> -atan2(-x)
+  if
+    x > 0
+    -> atan2(x)
+    -> -atan2(-x)
 
-$atan2: (x) if x > 1 (-> PI/2-atan3(1/x)) -> atan3(x)
+$atan2: (x)
+  if
+    x > 1
+    -> PI/2-atan3(1/x)
+    -> atan3(x)
 
 $atan3: (x)
-  if x > 2-sqrt(3) (-> PI/6+atan4((sqrt(3)*x-1)/(sqrt(3)+x))) -> atan4(x)
+  if
+    x > 2-sqrt(3)
+    -> PI/6+atan4((sqrt(3)*x-1)/(sqrt(3)+x))
+    -> atan4(x)
 
 $atan4: (x)
   $$sum 0

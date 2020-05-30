@@ -1721,37 +1721,37 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__attribute_function_pair__simplify_expression_4, &frame__compiler__attribute_function_pair__simplify_expression_1, 463, 464, 3, 47},
   {cont__compiler__attribute_function_pair__simplify_expression_5, &frame__compiler__attribute_function_pair__simplify_expression_1, 464, 464, 48, 48},
   {entry__compiler__c_code__simplify_statement_4, NULL, 471, 471, 35, 35},
-  {entry__compiler__c_code__simplify_statement_10, NULL, 476, 476, 22, 43},
-  {cont__compiler__c_code__simplify_statement_11, &frame__compiler__c_code__simplify_statement_10, 476, 476, 48, 48},
-  {entry__compiler__c_code__simplify_statement_7, NULL, 475, 475, 21, 39},
-  {cont__compiler__c_code__simplify_statement_8, &frame__compiler__c_code__simplify_statement_7, 475, 475, 7, 40},
-  {cont__compiler__c_code__simplify_statement_9, &frame__compiler__c_code__simplify_statement_7, 476, 476, 7, 48},
-  {cont__compiler__c_code__simplify_statement_12, &frame__compiler__c_code__simplify_statement_7, 476, 476, 48, 48},
-  {entry__compiler__c_code__simplify_statement_16, NULL, 480, 480, 22, 41},
-  {cont__compiler__c_code__simplify_statement_17, &frame__compiler__c_code__simplify_statement_16, 480, 480, 46, 46},
-  {entry__compiler__c_code__simplify_statement_13, NULL, 479, 479, 21, 39},
-  {cont__compiler__c_code__simplify_statement_14, &frame__compiler__c_code__simplify_statement_13, 479, 479, 7, 40},
-  {cont__compiler__c_code__simplify_statement_15, &frame__compiler__c_code__simplify_statement_13, 480, 480, 7, 46},
-  {cont__compiler__c_code__simplify_statement_18, &frame__compiler__c_code__simplify_statement_13, 480, 480, 46, 46},
-  {entry__compiler__c_code__simplify_statement_25, NULL, 484, 484, 22, 45},
-  {cont__compiler__c_code__simplify_statement_26, &frame__compiler__c_code__simplify_statement_25, 484, 484, 50, 50},
-  {entry__compiler__c_code__simplify_statement_19, NULL, 483, 483, 20, 34},
-  {cont__compiler__c_code__simplify_statement_20, &frame__compiler__c_code__simplify_statement_19, 483, 483, 20, 47},
-  {cont__compiler__c_code__simplify_statement_21, &frame__compiler__c_code__simplify_statement_19, 483, 483, 49, 60},
-  {cont__compiler__c_code__simplify_statement_22, &frame__compiler__c_code__simplify_statement_19, 483, 483, 63, 63},
-  {cont__compiler__c_code__simplify_statement_23, &frame__compiler__c_code__simplify_statement_19, 483, 483, 7, 64},
-  {cont__compiler__c_code__simplify_statement_24, &frame__compiler__c_code__simplify_statement_19, 484, 484, 7, 50},
-  {cont__compiler__c_code__simplify_statement_27, &frame__compiler__c_code__simplify_statement_19, 484, 484, 50, 50},
+  {entry__compiler__c_code__simplify_statement_10, NULL, 475, 475, 22, 43},
+  {cont__compiler__c_code__simplify_statement_11, &frame__compiler__c_code__simplify_statement_10, 475, 475, 48, 48},
+  {entry__compiler__c_code__simplify_statement_7, NULL, 474, 474, 21, 39},
+  {cont__compiler__c_code__simplify_statement_8, &frame__compiler__c_code__simplify_statement_7, 474, 474, 7, 40},
+  {cont__compiler__c_code__simplify_statement_9, &frame__compiler__c_code__simplify_statement_7, 475, 475, 7, 48},
+  {cont__compiler__c_code__simplify_statement_12, &frame__compiler__c_code__simplify_statement_7, 475, 475, 48, 48},
+  {entry__compiler__c_code__simplify_statement_16, NULL, 478, 478, 22, 41},
+  {cont__compiler__c_code__simplify_statement_17, &frame__compiler__c_code__simplify_statement_16, 478, 478, 46, 46},
+  {entry__compiler__c_code__simplify_statement_13, NULL, 477, 477, 21, 39},
+  {cont__compiler__c_code__simplify_statement_14, &frame__compiler__c_code__simplify_statement_13, 477, 477, 7, 40},
+  {cont__compiler__c_code__simplify_statement_15, &frame__compiler__c_code__simplify_statement_13, 478, 478, 7, 46},
+  {cont__compiler__c_code__simplify_statement_18, &frame__compiler__c_code__simplify_statement_13, 478, 478, 46, 46},
+  {entry__compiler__c_code__simplify_statement_25, NULL, 481, 481, 22, 45},
+  {cont__compiler__c_code__simplify_statement_26, &frame__compiler__c_code__simplify_statement_25, 481, 481, 50, 50},
+  {entry__compiler__c_code__simplify_statement_19, NULL, 480, 480, 20, 34},
+  {cont__compiler__c_code__simplify_statement_20, &frame__compiler__c_code__simplify_statement_19, 480, 480, 20, 47},
+  {cont__compiler__c_code__simplify_statement_21, &frame__compiler__c_code__simplify_statement_19, 480, 480, 49, 60},
+  {cont__compiler__c_code__simplify_statement_22, &frame__compiler__c_code__simplify_statement_19, 480, 480, 63, 63},
+  {cont__compiler__c_code__simplify_statement_23, &frame__compiler__c_code__simplify_statement_19, 480, 480, 7, 64},
+  {cont__compiler__c_code__simplify_statement_24, &frame__compiler__c_code__simplify_statement_19, 481, 481, 7, 50},
+  {cont__compiler__c_code__simplify_statement_27, &frame__compiler__c_code__simplify_statement_19, 481, 481, 50, 50},
   {entry__compiler__c_code__simplify_statement_1, NULL, 470, 470, 3, 44},
   {cont__compiler__c_code__simplify_statement_3, &frame__compiler__c_code__simplify_statement_1, 471, 471, 3, 35},
   {cont__compiler__c_code__simplify_statement_5, &frame__compiler__c_code__simplify_statement_1, 472, 472, 8, 20},
-  {cont__compiler__c_code__simplify_statement_6, &frame__compiler__c_code__simplify_statement_1, 472, 484, 3, 51},
-  {cont__compiler__c_code__simplify_statement_31, &frame__compiler__c_code__simplify_statement_1, 485, 485, 3, 24},
-  {cont__compiler__c_code__simplify_statement_32, &frame__compiler__c_code__simplify_statement_1, 485, 485, 24, 24},
-  {entry__compiler__c_body__simplify_expression_4, NULL, 492, 492, 35, 35},
-  {entry__compiler__c_body__simplify_expression_1, NULL, 491, 491, 3, 44},
-  {cont__compiler__c_body__simplify_expression_3, &frame__compiler__c_body__simplify_expression_1, 492, 492, 3, 35},
-  {cont__compiler__c_body__simplify_expression_5, &frame__compiler__c_body__simplify_expression_1, 492, 492, 35, 35}
+  {cont__compiler__c_code__simplify_statement_6, &frame__compiler__c_code__simplify_statement_1, 472, 481, 3, 51},
+  {cont__compiler__c_code__simplify_statement_31, &frame__compiler__c_code__simplify_statement_1, 482, 482, 3, 24},
+  {cont__compiler__c_code__simplify_statement_32, &frame__compiler__c_code__simplify_statement_1, 482, 482, 24, 24},
+  {entry__compiler__c_body__simplify_expression_4, NULL, 489, 489, 35, 35},
+  {entry__compiler__c_body__simplify_expression_1, NULL, 488, 488, 3, 44},
+  {cont__compiler__c_body__simplify_expression_3, &frame__compiler__c_body__simplify_expression_1, 489, 489, 3, 35},
+  {cont__compiler__c_body__simplify_expression_5, &frame__compiler__c_body__simplify_expression_1, 489, 489, 35, 35}
 };
 
 union NODE {
@@ -10567,29 +10567,28 @@ static void cont__compiler__c_code__simplify_statement_6(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 474: :
-  // 475:   $name name_of(identifier_of(self))
-  // 476:   push &actions: !defined_structs(name) true
+  // 473: ... :
+  // 474:   $name name_of(identifier_of(self))
+  // 475:   push &actions: !defined_structs(name) true
   frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__c_code__simplify_statement_7, 0);
-  // 478: :
-  // 479:   $name name_of(identifier_of(self))
-  // 480:   push &actions: !defined_nodes(name) self
+  // 476: ... :
+  // 477:   $name name_of(identifier_of(self))
+  // 478:   push &actions: !defined_nodes(name) self
   frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__c_code__simplify_statement_13, 0);
-  // 482: :
-  // 483:   $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
-  // 484:   push &actions: !defined_functions(name) true
+  // 479: ... :
+  // 480:   $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
+  // 481:   push &actions: !defined_functions(name) true
   frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__c_code__simplify_statement_19, 0);
   // 472: case kind_of(self)
-  // 473:   "struct"
-  // 474:   :
-  // 475:     $name name_of(identifier_of(self))
-  // 476:     push &actions: !defined_structs(name) true
-  // 477:   "node"
-  // 478:   :
-  // 479:     $name name_of(identifier_of(self))
-  // 480:     push &actions: !defined_nodes(name) self
-  // 481:   "function"
-  // ...
+  // 473:   "struct":
+  // 474:     $name name_of(identifier_of(self))
+  // 475:     push &actions: !defined_structs(name) true
+  // 476:   "node":
+  // 477:     $name name_of(identifier_of(self))
+  // 478:     push &actions: !defined_nodes(name) self
+  // 479:   "function":
+  // 480:     $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
+  // 481:     push &actions: !defined_functions(name) true
   argument_count = 7;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10615,7 +10614,7 @@ static void entry__compiler__c_code__simplify_statement_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 475: ... identifier_of(self)
+  // 474: ... identifier_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -10630,7 +10629,7 @@ static void cont__compiler__c_code__simplify_statement_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 475: $name name_of(identifier_of(self))
+  // 474: $name name_of(identifier_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10645,9 +10644,9 @@ static void cont__compiler__c_code__simplify_statement_9(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  // 476: ... : !defined_structs(name) true
+  // 475: ... : !defined_structs(name) true
   frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__c_code__simplify_statement_10, 0);
-  // 476: push &actions: !defined_structs(name) true
+  // 475: push &actions: !defined_structs(name) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10666,7 +10665,7 @@ static void entry__compiler__c_code__simplify_statement_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 476: ... !defined_structs(name)
+  // 475: ... !defined_structs(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -10711,7 +10710,7 @@ static void entry__compiler__c_code__simplify_statement_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 479: ... identifier_of(self)
+  // 477: ... identifier_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -10726,7 +10725,7 @@ static void cont__compiler__c_code__simplify_statement_14(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 479: $name name_of(identifier_of(self))
+  // 477: $name name_of(identifier_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10741,9 +10740,9 @@ static void cont__compiler__c_code__simplify_statement_15(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  // 480: ... : !defined_nodes(name) self
+  // 478: ... : !defined_nodes(name) self
   frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__c_code__simplify_statement_16, 0);
-  // 480: push &actions: !defined_nodes(name) self
+  // 478: push &actions: !defined_nodes(name) self
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10764,7 +10763,7 @@ static void entry__compiler__c_code__simplify_statement_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 480: ... !defined_nodes(name)
+  // 478: ... !defined_nodes(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -10809,7 +10808,7 @@ static void entry__compiler__c_code__simplify_statement_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 483: ... source_of(self)
+  // 480: ... source_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -10824,7 +10823,7 @@ static void cont__compiler__c_code__simplify_statement_20(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 483: ... source_of(self) .before. '('
+  // 480: ... source_of(self) .before. '('
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -10840,7 +10839,7 @@ static void cont__compiler__c_code__simplify_statement_21(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 483: ... alt(' ' '*')
+  // 480: ... alt(' ' '*')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__32;
@@ -10856,7 +10855,7 @@ static void cont__compiler__c_code__simplify_statement_22(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 483: ... 1
+  // 480: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -10871,7 +10870,7 @@ static void cont__compiler__c_code__simplify_statement_23(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 483: $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
+  // 480: $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10888,9 +10887,9 @@ static void cont__compiler__c_code__simplify_statement_24(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  // 484: ... : !defined_functions(name) true
+  // 481: ... : !defined_functions(name) true
   frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__c_code__simplify_statement_25, 0);
-  // 484: push &actions: !defined_functions(name) true
+  // 481: push &actions: !defined_functions(name) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10909,7 +10908,7 @@ static void entry__compiler__c_code__simplify_statement_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 484: ... !defined_functions(name)
+  // 481: ... !defined_functions(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -10948,7 +10947,7 @@ static void cont__compiler__c_code__simplify_statement_31(void) {
     invalid_results_error();
     return;
   }
-  // 485: push &definitions self
+  // 482: push &definitions self
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__definitions();
@@ -10979,7 +10978,7 @@ static void entry__compiler__c_body__simplify_expression_1(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 491: show_compiler_debug_info "simplify C-body"
+  // 488: show_compiler_debug_info "simplify C-body"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__1295e9f11fb09757;
@@ -10993,7 +10992,7 @@ static void cont__compiler__c_body__simplify_expression_3(void) {
     invalid_results_error();
     return;
   }
-  // 492: push &actions: !use_inline_c true
+  // 489: push &actions: !use_inline_c true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11010,7 +11009,7 @@ static void entry__compiler__c_body__simplify_expression_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 492: ... !use_inline_c true
+  // 489: ... !use_inline_c true
   set__use_inline_c(get__true());
   argument_count = 0;
   arguments = node_p;

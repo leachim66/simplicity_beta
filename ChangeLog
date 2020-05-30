@@ -1,3 +1,28 @@
+2020-05-30
+
+  * Simplicity 2.2.2
+
+    improved error recognition and pretty printing
+
+    pretty printed all sources
+
+    improved pretty printing bodies
+
+    fixed pretty printing string literals
+
+    added a missing error message
+
+  * runtime/compiler 2.0.4
+
+  * libsim-basic-1.2.1
+
+  * libsim-system-1.0.1
+
+  * libsim-curses-1.0.1
+
+  * libsim-microhttpd-1.0.1
+
+
 2020-05-28
 
   * Simplicity 2.2.1

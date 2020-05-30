@@ -1131,8 +1131,8 @@ void run__basic__types__list(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {type__std__is_a_list, NULL, 25, 25, 2, 15},
-  {type__std__is_a_sequence, NULL, 753, 753, 2, 19},
-  {run__basic__types__list, NULL, 778, 795, 1, 45},
+  {type__std__is_a_sequence, NULL, 758, 758, 2, 19},
+  {run__basic__types__list, NULL, 783, 800, 1, 45},
   {cont__96_32, NULL, },
   {entry__types__list__to_list_1, NULL, 177, 177, 3, 9},
   {entry__std__list_1, NULL, 182, 194, 3, 2},
@@ -1451,81 +1451,81 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__types__generic_list__map_1, NULL, 708, 708, 3, 39},
   {cont__types__generic_list__map_2, &frame__types__generic_list__map_1, 709, 709, 3, 49},
   {cont__types__generic_list__map_6, &frame__types__generic_list__map_1, 710, 710, 3, 13},
-  {entry__types__generic_list__dup_2, NULL, 719, 719, 31, 37},
-  {entry__types__generic_list__dup_5, NULL, 720, 720, 15, 48},
-  {entry__types__generic_list__dup_12, NULL, 723, 723, 18, 36},
-  {cont__types__generic_list__dup_13, &frame__types__generic_list__dup_12, 723, 723, 36, 36},
-  {entry__types__generic_list__dup_3, NULL, 720, 720, 8, 12},
-  {cont__types__generic_list__dup_4, &frame__types__generic_list__dup_3, 720, 720, 5, 48},
-  {cont__types__generic_list__dup_7, &frame__types__generic_list__dup_3, 721, 721, 23, 31},
-  {cont__types__generic_list__dup_8, &frame__types__generic_list__dup_3, 721, 721, 5, 32},
-  {cont__types__generic_list__dup_9, &frame__types__generic_list__dup_3, 722, 722, 5, 25},
-  {cont__types__generic_list__dup_10, &frame__types__generic_list__dup_3, 723, 723, 8, 15},
-  {cont__types__generic_list__dup_11, &frame__types__generic_list__dup_3, 723, 723, 5, 36},
-  {cont__types__generic_list__dup_14, &frame__types__generic_list__dup_3, 724, 724, 5, 13},
-  {entry__types__generic_list__dup_15, NULL, 719, 719, 13, 25},
-  {entry__types__generic_list__dup_1, NULL, 719, 724, 3, 13},
-  {entry__types__generic_list__interleave_6, NULL, 737, 737, 66, 80},
-  {cont__types__generic_list__interleave_7, &frame__types__generic_list__interleave_6, 737, 737, 53, 80},
-  {cont__types__generic_list__interleave_8, &frame__types__generic_list__interleave_6, 737, 737, 80, 80},
-  {entry__types__generic_list__interleave_5, NULL, 737, 737, 22, 80},
-  {entry__types__generic_list__interleave_14, NULL, 739, 739, 51, 65},
-  {cont__types__generic_list__interleave_15, &frame__types__generic_list__interleave_14, 739, 739, 38, 65},
-  {cont__types__generic_list__interleave_16, &frame__types__generic_list__interleave_14, 739, 739, 65, 65},
-  {entry__types__generic_list__interleave_10, NULL, 739, 739, 8, 30},
-  {cont__types__generic_list__interleave_11, &frame__types__generic_list__interleave_10, 739, 739, 8, 35},
-  {cont__types__generic_list__interleave_12, &frame__types__generic_list__interleave_10, 739, 739, 8, 35},
-  {cont__types__generic_list__interleave_13, &frame__types__generic_list__interleave_10, 739, 739, 5, 65},
-  {entry__types__generic_list__interleave_1, NULL, 735, 735, 16, 23},
-  {cont__types__generic_list__interleave_2, &frame__types__generic_list__interleave_1, 735, 735, 3, 24},
-  {cont__types__generic_list__interleave_3, &frame__types__generic_list__interleave_1, 737, 737, 13, 15},
-  {cont__types__generic_list__interleave_4, &frame__types__generic_list__interleave_1, 737, 737, 3, 80},
-  {cont__types__generic_list__interleave_9, &frame__types__generic_list__interleave_1, 738, 739, 3, 65},
-  {cont__types__generic_list__interleave_17, &frame__types__generic_list__interleave_1, 740, 740, 3, 11},
-  {entry__types__generic_list__contains_4, NULL, 750, 750, 58, 68},
-  {entry__types__generic_list__contains_2, NULL, 750, 750, 36, 55},
-  {cont__types__generic_list__contains_3, &frame__types__generic_list__contains_2, 750, 750, 33, 68},
-  {entry__types__generic_list__contains_1, NULL, 750, 750, 3, 68},
-  {cont__types__generic_list__contains_5, &frame__types__generic_list__contains_1, 751, 751, 3, 10},
-  {entry__std__sequence_6, NULL, 775, 775, 33, 55},
-  {cont__std__sequence_7, &frame__std__sequence_6, 775, 775, 33, 55},
-  {entry__std__sequence_9, NULL, 775, 775, 58, 68},
-  {entry__std__sequence_4, NULL, 775, 775, 14, 28},
-  {cont__std__sequence_5, &frame__std__sequence_4, 775, 775, 14, 55},
-  {cont__std__sequence_8, &frame__std__sequence_4, 775, 775, 11, 68},
-  {entry__std__sequence_3, NULL, 774, 775, 9, 68},
-  {cont__std__sequence_10, &frame__std__sequence_3, 776, 776, 9, 16},
-  {entry__std__sequence_1, NULL, 766, 766, 5, 16},
-  {cont__std__sequence_2, &frame__std__sequence_1, 768, 776, 7, 18},
-  {entry__96_4, NULL, 786, 786, 51, 51},
-  {cont__96_5, &frame__96_4, 786, 786, 37, 52},
-  {cont__96_6, &frame__96_4, 786, 786, 30, 63},
-  {entry__96_11, NULL, 788, 788, 5, 67},
-  {entry__96_17, NULL, 791, 791, 32, 38},
-  {cont__96_18, &frame__96_17, 791, 791, 32, 48},
-  {cont__96_19, &frame__96_17, 791, 791, 32, 48},
-  {cont__96_20, &frame__96_17, 791, 791, 32, 48},
-  {entry__96_22, NULL, 791, 791, 51, 65},
-  {entry__96_27, NULL, 793, 793, 31, 45},
-  {entry__96_14, NULL, 791, 791, 8, 22},
-  {cont__96_15, &frame__96_14, 791, 791, 8, 27},
-  {cont__96_16, &frame__96_14, 791, 791, 8, 48},
-  {cont__96_21, &frame__96_14, 791, 791, 5, 65},
-  {cont__96_23, &frame__96_14, 792, 792, 5, 59},
-  {cont__96_24, &frame__96_14, 793, 793, 8, 28},
-  {cont__96_25, &frame__96_14, 793, 793, 8, 28},
-  {cont__96_26, &frame__96_14, 793, 793, 5, 45},
-  {cont__96_28, &frame__96_14, 795, 795, 15, 44},
-  {cont__96_29, &frame__96_14, 795, 795, 5, 44},
-  {cont__96_30, &frame__96_14, 795, 795, 44, 44},
-  {entry__96_1, NULL, 786, 786, 6, 27},
-  {cont__96_3, &frame__96_1, 786, 786, 3, 63},
-  {cont__96_7, &frame__96_1, 787, 787, 6, 12},
-  {cont__96_8, &frame__96_1, 787, 787, 6, 22},
-  {cont__96_9, &frame__96_1, 787, 787, 6, 22},
-  {cont__96_10, &frame__96_1, 787, 788, 3, 67},
-  {cont__96_13, &frame__96_1, 790, 795, 3, 44},
-  {cont__96_31, &frame__96_1, 795, 795, 44, 44}
+  {entry__types__generic_list__dup_2, NULL, 723, 723, 5, 11},
+  {entry__types__generic_list__dup_5, NULL, 725, 725, 17, 50},
+  {entry__types__generic_list__dup_12, NULL, 728, 728, 20, 38},
+  {cont__types__generic_list__dup_13, &frame__types__generic_list__dup_12, 728, 728, 38, 38},
+  {entry__types__generic_list__dup_3, NULL, 725, 725, 10, 14},
+  {cont__types__generic_list__dup_4, &frame__types__generic_list__dup_3, 725, 725, 7, 50},
+  {cont__types__generic_list__dup_7, &frame__types__generic_list__dup_3, 726, 726, 25, 33},
+  {cont__types__generic_list__dup_8, &frame__types__generic_list__dup_3, 726, 726, 7, 34},
+  {cont__types__generic_list__dup_9, &frame__types__generic_list__dup_3, 727, 727, 7, 27},
+  {cont__types__generic_list__dup_10, &frame__types__generic_list__dup_3, 728, 728, 10, 17},
+  {cont__types__generic_list__dup_11, &frame__types__generic_list__dup_3, 728, 728, 7, 38},
+  {cont__types__generic_list__dup_14, &frame__types__generic_list__dup_3, 729, 729, 7, 15},
+  {entry__types__generic_list__dup_15, NULL, 721, 721, 5, 17},
+  {entry__types__generic_list__dup_1, NULL, 719, 729, 3, 16},
+  {entry__types__generic_list__interleave_6, NULL, 742, 742, 66, 80},
+  {cont__types__generic_list__interleave_7, &frame__types__generic_list__interleave_6, 742, 742, 53, 80},
+  {cont__types__generic_list__interleave_8, &frame__types__generic_list__interleave_6, 742, 742, 80, 80},
+  {entry__types__generic_list__interleave_5, NULL, 742, 742, 22, 80},
+  {entry__types__generic_list__interleave_14, NULL, 744, 744, 51, 65},
+  {cont__types__generic_list__interleave_15, &frame__types__generic_list__interleave_14, 744, 744, 38, 65},
+  {cont__types__generic_list__interleave_16, &frame__types__generic_list__interleave_14, 744, 744, 65, 65},
+  {entry__types__generic_list__interleave_10, NULL, 744, 744, 8, 30},
+  {cont__types__generic_list__interleave_11, &frame__types__generic_list__interleave_10, 744, 744, 8, 35},
+  {cont__types__generic_list__interleave_12, &frame__types__generic_list__interleave_10, 744, 744, 8, 35},
+  {cont__types__generic_list__interleave_13, &frame__types__generic_list__interleave_10, 744, 744, 5, 65},
+  {entry__types__generic_list__interleave_1, NULL, 740, 740, 16, 23},
+  {cont__types__generic_list__interleave_2, &frame__types__generic_list__interleave_1, 740, 740, 3, 24},
+  {cont__types__generic_list__interleave_3, &frame__types__generic_list__interleave_1, 742, 742, 13, 15},
+  {cont__types__generic_list__interleave_4, &frame__types__generic_list__interleave_1, 742, 742, 3, 80},
+  {cont__types__generic_list__interleave_9, &frame__types__generic_list__interleave_1, 743, 744, 3, 65},
+  {cont__types__generic_list__interleave_17, &frame__types__generic_list__interleave_1, 745, 745, 3, 11},
+  {entry__types__generic_list__contains_4, NULL, 755, 755, 58, 68},
+  {entry__types__generic_list__contains_2, NULL, 755, 755, 36, 55},
+  {cont__types__generic_list__contains_3, &frame__types__generic_list__contains_2, 755, 755, 33, 68},
+  {entry__types__generic_list__contains_1, NULL, 755, 755, 3, 68},
+  {cont__types__generic_list__contains_5, &frame__types__generic_list__contains_1, 756, 756, 3, 10},
+  {entry__std__sequence_6, NULL, 780, 780, 33, 55},
+  {cont__std__sequence_7, &frame__std__sequence_6, 780, 780, 33, 55},
+  {entry__std__sequence_9, NULL, 780, 780, 58, 68},
+  {entry__std__sequence_4, NULL, 780, 780, 14, 28},
+  {cont__std__sequence_5, &frame__std__sequence_4, 780, 780, 14, 55},
+  {cont__std__sequence_8, &frame__std__sequence_4, 780, 780, 11, 68},
+  {entry__std__sequence_3, NULL, 779, 780, 9, 68},
+  {cont__std__sequence_10, &frame__std__sequence_3, 781, 781, 9, 16},
+  {entry__std__sequence_1, NULL, 771, 771, 5, 16},
+  {cont__std__sequence_2, &frame__std__sequence_1, 773, 781, 7, 18},
+  {entry__96_4, NULL, 791, 791, 51, 51},
+  {cont__96_5, &frame__96_4, 791, 791, 37, 52},
+  {cont__96_6, &frame__96_4, 791, 791, 30, 63},
+  {entry__96_11, NULL, 793, 793, 5, 67},
+  {entry__96_17, NULL, 796, 796, 32, 38},
+  {cont__96_18, &frame__96_17, 796, 796, 32, 48},
+  {cont__96_19, &frame__96_17, 796, 796, 32, 48},
+  {cont__96_20, &frame__96_17, 796, 796, 32, 48},
+  {entry__96_22, NULL, 796, 796, 51, 65},
+  {entry__96_27, NULL, 798, 798, 31, 45},
+  {entry__96_14, NULL, 796, 796, 8, 22},
+  {cont__96_15, &frame__96_14, 796, 796, 8, 27},
+  {cont__96_16, &frame__96_14, 796, 796, 8, 48},
+  {cont__96_21, &frame__96_14, 796, 796, 5, 65},
+  {cont__96_23, &frame__96_14, 797, 797, 5, 59},
+  {cont__96_24, &frame__96_14, 798, 798, 8, 28},
+  {cont__96_25, &frame__96_14, 798, 798, 8, 28},
+  {cont__96_26, &frame__96_14, 798, 798, 5, 45},
+  {cont__96_28, &frame__96_14, 800, 800, 15, 44},
+  {cont__96_29, &frame__96_14, 800, 800, 5, 44},
+  {cont__96_30, &frame__96_14, 800, 800, 44, 44},
+  {entry__96_1, NULL, 791, 791, 6, 27},
+  {cont__96_3, &frame__96_1, 791, 791, 3, 63},
+  {cont__96_7, &frame__96_1, 792, 792, 6, 12},
+  {cont__96_8, &frame__96_1, 792, 792, 6, 22},
+  {cont__96_9, &frame__96_1, 792, 792, 6, 22},
+  {cont__96_10, &frame__96_1, 792, 793, 3, 67},
+  {cont__96_13, &frame__96_1, 795, 800, 3, 44},
+  {cont__96_31, &frame__96_1, 800, 800, 44, 44}
 };
 
 union NODE {
@@ -1627,16 +1627,16 @@ EXPORT void run__basic__types__list(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 778: register_deserializer "list":
-  // 779:   #
-  // 780:     constructs a list from its serialized representation
-  // 781:   (
-  // 782:     $text
-  // 783:     base_indent
-  // 784:     -> return
-  // 785:   )
-  // 786:   if text .has_prefix. "()": return range(text 3 -1) empty_list
-  // 787:   if text(1) != '@nl;':
+  // 783: register_deserializer "list":
+  // 784:   #
+  // 785:     constructs a list from its serialized representation
+  // 786:   (
+  // 787:     $text
+  // 788:     base_indent
+  // 789:     -> return
+  // 790:   )
+  // 791:   if text .has_prefix. "()": return range(text 3 -1) empty_list
+  // 792:   if text(1) != '@nl;':
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -1661,7 +1661,7 @@ static void entry__96_1(void) {
     return;
   }
   frame->slots[0] /* text */ = create_cell_with_contents(arguments->slots[0]);
-  // 786: ... text .has_prefix. "()"
+  // 791: ... text .has_prefix. "()"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1677,9 +1677,9 @@ static void cont__96_3(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 786: ... : return range(text 3 -1) empty_list
+  // 791: ... : return range(text 3 -1) empty_list
   frame->slots[5] /* temp__2 */ = create_closure(entry__96_4, 0);
-  // 786: if text .has_prefix. "()": return range(text 3 -1) empty_list
+  // 791: if text .has_prefix. "()": return range(text 3 -1) empty_list
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1700,7 +1700,7 @@ static void entry__96_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 786: ... 1
+  // 791: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1715,7 +1715,7 @@ static void cont__96_5(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 786: ... range(text 3 -1)
+  // 791: ... range(text 3 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -1732,7 +1732,7 @@ static void cont__96_6(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 786: ... return range(text 3 -1) empty_list
+  // 791: ... return range(text 3 -1) empty_list
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -1747,7 +1747,7 @@ static void cont__96_7(void) {
     invalid_results_error();
     return;
   }
-  // 787: ... text(1)
+  // 792: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1762,7 +1762,7 @@ static void cont__96_8(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 787: ... text(1) != '@nl;'
+  // 792: ... text(1) != '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -1778,7 +1778,7 @@ static void cont__96_9(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 787: ... text(1) != '@nl;'
+  // 792: ... text(1) != '@nl;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -1793,8 +1793,8 @@ static void cont__96_10(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 787: if text(1) != '@nl;':
-  // 788:   raise "Invalid list object encountered during deserialisation!"
+  // 792: if text(1) != '@nl;':
+  // 793:   raise "Invalid list object encountered during deserialisation!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1811,7 +1811,7 @@ static void entry__96_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 788: raise "Invalid list object encountered during deserialisation!"
+  // 793: raise "Invalid list object encountered during deserialisation!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__b53819e78eec080a;
@@ -1825,21 +1825,21 @@ static void cont__96_13(void) {
     invalid_results_error();
     return;
   }
-  // 789: $$obj empty_list
+  // 794: $$obj empty_list
   ((CELL *)frame->slots[3])->contents /* obj */ = get__empty_list();
-  // 790: ... :
-  // 791:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
-  // 792:   get_deserialization_indent $remaining_text $indent text
-  // 793:   if indent <= base_indent: return text obj
-  // 794:   !text remaining_text
-  // 795:   push &obj deserialize_item(&text indent)
+  // 795: ... :
+  // 796:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
+  // 797:   get_deserialization_indent $remaining_text $indent text
+  // 798:   if indent <= base_indent: return text obj
+  // 799:   !text remaining_text
+  // 800:   push &obj deserialize_item(&text indent)
   frame->slots[4] /* temp__1 */ = create_closure(entry__96_14, 0);
-  // 790: forever:
-  // 791:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
-  // 792:   get_deserialization_indent $remaining_text $indent text
-  // 793:   if indent <= base_indent: return text obj
-  // 794:   !text remaining_text
-  // 795:   push &obj deserialize_item(&text indent)
+  // 795: forever:
+  // 796:   if length_of(text) == 0 || text(1) != '@nl;': return text obj
+  // 797:   get_deserialization_indent $remaining_text $indent text
+  // 798:   if indent <= base_indent: return text obj
+  // 799:   !text remaining_text
+  // 800:   push &obj deserialize_item(&text indent)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -1867,7 +1867,7 @@ static void entry__96_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 791: ... length_of(text)
+  // 796: ... length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -1882,7 +1882,7 @@ static void cont__96_15(void) {
     return;
   }
   frame->slots[8] /* temp__3 */ = arguments->slots[0];
-  // 791: ... length_of(text) == 0
+  // 796: ... length_of(text) == 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__3 */;
@@ -1898,9 +1898,9 @@ static void cont__96_16(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 791: ... text(1) != '@nl;'
+  // 796: ... text(1) != '@nl;'
   frame->slots[9] /* temp__4 */ = create_closure(entry__96_17, 0);
-  // 791: ... length_of(text) == 0 || text(1) != '@nl;'
+  // 796: ... length_of(text) == 0 || text(1) != '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -1919,7 +1919,7 @@ static void entry__96_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 791: ... text(1)
+  // 796: ... text(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -1934,7 +1934,7 @@ static void cont__96_18(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 791: ... text(1) != '@nl;'
+  // 796: ... text(1) != '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -1950,7 +1950,7 @@ static void cont__96_19(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 791: ... text(1) != '@nl;'
+  // 796: ... text(1) != '@nl;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -1965,7 +1965,7 @@ static void cont__96_20(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 791: ... text(1) != '@nl;'
+  // 796: ... text(1) != '@nl;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -1979,9 +1979,9 @@ static void cont__96_21(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 791: ... : return text obj
+  // 796: ... : return text obj
   frame->slots[10] /* temp__5 */ = create_closure(entry__96_22, 0);
-  // 791: if length_of(text) == 0 || text(1) != '@nl;': return text obj
+  // 796: if length_of(text) == 0 || text(1) != '@nl;': return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2004,7 +2004,7 @@ static void entry__96_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 791: ... return text obj
+  // 796: ... return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -2019,7 +2019,7 @@ static void cont__96_23(void) {
     invalid_results_error();
     return;
   }
-  // 792: get_deserialization_indent $remaining_text $indent text
+  // 797: get_deserialization_indent $remaining_text $indent text
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2035,7 +2035,7 @@ static void cont__96_24(void) {
   }
   initialize_future(frame->slots[4] /* remaining_text */, arguments->slots[0]);
   initialize_future(frame->slots[5] /* indent */, arguments->slots[1]);
-  // 793: ... indent <= base_indent
+  // 798: ... indent <= base_indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* base_indent */;
@@ -2051,7 +2051,7 @@ static void cont__96_25(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 793: ... indent <= base_indent
+  // 798: ... indent <= base_indent
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -2066,9 +2066,9 @@ static void cont__96_26(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 793: ... : return text obj
+  // 798: ... : return text obj
   frame->slots[8] /* temp__3 */ = create_closure(entry__96_27, 0);
-  // 793: if indent <= base_indent: return text obj
+  // 798: if indent <= base_indent: return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -2091,7 +2091,7 @@ static void entry__96_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 793: ... return text obj
+  // 798: ... return text obj
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* text */;
@@ -2106,9 +2106,9 @@ static void cont__96_28(void) {
     invalid_results_error();
     return;
   }
-  // 794: !text remaining_text
+  // 799: !text remaining_text
   ((CELL *)frame->slots[0])->contents /* text */ = frame->slots[4] /* remaining_text */;
-  // 795: ... deserialize_item(&text indent)
+  // 800: ... deserialize_item(&text indent)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* text */;
@@ -2125,7 +2125,7 @@ static void cont__96_29(void) {
   }
   ((CELL *)frame->slots[0])->contents /* text */ = arguments->slots[0];
   frame->slots[6] /* temp__1 */ = arguments->slots[1];
-  // 795: push &obj deserialize_item(&text indent)
+  // 800: push &obj deserialize_item(&text indent)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* obj */;
@@ -8538,7 +8538,7 @@ static void entry__types__generic_list__dup_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 719: ... -> self
+  // 723: -> self
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -8559,7 +8559,7 @@ static void entry__types__generic_list__dup_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 720: ... n < 0
+  // 725: ... n < 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -8575,7 +8575,7 @@ static void cont__types__generic_list__dup_4(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 720: if n < 0: raise "Negative argument for dup!"
+  // 725: if n < 0: raise "Negative argument for dup!"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -8592,7 +8592,7 @@ static void entry__types__generic_list__dup_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 720: ... raise "Negative argument for dup!"
+  // 725: ... raise "Negative argument for dup!"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__963fa2c6021831d1;
@@ -8606,7 +8606,7 @@ static void cont__types__generic_list__dup_7(void) {
     invalid_results_error();
     return;
   }
-  // 721: ... n .div. 2
+  // 726: ... n .div. 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -8622,7 +8622,7 @@ static void cont__types__generic_list__dup_8(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 721: $$result dup(self n .div. 2)
+  // 726: $$result dup(self n .div. 2)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* self */;
@@ -8638,7 +8638,7 @@ static void cont__types__generic_list__dup_9(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* result */ = arguments->slots[0];
-  // 722: append &result result
+  // 727: append &result result
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* result */;
@@ -8654,7 +8654,7 @@ static void cont__types__generic_list__dup_10(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* result */ = arguments->slots[0];
-  // 723: ... n.is_odd
+  // 728: ... n.is_odd
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* n */;
@@ -8669,9 +8669,9 @@ static void cont__types__generic_list__dup_11(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 723: ... : append &result self
+  // 728: ... : append &result self
   frame->slots[4] /* temp__2 */ = create_closure(entry__types__generic_list__dup_12, 0);
-  // 723: if n.is_odd: append &result self
+  // 728: if n.is_odd: append &result self
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -8692,7 +8692,7 @@ static void entry__types__generic_list__dup_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 723: ... append &result self
+  // 728: ... append &result self
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* result */;
@@ -8719,7 +8719,7 @@ static void cont__types__generic_list__dup_14(void) {
     invalid_results_error();
     return;
   }
-  // 724: -> result
+  // 729: -> result
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* result */;
@@ -8734,7 +8734,7 @@ static void entry__types__generic_list__dup_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 719: ... -> empty_list
+  // 721: -> empty_list
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__empty_list();
@@ -8751,21 +8751,26 @@ static void entry__types__generic_list__dup_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 719: ... -> self
+  // 723: -> self
   frame->slots[2] /* temp__1 */ = create_closure(entry__types__generic_list__dup_2, 0);
-  // 719: ... :
-  // 720:   if n < 0: raise "Negative argument for dup!"
-  // 721:   $$result dup(self n .div. 2)
-  // 722:   append &result result
-  // 723:   if n.is_odd: append &result self
-  // 724:   -> result
+  // 724: :
+  // 725:   if n < 0: raise "Negative argument for dup!"
+  // 726:   $$result dup(self n .div. 2)
+  // 727:   append &result result
+  // 728:   if n.is_odd: append &result self
+  // 729:   -> result
   frame->slots[3] /* temp__2 */ = create_closure(entry__types__generic_list__dup_3, 0);
-  // 719: case n 0 (-> empty_list) 1 (-> self):
-  // 720:   if n < 0: raise "Negative argument for dup!"
-  // 721:   $$result dup(self n .div. 2)
-  // 722:   append &result result
-  // 723:   if n.is_odd: append &result self
-  // 724:   -> result
+  // 719: case n
+  // 720:   0
+  // 721:   -> empty_list
+  // 722:   1
+  // 723:   -> self
+  // 724:   :
+  // 725:     if n < 0: raise "Negative argument for dup!"
+  // 726:     $$result dup(self n .div. 2)
+  // 727:     append &result result
+  // 728:     if n.is_odd: append &result self
+  // ...
   argument_count = 6;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* n */;
@@ -8789,7 +8794,7 @@ static void entry__types__generic_list__interleave_1(void) {
   frame->slots[1] /* n */ = create_future();
   frame->slots[2] /* result */ = create_cell();
   frame->slots[0] /* lists */ = from_arguments(0, argument_count-0);
-  // 735: ... lists(1)
+  // 740: ... lists(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8804,7 +8809,7 @@ static void cont__types__generic_list__interleave_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 735: $n length_of(lists(1))
+  // 740: $n length_of(lists(1))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -8819,9 +8824,9 @@ static void cont__types__generic_list__interleave_3(void) {
     return;
   }
   initialize_future(frame->slots[1] /* n */, arguments->slots[0]);
-  // 736: $$result empty_list
+  // 741: $$result empty_list
   ((CELL *)frame->slots[2])->contents /* result */ = get__empty_list();
-  // 737: ... n-1
+  // 742: ... n-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* n */;
@@ -8837,9 +8842,9 @@ static void cont__types__generic_list__interleave_4(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 737: ... : (i) for_each lists: (current_list) push &result current_list(i)
+  // 742: ... : (i) for_each lists: (current_list) push &result current_list(i)
   frame->slots[4] /* temp__2 */ = create_closure(entry__types__generic_list__interleave_5, 1);
-  // 737: from_to 1 n-1: (i) for_each lists: (current_list) push &result current_list(i)
+  // 742: from_to 1 n-1: (i) for_each lists: (current_list) push &result current_list(i)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8862,7 +8867,7 @@ static void entry__types__generic_list__interleave_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 737: ... current_list(i)
+  // 742: ... current_list(i)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* i */;
@@ -8877,7 +8882,7 @@ static void cont__types__generic_list__interleave_7(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 737: ... push &result current_list(i)
+  // 742: ... push &result current_list(i)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* result */;
@@ -8911,9 +8916,9 @@ static void entry__types__generic_list__interleave_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 737: ... : (current_list) push &result current_list(i)
+  // 742: ... : (current_list) push &result current_list(i)
   frame->slots[3] /* temp__1 */ = create_closure(entry__types__generic_list__interleave_6, 1);
-  // 737: ... for_each lists: (current_list) push &result current_list(i)
+  // 742: ... for_each lists: (current_list) push &result current_list(i)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* lists */;
@@ -8928,11 +8933,11 @@ static void cont__types__generic_list__interleave_9(void) {
     invalid_results_error();
     return;
   }
-  // 738: ... : (current_list)
-  // 739:   if length_of(current_list) >= n: push &result current_list(n)
+  // 743: ... : (current_list)
+  // 744:   if length_of(current_list) >= n: push &result current_list(n)
   frame->slots[3] /* temp__1 */ = create_closure(entry__types__generic_list__interleave_10, 1);
-  // 738: for_each lists: (current_list)
-  // 739:   if length_of(current_list) >= n: push &result current_list(n)
+  // 743: for_each lists: (current_list)
+  // 744:   if length_of(current_list) >= n: push &result current_list(n)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* lists */;
@@ -8955,7 +8960,7 @@ static void entry__types__generic_list__interleave_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 739: ... current_list(n)
+  // 744: ... current_list(n)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* n */;
@@ -8970,7 +8975,7 @@ static void cont__types__generic_list__interleave_15(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 739: ... push &result current_list(n)
+  // 744: ... push &result current_list(n)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* result */;
@@ -9004,7 +9009,7 @@ static void entry__types__generic_list__interleave_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 739: ... length_of(current_list)
+  // 744: ... length_of(current_list)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* current_list */;
@@ -9019,7 +9024,7 @@ static void cont__types__generic_list__interleave_11(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 739: ... length_of(current_list) >= n
+  // 744: ... length_of(current_list) >= n
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -9035,7 +9040,7 @@ static void cont__types__generic_list__interleave_12(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 739: ... length_of(current_list) >= n
+  // 744: ... length_of(current_list) >= n
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -9050,9 +9055,9 @@ static void cont__types__generic_list__interleave_13(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 739: ... : push &result current_list(n)
+  // 744: ... : push &result current_list(n)
   frame->slots[6] /* temp__4 */ = create_closure(entry__types__generic_list__interleave_14, 0);
-  // 739: if length_of(current_list) >= n: push &result current_list(n)
+  // 744: if length_of(current_list) >= n: push &result current_list(n)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -9067,7 +9072,7 @@ static void cont__types__generic_list__interleave_17(void) {
     invalid_results_error();
     return;
   }
-  // 740: -> result
+  // 745: -> result
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* result */;
@@ -9086,9 +9091,9 @@ static void entry__types__generic_list__contains_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 750: ... : (current_item) if current_item == item: return true
+  // 755: ... : (current_item) if current_item == item: return true
   frame->slots[3] /* temp__1 */ = create_closure(entry__types__generic_list__contains_2, 1);
-  // 750: for_each self: (current_item) if current_item == item: return true
+  // 755: for_each self: (current_item) if current_item == item: return true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -9107,7 +9112,7 @@ static void entry__types__generic_list__contains_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 750: ... return true
+  // 755: ... return true
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__true();
@@ -9128,7 +9133,7 @@ static void entry__types__generic_list__contains_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 750: ... current_item == item
+  // 755: ... current_item == item
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* current_item */;
@@ -9144,9 +9149,9 @@ static void cont__types__generic_list__contains_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 750: ... : return true
+  // 755: ... : return true
   frame->slots[4] /* temp__2 */ = create_closure(entry__types__generic_list__contains_4, 0);
-  // 750: ... if current_item == item: return true
+  // 755: ... if current_item == item: return true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -9161,7 +9166,7 @@ static void cont__types__generic_list__contains_5(void) {
     invalid_results_error();
     return;
   }
-  // 751: -> false
+  // 756: -> false
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__false();
@@ -9180,11 +9185,11 @@ static void entry__std__sequence_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 774: ... : (item)
-  // 775:   if item == element || item .contains. element: return true
+  // 779: ... : (item)
+  // 780:   if item == element || item .contains. element: return true
   frame->slots[3] /* temp__1 */ = create_closure(entry__std__sequence_4, 1);
-  // 774: for_each self: (item)
-  // 775:   if item == element || item .contains. element: return true
+  // 779: for_each self: (item)
+  // 780:   if item == element || item .contains. element: return true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -9203,7 +9208,7 @@ static void entry__std__sequence_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 775: ... return true
+  // 780: ... return true
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__true();
@@ -9224,7 +9229,7 @@ static void entry__std__sequence_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 775: ... item == element
+  // 780: ... item == element
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* item */;
@@ -9240,9 +9245,9 @@ static void cont__std__sequence_5(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 775: ... item .contains. element
+  // 780: ... item .contains. element
   frame->slots[5] /* temp__3 */ = create_closure(entry__std__sequence_6, 0);
-  // 775: ... item == element || item .contains. element
+  // 780: ... item == element || item .contains. element
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -9263,7 +9268,7 @@ static void entry__std__sequence_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 775: ... item .contains. element
+  // 780: ... item .contains. element
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* item */;
@@ -9279,7 +9284,7 @@ static void cont__std__sequence_7(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 775: ... item .contains. element
+  // 780: ... item .contains. element
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -9293,9 +9298,9 @@ static void cont__std__sequence_8(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 775: ... : return true
+  // 780: ... : return true
   frame->slots[6] /* temp__4 */ = create_closure(entry__std__sequence_9, 0);
-  // 775: if item == element || item .contains. element: return true
+  // 780: if item == element || item .contains. element: return true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -9310,7 +9315,7 @@ static void cont__std__sequence_10(void) {
     invalid_results_error();
     return;
   }
-  // 776: -> false
+  // 781: -> false
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__false();
@@ -9324,7 +9329,7 @@ static void entry__std__sequence_1(void) {
   // slot allocations:
   // items: 0
   frame->slots[0] /* items */ = from_arguments(0, argument_count-0);
-  // 766: list(items*)
+  // 771: list(items*)
   argument_count = 0;
   arguments = node_p;
   unfold(frame->slots[0] /* items */);
@@ -9347,15 +9352,15 @@ static void cont__std__sequence_2(void) {
     frame->slots[1] /* temp__1 */ = temp;
 
   }
-  // 768: /contains:
-  // 769:   (
-  // 770:     self
-  // 771:     element
-  // 772:     -> return
-  // 773:   )
-  // 774:   for_each self: (item)
-  // 775:     if item == element || item .contains. element: return true
-  // 776:   -> false
+  // 773: /contains:
+  // 774:   (
+  // 775:     self
+  // 776:     element
+  // 777:     -> return
+  // 778:   )
+  // 779:   for_each self: (item)
+  // 780:     if item == element || item .contains. element: return true
+  // 781:   -> false
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;

@@ -232,7 +232,10 @@ $types::insert_order_table/private::get_item:
     key
   )
   $item retrieve_item(tree_of(self) key)
-  if item.is_defined (-> value_of(item)) -> undefined
+  if
+    item.is_defined
+    -> value_of(item)
+    -> undefined
 
 $types::insert_order_table.tree_of undefined
 $types::insert_order_table.first_of undefined

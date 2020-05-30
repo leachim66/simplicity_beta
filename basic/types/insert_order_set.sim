@@ -81,7 +81,10 @@ $types::insert_order_set/first_index_of:
   (
     self
   )
-  if self.is_empty (-> undefined) -> keys_of(self)(1)
+  if
+    self.is_empty
+    -> undefined
+    -> keys_of(self)(1)
 
 $types::insert_order_set/last_index_of:
   #
@@ -89,7 +92,10 @@ $types::insert_order_set/last_index_of:
   (
     self
   )
-  if self.is_empty (-> undefined) -> keys_of(self)(-1)
+  if
+    self.is_empty
+    -> undefined
+    -> keys_of(self)(-1)
 
 $types::insert_order_set/for_each:
   #

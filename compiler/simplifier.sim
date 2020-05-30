@@ -470,16 +470,13 @@ $compiler::c_code/simplify_statement: (self)
   show_compiler_debug_info "simplify C-code"
   push &actions: !use_inline_c true
   case kind_of(self)
-    "struct"
-    :
+    "struct":
       $name name_of(identifier_of(self))
       push &actions: !defined_structs(name) true
-    "node"
-    :
+    "node":
       $name name_of(identifier_of(self))
       push &actions: !defined_nodes(name) self
-    "function"
-    :
+    "function":
       $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
       push &actions: !defined_functions(name) true
   push &definitions self

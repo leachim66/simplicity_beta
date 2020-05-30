@@ -1,0 +1,5 @@
+____________________________________
+SYNTAX ERROR IN LINE 3 OF FILE "invalid_object_definition":
+Too few output arguments for object definition!
+types::integer
+^

@@ -385,9 +385,12 @@ $lookup:
     mod_name # the module name; e.g.: "system/types/number"
   )
   $info module_info(mod_name)
-  if info.is_defined (-> info):
-    add_module_infos before(mod_filename '/' -1) until(mod_name '/' -1)
-    -> module_info(mod_name)
+  if
+    info.is_defined
+    -> info
+    :
+      add_module_infos before(mod_filename '/' -1) until(mod_name '/' -1)
+      -> module_info(mod_name)
 
 $CC: (args*)
   if do_show_debug_infos: ewriteln c_compiler() ' ' join(args)
@@ -499,8 +502,7 @@ $build_dependencies:
     $command line .truncate_from. WHITESPACE
     $argument line .behind. WHITESPACE
     case command
-      "require"
-      :
+      "require":
 	if
 	  argument .has_prefix. "./":
 	    if mode == EXE:
@@ -519,8 +521,7 @@ $build_dependencies:
 	      :
 		if do_compile_c:
 		  !libraries(string("sim-" argument .truncate_from. '/')) true
-      "link"
-      :
+      "link":
 	if do_compile_c: !libraries(argument .truncate_from. '/') true
 
 $compile_module:
@@ -912,8 +913,7 @@ $build_library:
       if do_link:
 	if verbose: ewriteln "linking dynamic library"
 	case operating_system()
-	  "linux", "bsd"
-	  :
+	  "linux", "bsd":
 	    CC
 	      $_out
 	      $err
@@ -925,8 +925,7 @@ $build_library:
 	      "-o"
 	      lib_filename
 	    unless success: Error err.from_utf8
-	  "cygwin"
-	  :
+	  "cygwin":
 	    CC
 	      $_out
 	      $err
@@ -938,15 +937,13 @@ $build_library:
 	      "-o"
 	      lib_filename
 	    unless success: Error err.from_utf8
-	  "darwin"
-	  :
+	  "darwin":
 	    CC
 	      $_out
 	      $err
 	      $success
 	      ld_options*
-	      "-dynamiclib"
-	      "
+	      "-dynamiclib" "
 		-Wl,-install_name,libsim-@(base_filename)@(so_version)-@(MAJOR)@
 		.dylib@
 	      library_paths_and_file_list()*
@@ -1074,8 +1071,7 @@ $build_executable:
     build_dependencies mod_filename mod_name c_buf
     if do_build_static_executable:
       for_each
-	"runtime/linker", "runtime/memory", "runtime/debugger"
-	: (filename)
+	"runtime/linker", "runtime/memory", "runtime/debugger": (filename)
 	  maybe_compile_c_file filename
     unless do_link:
       $info stat(exe_filename)

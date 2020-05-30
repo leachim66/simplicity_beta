@@ -120,8 +120,7 @@ $ELEMENT:
   $$contents undefined
   expect
     alt
-      "/>"
-      :
+      "/>":
 	insist '>'
 	unless is_a_void_element(tag):
 	  if
@@ -255,4 +254,7 @@ $types::html_element/select:
 	      if tag != clause fail
     return list(self)
   $contents html::contents_of(self)
-  if contents.is_defined (-> select(contents clauses*)) -> empty_list
+  if
+    contents.is_defined
+    -> select(contents clauses*)
+    -> empty_list

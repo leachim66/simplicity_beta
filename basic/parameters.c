@@ -1832,54 +1832,54 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__show_commands_23, &frame__show_commands_1, 512, 512, 6, 31},
   {cont__show_commands_24, &frame__show_commands_1, 512, 513, 3, 58},
   {cont__show_commands_30, &frame__show_commands_1, 514, 514, 3, 19},
-  {entry__std__program_parameters_3, NULL, 678, 678, 7, 54},
-  {entry__std__program_parameters_6, NULL, 613, 613, 33, 45},
-  {entry__std__program_parameters_9, NULL, 616, 617, 13, 35},
-  {cont__std__program_parameters_11, &frame__std__program_parameters_9, 618, 618, 13, 25},
-  {cont__std__program_parameters_12, &frame__std__program_parameters_9, 619, 619, 13, 18},
-  {entry__std__program_parameters_17, NULL, 625, 625, 19, 32},
-  {cont__std__program_parameters_18, &frame__std__program_parameters_17, 626, 626, 19, 27},
-  {entry__std__program_parameters_15, NULL, 624, 624, 20, 47},
-  {cont__std__program_parameters_16, &frame__std__program_parameters_15, 624, 626, 17, 27},
-  {entry__std__program_parameters_21, NULL, 631, 631, 21, 33},
-  {cont__std__program_parameters_22, &frame__std__program_parameters_21, 632, 632, 21, 29},
-  {entry__std__program_parameters_27, NULL, 638, 640, 27, 46},
-  {cont__std__program_parameters_29, &frame__std__program_parameters_27, 641, 641, 27, 35},
-  {entry__std__program_parameters_25, NULL, 637, 637, 28, 55},
-  {cont__std__program_parameters_26, &frame__std__program_parameters_25, 637, 641, 25, 35},
-  {entry__std__program_parameters_30, NULL, 644, 649, 25, 77},
-  {cont__std__program_parameters_32, &frame__std__program_parameters_30, 650, 650, 25, 33},
-  {entry__std__program_parameters_35, NULL, 654, 656, 27, 44},
-  {cont__std__program_parameters_37, &frame__std__program_parameters_35, 657, 657, 27, 35},
-  {entry__std__program_parameters_33, NULL, 653, 653, 28, 53},
-  {cont__std__program_parameters_34, &frame__std__program_parameters_33, 653, 657, 25, 35},
-  {entry__std__program_parameters_23, NULL, 634, 634, 26, 50},
-  {cont__std__program_parameters_24, &frame__std__program_parameters_23, 634, 657, 21, 37},
-  {cont__std__program_parameters_38, &frame__std__program_parameters_23, 658, 659, 21, 43},
-  {cont__std__program_parameters_40, &frame__std__program_parameters_23, 660, 660, 21, 33},
-  {cont__std__program_parameters_41, &frame__std__program_parameters_23, 661, 661, 21, 26},
-  {entry__std__program_parameters_42, NULL, 663, 664, 21, 41},
-  {cont__std__program_parameters_43, &frame__std__program_parameters_42, 665, 665, 21, 33},
-  {cont__std__program_parameters_44, &frame__std__program_parameters_42, 666, 666, 21, 26},
-  {entry__std__program_parameters_19, NULL, 629, 629, 22, 54},
-  {cont__std__program_parameters_20, &frame__std__program_parameters_19, 629, 666, 17, 27},
-  {entry__std__program_parameters_47, NULL, 670, 670, 66, 66},
-  {cont__std__program_parameters_48, &frame__std__program_parameters_47, 670, 670, 19, 67},
-  {cont__std__program_parameters_49, &frame__std__program_parameters_47, 671, 671, 19, 43},
-  {cont__std__program_parameters_50, &frame__std__program_parameters_47, 672, 672, 19, 27},
-  {entry__std__program_parameters_45, NULL, 669, 669, 20, 45},
-  {cont__std__program_parameters_46, &frame__std__program_parameters_45, 669, 672, 17, 27},
-  {entry__std__program_parameters_13, NULL, 621, 621, 18, 42},
-  {cont__std__program_parameters_14, &frame__std__program_parameters_13, 621, 672, 13, 29},
-  {cont__std__program_parameters_51, &frame__std__program_parameters_13, 673, 674, 13, 32},
-  {cont__std__program_parameters_53, &frame__std__program_parameters_13, 675, 675, 13, 25},
-  {cont__std__program_parameters_54, &frame__std__program_parameters_13, 676, 676, 13, 18},
-  {entry__std__program_parameters_7, NULL, 615, 615, 11, 41},
-  {cont__std__program_parameters_8, &frame__std__program_parameters_7, 614, 676, 9, 19},
-  {entry__std__program_parameters_4, NULL, 613, 613, 10, 30},
-  {cont__std__program_parameters_5, &frame__std__program_parameters_4, 613, 676, 7, 20},
+  {entry__std__program_parameters_3, NULL, 675, 675, 7, 54},
+  {entry__std__program_parameters_6, NULL, 615, 615, 9, 21},
+  {entry__std__program_parameters_9, NULL, 619, 620, 15, 37},
+  {cont__std__program_parameters_11, &frame__std__program_parameters_9, 621, 621, 15, 27},
+  {cont__std__program_parameters_12, &frame__std__program_parameters_9, 622, 622, 15, 20},
+  {entry__std__program_parameters_17, NULL, 627, 627, 21, 34},
+  {cont__std__program_parameters_18, &frame__std__program_parameters_17, 628, 628, 21, 29},
+  {entry__std__program_parameters_15, NULL, 626, 626, 22, 49},
+  {cont__std__program_parameters_16, &frame__std__program_parameters_15, 626, 628, 19, 29},
+  {entry__std__program_parameters_21, NULL, 632, 632, 23, 35},
+  {cont__std__program_parameters_22, &frame__std__program_parameters_21, 633, 633, 23, 31},
+  {entry__std__program_parameters_27, NULL, 638, 640, 29, 48},
+  {cont__std__program_parameters_29, &frame__std__program_parameters_27, 641, 641, 29, 37},
+  {entry__std__program_parameters_25, NULL, 637, 637, 30, 57},
+  {cont__std__program_parameters_26, &frame__std__program_parameters_25, 637, 641, 27, 37},
+  {entry__std__program_parameters_30, NULL, 643, 648, 27, 79},
+  {cont__std__program_parameters_32, &frame__std__program_parameters_30, 649, 649, 27, 35},
+  {entry__std__program_parameters_35, NULL, 652, 654, 29, 46},
+  {cont__std__program_parameters_37, &frame__std__program_parameters_35, 655, 655, 29, 37},
+  {entry__std__program_parameters_33, NULL, 651, 651, 30, 55},
+  {cont__std__program_parameters_34, &frame__std__program_parameters_33, 651, 655, 27, 37},
+  {entry__std__program_parameters_23, NULL, 635, 635, 28, 52},
+  {cont__std__program_parameters_24, &frame__std__program_parameters_23, 635, 655, 23, 39},
+  {cont__std__program_parameters_38, &frame__std__program_parameters_23, 656, 657, 23, 45},
+  {cont__std__program_parameters_40, &frame__std__program_parameters_23, 658, 658, 23, 35},
+  {cont__std__program_parameters_41, &frame__std__program_parameters_23, 659, 659, 23, 28},
+  {entry__std__program_parameters_42, NULL, 661, 662, 23, 43},
+  {cont__std__program_parameters_43, &frame__std__program_parameters_42, 663, 663, 23, 35},
+  {cont__std__program_parameters_44, &frame__std__program_parameters_42, 664, 664, 23, 28},
+  {entry__std__program_parameters_19, NULL, 630, 630, 24, 56},
+  {cont__std__program_parameters_20, &frame__std__program_parameters_19, 630, 664, 19, 29},
+  {entry__std__program_parameters_47, NULL, 667, 667, 68, 68},
+  {cont__std__program_parameters_48, &frame__std__program_parameters_47, 667, 667, 21, 69},
+  {cont__std__program_parameters_49, &frame__std__program_parameters_47, 668, 668, 21, 45},
+  {cont__std__program_parameters_50, &frame__std__program_parameters_47, 669, 669, 21, 29},
+  {entry__std__program_parameters_45, NULL, 666, 666, 22, 47},
+  {cont__std__program_parameters_46, &frame__std__program_parameters_45, 666, 669, 19, 29},
+  {entry__std__program_parameters_13, NULL, 624, 624, 20, 44},
+  {cont__std__program_parameters_14, &frame__std__program_parameters_13, 624, 669, 15, 31},
+  {cont__std__program_parameters_51, &frame__std__program_parameters_13, 670, 671, 15, 34},
+  {cont__std__program_parameters_53, &frame__std__program_parameters_13, 672, 672, 15, 27},
+  {cont__std__program_parameters_54, &frame__std__program_parameters_13, 673, 673, 15, 20},
+  {entry__std__program_parameters_7, NULL, 618, 618, 13, 43},
+  {cont__std__program_parameters_8, &frame__std__program_parameters_7, 617, 673, 11, 21},
+  {entry__std__program_parameters_4, NULL, 614, 614, 9, 29},
+  {cont__std__program_parameters_5, &frame__std__program_parameters_4, 613, 673, 7, 23},
   {entry__std__program_parameters_1, NULL, 612, 612, 5, 24},
-  {cont__std__program_parameters_2, &frame__std__program_parameters_1, 611, 678, 3, 55}
+  {cont__std__program_parameters_2, &frame__std__program_parameters_1, 611, 675, 3, 55}
 };
 
 union NODE {
@@ -11234,8 +11234,8 @@ static void entry__std__program_parameters_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 616: ewriteln "
-  // 617:   No command specified!
+  // 619: ewriteln "
+  // 620:   No command specified!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__9e1d476192d899b4;
@@ -11249,7 +11249,7 @@ static void cont__std__program_parameters_11(void) {
     invalid_results_error();
     return;
   }
-  // 618: show_commands
+  // 621: show_commands
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11262,7 +11262,7 @@ static void cont__std__program_parameters_12(void) {
     invalid_results_error();
     return;
   }
-  // 619: exit 1
+  // 622: exit 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11278,7 +11278,7 @@ static void entry__std__program_parameters_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 621: ... command_line_arguments(1)
+  // 624: ... command_line_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11293,16 +11293,16 @@ static void cont__std__program_parameters_14(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 621: case command_line_arguments(1)
-  // 622:   "copyright"
-  // 623:   :
-  // 624:     if program_copyright.is_defined:
-  // 625:       show_copyright
-  // 626:       terminate
-  // 627:   "help"
-  // 628:   :
-  // 629:     case length_of(command_line_arguments)
-  // 630:       1:
+  // 624: case command_line_arguments(1)
+  // 625:   "copyright":
+  // 626:     if program_copyright.is_defined:
+  // 627:       show_copyright
+  // 628:       terminate
+  // 629:   "help":
+  // 630:     case length_of(command_line_arguments)
+  // 631:       1:
+  // 632:         show_commands
+  // 633:         terminate
   // ...
   argument_count = 7;
   arguments = node_p;
@@ -11327,7 +11327,7 @@ static void entry__std__program_parameters_47(void) {
     invalid_arguments_error();
     return;
   }
-  // 670: ... 1
+  // 667: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11342,7 +11342,7 @@ static void cont__std__program_parameters_48(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 670: $command_name truncate_until(program_name '/' -1)
+  // 667: $command_name truncate_until(program_name '/' -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = get__program_name();
@@ -11359,7 +11359,7 @@ static void cont__std__program_parameters_49(void) {
     return;
   }
   initialize_future(frame->slots[0] /* command_name */, arguments->slots[0]);
-  // 671: show_version command_name
+  // 668: show_version command_name
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* command_name */;
@@ -11373,7 +11373,7 @@ static void cont__std__program_parameters_50(void) {
     invalid_results_error();
     return;
   }
-  // 672: terminate
+  // 669: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -11388,7 +11388,7 @@ static void entry__std__program_parameters_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 631: show_commands
+  // 632: show_commands
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11401,7 +11401,7 @@ static void cont__std__program_parameters_22(void) {
     invalid_results_error();
     return;
   }
-  // 632: terminate
+  // 633: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -11416,7 +11416,7 @@ static void entry__std__program_parameters_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 634: ... command_line_arguments(2)
+  // 635: ... command_line_arguments(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -11431,16 +11431,16 @@ static void cont__std__program_parameters_24(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 634: case command_line_arguments(2)
-  // 635:   "copyright"
-  // 636:   :
+  // 635: case command_line_arguments(2)
+  // 636:   "copyright":
   // 637:     if program_copyright.is_defined:
   // 638:       ewrite "
   // 639:         Usage:
   // 640:           sigi copyright
   // 641:       terminate
-  // 642:   "help"
-  // 643:   :
+  // 642:   "help":
+  // 643:     ewrite "
+  // 644:       Usage:
   // ...
   argument_count = 7;
   arguments = node_p;
@@ -11463,9 +11463,9 @@ static void entry__std__program_parameters_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 654: ewrite "
-  // 655:   Usage:
-  // 656:     sigi version
+  // 652: ewrite "
+  // 653:   Usage:
+  // 654:     sigi version
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__617a0ed7343fbf40;
@@ -11479,7 +11479,7 @@ static void cont__std__program_parameters_37(void) {
     invalid_results_error();
     return;
   }
-  // 657: terminate
+  // 655: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -11561,12 +11561,12 @@ static void entry__std__program_parameters_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 644: ewrite "
-  // 645:   Usage:
-  // 646:     sigi help COMMAND
-  // 647:   
-  // 648:   Parameter:
-  // 649:     COMMAND  the command for which to retrieve help
+  // 643: ewrite "
+  // 644:   Usage:
+  // 645:     sigi help COMMAND
+  // 646:   
+  // 647:   Parameter:
+  // 648:     COMMAND  the command for which to retrieve help
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__a15bc662b3bb7e39;
@@ -11580,7 +11580,7 @@ static void cont__std__program_parameters_32(void) {
     invalid_results_error();
     return;
   }
-  // 650: terminate
+  // 649: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -11595,7 +11595,7 @@ static void entry__std__program_parameters_33(void) {
     invalid_arguments_error();
     return;
   }
-  // 653: ... program_version.is_defined
+  // 651: ... program_version.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._program_version;
@@ -11610,11 +11610,11 @@ static void cont__std__program_parameters_34(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 653: if program_version.is_defined:
-  // 654:   ewrite "
-  // 655:     Usage:
-  // 656:       sigi version
-  // 657:   terminate
+  // 651: if program_version.is_defined:
+  // 652:   ewrite "
+  // 653:     Usage:
+  // 654:       sigi version
+  // 655:   terminate
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -11629,8 +11629,8 @@ static void cont__std__program_parameters_38(void) {
     invalid_results_error();
     return;
   }
-  // 658: ewriteln "
-  // 659:   Invalid command name!
+  // 656: ewriteln "
+  // 657:   Invalid command name!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__19bd6394b9c09d4b;
@@ -11644,7 +11644,7 @@ static void cont__std__program_parameters_40(void) {
     invalid_results_error();
     return;
   }
-  // 660: show_commands
+  // 658: show_commands
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11657,7 +11657,7 @@ static void cont__std__program_parameters_41(void) {
     invalid_results_error();
     return;
   }
-  // 661: exit 1
+  // 659: exit 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11673,8 +11673,8 @@ static void entry__std__program_parameters_42(void) {
     invalid_arguments_error();
     return;
   }
-  // 663: ewriteln "
-  // 664:   Too many arguments!
+  // 661: ewriteln "
+  // 662:   Too many arguments!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__e3aee165acc437aa;
@@ -11688,7 +11688,7 @@ static void cont__std__program_parameters_43(void) {
     invalid_results_error();
     return;
   }
-  // 665: show_commands
+  // 663: show_commands
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11701,7 +11701,7 @@ static void cont__std__program_parameters_44(void) {
     invalid_results_error();
     return;
   }
-  // 666: exit 1
+  // 664: exit 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11717,7 +11717,7 @@ static void entry__std__program_parameters_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 625: show_copyright
+  // 627: show_copyright
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11730,7 +11730,7 @@ static void cont__std__program_parameters_18(void) {
     invalid_results_error();
     return;
   }
-  // 626: terminate
+  // 628: terminate
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -11745,7 +11745,7 @@ static void entry__std__program_parameters_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 624: ... program_copyright.is_defined
+  // 626: ... program_copyright.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._program_copyright;
@@ -11760,9 +11760,9 @@ static void cont__std__program_parameters_16(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 624: if program_copyright.is_defined:
-  // 625:   show_copyright
-  // 626:   terminate
+  // 626: if program_copyright.is_defined:
+  // 627:   show_copyright
+  // 628:   terminate
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -11779,7 +11779,7 @@ static void entry__std__program_parameters_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 629: ... length_of(command_line_arguments)
+  // 630: ... length_of(command_line_arguments)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__command_line_arguments();
@@ -11794,16 +11794,16 @@ static void cont__std__program_parameters_20(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 629: case length_of(command_line_arguments)
-  // 630:   1:
-  // 631:     show_commands
-  // 632:     terminate
-  // 633:   2:
-  // 634:     case command_line_arguments(2)
-  // 635:       "copyright"
-  // 636:       :
+  // 630: case length_of(command_line_arguments)
+  // 631:   1:
+  // 632:     show_commands
+  // 633:     terminate
+  // 634:   2:
+  // 635:     case command_line_arguments(2)
+  // 636:       "copyright":
   // 637:         if program_copyright.is_defined:
   // 638:           ewrite "
+  // 639:             Usage:
   // ...
   argument_count = 6;
   arguments = node_p;
@@ -11825,7 +11825,7 @@ static void entry__std__program_parameters_45(void) {
     invalid_arguments_error();
     return;
   }
-  // 669: ... program_version.is_defined
+  // 666: ... program_version.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._program_version;
@@ -11840,10 +11840,10 @@ static void cont__std__program_parameters_46(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 669: if program_version.is_defined:
-  // 670:   $command_name truncate_until(program_name '/' -1)
-  // 671:   show_version command_name
-  // 672:   terminate
+  // 666: if program_version.is_defined:
+  // 667:   $command_name truncate_until(program_name '/' -1)
+  // 668:   show_version command_name
+  // 669:   terminate
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -11858,8 +11858,8 @@ static void cont__std__program_parameters_51(void) {
     invalid_results_error();
     return;
   }
-  // 673: ewriteln "
-  // 674:   Invalid arguments!
+  // 670: ewriteln "
+  // 671:   Invalid arguments!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__f68d8519ec4e03eb;
@@ -11873,7 +11873,7 @@ static void cont__std__program_parameters_53(void) {
     invalid_results_error();
     return;
   }
-  // 675: show_commands
+  // 672: show_commands
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -11886,7 +11886,7 @@ static void cont__std__program_parameters_54(void) {
     invalid_results_error();
     return;
   }
-  // 676: exit 1
+  // 673: exit 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -11902,7 +11902,7 @@ static void entry__std__program_parameters_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 613: ... -> command_id
+  // 615: -> command_id
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._command_id;
@@ -11917,7 +11917,7 @@ static void entry__std__program_parameters_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 615: command_line_arguments.is_empty
+  // 618: command_line_arguments.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__command_line_arguments();
@@ -11932,16 +11932,16 @@ static void cont__std__program_parameters_8(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 614: if
-  // 615:   command_line_arguments.is_empty:
-  // 616:     ewriteln "
-  // 617:       No command specified!
-  // 618:     show_commands
-  // 619:     exit 1
-  // 620:   :
-  // 621:     case command_line_arguments(1)
-  // 622:       "copyright"
-  // 623:       :
+  // 617: if
+  // 618:   command_line_arguments.is_empty:
+  // 619:     ewriteln "
+  // 620:       No command specified!
+  // 621:     show_commands
+  // 622:     exit 1
+  // 623:   :
+  // 624:     case command_line_arguments(1)
+  // 625:       "copyright":
+  // 626:         if program_copyright.is_defined:
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -11962,7 +11962,7 @@ static void entry__std__program_parameters_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 678: check_arguments command_line_arguments templates
+  // 675: check_arguments command_line_arguments templates
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__command_line_arguments();
@@ -11979,7 +11979,7 @@ static void entry__std__program_parameters_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 613: ... command_id.is_defined
+  // 614: command_id.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = var._command_id;
@@ -11994,16 +11994,16 @@ static void cont__std__program_parameters_5(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 613: if command_id.is_defined (-> command_id):
-  // 614:   if
-  // 615:     command_line_arguments.is_empty:
-  // 616:       ewriteln "
-  // 617:         No command specified!
-  // 618:       show_commands
-  // 619:       exit 1
-  // 620:     :
-  // 621:       case command_line_arguments(1)
-  // 622:         "copyright"
+  // 613: if
+  // 614:   command_id.is_defined
+  // 615:   -> command_id
+  // 616:   :
+  // 617:     if
+  // 618:       command_line_arguments.is_empty:
+  // 619:         ewriteln "
+  // 620:           No command specified!
+  // 621:         show_commands
+  // 622:         exit 1
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -12037,19 +12037,19 @@ static void cont__std__program_parameters_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 677: :
-  // 678:   check_arguments command_line_arguments templates
+  // 674: :
+  // 675:   check_arguments command_line_arguments templates
   frame->slots[2] /* temp__2 */ = create_closure(entry__std__program_parameters_3, 0);
   // 611: if
   // 612:   command_id_count > 0:
-  // 613:     if command_id.is_defined (-> command_id):
-  // 614:       if
-  // 615:         command_line_arguments.is_empty:
-  // 616:           ewriteln "
-  // 617:             No command specified!
-  // 618:           show_commands
-  // 619:           exit 1
-  // 620:         :
+  // 613:     if
+  // 614:       command_id.is_defined
+  // 615:       -> command_id
+  // 616:       :
+  // 617:         if
+  // 618:           command_line_arguments.is_empty:
+  // 619:             ewriteln "
+  // 620:               No command specified!
   // ...
   argument_count = 3;
   arguments = node_p;

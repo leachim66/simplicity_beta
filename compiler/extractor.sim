@@ -219,14 +219,17 @@ $extract_documentation_from_file: (filename)
   if used_namespaces.is_empty: !used_namespaces("std") true
   $$local_method_names empty_set
   for_each trees: (statement)
-    cond (-> statement.is_a_remark: pass) (-> statement.is_c_code: pass) -> statement.is_an_assignment:
-      $destination arguments_of(statement)(1)
-      if destination.is_a_definition:
-	$identifier identifier_of(destination)
-	unless namespace_of(identifier).is_defined:
-	  $source arguments_of(statement)(2)
-	  if source.is_a_polymorphic_function_constant:
-	    !local_method_names(name_of(identifier_of(destination))) true
+    cond
+      -> statement.is_a_remark: pass
+      -> statement.is_c_code: pass
+      -> statement.is_an_assignment:
+	$destination arguments_of(statement)(1)
+	if destination.is_a_definition:
+	  $identifier identifier_of(destination)
+	  unless namespace_of(identifier).is_defined:
+	    $source arguments_of(statement)(2)
+	    if source.is_a_polymorphic_function_constant:
+	      !local_method_names(name_of(identifier_of(destination))) true
   for_each trees:
     (
       statement
@@ -250,8 +253,7 @@ $extract_documentation_from_file: (filename)
 	  if namespace.is_defined:
 	    $name name_of(identifier)
 	    case kind_of(statement)
-	      "type"
-	      :
+	      "type":
 		if namespace.is_defined:
 		  $base base_of(statement)
 		  !definitions(ordered_name(namespace name))
@@ -265,8 +267,7 @@ $extract_documentation_from_file: (filename)
 			  -> undefined
 		      .remark_lines_of remark_lines_of(statement)
 		      .filename_of filename
-	      "object"
-	      :
+	      "object":
 		!definitions(ordered_name(namespace name))
 		  symbol_info
 		    .kind_of INLINE_C_OBJECT
@@ -353,18 +354,21 @@ $extract_documentation_from_directory: (path)
 
 $resolved_name: (attr)
   $name name_of(attr)
-  if namespace_of(attr).is_defined (-> attr.to_string):
-    $$resolved_namespace undefined
-    for_each used_namespaces_of(attr): (namespace)
-      if polymorphic_functions(name namespace):
-	if resolved_namespace.is_defined:
-	  Error "
-	    The attribute "@(name)" cannot be uniquely resolved!
-	!resolved_namespace namespace
-    unless resolved_namespace.is_defined:
-      Error "
-	The attribute "@(name)" cannot be resolved!
-    -> string(resolved_namespace "::" name)
+  if
+    namespace_of(attr).is_defined
+    -> attr.to_string
+    :
+      $$resolved_namespace undefined
+      for_each used_namespaces_of(attr): (namespace)
+	if polymorphic_functions(name namespace):
+	  if resolved_namespace.is_defined:
+	    Error "
+	      The attribute "@(name)" cannot be uniquely resolved!
+	  !resolved_namespace namespace
+      unless resolved_namespace.is_defined:
+	Error "
+	  The attribute "@(name)" cannot be resolved!
+      -> string(resolved_namespace "::" name)
 
 $add_derived_type: (base name)
   $ibase ordered_name(base .before. "::" base .behind. "::")
@@ -742,8 +746,7 @@ $compiler::extract_exports: (paths)
     $name name_of(info)
     if name.is_defined:
       write name ' '
-      case
-	kind_of(info)
+      case kind_of(info)
 	POLYMORPHIC_ATTRIBUTE:
 	  write "(!)"
 	POLYMORPHIC_FUNCTION:
@@ -762,11 +765,7 @@ $compiler::extract_exports: (paths)
 	  write '$'
       writeln
     for_each methods_of(info): (method_name _method_info)
-      $obj_name
-	string
-	  behind(iname '/' -1)
-	  "::"
-	  between(iname '/' '/' 2)
+      $obj_name string(behind(iname '/' -1) "::" between(iname '/' '/' 2))
       writeln obj_name '/' method_name
 
 $compiler::extract_documentation: (paths)

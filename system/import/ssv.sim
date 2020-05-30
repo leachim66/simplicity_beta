@@ -53,8 +53,11 @@ $extract: (buf fields)
 $std::load_ssv: (options* filename)
   extract_options options ENCODING = UTF8 $encoding
   load $$buf filename
-  if buf.is_undefined (-> undefined):
-    if encoding == UTF8: from_utf8 &buf
-    replace_all &buf '@cr;' = ""
-    $header parse_line(buf .before. '@nl;')
-    extract buf .behind. '@nl;' header
+  if
+    buf.is_undefined
+    -> undefined
+    :
+      if encoding == UTF8: from_utf8 &buf
+      replace_all &buf '@cr;' = ""
+      $header parse_line(buf .before. '@nl;')
+      extract buf .behind. '@nl;' header

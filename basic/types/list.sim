@@ -716,12 +716,17 @@ $types::generic_list/dup:
     self
     n # the duplication count
   )
-  case n 0 (-> empty_list) 1 (-> self):
-    if n < 0: raise "Negative argument for dup!"
-    $$result dup(self n .div. 2)
-    append &result result
-    if n.is_odd: append &result self
-    -> result
+  case n
+    0
+    -> empty_list
+    1
+    -> self
+    :
+      if n < 0: raise "Negative argument for dup!"
+      $$result dup(self n .div. 2)
+      append &result result
+      if n.is_odd: append &result self
+      -> result
 
 $types::generic_list/interleave:
   #

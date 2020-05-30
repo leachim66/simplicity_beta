@@ -702,8 +702,7 @@ $microhttpd_types::daemon/handle_requests:
       if headers_list.is_defined:
 	for_each_pair headers_list: (key value) !headers(key) value
       case method
-	"GET"
-	:
+	"GET":
 	  $websocket_key headers("Sec-WebSocket-Key")
 	  if
 	    websocket_key.is_defined:
@@ -715,15 +714,13 @@ $microhttpd_types::daemon/handle_requests:
 		  .connection_of connection
 		  .url_of url
 		  .headers_of headers
-	"WEBSOCKET_TEXT_FRAME"
-	:
+	"WEBSOCKET_TEXT_FRAME":
 	  create_event
 	    types::event
 	      .type_of WEBSOCKET_TEXT_FRAME
 	      .connection_of connection
 	      .text_of upload_data.from_utf8
-	"DISCONNECT"
-	:
+	"DISCONNECT":
 	  create_event
 	    types::event(.type_of DISCONNECT .connection_of connection)
 
@@ -776,11 +773,9 @@ $microhttpd::dom_event_preprocessor: (&event)
     $msg text_of(event).from_json
     $connection connection_of(event)
     case msg("type")
-      "CONNECT"
-      :
+      "CONNECT":
 	!event types::event(.type_of CONNECT .connection_of connection)
-      "KEY_PRESS"
-      :
+      "KEY_PRESS":
 	$key_code msg.to_key_code
 	if
 	  key_code.is_defined:
@@ -791,8 +786,7 @@ $microhttpd::dom_event_preprocessor: (&event)
 		.connection_of connection
 	  :
 	    !event undefined
-      "MOUSE_CLICK"
-      :
+      "MOUSE_CLICK":
 	$name msg("name")
 	if
 	  name.is_defined:
@@ -805,8 +799,7 @@ $microhttpd::dom_event_preprocessor: (&event)
 		.selection_of msg("selection")
 	  :
 	    !event undefined
-      "PASTE"
-      :
+      "PASTE":
 	$name msg("name")
 	if
 	  name.is_defined:
@@ -819,8 +812,7 @@ $microhttpd::dom_event_preprocessor: (&event)
 		.value_of msg("value")
 	  :
 	    !event undefined
-      "GET_RESOURCES"
-      :
+      "GET_RESOURCES":
 	!event
 	  types::event
 	    .type_of GET_RESOURCES

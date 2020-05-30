@@ -348,7 +348,11 @@ $std::is_a_vowel:
   (
     chr
   )
-  case chr 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' (-> true) -> false
+  case
+    chr
+    'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'
+    -> true
+    -> false
 
 $types::character/serialize:
   #

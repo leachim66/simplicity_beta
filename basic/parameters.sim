@@ -610,69 +610,66 @@ $std::program_parameters:
   )
   if
     command_id_count > 0:
-      if command_id.is_defined (-> command_id):
-	if
-	  command_line_arguments.is_empty:
-	    ewriteln "
-	      No command specified!
-	    show_commands
-	    exit 1
-	  :
-	    case command_line_arguments(1)
-	      "copyright"
-	      :
-		if program_copyright.is_defined:
-		  show_copyright
-		  terminate
-	      "help"
-	      :
-		case length_of(command_line_arguments)
-		  1:
-		    show_commands
+      if
+	command_id.is_defined
+	-> command_id
+	:
+	  if
+	    command_line_arguments.is_empty:
+	      ewriteln "
+		No command specified!
+	      show_commands
+	      exit 1
+	    :
+	      case command_line_arguments(1)
+		"copyright":
+		  if program_copyright.is_defined:
+		    show_copyright
 		    terminate
-		  2:
-		    case command_line_arguments(2)
-		      "copyright"
-		      :
-			if program_copyright.is_defined:
+		"help":
+		  case length_of(command_line_arguments)
+		    1:
+		      show_commands
+		      terminate
+		    2:
+		      case command_line_arguments(2)
+			"copyright":
+			  if program_copyright.is_defined:
+			    ewrite "
+			      Usage:
+			        sigi copyright
+			    terminate
+			"help":
 			  ewrite "
 			    Usage:
-			      sigi copyright
-			  terminate
-		      "help"
-		      :
-			ewrite "
-			  Usage:
-			    sigi help COMMAND
+			      sigi help COMMAND
 
-			  Parameter:
-			    COMMAND  the command for which to retrieve help
-			terminate
-		      "version"
-		      :
-			if program_version.is_defined:
-			  ewrite "
-			    Usage:
-			      sigi version
+			    Parameter:
+			      COMMAND  the command for which to retrieve help
 			  terminate
-		    ewriteln "
-		      Invalid command name!
-		    show_commands
-		    exit 1
-		  :
-		    ewriteln "
-		      Too many arguments!
-		    show_commands
-		    exit 1
-	      "version"
-	      :
-		if program_version.is_defined:
-		  $command_name truncate_until(program_name '/' -1)
-		  show_version command_name
-		  terminate
-	    ewriteln "
-	      Invalid arguments!
-	    show_commands
-	    exit 1
+			"version":
+			  if program_version.is_defined:
+			    ewrite "
+			      Usage:
+			        sigi version
+			    terminate
+		      ewriteln "
+			Invalid command name!
+		      show_commands
+		      exit 1
+		    :
+		      ewriteln "
+			Too many arguments!
+		      show_commands
+		      exit 1
+		"version":
+		  if program_version.is_defined:
+		    $command_name truncate_until(program_name '/' -1)
+		    show_version command_name
+		    terminate
+	      ewriteln "
+		Invalid arguments!
+	      show_commands
+	      exit 1
     :
       check_arguments command_line_arguments templates

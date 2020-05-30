@@ -63,7 +63,10 @@ $retrieve_item: (myself keys)
   $key keys(1)
   $node table_of(myself)(key)
   $more_keys range(keys 2 -1)
-  if more_keys.is_empty (-> node) -> retrieve_item(node more_keys)
+  if
+    more_keys.is_empty
+    -> node
+    -> retrieve_item(node more_keys)
 
 $insert_item:
   (
@@ -126,7 +129,10 @@ $types::tree/:
   case
     value
     NONE:
-      if key.is_a_list (-> retrieve_item(myself key)) -> table_of(myself)(key)
+      if
+	key.is_a_list
+	-> retrieve_item(myself key)
+	-> table_of(myself)(key)
     :
       if
 	key.is_a_list:
@@ -146,7 +152,10 @@ $types::key_order_tree/:
   case
     value
     NONE:
-      if key.is_a_list (-> retrieve_item(myself key)) -> table_of(myself)(key)
+      if
+	key.is_a_list
+	-> retrieve_item(myself key)
+	-> table_of(myself)(key)
     :
       if
 	key.is_a_list:
@@ -167,7 +176,10 @@ $types::insert_order_tree/:
   case
     value
     NONE:
-      if key.is_a_list (-> retrieve_item(myself key)) -> table_of(myself)(key)
+      if
+	key.is_a_list
+	-> retrieve_item(myself key)
+	-> table_of(myself)(key)
     :
       if
 	key.is_a_list:
@@ -277,10 +289,13 @@ $std::leaf_count_of:
   (
     self
   )
-  if table_of(self).is_empty (-> 1):
-    $$n 0
-    for_each table_of(self): (item) plus &n leaf_count_of(item)
-    -> n
+  if
+    table_of(self).is_empty
+    -> 1
+    :
+      $$n 0
+      for_each table_of(self): (item) plus &n leaf_count_of(item)
+      -> n
 
 $std::for_each_subnode:
   #
@@ -649,12 +664,15 @@ $types::generic_tree/serialize:
     indent?
   )
   $tag serialization_tag_of(self)
-  if table_of(self).is_empty (-> "@(tag)()") ->
-    append
-      tag
-      collect_output
-	:
-	  serialize_tree self indent+2
+  if
+    table_of(self).is_empty
+    -> "@(tag)()"
+    ->
+      append
+	tag
+	collect_output
+	  :
+	    serialize_tree self indent+2
 
 $std::empty_tree types::tree # an empty tree
 $std::empty_key_order_tree types::key_order_tree # an empty key-order tree

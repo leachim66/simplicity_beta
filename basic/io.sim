@@ -1589,16 +1589,19 @@ $types::file_descriptor/write_some_bytes_to
 
 $file_description: (fd)
   $filename filename_of(fd)
-  if filename.is_defined (-> "@quot;@(filename)@quot;"):
-    $num fd.to_integer
-    case num
-      0
-      -> "<stdin>"
-      1
-      -> "<stdout>"
-      2
-      -> "<stderr>"
-      -> "<file descriptor @(num)>"
+  if
+    filename.is_defined
+    -> "@quot;@(filename)@quot;"
+    :
+      $num fd.to_integer
+      case num
+	0
+	-> "<stdin>"
+	1
+	-> "<stdout>"
+	2
+	-> "<stderr>"
+	-> "<file descriptor @(num)>"
 
 $WriteError: (fd) raise_error "Writing to file @(file_description(fd))"
 
@@ -2393,8 +2396,7 @@ $std::directory:
       unless entry.is_defined break
       case
 	filename_of(entry)
-	".", ".."
-	:
+	".", "..":
 	  pass
 	:
 	  push &entries entry
@@ -2710,9 +2712,12 @@ $std::load:
   )
   if
     filename .has_prefix. "http://":
-      if wget($buf "-q" "-O" "-" filename) (-> buf):
-	raise "
-	  Load error ("@(filename)@quot;)!@
+      if
+	wget($buf "-q" "-O" "-" filename)
+	-> buf
+	:
+	  raise "
+	    Load error ("@(filename)@quot;)!@
     :
       load_file filename
 

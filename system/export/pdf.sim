@@ -61,9 +61,26 @@ $character_width: (font chr)
       -> 2
       -> 1
 
-  case point_size_of(font) 8 (-> 1.28*f) 12 (-> 2*f) 16 (-> 2.8*f) 24 -> 3.85*f
+  case point_size_of(font)
+    8
+    -> 1.28*f
+    12
+    -> 2*f
+    16
+    -> 2.8*f
+    24
+    -> 3.85*f
 
-$factor_of: (font) case point_size_of(font) 8 (-> 2) 12 (-> 3) 16 (-> 4) 24 -> 6
+$factor_of: (font)
+  case point_size_of(font)
+    8
+    -> 2
+    12
+    -> 3
+    16
+    -> 4
+    24
+    -> 6
 
 $load_font: (_filename point_size)
   ->

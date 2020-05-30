@@ -1,0 +1,4 @@
+#!/usr/bin/env simple
+
+types::integer
+  .value_of reverse(arg)

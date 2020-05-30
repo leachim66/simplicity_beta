@@ -243,7 +243,10 @@ $std::truncate:
   )
   $text expr.to_string
   $len length_of(text)
-  if len < n (-> text) -> range(text 1 n)
+  if
+    len < n
+    -> text
+    -> range(text 1 n)
 
 $std::pad_or_truncate:
   #
@@ -260,7 +263,10 @@ $std::pad_or_truncate:
   )
   $text expr.to_string
   $len length_of(text)
-  if len < n (-> string(text dup(" " n-len))) -> range(text 1 n)
+  if
+    len < n
+    -> string(text dup(" " n-len))
+    -> range(text 1 n)
 
 $types::string/match_character:
   #
@@ -269,7 +275,10 @@ $types::string/match_character:
     self
     chr
   )
-  if length_of(self) > 0 && self(1) == chr (-> 1) -> undefined
+  if
+    length_of(self) > 0 && self(1) == chr
+    -> 1
+    -> undefined
 
 $types::string/grammar::match:
   #
@@ -1146,7 +1155,10 @@ $std::spaces:
   (
     n
   )
-  if n > 80 (-> dup(" " n)) -> range(eighty_spaces 1 n)
+  if
+    n > 80
+    -> dup(" " n)
+    -> range(eighty_spaces 1 n)
 
 $std::indented:
   #

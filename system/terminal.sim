@@ -541,10 +541,16 @@ $std::draw_line:
 
       $draw_vertical_line: (x y crossing)
 	$character_left:
-	  if x > 1 (-> current_screen.characters_of(y)(x-1)) -> ' '
+	  if
+	    x > 1
+	    -> current_screen.characters_of(y)(x-1)
+	    -> ' '
 
 	$character_right:
-	  if x < width (-> current_screen.characters_of(y)(x+1)) -> ' '
+	  if
+	    x < width
+	    -> current_screen.characters_of(y)(x+1)
+	    -> ' '
 
 	$prev_chr current_screen.characters_of(y)(x)
 	$$chr '@0x2502;'
@@ -625,10 +631,16 @@ $std::draw_line:
     -> min_y == max_y:
       $draw_horizontal_line: (x y crossing)
 	$character_above:
-	  if y > 1 (-> current_screen.characters_of(y-1)(x)) -> ' '
+	  if
+	    y > 1
+	    -> current_screen.characters_of(y-1)(x)
+	    -> ' '
 
 	$character_below:
-	  if y < height (-> current_screen.characters_of(y+1)(x)) -> ' '
+	  if
+	    y < height
+	    -> current_screen.characters_of(y+1)(x)
+	    -> ' '
 
 	$prev_chr current_screen.characters_of(y)(x)
 	$$chr '@0x2500;'

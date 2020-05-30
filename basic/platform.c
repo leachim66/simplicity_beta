@@ -311,16 +311,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__LDFLAGS_1, NULL, 120, 123, 3, 2},
   {entry__std__PREFIX_1, NULL, 139, 142, 3, 2},
   {entry__std__PACKAGE_VERSION_1, NULL, 156, 159, 3, 2},
-  {entry__std__current_directory_separator_5, NULL, 177, 177, 37, 42},
-  {entry__std__current_directory_separator_6, NULL, 177, 177, 45, 50},
-  {entry__std__current_directory_separator_1, NULL, 177, 177, 8, 25},
-  {cont__std__current_directory_separator_2, &frame__std__current_directory_separator_1, 177, 177, 8, 34},
-  {cont__std__current_directory_separator_4, &frame__std__current_directory_separator_1, 177, 177, 5, 50},
-  {entry__std__current_path_separator_4, NULL, 195, 195, 37, 42},
-  {entry__std__current_path_separator_5, NULL, 195, 195, 45, 50},
-  {entry__std__current_path_separator_1, NULL, 195, 195, 8, 25},
-  {cont__std__current_path_separator_2, &frame__std__current_path_separator_1, 195, 195, 8, 34},
-  {cont__std__current_path_separator_3, &frame__std__current_path_separator_1, 195, 195, 5, 50}
+  {entry__std__current_directory_separator_5, NULL, 179, 179, 7, 12},
+  {entry__std__current_directory_separator_6, NULL, 180, 180, 7, 12},
+  {entry__std__current_directory_separator_1, NULL, 178, 178, 7, 24},
+  {cont__std__current_directory_separator_2, &frame__std__current_directory_separator_1, 178, 178, 7, 33},
+  {cont__std__current_directory_separator_4, &frame__std__current_directory_separator_1, 177, 180, 5, 12},
+  {entry__std__current_path_separator_4, NULL, 200, 200, 7, 12},
+  {entry__std__current_path_separator_5, NULL, 201, 201, 7, 12},
+  {entry__std__current_path_separator_1, NULL, 199, 199, 7, 24},
+  {cont__std__current_path_separator_2, &frame__std__current_path_separator_1, 199, 199, 7, 33},
+  {cont__std__current_path_separator_3, &frame__std__current_path_separator_1, 198, 201, 5, 12}
 };
 
 union NODE {
@@ -484,7 +484,7 @@ static void entry__std__current_directory_separator_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 177: ... -> '\'
+  // 179: -> '\'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__92;
@@ -499,7 +499,7 @@ static void entry__std__current_directory_separator_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 177: ... -> '/'
+  // 180: -> '/'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__47;
@@ -514,7 +514,7 @@ static void entry__std__current_directory_separator_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 177: ... operating_system()
+  // 178: operating_system()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -528,7 +528,7 @@ static void cont__std__current_directory_separator_2(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 177: ... operating_system() == "win"
+  // 178: operating_system() == "win"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
@@ -544,7 +544,10 @@ static void cont__std__current_directory_separator_4(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 177: if operating_system() == "win" (-> '\') -> '/'
+  // 177: if
+  // 178:   operating_system() == "win"
+  // 179:   -> '\'
+  // 180:   -> '/'
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -562,7 +565,7 @@ static void entry__std__current_path_separator_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 195: ... -> ';'
+  // 200: -> ';'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__59;
@@ -577,7 +580,7 @@ static void entry__std__current_path_separator_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 195: ... -> ':'
+  // 201: -> ':'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__58;
@@ -592,7 +595,7 @@ static void entry__std__current_path_separator_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 195: ... operating_system()
+  // 199: operating_system()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
@@ -606,7 +609,7 @@ static void cont__std__current_path_separator_2(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 195: ... operating_system() == "win"
+  // 199: operating_system() == "win"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
@@ -622,7 +625,10 @@ static void cont__std__current_path_separator_3(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 195: if operating_system() == "win" (-> ';') -> ':'
+  // 198: if
+  // 199:   operating_system() == "win"
+  // 200:   -> ';'
+  // 201:   -> ':'
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;

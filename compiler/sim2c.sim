@@ -570,16 +570,13 @@ $compiler::sim2c:
       need name types::grammar_node(.variable_kind_of STATIC_SINGLE)
 
   show_compiler_debug_info "GENERATE DEFINITIONS"
-
   $$is_a_prototype empty_set
-
   for_each all_definitions: (defs)
     for_each defs: ($definition)
       if definition.is_a_key_value_pair:
 	!definition key_of(definition)
 	unless attribute_kind_of(definition) == NONE:
 	  !is_a_prototype(identifier_of(definition).to_string) true
-
   for_each all_definitions: (defs)
     %%compiler::actions empty_list
     %%compiler::delayed_code ""
@@ -614,7 +611,9 @@ $compiler::sim2c:
 		      :
 			define_type_function definition source
 		  :
-		    define_variable definition source
+		    define_variable
+		      definition
+		      source
 		      ||
 			identifier_of(definition).to_string.is_a_prototype
 			namespace_of(identifier_of(definition)).is_defined

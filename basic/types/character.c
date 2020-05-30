@@ -823,33 +823,33 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__types__character__to_upper_case_1, NULL, 335, 335, 5, 40},
   {cont__types__character__to_upper_case_2, &frame__types__character__to_upper_case_1, 334, 338, 3, 17},
   {cont__types__character__to_upper_case_6, &frame__types__character__to_upper_case_1, 338, 338, 17, 17},
-  {entry__std__is_a_vowel_3, NULL, 351, 351, 62, 68},
-  {entry__std__is_a_vowel_4, NULL, 351, 351, 71, 78},
-  {entry__std__is_a_vowel_1, NULL, 351, 351, 12, 59},
-  {cont__std__is_a_vowel_2, &frame__std__is_a_vowel_1, 351, 351, 3, 78},
-  {entry__types__character__serialize_10, NULL, 367, 367, 7, 22},
-  {cont__types__character__serialize_11, &frame__types__character__serialize_10, 367, 367, 7, 22},
-  {entry__types__character__serialize_8, NULL, 366, 366, 7, 22},
-  {cont__types__character__serialize_9, &frame__types__character__serialize_8, 367, 367, 7, 22},
+  {entry__std__is_a_vowel_3, NULL, 354, 354, 5, 11},
+  {entry__std__is_a_vowel_4, NULL, 355, 355, 5, 12},
+  {entry__std__is_a_vowel_1, NULL, 353, 353, 5, 52},
+  {cont__std__is_a_vowel_2, &frame__std__is_a_vowel_1, 351, 355, 3, 12},
+  {entry__types__character__serialize_10, NULL, 371, 371, 7, 22},
+  {cont__types__character__serialize_11, &frame__types__character__serialize_10, 371, 371, 7, 22},
+  {entry__types__character__serialize_8, NULL, 370, 370, 7, 22},
+  {cont__types__character__serialize_9, &frame__types__character__serialize_8, 371, 371, 7, 22},
   {cont__types__character__serialize_12, &frame__types__character__serialize_8, },
-  {entry__types__character__serialize_6, NULL, 365, 365, 7, 18},
+  {entry__types__character__serialize_6, NULL, 369, 369, 7, 18},
   {cont__types__character__serialize_7, &frame__types__character__serialize_6, },
   {cont__types__character__serialize_13, &frame__types__character__serialize_6, },
-  {entry__types__character__serialize_4, NULL, 364, 364, 7, 16},
+  {entry__types__character__serialize_4, NULL, 368, 368, 7, 16},
   {cont__types__character__serialize_5, &frame__types__character__serialize_4, },
   {cont__types__character__serialize_14, &frame__types__character__serialize_4, },
-  {entry__types__character__serialize_16, NULL, 369, 369, 37, 51},
-  {cont__types__character__serialize_17, &frame__types__character__serialize_16, 369, 369, 33, 52},
-  {cont__types__character__serialize_18, &frame__types__character__serialize_16, 369, 369, 19, 57},
-  {cont__types__character__serialize_20, &frame__types__character__serialize_16, 369, 369, 7, 57},
-  {cont__types__character__serialize_21, &frame__types__character__serialize_16, 369, 369, 57, 57},
-  {entry__types__character__serialize_22, NULL, 371, 371, 7, 20},
-  {cont__types__character__serialize_23, &frame__types__character__serialize_22, 371, 371, 20, 20},
-  {entry__types__character__serialize_1, NULL, 363, 363, 7, 16},
+  {entry__types__character__serialize_16, NULL, 373, 373, 37, 51},
+  {cont__types__character__serialize_17, &frame__types__character__serialize_16, 373, 373, 33, 52},
+  {cont__types__character__serialize_18, &frame__types__character__serialize_16, 373, 373, 19, 57},
+  {cont__types__character__serialize_20, &frame__types__character__serialize_16, 373, 373, 7, 57},
+  {cont__types__character__serialize_21, &frame__types__character__serialize_16, 373, 373, 57, 57},
+  {entry__types__character__serialize_22, NULL, 375, 375, 7, 20},
+  {cont__types__character__serialize_23, &frame__types__character__serialize_22, 375, 375, 20, 20},
+  {entry__types__character__serialize_1, NULL, 367, 367, 7, 16},
   {cont__types__character__serialize_3, &frame__types__character__serialize_1, },
-  {cont__types__character__serialize_15, &frame__types__character__serialize_1, 361, 371, 3, 21},
-  {cont__types__character__serialize_24, &frame__types__character__serialize_1, 372, 372, 6, 23},
-  {cont__types__character__serialize_25, &frame__types__character__serialize_1, 372, 372, 3, 23}
+  {cont__types__character__serialize_15, &frame__types__character__serialize_1, 365, 375, 3, 21},
+  {cont__types__character__serialize_24, &frame__types__character__serialize_1, 376, 376, 6, 23},
+  {cont__types__character__serialize_25, &frame__types__character__serialize_1, 376, 376, 3, 23}
 };
 
 union NODE {
@@ -3469,7 +3469,7 @@ static void entry__std__is_a_vowel_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 351: ... -> true
+  // 354: -> true
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__true();
@@ -3484,7 +3484,7 @@ static void entry__std__is_a_vowel_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 351: ... -> false
+  // 355: -> false
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__false();
@@ -3500,7 +3500,7 @@ static void entry__std__is_a_vowel_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 351: ... 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'
+  // 353: 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'
   argument_count = 10;
   arguments = node_p;
   arguments->slots[0] = character__97;
@@ -3524,7 +3524,11 @@ static void cont__std__is_a_vowel_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 351: case chr 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' (-> true) -> false
+  // 351: case
+  // 352:   chr
+  // 353:   'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'
+  // 354:   -> true
+  // 355:   -> false
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -3558,9 +3562,9 @@ static void entry__types__character__serialize_1(void) {
   switch(argument_count) {
     case 1: frame->slots[1] /* indent */ = undefined;
   }
-  // 360: $$buf "'"
+  // 364: $$buf "'"
   ((CELL *)frame->slots[2])->contents /* buf */ = string__578a5af303e9cc6;
-  // 363: self < ' '
+  // 367: self < ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3595,7 +3599,7 @@ static void entry__types__character__serialize_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 364: self > '~'
+  // 368: self > '~'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__126;
@@ -3630,7 +3634,7 @@ static void entry__types__character__serialize_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 365: self == '@@'
+  // 369: self == '@@'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3665,7 +3669,7 @@ static void entry__types__character__serialize_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 366: self == '@quot;'
+  // 370: self == '@quot;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3681,7 +3685,7 @@ static void cont__types__character__serialize_9(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 367: self == '@apos;'
+  // 371: self == '@apos;'
   frame->slots[3] /* temp__3 */ = create_closure(entry__types__character__serialize_10, 0);
   argument_count = 2;
   arguments = node_p;
@@ -3701,7 +3705,7 @@ static void entry__types__character__serialize_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 367: self == '@apos;'
+  // 371: self == '@apos;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -3717,7 +3721,7 @@ static void cont__types__character__serialize_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 367: self == '@apos;'
+  // 371: self == '@apos;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -3770,22 +3774,22 @@ static void cont__types__character__serialize_15(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 368: :
-  // 369:   append &buf string("@@0x" hex(self.to_integer) ';')
+  // 372: :
+  // 373:   append &buf string("@@0x" hex(self.to_integer) ';')
   frame->slots[6] /* temp__4 */ = create_closure(entry__types__character__serialize_16, 0);
-  // 370: :
-  // 371:   push &buf self
+  // 374: :
+  // 375:   push &buf self
   frame->slots[7] /* temp__5 */ = create_closure(entry__types__character__serialize_22, 0);
-  // 361: if
-  // 362:   ||
-  // 363:     self < ' '
-  // 364:     self > '~'
-  // 365:     self == '@@'
-  // 366:     self == '@quot;'
-  // 367:     self == '@apos;'
-  // 368:   :
-  // 369:     append &buf string("@@0x" hex(self.to_integer) ';')
-  // 370:   :
+  // 365: if
+  // 366:   ||
+  // 367:     self < ' '
+  // 368:     self > '~'
+  // 369:     self == '@@'
+  // 370:     self == '@quot;'
+  // 371:     self == '@apos;'
+  // 372:   :
+  // 373:     append &buf string("@@0x" hex(self.to_integer) ';')
+  // 374:   :
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -3808,7 +3812,7 @@ static void entry__types__character__serialize_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 369: ... self.to_integer
+  // 373: ... self.to_integer
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* self */;
@@ -3823,7 +3827,7 @@ static void cont__types__character__serialize_17(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 369: ... hex(self.to_integer)
+  // 373: ... hex(self.to_integer)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -3838,7 +3842,7 @@ static void cont__types__character__serialize_18(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 369: ... string("@@0x" hex(self.to_integer) ';')
+  // 373: ... string("@@0x" hex(self.to_integer) ';')
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__fa728415fa96bb4;
@@ -3855,7 +3859,7 @@ static void cont__types__character__serialize_20(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 369: append &buf string("@@0x" hex(self.to_integer) ';')
+  // 373: append &buf string("@@0x" hex(self.to_integer) ';')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -3888,7 +3892,7 @@ static void entry__types__character__serialize_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 371: push &buf self
+  // 375: push &buf self
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -3915,7 +3919,7 @@ static void cont__types__character__serialize_24(void) {
     invalid_results_error();
     return;
   }
-  // 372: ... push(buf '@apos;')
+  // 376: ... push(buf '@apos;')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* buf */;
@@ -3931,7 +3935,7 @@ static void cont__types__character__serialize_25(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 372: -> push(buf '@apos;')
+  // 376: -> push(buf '@apos;')
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;

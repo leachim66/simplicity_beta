@@ -225,7 +225,10 @@ $meta::parse_c_function_declaration:
 $to_type: (type node)
   $to_pointer_type: (pointer_type)
     $base_type trim(pointer_type .before. '*')
-    if base_type == "char" (-> "to_c_string") -> "to_@(base_type)_pointer"
+    if
+      base_type == "char"
+      -> "to_c_string"
+      -> "to_@(base_type)_pointer"
 
   $alias pointer_type_aliases(type)
 
@@ -242,7 +245,10 @@ $to_type: (type node)
 $from_type: (type var)
   $from_pointer_type: (pointer_type)
     $base_type trim(pointer_type .before. '*')
-    if base_type == "char" (-> "from_c_string") -> "from_@(base_type)_pointer"
+    if
+      base_type == "char"
+      -> "from_c_string"
+      -> "from_@(base_type)_pointer"
 
   $alias pointer_type_aliases(type)
 

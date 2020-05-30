@@ -135,15 +135,18 @@ $colour_to_index: (colour)
   $blue to_permille(blue_component_of(colour))
   $hash 1'000'000*red+1'000*green+blue
   $idx palette_colours(hash)
-  if idx.is_defined (-> idx):
-    $new_idx next_colour_idx
-    inc &next_colour_idx
+  if
+    idx.is_defined
+    -> idx
+    :
+      $new_idx next_colour_idx
+      inc &next_colour_idx
 
-    #ewriteln "init_color @(new_idx) @(red) @(green) @(blue)"
+      #ewriteln "init_color @(new_idx) @(red) @(green) @(blue)"
 
-    ignore init_color(new_idx red green blue)
-    !palette_colours(hash) new_idx
-    -> new_idx
+      ignore init_color(new_idx red green blue)
+      !palette_colours(hash) new_idx
+      -> new_idx
 
 $set_fg_on_bg: (fg_colour bg_colour)
   use_colours colour_to_index(fg_colour) colour_to_index(bg_colour)
@@ -587,7 +590,10 @@ $gui::handle_keyboard_input:
       KEY_F12
       -> F12
       :
-	if raw_key < 0x7f (-> character(raw_key)) -> undefined
+	if
+	  raw_key < 0x7f
+	  -> character(raw_key)
+	  -> undefined
 
   if key.is_defined:
     create_event types::event(.type_of KEY_PRESS .key_code_of key)
