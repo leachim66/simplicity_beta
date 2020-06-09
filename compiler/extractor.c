@@ -68,6 +68,38 @@ IMPORT long current_mark;
 typedef void (*FUNC)(void);
 typedef NODE *(*NODE_GETTER)(void);
 typedef void (*NODE_SETTER)(NODE *);
+typedef struct FRAME_INFO {
+  int var_count;
+  const char *var_names[];
+} FRAME_INFO;
+#if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
+  #define REGISTER register
+#else
+  #define REGISTER IMPORT
+#endif
+typedef struct FRAME {
+  FUNC cont;
+  struct FRAME *caller_frame;
+  long caller_result_count;
+  long slot_count;
+  NODE *slots[0];
+} FRAME;
+#if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
+  #define ASM(x) asm(x)
+#else
+  #define ASM(x)
+#endif
+REGISTER FRAME *arguments ASM("r12");
+typedef struct CONTINUATION_INFO {
+  FUNC continuation;
+  struct FRAME_INFO *frame_info;
+  uint16_t first_line;
+  uint16_t last_line;
+  uint8_t first_column;
+  uint8_t last_column;
+  uint8_t submodule_index;
+  uint8_t unused;
+} CONTINUATION_INFO;
 typedef void *COLLECTOR(void *);
 IMPORT uint32_t to_int8(NODE *node);
 IMPORT uint64_t to_int16(NODE *node);
@@ -118,43 +150,6 @@ typedef struct ATTRIBUTES {
   struct VTABLE *vtable;
   struct OCTREE *nodes[7];
 } ATTRIBUTES;
-typedef struct FUNCTION {
-  FUNC type;
-  struct ATTRIBUTES *attributes;
-  int parameter_count;
-} FUNCTION;
-typedef struct FRAME_INFO {
-  int var_count;
-  const char *var_names[];
-} FRAME_INFO;
-#if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
-  #define REGISTER register
-#else
-  #define REGISTER IMPORT
-#endif
-typedef struct FRAME {
-  FUNC cont;
-  struct FRAME *caller_frame;
-  long caller_result_count;
-  long slot_count;
-  NODE *slots[0];
-} FRAME;
-#if defined(__GNUC__) && !defined(__clang__) && defined(__x86_64)
-  #define ASM(x) asm(x)
-#else
-  #define ASM(x)
-#endif
-REGISTER FRAME *arguments ASM("r12");
-typedef struct CONTINUATION_INFO {
-  FUNC continuation;
-  struct FRAME_INFO *frame_info;
-  uint16_t first_line;
-  uint16_t last_line;
-  uint8_t first_column;
-  uint8_t last_column;
-  uint8_t submodule_index;
-  uint8_t unused;
-} CONTINUATION_INFO;
 typedef struct DYNAMICS {
   struct OCTREE *nodes[8];
 } DYNAMICS;
@@ -209,6 +204,11 @@ typedef struct CELL {
   NODE *contents;
 } CELL;
 IMPORT NODE *create_cell_with_contents(NODE *contents);
+typedef struct FUNCTION {
+  FUNC type;
+  struct ATTRIBUTES *attributes;
+  int parameter_count;
+} FUNCTION;
 IMPORT NODE *empty_string;
 IMPORT NODE *zero;
 IMPORT void too_many_arguments_error(void);
@@ -218,11 +218,10 @@ IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -246,7 +245,7 @@ IMPORT void use_read_write(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_SETTER *setter
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -646,34 +645,11 @@ static struct {
   NODE *_topics;
   NODE *_topics_paragraphs;
   NODE *_missing_documentation_count;
-  NODE *_FUNCTION;
-  NODE *_POLYMORPHIC_FUNCTION;
-  NODE *_POLYMORPHIC_ATTRIBUTE;
-  NODE *_INLINE_C_TYPE;
-  NODE *_INLINE_C_OBJECT;
-  NODE *_INLINE_C_FUNCTION;
-  NODE *_UNIQUE_ITEM;
-  NODE *_CONSTANT;
-  NODE *_OTHER;
   NODE *_PARAMETER_COUNT_OR_MYSELF;
   NODE *_path_prefix;
-  NODE *_create_page;
   NODE *_symbol_info;
-  NODE *_extract_remark_lines;
-  NODE *_extract_documentation_from_file;
-  NODE *_extract_documentation_from_directory;
-  NODE *_resolved_name;
-  NODE *_add_derived_type;
-  NODE *_mangled;
-  NODE *_ordered_name;
-  NODE *_link_bar;
   NODE *_TOPIC;
   NODE *_EXAMPLE;
-  NODE *_to_paragraphs;
-  NODE *_resolve_reference;
-  NODE *_add_links;
-  NODE *_create_info_page;
-  NODE *_get_short_description;
   NODE *compiler__extract_exports;
   NODE *compiler__extract_documentation;
 } var;
@@ -689,34 +665,11 @@ static const char *var_names[] = {
   "topics",
   "topics_paragraphs",
   "missing_documentation_count",
-  "FUNCTION",
-  "POLYMORPHIC_FUNCTION",
-  "POLYMORPHIC_ATTRIBUTE",
-  "INLINE_C_TYPE",
-  "INLINE_C_OBJECT",
-  "INLINE_C_FUNCTION",
-  "UNIQUE_ITEM",
-  "CONSTANT",
-  "OTHER",
   "PARAMETER_COUNT_OR_MYSELF",
   "path_prefix",
-  "create_page",
   "symbol_info",
-  "extract_remark_lines",
-  "extract_documentation_from_file",
-  "extract_documentation_from_directory",
-  "resolved_name",
-  "add_derived_type",
-  "mangled",
-  "ordered_name",
-  "link_bar",
   "TOPIC",
-  "EXAMPLE",
-  "to_paragraphs",
-  "resolve_reference",
-  "add_links",
-  "create_info_page",
-  "get_short_description"
+  "EXAMPLE"
 };
 static int poly_idx__filename_of;
 static void type__filename_of(void);
@@ -728,18 +681,9 @@ static int poly_idx__methods_of;
 static void type__methods_of(void);
 static int poly_idx__types_of;
 static void type__types_of(void);
-static NODE *unique__FUNCTION;
-static NODE *unique__POLYMORPHIC_FUNCTION;
-static NODE *unique__POLYMORPHIC_ATTRIBUTE;
-static NODE *unique__INLINE_C_TYPE;
-static NODE *unique__INLINE_C_OBJECT;
-static NODE *unique__INLINE_C_FUNCTION;
-static NODE *unique__UNIQUE_ITEM;
-static NODE *unique__CONSTANT;
-static NODE *unique__OTHER;
-static NODE *func__create_page_1;
-static void entry__create_page_1(void);
-static FRAME_INFO frame__create_page_1 = {3, {"filename", "body", "page"}};
+static NODE *func__create_page;
+static void entry__create_page(void);
+static FRAME_INFO frame__create_page = {3, {"filename", "body", "page"}};
 static NODE *func__create_page_2;
 static void entry__create_page_2(void);
 static FRAME_INFO frame__create_page_2 = {1, {"body"}};
@@ -752,9 +696,9 @@ static FRAME_INFO frame__create_page_4 = {0, {}};
 static NODE *string__38ea9d2e8a7087ec;
 static void cont__create_page_6(void);
 static void cont__create_page_7(void);
-static NODE *func__extract_remark_lines_1;
-static void entry__extract_remark_lines_1(void);
-static FRAME_INFO frame__extract_remark_lines_1 = {1, {"node"}};
+static NODE *func__extract_remark_lines;
+static void entry__extract_remark_lines(void);
+static FRAME_INFO frame__extract_remark_lines = {1, {"node"}};
 static void cont__extract_remark_lines_2(void);
 static void cont__extract_remark_lines_3(void);
 static void cont__extract_remark_lines_4(void);
@@ -795,9 +739,9 @@ static FRAME_INFO frame__extract_remark_lines_24 = {1, {"arguments"}};
 static void cont__extract_remark_lines_25(void);
 static void cont__extract_remark_lines_26(void);
 static void cont__extract_remark_lines_27(void);
-static NODE *func__extract_documentation_from_file_1;
-static void entry__extract_documentation_from_file_1(void);
-static FRAME_INFO frame__extract_documentation_from_file_1 = {7, {"filename", "return__1", "buf", "fragments", "trees", "first_idx", "local_method_names"}};
+static NODE *func__extract_documentation_from_file;
+static void entry__extract_documentation_from_file(void);
+static FRAME_INFO frame__extract_documentation_from_file = {7, {"filename", "return__1", "buf", "fragments", "trees", "first_idx", "local_method_names"}};
 static NODE *func__extract_documentation_from_file_2;
 static void entry__extract_documentation_from_file_2(void);
 static FRAME_INFO frame__extract_documentation_from_file_2 = {1, {"filename"}};
@@ -854,180 +798,174 @@ static void entry__extract_documentation_from_file_39(void);
 static FRAME_INFO frame__extract_documentation_from_file_39 = {4, {"first_idx", "idx", "fragment", "tree"}};
 static void cont__extract_documentation_from_file_40(void);
 static void cont__extract_documentation_from_file_41(void);
-static NODE *func__extract_documentation_from_file_42;
-static void entry__extract_documentation_from_file_42(void);
-static FRAME_INFO frame__extract_documentation_from_file_42 = {1, {"done"}};
-static NODE *func__extract_documentation_from_file_43;
-static void entry__extract_documentation_from_file_43(void);
-static FRAME_INFO frame__extract_documentation_from_file_43 = {0, {}};
+static void cont__extract_documentation_from_file_42(void);
+static void cont__extract_documentation_from_file_43(void);
 static void cont__extract_documentation_from_file_44(void);
 static void cont__extract_documentation_from_file_45(void);
-static void cont__extract_documentation_from_file_46(void);
+static NODE *func__extract_documentation_from_file_46;
+static void entry__extract_documentation_from_file_46(void);
+static FRAME_INFO frame__extract_documentation_from_file_46 = {2, {"fragment", "trees"}};
 static void cont__extract_documentation_from_file_47(void);
-static NODE *func__extract_documentation_from_file_48;
-static void entry__extract_documentation_from_file_48(void);
-static FRAME_INFO frame__extract_documentation_from_file_48 = {2, {"fragment", "trees"}};
+static void cont__extract_documentation_from_file_48(void);
 static void cont__extract_documentation_from_file_49(void);
 static void cont__extract_documentation_from_file_50(void);
-static void cont__extract_documentation_from_file_51(void);
-static void cont__extract_documentation_from_file_52(void);
-static NODE *func__extract_documentation_from_file_53;
-static void entry__extract_documentation_from_file_53(void);
-static FRAME_INFO frame__extract_documentation_from_file_53 = {0, {}};
+static NODE *func__extract_documentation_from_file_51;
+static void entry__extract_documentation_from_file_51(void);
+static FRAME_INFO frame__extract_documentation_from_file_51 = {0, {}};
 static NODE *string__fa724815d896ba8;
-static void cont__extract_documentation_from_file_55(void);
-static void cont__extract_documentation_from_file_56(void);
-static NODE *func__extract_documentation_from_file_57;
-static void entry__extract_documentation_from_file_57(void);
-static FRAME_INFO frame__extract_documentation_from_file_57 = {2, {"statement", "local_method_names"}};
+static void cont__extract_documentation_from_file_53(void);
+static void cont__extract_documentation_from_file_54(void);
+static NODE *func__extract_documentation_from_file_55;
+static void entry__extract_documentation_from_file_55(void);
+static FRAME_INFO frame__extract_documentation_from_file_55 = {2, {"statement", "local_method_names"}};
+static NODE *func__extract_documentation_from_file_56;
+static void entry__extract_documentation_from_file_56(void);
+static FRAME_INFO frame__extract_documentation_from_file_56 = {1, {"statement"}};
+static void cont__extract_documentation_from_file_57(void);
 static NODE *func__extract_documentation_from_file_58;
 static void entry__extract_documentation_from_file_58(void);
 static FRAME_INFO frame__extract_documentation_from_file_58 = {1, {"statement"}};
 static void cont__extract_documentation_from_file_59(void);
 static NODE *func__extract_documentation_from_file_60;
 static void entry__extract_documentation_from_file_60(void);
-static FRAME_INFO frame__extract_documentation_from_file_60 = {0, {}};
-static NODE *func__extract_documentation_from_file_61;
-static void entry__extract_documentation_from_file_61(void);
-static FRAME_INFO frame__extract_documentation_from_file_61 = {1, {"statement"}};
-static void cont__extract_documentation_from_file_62(void);
-static NODE *func__extract_documentation_from_file_63;
-static void entry__extract_documentation_from_file_63(void);
-static FRAME_INFO frame__extract_documentation_from_file_63 = {0, {}};
-static NODE *func__extract_documentation_from_file_64;
-static void entry__extract_documentation_from_file_64(void);
-static FRAME_INFO frame__extract_documentation_from_file_64 = {2, {"statement", "local_method_names"}};
+static FRAME_INFO frame__extract_documentation_from_file_60 = {2, {"statement", "local_method_names"}};
+static void cont__extract_documentation_from_file_61(void);
+static NODE *func__extract_documentation_from_file_62;
+static void entry__extract_documentation_from_file_62(void);
+static FRAME_INFO frame__extract_documentation_from_file_62 = {3, {"statement", "local_method_names", "destination"}};
+static void cont__extract_documentation_from_file_63(void);
+static void cont__extract_documentation_from_file_64(void);
 static void cont__extract_documentation_from_file_65(void);
 static NODE *func__extract_documentation_from_file_66;
 static void entry__extract_documentation_from_file_66(void);
-static FRAME_INFO frame__extract_documentation_from_file_66 = {3, {"statement", "local_method_names", "destination"}};
+static FRAME_INFO frame__extract_documentation_from_file_66 = {4, {"destination", "statement", "local_method_names", "identifier"}};
 static void cont__extract_documentation_from_file_67(void);
 static void cont__extract_documentation_from_file_68(void);
 static void cont__extract_documentation_from_file_69(void);
 static NODE *func__extract_documentation_from_file_70;
 static void entry__extract_documentation_from_file_70(void);
-static FRAME_INFO frame__extract_documentation_from_file_70 = {4, {"destination", "statement", "local_method_names", "identifier"}};
+static FRAME_INFO frame__extract_documentation_from_file_70 = {4, {"statement", "local_method_names", "destination", "source"}};
 static void cont__extract_documentation_from_file_71(void);
 static void cont__extract_documentation_from_file_72(void);
 static void cont__extract_documentation_from_file_73(void);
 static NODE *func__extract_documentation_from_file_74;
 static void entry__extract_documentation_from_file_74(void);
-static FRAME_INFO frame__extract_documentation_from_file_74 = {4, {"statement", "local_method_names", "destination", "source"}};
+static FRAME_INFO frame__extract_documentation_from_file_74 = {2, {"local_method_names", "destination"}};
 static void cont__extract_documentation_from_file_75(void);
 static void cont__extract_documentation_from_file_76(void);
 static void cont__extract_documentation_from_file_77(void);
-static NODE *func__extract_documentation_from_file_78;
-static void entry__extract_documentation_from_file_78(void);
-static FRAME_INFO frame__extract_documentation_from_file_78 = {2, {"local_method_names", "destination"}};
-static void cont__extract_documentation_from_file_79(void);
-static void cont__extract_documentation_from_file_80(void);
+static void cont__extract_documentation_from_file_78(void);
+static NODE *func__extract_documentation_from_file_79;
+static void entry__extract_documentation_from_file_79(void);
+static FRAME_INFO frame__extract_documentation_from_file_79 = {4, {"statement", "break", "filename", "local_method_names"}};
+static NODE *func__extract_documentation_from_file_80;
+static void entry__extract_documentation_from_file_80(void);
+static FRAME_INFO frame__extract_documentation_from_file_80 = {1, {"statement"}};
 static void cont__extract_documentation_from_file_81(void);
-static void cont__extract_documentation_from_file_82(void);
-static NODE *func__extract_documentation_from_file_83;
-static void entry__extract_documentation_from_file_83(void);
-static FRAME_INFO frame__extract_documentation_from_file_83 = {4, {"statement", "break", "filename", "local_method_names"}};
-static NODE *func__extract_documentation_from_file_84;
-static void entry__extract_documentation_from_file_84(void);
-static FRAME_INFO frame__extract_documentation_from_file_84 = {1, {"statement"}};
+static NODE *func__extract_documentation_from_file_82;
+static void entry__extract_documentation_from_file_82(void);
+static FRAME_INFO frame__extract_documentation_from_file_82 = {2, {"statement", "remark_lines"}};
+static void cont__extract_documentation_from_file_83(void);
+static NODE *string__781f541a81a2a2ed;
 static void cont__extract_documentation_from_file_85(void);
 static NODE *func__extract_documentation_from_file_86;
 static void entry__extract_documentation_from_file_86(void);
-static FRAME_INFO frame__extract_documentation_from_file_86 = {2, {"statement", "remark_lines"}};
+static FRAME_INFO frame__extract_documentation_from_file_86 = {2, {"remark_lines", "paragraphs"}};
 static void cont__extract_documentation_from_file_87(void);
-static NODE *string__781f541a81a2a2ed;
-static void cont__extract_documentation_from_file_89(void);
-static NODE *func__extract_documentation_from_file_90;
-static void entry__extract_documentation_from_file_90(void);
-static FRAME_INFO frame__extract_documentation_from_file_90 = {2, {"remark_lines", "paragraphs"}};
-static void cont__extract_documentation_from_file_91(void);
-static NODE *func__extract_documentation_from_file_92;
-static void entry__extract_documentation_from_file_92(void);
-static FRAME_INFO frame__extract_documentation_from_file_92 = {2, {"done", "paragraphs"}};
-static NODE *func__extract_documentation_from_file_93;
-static void entry__extract_documentation_from_file_93(void);
-static FRAME_INFO frame__extract_documentation_from_file_93 = {4, {"idx", "paragraph", "paragraphs", "done"}};
+static NODE *func__extract_documentation_from_file_88;
+static void entry__extract_documentation_from_file_88(void);
+static FRAME_INFO frame__extract_documentation_from_file_88 = {2, {"done", "paragraphs"}};
+static NODE *func__extract_documentation_from_file_89;
+static void entry__extract_documentation_from_file_89(void);
+static FRAME_INFO frame__extract_documentation_from_file_89 = {4, {"idx", "paragraph", "paragraphs", "done"}};
+static void cont__extract_documentation_from_file_90(void);
+static NODE *func__extract_documentation_from_file_91;
+static void entry__extract_documentation_from_file_91(void);
+static FRAME_INFO frame__extract_documentation_from_file_91 = {5, {"paragraph", "paragraphs", "idx", "done", "topic"}};
+static void cont__extract_documentation_from_file_92(void);
+static void cont__extract_documentation_from_file_93(void);
 static void cont__extract_documentation_from_file_94(void);
-static NODE *func__extract_documentation_from_file_95;
-static void entry__extract_documentation_from_file_95(void);
-static FRAME_INFO frame__extract_documentation_from_file_95 = {5, {"paragraph", "paragraphs", "idx", "done", "topic"}};
+static void cont__extract_documentation_from_file_95(void);
 static void cont__extract_documentation_from_file_96(void);
 static void cont__extract_documentation_from_file_97(void);
 static void cont__extract_documentation_from_file_98(void);
-static void cont__extract_documentation_from_file_99(void);
+static NODE *func__extract_documentation_from_file_99;
+static void entry__extract_documentation_from_file_99(void);
+static FRAME_INFO frame__extract_documentation_from_file_99 = {2, {"statement", "filename"}};
 static void cont__extract_documentation_from_file_100(void);
-static void cont__extract_documentation_from_file_101(void);
+static NODE *func__extract_documentation_from_file_101;
+static void entry__extract_documentation_from_file_101(void);
+static FRAME_INFO frame__extract_documentation_from_file_101 = {3, {"statement", "filename", "identifier"}};
 static void cont__extract_documentation_from_file_102(void);
-static NODE *func__extract_documentation_from_file_103;
-static void entry__extract_documentation_from_file_103(void);
-static FRAME_INFO frame__extract_documentation_from_file_103 = {2, {"statement", "filename"}};
-static void cont__extract_documentation_from_file_104(void);
-static NODE *func__extract_documentation_from_file_105;
-static void entry__extract_documentation_from_file_105(void);
-static FRAME_INFO frame__extract_documentation_from_file_105 = {3, {"statement", "filename", "identifier"}};
+static void cont__extract_documentation_from_file_103(void);
+static NODE *func__extract_documentation_from_file_104;
+static void entry__extract_documentation_from_file_104(void);
+static FRAME_INFO frame__extract_documentation_from_file_104 = {4, {"identifier", "statement", "filename", "namespace"}};
+static void cont__extract_documentation_from_file_105(void);
 static void cont__extract_documentation_from_file_106(void);
-static void cont__extract_documentation_from_file_107(void);
-static NODE *func__extract_documentation_from_file_108;
-static void entry__extract_documentation_from_file_108(void);
-static FRAME_INFO frame__extract_documentation_from_file_108 = {4, {"identifier", "statement", "filename", "namespace"}};
+static NODE *func__extract_documentation_from_file_107;
+static void entry__extract_documentation_from_file_107(void);
+static FRAME_INFO frame__extract_documentation_from_file_107 = {5, {"identifier", "statement", "namespace", "filename", "name"}};
+static void cont__extract_documentation_from_file_108(void);
 static void cont__extract_documentation_from_file_109(void);
-static void cont__extract_documentation_from_file_110(void);
-static NODE *func__extract_documentation_from_file_111;
-static void entry__extract_documentation_from_file_111(void);
-static FRAME_INFO frame__extract_documentation_from_file_111 = {5, {"identifier", "statement", "namespace", "filename", "name"}};
-static void cont__extract_documentation_from_file_112(void);
+static NODE *func__extract_documentation_from_file_110;
+static void entry__extract_documentation_from_file_110(void);
+static FRAME_INFO frame__extract_documentation_from_file_110 = {5, {"namespace", "statement", "name", "identifier", "filename"}};
+static void cont__extract_documentation_from_file_111(void);
+static NODE *func__extract_documentation_from_file_112;
+static void entry__extract_documentation_from_file_112(void);
+static FRAME_INFO frame__extract_documentation_from_file_112 = {6, {"statement", "namespace", "name", "identifier", "filename", "base"}};
 static void cont__extract_documentation_from_file_113(void);
-static NODE *func__extract_documentation_from_file_114;
-static void entry__extract_documentation_from_file_114(void);
-static FRAME_INFO frame__extract_documentation_from_file_114 = {5, {"namespace", "statement", "name", "identifier", "filename"}};
+static void cont__extract_documentation_from_file_114(void);
 static void cont__extract_documentation_from_file_115(void);
 static NODE *func__extract_documentation_from_file_116;
 static void entry__extract_documentation_from_file_116(void);
-static FRAME_INFO frame__extract_documentation_from_file_116 = {6, {"statement", "namespace", "name", "identifier", "filename", "base"}};
+static FRAME_INFO frame__extract_documentation_from_file_116 = {1, {"base"}};
 static void cont__extract_documentation_from_file_117(void);
-static void cont__extract_documentation_from_file_118(void);
+static NODE *func__extract_documentation_from_file_118;
+static void entry__extract_documentation_from_file_118(void);
+static FRAME_INFO frame__extract_documentation_from_file_118 = {0, {}};
 static void cont__extract_documentation_from_file_119(void);
-static NODE *func__extract_documentation_from_file_120;
-static void entry__extract_documentation_from_file_120(void);
-static FRAME_INFO frame__extract_documentation_from_file_120 = {1, {"base"}};
+static void cont__extract_documentation_from_file_120(void);
+static NODE *unique__INLINE_C_TYPE;
 static void cont__extract_documentation_from_file_121(void);
-static NODE *func__extract_documentation_from_file_122;
-static void entry__extract_documentation_from_file_122(void);
-static FRAME_INFO frame__extract_documentation_from_file_122 = {0, {}};
-static void cont__extract_documentation_from_file_123(void);
+static void cont__extract_documentation_from_file_122(void);
+static NODE *func__extract_documentation_from_file_123;
+static void entry__extract_documentation_from_file_123(void);
+static FRAME_INFO frame__extract_documentation_from_file_123 = {5, {"namespace", "name", "identifier", "statement", "filename"}};
 static void cont__extract_documentation_from_file_124(void);
 static void cont__extract_documentation_from_file_125(void);
+static NODE *unique__INLINE_C_OBJECT;
 static void cont__extract_documentation_from_file_126(void);
-static NODE *func__extract_documentation_from_file_127;
-static void entry__extract_documentation_from_file_127(void);
-static FRAME_INFO frame__extract_documentation_from_file_127 = {5, {"namespace", "name", "identifier", "statement", "filename"}};
-static void cont__extract_documentation_from_file_128(void);
-static void cont__extract_documentation_from_file_129(void);
-static void cont__extract_documentation_from_file_130(void);
-static void cont__extract_documentation_from_file_131(void);
+static void cont__extract_documentation_from_file_127(void);
 static NODE *string__2a0aef0b5de07d5c;
 static NODE *string__4c1f570701a272a3;
-static NODE *func__extract_documentation_from_file_134;
-static void entry__extract_documentation_from_file_134(void);
-static FRAME_INFO frame__extract_documentation_from_file_134 = {4, {"statement", "filename", "break", "local_method_names"}};
+static NODE *func__extract_documentation_from_file_130;
+static void entry__extract_documentation_from_file_130(void);
+static FRAME_INFO frame__extract_documentation_from_file_130 = {4, {"statement", "filename", "break", "local_method_names"}};
+static void cont__extract_documentation_from_file_131(void);
+static NODE *func__extract_documentation_from_file_132;
+static void entry__extract_documentation_from_file_132(void);
+static FRAME_INFO frame__extract_documentation_from_file_132 = {6, {"statement", "filename", "break", "local_method_names", "destination", "info"}};
+static void cont__extract_documentation_from_file_133(void);
+static void cont__extract_documentation_from_file_134(void);
 static void cont__extract_documentation_from_file_135(void);
 static NODE *func__extract_documentation_from_file_136;
 static void entry__extract_documentation_from_file_136(void);
-static FRAME_INFO frame__extract_documentation_from_file_136 = {6, {"statement", "filename", "break", "local_method_names", "destination", "info"}};
+static FRAME_INFO frame__extract_documentation_from_file_136 = {7, {"destination", "info", "statement", "break", "local_method_names", "identifier", "namespace"}};
 static void cont__extract_documentation_from_file_137(void);
 static void cont__extract_documentation_from_file_138(void);
 static void cont__extract_documentation_from_file_139(void);
 static NODE *func__extract_documentation_from_file_140;
 static void entry__extract_documentation_from_file_140(void);
-static FRAME_INFO frame__extract_documentation_from_file_140 = {7, {"destination", "info", "statement", "break", "local_method_names", "identifier", "namespace"}};
-static void cont__extract_documentation_from_file_141(void);
+static FRAME_INFO frame__extract_documentation_from_file_140 = {11, {"identifier", "namespace", "info", "destination", "statement", "break", "local_method_names", "name", "iname", "is_not_a_remark", "source"}};
+static NODE *func__extract_documentation_from_file_141;
+static void entry__extract_documentation_from_file_141(void);
+static FRAME_INFO frame__extract_documentation_from_file_141 = {1, {"node"}};
 static void cont__extract_documentation_from_file_142(void);
 static void cont__extract_documentation_from_file_143(void);
-static NODE *func__extract_documentation_from_file_144;
-static void entry__extract_documentation_from_file_144(void);
-static FRAME_INFO frame__extract_documentation_from_file_144 = {11, {"identifier", "namespace", "info", "destination", "statement", "break", "local_method_names", "name", "iname", "is_not_a_remark", "source"}};
-static NODE *func__extract_documentation_from_file_145;
-static void entry__extract_documentation_from_file_145(void);
-static FRAME_INFO frame__extract_documentation_from_file_145 = {1, {"node"}};
+static void cont__extract_documentation_from_file_144(void);
+static void cont__extract_documentation_from_file_145(void);
 static void cont__extract_documentation_from_file_146(void);
 static void cont__extract_documentation_from_file_147(void);
 static void cont__extract_documentation_from_file_148(void);
@@ -1035,125 +973,127 @@ static void cont__extract_documentation_from_file_149(void);
 static void cont__extract_documentation_from_file_150(void);
 static void cont__extract_documentation_from_file_151(void);
 static void cont__extract_documentation_from_file_152(void);
-static void cont__extract_documentation_from_file_153(void);
+static NODE *func__extract_documentation_from_file_153;
+static void entry__extract_documentation_from_file_153(void);
+static FRAME_INFO frame__extract_documentation_from_file_153 = {6, {"source", "name", "namespace", "iname", "info", "break"}};
 static void cont__extract_documentation_from_file_154(void);
-static void cont__extract_documentation_from_file_155(void);
+static NODE *func__extract_documentation_from_file_155;
+static void entry__extract_documentation_from_file_155(void);
+static FRAME_INFO frame__extract_documentation_from_file_155 = {6, {"name", "namespace", "iname", "info", "source", "break"}};
 static void cont__extract_documentation_from_file_156(void);
-static NODE *func__extract_documentation_from_file_157;
-static void entry__extract_documentation_from_file_157(void);
-static FRAME_INFO frame__extract_documentation_from_file_157 = {6, {"source", "name", "namespace", "iname", "info", "break"}};
-static void cont__extract_documentation_from_file_158(void);
+static void cont__extract_documentation_from_file_157(void);
+static NODE *func__extract_documentation_from_file_158;
+static void entry__extract_documentation_from_file_158(void);
+static FRAME_INFO frame__extract_documentation_from_file_158 = {0, {}};
+static NODE *unique__POLYMORPHIC_ATTRIBUTE;
 static NODE *func__extract_documentation_from_file_159;
 static void entry__extract_documentation_from_file_159(void);
-static FRAME_INFO frame__extract_documentation_from_file_159 = {6, {"name", "namespace", "iname", "info", "source", "break"}};
+static FRAME_INFO frame__extract_documentation_from_file_159 = {0, {}};
+static NODE *unique__POLYMORPHIC_FUNCTION;
 static void cont__extract_documentation_from_file_160(void);
 static void cont__extract_documentation_from_file_161(void);
 static NODE *func__extract_documentation_from_file_162;
 static void entry__extract_documentation_from_file_162(void);
-static FRAME_INFO frame__extract_documentation_from_file_162 = {0, {}};
-static NODE *func__extract_documentation_from_file_163;
-static void entry__extract_documentation_from_file_163(void);
-static FRAME_INFO frame__extract_documentation_from_file_163 = {0, {}};
-static void cont__extract_documentation_from_file_164(void);
+static FRAME_INFO frame__extract_documentation_from_file_162 = {3, {"source", "info", "statement"}};
+static void cont__extract_documentation_from_file_163(void);
+static NODE *func__extract_documentation_from_file_164;
+static void entry__extract_documentation_from_file_164(void);
+static FRAME_INFO frame__extract_documentation_from_file_164 = {3, {"info", "source", "statement"}};
 static void cont__extract_documentation_from_file_165(void);
-static NODE *func__extract_documentation_from_file_166;
-static void entry__extract_documentation_from_file_166(void);
-static FRAME_INFO frame__extract_documentation_from_file_166 = {3, {"source", "info", "statement"}};
-static void cont__extract_documentation_from_file_167(void);
+static void cont__extract_documentation_from_file_166(void);
+static NODE *string__f7c371b7c3c668a7;
+static NODE *unique__FUNCTION;
 static NODE *func__extract_documentation_from_file_168;
 static void entry__extract_documentation_from_file_168(void);
-static FRAME_INFO frame__extract_documentation_from_file_168 = {3, {"info", "source", "statement"}};
+static FRAME_INFO frame__extract_documentation_from_file_168 = {2, {"source", "info"}};
 static void cont__extract_documentation_from_file_169(void);
-static void cont__extract_documentation_from_file_170(void);
-static NODE *string__f7c371b7c3c668a7;
-static NODE *func__extract_documentation_from_file_172;
-static void entry__extract_documentation_from_file_172(void);
-static FRAME_INFO frame__extract_documentation_from_file_172 = {2, {"source", "info"}};
-static void cont__extract_documentation_from_file_173(void);
-static NODE *func__extract_documentation_from_file_174;
-static void entry__extract_documentation_from_file_174(void);
-static FRAME_INFO frame__extract_documentation_from_file_174 = {1, {"info"}};
-static NODE *func__extract_documentation_from_file_175;
-static void entry__extract_documentation_from_file_175(void);
-static FRAME_INFO frame__extract_documentation_from_file_175 = {2, {"source", "info"}};
-static void cont__extract_documentation_from_file_176(void);
-static NODE *func__extract_documentation_from_file_177;
-static void entry__extract_documentation_from_file_177(void);
-static FRAME_INFO frame__extract_documentation_from_file_177 = {2, {"source", "info"}};
-static void cont__extract_documentation_from_file_178(void);
+static NODE *func__extract_documentation_from_file_170;
+static void entry__extract_documentation_from_file_170(void);
+static FRAME_INFO frame__extract_documentation_from_file_170 = {1, {"info"}};
+static NODE *unique__INLINE_C_FUNCTION;
+static NODE *func__extract_documentation_from_file_171;
+static void entry__extract_documentation_from_file_171(void);
+static FRAME_INFO frame__extract_documentation_from_file_171 = {2, {"source", "info"}};
+static void cont__extract_documentation_from_file_172(void);
+static NODE *func__extract_documentation_from_file_173;
+static void entry__extract_documentation_from_file_173(void);
+static FRAME_INFO frame__extract_documentation_from_file_173 = {2, {"source", "info"}};
+static void cont__extract_documentation_from_file_174(void);
+static void cont__extract_documentation_from_file_175(void);
+static NODE *func__extract_documentation_from_file_176;
+static void entry__extract_documentation_from_file_176(void);
+static FRAME_INFO frame__extract_documentation_from_file_176 = {2, {"info", "source"}};
+static void cont__extract_documentation_from_file_177(void);
+static NODE *func__extract_documentation_from_file_178;
+static void entry__extract_documentation_from_file_178(void);
+static FRAME_INFO frame__extract_documentation_from_file_178 = {4, {"source", "iname", "info", "break"}};
 static void cont__extract_documentation_from_file_179(void);
 static NODE *func__extract_documentation_from_file_180;
 static void entry__extract_documentation_from_file_180(void);
-static FRAME_INFO frame__extract_documentation_from_file_180 = {2, {"info", "source"}};
+static FRAME_INFO frame__extract_documentation_from_file_180 = {3, {"iname", "info", "break"}};
+static NODE *unique__UNIQUE_ITEM;
 static void cont__extract_documentation_from_file_181(void);
 static NODE *func__extract_documentation_from_file_182;
 static void entry__extract_documentation_from_file_182(void);
-static FRAME_INFO frame__extract_documentation_from_file_182 = {4, {"source", "iname", "info", "break"}};
+static FRAME_INFO frame__extract_documentation_from_file_182 = {2, {"source", "info"}};
 static void cont__extract_documentation_from_file_183(void);
 static NODE *func__extract_documentation_from_file_184;
 static void entry__extract_documentation_from_file_184(void);
-static FRAME_INFO frame__extract_documentation_from_file_184 = {3, {"iname", "info", "break"}};
+static FRAME_INFO frame__extract_documentation_from_file_184 = {1, {"info"}};
+static NODE *unique__CONSTANT;
 static void cont__extract_documentation_from_file_185(void);
-static NODE *func__extract_documentation_from_file_186;
-static void entry__extract_documentation_from_file_186(void);
-static FRAME_INFO frame__extract_documentation_from_file_186 = {2, {"source", "info"}};
-static void cont__extract_documentation_from_file_187(void);
-static NODE *func__extract_documentation_from_file_188;
-static void entry__extract_documentation_from_file_188(void);
-static FRAME_INFO frame__extract_documentation_from_file_188 = {1, {"info"}};
+static void cont__extract_documentation_from_file_186(void);
+static NODE *func__extract_documentation_from_file_187;
+static void entry__extract_documentation_from_file_187(void);
+static FRAME_INFO frame__extract_documentation_from_file_187 = {3, {"iname", "info", "previous_definition"}};
+static void cont__extract_documentation_from_file_188(void);
 static void cont__extract_documentation_from_file_189(void);
-static void cont__extract_documentation_from_file_190(void);
-static NODE *func__extract_documentation_from_file_191;
-static void entry__extract_documentation_from_file_191(void);
-static FRAME_INFO frame__extract_documentation_from_file_191 = {3, {"iname", "info", "previous_definition"}};
+static NODE *func__extract_documentation_from_file_190;
+static void entry__extract_documentation_from_file_190(void);
+static FRAME_INFO frame__extract_documentation_from_file_190 = {2, {"previous_definition", "info"}};
+static void cont__extract_documentation_from_file_191(void);
 static void cont__extract_documentation_from_file_192(void);
-static void cont__extract_documentation_from_file_193(void);
-static NODE *func__extract_documentation_from_file_194;
-static void entry__extract_documentation_from_file_194(void);
-static FRAME_INFO frame__extract_documentation_from_file_194 = {2, {"previous_definition", "info"}};
+static NODE *func__extract_documentation_from_file_193;
+static void entry__extract_documentation_from_file_193(void);
+static FRAME_INFO frame__extract_documentation_from_file_193 = {2, {"info", "previous_definition"}};
+static void cont__extract_documentation_from_file_194(void);
 static void cont__extract_documentation_from_file_195(void);
 static void cont__extract_documentation_from_file_196(void);
-static NODE *func__extract_documentation_from_file_197;
-static void entry__extract_documentation_from_file_197(void);
-static FRAME_INFO frame__extract_documentation_from_file_197 = {2, {"info", "previous_definition"}};
+static void cont__extract_documentation_from_file_197(void);
 static void cont__extract_documentation_from_file_198(void);
 static void cont__extract_documentation_from_file_199(void);
-static void cont__extract_documentation_from_file_200(void);
+static NODE *func__extract_documentation_from_file_200;
+static void entry__extract_documentation_from_file_200(void);
+static FRAME_INFO frame__extract_documentation_from_file_200 = {6, {"destination", "iname", "local_method_names", "info", "attr", "type"}};
 static void cont__extract_documentation_from_file_201(void);
 static void cont__extract_documentation_from_file_202(void);
 static void cont__extract_documentation_from_file_203(void);
-static NODE *func__extract_documentation_from_file_204;
-static void entry__extract_documentation_from_file_204(void);
-static FRAME_INFO frame__extract_documentation_from_file_204 = {6, {"destination", "iname", "local_method_names", "info", "attr", "type"}};
+static void cont__extract_documentation_from_file_204(void);
 static void cont__extract_documentation_from_file_205(void);
-static void cont__extract_documentation_from_file_206(void);
+static NODE *func__extract_documentation_from_file_206;
+static void entry__extract_documentation_from_file_206(void);
+static FRAME_INFO frame__extract_documentation_from_file_206 = {5, {"attr", "local_method_names", "iname", "info", "attr_name"}};
 static void cont__extract_documentation_from_file_207(void);
 static void cont__extract_documentation_from_file_208(void);
-static void cont__extract_documentation_from_file_209(void);
-static NODE *func__extract_documentation_from_file_210;
-static void entry__extract_documentation_from_file_210(void);
-static FRAME_INFO frame__extract_documentation_from_file_210 = {5, {"attr", "local_method_names", "iname", "info", "attr_name"}};
+static NODE *func__extract_documentation_from_file_209;
+static void entry__extract_documentation_from_file_209(void);
+static FRAME_INFO frame__extract_documentation_from_file_209 = {5, {"attr", "iname", "attr_name", "info", "definition"}};
+static void cont__extract_documentation_from_file_210(void);
 static void cont__extract_documentation_from_file_211(void);
-static void cont__extract_documentation_from_file_212(void);
-static NODE *func__extract_documentation_from_file_213;
-static void entry__extract_documentation_from_file_213(void);
-static FRAME_INFO frame__extract_documentation_from_file_213 = {5, {"attr", "iname", "attr_name", "info", "definition"}};
+static NODE *func__extract_documentation_from_file_212;
+static void entry__extract_documentation_from_file_212(void);
+static FRAME_INFO frame__extract_documentation_from_file_212 = {1, {"attr"}};
+static void cont__extract_documentation_from_file_213(void);
 static void cont__extract_documentation_from_file_214(void);
 static void cont__extract_documentation_from_file_215(void);
-static NODE *func__extract_documentation_from_file_216;
-static void entry__extract_documentation_from_file_216(void);
-static FRAME_INFO frame__extract_documentation_from_file_216 = {1, {"attr"}};
+static void cont__extract_documentation_from_file_216(void);
 static void cont__extract_documentation_from_file_217(void);
 static void cont__extract_documentation_from_file_218(void);
 static void cont__extract_documentation_from_file_219(void);
 static void cont__extract_documentation_from_file_220(void);
-static void cont__extract_documentation_from_file_221(void);
-static void cont__extract_documentation_from_file_222(void);
-static void cont__extract_documentation_from_file_223(void);
-static void cont__extract_documentation_from_file_224(void);
-static NODE *func__extract_documentation_from_directory_1;
-static void entry__extract_documentation_from_directory_1(void);
-static FRAME_INFO frame__extract_documentation_from_directory_1 = {1, {"path"}};
+static NODE *func__extract_documentation_from_directory;
+static void entry__extract_documentation_from_directory(void);
+static FRAME_INFO frame__extract_documentation_from_directory = {1, {"path"}};
 static void cont__extract_documentation_from_directory_2(void);
 static void cont__extract_documentation_from_directory_3(void);
 static NODE *func__extract_documentation_from_directory_4;
@@ -1174,9 +1114,9 @@ static void cont__extract_documentation_from_directory_10(void);
 static NODE *func__extract_documentation_from_directory_11;
 static void entry__extract_documentation_from_directory_11(void);
 static FRAME_INFO frame__extract_documentation_from_directory_11 = {1, {"name"}};
-static NODE *func__resolved_name_1;
-static void entry__resolved_name_1(void);
-static FRAME_INFO frame__resolved_name_1 = {2, {"attr", "name"}};
+static NODE *func__resolved_name;
+static void entry__resolved_name(void);
+static FRAME_INFO frame__resolved_name = {2, {"attr", "name"}};
 static void cont__resolved_name_2(void);
 static void cont__resolved_name_3(void);
 static void cont__resolved_name_4(void);
@@ -1213,9 +1153,9 @@ static void cont__resolved_name_22(void);
 static void cont__resolved_name_23(void);
 static NODE *string__2d7981f4e6d82bff;
 static void cont__resolved_name_25(void);
-static NODE *func__add_derived_type_1;
-static void entry__add_derived_type_1(void);
-static FRAME_INFO frame__add_derived_type_1 = {4, {"base", "name", "ibase", "definition"}};
+static NODE *func__add_derived_type;
+static void entry__add_derived_type(void);
+static FRAME_INFO frame__add_derived_type = {4, {"base", "name", "ibase", "definition"}};
 static void cont__add_derived_type_2(void);
 static void cont__add_derived_type_3(void);
 static void cont__add_derived_type_4(void);
@@ -1238,22 +1178,22 @@ static void entry__add_derived_type_15(void);
 static FRAME_INFO frame__add_derived_type_15 = {2, {"base_of_base", "ibase"}};
 static void cont__add_derived_type_16(void);
 static void cont__add_derived_type_17(void);
-static NODE *func__mangled_1;
-static void entry__mangled_1(void);
-static FRAME_INFO frame__mangled_1 = {1, {"name"}};
+static NODE *func__mangled;
+static void entry__mangled(void);
+static FRAME_INFO frame__mangled = {1, {"name"}};
 static void cont__mangled_2(void);
 static NODE *string__fa72f815cd16b93;
 static void cont__mangled_4(void);
 static void cont__mangled_5(void);
-static NODE *func__ordered_name_1;
-static void entry__ordered_name_1(void);
-static FRAME_INFO frame__ordered_name_1 = {2, {"namespace", "name"}};
+static NODE *func__ordered_name;
+static void entry__ordered_name(void);
+static FRAME_INFO frame__ordered_name = {2, {"namespace", "name"}};
 static void cont__ordered_name_2(void);
 static void cont__ordered_name_3(void);
 static void cont__ordered_name_4(void);
-static NODE *func__link_bar_1;
-static void entry__link_bar_1(void);
-static FRAME_INFO frame__link_bar_1 = {0, {}};
+static NODE *func__link_bar;
+static void entry__link_bar(void);
+static FRAME_INFO frame__link_bar = {0, {}};
 static NODE *func__link_bar_2;
 static void entry__link_bar_2(void);
 static FRAME_INFO frame__link_bar_2 = {0, {}};
@@ -1282,9 +1222,9 @@ static void cont__link_bar_24(void);
 static NODE *string__b982567928221cc5;
 static void cont__link_bar_26(void);
 static NODE *string__5691f96d534696f2;
-static NODE *func__to_paragraphs_1;
-static void entry__to_paragraphs_1(void);
-static FRAME_INFO frame__to_paragraphs_1 = {4, {"lines", "paragraphs", "text", "pre_mode"}};
+static NODE *func__to_paragraphs;
+static void entry__to_paragraphs(void);
+static FRAME_INFO frame__to_paragraphs = {4, {"lines", "paragraphs", "text", "pre_mode"}};
 static NODE *func__to_paragraphs_2;
 static void entry__to_paragraphs_2(void);
 static FRAME_INFO frame__to_paragraphs_2 = {4, {"line", "pre_mode", "text", "paragraphs"}};
@@ -1340,9 +1280,9 @@ static void entry__to_paragraphs_30(void);
 static FRAME_INFO frame__to_paragraphs_30 = {2, {"paragraphs", "text"}};
 static void cont__to_paragraphs_31(void);
 static void cont__to_paragraphs_32(void);
-static NODE *func__resolve_reference_1;
-static void entry__resolve_reference_1(void);
-static FRAME_INFO frame__resolve_reference_1 = {1, {"reference"}};
+static NODE *func__resolve_reference;
+static void entry__resolve_reference(void);
+static FRAME_INFO frame__resolve_reference = {1, {"reference"}};
 static void cont__resolve_reference_2(void);
 static NODE *func__resolve_reference_3;
 static void entry__resolve_reference_3(void);
@@ -1373,9 +1313,9 @@ static void entry__resolve_reference_19(void);
 static FRAME_INFO frame__resolve_reference_19 = {1, {"reference"}};
 static void cont__resolve_reference_20(void);
 static void cont__resolve_reference_21(void);
-static NODE *func__add_links_1;
-static void entry__add_links_1(void);
-static FRAME_INFO frame__add_links_1 = {1, {"paragraph"}};
+static NODE *func__add_links;
+static void entry__add_links(void);
+static FRAME_INFO frame__add_links = {1, {"paragraph"}};
 static void cont__add_links_2(void);
 static void cont__add_links_3(void);
 static void cont__add_links_4(void);
@@ -1392,9 +1332,9 @@ static NODE *string__701f552781dad2fe;
 static void cont__add_links_13(void);
 static void cont__add_links_14(void);
 static void cont__add_links_15(void);
-static NODE *func__create_info_page_1;
-static void entry__create_info_page_1(void);
-static FRAME_INFO frame__create_info_page_1 = {3, {"function_name", "info", "resolve_and_check_reference"}};
+static NODE *func__create_info_page;
+static void entry__create_info_page(void);
+static FRAME_INFO frame__create_info_page = {3, {"function_name", "info", "resolve_and_check_reference"}};
 static NODE *func__create_info_page_2;
 static void entry__create_info_page_2(void);
 static FRAME_INFO frame__create_info_page_2 = {3, {"reference", "function_name", "info"}};
@@ -1724,172 +1664,170 @@ static FRAME_INFO frame__create_info_page_213 = {0, {}};
 static void cont__create_info_page_214(void);
 static void cont__create_info_page_215(void);
 static void cont__create_info_page_216(void);
-static NODE *func__create_info_page_217;
-static void entry__create_info_page_217(void);
-static FRAME_INFO frame__create_info_page_217 = {0, {}};
+static void cont__create_info_page_217(void);
 static void cont__create_info_page_218(void);
-static void cont__create_info_page_219(void);
-static NODE *func__create_info_page_220;
-static void entry__create_info_page_220(void);
-static FRAME_INFO frame__create_info_page_220 = {1, {"short_description"}};
+static NODE *func__create_info_page_219;
+static void entry__create_info_page_219(void);
+static FRAME_INFO frame__create_info_page_219 = {1, {"short_description"}};
+static void cont__create_info_page_220(void);
 static void cont__create_info_page_221(void);
-static void cont__create_info_page_222(void);
-static NODE *func__create_info_page_223;
-static void entry__create_info_page_223(void);
-static FRAME_INFO frame__create_info_page_223 = {1, {"parameters"}};
+static NODE *func__create_info_page_222;
+static void entry__create_info_page_222(void);
+static FRAME_INFO frame__create_info_page_222 = {1, {"parameters"}};
 static NODE *string__1d61915d27bb27b2;
-static void cont__create_info_page_225(void);
+static void cont__create_info_page_224(void);
+static NODE *func__create_info_page_225;
+static void entry__create_info_page_225(void);
+static FRAME_INFO frame__create_info_page_225 = {1, {"parameters"}};
 static NODE *func__create_info_page_226;
 static void entry__create_info_page_226(void);
-static FRAME_INFO frame__create_info_page_226 = {1, {"parameters"}};
-static NODE *func__create_info_page_227;
-static void entry__create_info_page_227(void);
-static FRAME_INFO frame__create_info_page_227 = {1, {"parameter"}};
+static FRAME_INFO frame__create_info_page_226 = {1, {"parameter"}};
+static void cont__create_info_page_227(void);
 static void cont__create_info_page_228(void);
-static void cont__create_info_page_229(void);
-static NODE *func__create_info_page_230;
-static void entry__create_info_page_230(void);
-static FRAME_INFO frame__create_info_page_230 = {1, {"parameter"}};
+static NODE *func__create_info_page_229;
+static void entry__create_info_page_229(void);
+static FRAME_INFO frame__create_info_page_229 = {1, {"parameter"}};
+static void cont__create_info_page_230(void);
 static void cont__create_info_page_231(void);
 static void cont__create_info_page_232(void);
-static void cont__create_info_page_233(void);
-static NODE *func__create_info_page_234;
-static void entry__create_info_page_234(void);
-static FRAME_INFO frame__create_info_page_234 = {1, {"return_values"}};
-static void cont__create_info_page_235(void);
+static NODE *func__create_info_page_233;
+static void entry__create_info_page_233(void);
+static FRAME_INFO frame__create_info_page_233 = {1, {"return_values"}};
+static void cont__create_info_page_234(void);
+static NODE *func__create_info_page_235;
+static void entry__create_info_page_235(void);
+static FRAME_INFO frame__create_info_page_235 = {1, {"return_values"}};
 static NODE *func__create_info_page_236;
 static void entry__create_info_page_236(void);
-static FRAME_INFO frame__create_info_page_236 = {1, {"return_values"}};
-static NODE *func__create_info_page_237;
-static void entry__create_info_page_237(void);
-static FRAME_INFO frame__create_info_page_237 = {1, {"return_value"}};
+static FRAME_INFO frame__create_info_page_236 = {1, {"return_value"}};
+static void cont__create_info_page_237(void);
 static void cont__create_info_page_238(void);
-static void cont__create_info_page_239(void);
-static NODE *func__create_info_page_240;
-static void entry__create_info_page_240(void);
-static FRAME_INFO frame__create_info_page_240 = {1, {"return_value"}};
+static NODE *func__create_info_page_239;
+static void entry__create_info_page_239(void);
+static FRAME_INFO frame__create_info_page_239 = {1, {"return_value"}};
+static void cont__create_info_page_240(void);
 static void cont__create_info_page_241(void);
 static void cont__create_info_page_242(void);
-static void cont__create_info_page_243(void);
-static NODE *func__create_info_page_244;
-static void entry__create_info_page_244(void);
-static FRAME_INFO frame__create_info_page_244 = {1, {"descriptions"}};
+static NODE *func__create_info_page_243;
+static void entry__create_info_page_243(void);
+static FRAME_INFO frame__create_info_page_243 = {1, {"descriptions"}};
 static NODE *string__a8951b1f3c70ab27;
-static void cont__create_info_page_246(void);
-static NODE *func__create_info_page_247;
-static void entry__create_info_page_247(void);
-static FRAME_INFO frame__create_info_page_247 = {1, {"description"}};
+static void cont__create_info_page_245(void);
+static NODE *func__create_info_page_246;
+static void entry__create_info_page_246(void);
+static FRAME_INFO frame__create_info_page_246 = {1, {"description"}};
+static void cont__create_info_page_247(void);
 static void cont__create_info_page_248(void);
-static void cont__create_info_page_249(void);
-static NODE *func__create_info_page_250;
-static void entry__create_info_page_250(void);
-static FRAME_INFO frame__create_info_page_250 = {1, {"technical_details"}};
+static NODE *func__create_info_page_249;
+static void entry__create_info_page_249(void);
+static FRAME_INFO frame__create_info_page_249 = {1, {"technical_details"}};
 static NODE *string__aba611e6ea1bf855;
-static void cont__create_info_page_252(void);
-static NODE *func__create_info_page_253;
-static void entry__create_info_page_253(void);
-static FRAME_INFO frame__create_info_page_253 = {1, {"detail"}};
+static void cont__create_info_page_251(void);
+static NODE *func__create_info_page_252;
+static void entry__create_info_page_252(void);
+static FRAME_INFO frame__create_info_page_252 = {1, {"detail"}};
+static void cont__create_info_page_253(void);
 static void cont__create_info_page_254(void);
-static void cont__create_info_page_255(void);
-static NODE *func__create_info_page_256;
-static void entry__create_info_page_256(void);
-static FRAME_INFO frame__create_info_page_256 = {2, {"references", "resolve_and_check_reference"}};
+static NODE *func__create_info_page_255;
+static void entry__create_info_page_255(void);
+static FRAME_INFO frame__create_info_page_255 = {2, {"references", "resolve_and_check_reference"}};
 static NODE *string__6c80aed48449962f;
-static void cont__create_info_page_258(void);
+static void cont__create_info_page_257(void);
+static NODE *func__create_info_page_258;
+static void entry__create_info_page_258(void);
+static FRAME_INFO frame__create_info_page_258 = {2, {"references", "resolve_and_check_reference"}};
 static NODE *func__create_info_page_259;
 static void entry__create_info_page_259(void);
-static FRAME_INFO frame__create_info_page_259 = {2, {"references", "resolve_and_check_reference"}};
-static NODE *func__create_info_page_260;
-static void entry__create_info_page_260(void);
-static FRAME_INFO frame__create_info_page_260 = {2, {"reference", "resolve_and_check_reference"}};
-static void cont__create_info_page_261(void);
+static FRAME_INFO frame__create_info_page_259 = {2, {"reference", "resolve_and_check_reference"}};
+static void cont__create_info_page_260(void);
+static NODE *func__create_info_page_261;
+static void entry__create_info_page_261(void);
+static FRAME_INFO frame__create_info_page_261 = {1, {"reference"}};
 static NODE *func__create_info_page_262;
 static void entry__create_info_page_262(void);
 static FRAME_INFO frame__create_info_page_262 = {1, {"reference"}};
-static NODE *func__create_info_page_263;
-static void entry__create_info_page_263(void);
-static FRAME_INFO frame__create_info_page_263 = {1, {"reference"}};
+static void cont__create_info_page_263(void);
 static void cont__create_info_page_264(void);
 static void cont__create_info_page_265(void);
 static void cont__create_info_page_266(void);
-static void cont__create_info_page_267(void);
 static NODE *string__5c1f52a3813ab2ec;
+static void cont__create_info_page_268(void);
 static void cont__create_info_page_269(void);
 static void cont__create_info_page_270(void);
 static void cont__create_info_page_271(void);
 static void cont__create_info_page_272(void);
-static void cont__create_info_page_273(void);
-static NODE *func__create_info_page_274;
-static void entry__create_info_page_274(void);
-static FRAME_INFO frame__create_info_page_274 = {2, {"info", "function_name"}};
+static NODE *func__create_info_page_273;
+static void entry__create_info_page_273(void);
+static FRAME_INFO frame__create_info_page_273 = {2, {"info", "function_name"}};
 static NODE *string__9db99ab8b96e438c;
-static void cont__create_info_page_276(void);
-static NODE *func__create_info_page_277;
-static void entry__create_info_page_277(void);
-static FRAME_INFO frame__create_info_page_277 = {2, {"info", "function_name"}};
-static void cont__create_info_page_278(void);
-static NODE *func__create_info_page_279;
-static void entry__create_info_page_279(void);
-static FRAME_INFO frame__create_info_page_279 = {3, {"name", "function_name", "method"}};
-static void cont__create_info_page_280(void);
+static void cont__create_info_page_275(void);
+static NODE *func__create_info_page_276;
+static void entry__create_info_page_276(void);
+static FRAME_INFO frame__create_info_page_276 = {2, {"info", "function_name"}};
+static void cont__create_info_page_277(void);
+static NODE *func__create_info_page_278;
+static void entry__create_info_page_278(void);
+static FRAME_INFO frame__create_info_page_278 = {3, {"name", "function_name", "method"}};
+static void cont__create_info_page_279(void);
+static NODE *func__create_info_page_280;
+static void entry__create_info_page_280(void);
+static FRAME_INFO frame__create_info_page_280 = {2, {"name", "method"}};
 static NODE *func__create_info_page_281;
 static void entry__create_info_page_281(void);
-static FRAME_INFO frame__create_info_page_281 = {2, {"name", "method"}};
-static NODE *func__create_info_page_282;
-static void entry__create_info_page_282(void);
-static FRAME_INFO frame__create_info_page_282 = {1, {"name"}};
+static FRAME_INFO frame__create_info_page_281 = {1, {"name"}};
+static void cont__create_info_page_282(void);
 static void cont__create_info_page_283(void);
 static void cont__create_info_page_284(void);
 static void cont__create_info_page_285(void);
-static void cont__create_info_page_286(void);
 static NODE *string__664d2661efdaf349;
-static void cont__create_info_page_288(void);
-static NODE *func__create_info_page_289;
-static void entry__create_info_page_289(void);
-static FRAME_INFO frame__create_info_page_289 = {1, {"method"}};
+static void cont__create_info_page_287(void);
+static NODE *func__create_info_page_288;
+static void entry__create_info_page_288(void);
+static FRAME_INFO frame__create_info_page_288 = {1, {"method"}};
+static void cont__create_info_page_289(void);
 static void cont__create_info_page_290(void);
 static void cont__create_info_page_291(void);
 static void cont__create_info_page_292(void);
 static void cont__create_info_page_293(void);
-static void cont__create_info_page_294(void);
-static NODE *func__create_info_page_295;
-static void entry__create_info_page_295(void);
-static FRAME_INFO frame__create_info_page_295 = {2, {"function_name", "polymorphic_function_name"}};
-static void cont__create_info_page_296(void);
+static NODE *func__create_info_page_294;
+static void entry__create_info_page_294(void);
+static FRAME_INFO frame__create_info_page_294 = {2, {"function_name", "polymorphic_function_name"}};
+static void cont__create_info_page_295(void);
 static NODE *string__3f555b992b8ba7f2;
+static void cont__create_info_page_297(void);
 static void cont__create_info_page_298(void);
 static void cont__create_info_page_299(void);
 static void cont__create_info_page_300(void);
 static void cont__create_info_page_301(void);
 static void cont__create_info_page_302(void);
 static void cont__create_info_page_303(void);
-static void cont__create_info_page_304(void);
-static NODE *func__create_info_page_305;
-static void entry__create_info_page_305(void);
-static FRAME_INFO frame__create_info_page_305 = {2, {"info", "function_name"}};
+static NODE *func__create_info_page_304;
+static void entry__create_info_page_304(void);
+static FRAME_INFO frame__create_info_page_304 = {2, {"info", "function_name"}};
 static NODE *string__ef7adaf915740b94;
-static void cont__create_info_page_307(void);
-static NODE *func__create_info_page_308;
-static void entry__create_info_page_308(void);
-static FRAME_INFO frame__create_info_page_308 = {2, {"info", "function_name"}};
-static void cont__create_info_page_309(void);
+static void cont__create_info_page_306(void);
+static NODE *func__create_info_page_307;
+static void entry__create_info_page_307(void);
+static FRAME_INFO frame__create_info_page_307 = {2, {"info", "function_name"}};
+static void cont__create_info_page_308(void);
+static NODE *func__create_info_page_309;
+static void entry__create_info_page_309(void);
+static FRAME_INFO frame__create_info_page_309 = {3, {"method_name", "method_info", "function_name"}};
 static NODE *func__create_info_page_310;
 static void entry__create_info_page_310(void);
-static FRAME_INFO frame__create_info_page_310 = {3, {"method_name", "method_info", "function_name"}};
+static FRAME_INFO frame__create_info_page_310 = {2, {"method_name", "function_name"}};
 static NODE *func__create_info_page_311;
 static void entry__create_info_page_311(void);
-static FRAME_INFO frame__create_info_page_311 = {2, {"method_name", "function_name"}};
-static NODE *func__create_info_page_312;
-static void entry__create_info_page_312(void);
-static FRAME_INFO frame__create_info_page_312 = {1, {"method_name"}};
+static FRAME_INFO frame__create_info_page_311 = {1, {"method_name"}};
+static void cont__create_info_page_312(void);
 static void cont__create_info_page_313(void);
 static void cont__create_info_page_314(void);
 static void cont__create_info_page_315(void);
 static void cont__create_info_page_316(void);
-static void cont__create_info_page_317(void);
-static NODE *func__create_info_page_318;
-static void entry__create_info_page_318(void);
-static FRAME_INFO frame__create_info_page_318 = {2, {"function_name", "method_name"}};
+static NODE *func__create_info_page_317;
+static void entry__create_info_page_317(void);
+static FRAME_INFO frame__create_info_page_317 = {2, {"function_name", "method_name"}};
+static void cont__create_info_page_318(void);
 static void cont__create_info_page_319(void);
 static void cont__create_info_page_320(void);
 static void cont__create_info_page_321(void);
@@ -1897,67 +1835,66 @@ static void cont__create_info_page_322(void);
 static void cont__create_info_page_323(void);
 static void cont__create_info_page_324(void);
 static void cont__create_info_page_325(void);
-static void cont__create_info_page_326(void);
-static NODE *func__create_info_page_327;
-static void entry__create_info_page_327(void);
-static FRAME_INFO frame__create_info_page_327 = {1, {"topic_list"}};
+static NODE *func__create_info_page_326;
+static void entry__create_info_page_326(void);
+static FRAME_INFO frame__create_info_page_326 = {1, {"topic_list"}};
 static NODE *string__781f541a81a2a2a4;
-static void cont__create_info_page_329(void);
+static void cont__create_info_page_328(void);
+static NODE *func__create_info_page_329;
+static void entry__create_info_page_329(void);
+static FRAME_INFO frame__create_info_page_329 = {1, {"topic_list"}};
 static NODE *func__create_info_page_330;
 static void entry__create_info_page_330(void);
-static FRAME_INFO frame__create_info_page_330 = {1, {"topic_list"}};
-static NODE *func__create_info_page_331;
-static void entry__create_info_page_331(void);
-static FRAME_INFO frame__create_info_page_331 = {2, {"topic", "filename"}};
-static void cont__create_info_page_332(void);
+static FRAME_INFO frame__create_info_page_330 = {2, {"topic", "filename"}};
+static void cont__create_info_page_331(void);
 static NODE *string__578a5af303e9cbe;
+static void cont__create_info_page_333(void);
 static void cont__create_info_page_334(void);
 static void cont__create_info_page_335(void);
-static void cont__create_info_page_336(void);
+static NODE *func__create_info_page_336;
+static void entry__create_info_page_336(void);
+static FRAME_INFO frame__create_info_page_336 = {2, {"filename", "topic"}};
 static NODE *func__create_info_page_337;
 static void entry__create_info_page_337(void);
 static FRAME_INFO frame__create_info_page_337 = {2, {"filename", "topic"}};
-static NODE *func__create_info_page_338;
-static void entry__create_info_page_338(void);
-static FRAME_INFO frame__create_info_page_338 = {2, {"filename", "topic"}};
+static void cont__create_info_page_338(void);
 static void cont__create_info_page_339(void);
-static void cont__create_info_page_340(void);
-static NODE *func__create_info_page_341;
-static void entry__create_info_page_341(void);
-static FRAME_INFO frame__create_info_page_341 = {4, {"example", "function_basename", "title", "text"}};
+static NODE *func__create_info_page_340;
+static void entry__create_info_page_340(void);
+static FRAME_INFO frame__create_info_page_340 = {4, {"example", "function_basename", "title", "text"}};
+static void cont__create_info_page_341(void);
 static void cont__create_info_page_342(void);
 static void cont__create_info_page_343(void);
 static void cont__create_info_page_344(void);
 static void cont__create_info_page_345(void);
-static void cont__create_info_page_346(void);
 static NODE *string__525aeb43ea502024;
-static void cont__create_info_page_348(void);
-static NODE *func__create_info_page_349;
-static void entry__create_info_page_349(void);
-static FRAME_INFO frame__create_info_page_349 = {2, {"text", "function_basename"}};
+static void cont__create_info_page_347(void);
+static NODE *func__create_info_page_348;
+static void entry__create_info_page_348(void);
+static FRAME_INFO frame__create_info_page_348 = {2, {"text", "function_basename"}};
+static void cont__create_info_page_349(void);
 static void cont__create_info_page_350(void);
 static void cont__create_info_page_351(void);
 static void cont__create_info_page_352(void);
-static void cont__create_info_page_353(void);
-static NODE *func__create_info_page_354;
-static void entry__create_info_page_354(void);
-static FRAME_INFO frame__create_info_page_354 = {1, {"string_literal"}};
-static void cont__create_info_page_355(void);
+static NODE *func__create_info_page_353;
+static void entry__create_info_page_353(void);
+static FRAME_INFO frame__create_info_page_353 = {1, {"string_literal"}};
+static void cont__create_info_page_354(void);
 static NODE *string__2d7981f4e6582bef;
+static void cont__create_info_page_356(void);
 static void cont__create_info_page_357(void);
 static void cont__create_info_page_358(void);
 static void cont__create_info_page_359(void);
-static void cont__create_info_page_360(void);
 static NODE *string__461f53438192a2a5;
+static void cont__create_info_page_361(void);
 static void cont__create_info_page_362(void);
 static void cont__create_info_page_363(void);
-static void cont__create_info_page_364(void);
 static NODE *string__ae5520fdce447e8;
 static NODE *string__2d7981f4e6402bcf;
-static void cont__create_info_page_367(void);
-static NODE *func__get_short_description_1;
-static void entry__get_short_description_1(void);
-static FRAME_INFO frame__get_short_description_1 = {4, {"name", "info", "remark_lines", "short_description"}};
+static void cont__create_info_page_366(void);
+static NODE *func__get_short_description;
+static void entry__get_short_description(void);
+static FRAME_INFO frame__get_short_description = {4, {"name", "info", "remark_lines", "short_description"}};
 static void cont__get_short_description_2(void);
 static void cont__get_short_description_3(void);
 static NODE *func__get_short_description_4;
@@ -1997,9 +1934,9 @@ static NODE *string__578a5af303e9ceb;
 static void cont__get_short_description_26(void);
 static void cont__get_short_description_27(void);
 static void cont__get_short_description_28(void);
-static NODE *func__compiler__extract_exports_1;
-static void entry__compiler__extract_exports_1(void);
-static FRAME_INFO frame__compiler__extract_exports_1 = {1, {"paths"}};
+static NODE *func__compiler__extract_exports;
+static void entry__compiler__extract_exports(void);
+static FRAME_INFO frame__compiler__extract_exports = {1, {"paths"}};
 static void cont__compiler__extract_exports_2(void);
 static void cont__compiler__extract_exports_3(void);
 static void cont__compiler__extract_exports_4(void);
@@ -2043,6 +1980,7 @@ static NODE *func__compiler__extract_exports_23;
 static void entry__compiler__extract_exports_23(void);
 static FRAME_INFO frame__compiler__extract_exports_23 = {0, {}};
 static NODE *string__2d7981f4e6482bec;
+static NODE *unique__OTHER;
 static NODE *func__compiler__extract_exports_25;
 static void entry__compiler__extract_exports_25(void);
 static FRAME_INFO frame__compiler__extract_exports_25 = {0, {}};
@@ -2059,9 +1997,9 @@ static void cont__compiler__extract_exports_33(void);
 static NODE *get__compiler__extract_exports(void) {
   return var.compiler__extract_exports;
 }
-static NODE *func__compiler__extract_documentation_1;
-static void entry__compiler__extract_documentation_1(void);
-static FRAME_INFO frame__compiler__extract_documentation_1 = {1, {"paths"}};
+static NODE *func__compiler__extract_documentation;
+static void entry__compiler__extract_documentation(void);
+static FRAME_INFO frame__compiler__extract_documentation = {1, {"paths"}};
 static void cont__compiler__extract_documentation_2(void);
 static void cont__compiler__extract_documentation_3(void);
 static void cont__compiler__extract_documentation_4(void);
@@ -2597,8 +2535,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__create_page_3, NULL, 73, 152, 7, 12},
   {cont__create_page_6, &frame__create_page_3, 153, 153, 7, 15},
   {entry__create_page_2, NULL, 72, 153, 5, 15},
-  {entry__create_page_1, NULL, 71, 153, 3, 16},
-  {cont__create_page_7, &frame__create_page_1, 154, 154, 3, 20},
+  {entry__create_page, NULL, 71, 153, 3, 16},
+  {cont__create_page_7, &frame__create_page, 154, 154, 3, 20},
   {entry__extract_remark_lines_5, NULL, 168, 168, 44, 61},
   {cont__extract_remark_lines_6, &frame__extract_remark_lines_5, 168, 168, 44, 70},
   {cont__extract_remark_lines_7, &frame__extract_remark_lines_5, 168, 168, 44, 70},
@@ -2621,11 +2559,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__extract_remark_lines_18, &frame__extract_remark_lines_11, 180, 180, 13, 58},
   {cont__extract_remark_lines_19, &frame__extract_remark_lines_11, 180, 180, 9, 59},
   {cont__extract_remark_lines_20, &frame__extract_remark_lines_11, 179, 182, 7, 41},
-  {entry__extract_remark_lines_1, NULL, 168, 168, 9, 29},
-  {cont__extract_remark_lines_2, &frame__extract_remark_lines_1, 168, 168, 9, 38},
-  {cont__extract_remark_lines_3, &frame__extract_remark_lines_1, 168, 168, 5, 39},
-  {cont__extract_remark_lines_4, &frame__extract_remark_lines_1, 168, 168, 5, 70},
-  {cont__extract_remark_lines_8, &frame__extract_remark_lines_1, 167, 182, 3, 43},
+  {entry__extract_remark_lines, NULL, 168, 168, 9, 29},
+  {cont__extract_remark_lines_2, &frame__extract_remark_lines, 168, 168, 9, 38},
+  {cont__extract_remark_lines_3, &frame__extract_remark_lines, 168, 168, 5, 39},
+  {cont__extract_remark_lines_4, &frame__extract_remark_lines, 168, 168, 5, 70},
+  {cont__extract_remark_lines_8, &frame__extract_remark_lines, 167, 182, 3, 43},
   {entry__extract_documentation_from_file_2, NULL, 185, 185, 24, 66},
   {cont__extract_documentation_from_file_4, &frame__extract_documentation_from_file_2, 185, 185, 15, 66},
   {entry__extract_documentation_from_file_10, NULL, 187, 187, 27, 52},
@@ -2636,209 +2574,205 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__extract_documentation_from_file_39, NULL, 213, 213, 11, 26},
   {cont__extract_documentation_from_file_40, &frame__extract_documentation_from_file_39, 214, 214, 11, 48},
   {cont__extract_documentation_from_file_41, &frame__extract_documentation_from_file_39, 214, 214, 48, 48},
-  {entry__extract_documentation_from_file_42, NULL, 216, 216, 11, 14},
-  {entry__extract_documentation_from_file_43, NULL, 211, 211, 11, 14},
   {entry__extract_documentation_from_file_36, NULL, 209, 209, 12, 30},
   {cont__extract_documentation_from_file_37, &frame__extract_documentation_from_file_36, 209, 209, 12, 33},
   {cont__extract_documentation_from_file_38, &frame__extract_documentation_from_file_36, 209, 216, 7, 15},
   {entry__extract_documentation_from_file_35, NULL, 208, 216, 5, 16},
-  {cont__extract_documentation_from_file_44, &frame__extract_documentation_from_file_35, 216, 216, 16, 16},
-  {entry__extract_documentation_from_file_48, NULL, 218, 218, 46, 70},
-  {cont__extract_documentation_from_file_49, &frame__extract_documentation_from_file_48, 218, 218, 34, 70},
-  {cont__extract_documentation_from_file_50, &frame__extract_documentation_from_file_48, 218, 218, 70, 70},
-  {entry__extract_documentation_from_file_53, NULL, 219, 219, 32, 54},
-  {cont__extract_documentation_from_file_55, &frame__extract_documentation_from_file_53, 219, 219, 59, 59},
-  {entry__extract_documentation_from_file_60, NULL, 223, 223, 33, 36},
-  {entry__extract_documentation_from_file_58, NULL, 223, 223, 10, 30},
-  {cont__extract_documentation_from_file_59, &frame__extract_documentation_from_file_58, 223, 223, 7, 36},
-  {entry__extract_documentation_from_file_63, NULL, 224, 224, 31, 34},
-  {entry__extract_documentation_from_file_61, NULL, 224, 224, 10, 28},
-  {cont__extract_documentation_from_file_62, &frame__extract_documentation_from_file_61, 224, 224, 7, 34},
-  {entry__extract_documentation_from_file_78, NULL, 232, 232, 43, 68},
-  {cont__extract_documentation_from_file_79, &frame__extract_documentation_from_file_78, 232, 232, 35, 69},
-  {cont__extract_documentation_from_file_80, &frame__extract_documentation_from_file_78, 232, 232, 15, 70},
-  {cont__extract_documentation_from_file_81, &frame__extract_documentation_from_file_78, 232, 232, 75, 75},
-  {entry__extract_documentation_from_file_74, NULL, 230, 230, 21, 43},
-  {cont__extract_documentation_from_file_75, &frame__extract_documentation_from_file_74, 230, 230, 13, 46},
-  {cont__extract_documentation_from_file_76, &frame__extract_documentation_from_file_74, 231, 231, 16, 56},
-  {cont__extract_documentation_from_file_77, &frame__extract_documentation_from_file_74, 231, 232, 13, 75},
-  {entry__extract_documentation_from_file_70, NULL, 228, 228, 11, 48},
-  {cont__extract_documentation_from_file_71, &frame__extract_documentation_from_file_70, 229, 229, 18, 41},
-  {cont__extract_documentation_from_file_72, &frame__extract_documentation_from_file_70, 229, 229, 18, 52},
-  {cont__extract_documentation_from_file_73, &frame__extract_documentation_from_file_70, 229, 232, 11, 76},
-  {entry__extract_documentation_from_file_66, NULL, 226, 226, 22, 44},
-  {cont__extract_documentation_from_file_67, &frame__extract_documentation_from_file_66, 226, 226, 9, 47},
-  {cont__extract_documentation_from_file_68, &frame__extract_documentation_from_file_66, 227, 227, 12, 38},
-  {cont__extract_documentation_from_file_69, &frame__extract_documentation_from_file_66, 227, 232, 9, 77},
-  {entry__extract_documentation_from_file_64, NULL, 225, 225, 10, 35},
-  {cont__extract_documentation_from_file_65, &frame__extract_documentation_from_file_64, 225, 232, 7, 78},
-  {entry__extract_documentation_from_file_57, NULL, 222, 232, 5, 79},
-  {entry__extract_documentation_from_file_95, NULL, 246, 246, 29, 55},
-  {cont__extract_documentation_from_file_96, &frame__extract_documentation_from_file_95, 246, 246, 17, 56},
-  {cont__extract_documentation_from_file_97, &frame__extract_documentation_from_file_95, 247, 247, 60, 64},
-  {cont__extract_documentation_from_file_98, &frame__extract_documentation_from_file_95, 247, 247, 67, 67},
-  {cont__extract_documentation_from_file_99, &frame__extract_documentation_from_file_95, 247, 247, 17, 68},
-  {cont__extract_documentation_from_file_100, &frame__extract_documentation_from_file_95, 247, 247, 17, 41},
-  {cont__extract_documentation_from_file_101, &frame__extract_documentation_from_file_95, 248, 248, 17, 20},
-  {entry__extract_documentation_from_file_93, NULL, 245, 245, 18, 48},
-  {cont__extract_documentation_from_file_94, &frame__extract_documentation_from_file_93, 245, 248, 15, 20},
-  {entry__extract_documentation_from_file_92, NULL, 244, 248, 13, 21},
-  {cont__extract_documentation_from_file_102, &frame__extract_documentation_from_file_92, 248, 248, 21, 21},
-  {entry__extract_documentation_from_file_90, NULL, 242, 242, 11, 48},
-  {cont__extract_documentation_from_file_91, &frame__extract_documentation_from_file_90, 243, 248, 11, 22},
-  {entry__extract_documentation_from_file_86, NULL, 240, 240, 9, 48},
-  {cont__extract_documentation_from_file_87, &frame__extract_documentation_from_file_86, 241, 241, 12, 51},
-  {cont__extract_documentation_from_file_89, &frame__extract_documentation_from_file_86, 241, 248, 9, 23},
-  {entry__extract_documentation_from_file_84, NULL, 239, 239, 10, 30},
-  {cont__extract_documentation_from_file_85, &frame__extract_documentation_from_file_84, 239, 248, 7, 24},
-  {entry__extract_documentation_from_file_120, NULL, 266, 266, 30, 43},
-  {cont__extract_documentation_from_file_121, &frame__extract_documentation_from_file_120, 266, 266, 27, 43},
-  {entry__extract_documentation_from_file_122, NULL, 267, 267, 27, 38},
-  {entry__extract_documentation_from_file_116, NULL, 258, 258, 19, 42},
-  {cont__extract_documentation_from_file_117, &frame__extract_documentation_from_file_116, 262, 262, 32, 51},
-  {cont__extract_documentation_from_file_118, &frame__extract_documentation_from_file_116, 265, 265, 27, 41},
-  {cont__extract_documentation_from_file_119, &frame__extract_documentation_from_file_116, 266, 266, 27, 43},
-  {cont__extract_documentation_from_file_123, &frame__extract_documentation_from_file_116, 268, 268, 40, 65},
-  {cont__extract_documentation_from_file_124, &frame__extract_documentation_from_file_116, 259, 259, 32, 59},
-  {cont__extract_documentation_from_file_125, &frame__extract_documentation_from_file_116, 259, 259, 19, 60},
-  {cont__extract_documentation_from_file_126, &frame__extract_documentation_from_file_116, 269, 269, 45, 45},
-  {entry__extract_documentation_from_file_114, NULL, 257, 257, 20, 39},
-  {cont__extract_documentation_from_file_115, &frame__extract_documentation_from_file_114, 257, 269, 17, 45},
-  {entry__extract_documentation_from_file_127, NULL, 274, 274, 30, 49},
-  {cont__extract_documentation_from_file_128, &frame__extract_documentation_from_file_127, 275, 275, 38, 63},
-  {cont__extract_documentation_from_file_129, &frame__extract_documentation_from_file_127, 271, 271, 30, 57},
-  {cont__extract_documentation_from_file_130, &frame__extract_documentation_from_file_127, 271, 271, 17, 58},
-  {cont__extract_documentation_from_file_131, &frame__extract_documentation_from_file_127, 276, 276, 43, 43},
-  {entry__extract_documentation_from_file_111, NULL, 254, 254, 13, 37},
-  {cont__extract_documentation_from_file_112, &frame__extract_documentation_from_file_111, 255, 255, 18, 35},
-  {cont__extract_documentation_from_file_113, &frame__extract_documentation_from_file_111, 255, 276, 13, 44},
-  {entry__extract_documentation_from_file_108, NULL, 252, 252, 11, 45},
-  {cont__extract_documentation_from_file_109, &frame__extract_documentation_from_file_108, 253, 253, 14, 33},
-  {cont__extract_documentation_from_file_110, &frame__extract_documentation_from_file_108, 253, 276, 11, 45},
-  {entry__extract_documentation_from_file_105, NULL, 250, 250, 9, 44},
-  {cont__extract_documentation_from_file_106, &frame__extract_documentation_from_file_105, 251, 251, 12, 32},
-  {cont__extract_documentation_from_file_107, &frame__extract_documentation_from_file_105, 251, 276, 9, 46},
-  {entry__extract_documentation_from_file_103, NULL, 249, 249, 10, 28},
-  {cont__extract_documentation_from_file_104, &frame__extract_documentation_from_file_103, 249, 276, 7, 47},
-  {entry__extract_documentation_from_file_145, NULL, 291, 291, 45, 60},
-  {cont__extract_documentation_from_file_146, &frame__extract_documentation_from_file_145, 291, 291, 41, 61},
-  {cont__extract_documentation_from_file_147, &frame__extract_documentation_from_file_145, 291, 291, 38, 61},
-  {entry__extract_documentation_from_file_162, NULL, 304, 304, 25, 48},
-  {entry__extract_documentation_from_file_163, NULL, 305, 305, 25, 47},
-  {entry__extract_documentation_from_file_159, NULL, 298, 298, 17, 54},
-  {cont__extract_documentation_from_file_160, &frame__extract_documentation_from_file_159, 303, 303, 25, 42},
-  {cont__extract_documentation_from_file_161, &frame__extract_documentation_from_file_159, },
-  {cont__extract_documentation_from_file_164, &frame__extract_documentation_from_file_159, 299, 299, 17, 35},
-  {cont__extract_documentation_from_file_165, &frame__extract_documentation_from_file_159, 306, 306, 17, 21},
-  {entry__extract_documentation_from_file_157, NULL, 297, 297, 18, 58},
-  {cont__extract_documentation_from_file_158, &frame__extract_documentation_from_file_157, 297, 306, 15, 21},
-  {entry__extract_documentation_from_file_168, NULL, 311, 311, 34, 54},
-  {cont__extract_documentation_from_file_169, &frame__extract_documentation_from_file_168, 312, 312, 36, 66},
-  {cont__extract_documentation_from_file_170, &frame__extract_documentation_from_file_168, 312, 312, 67, 67},
-  {entry__extract_documentation_from_file_166, NULL, 307, 307, 18, 33},
-  {cont__extract_documentation_from_file_167, &frame__extract_documentation_from_file_166, 307, 312, 15, 67},
-  {entry__extract_documentation_from_file_174, NULL, 313, 313, 68, 68},
-  {entry__extract_documentation_from_file_172, NULL, 313, 313, 18, 35},
-  {cont__extract_documentation_from_file_173, &frame__extract_documentation_from_file_172, 313, 313, 15, 68},
-  {entry__extract_documentation_from_file_180, NULL, 316, 316, 19, 48},
-  {cont__extract_documentation_from_file_181, &frame__extract_documentation_from_file_180, 316, 316, 48, 48},
-  {entry__extract_documentation_from_file_177, NULL, 315, 315, 20, 39},
-  {cont__extract_documentation_from_file_178, &frame__extract_documentation_from_file_177, 315, 315, 20, 50},
-  {cont__extract_documentation_from_file_179, &frame__extract_documentation_from_file_177, 315, 316, 17, 48},
-  {entry__extract_documentation_from_file_175, NULL, 314, 314, 18, 40},
-  {cont__extract_documentation_from_file_176, &frame__extract_documentation_from_file_175, 314, 316, 15, 49},
-  {entry__extract_documentation_from_file_184, NULL, 318, 318, 17, 35},
-  {cont__extract_documentation_from_file_185, &frame__extract_documentation_from_file_184, 319, 319, 17, 21},
-  {entry__extract_documentation_from_file_182, NULL, 317, 317, 18, 49},
-  {cont__extract_documentation_from_file_183, &frame__extract_documentation_from_file_182, 317, 319, 15, 21},
-  {entry__extract_documentation_from_file_188, NULL, 320, 320, 61, 61},
-  {entry__extract_documentation_from_file_186, NULL, 320, 320, 18, 37},
-  {cont__extract_documentation_from_file_187, &frame__extract_documentation_from_file_186, 320, 320, 15, 61},
-  {entry__extract_documentation_from_file_197, NULL, 326, 326, 21, 64},
-  {cont__extract_documentation_from_file_198, &frame__extract_documentation_from_file_197, 327, 327, 21, 80},
-  {cont__extract_documentation_from_file_199, &frame__extract_documentation_from_file_197, 328, 328, 21, 68},
-  {cont__extract_documentation_from_file_200, &frame__extract_documentation_from_file_197, 328, 328, 68, 68},
-  {entry__extract_documentation_from_file_194, NULL, 325, 325, 22, 49},
-  {cont__extract_documentation_from_file_195, &frame__extract_documentation_from_file_194, 325, 325, 22, 66},
-  {cont__extract_documentation_from_file_196, &frame__extract_documentation_from_file_194, 325, 328, 19, 68},
-  {entry__extract_documentation_from_file_191, NULL, 323, 323, 17, 55},
-  {cont__extract_documentation_from_file_192, &frame__extract_documentation_from_file_191, 324, 324, 20, 49},
-  {cont__extract_documentation_from_file_193, &frame__extract_documentation_from_file_191, 324, 328, 17, 69},
-  {cont__extract_documentation_from_file_201, &frame__extract_documentation_from_file_191, 329, 329, 17, 35},
-  {cont__extract_documentation_from_file_202, &frame__extract_documentation_from_file_191, 329, 329, 40, 40},
-  {entry__extract_documentation_from_file_216, NULL, 342, 342, 62, 62},
-  {entry__extract_documentation_from_file_213, NULL, 341, 341, 28, 45},
-  {cont__extract_documentation_from_file_214, &frame__extract_documentation_from_file_213, 341, 341, 28, 56},
-  {cont__extract_documentation_from_file_215, &frame__extract_documentation_from_file_213, 341, 342, 21, 62},
-  {cont__extract_documentation_from_file_217, &frame__extract_documentation_from_file_213, 343, 343, 48, 65},
-  {cont__extract_documentation_from_file_218, &frame__extract_documentation_from_file_213, 343, 343, 21, 78},
-  {cont__extract_documentation_from_file_219, &frame__extract_documentation_from_file_213, 345, 345, 22, 42},
-  {cont__extract_documentation_from_file_220, &frame__extract_documentation_from_file_213, 345, 345, 21, 53},
-  {cont__extract_documentation_from_file_221, &frame__extract_documentation_from_file_213, 346, 346, 21, 39},
-  {cont__extract_documentation_from_file_222, &frame__extract_documentation_from_file_213, 346, 346, 50, 50},
-  {entry__extract_documentation_from_file_210, NULL, 339, 339, 19, 43},
-  {cont__extract_documentation_from_file_211, &frame__extract_documentation_from_file_210, 340, 340, 26, 54},
-  {cont__extract_documentation_from_file_212, &frame__extract_documentation_from_file_210, 340, 346, 19, 50},
-  {entry__extract_documentation_from_file_204, NULL, 331, 331, 17, 48},
-  {cont__extract_documentation_from_file_205, &frame__extract_documentation_from_file_204, 334, 334, 33, 50},
-  {cont__extract_documentation_from_file_206, &frame__extract_documentation_from_file_204, 334, 334, 19, 63},
-  {cont__extract_documentation_from_file_207, &frame__extract_documentation_from_file_204, 337, 337, 17, 35},
-  {cont__extract_documentation_from_file_208, &frame__extract_documentation_from_file_204, 338, 338, 20, 34},
-  {cont__extract_documentation_from_file_209, &frame__extract_documentation_from_file_204, 338, 346, 17, 51},
-  {entry__extract_documentation_from_file_144, NULL, 284, 284, 13, 37},
-  {cont__extract_documentation_from_file_148, &frame__extract_documentation_from_file_144, 285, 285, 13, 47},
-  {cont__extract_documentation_from_file_149, &frame__extract_documentation_from_file_144, 287, 287, 24, 43},
-  {cont__extract_documentation_from_file_150, &frame__extract_documentation_from_file_144, 288, 288, 33, 61},
-  {cont__extract_documentation_from_file_151, &frame__extract_documentation_from_file_144, 289, 289, 32, 62},
-  {cont__extract_documentation_from_file_152, &frame__extract_documentation_from_file_144, 294, 294, 32, 54},
-  {cont__extract_documentation_from_file_153, &frame__extract_documentation_from_file_144, 294, 294, 59, 59},
-  {cont__extract_documentation_from_file_154, &frame__extract_documentation_from_file_144, 294, 294, 26, 60},
-  {cont__extract_documentation_from_file_155, &frame__extract_documentation_from_file_144, 293, 294, 13, 77},
-  {cont__extract_documentation_from_file_156, &frame__extract_documentation_from_file_144, 296, 320, 13, 61},
-  {cont__extract_documentation_from_file_189, &frame__extract_documentation_from_file_144, 321, 321, 18, 47},
-  {cont__extract_documentation_from_file_190, &frame__extract_documentation_from_file_144, 330, 330, 15, 41},
-  {cont__extract_documentation_from_file_203, &frame__extract_documentation_from_file_144, 321, 346, 13, 53},
-  {entry__extract_documentation_from_file_140, NULL, 281, 281, 11, 48},
-  {cont__extract_documentation_from_file_141, &frame__extract_documentation_from_file_140, 282, 282, 11, 45},
-  {cont__extract_documentation_from_file_142, &frame__extract_documentation_from_file_140, 283, 283, 14, 33},
-  {cont__extract_documentation_from_file_143, &frame__extract_documentation_from_file_140, 283, 346, 11, 54},
-  {entry__extract_documentation_from_file_136, NULL, 278, 278, 22, 44},
-  {cont__extract_documentation_from_file_137, &frame__extract_documentation_from_file_136, 278, 278, 22, 47},
-  {cont__extract_documentation_from_file_138, &frame__extract_documentation_from_file_136, 280, 280, 12, 38},
-  {cont__extract_documentation_from_file_139, &frame__extract_documentation_from_file_136, 280, 346, 9, 55},
-  {entry__extract_documentation_from_file_134, NULL, 277, 277, 10, 35},
-  {cont__extract_documentation_from_file_135, &frame__extract_documentation_from_file_134, 277, 346, 7, 56},
-  {entry__extract_documentation_from_file_83, NULL, 238, 346, 5, 57},
-  {cont__extract_documentation_from_file_223, &frame__extract_documentation_from_file_83, 346, 346, 57, 57},
-  {entry__extract_documentation_from_file_1, NULL, 185, 185, 3, 66},
-  {cont__extract_documentation_from_file_5, &frame__extract_documentation_from_file_1, 186, 186, 8, 21},
-  {cont__extract_documentation_from_file_6, &frame__extract_documentation_from_file_1, 186, 186, 3, 31},
-  {cont__extract_documentation_from_file_7, &frame__extract_documentation_from_file_1, 187, 187, 6, 19},
-  {cont__extract_documentation_from_file_8, &frame__extract_documentation_from_file_1, 187, 187, 6, 24},
-  {cont__extract_documentation_from_file_9, &frame__extract_documentation_from_file_1, 187, 187, 3, 52},
-  {cont__extract_documentation_from_file_12, &frame__extract_documentation_from_file_1, 188, 188, 6, 11},
-  {cont__extract_documentation_from_file_13, &frame__extract_documentation_from_file_1, 188, 188, 6, 18},
-  {cont__extract_documentation_from_file_14, &frame__extract_documentation_from_file_1, 188, 188, 6, 18},
-  {cont__extract_documentation_from_file_15, &frame__extract_documentation_from_file_1, 188, 188, 3, 63},
-  {cont__extract_documentation_from_file_18, &frame__extract_documentation_from_file_1, 189, 189, 11, 11},
-  {cont__extract_documentation_from_file_19, &frame__extract_documentation_from_file_1, 189, 189, 6, 12},
-  {cont__extract_documentation_from_file_20, &frame__extract_documentation_from_file_1, 189, 189, 6, 23},
-  {cont__extract_documentation_from_file_21, &frame__extract_documentation_from_file_1, 189, 189, 6, 23},
-  {cont__extract_documentation_from_file_22, &frame__extract_documentation_from_file_1, 189, 189, 3, 71},
-  {cont__extract_documentation_from_file_25, &frame__extract_documentation_from_file_1, 192, 192, 17, 48},
-  {cont__extract_documentation_from_file_27, &frame__extract_documentation_from_file_1, 192, 192, 50, 59},
-  {cont__extract_documentation_from_file_29, &frame__extract_documentation_from_file_1, 191, 193, 3, 69},
-  {cont__extract_documentation_from_file_30, &frame__extract_documentation_from_file_1, 203, 203, 3, 37},
-  {cont__extract_documentation_from_file_31, &frame__extract_documentation_from_file_1, 204, 204, 3, 56},
-  {cont__extract_documentation_from_file_34, &frame__extract_documentation_from_file_1, 207, 216, 3, 17},
-  {cont__extract_documentation_from_file_45, &frame__extract_documentation_from_file_1, 217, 217, 31, 31},
-  {cont__extract_documentation_from_file_46, &frame__extract_documentation_from_file_1, 217, 217, 3, 31},
-  {cont__extract_documentation_from_file_47, &frame__extract_documentation_from_file_1, 218, 218, 3, 70},
-  {cont__extract_documentation_from_file_51, &frame__extract_documentation_from_file_1, 219, 219, 6, 29},
-  {cont__extract_documentation_from_file_52, &frame__extract_documentation_from_file_1, 219, 219, 3, 59},
-  {cont__extract_documentation_from_file_56, &frame__extract_documentation_from_file_1, 221, 232, 3, 80},
-  {cont__extract_documentation_from_file_82, &frame__extract_documentation_from_file_1, 233, 346, 3, 58},
-  {cont__extract_documentation_from_file_224, &frame__extract_documentation_from_file_1, 346, 346, 58, 58},
+  {cont__extract_documentation_from_file_42, &frame__extract_documentation_from_file_35, 216, 216, 16, 16},
+  {entry__extract_documentation_from_file_46, NULL, 218, 218, 46, 70},
+  {cont__extract_documentation_from_file_47, &frame__extract_documentation_from_file_46, 218, 218, 34, 70},
+  {cont__extract_documentation_from_file_48, &frame__extract_documentation_from_file_46, 218, 218, 70, 70},
+  {entry__extract_documentation_from_file_51, NULL, 219, 219, 32, 54},
+  {cont__extract_documentation_from_file_53, &frame__extract_documentation_from_file_51, 219, 219, 59, 59},
+  {entry__extract_documentation_from_file_56, NULL, 223, 223, 10, 30},
+  {cont__extract_documentation_from_file_57, &frame__extract_documentation_from_file_56, 223, 223, 7, 36},
+  {entry__extract_documentation_from_file_58, NULL, 224, 224, 10, 28},
+  {cont__extract_documentation_from_file_59, &frame__extract_documentation_from_file_58, 224, 224, 7, 34},
+  {entry__extract_documentation_from_file_74, NULL, 232, 232, 43, 68},
+  {cont__extract_documentation_from_file_75, &frame__extract_documentation_from_file_74, 232, 232, 35, 69},
+  {cont__extract_documentation_from_file_76, &frame__extract_documentation_from_file_74, 232, 232, 15, 70},
+  {cont__extract_documentation_from_file_77, &frame__extract_documentation_from_file_74, 232, 232, 75, 75},
+  {entry__extract_documentation_from_file_70, NULL, 230, 230, 21, 43},
+  {cont__extract_documentation_from_file_71, &frame__extract_documentation_from_file_70, 230, 230, 13, 46},
+  {cont__extract_documentation_from_file_72, &frame__extract_documentation_from_file_70, 231, 231, 16, 56},
+  {cont__extract_documentation_from_file_73, &frame__extract_documentation_from_file_70, 231, 232, 13, 75},
+  {entry__extract_documentation_from_file_66, NULL, 228, 228, 11, 48},
+  {cont__extract_documentation_from_file_67, &frame__extract_documentation_from_file_66, 229, 229, 18, 41},
+  {cont__extract_documentation_from_file_68, &frame__extract_documentation_from_file_66, 229, 229, 18, 52},
+  {cont__extract_documentation_from_file_69, &frame__extract_documentation_from_file_66, 229, 232, 11, 76},
+  {entry__extract_documentation_from_file_62, NULL, 226, 226, 22, 44},
+  {cont__extract_documentation_from_file_63, &frame__extract_documentation_from_file_62, 226, 226, 9, 47},
+  {cont__extract_documentation_from_file_64, &frame__extract_documentation_from_file_62, 227, 227, 12, 38},
+  {cont__extract_documentation_from_file_65, &frame__extract_documentation_from_file_62, 227, 232, 9, 77},
+  {entry__extract_documentation_from_file_60, NULL, 225, 225, 10, 35},
+  {cont__extract_documentation_from_file_61, &frame__extract_documentation_from_file_60, 225, 232, 7, 78},
+  {entry__extract_documentation_from_file_55, NULL, 222, 232, 5, 79},
+  {entry__extract_documentation_from_file_91, NULL, 246, 246, 29, 55},
+  {cont__extract_documentation_from_file_92, &frame__extract_documentation_from_file_91, 246, 246, 17, 56},
+  {cont__extract_documentation_from_file_93, &frame__extract_documentation_from_file_91, 247, 247, 60, 64},
+  {cont__extract_documentation_from_file_94, &frame__extract_documentation_from_file_91, 247, 247, 67, 67},
+  {cont__extract_documentation_from_file_95, &frame__extract_documentation_from_file_91, 247, 247, 17, 68},
+  {cont__extract_documentation_from_file_96, &frame__extract_documentation_from_file_91, 247, 247, 17, 41},
+  {cont__extract_documentation_from_file_97, &frame__extract_documentation_from_file_91, 248, 248, 17, 20},
+  {entry__extract_documentation_from_file_89, NULL, 245, 245, 18, 48},
+  {cont__extract_documentation_from_file_90, &frame__extract_documentation_from_file_89, 245, 248, 15, 20},
+  {entry__extract_documentation_from_file_88, NULL, 244, 248, 13, 21},
+  {cont__extract_documentation_from_file_98, &frame__extract_documentation_from_file_88, 248, 248, 21, 21},
+  {entry__extract_documentation_from_file_86, NULL, 242, 242, 11, 48},
+  {cont__extract_documentation_from_file_87, &frame__extract_documentation_from_file_86, 243, 248, 11, 22},
+  {entry__extract_documentation_from_file_82, NULL, 240, 240, 9, 48},
+  {cont__extract_documentation_from_file_83, &frame__extract_documentation_from_file_82, 241, 241, 12, 51},
+  {cont__extract_documentation_from_file_85, &frame__extract_documentation_from_file_82, 241, 248, 9, 23},
+  {entry__extract_documentation_from_file_80, NULL, 239, 239, 10, 30},
+  {cont__extract_documentation_from_file_81, &frame__extract_documentation_from_file_80, 239, 248, 7, 24},
+  {entry__extract_documentation_from_file_116, NULL, 266, 266, 30, 43},
+  {cont__extract_documentation_from_file_117, &frame__extract_documentation_from_file_116, 266, 266, 27, 43},
+  {entry__extract_documentation_from_file_118, NULL, 267, 267, 27, 38},
+  {entry__extract_documentation_from_file_112, NULL, 258, 258, 19, 42},
+  {cont__extract_documentation_from_file_113, &frame__extract_documentation_from_file_112, 262, 262, 32, 51},
+  {cont__extract_documentation_from_file_114, &frame__extract_documentation_from_file_112, 265, 265, 27, 41},
+  {cont__extract_documentation_from_file_115, &frame__extract_documentation_from_file_112, 266, 266, 27, 43},
+  {cont__extract_documentation_from_file_119, &frame__extract_documentation_from_file_112, 268, 268, 40, 65},
+  {cont__extract_documentation_from_file_120, &frame__extract_documentation_from_file_112, 259, 259, 32, 59},
+  {cont__extract_documentation_from_file_121, &frame__extract_documentation_from_file_112, 259, 259, 19, 60},
+  {cont__extract_documentation_from_file_122, &frame__extract_documentation_from_file_112, 269, 269, 45, 45},
+  {entry__extract_documentation_from_file_110, NULL, 257, 257, 20, 39},
+  {cont__extract_documentation_from_file_111, &frame__extract_documentation_from_file_110, 257, 269, 17, 45},
+  {entry__extract_documentation_from_file_123, NULL, 274, 274, 30, 49},
+  {cont__extract_documentation_from_file_124, &frame__extract_documentation_from_file_123, 275, 275, 38, 63},
+  {cont__extract_documentation_from_file_125, &frame__extract_documentation_from_file_123, 271, 271, 30, 57},
+  {cont__extract_documentation_from_file_126, &frame__extract_documentation_from_file_123, 271, 271, 17, 58},
+  {cont__extract_documentation_from_file_127, &frame__extract_documentation_from_file_123, 276, 276, 43, 43},
+  {entry__extract_documentation_from_file_107, NULL, 254, 254, 13, 37},
+  {cont__extract_documentation_from_file_108, &frame__extract_documentation_from_file_107, 255, 255, 18, 35},
+  {cont__extract_documentation_from_file_109, &frame__extract_documentation_from_file_107, 255, 276, 13, 44},
+  {entry__extract_documentation_from_file_104, NULL, 252, 252, 11, 45},
+  {cont__extract_documentation_from_file_105, &frame__extract_documentation_from_file_104, 253, 253, 14, 33},
+  {cont__extract_documentation_from_file_106, &frame__extract_documentation_from_file_104, 253, 276, 11, 45},
+  {entry__extract_documentation_from_file_101, NULL, 250, 250, 9, 44},
+  {cont__extract_documentation_from_file_102, &frame__extract_documentation_from_file_101, 251, 251, 12, 32},
+  {cont__extract_documentation_from_file_103, &frame__extract_documentation_from_file_101, 251, 276, 9, 46},
+  {entry__extract_documentation_from_file_99, NULL, 249, 249, 10, 28},
+  {cont__extract_documentation_from_file_100, &frame__extract_documentation_from_file_99, 249, 276, 7, 47},
+  {entry__extract_documentation_from_file_141, NULL, 291, 291, 45, 60},
+  {cont__extract_documentation_from_file_142, &frame__extract_documentation_from_file_141, 291, 291, 41, 61},
+  {cont__extract_documentation_from_file_143, &frame__extract_documentation_from_file_141, 291, 291, 38, 61},
+  {entry__extract_documentation_from_file_158, NULL, 304, 304, 25, 48},
+  {entry__extract_documentation_from_file_159, NULL, 305, 305, 25, 47},
+  {entry__extract_documentation_from_file_155, NULL, 298, 298, 17, 54},
+  {cont__extract_documentation_from_file_156, &frame__extract_documentation_from_file_155, 303, 303, 25, 42},
+  {cont__extract_documentation_from_file_157, &frame__extract_documentation_from_file_155, },
+  {cont__extract_documentation_from_file_160, &frame__extract_documentation_from_file_155, 299, 299, 17, 35},
+  {cont__extract_documentation_from_file_161, &frame__extract_documentation_from_file_155, 306, 306, 17, 21},
+  {entry__extract_documentation_from_file_153, NULL, 297, 297, 18, 58},
+  {cont__extract_documentation_from_file_154, &frame__extract_documentation_from_file_153, 297, 306, 15, 21},
+  {entry__extract_documentation_from_file_164, NULL, 311, 311, 34, 54},
+  {cont__extract_documentation_from_file_165, &frame__extract_documentation_from_file_164, 312, 312, 36, 66},
+  {cont__extract_documentation_from_file_166, &frame__extract_documentation_from_file_164, 312, 312, 67, 67},
+  {entry__extract_documentation_from_file_162, NULL, 307, 307, 18, 33},
+  {cont__extract_documentation_from_file_163, &frame__extract_documentation_from_file_162, 307, 312, 15, 67},
+  {entry__extract_documentation_from_file_170, NULL, 313, 313, 68, 68},
+  {entry__extract_documentation_from_file_168, NULL, 313, 313, 18, 35},
+  {cont__extract_documentation_from_file_169, &frame__extract_documentation_from_file_168, 313, 313, 15, 68},
+  {entry__extract_documentation_from_file_176, NULL, 316, 316, 19, 48},
+  {cont__extract_documentation_from_file_177, &frame__extract_documentation_from_file_176, 316, 316, 48, 48},
+  {entry__extract_documentation_from_file_173, NULL, 315, 315, 20, 39},
+  {cont__extract_documentation_from_file_174, &frame__extract_documentation_from_file_173, 315, 315, 20, 50},
+  {cont__extract_documentation_from_file_175, &frame__extract_documentation_from_file_173, 315, 316, 17, 48},
+  {entry__extract_documentation_from_file_171, NULL, 314, 314, 18, 40},
+  {cont__extract_documentation_from_file_172, &frame__extract_documentation_from_file_171, 314, 316, 15, 49},
+  {entry__extract_documentation_from_file_180, NULL, 318, 318, 17, 35},
+  {cont__extract_documentation_from_file_181, &frame__extract_documentation_from_file_180, 319, 319, 17, 21},
+  {entry__extract_documentation_from_file_178, NULL, 317, 317, 18, 49},
+  {cont__extract_documentation_from_file_179, &frame__extract_documentation_from_file_178, 317, 319, 15, 21},
+  {entry__extract_documentation_from_file_184, NULL, 320, 320, 61, 61},
+  {entry__extract_documentation_from_file_182, NULL, 320, 320, 18, 37},
+  {cont__extract_documentation_from_file_183, &frame__extract_documentation_from_file_182, 320, 320, 15, 61},
+  {entry__extract_documentation_from_file_193, NULL, 326, 326, 21, 64},
+  {cont__extract_documentation_from_file_194, &frame__extract_documentation_from_file_193, 327, 327, 21, 80},
+  {cont__extract_documentation_from_file_195, &frame__extract_documentation_from_file_193, 328, 328, 21, 68},
+  {cont__extract_documentation_from_file_196, &frame__extract_documentation_from_file_193, 328, 328, 68, 68},
+  {entry__extract_documentation_from_file_190, NULL, 325, 325, 22, 49},
+  {cont__extract_documentation_from_file_191, &frame__extract_documentation_from_file_190, 325, 325, 22, 66},
+  {cont__extract_documentation_from_file_192, &frame__extract_documentation_from_file_190, 325, 328, 19, 68},
+  {entry__extract_documentation_from_file_187, NULL, 323, 323, 17, 55},
+  {cont__extract_documentation_from_file_188, &frame__extract_documentation_from_file_187, 324, 324, 20, 49},
+  {cont__extract_documentation_from_file_189, &frame__extract_documentation_from_file_187, 324, 328, 17, 69},
+  {cont__extract_documentation_from_file_197, &frame__extract_documentation_from_file_187, 329, 329, 17, 35},
+  {cont__extract_documentation_from_file_198, &frame__extract_documentation_from_file_187, 329, 329, 40, 40},
+  {entry__extract_documentation_from_file_212, NULL, 342, 342, 62, 62},
+  {entry__extract_documentation_from_file_209, NULL, 341, 341, 28, 45},
+  {cont__extract_documentation_from_file_210, &frame__extract_documentation_from_file_209, 341, 341, 28, 56},
+  {cont__extract_documentation_from_file_211, &frame__extract_documentation_from_file_209, 341, 342, 21, 62},
+  {cont__extract_documentation_from_file_213, &frame__extract_documentation_from_file_209, 343, 343, 48, 65},
+  {cont__extract_documentation_from_file_214, &frame__extract_documentation_from_file_209, 343, 343, 21, 78},
+  {cont__extract_documentation_from_file_215, &frame__extract_documentation_from_file_209, 345, 345, 22, 42},
+  {cont__extract_documentation_from_file_216, &frame__extract_documentation_from_file_209, 345, 345, 21, 53},
+  {cont__extract_documentation_from_file_217, &frame__extract_documentation_from_file_209, 346, 346, 21, 39},
+  {cont__extract_documentation_from_file_218, &frame__extract_documentation_from_file_209, 346, 346, 50, 50},
+  {entry__extract_documentation_from_file_206, NULL, 339, 339, 19, 43},
+  {cont__extract_documentation_from_file_207, &frame__extract_documentation_from_file_206, 340, 340, 26, 54},
+  {cont__extract_documentation_from_file_208, &frame__extract_documentation_from_file_206, 340, 346, 19, 50},
+  {entry__extract_documentation_from_file_200, NULL, 331, 331, 17, 48},
+  {cont__extract_documentation_from_file_201, &frame__extract_documentation_from_file_200, 334, 334, 33, 50},
+  {cont__extract_documentation_from_file_202, &frame__extract_documentation_from_file_200, 334, 334, 19, 63},
+  {cont__extract_documentation_from_file_203, &frame__extract_documentation_from_file_200, 337, 337, 17, 35},
+  {cont__extract_documentation_from_file_204, &frame__extract_documentation_from_file_200, 338, 338, 20, 34},
+  {cont__extract_documentation_from_file_205, &frame__extract_documentation_from_file_200, 338, 346, 17, 51},
+  {entry__extract_documentation_from_file_140, NULL, 284, 284, 13, 37},
+  {cont__extract_documentation_from_file_144, &frame__extract_documentation_from_file_140, 285, 285, 13, 47},
+  {cont__extract_documentation_from_file_145, &frame__extract_documentation_from_file_140, 287, 287, 24, 43},
+  {cont__extract_documentation_from_file_146, &frame__extract_documentation_from_file_140, 288, 288, 33, 61},
+  {cont__extract_documentation_from_file_147, &frame__extract_documentation_from_file_140, 289, 289, 32, 62},
+  {cont__extract_documentation_from_file_148, &frame__extract_documentation_from_file_140, 294, 294, 32, 54},
+  {cont__extract_documentation_from_file_149, &frame__extract_documentation_from_file_140, 294, 294, 59, 59},
+  {cont__extract_documentation_from_file_150, &frame__extract_documentation_from_file_140, 294, 294, 26, 60},
+  {cont__extract_documentation_from_file_151, &frame__extract_documentation_from_file_140, 293, 294, 13, 77},
+  {cont__extract_documentation_from_file_152, &frame__extract_documentation_from_file_140, 296, 320, 13, 61},
+  {cont__extract_documentation_from_file_185, &frame__extract_documentation_from_file_140, 321, 321, 18, 47},
+  {cont__extract_documentation_from_file_186, &frame__extract_documentation_from_file_140, 330, 330, 15, 41},
+  {cont__extract_documentation_from_file_199, &frame__extract_documentation_from_file_140, 321, 346, 13, 53},
+  {entry__extract_documentation_from_file_136, NULL, 281, 281, 11, 48},
+  {cont__extract_documentation_from_file_137, &frame__extract_documentation_from_file_136, 282, 282, 11, 45},
+  {cont__extract_documentation_from_file_138, &frame__extract_documentation_from_file_136, 283, 283, 14, 33},
+  {cont__extract_documentation_from_file_139, &frame__extract_documentation_from_file_136, 283, 346, 11, 54},
+  {entry__extract_documentation_from_file_132, NULL, 278, 278, 22, 44},
+  {cont__extract_documentation_from_file_133, &frame__extract_documentation_from_file_132, 278, 278, 22, 47},
+  {cont__extract_documentation_from_file_134, &frame__extract_documentation_from_file_132, 280, 280, 12, 38},
+  {cont__extract_documentation_from_file_135, &frame__extract_documentation_from_file_132, 280, 346, 9, 55},
+  {entry__extract_documentation_from_file_130, NULL, 277, 277, 10, 35},
+  {cont__extract_documentation_from_file_131, &frame__extract_documentation_from_file_130, 277, 346, 7, 56},
+  {entry__extract_documentation_from_file_79, NULL, 238, 346, 5, 57},
+  {cont__extract_documentation_from_file_219, &frame__extract_documentation_from_file_79, 346, 346, 57, 57},
+  {entry__extract_documentation_from_file, NULL, 185, 185, 3, 66},
+  {cont__extract_documentation_from_file_5, &frame__extract_documentation_from_file, 186, 186, 8, 21},
+  {cont__extract_documentation_from_file_6, &frame__extract_documentation_from_file, 186, 186, 3, 31},
+  {cont__extract_documentation_from_file_7, &frame__extract_documentation_from_file, 187, 187, 6, 19},
+  {cont__extract_documentation_from_file_8, &frame__extract_documentation_from_file, 187, 187, 6, 24},
+  {cont__extract_documentation_from_file_9, &frame__extract_documentation_from_file, 187, 187, 3, 52},
+  {cont__extract_documentation_from_file_12, &frame__extract_documentation_from_file, 188, 188, 6, 11},
+  {cont__extract_documentation_from_file_13, &frame__extract_documentation_from_file, 188, 188, 6, 18},
+  {cont__extract_documentation_from_file_14, &frame__extract_documentation_from_file, 188, 188, 6, 18},
+  {cont__extract_documentation_from_file_15, &frame__extract_documentation_from_file, 188, 188, 3, 63},
+  {cont__extract_documentation_from_file_18, &frame__extract_documentation_from_file, 189, 189, 11, 11},
+  {cont__extract_documentation_from_file_19, &frame__extract_documentation_from_file, 189, 189, 6, 12},
+  {cont__extract_documentation_from_file_20, &frame__extract_documentation_from_file, 189, 189, 6, 23},
+  {cont__extract_documentation_from_file_21, &frame__extract_documentation_from_file, 189, 189, 6, 23},
+  {cont__extract_documentation_from_file_22, &frame__extract_documentation_from_file, 189, 189, 3, 71},
+  {cont__extract_documentation_from_file_25, &frame__extract_documentation_from_file, 192, 192, 17, 48},
+  {cont__extract_documentation_from_file_27, &frame__extract_documentation_from_file, 192, 192, 50, 59},
+  {cont__extract_documentation_from_file_29, &frame__extract_documentation_from_file, 191, 193, 3, 69},
+  {cont__extract_documentation_from_file_30, &frame__extract_documentation_from_file, 203, 203, 3, 37},
+  {cont__extract_documentation_from_file_31, &frame__extract_documentation_from_file, 204, 204, 3, 56},
+  {cont__extract_documentation_from_file_34, &frame__extract_documentation_from_file, 207, 216, 3, 17},
+  {cont__extract_documentation_from_file_43, &frame__extract_documentation_from_file, 217, 217, 31, 31},
+  {cont__extract_documentation_from_file_44, &frame__extract_documentation_from_file, 217, 217, 3, 31},
+  {cont__extract_documentation_from_file_45, &frame__extract_documentation_from_file, 218, 218, 3, 70},
+  {cont__extract_documentation_from_file_49, &frame__extract_documentation_from_file, 219, 219, 6, 29},
+  {cont__extract_documentation_from_file_50, &frame__extract_documentation_from_file, 219, 219, 3, 59},
+  {cont__extract_documentation_from_file_54, &frame__extract_documentation_from_file, 221, 232, 3, 80},
+  {cont__extract_documentation_from_file_78, &frame__extract_documentation_from_file, 233, 346, 3, 58},
+  {cont__extract_documentation_from_file_220, &frame__extract_documentation_from_file, 346, 346, 58, 58},
   {entry__extract_documentation_from_directory_8, NULL, 352, 352, 32, 72},
   {entry__extract_documentation_from_directory_6, NULL, 352, 352, 10, 29},
   {cont__extract_documentation_from_directory_7, &frame__extract_documentation_from_directory_6, 352, 352, 7, 72},
@@ -2847,9 +2781,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__extract_documentation_from_directory_10, &frame__extract_documentation_from_directory_9, 353, 353, 7, 71},
   {entry__extract_documentation_from_directory_4, NULL, 350, 350, 5, 28},
   {cont__extract_documentation_from_directory_5, &frame__extract_documentation_from_directory_4, 351, 353, 5, 71},
-  {entry__extract_documentation_from_directory_1, NULL, 349, 349, 22, 27},
-  {cont__extract_documentation_from_directory_2, &frame__extract_documentation_from_directory_1, 349, 349, 12, 33},
-  {cont__extract_documentation_from_directory_3, &frame__extract_documentation_from_directory_1, 349, 353, 3, 72},
+  {entry__extract_documentation_from_directory, NULL, 349, 349, 22, 27},
+  {cont__extract_documentation_from_directory_2, &frame__extract_documentation_from_directory, 349, 349, 12, 33},
+  {cont__extract_documentation_from_directory_3, &frame__extract_documentation_from_directory, 349, 353, 3, 72},
   {entry__resolved_name_5, NULL, 359, 359, 8, 21},
   {cont__resolved_name_6, &frame__resolved_name_5, 359, 359, 5, 21},
   {entry__resolved_name_13, NULL, 365, 366, 19, 66},
@@ -2867,10 +2801,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__resolved_name_19, &frame__resolved_name_7, 368, 370, 7, 54},
   {cont__resolved_name_23, &frame__resolved_name_7, 371, 371, 10, 45},
   {cont__resolved_name_25, &frame__resolved_name_7, 371, 371, 7, 45},
-  {entry__resolved_name_1, NULL, 356, 356, 3, 21},
-  {cont__resolved_name_2, &frame__resolved_name_1, 358, 358, 5, 22},
-  {cont__resolved_name_3, &frame__resolved_name_1, 358, 358, 5, 33},
-  {cont__resolved_name_4, &frame__resolved_name_1, 357, 371, 3, 46},
+  {entry__resolved_name, NULL, 356, 356, 3, 21},
+  {cont__resolved_name_2, &frame__resolved_name, 358, 358, 5, 22},
+  {cont__resolved_name_3, &frame__resolved_name, 358, 358, 5, 33},
+  {cont__resolved_name_4, &frame__resolved_name, 357, 371, 3, 46},
   {entry__add_derived_type_15, NULL, 381, 381, 35, 69},
   {entry__add_derived_type_12, NULL, 380, 380, 7, 39},
   {cont__add_derived_type_13, &frame__add_derived_type_12, 381, 381, 10, 32},
@@ -2882,20 +2816,20 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__add_derived_type_11, &frame__add_derived_type_7, 378, 381, 5, 69},
   {cont__add_derived_type_16, &frame__add_derived_type_7, 382, 382, 5, 23},
   {cont__add_derived_type_17, &frame__add_derived_type_7, 382, 382, 34, 34},
-  {entry__add_derived_type_1, NULL, 374, 374, 23, 40},
-  {cont__add_derived_type_2, &frame__add_derived_type_1, 374, 374, 42, 59},
-  {cont__add_derived_type_3, &frame__add_derived_type_1, 374, 374, 3, 60},
-  {cont__add_derived_type_4, &frame__add_derived_type_1, 375, 375, 3, 33},
-  {cont__add_derived_type_5, &frame__add_derived_type_1, 376, 376, 6, 26},
-  {cont__add_derived_type_6, &frame__add_derived_type_1, 376, 382, 3, 34},
-  {entry__mangled_1, NULL, 384, 384, 38, 48},
-  {cont__mangled_2, &frame__mangled_1, 384, 384, 50, 60},
-  {cont__mangled_4, &frame__mangled_1, 384, 384, 21, 61},
-  {cont__mangled_5, &frame__mangled_1, 384, 384, 18, 61},
-  {entry__ordered_name_1, NULL, 389, 389, 7, 24},
-  {cont__ordered_name_2, &frame__ordered_name_1, 391, 391, 7, 29},
-  {cont__ordered_name_3, &frame__ordered_name_1, },
-  {cont__ordered_name_4, &frame__ordered_name_1, 387, 395, 3, 16},
+  {entry__add_derived_type, NULL, 374, 374, 23, 40},
+  {cont__add_derived_type_2, &frame__add_derived_type, 374, 374, 42, 59},
+  {cont__add_derived_type_3, &frame__add_derived_type, 374, 374, 3, 60},
+  {cont__add_derived_type_4, &frame__add_derived_type, 375, 375, 3, 33},
+  {cont__add_derived_type_5, &frame__add_derived_type, 376, 376, 6, 26},
+  {cont__add_derived_type_6, &frame__add_derived_type, 376, 382, 3, 34},
+  {entry__mangled, NULL, 384, 384, 38, 48},
+  {cont__mangled_2, &frame__mangled, 384, 384, 50, 60},
+  {cont__mangled_4, &frame__mangled, 384, 384, 21, 61},
+  {cont__mangled_5, &frame__mangled, 384, 384, 18, 61},
+  {entry__ordered_name, NULL, 389, 389, 7, 24},
+  {cont__ordered_name_2, &frame__ordered_name, 391, 391, 7, 29},
+  {cont__ordered_name_3, &frame__ordered_name, },
+  {cont__ordered_name_4, &frame__ordered_name, 387, 395, 3, 16},
   {entry__link_bar_2, NULL, 399, 399, 7, 27},
   {cont__link_bar_5, &frame__link_bar_2, 399, 399, 5, 34},
   {cont__link_bar_7, &frame__link_bar_2, 400, 400, 5, 29},
@@ -2910,7 +2844,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__link_bar_23, &frame__link_bar_2, 406, 406, 5, 29},
   {cont__link_bar_24, &frame__link_bar_2, 407, 407, 7, 34},
   {cont__link_bar_26, &frame__link_bar_2, 407, 407, 5, 49},
-  {entry__link_bar_1, NULL, 398, 407, 3, 49},
+  {entry__link_bar, NULL, 398, 407, 3, 49},
   {entry__to_paragraphs_5, NULL, 421, 421, 13, 22},
   {cont__to_paragraphs_6, &frame__to_paragraphs_5, 422, 422, 13, 33},
   {cont__to_paragraphs_7, &frame__to_paragraphs_5, 423, 423, 22, 22},
@@ -2938,11 +2872,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__to_paragraphs_2, NULL, 417, 438, 5, 37},
   {entry__to_paragraphs_30, NULL, 439, 439, 18, 38},
   {cont__to_paragraphs_31, &frame__to_paragraphs_30, 439, 439, 38, 38},
-  {entry__to_paragraphs_1, NULL, 416, 438, 3, 38},
-  {cont__to_paragraphs_27, &frame__to_paragraphs_1, 439, 439, 6, 15},
-  {cont__to_paragraphs_28, &frame__to_paragraphs_1, 439, 439, 6, 15},
-  {cont__to_paragraphs_29, &frame__to_paragraphs_1, 439, 439, 3, 38},
-  {cont__to_paragraphs_32, &frame__to_paragraphs_1, 440, 440, 3, 15},
+  {entry__to_paragraphs, NULL, 416, 438, 3, 38},
+  {cont__to_paragraphs_27, &frame__to_paragraphs, 439, 439, 6, 15},
+  {cont__to_paragraphs_28, &frame__to_paragraphs, 439, 439, 6, 15},
+  {cont__to_paragraphs_29, &frame__to_paragraphs, 439, 439, 3, 38},
+  {cont__to_paragraphs_32, &frame__to_paragraphs, 440, 440, 3, 15},
   {entry__resolve_reference_7, NULL, 447, 447, 41, 67},
   {cont__resolve_reference_9, &frame__resolve_reference_7, 447, 447, 67, 67},
   {entry__resolve_reference_12, NULL, 448, 448, 43, 69},
@@ -2959,21 +2893,21 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__resolve_reference_20, &frame__resolve_reference_19, 451, 451, 65, 65},
   {entry__resolve_reference_17, NULL, 451, 451, 14, 38},
   {cont__resolve_reference_18, &frame__resolve_reference_17, 451, 451, 7, 65},
-  {entry__resolve_reference_1, NULL, 444, 444, 5, 28},
-  {cont__resolve_reference_2, &frame__resolve_reference_1, 443, 451, 3, 66},
-  {cont__resolve_reference_21, &frame__resolve_reference_1, },
+  {entry__resolve_reference, NULL, 444, 444, 5, 28},
+  {cont__resolve_reference_2, &frame__resolve_reference, 443, 451, 3, 66},
+  {cont__resolve_reference_21, &frame__resolve_reference, },
   {entry__add_links_5, NULL, 459, 459, 29, 29},
   {cont__add_links_6, &frame__add_links_5, 459, 459, 9, 29},
   {cont__add_links_7, &frame__add_links_5, 460, 460, 9, 36},
   {cont__add_links_8, &frame__add_links_5, 461, 461, 30, 46},
   {cont__add_links_9, &frame__add_links_5, 461, 461, 12, 54},
   {cont__add_links_13, &frame__add_links_5, 461, 461, 9, 54},
-  {entry__add_links_1, NULL, 457, 457, 33, 47},
-  {cont__add_links_2, &frame__add_links_1, 457, 457, 24, 48},
-  {cont__add_links_3, &frame__add_links_1, 457, 457, 7, 53},
-  {cont__add_links_4, &frame__add_links_1, 456, 461, 5, 55},
-  {cont__add_links_14, &frame__add_links_1, 454, 461, 3, 56},
-  {cont__add_links_15, &frame__add_links_1, 461, 461, 57, 57},
+  {entry__add_links, NULL, 457, 457, 33, 47},
+  {cont__add_links_2, &frame__add_links, 457, 457, 24, 48},
+  {cont__add_links_3, &frame__add_links, 457, 457, 7, 53},
+  {cont__add_links_4, &frame__add_links, 456, 461, 5, 55},
+  {cont__add_links_14, &frame__add_links, 454, 461, 3, 56},
+  {cont__add_links_15, &frame__add_links, 461, 461, 57, 57},
   {entry__create_info_page_6, NULL, 469, 469, 24, 40},
   {cont__create_info_page_7, &frame__create_info_page_6, 467, 470, 13, 60},
   {cont__create_info_page_12, &frame__create_info_page_6, 467, 470, 7, 60},
@@ -3147,116 +3081,115 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__create_info_page_214, &frame__create_info_page_186, 635, 635, 32, 49},
   {cont__create_info_page_215, &frame__create_info_page_186, 635, 635, 15, 49},
   {cont__create_info_page_216, &frame__create_info_page_186, 635, 635, 49, 49},
-  {entry__create_info_page_217, NULL, 612, 612, 15, 18},
   {entry__create_info_page_183, NULL, 610, 610, 13, 40},
   {cont__create_info_page_184, &frame__create_info_page_183, 611, 611, 13, 52},
   {cont__create_info_page_185, &frame__create_info_page_183, 609, 635, 11, 50},
   {entry__create_info_page_181, NULL, 608, 608, 18, 36},
   {cont__create_info_page_182, &frame__create_info_page_181, 608, 635, 9, 51},
-  {entry__create_info_page_220, NULL, 636, 636, 40, 58},
-  {entry__create_info_page_230, NULL, 642, 642, 19, 42},
-  {cont__create_info_page_231, &frame__create_info_page_230, 642, 642, 17, 42},
-  {entry__create_info_page_227, NULL, 641, 641, 16, 32},
-  {cont__create_info_page_228, &frame__create_info_page_227, 641, 641, 13, 32},
-  {cont__create_info_page_229, &frame__create_info_page_227, 642, 642, 13, 42},
-  {entry__create_info_page_226, NULL, 640, 642, 11, 42},
-  {entry__create_info_page_223, NULL, 638, 638, 9, 23},
-  {cont__create_info_page_225, &frame__create_info_page_223, 639, 642, 9, 43},
-  {entry__create_info_page_240, NULL, 648, 648, 19, 45},
-  {cont__create_info_page_241, &frame__create_info_page_240, 648, 648, 17, 45},
-  {entry__create_info_page_237, NULL, 647, 647, 16, 35},
-  {cont__create_info_page_238, &frame__create_info_page_237, 647, 647, 13, 35},
-  {cont__create_info_page_239, &frame__create_info_page_237, 648, 648, 13, 45},
-  {entry__create_info_page_236, NULL, 646, 648, 11, 45},
-  {entry__create_info_page_234, NULL, 644, 644, 9, 20},
-  {cont__create_info_page_235, &frame__create_info_page_234, 645, 648, 9, 46},
-  {entry__create_info_page_247, NULL, 651, 651, 46, 58},
-  {entry__create_info_page_244, NULL, 650, 650, 9, 24},
-  {cont__create_info_page_246, &frame__create_info_page_244, 651, 651, 9, 58},
-  {entry__create_info_page_253, NULL, 654, 654, 46, 53},
-  {entry__create_info_page_250, NULL, 653, 653, 9, 30},
-  {cont__create_info_page_252, &frame__create_info_page_250, 654, 654, 9, 53},
-  {entry__create_info_page_263, NULL, 661, 661, 33, 49},
-  {cont__create_info_page_264, &frame__create_info_page_263, 661, 661, 30, 56},
-  {cont__create_info_page_265, &frame__create_info_page_263, 661, 661, 21, 56},
-  {cont__create_info_page_266, &frame__create_info_page_263, 661, 661, 19, 66},
-  {entry__create_info_page_262, NULL, 661, 661, 15, 66},
-  {cont__create_info_page_267, &frame__create_info_page_262, 662, 662, 15, 25},
-  {cont__create_info_page_269, &frame__create_info_page_262, 663, 663, 18, 46},
-  {cont__create_info_page_270, &frame__create_info_page_262, 663, 663, 15, 46},
-  {entry__create_info_page_260, NULL, 659, 659, 13, 50},
-  {cont__create_info_page_261, &frame__create_info_page_260, 660, 663, 13, 46},
-  {entry__create_info_page_259, NULL, 658, 663, 11, 47},
-  {entry__create_info_page_256, NULL, 656, 656, 9, 21},
-  {cont__create_info_page_258, &frame__create_info_page_256, 657, 663, 9, 48},
-  {entry__create_info_page_282, NULL, 670, 670, 33, 44},
-  {cont__create_info_page_283, &frame__create_info_page_282, 670, 670, 30, 51},
-  {cont__create_info_page_284, &frame__create_info_page_282, 670, 670, 21, 51},
-  {cont__create_info_page_285, &frame__create_info_page_282, 670, 670, 19, 56},
-  {entry__create_info_page_289, NULL, 672, 672, 33, 46},
-  {cont__create_info_page_290, &frame__create_info_page_289, 672, 672, 30, 53},
-  {cont__create_info_page_291, &frame__create_info_page_289, 672, 672, 21, 53},
-  {cont__create_info_page_292, &frame__create_info_page_289, 672, 672, 19, 60},
-  {entry__create_info_page_281, NULL, 670, 670, 15, 56},
-  {cont__create_info_page_286, &frame__create_info_page_281, 671, 671, 15, 33},
-  {cont__create_info_page_288, &frame__create_info_page_281, 672, 672, 15, 60},
-  {entry__create_info_page_279, NULL, 668, 668, 13, 50},
-  {cont__create_info_page_280, &frame__create_info_page_279, 669, 672, 13, 60},
-  {entry__create_info_page_277, NULL, 667, 667, 20, 33},
-  {cont__create_info_page_278, &frame__create_info_page_277, 667, 672, 11, 61},
-  {entry__create_info_page_274, NULL, 665, 665, 9, 27},
-  {cont__create_info_page_276, &frame__create_info_page_274, 666, 672, 9, 62},
-  {entry__create_info_page_295, NULL, 674, 674, 9, 61},
-  {cont__create_info_page_296, &frame__create_info_page_295, 675, 675, 9, 23},
-  {cont__create_info_page_298, &frame__create_info_page_295, 677, 677, 23, 55},
-  {cont__create_info_page_299, &frame__create_info_page_295, 677, 677, 20, 62},
-  {cont__create_info_page_300, &frame__create_info_page_295, 677, 677, 11, 62},
-  {cont__create_info_page_301, &frame__create_info_page_295, 676, 678, 9, 35},
-  {entry__create_info_page_312, NULL, 684, 684, 33, 51},
-  {cont__create_info_page_313, &frame__create_info_page_312, 684, 684, 30, 58},
-  {cont__create_info_page_314, &frame__create_info_page_312, 684, 684, 21, 58},
-  {cont__create_info_page_315, &frame__create_info_page_312, 684, 684, 19, 70},
-  {entry__create_info_page_318, NULL, 690, 690, 24, 44},
-  {cont__create_info_page_319, &frame__create_info_page_318, 690, 690, 51, 69},
-  {cont__create_info_page_320, &frame__create_info_page_318, 690, 690, 21, 76},
-  {cont__create_info_page_321, &frame__create_info_page_318, 688, 690, 19, 76},
-  {cont__create_info_page_322, &frame__create_info_page_318, 687, 693, 17, 29},
-  {entry__create_info_page_311, NULL, 684, 684, 15, 70},
-  {cont__create_info_page_316, &frame__create_info_page_311, 685, 685, 15, 25},
-  {cont__create_info_page_317, &frame__create_info_page_311, 686, 693, 15, 30},
-  {entry__create_info_page_310, NULL, 683, 693, 13, 31},
-  {entry__create_info_page_308, NULL, 682, 682, 20, 35},
-  {cont__create_info_page_309, &frame__create_info_page_308, 682, 693, 11, 32},
-  {entry__create_info_page_305, NULL, 680, 680, 9, 44},
-  {cont__create_info_page_307, &frame__create_info_page_305, 681, 693, 9, 33},
-  {entry__create_info_page_338, NULL, 703, 703, 23, 39},
-  {cont__create_info_page_339, &frame__create_info_page_338, 703, 703, 21, 45},
-  {entry__create_info_page_337, NULL, 703, 703, 17, 45},
-  {entry__create_info_page_331, NULL, 702, 702, 42, 60},
-  {cont__create_info_page_332, &frame__create_info_page_331, 702, 702, 62, 70},
-  {cont__create_info_page_334, &frame__create_info_page_331, 702, 702, 30, 71},
-  {cont__create_info_page_335, &frame__create_info_page_331, 702, 702, 13, 80},
-  {cont__create_info_page_336, &frame__create_info_page_331, 703, 703, 13, 45},
-  {entry__create_info_page_330, NULL, 701, 703, 11, 45},
-  {entry__create_info_page_327, NULL, 699, 699, 9, 19},
-  {cont__create_info_page_329, &frame__create_info_page_327, 700, 703, 9, 46},
-  {entry__create_info_page_354, NULL, 718, 718, 19, 35},
-  {entry__create_info_page_349, NULL, 715, 715, 24, 48},
-  {cont__create_info_page_350, &frame__create_info_page_349, 715, 715, 24, 63},
-  {cont__create_info_page_351, &frame__create_info_page_349, 715, 715, 19, 64},
-  {cont__create_info_page_352, &frame__create_info_page_349, },
-  {cont__create_info_page_353, &frame__create_info_page_349, 712, 718, 15, 36},
-  {cont__create_info_page_355, &frame__create_info_page_349, 719, 719, 35, 69},
-  {cont__create_info_page_357, &frame__create_info_page_349, 719, 719, 15, 69},
-  {cont__create_info_page_358, &frame__create_info_page_349, },
-  {cont__create_info_page_359, &frame__create_info_page_349, 709, 719, 11, 70},
-  {entry__create_info_page_341, NULL, 705, 705, 9, 30},
-  {cont__create_info_page_342, &frame__create_info_page_341, 706, 706, 9, 36},
-  {cont__create_info_page_343, &frame__create_info_page_341, 707, 707, 9, 16},
-  {cont__create_info_page_344, &frame__create_info_page_341, 708, 708, 45, 56},
-  {cont__create_info_page_345, &frame__create_info_page_341, 708, 708, 23, 56},
-  {cont__create_info_page_346, &frame__create_info_page_341, 708, 708, 13, 56},
-  {cont__create_info_page_348, &frame__create_info_page_341, 708, 719, 9, 71},
+  {entry__create_info_page_219, NULL, 636, 636, 40, 58},
+  {entry__create_info_page_229, NULL, 642, 642, 19, 42},
+  {cont__create_info_page_230, &frame__create_info_page_229, 642, 642, 17, 42},
+  {entry__create_info_page_226, NULL, 641, 641, 16, 32},
+  {cont__create_info_page_227, &frame__create_info_page_226, 641, 641, 13, 32},
+  {cont__create_info_page_228, &frame__create_info_page_226, 642, 642, 13, 42},
+  {entry__create_info_page_225, NULL, 640, 642, 11, 42},
+  {entry__create_info_page_222, NULL, 638, 638, 9, 23},
+  {cont__create_info_page_224, &frame__create_info_page_222, 639, 642, 9, 43},
+  {entry__create_info_page_239, NULL, 648, 648, 19, 45},
+  {cont__create_info_page_240, &frame__create_info_page_239, 648, 648, 17, 45},
+  {entry__create_info_page_236, NULL, 647, 647, 16, 35},
+  {cont__create_info_page_237, &frame__create_info_page_236, 647, 647, 13, 35},
+  {cont__create_info_page_238, &frame__create_info_page_236, 648, 648, 13, 45},
+  {entry__create_info_page_235, NULL, 646, 648, 11, 45},
+  {entry__create_info_page_233, NULL, 644, 644, 9, 20},
+  {cont__create_info_page_234, &frame__create_info_page_233, 645, 648, 9, 46},
+  {entry__create_info_page_246, NULL, 651, 651, 46, 58},
+  {entry__create_info_page_243, NULL, 650, 650, 9, 24},
+  {cont__create_info_page_245, &frame__create_info_page_243, 651, 651, 9, 58},
+  {entry__create_info_page_252, NULL, 654, 654, 46, 53},
+  {entry__create_info_page_249, NULL, 653, 653, 9, 30},
+  {cont__create_info_page_251, &frame__create_info_page_249, 654, 654, 9, 53},
+  {entry__create_info_page_262, NULL, 661, 661, 33, 49},
+  {cont__create_info_page_263, &frame__create_info_page_262, 661, 661, 30, 56},
+  {cont__create_info_page_264, &frame__create_info_page_262, 661, 661, 21, 56},
+  {cont__create_info_page_265, &frame__create_info_page_262, 661, 661, 19, 66},
+  {entry__create_info_page_261, NULL, 661, 661, 15, 66},
+  {cont__create_info_page_266, &frame__create_info_page_261, 662, 662, 15, 25},
+  {cont__create_info_page_268, &frame__create_info_page_261, 663, 663, 18, 46},
+  {cont__create_info_page_269, &frame__create_info_page_261, 663, 663, 15, 46},
+  {entry__create_info_page_259, NULL, 659, 659, 13, 50},
+  {cont__create_info_page_260, &frame__create_info_page_259, 660, 663, 13, 46},
+  {entry__create_info_page_258, NULL, 658, 663, 11, 47},
+  {entry__create_info_page_255, NULL, 656, 656, 9, 21},
+  {cont__create_info_page_257, &frame__create_info_page_255, 657, 663, 9, 48},
+  {entry__create_info_page_281, NULL, 670, 670, 33, 44},
+  {cont__create_info_page_282, &frame__create_info_page_281, 670, 670, 30, 51},
+  {cont__create_info_page_283, &frame__create_info_page_281, 670, 670, 21, 51},
+  {cont__create_info_page_284, &frame__create_info_page_281, 670, 670, 19, 56},
+  {entry__create_info_page_288, NULL, 672, 672, 33, 46},
+  {cont__create_info_page_289, &frame__create_info_page_288, 672, 672, 30, 53},
+  {cont__create_info_page_290, &frame__create_info_page_288, 672, 672, 21, 53},
+  {cont__create_info_page_291, &frame__create_info_page_288, 672, 672, 19, 60},
+  {entry__create_info_page_280, NULL, 670, 670, 15, 56},
+  {cont__create_info_page_285, &frame__create_info_page_280, 671, 671, 15, 33},
+  {cont__create_info_page_287, &frame__create_info_page_280, 672, 672, 15, 60},
+  {entry__create_info_page_278, NULL, 668, 668, 13, 50},
+  {cont__create_info_page_279, &frame__create_info_page_278, 669, 672, 13, 60},
+  {entry__create_info_page_276, NULL, 667, 667, 20, 33},
+  {cont__create_info_page_277, &frame__create_info_page_276, 667, 672, 11, 61},
+  {entry__create_info_page_273, NULL, 665, 665, 9, 27},
+  {cont__create_info_page_275, &frame__create_info_page_273, 666, 672, 9, 62},
+  {entry__create_info_page_294, NULL, 674, 674, 9, 61},
+  {cont__create_info_page_295, &frame__create_info_page_294, 675, 675, 9, 23},
+  {cont__create_info_page_297, &frame__create_info_page_294, 677, 677, 23, 55},
+  {cont__create_info_page_298, &frame__create_info_page_294, 677, 677, 20, 62},
+  {cont__create_info_page_299, &frame__create_info_page_294, 677, 677, 11, 62},
+  {cont__create_info_page_300, &frame__create_info_page_294, 676, 678, 9, 35},
+  {entry__create_info_page_311, NULL, 684, 684, 33, 51},
+  {cont__create_info_page_312, &frame__create_info_page_311, 684, 684, 30, 58},
+  {cont__create_info_page_313, &frame__create_info_page_311, 684, 684, 21, 58},
+  {cont__create_info_page_314, &frame__create_info_page_311, 684, 684, 19, 70},
+  {entry__create_info_page_317, NULL, 690, 690, 24, 44},
+  {cont__create_info_page_318, &frame__create_info_page_317, 690, 690, 51, 69},
+  {cont__create_info_page_319, &frame__create_info_page_317, 690, 690, 21, 76},
+  {cont__create_info_page_320, &frame__create_info_page_317, 688, 690, 19, 76},
+  {cont__create_info_page_321, &frame__create_info_page_317, 687, 693, 17, 29},
+  {entry__create_info_page_310, NULL, 684, 684, 15, 70},
+  {cont__create_info_page_315, &frame__create_info_page_310, 685, 685, 15, 25},
+  {cont__create_info_page_316, &frame__create_info_page_310, 686, 693, 15, 30},
+  {entry__create_info_page_309, NULL, 683, 693, 13, 31},
+  {entry__create_info_page_307, NULL, 682, 682, 20, 35},
+  {cont__create_info_page_308, &frame__create_info_page_307, 682, 693, 11, 32},
+  {entry__create_info_page_304, NULL, 680, 680, 9, 44},
+  {cont__create_info_page_306, &frame__create_info_page_304, 681, 693, 9, 33},
+  {entry__create_info_page_337, NULL, 703, 703, 23, 39},
+  {cont__create_info_page_338, &frame__create_info_page_337, 703, 703, 21, 45},
+  {entry__create_info_page_336, NULL, 703, 703, 17, 45},
+  {entry__create_info_page_330, NULL, 702, 702, 42, 60},
+  {cont__create_info_page_331, &frame__create_info_page_330, 702, 702, 62, 70},
+  {cont__create_info_page_333, &frame__create_info_page_330, 702, 702, 30, 71},
+  {cont__create_info_page_334, &frame__create_info_page_330, 702, 702, 13, 80},
+  {cont__create_info_page_335, &frame__create_info_page_330, 703, 703, 13, 45},
+  {entry__create_info_page_329, NULL, 701, 703, 11, 45},
+  {entry__create_info_page_326, NULL, 699, 699, 9, 19},
+  {cont__create_info_page_328, &frame__create_info_page_326, 700, 703, 9, 46},
+  {entry__create_info_page_353, NULL, 718, 718, 19, 35},
+  {entry__create_info_page_348, NULL, 715, 715, 24, 48},
+  {cont__create_info_page_349, &frame__create_info_page_348, 715, 715, 24, 63},
+  {cont__create_info_page_350, &frame__create_info_page_348, 715, 715, 19, 64},
+  {cont__create_info_page_351, &frame__create_info_page_348, },
+  {cont__create_info_page_352, &frame__create_info_page_348, 712, 718, 15, 36},
+  {cont__create_info_page_354, &frame__create_info_page_348, 719, 719, 35, 69},
+  {cont__create_info_page_356, &frame__create_info_page_348, 719, 719, 15, 69},
+  {cont__create_info_page_357, &frame__create_info_page_348, },
+  {cont__create_info_page_358, &frame__create_info_page_348, 709, 719, 11, 70},
+  {entry__create_info_page_340, NULL, 705, 705, 9, 30},
+  {cont__create_info_page_341, &frame__create_info_page_340, 706, 706, 9, 36},
+  {cont__create_info_page_342, &frame__create_info_page_340, 707, 707, 9, 16},
+  {cont__create_info_page_343, &frame__create_info_page_340, 708, 708, 45, 56},
+  {cont__create_info_page_344, &frame__create_info_page_340, 708, 708, 23, 56},
+  {cont__create_info_page_345, &frame__create_info_page_340, 708, 708, 13, 56},
+  {cont__create_info_page_347, &frame__create_info_page_340, 708, 719, 9, 71},
   {entry__create_info_page_20, NULL, 474, 474, 7, 14},
   {cont__create_info_page_21, &frame__create_info_page_20, 476, 476, 9, 36},
   {cont__create_info_page_22, &frame__create_info_page_20, 475, 498, 7, 57},
@@ -3269,41 +3202,41 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__create_info_page_178, &frame__create_info_page_20, 607, 607, 10, 22},
   {cont__create_info_page_179, &frame__create_info_page_20, 607, 607, 10, 34},
   {cont__create_info_page_180, &frame__create_info_page_20, 607, 635, 7, 52},
-  {cont__create_info_page_218, &frame__create_info_page_20, 636, 636, 10, 37},
-  {cont__create_info_page_219, &frame__create_info_page_20, 636, 636, 7, 58},
-  {cont__create_info_page_221, &frame__create_info_page_20, 637, 637, 14, 32},
-  {cont__create_info_page_222, &frame__create_info_page_20, 637, 642, 7, 44},
-  {cont__create_info_page_232, &frame__create_info_page_20, 643, 643, 14, 35},
-  {cont__create_info_page_233, &frame__create_info_page_20, 643, 648, 7, 47},
-  {cont__create_info_page_242, &frame__create_info_page_20, 649, 649, 14, 34},
-  {cont__create_info_page_243, &frame__create_info_page_20, 649, 651, 7, 58},
-  {cont__create_info_page_248, &frame__create_info_page_20, 652, 652, 10, 37},
-  {cont__create_info_page_249, &frame__create_info_page_20, 652, 654, 7, 53},
-  {cont__create_info_page_254, &frame__create_info_page_20, 655, 655, 14, 32},
-  {cont__create_info_page_255, &frame__create_info_page_20, 655, 663, 7, 49},
-  {cont__create_info_page_271, &frame__create_info_page_20, 664, 664, 14, 27},
-  {cont__create_info_page_272, &frame__create_info_page_20, 664, 664, 14, 36},
-  {cont__create_info_page_273, &frame__create_info_page_20, 664, 672, 7, 63},
-  {cont__create_info_page_293, &frame__create_info_page_20, 673, 673, 10, 37},
-  {cont__create_info_page_294, &frame__create_info_page_20, 673, 678, 7, 36},
-  {cont__create_info_page_302, &frame__create_info_page_20, 679, 679, 10, 22},
-  {cont__create_info_page_303, &frame__create_info_page_20, 679, 679, 10, 39},
-  {cont__create_info_page_304, &frame__create_info_page_20, 679, 693, 7, 34},
-  {cont__create_info_page_323, &frame__create_info_page_20, 696, 696, 9, 42},
-  {cont__create_info_page_324, &frame__create_info_page_20, 695, 696, 7, 64},
-  {cont__create_info_page_325, &frame__create_info_page_20, 698, 698, 14, 32},
-  {cont__create_info_page_326, &frame__create_info_page_20, 698, 703, 7, 47},
-  {cont__create_info_page_340, &frame__create_info_page_20, 704, 719, 7, 72},
-  {cont__create_info_page_360, &frame__create_info_page_20, 721, 721, 9, 26},
-  {cont__create_info_page_362, &frame__create_info_page_20, 722, 722, 24, 40},
-  {cont__create_info_page_363, &frame__create_info_page_20, 722, 722, 24, 69},
-  {cont__create_info_page_364, &frame__create_info_page_20, 722, 722, 9, 76},
-  {cont__create_info_page_367, &frame__create_info_page_20, 720, 722, 7, 76},
+  {cont__create_info_page_217, &frame__create_info_page_20, 636, 636, 10, 37},
+  {cont__create_info_page_218, &frame__create_info_page_20, 636, 636, 7, 58},
+  {cont__create_info_page_220, &frame__create_info_page_20, 637, 637, 14, 32},
+  {cont__create_info_page_221, &frame__create_info_page_20, 637, 642, 7, 44},
+  {cont__create_info_page_231, &frame__create_info_page_20, 643, 643, 14, 35},
+  {cont__create_info_page_232, &frame__create_info_page_20, 643, 648, 7, 47},
+  {cont__create_info_page_241, &frame__create_info_page_20, 649, 649, 14, 34},
+  {cont__create_info_page_242, &frame__create_info_page_20, 649, 651, 7, 58},
+  {cont__create_info_page_247, &frame__create_info_page_20, 652, 652, 10, 37},
+  {cont__create_info_page_248, &frame__create_info_page_20, 652, 654, 7, 53},
+  {cont__create_info_page_253, &frame__create_info_page_20, 655, 655, 14, 32},
+  {cont__create_info_page_254, &frame__create_info_page_20, 655, 663, 7, 49},
+  {cont__create_info_page_270, &frame__create_info_page_20, 664, 664, 14, 27},
+  {cont__create_info_page_271, &frame__create_info_page_20, 664, 664, 14, 36},
+  {cont__create_info_page_272, &frame__create_info_page_20, 664, 672, 7, 63},
+  {cont__create_info_page_292, &frame__create_info_page_20, 673, 673, 10, 37},
+  {cont__create_info_page_293, &frame__create_info_page_20, 673, 678, 7, 36},
+  {cont__create_info_page_301, &frame__create_info_page_20, 679, 679, 10, 22},
+  {cont__create_info_page_302, &frame__create_info_page_20, 679, 679, 10, 39},
+  {cont__create_info_page_303, &frame__create_info_page_20, 679, 693, 7, 34},
+  {cont__create_info_page_322, &frame__create_info_page_20, 696, 696, 9, 42},
+  {cont__create_info_page_323, &frame__create_info_page_20, 695, 696, 7, 64},
+  {cont__create_info_page_324, &frame__create_info_page_20, 698, 698, 14, 32},
+  {cont__create_info_page_325, &frame__create_info_page_20, 698, 703, 7, 47},
+  {cont__create_info_page_339, &frame__create_info_page_20, 704, 719, 7, 72},
+  {cont__create_info_page_359, &frame__create_info_page_20, 721, 721, 9, 26},
+  {cont__create_info_page_361, &frame__create_info_page_20, 722, 722, 24, 40},
+  {cont__create_info_page_362, &frame__create_info_page_20, 722, 722, 24, 69},
+  {cont__create_info_page_363, &frame__create_info_page_20, 722, 722, 9, 76},
+  {cont__create_info_page_366, &frame__create_info_page_20, 720, 722, 7, 76},
   {entry__create_info_page_15, NULL, 473, 473, 25, 45},
   {cont__create_info_page_16, &frame__create_info_page_15, 473, 473, 17, 52},
   {cont__create_info_page_19, &frame__create_info_page_15, 473, 722, 5, 77},
-  {entry__create_info_page_1, NULL, 472, 472, 6, 29},
-  {cont__create_info_page_14, &frame__create_info_page_1, 472, 722, 3, 78},
+  {entry__create_info_page, NULL, 472, 472, 6, 29},
+  {cont__create_info_page_14, &frame__create_info_page, 472, 722, 3, 78},
   {entry__get_short_description_8, NULL, 730, 730, 26, 48},
   {cont__get_short_description_9, &frame__get_short_description_8, 730, 730, 26, 48},
   {cont__get_short_description_10, &frame__get_short_description_8, 730, 730, 26, 48},
@@ -3324,11 +3257,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__get_short_description_4, NULL, 728, 731, 5, 44},
   {cont__get_short_description_16, &frame__get_short_description_4, 732, 732, 8, 61},
   {cont__get_short_description_20, &frame__get_short_description_4, 732, 738, 5, 29},
-  {entry__get_short_description_1, NULL, 725, 725, 3, 37},
-  {cont__get_short_description_2, &frame__get_short_description_1, 727, 727, 10, 30},
-  {cont__get_short_description_3, &frame__get_short_description_1, 727, 738, 3, 30},
-  {cont__get_short_description_27, &frame__get_short_description_1, 739, 739, 3, 30},
-  {cont__get_short_description_28, &frame__get_short_description_1, 740, 740, 3, 22},
+  {entry__get_short_description, NULL, 725, 725, 3, 37},
+  {cont__get_short_description_2, &frame__get_short_description, 727, 727, 10, 30},
+  {cont__get_short_description_3, &frame__get_short_description, 727, 738, 3, 30},
+  {cont__get_short_description_27, &frame__get_short_description, 739, 739, 3, 30},
+  {cont__get_short_description_28, &frame__get_short_description, 740, 740, 3, 22},
   {entry__compiler__extract_exports_5, NULL, 744, 744, 26, 66},
   {entry__compiler__extract_exports_15, NULL, 757, 757, 15, 23},
   {entry__compiler__extract_exports_16, NULL, 759, 759, 15, 24},
@@ -3353,11 +3286,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__extract_exports_9, &frame__compiler__extract_exports_7, 747, 766, 5, 13},
   {cont__compiler__extract_exports_27, &frame__compiler__extract_exports_7, 767, 767, 14, 29},
   {cont__compiler__extract_exports_28, &frame__compiler__extract_exports_7, 767, 769, 5, 38},
-  {entry__compiler__extract_exports_1, NULL, 743, 743, 32, 39},
-  {cont__compiler__extract_exports_2, &frame__compiler__extract_exports_1, 743, 743, 46, 46},
-  {cont__compiler__extract_exports_3, &frame__compiler__extract_exports_1, 743, 743, 3, 47},
-  {cont__compiler__extract_exports_4, &frame__compiler__extract_exports_1, 744, 744, 3, 66},
-  {cont__compiler__extract_exports_6, &frame__compiler__extract_exports_1, 745, 769, 3, 39},
+  {entry__compiler__extract_exports, NULL, 743, 743, 32, 39},
+  {cont__compiler__extract_exports_2, &frame__compiler__extract_exports, 743, 743, 46, 46},
+  {cont__compiler__extract_exports_3, &frame__compiler__extract_exports, 743, 743, 3, 47},
+  {cont__compiler__extract_exports_4, &frame__compiler__extract_exports, 744, 744, 3, 66},
+  {cont__compiler__extract_exports_6, &frame__compiler__extract_exports, 745, 769, 3, 39},
   {entry__compiler__extract_documentation_5, NULL, 773, 773, 26, 66},
   {entry__compiler__extract_documentation_10, NULL, 777, 780, 13, 63},
   {cont__compiler__extract_documentation_12, &frame__compiler__extract_documentation_10, 777, 780, 7, 63},
@@ -3624,18 +3557,18 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__extract_documentation_303, &frame__compiler__extract_documentation_247, 985, 985, 32, 70},
   {cont__compiler__extract_documentation_304, &frame__compiler__extract_documentation_247, 969, 985, 12, 71},
   {cont__compiler__extract_documentation_319, &frame__compiler__extract_documentation_247, 969, 985, 5, 71},
-  {entry__compiler__extract_documentation_1, NULL, 772, 772, 32, 39},
-  {cont__compiler__extract_documentation_2, &frame__compiler__extract_documentation_1, 772, 772, 46, 46},
-  {cont__compiler__extract_documentation_3, &frame__compiler__extract_documentation_1, 772, 772, 3, 47},
-  {cont__compiler__extract_documentation_4, &frame__compiler__extract_documentation_1, 773, 773, 3, 66},
-  {cont__compiler__extract_documentation_6, &frame__compiler__extract_documentation_1, 774, 794, 3, 45},
-  {cont__compiler__extract_documentation_45, &frame__compiler__extract_documentation_1, 795, 818, 3, 33},
-  {cont__compiler__extract_documentation_85, &frame__compiler__extract_documentation_1, 819, 878, 3, 44},
-  {cont__compiler__extract_documentation_180, &frame__compiler__extract_documentation_1, 879, 884, 3, 67},
-  {cont__compiler__extract_documentation_189, &frame__compiler__extract_documentation_1, 885, 891, 3, 43},
-  {cont__compiler__extract_documentation_204, &frame__compiler__extract_documentation_1, 892, 905, 3, 48},
-  {cont__compiler__extract_documentation_230, &frame__compiler__extract_documentation_1, 906, 911, 3, 52},
-  {cont__compiler__extract_documentation_246, &frame__compiler__extract_documentation_1, 912, 985, 3, 72}
+  {entry__compiler__extract_documentation, NULL, 772, 772, 32, 39},
+  {cont__compiler__extract_documentation_2, &frame__compiler__extract_documentation, 772, 772, 46, 46},
+  {cont__compiler__extract_documentation_3, &frame__compiler__extract_documentation, 772, 772, 3, 47},
+  {cont__compiler__extract_documentation_4, &frame__compiler__extract_documentation, 773, 773, 3, 66},
+  {cont__compiler__extract_documentation_6, &frame__compiler__extract_documentation, 774, 794, 3, 45},
+  {cont__compiler__extract_documentation_45, &frame__compiler__extract_documentation, 795, 818, 3, 33},
+  {cont__compiler__extract_documentation_85, &frame__compiler__extract_documentation, 819, 878, 3, 44},
+  {cont__compiler__extract_documentation_180, &frame__compiler__extract_documentation, 879, 884, 3, 67},
+  {cont__compiler__extract_documentation_189, &frame__compiler__extract_documentation, 885, 891, 3, 43},
+  {cont__compiler__extract_documentation_204, &frame__compiler__extract_documentation, 892, 905, 3, 48},
+  {cont__compiler__extract_documentation_230, &frame__compiler__extract_documentation, 906, 911, 3, 52},
+  {cont__compiler__extract_documentation_246, &frame__compiler__extract_documentation, 912, 985, 3, 72}
 };
 
 union NODE {
@@ -3992,7 +3925,7 @@ static void cont__62_7(void) {
   {
     NODE *temp = clone_object_and_attributes(get__types__object());
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__kind_of, var._OTHER);
+    set_attribute_value(temp->attributes, poly_idx__kind_of, unique__OTHER);
     set_attribute_value(temp->attributes, poly_idx__name_of, get__undefined());
     set_attribute_value(temp->attributes, poly_idx__base_of, get__undefined());
     set_attribute_value(temp->attributes, poly_idx__parameters_of, get__undefined());
@@ -4118,7 +4051,7 @@ static void cont__75_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__create_page_1(void) {
+static void entry__create_page(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // filename: 0
@@ -4599,7 +4532,7 @@ static void cont__extract_remark_lines_20(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_remark_lines_1(void) {
+static void entry__extract_remark_lines(void) {
   allocate_initialized_frame_gc(1, 8);
   // slot allocations:
   // node: 0
@@ -4752,7 +4685,7 @@ static void cont__extract_remark_lines_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_1(void) {
+static void entry__extract_documentation_from_file(void) {
   allocate_initialized_frame_gc(2, 11);
   // slot allocations:
   // filename: 0
@@ -5252,7 +5185,7 @@ static void cont__extract_documentation_from_file_34(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_45;
+  frame->cont = cont__extract_documentation_from_file_43;
 }
 static void entry__extract_documentation_from_file_35(void) {
   allocate_initialized_frame_gc(3, 4);
@@ -5293,7 +5226,7 @@ static void entry__extract_documentation_from_file_35(void) {
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_44;
+  frame->cont = cont__extract_documentation_from_file_42;
 }
 static void entry__extract_documentation_from_file_39(void) {
   allocate_initialized_frame_gc(3, 4);
@@ -5347,40 +5280,8 @@ static void cont__extract_documentation_from_file_41(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_42(void) {
-  allocate_initialized_frame_gc(1, 1);
-  // slot allocations:
-  // done: 0
-  frame->slots[0] = myself->closure.frame->slots[3]; /* done */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 216: done
-  argument_count = 0;
-  arguments = node_p;
-  result_count = frame->caller_result_count;
-  myself = frame->slots[0] /* done */;
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void entry__extract_documentation_from_file_43(void) {
-  allocate_initialized_frame_gc(0, 0);
-  // slot allocations:
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 211: pass
-  argument_count = 0;
-  arguments = node_p;
-  result_count = frame->caller_result_count;
-  myself = get__pass();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
 static void entry__extract_documentation_from_file_36(void) {
-  allocate_initialized_frame_gc(4, 8);
+  allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // idx: 0
   // fragment: 1
@@ -5426,9 +5327,6 @@ static void cont__extract_documentation_from_file_38(void) {
   // 213:   !first_idx idx+1
   // 214:   parse_meta_instruction $_tree fragment
   frame->slots[6] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_39, 0);
-  // 215: :
-  // 216:   done
-  frame->slots[7] /* temp__4 */ = create_closure(entry__extract_documentation_from_file_42, 0);
   // 209: case source_of(fragment)(1)
   // 210:   '#':
   // 211:     pass
@@ -5441,21 +5339,21 @@ static void cont__extract_documentation_from_file_38(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   arguments->slots[1] = character__35;
-  arguments->slots[2] = func__extract_documentation_from_file_43;
+  arguments->slots[2] = get__pass();
   arguments->slots[3] = character__60;
   arguments->slots[4] = frame->slots[6] /* temp__3 */;
-  arguments->slots[5] = frame->slots[7] /* temp__4 */;
+  arguments->slots[5] = frame->slots[3] /* done */;
   result_count = frame->caller_result_count;
   myself = get__case();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__extract_documentation_from_file_44(void) {
+static void cont__extract_documentation_from_file_42(void) {
   myself = frame->slots[0] /* done */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__extract_documentation_from_file_45(void) {
+static void cont__extract_documentation_from_file_43(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5467,9 +5365,9 @@ static void cont__extract_documentation_from_file_45(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_46;
+  frame->cont = cont__extract_documentation_from_file_44;
 }
-static void cont__extract_documentation_from_file_46(void) {
+static void cont__extract_documentation_from_file_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5484,16 +5382,16 @@ static void cont__extract_documentation_from_file_46(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_47;
+  frame->cont = cont__extract_documentation_from_file_45;
 }
-static void cont__extract_documentation_from_file_47(void) {
+static void cont__extract_documentation_from_file_45(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[3])->contents /* fragments */ = arguments->slots[0];
   // 218: ... : (fragment) push &trees parse_statement(fragment)
-  frame->slots[7] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_48, 1);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_46, 1);
   // 218: for_each fragments: (fragment) push &trees parse_statement(fragment)
   argument_count = 2;
   arguments = node_p;
@@ -5502,9 +5400,9 @@ static void cont__extract_documentation_from_file_47(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_51;
+  frame->cont = cont__extract_documentation_from_file_49;
 }
-static void entry__extract_documentation_from_file_48(void) {
+static void entry__extract_documentation_from_file_46(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // fragment: 0
@@ -5521,9 +5419,9 @@ static void entry__extract_documentation_from_file_48(void) {
   result_count = 1;
   myself = get__parse_statement();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_49;
+  frame->cont = cont__extract_documentation_from_file_47;
 }
-static void cont__extract_documentation_from_file_49(void) {
+static void cont__extract_documentation_from_file_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5537,9 +5435,9 @@ static void cont__extract_documentation_from_file_49(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_50;
+  frame->cont = cont__extract_documentation_from_file_48;
 }
-static void cont__extract_documentation_from_file_50(void) {
+static void cont__extract_documentation_from_file_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5551,7 +5449,7 @@ static void cont__extract_documentation_from_file_50(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__extract_documentation_from_file_51(void) {
+static void cont__extract_documentation_from_file_49(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5563,9 +5461,9 @@ static void cont__extract_documentation_from_file_51(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_52;
+  frame->cont = cont__extract_documentation_from_file_50;
 }
-static void cont__extract_documentation_from_file_52(void) {
+static void cont__extract_documentation_from_file_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5575,13 +5473,13 @@ static void cont__extract_documentation_from_file_52(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
-  arguments->slots[1] = func__extract_documentation_from_file_53;
+  arguments->slots[1] = func__extract_documentation_from_file_51;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_56;
+  frame->cont = cont__extract_documentation_from_file_54;
 }
-static void entry__extract_documentation_from_file_53(void) {
+static void entry__extract_documentation_from_file_51(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -5596,9 +5494,9 @@ static void entry__extract_documentation_from_file_53(void) {
   result_count = 1;
   myself = get__used_namespaces();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_55;
+  frame->cont = cont__extract_documentation_from_file_53;
 }
-static void cont__extract_documentation_from_file_55(void) {
+static void cont__extract_documentation_from_file_53(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5610,7 +5508,7 @@ static void cont__extract_documentation_from_file_55(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__extract_documentation_from_file_56(void) {
+static void cont__extract_documentation_from_file_54(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5628,7 +5526,7 @@ static void cont__extract_documentation_from_file_56(void) {
   // 229:         unless namespace_of(identifier).is_defined:
   // 230:           $source arguments_of(statement)(2)
   // ...
-  frame->slots[7] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_57, 1);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_55, 1);
   // 221: for_each trees: (statement)
   // 222:   cond
   // 223:     -> statement.is_a_remark: pass
@@ -5647,9 +5545,9 @@ static void cont__extract_documentation_from_file_56(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_82;
+  frame->cont = cont__extract_documentation_from_file_78;
 }
-static void entry__extract_documentation_from_file_78(void) {
+static void entry__extract_documentation_from_file_74(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // local_method_names: 0
@@ -5667,9 +5565,9 @@ static void entry__extract_documentation_from_file_78(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_79;
+  frame->cont = cont__extract_documentation_from_file_75;
 }
-static void cont__extract_documentation_from_file_79(void) {
+static void cont__extract_documentation_from_file_75(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5682,9 +5580,9 @@ static void cont__extract_documentation_from_file_79(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_80;
+  frame->cont = cont__extract_documentation_from_file_76;
 }
-static void cont__extract_documentation_from_file_80(void) {
+static void cont__extract_documentation_from_file_76(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5698,9 +5596,9 @@ static void cont__extract_documentation_from_file_80(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* local_method_names */;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_81;
+  frame->cont = cont__extract_documentation_from_file_77;
 }
-static void cont__extract_documentation_from_file_81(void) {
+static void cont__extract_documentation_from_file_77(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5712,7 +5610,7 @@ static void cont__extract_documentation_from_file_81(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_74(void) {
+static void entry__extract_documentation_from_file_70(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // statement: 0
@@ -5734,9 +5632,9 @@ static void entry__extract_documentation_from_file_74(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_75;
+  frame->cont = cont__extract_documentation_from_file_71;
 }
-static void cont__extract_documentation_from_file_75(void) {
+static void cont__extract_documentation_from_file_71(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5749,9 +5647,9 @@ static void cont__extract_documentation_from_file_75(void) {
   result_count = 1;
   myself = frame->slots[4] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_76;
+  frame->cont = cont__extract_documentation_from_file_72;
 }
-static void cont__extract_documentation_from_file_76(void) {
+static void cont__extract_documentation_from_file_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5764,9 +5662,9 @@ static void cont__extract_documentation_from_file_76(void) {
   result_count = 1;
   myself = get__is_a_polymorphic_function_constant();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_77;
+  frame->cont = cont__extract_documentation_from_file_73;
 }
-static void cont__extract_documentation_from_file_77(void) {
+static void cont__extract_documentation_from_file_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5774,7 +5672,7 @@ static void cont__extract_documentation_from_file_77(void) {
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 231: ... :
   // 232:   !local_method_names(name_of(identifier_of(destination))) true
-  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_78, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_74, 0);
   // 231: if source.is_a_polymorphic_function_constant:
   // 232:   !local_method_names(name_of(identifier_of(destination))) true
   argument_count = 2;
@@ -5786,7 +5684,7 @@ static void cont__extract_documentation_from_file_77(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_70(void) {
+static void entry__extract_documentation_from_file_66(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // destination: 0
@@ -5808,9 +5706,9 @@ static void entry__extract_documentation_from_file_70(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_71;
+  frame->cont = cont__extract_documentation_from_file_67;
 }
-static void cont__extract_documentation_from_file_71(void) {
+static void cont__extract_documentation_from_file_67(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5823,9 +5721,9 @@ static void cont__extract_documentation_from_file_71(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_72;
+  frame->cont = cont__extract_documentation_from_file_68;
 }
-static void cont__extract_documentation_from_file_72(void) {
+static void cont__extract_documentation_from_file_68(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5838,9 +5736,9 @@ static void cont__extract_documentation_from_file_72(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_73;
+  frame->cont = cont__extract_documentation_from_file_69;
 }
-static void cont__extract_documentation_from_file_73(void) {
+static void cont__extract_documentation_from_file_69(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5850,7 +5748,7 @@ static void cont__extract_documentation_from_file_73(void) {
   // 230:   $source arguments_of(statement)(2)
   // 231:   if source.is_a_polymorphic_function_constant:
   // 232:     !local_method_names(name_of(identifier_of(destination))) true
-  frame->slots[6] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_74, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_70, 0);
   // 229: unless namespace_of(identifier).is_defined:
   // 230:   $source arguments_of(statement)(2)
   // 231:   if source.is_a_polymorphic_function_constant:
@@ -5864,7 +5762,7 @@ static void cont__extract_documentation_from_file_73(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_66(void) {
+static void entry__extract_documentation_from_file_62(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // statement: 0
@@ -5884,9 +5782,9 @@ static void entry__extract_documentation_from_file_66(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_67;
+  frame->cont = cont__extract_documentation_from_file_63;
 }
-static void cont__extract_documentation_from_file_67(void) {
+static void cont__extract_documentation_from_file_63(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5899,9 +5797,9 @@ static void cont__extract_documentation_from_file_67(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_68;
+  frame->cont = cont__extract_documentation_from_file_64;
 }
-static void cont__extract_documentation_from_file_68(void) {
+static void cont__extract_documentation_from_file_64(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5914,9 +5812,9 @@ static void cont__extract_documentation_from_file_68(void) {
   result_count = 1;
   myself = get__is_a_definition();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_69;
+  frame->cont = cont__extract_documentation_from_file_65;
 }
-static void cont__extract_documentation_from_file_69(void) {
+static void cont__extract_documentation_from_file_65(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5928,7 +5826,7 @@ static void cont__extract_documentation_from_file_69(void) {
   // 230:     $source arguments_of(statement)(2)
   // 231:     if source.is_a_polymorphic_function_constant:
   // 232:       !local_method_names(name_of(identifier_of(destination))) true
-  frame->slots[4] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_70, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_66, 0);
   // 227: if destination.is_a_definition:
   // 228:   $identifier identifier_of(destination)
   // 229:   unless namespace_of(identifier).is_defined:
@@ -5944,37 +5842,7 @@ static void cont__extract_documentation_from_file_69(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_63(void) {
-  allocate_initialized_frame_gc(0, 0);
-  // slot allocations:
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 224: ... pass
-  argument_count = 0;
-  arguments = node_p;
-  result_count = frame->caller_result_count;
-  myself = get__pass();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void entry__extract_documentation_from_file_60(void) {
-  allocate_initialized_frame_gc(0, 0);
-  // slot allocations:
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 223: ... pass
-  argument_count = 0;
-  arguments = node_p;
-  result_count = frame->caller_result_count;
-  myself = get__pass();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void entry__extract_documentation_from_file_58(void) {
+static void entry__extract_documentation_from_file_56(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // statement: 0
@@ -5990,9 +5858,9 @@ static void entry__extract_documentation_from_file_58(void) {
   result_count = 1;
   myself = get__is_a_remark();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_59;
+  frame->cont = cont__extract_documentation_from_file_57;
 }
-static void cont__extract_documentation_from_file_59(void) {
+static void cont__extract_documentation_from_file_57(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6002,12 +5870,12 @@ static void cont__extract_documentation_from_file_59(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__extract_documentation_from_file_60;
+  arguments->slots[1] = get__pass();
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_61(void) {
+static void entry__extract_documentation_from_file_58(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // statement: 0
@@ -6023,9 +5891,9 @@ static void entry__extract_documentation_from_file_61(void) {
   result_count = 1;
   myself = get__is_c_code();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_62;
+  frame->cont = cont__extract_documentation_from_file_59;
 }
-static void cont__extract_documentation_from_file_62(void) {
+static void cont__extract_documentation_from_file_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6035,12 +5903,12 @@ static void cont__extract_documentation_from_file_62(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  arguments->slots[1] = func__extract_documentation_from_file_63;
+  arguments->slots[1] = get__pass();
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_64(void) {
+static void entry__extract_documentation_from_file_60(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // statement: 0
@@ -6058,9 +5926,9 @@ static void entry__extract_documentation_from_file_64(void) {
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_65;
+  frame->cont = cont__extract_documentation_from_file_61;
 }
-static void cont__extract_documentation_from_file_65(void) {
+static void cont__extract_documentation_from_file_61(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6074,7 +5942,7 @@ static void cont__extract_documentation_from_file_65(void) {
   // 230:       $source arguments_of(statement)(2)
   // 231:       if source.is_a_polymorphic_function_constant:
   // 232:         !local_method_names(name_of(identifier_of(destination))) true
-  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_66, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_62, 0);
   // 225: -> statement.is_an_assignment:
   // 226:   $destination arguments_of(statement)(1)
   // 227:   if destination.is_a_definition:
@@ -6091,7 +5959,7 @@ static void cont__extract_documentation_from_file_65(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_57(void) {
+static void entry__extract_documentation_from_file_55(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // statement: 0
@@ -6102,9 +5970,9 @@ static void entry__extract_documentation_from_file_57(void) {
     return;
   }
   // 223: -> statement.is_a_remark: pass
-  frame->slots[2] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_58, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_56, 0);
   // 224: -> statement.is_c_code: pass
-  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_61, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_58, 0);
   // 225: -> statement.is_an_assignment:
   // 226:   $destination arguments_of(statement)(1)
   // 227:   if destination.is_a_definition:
@@ -6113,7 +5981,7 @@ static void entry__extract_documentation_from_file_57(void) {
   // 230:       $source arguments_of(statement)(2)
   // 231:       if source.is_a_polymorphic_function_constant:
   // 232:         !local_method_names(name_of(identifier_of(destination))) true
-  frame->slots[4] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_64, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_60, 0);
   // 222: cond
   // 223:   -> statement.is_a_remark: pass
   // 224:   -> statement.is_c_code: pass
@@ -6135,7 +6003,7 @@ static void entry__extract_documentation_from_file_57(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__extract_documentation_from_file_82(void) {
+static void cont__extract_documentation_from_file_78(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6151,7 +6019,7 @@ static void cont__extract_documentation_from_file_82(void) {
   // 241:       if any_of(remark_lines has_prefix "Topic:"):
   // 242:         $paragraphs remark_lines.to_paragraphs
   // ...
-  frame->slots[7] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_83, 1);
+  frame->slots[7] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_79, 1);
   // 233: for_each trees:
   // 234:   (
   // 235:     statement
@@ -6170,9 +6038,9 @@ static void cont__extract_documentation_from_file_82(void) {
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_224;
+  frame->cont = cont__extract_documentation_from_file_220;
 }
-static void entry__extract_documentation_from_file_83(void) {
+static void entry__extract_documentation_from_file_79(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // statement: 0
@@ -6196,7 +6064,7 @@ static void entry__extract_documentation_from_file_83(void) {
   // 246:           $topic trim(paragraph .behind. "Topic:")
   // 247:           !topics_paragraphs(topic) range(paragraphs idx+1 -1)
   // 248:           done
-  frame->slots[4] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_84, 0);
+  frame->slots[4] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_80, 0);
   // 249: -> statement.is_c_code:
   // 250:   $identifier identifier_of(statement)
   // 251:   if identifier.is_defined:
@@ -6208,7 +6076,7 @@ static void entry__extract_documentation_from_file_83(void) {
   // 257:           if namespace.is_defined:
   // 258:             $base base_of(statement)
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_103, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_99, 0);
   // 277: -> statement.is_an_assignment:
   // 278:   $destination arguments_of(statement)(1)(.base_of undefined)
   // 279:   $$info symbol_info(.filename_of filename)
@@ -6220,7 +6088,7 @@ static void entry__extract_documentation_from_file_83(void) {
   // 285:       $iname ordered_name(namespace name)
   // 286:       !info
   // ...
-  frame->slots[6] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_134, 0);
+  frame->slots[6] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_130, 0);
   // 238: cond
   // 239:   -> statement.is_a_remark:
   // 240:     $remark_lines remark_lines_of(statement)
@@ -6240,9 +6108,9 @@ static void entry__extract_documentation_from_file_83(void) {
   result_count = frame->caller_result_count;
   myself = get__cond();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_223;
+  frame->cont = cont__extract_documentation_from_file_219;
 }
-static void entry__extract_documentation_from_file_213(void) {
+static void entry__extract_documentation_from_file_209(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // attr: 0
@@ -6266,9 +6134,9 @@ static void entry__extract_documentation_from_file_213(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_214;
+  frame->cont = cont__extract_documentation_from_file_210;
 }
-static void cont__extract_documentation_from_file_214(void) {
+static void cont__extract_documentation_from_file_210(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6281,9 +6149,9 @@ static void cont__extract_documentation_from_file_214(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_215;
+  frame->cont = cont__extract_documentation_from_file_211;
 }
-static void cont__extract_documentation_from_file_215(void) {
+static void cont__extract_documentation_from_file_211(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6291,7 +6159,7 @@ static void cont__extract_documentation_from_file_215(void) {
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
   // 341: ... :
   // 342:   !attr.used_namespaces_of used_namespaces
-  frame->slots[7] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_216, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_212, 0);
   // 341: unless namespace_of(attr).is_defined:
   // 342:   !attr.used_namespaces_of used_namespaces
   argument_count = 2;
@@ -6301,9 +6169,9 @@ static void cont__extract_documentation_from_file_215(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_217;
+  frame->cont = cont__extract_documentation_from_file_213;
 }
-static void entry__extract_documentation_from_file_216(void) {
+static void entry__extract_documentation_from_file_212(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // attr: 0
@@ -6326,7 +6194,7 @@ static void entry__extract_documentation_from_file_216(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__extract_documentation_from_file_217(void) {
+static void cont__extract_documentation_from_file_213(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6338,9 +6206,9 @@ static void cont__extract_documentation_from_file_217(void) {
   result_count = 1;
   myself = var._definitions;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_218;
+  frame->cont = cont__extract_documentation_from_file_214;
 }
-static void cont__extract_documentation_from_file_218(void) {
+static void cont__extract_documentation_from_file_214(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6354,9 +6222,9 @@ static void cont__extract_documentation_from_file_218(void) {
   result_count = 1;
   myself = get__default_value();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_219;
+  frame->cont = cont__extract_documentation_from_file_215;
 }
-static void cont__extract_documentation_from_file_219(void) {
+static void cont__extract_documentation_from_file_215(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6366,7 +6234,7 @@ static void cont__extract_documentation_from_file_219(void) {
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[4])->contents /* definition */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__kind_of, var._INLINE_C_TYPE);
+    set_attribute_value(temp->attributes, poly_idx__kind_of, unique__INLINE_C_TYPE);
     ((CELL *)frame->slots[4])->contents /* definition */ = temp;
 
   }
@@ -6385,9 +6253,9 @@ static void cont__extract_documentation_from_file_219(void) {
   result_count = 1;
   myself = var._methods_of;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_220;
+  frame->cont = cont__extract_documentation_from_file_216;
 }
-static void cont__extract_documentation_from_file_220(void) {
+static void cont__extract_documentation_from_file_216(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6401,9 +6269,9 @@ static void cont__extract_documentation_from_file_220(void) {
   result_count = 1;
   myself = frame->slots[6] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_221;
+  frame->cont = cont__extract_documentation_from_file_217;
 }
-static void cont__extract_documentation_from_file_221(void) {
+static void cont__extract_documentation_from_file_217(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6425,9 +6293,9 @@ static void cont__extract_documentation_from_file_221(void) {
   result_count = 1;
   myself = var._definitions;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_222;
+  frame->cont = cont__extract_documentation_from_file_218;
 }
-static void cont__extract_documentation_from_file_222(void) {
+static void cont__extract_documentation_from_file_218(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6439,7 +6307,7 @@ static void cont__extract_documentation_from_file_222(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_210(void) {
+static void entry__extract_documentation_from_file_206(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // attr: 0
@@ -6463,9 +6331,9 @@ static void entry__extract_documentation_from_file_210(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_211;
+  frame->cont = cont__extract_documentation_from_file_207;
 }
-static void cont__extract_documentation_from_file_211(void) {
+static void cont__extract_documentation_from_file_207(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6478,9 +6346,9 @@ static void cont__extract_documentation_from_file_211(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[1])->contents /* local_method_names */;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_212;
+  frame->cont = cont__extract_documentation_from_file_208;
 }
-static void cont__extract_documentation_from_file_212(void) {
+static void cont__extract_documentation_from_file_208(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6493,7 +6361,7 @@ static void cont__extract_documentation_from_file_212(void) {
   // 344:   !definition.kind_of INLINE_C_TYPE
   // 345:   !definition.methods_of(attr_name) info(.attribute_of attr)
   // 346:   !definitions(iname) definition
-  frame->slots[6] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_213, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_209, 0);
   // 340: unless local_method_names(attr_name):
   // 341:   unless namespace_of(attr).is_defined:
   // 342:     !attr.used_namespaces_of used_namespaces
@@ -6510,7 +6378,7 @@ static void cont__extract_documentation_from_file_212(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_204(void) {
+static void entry__extract_documentation_from_file_200(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // destination: 0
@@ -6536,9 +6404,9 @@ static void entry__extract_documentation_from_file_204(void) {
   result_count = 1;
   myself = get__attribute_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_205;
+  frame->cont = cont__extract_documentation_from_file_201;
 }
-static void cont__extract_documentation_from_file_205(void) {
+static void cont__extract_documentation_from_file_201(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6551,9 +6419,9 @@ static void cont__extract_documentation_from_file_205(void) {
   result_count = 1;
   myself = var._definitions;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_206;
+  frame->cont = cont__extract_documentation_from_file_202;
 }
-static void cont__extract_documentation_from_file_206(void) {
+static void cont__extract_documentation_from_file_202(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6567,9 +6435,9 @@ static void cont__extract_documentation_from_file_206(void) {
   result_count = 1;
   myself = get__default_value();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_207;
+  frame->cont = cont__extract_documentation_from_file_203;
 }
-static void cont__extract_documentation_from_file_207(void) {
+static void cont__extract_documentation_from_file_203(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6581,7 +6449,7 @@ static void cont__extract_documentation_from_file_207(void) {
   {
     NODE *temp = clone_object_and_attributes(frame->slots[6] /* temp__1 */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__kind_of, var._INLINE_C_TYPE);
+    set_attribute_value(temp->attributes, poly_idx__kind_of, unique__INLINE_C_TYPE);
     initialize_future(frame->slots[5] /* type */, temp);
 
   }
@@ -6593,9 +6461,9 @@ static void cont__extract_documentation_from_file_207(void) {
   result_count = 1;
   myself = var._definitions;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_208;
+  frame->cont = cont__extract_documentation_from_file_204;
 }
-static void cont__extract_documentation_from_file_208(void) {
+static void cont__extract_documentation_from_file_204(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6608,9 +6476,9 @@ static void cont__extract_documentation_from_file_208(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_209;
+  frame->cont = cont__extract_documentation_from_file_205;
 }
-static void cont__extract_documentation_from_file_209(void) {
+static void cont__extract_documentation_from_file_205(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6625,7 +6493,7 @@ static void cont__extract_documentation_from_file_209(void) {
   // 344:     !definition.kind_of INLINE_C_TYPE
   // 345:     !definition.methods_of(attr_name) info(.attribute_of attr)
   // 346:     !definitions(iname) definition
-  frame->slots[7] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_210, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_206, 0);
   // 338: if attr.is_defined:
   // 339:   $attr_name attr.to_string
   // 340:   unless local_method_names(attr_name):
@@ -6644,7 +6512,7 @@ static void cont__extract_documentation_from_file_209(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_144(void) {
+static void entry__extract_documentation_from_file_140(void) {
   allocate_initialized_frame_gc(7, 17);
   // slot allocations:
   // identifier: 0
@@ -6670,7 +6538,7 @@ static void entry__extract_documentation_from_file_144(void) {
   //   is_a_remark !temp__2 node
   //   not !temp__1 temp__2
   //   -> temp__1
-  frame->slots[9] /* is_not_a_remark */ = func__extract_documentation_from_file_145;
+  frame->slots[9] /* is_not_a_remark */ = func__extract_documentation_from_file_141;
   frame->slots[7] /* name */ = create_future();
   frame->slots[8] /* iname */ = create_future();
   frame->slots[10] /* source */ = create_future();
@@ -6685,9 +6553,9 @@ static void entry__extract_documentation_from_file_144(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_148;
+  frame->cont = cont__extract_documentation_from_file_144;
 }
-static void entry__extract_documentation_from_file_145(void) {
+static void entry__extract_documentation_from_file_141(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // node: 0
@@ -6702,9 +6570,9 @@ static void entry__extract_documentation_from_file_145(void) {
   result_count = 1;
   myself = get__is_a_remark();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_146;
+  frame->cont = cont__extract_documentation_from_file_142;
 }
-static void cont__extract_documentation_from_file_146(void) {
+static void cont__extract_documentation_from_file_142(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6717,9 +6585,9 @@ static void cont__extract_documentation_from_file_146(void) {
   result_count = 1;
   myself = get__not();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_147;
+  frame->cont = cont__extract_documentation_from_file_143;
 }
-static void cont__extract_documentation_from_file_147(void) {
+static void cont__extract_documentation_from_file_143(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6733,7 +6601,7 @@ static void cont__extract_documentation_from_file_147(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__extract_documentation_from_file_148(void) {
+static void cont__extract_documentation_from_file_144(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6745,11 +6613,11 @@ static void cont__extract_documentation_from_file_148(void) {
   arguments->slots[0] = frame->slots[1] /* namespace */;
   arguments->slots[1] = frame->slots[7] /* name */;
   result_count = 1;
-  myself = var._ordered_name;
+  myself = func__ordered_name;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_149;
+  frame->cont = cont__extract_documentation_from_file_145;
 }
-static void cont__extract_documentation_from_file_149(void) {
+static void cont__extract_documentation_from_file_145(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6762,9 +6630,9 @@ static void cont__extract_documentation_from_file_149(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_150;
+  frame->cont = cont__extract_documentation_from_file_146;
 }
-static void cont__extract_documentation_from_file_150(void) {
+static void cont__extract_documentation_from_file_146(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6777,9 +6645,9 @@ static void cont__extract_documentation_from_file_150(void) {
   result_count = 1;
   myself = get__variable_kind_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_151;
+  frame->cont = cont__extract_documentation_from_file_147;
 }
-static void cont__extract_documentation_from_file_151(void) {
+static void cont__extract_documentation_from_file_147(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6790,11 +6658,11 @@ static void cont__extract_documentation_from_file_151(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* statement */;
   result_count = 1;
-  myself = var._extract_remark_lines;
+  myself = func__extract_remark_lines;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_152;
+  frame->cont = cont__extract_documentation_from_file_148;
 }
-static void cont__extract_documentation_from_file_152(void) {
+static void cont__extract_documentation_from_file_148(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6820,9 +6688,9 @@ static void cont__extract_documentation_from_file_152(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_153;
+  frame->cont = cont__extract_documentation_from_file_149;
 }
-static void cont__extract_documentation_from_file_153(void) {
+static void cont__extract_documentation_from_file_149(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6835,9 +6703,9 @@ static void cont__extract_documentation_from_file_153(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_154;
+  frame->cont = cont__extract_documentation_from_file_150;
 }
-static void cont__extract_documentation_from_file_154(void) {
+static void cont__extract_documentation_from_file_150(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6852,9 +6720,9 @@ static void cont__extract_documentation_from_file_154(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_155;
+  frame->cont = cont__extract_documentation_from_file_151;
 }
-static void cont__extract_documentation_from_file_155(void) {
+static void cont__extract_documentation_from_file_151(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6869,9 +6737,9 @@ static void cont__extract_documentation_from_file_155(void) {
   result_count = 1;
   myself = get__find_first();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_156;
+  frame->cont = cont__extract_documentation_from_file_152;
 }
-static void cont__extract_documentation_from_file_156(void) {
+static void cont__extract_documentation_from_file_152(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6887,26 +6755,26 @@ static void cont__extract_documentation_from_file_156(void) {
   // 304:           -> POLYMORPHIC_ATTRIBUTE
   // 305:           -> POLYMORPHIC_FUNCTION
   // 306:   break
-  frame->slots[11] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_157, 0);
+  frame->slots[11] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_153, 0);
   // 307: -> source.is_a_body:
   // 308:   !info
   // 309:     .base_of "types::function"
   // 310:     .kind_of FUNCTION
   // 311:     .parameters_of parameters_of(source)
   // 312:     .remark_lines_of extract_remark_lines(statement)
-  frame->slots[12] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_166, 0);
+  frame->slots[12] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_162, 0);
   // 313: -> source.is_a_c_body: !info.kind_of INLINE_C_FUNCTION
-  frame->slots[13] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_172, 0);
+  frame->slots[13] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_168, 0);
   // 314: -> source.is_an_identifier:
   // 315:   if namespace_of(source).is_defined:
   // 316:     !info.base_of source.to_string
-  frame->slots[14] /* temp__4 */ = create_closure(entry__extract_documentation_from_file_175, 0);
+  frame->slots[14] /* temp__4 */ = create_closure(entry__extract_documentation_from_file_171, 0);
   // 317: -> source.is_a_unique_item_constant:
   // 318:   !definitions(iname) info(.kind_of UNIQUE_ITEM)
   // 319:   break
-  frame->slots[15] /* temp__5 */ = create_closure(entry__extract_documentation_from_file_182, 0);
+  frame->slots[15] /* temp__5 */ = create_closure(entry__extract_documentation_from_file_178, 0);
   // 320: -> source.is_a_constant: !info.kind_of CONSTANT
-  frame->slots[16] /* temp__6 */ = create_closure(entry__extract_documentation_from_file_186, 0);
+  frame->slots[16] /* temp__6 */ = create_closure(entry__extract_documentation_from_file_182, 0);
   // 296: cond
   // 297:   -> source.is_a_polymorphic_function_constant:
   // 298:     !polymorphic_functions(name namespace) true
@@ -6929,9 +6797,9 @@ static void cont__extract_documentation_from_file_156(void) {
   result_count = 0;
   myself = get__cond();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_189;
+  frame->cont = cont__extract_documentation_from_file_185;
 }
-static void entry__extract_documentation_from_file_188(void) {
+static void entry__extract_documentation_from_file_184(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // info: 0
@@ -6944,7 +6812,7 @@ static void entry__extract_documentation_from_file_188(void) {
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* info */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__kind_of, var._CONSTANT);
+    set_attribute_value(temp->attributes, poly_idx__kind_of, unique__CONSTANT);
     ((CELL *)frame->slots[0])->contents /* info */ = temp;
 
   }
@@ -6954,7 +6822,7 @@ static void entry__extract_documentation_from_file_188(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_184(void) {
+static void entry__extract_documentation_from_file_180(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // iname: 0
@@ -6971,7 +6839,7 @@ static void entry__extract_documentation_from_file_184(void) {
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* info */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__kind_of, var._UNIQUE_ITEM);
+    set_attribute_value(temp->attributes, poly_idx__kind_of, unique__UNIQUE_ITEM);
     frame->slots[3] /* temp__1 */ = temp;
 
   }
@@ -6983,9 +6851,9 @@ static void entry__extract_documentation_from_file_184(void) {
   result_count = 1;
   myself = var._definitions;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_185;
+  frame->cont = cont__extract_documentation_from_file_181;
 }
-static void cont__extract_documentation_from_file_185(void) {
+static void cont__extract_documentation_from_file_181(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6999,7 +6867,7 @@ static void cont__extract_documentation_from_file_185(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_180(void) {
+static void entry__extract_documentation_from_file_176(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // info: 0
@@ -7017,9 +6885,9 @@ static void entry__extract_documentation_from_file_180(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_181;
+  frame->cont = cont__extract_documentation_from_file_177;
 }
-static void cont__extract_documentation_from_file_181(void) {
+static void cont__extract_documentation_from_file_177(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7039,7 +6907,7 @@ static void cont__extract_documentation_from_file_181(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_177(void) {
+static void entry__extract_documentation_from_file_173(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // source: 0
@@ -7057,9 +6925,9 @@ static void entry__extract_documentation_from_file_177(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_178;
+  frame->cont = cont__extract_documentation_from_file_174;
 }
-static void cont__extract_documentation_from_file_178(void) {
+static void cont__extract_documentation_from_file_174(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7072,9 +6940,9 @@ static void cont__extract_documentation_from_file_178(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_179;
+  frame->cont = cont__extract_documentation_from_file_175;
 }
-static void cont__extract_documentation_from_file_179(void) {
+static void cont__extract_documentation_from_file_175(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7082,7 +6950,7 @@ static void cont__extract_documentation_from_file_179(void) {
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 315: ... :
   // 316:   !info.base_of source.to_string
-  frame->slots[4] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_180, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_176, 0);
   // 315: if namespace_of(source).is_defined:
   // 316:   !info.base_of source.to_string
   argument_count = 2;
@@ -7094,7 +6962,7 @@ static void cont__extract_documentation_from_file_179(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_174(void) {
+static void entry__extract_documentation_from_file_170(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // info: 0
@@ -7107,7 +6975,7 @@ static void entry__extract_documentation_from_file_174(void) {
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* info */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__kind_of, var._INLINE_C_FUNCTION);
+    set_attribute_value(temp->attributes, poly_idx__kind_of, unique__INLINE_C_FUNCTION);
     ((CELL *)frame->slots[0])->contents /* info */ = temp;
 
   }
@@ -7117,7 +6985,7 @@ static void entry__extract_documentation_from_file_174(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_168(void) {
+static void entry__extract_documentation_from_file_164(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // info: 0
@@ -7137,9 +7005,9 @@ static void entry__extract_documentation_from_file_168(void) {
   result_count = 1;
   myself = get__parameters_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_169;
+  frame->cont = cont__extract_documentation_from_file_165;
 }
-static void cont__extract_documentation_from_file_169(void) {
+static void cont__extract_documentation_from_file_165(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7150,11 +7018,11 @@ static void cont__extract_documentation_from_file_169(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* statement */;
   result_count = 1;
-  myself = var._extract_remark_lines;
+  myself = func__extract_remark_lines;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_170;
+  frame->cont = cont__extract_documentation_from_file_166;
 }
-static void cont__extract_documentation_from_file_170(void) {
+static void cont__extract_documentation_from_file_166(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7169,7 +7037,7 @@ static void cont__extract_documentation_from_file_170(void) {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* info */);
     update_start_p = node_p;
     set_attribute_value(temp->attributes, poly_idx__base_of, string__f7c371b7c3c668a7);
-    set_attribute_value(temp->attributes, poly_idx__kind_of, var._FUNCTION);
+    set_attribute_value(temp->attributes, poly_idx__kind_of, unique__FUNCTION);
     set_attribute_value(temp->attributes, poly_idx__parameters_of, frame->slots[3] /* temp__1 */);
     set_attribute_value(temp->attributes, poly_idx__remark_lines_of, frame->slots[4] /* temp__2 */);
     ((CELL *)frame->slots[0])->contents /* info */ = temp;
@@ -7181,7 +7049,7 @@ static void cont__extract_documentation_from_file_170(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_159(void) {
+static void entry__extract_documentation_from_file_155(void) {
   allocate_initialized_frame_gc(6, 9);
   // slot allocations:
   // name: 0
@@ -7209,9 +7077,9 @@ static void entry__extract_documentation_from_file_159(void) {
   result_count = 1;
   myself = var._polymorphic_functions;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_160;
+  frame->cont = cont__extract_documentation_from_file_156;
 }
-static void cont__extract_documentation_from_file_160(void) {
+static void cont__extract_documentation_from_file_156(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7224,9 +7092,9 @@ static void cont__extract_documentation_from_file_160(void) {
   result_count = 1;
   myself = get__is_a_setter();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_161;
+  frame->cont = cont__extract_documentation_from_file_157;
 }
-static void cont__extract_documentation_from_file_161(void) {
+static void cont__extract_documentation_from_file_157(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7235,14 +7103,14 @@ static void cont__extract_documentation_from_file_161(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
-  arguments->slots[1] = func__extract_documentation_from_file_162;
-  arguments->slots[2] = func__extract_documentation_from_file_163;
+  arguments->slots[1] = func__extract_documentation_from_file_158;
+  arguments->slots[2] = func__extract_documentation_from_file_159;
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_164;
+  frame->cont = cont__extract_documentation_from_file_160;
 }
-static void entry__extract_documentation_from_file_162(void) {
+static void entry__extract_documentation_from_file_158(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -7252,12 +7120,12 @@ static void entry__extract_documentation_from_file_162(void) {
   // 304: -> POLYMORPHIC_ATTRIBUTE
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = var._POLYMORPHIC_ATTRIBUTE;
+  arguments->slots[0] = unique__POLYMORPHIC_ATTRIBUTE;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_163(void) {
+static void entry__extract_documentation_from_file_159(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -7267,12 +7135,12 @@ static void entry__extract_documentation_from_file_163(void) {
   // 305: -> POLYMORPHIC_FUNCTION
   argument_count = 1;
   arguments = node_p;
-  arguments->slots[0] = var._POLYMORPHIC_FUNCTION;
+  arguments->slots[0] = unique__POLYMORPHIC_FUNCTION;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__extract_documentation_from_file_164(void) {
+static void cont__extract_documentation_from_file_160(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7300,9 +7168,9 @@ static void cont__extract_documentation_from_file_164(void) {
   result_count = 1;
   myself = var._definitions;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_165;
+  frame->cont = cont__extract_documentation_from_file_161;
 }
-static void cont__extract_documentation_from_file_165(void) {
+static void cont__extract_documentation_from_file_161(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7316,7 +7184,7 @@ static void cont__extract_documentation_from_file_165(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_157(void) {
+static void entry__extract_documentation_from_file_153(void) {
   allocate_initialized_frame_gc(6, 8);
   // slot allocations:
   // source: 0
@@ -7342,9 +7210,9 @@ static void entry__extract_documentation_from_file_157(void) {
   result_count = 1;
   myself = get__is_a_polymorphic_function_constant();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_158;
+  frame->cont = cont__extract_documentation_from_file_154;
 }
-static void cont__extract_documentation_from_file_158(void) {
+static void cont__extract_documentation_from_file_154(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7360,7 +7228,7 @@ static void cont__extract_documentation_from_file_158(void) {
   // 304:           -> POLYMORPHIC_ATTRIBUTE
   // 305:           -> POLYMORPHIC_FUNCTION
   // 306:   break
-  frame->slots[7] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_159, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_155, 0);
   // 297: -> source.is_a_polymorphic_function_constant:
   // 298:   !polymorphic_functions(name namespace) true
   // 299:   !definitions(iname)
@@ -7379,7 +7247,7 @@ static void cont__extract_documentation_from_file_158(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_166(void) {
+static void entry__extract_documentation_from_file_162(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // source: 0
@@ -7399,9 +7267,9 @@ static void entry__extract_documentation_from_file_166(void) {
   result_count = 1;
   myself = get__is_a_body();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_167;
+  frame->cont = cont__extract_documentation_from_file_163;
 }
-static void cont__extract_documentation_from_file_167(void) {
+static void cont__extract_documentation_from_file_163(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7413,7 +7281,7 @@ static void cont__extract_documentation_from_file_167(void) {
   // 310:     .kind_of FUNCTION
   // 311:     .parameters_of parameters_of(source)
   // 312:     .remark_lines_of extract_remark_lines(statement)
-  frame->slots[4] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_168, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_164, 0);
   // 307: -> source.is_a_body:
   // 308:   !info
   // 309:     .base_of "types::function"
@@ -7428,7 +7296,7 @@ static void cont__extract_documentation_from_file_167(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_172(void) {
+static void entry__extract_documentation_from_file_168(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // source: 0
@@ -7446,16 +7314,16 @@ static void entry__extract_documentation_from_file_172(void) {
   result_count = 1;
   myself = get__is_a_c_body();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_173;
+  frame->cont = cont__extract_documentation_from_file_169;
 }
-static void cont__extract_documentation_from_file_173(void) {
+static void cont__extract_documentation_from_file_169(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 313: ... : !info.kind_of INLINE_C_FUNCTION
-  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_174, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_170, 0);
   // 313: -> source.is_a_c_body: !info.kind_of INLINE_C_FUNCTION
   argument_count = 2;
   arguments = node_p;
@@ -7465,7 +7333,7 @@ static void cont__extract_documentation_from_file_173(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_175(void) {
+static void entry__extract_documentation_from_file_171(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // source: 0
@@ -7483,9 +7351,9 @@ static void entry__extract_documentation_from_file_175(void) {
   result_count = 1;
   myself = get__is_an_identifier();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_176;
+  frame->cont = cont__extract_documentation_from_file_172;
 }
-static void cont__extract_documentation_from_file_176(void) {
+static void cont__extract_documentation_from_file_172(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7494,7 +7362,7 @@ static void cont__extract_documentation_from_file_176(void) {
   // 314: ... :
   // 315:   if namespace_of(source).is_defined:
   // 316:     !info.base_of source.to_string
-  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_177, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_173, 0);
   // 314: -> source.is_an_identifier:
   // 315:   if namespace_of(source).is_defined:
   // 316:     !info.base_of source.to_string
@@ -7506,7 +7374,7 @@ static void cont__extract_documentation_from_file_176(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_182(void) {
+static void entry__extract_documentation_from_file_178(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // source: 0
@@ -7528,9 +7396,9 @@ static void entry__extract_documentation_from_file_182(void) {
   result_count = 1;
   myself = get__is_a_unique_item_constant();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_183;
+  frame->cont = cont__extract_documentation_from_file_179;
 }
-static void cont__extract_documentation_from_file_183(void) {
+static void cont__extract_documentation_from_file_179(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7539,7 +7407,7 @@ static void cont__extract_documentation_from_file_183(void) {
   // 317: ... :
   // 318:   !definitions(iname) info(.kind_of UNIQUE_ITEM)
   // 319:   break
-  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_184, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_180, 0);
   // 317: -> source.is_a_unique_item_constant:
   // 318:   !definitions(iname) info(.kind_of UNIQUE_ITEM)
   // 319:   break
@@ -7551,7 +7419,7 @@ static void cont__extract_documentation_from_file_183(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_186(void) {
+static void entry__extract_documentation_from_file_182(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // source: 0
@@ -7569,16 +7437,16 @@ static void entry__extract_documentation_from_file_186(void) {
   result_count = 1;
   myself = get__is_a_constant();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_187;
+  frame->cont = cont__extract_documentation_from_file_183;
 }
-static void cont__extract_documentation_from_file_187(void) {
+static void cont__extract_documentation_from_file_183(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
   // 320: ... : !info.kind_of CONSTANT
-  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_188, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_184, 0);
   // 320: -> source.is_a_constant: !info.kind_of CONSTANT
   argument_count = 2;
   arguments = node_p;
@@ -7588,7 +7456,7 @@ static void cont__extract_documentation_from_file_187(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__extract_documentation_from_file_189(void) {
+static void cont__extract_documentation_from_file_185(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7600,9 +7468,9 @@ static void cont__extract_documentation_from_file_189(void) {
   result_count = 1;
   myself = get__attribute_kind_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_190;
+  frame->cont = cont__extract_documentation_from_file_186;
 }
-static void cont__extract_documentation_from_file_190(void) {
+static void cont__extract_documentation_from_file_186(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7616,7 +7484,7 @@ static void cont__extract_documentation_from_file_190(void) {
   // 327:       !info.derived_types_of derived_types_of(previous_definition)
   // 328:       !info.methods_of methods_of(previous_definition)
   // 329:   !definitions(iname) info
-  frame->slots[12] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_191, 0);
+  frame->slots[12] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_187, 0);
   // 330: ATTRIBUTE_KIND, METHOD_KIND
   argument_count = 2;
   arguments = node_p;
@@ -7625,9 +7493,9 @@ static void cont__extract_documentation_from_file_190(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_203;
+  frame->cont = cont__extract_documentation_from_file_199;
 }
-static void entry__extract_documentation_from_file_191(void) {
+static void entry__extract_documentation_from_file_187(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // iname: 0
@@ -7647,9 +7515,9 @@ static void entry__extract_documentation_from_file_191(void) {
   result_count = 1;
   myself = var._definitions;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_192;
+  frame->cont = cont__extract_documentation_from_file_188;
 }
-static void cont__extract_documentation_from_file_192(void) {
+static void cont__extract_documentation_from_file_188(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7662,9 +7530,9 @@ static void cont__extract_documentation_from_file_192(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_193;
+  frame->cont = cont__extract_documentation_from_file_189;
 }
-static void cont__extract_documentation_from_file_193(void) {
+static void cont__extract_documentation_from_file_189(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7675,7 +7543,7 @@ static void cont__extract_documentation_from_file_193(void) {
   // 326:     !info.types_of types_of(previous_definition)
   // 327:     !info.derived_types_of derived_types_of(previous_definition)
   // 328:     !info.methods_of methods_of(previous_definition)
-  frame->slots[4] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_194, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_190, 0);
   // 324: if previous_definition.is_defined:
   // 325:   if kind_of(previous_definition) == INLINE_C_TYPE:
   // 326:     !info.types_of types_of(previous_definition)
@@ -7688,9 +7556,9 @@ static void cont__extract_documentation_from_file_193(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_201;
+  frame->cont = cont__extract_documentation_from_file_197;
 }
-static void entry__extract_documentation_from_file_197(void) {
+static void entry__extract_documentation_from_file_193(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // info: 0
@@ -7708,9 +7576,9 @@ static void entry__extract_documentation_from_file_197(void) {
   result_count = 1;
   myself = var._types_of;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_198;
+  frame->cont = cont__extract_documentation_from_file_194;
 }
-static void cont__extract_documentation_from_file_198(void) {
+static void cont__extract_documentation_from_file_194(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7731,9 +7599,9 @@ static void cont__extract_documentation_from_file_198(void) {
   result_count = 1;
   myself = var._derived_types_of;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_199;
+  frame->cont = cont__extract_documentation_from_file_195;
 }
-static void cont__extract_documentation_from_file_199(void) {
+static void cont__extract_documentation_from_file_195(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7754,9 +7622,9 @@ static void cont__extract_documentation_from_file_199(void) {
   result_count = 1;
   myself = var._methods_of;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_200;
+  frame->cont = cont__extract_documentation_from_file_196;
 }
-static void cont__extract_documentation_from_file_200(void) {
+static void cont__extract_documentation_from_file_196(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7776,7 +7644,7 @@ static void cont__extract_documentation_from_file_200(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_194(void) {
+static void entry__extract_documentation_from_file_190(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // previous_definition: 0
@@ -7794,9 +7662,9 @@ static void entry__extract_documentation_from_file_194(void) {
   result_count = 1;
   myself = get__kind_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_195;
+  frame->cont = cont__extract_documentation_from_file_191;
 }
-static void cont__extract_documentation_from_file_195(void) {
+static void cont__extract_documentation_from_file_191(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7806,13 +7674,13 @@ static void cont__extract_documentation_from_file_195(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
-  arguments->slots[1] = var._INLINE_C_TYPE;
+  arguments->slots[1] = unique__INLINE_C_TYPE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_196;
+  frame->cont = cont__extract_documentation_from_file_192;
 }
-static void cont__extract_documentation_from_file_196(void) {
+static void cont__extract_documentation_from_file_192(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7822,7 +7690,7 @@ static void cont__extract_documentation_from_file_196(void) {
   // 326:   !info.types_of types_of(previous_definition)
   // 327:   !info.derived_types_of derived_types_of(previous_definition)
   // 328:   !info.methods_of methods_of(previous_definition)
-  frame->slots[4] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_197, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_193, 0);
   // 325: if kind_of(previous_definition) == INLINE_C_TYPE:
   // 326:   !info.types_of types_of(previous_definition)
   // 327:   !info.derived_types_of derived_types_of(previous_definition)
@@ -7836,7 +7704,7 @@ static void cont__extract_documentation_from_file_196(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__extract_documentation_from_file_201(void) {
+static void cont__extract_documentation_from_file_197(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7849,9 +7717,9 @@ static void cont__extract_documentation_from_file_201(void) {
   result_count = 1;
   myself = var._definitions;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_202;
+  frame->cont = cont__extract_documentation_from_file_198;
 }
-static void cont__extract_documentation_from_file_202(void) {
+static void cont__extract_documentation_from_file_198(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7863,7 +7731,7 @@ static void cont__extract_documentation_from_file_202(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__extract_documentation_from_file_203(void) {
+static void cont__extract_documentation_from_file_199(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7880,7 +7748,7 @@ static void cont__extract_documentation_from_file_203(void) {
   // 338:   if attr.is_defined:
   // 339:     $attr_name attr.to_string
   // ...
-  frame->slots[14] /* temp__4 */ = create_closure(entry__extract_documentation_from_file_204, 0);
+  frame->slots[14] /* temp__4 */ = create_closure(entry__extract_documentation_from_file_200, 0);
   // 321: case attribute_kind_of(destination)
   // 322:   NONE:
   // 323:     $previous_definition definitions(iname)
@@ -7904,7 +7772,7 @@ static void cont__extract_documentation_from_file_203(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_140(void) {
+static void entry__extract_documentation_from_file_136(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // destination: 0
@@ -7932,9 +7800,9 @@ static void entry__extract_documentation_from_file_140(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_141;
+  frame->cont = cont__extract_documentation_from_file_137;
 }
-static void cont__extract_documentation_from_file_141(void) {
+static void cont__extract_documentation_from_file_137(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7947,9 +7815,9 @@ static void cont__extract_documentation_from_file_141(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_142;
+  frame->cont = cont__extract_documentation_from_file_138;
 }
-static void cont__extract_documentation_from_file_142(void) {
+static void cont__extract_documentation_from_file_138(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7962,9 +7830,9 @@ static void cont__extract_documentation_from_file_142(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_143;
+  frame->cont = cont__extract_documentation_from_file_139;
 }
-static void cont__extract_documentation_from_file_143(void) {
+static void cont__extract_documentation_from_file_139(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7981,7 +7849,7 @@ static void cont__extract_documentation_from_file_143(void) {
   // 291:   $is_not_a_remark: (node) -> not(node.is_a_remark)
   // 292:   
   // ...
-  frame->slots[8] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_144, 0);
+  frame->slots[8] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_140, 0);
   // 283: if namespace.is_defined:
   // 284:   $name name_of(identifier)
   // 285:   $iname ordered_name(namespace name)
@@ -8002,7 +7870,7 @@ static void cont__extract_documentation_from_file_143(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_136(void) {
+static void entry__extract_documentation_from_file_132(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // statement: 0
@@ -8028,9 +7896,9 @@ static void entry__extract_documentation_from_file_136(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_137;
+  frame->cont = cont__extract_documentation_from_file_133;
 }
-static void cont__extract_documentation_from_file_137(void) {
+static void cont__extract_documentation_from_file_133(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8043,9 +7911,9 @@ static void cont__extract_documentation_from_file_137(void) {
   result_count = 1;
   myself = frame->slots[7] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_138;
+  frame->cont = cont__extract_documentation_from_file_134;
 }
-static void cont__extract_documentation_from_file_138(void) {
+static void cont__extract_documentation_from_file_134(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8074,9 +7942,9 @@ static void cont__extract_documentation_from_file_138(void) {
   result_count = 1;
   myself = get__is_a_definition();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_139;
+  frame->cont = cont__extract_documentation_from_file_135;
 }
-static void cont__extract_documentation_from_file_139(void) {
+static void cont__extract_documentation_from_file_135(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8093,7 +7961,7 @@ static void cont__extract_documentation_from_file_139(void) {
   // 288:       .variable_kind_of variable_kind_of(destination)
   // 289:       .remark_lines_of extract_remark_lines(statement)
   // ...
-  frame->slots[7] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_140, 0);
+  frame->slots[7] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_136, 0);
   // 280: if destination.is_a_definition:
   // 281:   $identifier identifier_of(destination)
   // 282:   $namespace namespace_of(identifier)
@@ -8114,7 +7982,7 @@ static void cont__extract_documentation_from_file_139(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_116(void) {
+static void entry__extract_documentation_from_file_112(void) {
   allocate_initialized_frame_gc(5, 13);
   // slot allocations:
   // statement: 0
@@ -8140,9 +8008,9 @@ static void entry__extract_documentation_from_file_116(void) {
   result_count = 1;
   myself = get__base_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_117;
+  frame->cont = cont__extract_documentation_from_file_113;
 }
-static void cont__extract_documentation_from_file_117(void) {
+static void cont__extract_documentation_from_file_113(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8155,9 +8023,9 @@ static void cont__extract_documentation_from_file_117(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_118;
+  frame->cont = cont__extract_documentation_from_file_114;
 }
-static void cont__extract_documentation_from_file_118(void) {
+static void cont__extract_documentation_from_file_114(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8170,27 +8038,27 @@ static void cont__extract_documentation_from_file_118(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_119;
+  frame->cont = cont__extract_documentation_from_file_115;
 }
-static void cont__extract_documentation_from_file_119(void) {
+static void cont__extract_documentation_from_file_115(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[8] /* temp__3 */ = arguments->slots[0];
   // 266: -> base.to_string
-  frame->slots[9] /* temp__4 */ = create_closure(entry__extract_documentation_from_file_120, 0);
+  frame->slots[9] /* temp__4 */ = create_closure(entry__extract_documentation_from_file_116, 0);
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__3 */;
   arguments->slots[1] = frame->slots[9] /* temp__4 */;
-  arguments->slots[2] = func__extract_documentation_from_file_122;
+  arguments->slots[2] = func__extract_documentation_from_file_118;
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_123;
+  frame->cont = cont__extract_documentation_from_file_119;
 }
-static void entry__extract_documentation_from_file_120(void) {
+static void entry__extract_documentation_from_file_116(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // base: 0
@@ -8206,9 +8074,9 @@ static void entry__extract_documentation_from_file_120(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_121;
+  frame->cont = cont__extract_documentation_from_file_117;
 }
-static void cont__extract_documentation_from_file_121(void) {
+static void cont__extract_documentation_from_file_117(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8222,7 +8090,7 @@ static void cont__extract_documentation_from_file_121(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_122(void) {
+static void entry__extract_documentation_from_file_118(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -8237,7 +8105,7 @@ static void entry__extract_documentation_from_file_122(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__extract_documentation_from_file_123(void) {
+static void cont__extract_documentation_from_file_119(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8250,9 +8118,9 @@ static void cont__extract_documentation_from_file_123(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_124;
+  frame->cont = cont__extract_documentation_from_file_120;
 }
-static void cont__extract_documentation_from_file_124(void) {
+static void cont__extract_documentation_from_file_120(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8272,7 +8140,7 @@ static void cont__extract_documentation_from_file_124(void) {
   {
     NODE *temp = clone_object_and_attributes(var._symbol_info);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__kind_of, var._INLINE_C_TYPE);
+    set_attribute_value(temp->attributes, poly_idx__kind_of, unique__INLINE_C_TYPE);
     set_attribute_value(temp->attributes, poly_idx__name_of, frame->slots[6] /* temp__1 */);
     set_attribute_value(temp->attributes, poly_idx__base_of, frame->slots[7] /* temp__2 */);
     set_attribute_value(temp->attributes, poly_idx__remark_lines_of, frame->slots[10] /* temp__5 */);
@@ -8286,11 +8154,11 @@ static void cont__extract_documentation_from_file_124(void) {
   arguments->slots[0] = frame->slots[1] /* namespace */;
   arguments->slots[1] = frame->slots[2] /* name */;
   result_count = 1;
-  myself = var._ordered_name;
+  myself = func__ordered_name;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_125;
+  frame->cont = cont__extract_documentation_from_file_121;
 }
-static void cont__extract_documentation_from_file_125(void) {
+static void cont__extract_documentation_from_file_121(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8304,9 +8172,9 @@ static void cont__extract_documentation_from_file_125(void) {
   result_count = 1;
   myself = var._definitions;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_126;
+  frame->cont = cont__extract_documentation_from_file_122;
 }
-static void cont__extract_documentation_from_file_126(void) {
+static void cont__extract_documentation_from_file_122(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8318,7 +8186,7 @@ static void cont__extract_documentation_from_file_126(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_114(void) {
+static void entry__extract_documentation_from_file_110(void) {
   allocate_initialized_frame_gc(5, 7);
   // slot allocations:
   // namespace: 0
@@ -8342,9 +8210,9 @@ static void entry__extract_documentation_from_file_114(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_115;
+  frame->cont = cont__extract_documentation_from_file_111;
 }
-static void cont__extract_documentation_from_file_115(void) {
+static void cont__extract_documentation_from_file_111(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8361,7 +8229,7 @@ static void cont__extract_documentation_from_file_115(void) {
   // 265:           base.is_defined
   // 266:           -> base.to_string
   // ...
-  frame->slots[6] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_116, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_112, 0);
   // 257: if namespace.is_defined:
   // 258:   $base base_of(statement)
   // 259:   !definitions(ordered_name(namespace name))
@@ -8382,7 +8250,7 @@ static void cont__extract_documentation_from_file_115(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_127(void) {
+static void entry__extract_documentation_from_file_123(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // namespace: 0
@@ -8406,9 +8274,9 @@ static void entry__extract_documentation_from_file_127(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_128;
+  frame->cont = cont__extract_documentation_from_file_124;
 }
-static void cont__extract_documentation_from_file_128(void) {
+static void cont__extract_documentation_from_file_124(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8421,9 +8289,9 @@ static void cont__extract_documentation_from_file_128(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_129;
+  frame->cont = cont__extract_documentation_from_file_125;
 }
-static void cont__extract_documentation_from_file_129(void) {
+static void cont__extract_documentation_from_file_125(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8438,7 +8306,7 @@ static void cont__extract_documentation_from_file_129(void) {
   {
     NODE *temp = clone_object_and_attributes(var._symbol_info);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__kind_of, var._INLINE_C_OBJECT);
+    set_attribute_value(temp->attributes, poly_idx__kind_of, unique__INLINE_C_OBJECT);
     set_attribute_value(temp->attributes, poly_idx__name_of, frame->slots[5] /* temp__1 */);
     set_attribute_value(temp->attributes, poly_idx__remark_lines_of, frame->slots[6] /* temp__2 */);
     set_attribute_value(temp->attributes, poly_idx__filename_of, frame->slots[4] /* filename */);
@@ -8451,11 +8319,11 @@ static void cont__extract_documentation_from_file_129(void) {
   arguments->slots[0] = frame->slots[0] /* namespace */;
   arguments->slots[1] = frame->slots[1] /* name */;
   result_count = 1;
-  myself = var._ordered_name;
+  myself = func__ordered_name;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_130;
+  frame->cont = cont__extract_documentation_from_file_126;
 }
-static void cont__extract_documentation_from_file_130(void) {
+static void cont__extract_documentation_from_file_126(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8469,9 +8337,9 @@ static void cont__extract_documentation_from_file_130(void) {
   result_count = 1;
   myself = var._definitions;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_131;
+  frame->cont = cont__extract_documentation_from_file_127;
 }
-static void cont__extract_documentation_from_file_131(void) {
+static void cont__extract_documentation_from_file_127(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8483,7 +8351,7 @@ static void cont__extract_documentation_from_file_131(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_111(void) {
+static void entry__extract_documentation_from_file_107(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // identifier: 0
@@ -8507,9 +8375,9 @@ static void entry__extract_documentation_from_file_111(void) {
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_112;
+  frame->cont = cont__extract_documentation_from_file_108;
 }
-static void cont__extract_documentation_from_file_112(void) {
+static void cont__extract_documentation_from_file_108(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8522,9 +8390,9 @@ static void cont__extract_documentation_from_file_112(void) {
   result_count = 1;
   myself = get__kind_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_113;
+  frame->cont = cont__extract_documentation_from_file_109;
 }
-static void cont__extract_documentation_from_file_113(void) {
+static void cont__extract_documentation_from_file_109(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8541,7 +8409,7 @@ static void cont__extract_documentation_from_file_113(void) {
   // 264:           if
   // 265:             base.is_defined
   // ...
-  frame->slots[6] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_114, 0);
+  frame->slots[6] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_110, 0);
   // 270: ... :
   // 271:   !definitions(ordered_name(namespace name))
   // 272:     symbol_info
@@ -8549,7 +8417,7 @@ static void cont__extract_documentation_from_file_113(void) {
   // 274:       .name_of identifier.to_string
   // 275:       .remark_lines_of remark_lines_of(statement)
   // 276:       .filename_of filename
-  frame->slots[7] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_127, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__extract_documentation_from_file_123, 0);
   // 255: case kind_of(statement)
   // 256:   "type":
   // 257:     if namespace.is_defined:
@@ -8573,7 +8441,7 @@ static void cont__extract_documentation_from_file_113(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_108(void) {
+static void entry__extract_documentation_from_file_104(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // identifier: 0
@@ -8595,9 +8463,9 @@ static void entry__extract_documentation_from_file_108(void) {
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_109;
+  frame->cont = cont__extract_documentation_from_file_105;
 }
-static void cont__extract_documentation_from_file_109(void) {
+static void cont__extract_documentation_from_file_105(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8610,9 +8478,9 @@ static void cont__extract_documentation_from_file_109(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_110;
+  frame->cont = cont__extract_documentation_from_file_106;
 }
-static void cont__extract_documentation_from_file_110(void) {
+static void cont__extract_documentation_from_file_106(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8629,7 +8497,7 @@ static void cont__extract_documentation_from_file_110(void) {
   // 261:             .kind_of INLINE_C_TYPE
   // 262:             .name_of identifier.to_string
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_111, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_107, 0);
   // 253: if namespace.is_defined:
   // 254:   $name name_of(identifier)
   // 255:   case kind_of(statement)
@@ -8650,7 +8518,7 @@ static void cont__extract_documentation_from_file_110(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_105(void) {
+static void entry__extract_documentation_from_file_101(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // statement: 0
@@ -8670,9 +8538,9 @@ static void entry__extract_documentation_from_file_105(void) {
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_106;
+  frame->cont = cont__extract_documentation_from_file_102;
 }
-static void cont__extract_documentation_from_file_106(void) {
+static void cont__extract_documentation_from_file_102(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8685,9 +8553,9 @@ static void cont__extract_documentation_from_file_106(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_107;
+  frame->cont = cont__extract_documentation_from_file_103;
 }
-static void cont__extract_documentation_from_file_107(void) {
+static void cont__extract_documentation_from_file_103(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8704,7 +8572,7 @@ static void cont__extract_documentation_from_file_107(void) {
   // 259:           !definitions(ordered_name(namespace name))
   // 260:             symbol_info
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_108, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_104, 0);
   // 251: if identifier.is_defined:
   // 252:   $namespace namespace_of(identifier)
   // 253:   if namespace.is_defined:
@@ -8725,7 +8593,7 @@ static void cont__extract_documentation_from_file_107(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_92(void) {
+static void entry__extract_documentation_from_file_88(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // done: 0
@@ -8741,7 +8609,7 @@ static void entry__extract_documentation_from_file_92(void) {
   // 246:     $topic trim(paragraph .behind. "Topic:")
   // 247:     !topics_paragraphs(topic) range(paragraphs idx+1 -1)
   // 248:     done
-  frame->slots[2] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_93, 2);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_89, 2);
   // 244: for_each paragraphs: (idx paragraph)
   // 245:   if paragraph .has_prefix. "Topic:":
   // 246:     $topic trim(paragraph .behind. "Topic:")
@@ -8754,9 +8622,9 @@ static void entry__extract_documentation_from_file_92(void) {
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_102;
+  frame->cont = cont__extract_documentation_from_file_98;
 }
-static void entry__extract_documentation_from_file_95(void) {
+static void entry__extract_documentation_from_file_91(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // paragraph: 0
@@ -8781,9 +8649,9 @@ static void entry__extract_documentation_from_file_95(void) {
   result_count = 1;
   myself = get__behind();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_96;
+  frame->cont = cont__extract_documentation_from_file_92;
 }
-static void cont__extract_documentation_from_file_96(void) {
+static void cont__extract_documentation_from_file_92(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8796,9 +8664,9 @@ static void cont__extract_documentation_from_file_96(void) {
   result_count = 1;
   myself = get__trim();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_97;
+  frame->cont = cont__extract_documentation_from_file_93;
 }
-static void cont__extract_documentation_from_file_97(void) {
+static void cont__extract_documentation_from_file_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8812,9 +8680,9 @@ static void cont__extract_documentation_from_file_97(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_98;
+  frame->cont = cont__extract_documentation_from_file_94;
 }
-static void cont__extract_documentation_from_file_98(void) {
+static void cont__extract_documentation_from_file_94(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8827,9 +8695,9 @@ static void cont__extract_documentation_from_file_98(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_99;
+  frame->cont = cont__extract_documentation_from_file_95;
 }
-static void cont__extract_documentation_from_file_99(void) {
+static void cont__extract_documentation_from_file_95(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8844,9 +8712,9 @@ static void cont__extract_documentation_from_file_99(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_100;
+  frame->cont = cont__extract_documentation_from_file_96;
 }
-static void cont__extract_documentation_from_file_100(void) {
+static void cont__extract_documentation_from_file_96(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8860,9 +8728,9 @@ static void cont__extract_documentation_from_file_100(void) {
   result_count = 1;
   myself = var._topics_paragraphs;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_101;
+  frame->cont = cont__extract_documentation_from_file_97;
 }
-static void cont__extract_documentation_from_file_101(void) {
+static void cont__extract_documentation_from_file_97(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8876,7 +8744,7 @@ static void cont__extract_documentation_from_file_101(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_93(void) {
+static void entry__extract_documentation_from_file_89(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // idx: 0
@@ -8897,9 +8765,9 @@ static void entry__extract_documentation_from_file_93(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_94;
+  frame->cont = cont__extract_documentation_from_file_90;
 }
-static void cont__extract_documentation_from_file_94(void) {
+static void cont__extract_documentation_from_file_90(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8909,7 +8777,7 @@ static void cont__extract_documentation_from_file_94(void) {
   // 246:   $topic trim(paragraph .behind. "Topic:")
   // 247:   !topics_paragraphs(topic) range(paragraphs idx+1 -1)
   // 248:   done
-  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_95, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_91, 0);
   // 245: if paragraph .has_prefix. "Topic:":
   // 246:   $topic trim(paragraph .behind. "Topic:")
   // 247:   !topics_paragraphs(topic) range(paragraphs idx+1 -1)
@@ -8923,12 +8791,12 @@ static void cont__extract_documentation_from_file_94(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__extract_documentation_from_file_102(void) {
+static void cont__extract_documentation_from_file_98(void) {
   myself = frame->slots[0] /* done */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_90(void) {
+static void entry__extract_documentation_from_file_86(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // remark_lines: 0
@@ -8944,11 +8812,11 @@ static void entry__extract_documentation_from_file_90(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* remark_lines */;
   result_count = 1;
-  myself = var._to_paragraphs;
+  myself = func__to_paragraphs;
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_91;
+  frame->cont = cont__extract_documentation_from_file_87;
 }
-static void cont__extract_documentation_from_file_91(void) {
+static void cont__extract_documentation_from_file_87(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8960,7 +8828,7 @@ static void cont__extract_documentation_from_file_91(void) {
   // 246:       $topic trim(paragraph .behind. "Topic:")
   // 247:       !topics_paragraphs(topic) range(paragraphs idx+1 -1)
   // 248:       done
-  frame->slots[2] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_92, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__extract_documentation_from_file_88, 0);
   // 243: do: (-> done)
   // 244:   for_each paragraphs: (idx paragraph)
   // 245:     if paragraph .has_prefix. "Topic:":
@@ -8975,7 +8843,7 @@ static void cont__extract_documentation_from_file_91(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_86(void) {
+static void entry__extract_documentation_from_file_82(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // statement: 0
@@ -8993,9 +8861,9 @@ static void entry__extract_documentation_from_file_86(void) {
   result_count = 1;
   myself = get__remark_lines_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_87;
+  frame->cont = cont__extract_documentation_from_file_83;
 }
-static void cont__extract_documentation_from_file_87(void) {
+static void cont__extract_documentation_from_file_83(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9010,9 +8878,9 @@ static void cont__extract_documentation_from_file_87(void) {
   result_count = 1;
   myself = get__any_of();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_89;
+  frame->cont = cont__extract_documentation_from_file_85;
 }
-static void cont__extract_documentation_from_file_89(void) {
+static void cont__extract_documentation_from_file_85(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9026,7 +8894,7 @@ static void cont__extract_documentation_from_file_89(void) {
   // 246:         $topic trim(paragraph .behind. "Topic:")
   // 247:         !topics_paragraphs(topic) range(paragraphs idx+1 -1)
   // 248:         done
-  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_90, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_86, 0);
   // 241: if any_of(remark_lines has_prefix "Topic:"):
   // 242:   $paragraphs remark_lines.to_paragraphs
   // 243:   do: (-> done)
@@ -9044,7 +8912,7 @@ static void cont__extract_documentation_from_file_89(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_file_84(void) {
+static void entry__extract_documentation_from_file_80(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // statement: 0
@@ -9060,9 +8928,9 @@ static void entry__extract_documentation_from_file_84(void) {
   result_count = 1;
   myself = get__is_a_remark();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_85;
+  frame->cont = cont__extract_documentation_from_file_81;
 }
-static void cont__extract_documentation_from_file_85(void) {
+static void cont__extract_documentation_from_file_81(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9078,7 +8946,7 @@ static void cont__extract_documentation_from_file_85(void) {
   // 246:           $topic trim(paragraph .behind. "Topic:")
   // 247:           !topics_paragraphs(topic) range(paragraphs idx+1 -1)
   // 248:           done
-  frame->slots[2] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_86, 0);
+  frame->slots[2] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_82, 0);
   // 239: -> statement.is_a_remark:
   // 240:   $remark_lines remark_lines_of(statement)
   // 241:   if any_of(remark_lines has_prefix "Topic:"):
@@ -9097,7 +8965,7 @@ static void cont__extract_documentation_from_file_85(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_103(void) {
+static void entry__extract_documentation_from_file_99(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // statement: 0
@@ -9115,9 +8983,9 @@ static void entry__extract_documentation_from_file_103(void) {
   result_count = 1;
   myself = get__is_c_code();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_104;
+  frame->cont = cont__extract_documentation_from_file_100;
 }
-static void cont__extract_documentation_from_file_104(void) {
+static void cont__extract_documentation_from_file_100(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9134,7 +9002,7 @@ static void cont__extract_documentation_from_file_104(void) {
   // 257:           if namespace.is_defined:
   // 258:             $base base_of(statement)
   // ...
-  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_105, 0);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_101, 0);
   // 249: -> statement.is_c_code:
   // 250:   $identifier identifier_of(statement)
   // 251:   if identifier.is_defined:
@@ -9154,7 +9022,7 @@ static void cont__extract_documentation_from_file_104(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__extract_documentation_from_file_134(void) {
+static void entry__extract_documentation_from_file_130(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // statement: 0
@@ -9176,9 +9044,9 @@ static void entry__extract_documentation_from_file_134(void) {
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__extract_documentation_from_file_135;
+  frame->cont = cont__extract_documentation_from_file_131;
 }
-static void cont__extract_documentation_from_file_135(void) {
+static void cont__extract_documentation_from_file_131(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9195,7 +9063,7 @@ static void cont__extract_documentation_from_file_135(void) {
   // 285:       $iname ordered_name(namespace name)
   // 286:       !info
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_136, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__extract_documentation_from_file_132, 0);
   // 277: -> statement.is_an_assignment:
   // 278:   $destination arguments_of(statement)(1)(.base_of undefined)
   // 279:   $$info symbol_info(.filename_of filename)
@@ -9215,12 +9083,12 @@ static void cont__extract_documentation_from_file_135(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__extract_documentation_from_file_223(void) {
+static void cont__extract_documentation_from_file_219(void) {
   myself = frame->slots[1] /* break */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__extract_documentation_from_file_224(void) {
+static void cont__extract_documentation_from_file_220(void) {
   myself = frame->slots[1] /* return__1 */;
   func = myself->type;
   frame->cont = invalid_continuation;
@@ -9239,7 +9107,7 @@ static void entry__extract_documentation_from_directory_11(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
   result_count = frame->caller_result_count;
-  myself = var._extract_documentation_from_file;
+  myself = func__extract_documentation_from_file;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -9257,7 +9125,7 @@ static void entry__extract_documentation_from_directory_8(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
   result_count = frame->caller_result_count;
-  myself = var._extract_documentation_from_directory;
+  myself = func__extract_documentation_from_directory;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -9375,7 +9243,7 @@ static void cont__extract_documentation_from_directory_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__extract_documentation_from_directory_1(void) {
+static void entry__extract_documentation_from_directory(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // path: 0
@@ -9758,7 +9626,7 @@ static void cont__resolved_name_25(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__resolved_name_1(void) {
+static void entry__resolved_name(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // attr: 0
@@ -9919,7 +9787,7 @@ static void cont__add_derived_type_10(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
-  arguments->slots[1] = var._INLINE_C_TYPE;
+  arguments->slots[1] = unique__INLINE_C_TYPE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -9966,7 +9834,7 @@ static void entry__add_derived_type_15(void) {
   arguments->slots[0] = frame->slots[0] /* base_of_base */;
   arguments->slots[1] = frame->slots[1] /* ibase */;
   result_count = frame->caller_result_count;
-  myself = var._add_derived_type;
+  myself = func__add_derived_type;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -9987,7 +9855,7 @@ static void entry__add_derived_type_12(void) {
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* definition */);
     update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__kind_of, var._INLINE_C_TYPE);
+    set_attribute_value(temp->attributes, poly_idx__kind_of, unique__INLINE_C_TYPE);
     ((CELL *)frame->slots[0])->contents /* definition */ = temp;
 
   }
@@ -10060,7 +9928,7 @@ static void cont__add_derived_type_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__add_derived_type_1(void) {
+static void entry__add_derived_type(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // base: 0
@@ -10111,7 +9979,7 @@ static void cont__add_derived_type_3(void) {
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   arguments->slots[1] = frame->slots[5] /* temp__2 */;
   result_count = 1;
-  myself = var._ordered_name;
+  myself = func__ordered_name;
   func = myself->type;
   frame->cont = cont__add_derived_type_4;
 }
@@ -10175,7 +10043,7 @@ static void cont__add_derived_type_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__mangled_1(void) {
+static void entry__mangled(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // name: 0
@@ -10240,7 +10108,7 @@ static void cont__mangled_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__ordered_name_1(void) {
+static void entry__ordered_name(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // namespace: 0
@@ -10528,7 +10396,7 @@ static void cont__link_bar_26(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__link_bar_1(void) {
+static void entry__link_bar(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -10553,7 +10421,7 @@ static void entry__link_bar_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__to_paragraphs_1(void) {
+static void entry__to_paragraphs(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // lines: 0
@@ -11231,7 +11099,7 @@ static void cont__to_paragraphs_32(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__resolve_reference_1(void) {
+static void entry__resolve_reference(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // reference: 0
@@ -11562,7 +11430,7 @@ static void cont__resolve_reference_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__add_links_1(void) {
+static void entry__add_links(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // paragraph: 0
@@ -11681,7 +11549,7 @@ static void cont__add_links_7(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* reference */;
   result_count = 1;
-  myself = var._resolve_reference;
+  myself = func__resolve_reference;
   func = myself->type;
   frame->cont = cont__add_links_8;
 }
@@ -11696,7 +11564,7 @@ static void cont__add_links_8(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* reference */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
   frame->cont = cont__add_links_9;
 }
@@ -11806,7 +11674,7 @@ static void entry__create_info_page_20(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
-  myself = var._link_bar;
+  myself = func__link_bar;
   func = myself->type;
   frame->cont = cont__create_info_page_21;
 }
@@ -11972,7 +11840,7 @@ static void cont__create_info_page_25(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* type */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
   frame->cont = cont__create_info_page_26;
 }
@@ -11987,7 +11855,7 @@ static void cont__create_info_page_26(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* method */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
   frame->cont = cont__create_info_page_27;
 }
@@ -14409,7 +14277,7 @@ static void cont__create_info_page_165(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* reference */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
   frame->cont = cont__create_info_page_166;
 }
@@ -14673,7 +14541,7 @@ static void entry__create_info_page_55(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* remark_lines */;
   result_count = 1;
-  myself = var._to_paragraphs;
+  myself = func__to_paragraphs;
   func = myself->type;
   frame->cont = cont__create_info_page_56;
 }
@@ -14739,7 +14607,7 @@ static void cont__create_info_page_179(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[14] /* temp__2 */;
-  arguments->slots[1] = var._FUNCTION;
+  arguments->slots[1] = unique__FUNCTION;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -14781,7 +14649,7 @@ static void cont__create_info_page_180(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__create_info_page_218;
+  frame->cont = cont__create_info_page_217;
 }
 static void entry__create_info_page_186(void) {
   allocate_initialized_frame_gc(2, 8);
@@ -15269,7 +15137,7 @@ static void cont__create_info_page_210(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
   result_count = 1;
-  myself = var._to_paragraphs;
+  myself = func__to_paragraphs;
   func = myself->type;
   frame->cont = cont__create_info_page_211;
 }
@@ -15361,21 +15229,6 @@ static void cont__create_info_page_216(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__create_info_page_217(void) {
-  allocate_initialized_frame_gc(0, 0);
-  // slot allocations:
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 612: pass
-  argument_count = 0;
-  arguments = node_p;
-  result_count = frame->caller_result_count;
-  myself = get__pass();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
 static void entry__create_info_page_183(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
@@ -15444,7 +15297,7 @@ static void cont__create_info_page_185(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   arguments->slots[1] = frame->slots[3] /* temp__2 */;
-  arguments->slots[2] = func__create_info_page_217;
+  arguments->slots[2] = get__pass();
   arguments->slots[3] = frame->slots[4] /* temp__3 */;
   result_count = frame->caller_result_count;
   myself = get__case();
@@ -15509,7 +15362,7 @@ static void cont__create_info_page_182(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_218(void) {
+static void cont__create_info_page_217(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -15521,16 +15374,16 @@ static void cont__create_info_page_218(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__create_info_page_219;
+  frame->cont = cont__create_info_page_218;
 }
-static void cont__create_info_page_219(void) {
+static void cont__create_info_page_218(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[13] /* temp__1 */ = arguments->slots[0];
   // 636: ... : P short_description
-  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_220, 0);
+  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_219, 0);
   // 636: if short_description.is_defined: P short_description
   argument_count = 2;
   arguments = node_p;
@@ -15539,9 +15392,9 @@ static void cont__create_info_page_219(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__create_info_page_221;
+  frame->cont = cont__create_info_page_220;
 }
-static void entry__create_info_page_220(void) {
+static void entry__create_info_page_219(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // short_description: 0
@@ -15559,7 +15412,7 @@ static void entry__create_info_page_220(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_221(void) {
+static void cont__create_info_page_220(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -15571,9 +15424,9 @@ static void cont__create_info_page_221(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__create_info_page_222;
+  frame->cont = cont__create_info_page_221;
 }
-static void cont__create_info_page_222(void) {
+static void cont__create_info_page_221(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15585,7 +15438,7 @@ static void cont__create_info_page_222(void) {
   // 640:     for_each parameters: (parameter)
   // 641:       DT key_of(parameter)
   // 642:       DD: P std::value_of(parameter)
-  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_223, 0);
+  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_222, 0);
   // 637: unless parameters.is_empty:
   // 638:   H2 "Parameters"
   // 639:   DL:
@@ -15599,9 +15452,9 @@ static void cont__create_info_page_222(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__create_info_page_232;
+  frame->cont = cont__create_info_page_231;
 }
-static void entry__create_info_page_230(void) {
+static void entry__create_info_page_229(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // parameter: 0
@@ -15617,9 +15470,9 @@ static void entry__create_info_page_230(void) {
   result_count = 1;
   myself = get__std__value_of();
   func = myself->type;
-  frame->cont = cont__create_info_page_231;
+  frame->cont = cont__create_info_page_230;
 }
-static void cont__create_info_page_231(void) {
+static void cont__create_info_page_230(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15634,7 +15487,7 @@ static void cont__create_info_page_231(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_227(void) {
+static void entry__create_info_page_226(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // parameter: 0
@@ -15649,9 +15502,9 @@ static void entry__create_info_page_227(void) {
   result_count = 1;
   myself = get__key_of();
   func = myself->type;
-  frame->cont = cont__create_info_page_228;
+  frame->cont = cont__create_info_page_227;
 }
-static void cont__create_info_page_228(void) {
+static void cont__create_info_page_227(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15664,15 +15517,15 @@ static void cont__create_info_page_228(void) {
   result_count = 0;
   myself = get__DT();
   func = myself->type;
-  frame->cont = cont__create_info_page_229;
+  frame->cont = cont__create_info_page_228;
 }
-static void cont__create_info_page_229(void) {
+static void cont__create_info_page_228(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 642: ... : P std::value_of(parameter)
-  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_230, 0);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_229, 0);
   // 642: DD: P std::value_of(parameter)
   argument_count = 1;
   arguments = node_p;
@@ -15682,7 +15535,7 @@ static void cont__create_info_page_229(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_226(void) {
+static void entry__create_info_page_225(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // parameters: 0
@@ -15697,13 +15550,13 @@ static void entry__create_info_page_226(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* parameters */;
-  arguments->slots[1] = func__create_info_page_227;
+  arguments->slots[1] = func__create_info_page_226;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_223(void) {
+static void entry__create_info_page_222(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // parameters: 0
@@ -15719,9 +15572,9 @@ static void entry__create_info_page_223(void) {
   result_count = 0;
   myself = get__H2();
   func = myself->type;
-  frame->cont = cont__create_info_page_225;
+  frame->cont = cont__create_info_page_224;
 }
-static void cont__create_info_page_225(void) {
+static void cont__create_info_page_224(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -15730,7 +15583,7 @@ static void cont__create_info_page_225(void) {
   // 640:   for_each parameters: (parameter)
   // 641:     DT key_of(parameter)
   // 642:     DD: P std::value_of(parameter)
-  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_226, 0);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_225, 0);
   // 639: DL:
   // 640:   for_each parameters: (parameter)
   // 641:     DT key_of(parameter)
@@ -15743,7 +15596,7 @@ static void cont__create_info_page_225(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_232(void) {
+static void cont__create_info_page_231(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -15755,9 +15608,9 @@ static void cont__create_info_page_232(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__create_info_page_233;
+  frame->cont = cont__create_info_page_232;
 }
-static void cont__create_info_page_233(void) {
+static void cont__create_info_page_232(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15769,7 +15622,7 @@ static void cont__create_info_page_233(void) {
   // 646:     for_each return_values: (return_value)
   // 647:       DT key_of(return_value)
   // 648:       DD: P std::value_of(return_value)
-  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_234, 0);
+  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_233, 0);
   // 643: unless return_values.is_empty:
   // 644:   H2 "Returns"
   // 645:   DL:
@@ -15783,9 +15636,9 @@ static void cont__create_info_page_233(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__create_info_page_242;
+  frame->cont = cont__create_info_page_241;
 }
-static void entry__create_info_page_240(void) {
+static void entry__create_info_page_239(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // return_value: 0
@@ -15801,9 +15654,9 @@ static void entry__create_info_page_240(void) {
   result_count = 1;
   myself = get__std__value_of();
   func = myself->type;
-  frame->cont = cont__create_info_page_241;
+  frame->cont = cont__create_info_page_240;
 }
-static void cont__create_info_page_241(void) {
+static void cont__create_info_page_240(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15818,7 +15671,7 @@ static void cont__create_info_page_241(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_237(void) {
+static void entry__create_info_page_236(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // return_value: 0
@@ -15833,9 +15686,9 @@ static void entry__create_info_page_237(void) {
   result_count = 1;
   myself = get__key_of();
   func = myself->type;
-  frame->cont = cont__create_info_page_238;
+  frame->cont = cont__create_info_page_237;
 }
-static void cont__create_info_page_238(void) {
+static void cont__create_info_page_237(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15848,15 +15701,15 @@ static void cont__create_info_page_238(void) {
   result_count = 0;
   myself = get__DT();
   func = myself->type;
-  frame->cont = cont__create_info_page_239;
+  frame->cont = cont__create_info_page_238;
 }
-static void cont__create_info_page_239(void) {
+static void cont__create_info_page_238(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 648: ... : P std::value_of(return_value)
-  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_240, 0);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_239, 0);
   // 648: DD: P std::value_of(return_value)
   argument_count = 1;
   arguments = node_p;
@@ -15866,7 +15719,7 @@ static void cont__create_info_page_239(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_236(void) {
+static void entry__create_info_page_235(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // return_values: 0
@@ -15881,13 +15734,13 @@ static void entry__create_info_page_236(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* return_values */;
-  arguments->slots[1] = func__create_info_page_237;
+  arguments->slots[1] = func__create_info_page_236;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_234(void) {
+static void entry__create_info_page_233(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // return_values: 0
@@ -15903,9 +15756,9 @@ static void entry__create_info_page_234(void) {
   result_count = 0;
   myself = get__H2();
   func = myself->type;
-  frame->cont = cont__create_info_page_235;
+  frame->cont = cont__create_info_page_234;
 }
-static void cont__create_info_page_235(void) {
+static void cont__create_info_page_234(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -15914,7 +15767,7 @@ static void cont__create_info_page_235(void) {
   // 646:   for_each return_values: (return_value)
   // 647:     DT key_of(return_value)
   // 648:     DD: P std::value_of(return_value)
-  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_236, 0);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_235, 0);
   // 645: DL:
   // 646:   for_each return_values: (return_value)
   // 647:     DT key_of(return_value)
@@ -15927,7 +15780,7 @@ static void cont__create_info_page_235(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_242(void) {
+static void cont__create_info_page_241(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -15939,9 +15792,9 @@ static void cont__create_info_page_242(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__create_info_page_243;
+  frame->cont = cont__create_info_page_242;
 }
-static void cont__create_info_page_243(void) {
+static void cont__create_info_page_242(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15950,7 +15803,7 @@ static void cont__create_info_page_243(void) {
   // 649: ... :
   // 650:   H2 "Description"
   // 651:   for_each descriptions: (description) P description
-  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_244, 0);
+  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_243, 0);
   // 649: unless descriptions.is_empty:
   // 650:   H2 "Description"
   // 651:   for_each descriptions: (description) P description
@@ -15961,9 +15814,9 @@ static void cont__create_info_page_243(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__create_info_page_248;
+  frame->cont = cont__create_info_page_247;
 }
-static void entry__create_info_page_247(void) {
+static void entry__create_info_page_246(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // description: 0
@@ -15980,7 +15833,7 @@ static void entry__create_info_page_247(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_244(void) {
+static void entry__create_info_page_243(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // descriptions: 0
@@ -15996,9 +15849,9 @@ static void entry__create_info_page_244(void) {
   result_count = 0;
   myself = get__H2();
   func = myself->type;
-  frame->cont = cont__create_info_page_246;
+  frame->cont = cont__create_info_page_245;
 }
-static void cont__create_info_page_246(void) {
+static void cont__create_info_page_245(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16007,13 +15860,13 @@ static void cont__create_info_page_246(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* descriptions */;
-  arguments->slots[1] = func__create_info_page_247;
+  arguments->slots[1] = func__create_info_page_246;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_248(void) {
+static void cont__create_info_page_247(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16025,9 +15878,9 @@ static void cont__create_info_page_248(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__create_info_page_249;
+  frame->cont = cont__create_info_page_248;
 }
-static void cont__create_info_page_249(void) {
+static void cont__create_info_page_248(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16036,7 +15889,7 @@ static void cont__create_info_page_249(void) {
   // 652: ... :
   // 653:   H2 "Technical Details"
   // 654:   for_each technical_details: (detail) P detail
-  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_250, 0);
+  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_249, 0);
   // 652: if technical_details.is_defined:
   // 653:   H2 "Technical Details"
   // 654:   for_each technical_details: (detail) P detail
@@ -16047,9 +15900,9 @@ static void cont__create_info_page_249(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__create_info_page_254;
+  frame->cont = cont__create_info_page_253;
 }
-static void entry__create_info_page_253(void) {
+static void entry__create_info_page_252(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // detail: 0
@@ -16066,7 +15919,7 @@ static void entry__create_info_page_253(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_250(void) {
+static void entry__create_info_page_249(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // technical_details: 0
@@ -16082,9 +15935,9 @@ static void entry__create_info_page_250(void) {
   result_count = 0;
   myself = get__H2();
   func = myself->type;
-  frame->cont = cont__create_info_page_252;
+  frame->cont = cont__create_info_page_251;
 }
-static void cont__create_info_page_252(void) {
+static void cont__create_info_page_251(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16093,13 +15946,13 @@ static void cont__create_info_page_252(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* technical_details */;
-  arguments->slots[1] = func__create_info_page_253;
+  arguments->slots[1] = func__create_info_page_252;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_254(void) {
+static void cont__create_info_page_253(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16111,9 +15964,9 @@ static void cont__create_info_page_254(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__create_info_page_255;
+  frame->cont = cont__create_info_page_254;
 }
-static void cont__create_info_page_255(void) {
+static void cont__create_info_page_254(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16128,7 +15981,7 @@ static void cont__create_info_page_255(void) {
   // 661:         TD: A "href" = "@(reference.mangled).html" reference
   // 662:         TD "&nbsp;"
   // 663:         TD short_descriptions(reference)
-  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_256, 0);
+  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_255, 0);
   // 655: unless references.is_empty:
   // 656:   H2 "See also"
   // 657:   TABLE:
@@ -16145,9 +15998,9 @@ static void cont__create_info_page_255(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__create_info_page_271;
+  frame->cont = cont__create_info_page_270;
 }
-static void entry__create_info_page_262(void) {
+static void entry__create_info_page_261(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // reference: 0
@@ -16157,7 +16010,7 @@ static void entry__create_info_page_262(void) {
     return;
   }
   // 661: ... : A "href" = "@(reference.mangled).html" reference
-  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_263, 0);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_262, 0);
   // 661: TD: A "href" = "@(reference.mangled).html" reference
   argument_count = 1;
   arguments = node_p;
@@ -16165,9 +16018,9 @@ static void entry__create_info_page_262(void) {
   result_count = 0;
   myself = get__TD();
   func = myself->type;
-  frame->cont = cont__create_info_page_267;
+  frame->cont = cont__create_info_page_266;
 }
-static void entry__create_info_page_263(void) {
+static void entry__create_info_page_262(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // reference: 0
@@ -16181,11 +16034,11 @@ static void entry__create_info_page_263(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* reference */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
-  frame->cont = cont__create_info_page_264;
+  frame->cont = cont__create_info_page_263;
 }
-static void cont__create_info_page_264(void) {
+static void cont__create_info_page_263(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16199,9 +16052,9 @@ static void cont__create_info_page_264(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__create_info_page_265;
+  frame->cont = cont__create_info_page_264;
 }
-static void cont__create_info_page_265(void) {
+static void cont__create_info_page_264(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16215,9 +16068,9 @@ static void cont__create_info_page_265(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_266;
+  frame->cont = cont__create_info_page_265;
 }
-static void cont__create_info_page_266(void) {
+static void cont__create_info_page_265(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16233,7 +16086,7 @@ static void cont__create_info_page_266(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_267(void) {
+static void cont__create_info_page_266(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16245,9 +16098,9 @@ static void cont__create_info_page_267(void) {
   result_count = 0;
   myself = get__TD();
   func = myself->type;
-  frame->cont = cont__create_info_page_269;
+  frame->cont = cont__create_info_page_268;
 }
-static void cont__create_info_page_269(void) {
+static void cont__create_info_page_268(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16259,9 +16112,9 @@ static void cont__create_info_page_269(void) {
   result_count = 1;
   myself = var._short_descriptions;
   func = myself->type;
-  frame->cont = cont__create_info_page_270;
+  frame->cont = cont__create_info_page_269;
 }
-static void cont__create_info_page_270(void) {
+static void cont__create_info_page_269(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16276,7 +16129,7 @@ static void cont__create_info_page_270(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_260(void) {
+static void entry__create_info_page_259(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // reference: 0
@@ -16294,9 +16147,9 @@ static void entry__create_info_page_260(void) {
   result_count = 1;
   myself = frame->slots[1] /* resolve_and_check_reference */;
   func = myself->type;
-  frame->cont = cont__create_info_page_261;
+  frame->cont = cont__create_info_page_260;
 }
-static void cont__create_info_page_261(void) {
+static void cont__create_info_page_260(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16306,7 +16159,7 @@ static void cont__create_info_page_261(void) {
   // 661:   TD: A "href" = "@(reference.mangled).html" reference
   // 662:   TD "&nbsp;"
   // 663:   TD short_descriptions(reference)
-  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_262, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_261, 0);
   // 660: TR:
   // 661:   TD: A "href" = "@(reference.mangled).html" reference
   // 662:   TD "&nbsp;"
@@ -16319,7 +16172,7 @@ static void cont__create_info_page_261(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_259(void) {
+static void entry__create_info_page_258(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // references: 0
@@ -16336,7 +16189,7 @@ static void entry__create_info_page_259(void) {
   // 661:     TD: A "href" = "@(reference.mangled).html" reference
   // 662:     TD "&nbsp;"
   // 663:     TD short_descriptions(reference)
-  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_260, 1);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_259, 1);
   // 658: for_each references: ($reference)
   // 659:   resolve_and_check_reference &reference
   // 660:   TR:
@@ -16352,7 +16205,7 @@ static void entry__create_info_page_259(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_256(void) {
+static void entry__create_info_page_255(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // references: 0
@@ -16370,9 +16223,9 @@ static void entry__create_info_page_256(void) {
   result_count = 0;
   myself = get__H2();
   func = myself->type;
-  frame->cont = cont__create_info_page_258;
+  frame->cont = cont__create_info_page_257;
 }
-static void cont__create_info_page_258(void) {
+static void cont__create_info_page_257(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16384,7 +16237,7 @@ static void cont__create_info_page_258(void) {
   // 661:       TD: A "href" = "@(reference.mangled).html" reference
   // 662:       TD "&nbsp;"
   // 663:       TD short_descriptions(reference)
-  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_259, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_258, 0);
   // 657: TABLE:
   // 658:   for_each references: ($reference)
   // 659:     resolve_and_check_reference &reference
@@ -16400,7 +16253,7 @@ static void cont__create_info_page_258(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_271(void) {
+static void cont__create_info_page_270(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16412,9 +16265,9 @@ static void cont__create_info_page_271(void) {
   result_count = 1;
   myself = var._types_of;
   func = myself->type;
-  frame->cont = cont__create_info_page_272;
+  frame->cont = cont__create_info_page_271;
 }
-static void cont__create_info_page_272(void) {
+static void cont__create_info_page_271(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16427,9 +16280,9 @@ static void cont__create_info_page_272(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__create_info_page_273;
+  frame->cont = cont__create_info_page_272;
 }
-static void cont__create_info_page_273(void) {
+static void cont__create_info_page_272(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16444,7 +16297,7 @@ static void cont__create_info_page_273(void) {
   // 670:         TD: A "href" = "@(name.mangled).html" name
   // 671:         TD "&nbsp;as&nbsp;"
   // 672:         TD: A "href" = "@(method.mangled).html" method
-  frame->slots[15] /* temp__3 */ = create_closure(entry__create_info_page_274, 0);
+  frame->slots[15] /* temp__3 */ = create_closure(entry__create_info_page_273, 0);
   // 664: unless types_of(info).is_empty:
   // 665:   H2 "Implemented by"
   // 666:   TABLE:
@@ -16461,9 +16314,9 @@ static void cont__create_info_page_273(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__create_info_page_293;
+  frame->cont = cont__create_info_page_292;
 }
-static void entry__create_info_page_289(void) {
+static void entry__create_info_page_288(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // method: 0
@@ -16477,11 +16330,11 @@ static void entry__create_info_page_289(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* method */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
-  frame->cont = cont__create_info_page_290;
+  frame->cont = cont__create_info_page_289;
 }
-static void cont__create_info_page_290(void) {
+static void cont__create_info_page_289(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16495,9 +16348,9 @@ static void cont__create_info_page_290(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__create_info_page_291;
+  frame->cont = cont__create_info_page_290;
 }
-static void cont__create_info_page_291(void) {
+static void cont__create_info_page_290(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16511,9 +16364,9 @@ static void cont__create_info_page_291(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_292;
+  frame->cont = cont__create_info_page_291;
 }
-static void cont__create_info_page_292(void) {
+static void cont__create_info_page_291(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16529,7 +16382,7 @@ static void cont__create_info_page_292(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_281(void) {
+static void entry__create_info_page_280(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -16541,7 +16394,7 @@ static void entry__create_info_page_281(void) {
     return;
   }
   // 670: ... : A "href" = "@(name.mangled).html" name
-  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_282, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_281, 0);
   // 670: TD: A "href" = "@(name.mangled).html" name
   argument_count = 1;
   arguments = node_p;
@@ -16549,9 +16402,9 @@ static void entry__create_info_page_281(void) {
   result_count = 0;
   myself = get__TD();
   func = myself->type;
-  frame->cont = cont__create_info_page_286;
+  frame->cont = cont__create_info_page_285;
 }
-static void entry__create_info_page_282(void) {
+static void entry__create_info_page_281(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // name: 0
@@ -16565,11 +16418,11 @@ static void entry__create_info_page_282(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
-  frame->cont = cont__create_info_page_283;
+  frame->cont = cont__create_info_page_282;
 }
-static void cont__create_info_page_283(void) {
+static void cont__create_info_page_282(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16583,9 +16436,9 @@ static void cont__create_info_page_283(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__create_info_page_284;
+  frame->cont = cont__create_info_page_283;
 }
-static void cont__create_info_page_284(void) {
+static void cont__create_info_page_283(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16599,9 +16452,9 @@ static void cont__create_info_page_284(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_285;
+  frame->cont = cont__create_info_page_284;
 }
-static void cont__create_info_page_285(void) {
+static void cont__create_info_page_284(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16617,7 +16470,7 @@ static void cont__create_info_page_285(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_286(void) {
+static void cont__create_info_page_285(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16629,15 +16482,15 @@ static void cont__create_info_page_286(void) {
   result_count = 0;
   myself = get__TD();
   func = myself->type;
-  frame->cont = cont__create_info_page_288;
+  frame->cont = cont__create_info_page_287;
 }
-static void cont__create_info_page_288(void) {
+static void cont__create_info_page_287(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 672: ... : A "href" = "@(method.mangled).html" method
-  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_289, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_288, 0);
   // 672: TD: A "href" = "@(method.mangled).html" method
   argument_count = 1;
   arguments = node_p;
@@ -16647,7 +16500,7 @@ static void cont__create_info_page_288(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_279(void) {
+static void entry__create_info_page_278(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // name: 0
@@ -16668,9 +16521,9 @@ static void entry__create_info_page_279(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__create_info_page_280;
+  frame->cont = cont__create_info_page_279;
 }
-static void cont__create_info_page_280(void) {
+static void cont__create_info_page_279(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16680,7 +16533,7 @@ static void cont__create_info_page_280(void) {
   // 670:   TD: A "href" = "@(name.mangled).html" name
   // 671:   TD "&nbsp;as&nbsp;"
   // 672:   TD: A "href" = "@(method.mangled).html" method
-  frame->slots[3] /* temp__1 */ = create_closure(entry__create_info_page_281, 0);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__create_info_page_280, 0);
   // 669: TR:
   // 670:   TD: A "href" = "@(name.mangled).html" name
   // 671:   TD "&nbsp;as&nbsp;"
@@ -16693,7 +16546,7 @@ static void cont__create_info_page_280(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_277(void) {
+static void entry__create_info_page_276(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -16711,9 +16564,9 @@ static void entry__create_info_page_277(void) {
   result_count = 1;
   myself = var._types_of;
   func = myself->type;
-  frame->cont = cont__create_info_page_278;
+  frame->cont = cont__create_info_page_277;
 }
-static void cont__create_info_page_278(void) {
+static void cont__create_info_page_277(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16725,7 +16578,7 @@ static void cont__create_info_page_278(void) {
   // 670:     TD: A "href" = "@(name.mangled).html" name
   // 671:     TD "&nbsp;as&nbsp;"
   // 672:     TD: A "href" = "@(method.mangled).html" method
-  frame->slots[3] /* temp__2 */ = create_closure(entry__create_info_page_279, 1);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__create_info_page_278, 1);
   // 667: for_each types_of(info): (name)
   // 668:   $method string(name '/' function_name)
   // 669:   TR:
@@ -16741,7 +16594,7 @@ static void cont__create_info_page_278(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_274(void) {
+static void entry__create_info_page_273(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // info: 0
@@ -16759,9 +16612,9 @@ static void entry__create_info_page_274(void) {
   result_count = 0;
   myself = get__H2();
   func = myself->type;
-  frame->cont = cont__create_info_page_276;
+  frame->cont = cont__create_info_page_275;
 }
-static void cont__create_info_page_276(void) {
+static void cont__create_info_page_275(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16773,7 +16626,7 @@ static void cont__create_info_page_276(void) {
   // 670:       TD: A "href" = "@(name.mangled).html" name
   // 671:       TD "&nbsp;as&nbsp;"
   // 672:       TD: A "href" = "@(method.mangled).html" method
-  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_277, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_276, 0);
   // 666: TABLE:
   // 667:   for_each types_of(info): (name)
   // 668:     $method string(name '/' function_name)
@@ -16789,7 +16642,7 @@ static void cont__create_info_page_276(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_293(void) {
+static void cont__create_info_page_292(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16802,9 +16655,9 @@ static void cont__create_info_page_293(void) {
   result_count = 1;
   myself = get__contains();
   func = myself->type;
-  frame->cont = cont__create_info_page_294;
+  frame->cont = cont__create_info_page_293;
 }
-static void cont__create_info_page_294(void) {
+static void cont__create_info_page_293(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16816,7 +16669,7 @@ static void cont__create_info_page_294(void) {
   // 676:   A
   // 677:     "href" = "@(polymorphic_function_name.mangled).html"
   // 678:     polymorphic_function_name
-  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_295, 0);
+  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_294, 0);
   // 673: if function_name .contains. '/':
   // 674:   $polymorphic_function_name function_name .behind. '/'
   // 675:   H2 "Implements"
@@ -16830,9 +16683,9 @@ static void cont__create_info_page_294(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__create_info_page_302;
+  frame->cont = cont__create_info_page_301;
 }
-static void entry__create_info_page_295(void) {
+static void entry__create_info_page_294(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // function_name: 0
@@ -16851,9 +16704,9 @@ static void entry__create_info_page_295(void) {
   result_count = 1;
   myself = get__behind();
   func = myself->type;
-  frame->cont = cont__create_info_page_296;
+  frame->cont = cont__create_info_page_295;
 }
-static void cont__create_info_page_296(void) {
+static void cont__create_info_page_295(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16866,9 +16719,9 @@ static void cont__create_info_page_296(void) {
   result_count = 0;
   myself = get__H2();
   func = myself->type;
-  frame->cont = cont__create_info_page_298;
+  frame->cont = cont__create_info_page_297;
 }
-static void cont__create_info_page_298(void) {
+static void cont__create_info_page_297(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16878,11 +16731,11 @@ static void cont__create_info_page_298(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* polymorphic_function_name */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
-  frame->cont = cont__create_info_page_299;
+  frame->cont = cont__create_info_page_298;
 }
-static void cont__create_info_page_299(void) {
+static void cont__create_info_page_298(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16896,9 +16749,9 @@ static void cont__create_info_page_299(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__create_info_page_300;
+  frame->cont = cont__create_info_page_299;
 }
-static void cont__create_info_page_300(void) {
+static void cont__create_info_page_299(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16912,9 +16765,9 @@ static void cont__create_info_page_300(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_301;
+  frame->cont = cont__create_info_page_300;
 }
-static void cont__create_info_page_301(void) {
+static void cont__create_info_page_300(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16932,7 +16785,7 @@ static void cont__create_info_page_301(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_302(void) {
+static void cont__create_info_page_301(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -16944,9 +16797,9 @@ static void cont__create_info_page_302(void) {
   result_count = 1;
   myself = get__kind_of();
   func = myself->type;
-  frame->cont = cont__create_info_page_303;
+  frame->cont = cont__create_info_page_302;
 }
-static void cont__create_info_page_303(void) {
+static void cont__create_info_page_302(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16956,13 +16809,13 @@ static void cont__create_info_page_303(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[14] /* temp__2 */;
-  arguments->slots[1] = var._INLINE_C_TYPE;
+  arguments->slots[1] = unique__INLINE_C_TYPE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__create_info_page_304;
+  frame->cont = cont__create_info_page_303;
 }
-static void cont__create_info_page_304(void) {
+static void cont__create_info_page_303(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -16979,7 +16832,7 @@ static void cont__create_info_page_304(void) {
   // 687:           A
   // 688:             =
   // ...
-  frame->slots[15] /* temp__3 */ = create_closure(entry__create_info_page_305, 0);
+  frame->slots[15] /* temp__3 */ = create_closure(entry__create_info_page_304, 0);
   // 679: if kind_of(info) == INLINE_C_TYPE:
   // 680:   H2 "Supported Polymorphic Functions"
   // 681:   TABLE:
@@ -16998,9 +16851,9 @@ static void cont__create_info_page_304(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__create_info_page_323;
+  frame->cont = cont__create_info_page_322;
 }
-static void entry__create_info_page_318(void) {
+static void entry__create_info_page_317(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // function_name: 0
@@ -17016,11 +16869,11 @@ static void entry__create_info_page_318(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* function_name */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
-  frame->cont = cont__create_info_page_319;
+  frame->cont = cont__create_info_page_318;
 }
-static void cont__create_info_page_319(void) {
+static void cont__create_info_page_318(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17031,11 +16884,11 @@ static void cont__create_info_page_319(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* method_name */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
-  frame->cont = cont__create_info_page_320;
+  frame->cont = cont__create_info_page_319;
 }
-static void cont__create_info_page_320(void) {
+static void cont__create_info_page_319(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17051,9 +16904,9 @@ static void cont__create_info_page_320(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__create_info_page_321;
+  frame->cont = cont__create_info_page_320;
 }
-static void cont__create_info_page_321(void) {
+static void cont__create_info_page_320(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17069,9 +16922,9 @@ static void cont__create_info_page_321(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_322;
+  frame->cont = cont__create_info_page_321;
 }
-static void cont__create_info_page_322(void) {
+static void cont__create_info_page_321(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17095,7 +16948,7 @@ static void cont__create_info_page_322(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_311(void) {
+static void entry__create_info_page_310(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // method_name: 0
@@ -17107,7 +16960,7 @@ static void entry__create_info_page_311(void) {
     return;
   }
   // 684: ... : A "href" = "@(method_name.mangled).html" method_name
-  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_312, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_311, 0);
   // 684: TD: A "href" = "@(method_name.mangled).html" method_name
   argument_count = 1;
   arguments = node_p;
@@ -17115,9 +16968,9 @@ static void entry__create_info_page_311(void) {
   result_count = 0;
   myself = get__TD();
   func = myself->type;
-  frame->cont = cont__create_info_page_316;
+  frame->cont = cont__create_info_page_315;
 }
-static void entry__create_info_page_312(void) {
+static void entry__create_info_page_311(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // method_name: 0
@@ -17131,11 +16984,11 @@ static void entry__create_info_page_312(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* method_name */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
-  frame->cont = cont__create_info_page_313;
+  frame->cont = cont__create_info_page_312;
 }
-static void cont__create_info_page_313(void) {
+static void cont__create_info_page_312(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17149,9 +17002,9 @@ static void cont__create_info_page_313(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__create_info_page_314;
+  frame->cont = cont__create_info_page_313;
 }
-static void cont__create_info_page_314(void) {
+static void cont__create_info_page_313(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17165,9 +17018,9 @@ static void cont__create_info_page_314(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_315;
+  frame->cont = cont__create_info_page_314;
 }
-static void cont__create_info_page_315(void) {
+static void cont__create_info_page_314(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17183,7 +17036,7 @@ static void cont__create_info_page_315(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_316(void) {
+static void cont__create_info_page_315(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -17195,9 +17048,9 @@ static void cont__create_info_page_316(void) {
   result_count = 0;
   myself = get__TD();
   func = myself->type;
-  frame->cont = cont__create_info_page_317;
+  frame->cont = cont__create_info_page_316;
 }
-static void cont__create_info_page_317(void) {
+static void cont__create_info_page_316(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -17210,7 +17063,7 @@ static void cont__create_info_page_317(void) {
   // 691:     function_name
   // 692:     '/'
   // 693:     method_name
-  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_318, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_317, 0);
   // 686: TD:
   // 687:   A
   // 688:     =
@@ -17227,7 +17080,7 @@ static void cont__create_info_page_317(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_310(void) {
+static void entry__create_info_page_309(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // method_name: 0
@@ -17249,7 +17102,7 @@ static void entry__create_info_page_310(void) {
   // 691:       function_name
   // 692:       '/'
   // ...
-  frame->slots[3] /* temp__1 */ = create_closure(entry__create_info_page_311, 0);
+  frame->slots[3] /* temp__1 */ = create_closure(entry__create_info_page_310, 0);
   // 683: TR:
   // 684:   TD: A "href" = "@(method_name.mangled).html" method_name
   // 685:   TD "&nbsp;"
@@ -17269,7 +17122,7 @@ static void entry__create_info_page_310(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_308(void) {
+static void entry__create_info_page_307(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -17287,9 +17140,9 @@ static void entry__create_info_page_308(void) {
   result_count = 1;
   myself = var._methods_of;
   func = myself->type;
-  frame->cont = cont__create_info_page_309;
+  frame->cont = cont__create_info_page_308;
 }
-static void cont__create_info_page_309(void) {
+static void cont__create_info_page_308(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17306,7 +17159,7 @@ static void cont__create_info_page_309(void) {
   // 690:           "@(function_name.mangled)___@(method_name.mangled).html"
   // 691:         function_name
   // ...
-  frame->slots[3] /* temp__2 */ = create_closure(entry__create_info_page_310, 2);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__create_info_page_309, 2);
   // 682: for_each methods_of(info): (method_name _method_info)
   // 683:   TR:
   // 684:     TD: A "href" = "@(method_name.mangled).html" method_name
@@ -17327,7 +17180,7 @@ static void cont__create_info_page_309(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_305(void) {
+static void entry__create_info_page_304(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // info: 0
@@ -17345,9 +17198,9 @@ static void entry__create_info_page_305(void) {
   result_count = 0;
   myself = get__H2();
   func = myself->type;
-  frame->cont = cont__create_info_page_307;
+  frame->cont = cont__create_info_page_306;
 }
-static void cont__create_info_page_307(void) {
+static void cont__create_info_page_306(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -17363,7 +17216,7 @@ static void cont__create_info_page_307(void) {
   // 689:             "href"
   // 690:             "@(function_name.mangled)___@(method_name.mangled).html"
   // ...
-  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_308, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_307, 0);
   // 681: TABLE:
   // 682:   for_each methods_of(info): (method_name _method_info)
   // 683:     TR:
@@ -17383,7 +17236,7 @@ static void cont__create_info_page_307(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_323(void) {
+static void cont__create_info_page_322(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -17396,9 +17249,9 @@ static void cont__create_info_page_323(void) {
   result_count = 1;
   myself = get__truncate_until();
   func = myself->type;
-  frame->cont = cont__create_info_page_324;
+  frame->cont = cont__create_info_page_323;
 }
-static void cont__create_info_page_324(void) {
+static void cont__create_info_page_323(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17413,9 +17266,9 @@ static void cont__create_info_page_324(void) {
   result_count = 1;
   myself = get__truncate_until();
   func = myself->type;
-  frame->cont = cont__create_info_page_325;
+  frame->cont = cont__create_info_page_324;
 }
-static void cont__create_info_page_325(void) {
+static void cont__create_info_page_324(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17428,9 +17281,9 @@ static void cont__create_info_page_325(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__create_info_page_326;
+  frame->cont = cont__create_info_page_325;
 }
-static void cont__create_info_page_326(void) {
+static void cont__create_info_page_325(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17442,7 +17295,7 @@ static void cont__create_info_page_326(void) {
   // 701:     for_each topic_list: (topic)
   // 702:       $filename string(replace_all(topic.to_lower_case ' ' = "_") ".html")
   // 703:       TR: TD: A "href" = filename topic
-  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_327, 0);
+  frame->slots[14] /* temp__2 */ = create_closure(entry__create_info_page_326, 0);
   // 698: unless topic_list.is_empty:
   // 699:   H2 "Topics"
   // 700:   TABLE:
@@ -17456,9 +17309,9 @@ static void cont__create_info_page_326(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__create_info_page_340;
+  frame->cont = cont__create_info_page_339;
 }
-static void entry__create_info_page_338(void) {
+static void entry__create_info_page_337(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // filename: 0
@@ -17477,9 +17330,9 @@ static void entry__create_info_page_338(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_339;
+  frame->cont = cont__create_info_page_338;
 }
-static void cont__create_info_page_339(void) {
+static void cont__create_info_page_338(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17495,7 +17348,7 @@ static void cont__create_info_page_339(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_337(void) {
+static void entry__create_info_page_336(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // filename: 0
@@ -17507,7 +17360,7 @@ static void entry__create_info_page_337(void) {
     return;
   }
   // 703: ... : A "href" = filename topic
-  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_338, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_337, 0);
   // 703: ... TD: A "href" = filename topic
   argument_count = 1;
   arguments = node_p;
@@ -17517,7 +17370,7 @@ static void entry__create_info_page_337(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_331(void) {
+static void entry__create_info_page_330(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // topic: 0
@@ -17534,9 +17387,9 @@ static void entry__create_info_page_331(void) {
   result_count = 1;
   myself = get__to_lower_case();
   func = myself->type;
-  frame->cont = cont__create_info_page_332;
+  frame->cont = cont__create_info_page_331;
 }
-static void cont__create_info_page_332(void) {
+static void cont__create_info_page_331(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17550,9 +17403,9 @@ static void cont__create_info_page_332(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_334;
+  frame->cont = cont__create_info_page_333;
 }
-static void cont__create_info_page_334(void) {
+static void cont__create_info_page_333(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17566,9 +17419,9 @@ static void cont__create_info_page_334(void) {
   result_count = 1;
   myself = get__replace_all();
   func = myself->type;
-  frame->cont = cont__create_info_page_335;
+  frame->cont = cont__create_info_page_334;
 }
-static void cont__create_info_page_335(void) {
+static void cont__create_info_page_334(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17582,16 +17435,16 @@ static void cont__create_info_page_335(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__create_info_page_336;
+  frame->cont = cont__create_info_page_335;
 }
-static void cont__create_info_page_336(void) {
+static void cont__create_info_page_335(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[1] /* filename */, arguments->slots[0]);
   // 703: ... : TD: A "href" = filename topic
-  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_337, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__create_info_page_336, 0);
   // 703: TR: TD: A "href" = filename topic
   argument_count = 1;
   arguments = node_p;
@@ -17601,7 +17454,7 @@ static void cont__create_info_page_336(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_330(void) {
+static void entry__create_info_page_329(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // topic_list: 0
@@ -17616,13 +17469,13 @@ static void entry__create_info_page_330(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* topic_list */;
-  arguments->slots[1] = func__create_info_page_331;
+  arguments->slots[1] = func__create_info_page_330;
   result_count = frame->caller_result_count;
   myself = get__for_each();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_327(void) {
+static void entry__create_info_page_326(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // topic_list: 0
@@ -17638,9 +17491,9 @@ static void entry__create_info_page_327(void) {
   result_count = 0;
   myself = get__H2();
   func = myself->type;
-  frame->cont = cont__create_info_page_329;
+  frame->cont = cont__create_info_page_328;
 }
-static void cont__create_info_page_329(void) {
+static void cont__create_info_page_328(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -17649,7 +17502,7 @@ static void cont__create_info_page_329(void) {
   // 701:   for_each topic_list: (topic)
   // 702:     $filename string(replace_all(topic.to_lower_case ' ' = "_") ".html")
   // 703:     TR: TD: A "href" = filename topic
-  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_330, 0);
+  frame->slots[1] /* temp__1 */ = create_closure(entry__create_info_page_329, 0);
   // 700: TABLE:
   // 701:   for_each topic_list: (topic)
   // 702:     $filename string(replace_all(topic.to_lower_case ' ' = "_") ".html")
@@ -17662,7 +17515,7 @@ static void cont__create_info_page_329(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_340(void) {
+static void cont__create_info_page_339(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -17678,7 +17531,7 @@ static void cont__create_info_page_340(void) {
   // 712:         =
   // 713:           sequence
   // ...
-  frame->slots[13] /* temp__1 */ = create_closure(entry__create_info_page_341, 1);
+  frame->slots[13] /* temp__1 */ = create_closure(entry__create_info_page_340, 1);
   // 704: for_each examples: (example)
   // 705:   $title key_of(example)
   // 706:   $text std::value_of(example)
@@ -17697,9 +17550,9 @@ static void cont__create_info_page_340(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__create_info_page_360;
+  frame->cont = cont__create_info_page_359;
 }
-static void entry__create_info_page_349(void) {
+static void entry__create_info_page_348(void) {
   allocate_initialized_frame_gc(2, 10);
   // slot allocations:
   // text: 0
@@ -17717,9 +17570,9 @@ static void entry__create_info_page_349(void) {
   result_count = 1;
   myself = get__not_followed_by();
   func = myself->type;
-  frame->cont = cont__create_info_page_350;
+  frame->cont = cont__create_info_page_349;
 }
-static void cont__create_info_page_350(void) {
+static void cont__create_info_page_349(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17733,9 +17586,9 @@ static void cont__create_info_page_350(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__create_info_page_351;
+  frame->cont = cont__create_info_page_350;
 }
-static void cont__create_info_page_351(void) {
+static void cont__create_info_page_350(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17748,9 +17601,9 @@ static void cont__create_info_page_351(void) {
   result_count = 1;
   myself = get__many();
   func = myself->type;
-  frame->cont = cont__create_info_page_352;
+  frame->cont = cont__create_info_page_351;
 }
-static void cont__create_info_page_352(void) {
+static void cont__create_info_page_351(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17764,9 +17617,9 @@ static void cont__create_info_page_352(void) {
   result_count = 1;
   myself = get__sequence();
   func = myself->type;
-  frame->cont = cont__create_info_page_353;
+  frame->cont = cont__create_info_page_352;
 }
-static void cont__create_info_page_353(void) {
+static void cont__create_info_page_352(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17782,13 +17635,13 @@ static void cont__create_info_page_353(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
-  arguments->slots[1] = func__create_info_page_354;
+  arguments->slots[1] = func__create_info_page_353;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_355;
+  frame->cont = cont__create_info_page_354;
 }
-static void entry__create_info_page_354(void) {
+static void entry__create_info_page_353(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // string_literal: 0
@@ -17804,7 +17657,7 @@ static void entry__create_info_page_354(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__create_info_page_355(void) {
+static void cont__create_info_page_354(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17819,9 +17672,9 @@ static void cont__create_info_page_355(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__create_info_page_357;
+  frame->cont = cont__create_info_page_356;
 }
-static void cont__create_info_page_357(void) {
+static void cont__create_info_page_356(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17835,9 +17688,9 @@ static void cont__create_info_page_357(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_358;
+  frame->cont = cont__create_info_page_357;
 }
-static void cont__create_info_page_358(void) {
+static void cont__create_info_page_357(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17851,9 +17704,9 @@ static void cont__create_info_page_358(void) {
   result_count = 1;
   myself = get__replace_all();
   func = myself->type;
-  frame->cont = cont__create_info_page_359;
+  frame->cont = cont__create_info_page_358;
 }
-static void cont__create_info_page_359(void) {
+static void cont__create_info_page_358(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17878,7 +17731,7 @@ static void cont__create_info_page_359(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_341(void) {
+static void entry__create_info_page_340(void) {
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
   // example: 0
@@ -17899,9 +17752,9 @@ static void entry__create_info_page_341(void) {
   result_count = 1;
   myself = get__key_of();
   func = myself->type;
-  frame->cont = cont__create_info_page_342;
+  frame->cont = cont__create_info_page_341;
 }
-static void cont__create_info_page_342(void) {
+static void cont__create_info_page_341(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17914,9 +17767,9 @@ static void cont__create_info_page_342(void) {
   result_count = 1;
   myself = get__std__value_of();
   func = myself->type;
-  frame->cont = cont__create_info_page_343;
+  frame->cont = cont__create_info_page_342;
 }
-static void cont__create_info_page_343(void) {
+static void cont__create_info_page_342(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17929,9 +17782,9 @@ static void cont__create_info_page_343(void) {
   result_count = 0;
   myself = get__H2();
   func = myself->type;
-  frame->cont = cont__create_info_page_344;
+  frame->cont = cont__create_info_page_343;
 }
-static void cont__create_info_page_344(void) {
+static void cont__create_info_page_343(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -17944,9 +17797,9 @@ static void cont__create_info_page_344(void) {
   result_count = 1;
   myself = get__alt();
   func = myself->type;
-  frame->cont = cont__create_info_page_345;
+  frame->cont = cont__create_info_page_344;
 }
-static void cont__create_info_page_345(void) {
+static void cont__create_info_page_344(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17960,9 +17813,9 @@ static void cont__create_info_page_345(void) {
   result_count = 1;
   myself = get__truncate_from();
   func = myself->type;
-  frame->cont = cont__create_info_page_346;
+  frame->cont = cont__create_info_page_345;
 }
-static void cont__create_info_page_346(void) {
+static void cont__create_info_page_345(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17976,9 +17829,9 @@ static void cont__create_info_page_346(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_348;
+  frame->cont = cont__create_info_page_347;
 }
-static void cont__create_info_page_348(void) {
+static void cont__create_info_page_347(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17995,7 +17848,7 @@ static void cont__create_info_page_348(void) {
   // 716:           '@quot;'
   // 717:         : (string_literal)
   // ...
-  frame->slots[7] /* temp__4 */ = create_closure(entry__create_info_page_349, 0);
+  frame->slots[7] /* temp__4 */ = create_closure(entry__create_info_page_348, 0);
   // 708: DIV "class" = title .truncate_from. alt(' ' ':'):
   // 709:   PRE
   // 710:     replace_all
@@ -18016,7 +17869,7 @@ static void cont__create_info_page_348(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__create_info_page_360(void) {
+static void cont__create_info_page_359(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -18029,9 +17882,9 @@ static void cont__create_info_page_360(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__create_info_page_362;
+  frame->cont = cont__create_info_page_361;
 }
-static void cont__create_info_page_362(void) {
+static void cont__create_info_page_361(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -18044,9 +17897,9 @@ static void cont__create_info_page_362(void) {
   result_count = 1;
   myself = var._filename_of;
   func = myself->type;
-  frame->cont = cont__create_info_page_363;
+  frame->cont = cont__create_info_page_362;
 }
-static void cont__create_info_page_363(void) {
+static void cont__create_info_page_362(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -18060,9 +17913,9 @@ static void cont__create_info_page_363(void) {
   result_count = 1;
   myself = get__without_prefix();
   func = myself->type;
-  frame->cont = cont__create_info_page_364;
+  frame->cont = cont__create_info_page_363;
 }
-static void cont__create_info_page_364(void) {
+static void cont__create_info_page_363(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -18077,9 +17930,9 @@ static void cont__create_info_page_364(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__create_info_page_367;
+  frame->cont = cont__create_info_page_366;
 }
-static void cont__create_info_page_367(void) {
+static void cont__create_info_page_366(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -18115,7 +17968,7 @@ static void entry__create_info_page_15(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* function_name */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
   frame->cont = cont__create_info_page_16;
 }
@@ -18170,11 +18023,11 @@ static void cont__create_info_page_19(void) {
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   arguments->slots[1] = frame->slots[5] /* temp__3 */;
   result_count = frame->caller_result_count;
-  myself = var._create_page;
+  myself = func__create_page;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_info_page_1(void) {
+static void entry__create_info_page(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // function_name: 0
@@ -18228,7 +18081,7 @@ static void entry__create_info_page_2(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* reference */;
   result_count = 1;
-  myself = var._resolve_reference;
+  myself = func__resolve_reference;
   func = myself->type;
   frame->cont = cont__create_info_page_3;
 }
@@ -18403,7 +18256,7 @@ static void cont__create_info_page_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__get_short_description_1(void) {
+static void entry__get_short_description(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // name: 0
@@ -18865,7 +18718,7 @@ static void cont__get_short_description_27(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* short_description */;
   result_count = 1;
-  myself = var._add_links;
+  myself = func__add_links;
   func = myself->type;
   frame->cont = cont__get_short_description_28;
 }
@@ -19113,11 +18966,11 @@ static void cont__compiler__extract_exports_12(void) {
   argument_count = 8;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
-  arguments->slots[1] = var._POLYMORPHIC_ATTRIBUTE;
+  arguments->slots[1] = unique__POLYMORPHIC_ATTRIBUTE;
   arguments->slots[2] = func__compiler__extract_exports_21;
-  arguments->slots[3] = var._POLYMORPHIC_FUNCTION;
+  arguments->slots[3] = unique__POLYMORPHIC_FUNCTION;
   arguments->slots[4] = func__compiler__extract_exports_23;
-  arguments->slots[5] = var._OTHER;
+  arguments->slots[5] = unique__OTHER;
   arguments->slots[6] = frame->slots[3] /* temp__2 */;
   arguments->slots[7] = func__compiler__extract_exports_25;
   result_count = 0;
@@ -19335,7 +19188,7 @@ static void cont__compiler__extract_exports_28(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__extract_exports_1(void) {
+static void entry__compiler__extract_exports(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // paths: 0
@@ -19413,7 +19266,7 @@ static void entry__compiler__extract_exports_5(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* path */;
   result_count = frame->caller_result_count;
-  myself = var._extract_documentation_from_directory;
+  myself = func__extract_documentation_from_directory;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -19670,9 +19523,9 @@ static void cont__compiler__extract_documentation_273(void) {
   argument_count = 6;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
-  arguments->slots[1] = var._FUNCTION;
+  arguments->slots[1] = unique__FUNCTION;
   arguments->slots[2] = frame->slots[6] /* temp__2 */;
-  arguments->slots[3] = var._INLINE_C_FUNCTION;
+  arguments->slots[3] = unique__INLINE_C_FUNCTION;
   arguments->slots[4] = frame->slots[7] /* temp__3 */;
   arguments->slots[5] = frame->slots[8] /* temp__4 */;
   result_count = frame->caller_result_count;
@@ -19825,21 +19678,21 @@ static void cont__compiler__extract_documentation_249(void) {
   argument_count = 18;
   arguments = node_p;
   arguments->slots[0] = frame->slots[14] /* temp__1 */;
-  arguments->slots[1] = var._FUNCTION;
+  arguments->slots[1] = unique__FUNCTION;
   arguments->slots[2] = frame->slots[15] /* temp__2 */;
-  arguments->slots[3] = var._POLYMORPHIC_FUNCTION;
+  arguments->slots[3] = unique__POLYMORPHIC_FUNCTION;
   arguments->slots[4] = frame->slots[16] /* temp__3 */;
-  arguments->slots[5] = var._POLYMORPHIC_ATTRIBUTE;
+  arguments->slots[5] = unique__POLYMORPHIC_ATTRIBUTE;
   arguments->slots[6] = frame->slots[17] /* temp__4 */;
-  arguments->slots[7] = var._INLINE_C_FUNCTION;
+  arguments->slots[7] = unique__INLINE_C_FUNCTION;
   arguments->slots[8] = frame->slots[18] /* temp__5 */;
-  arguments->slots[9] = var._INLINE_C_TYPE;
+  arguments->slots[9] = unique__INLINE_C_TYPE;
   arguments->slots[10] = frame->slots[19] /* temp__6 */;
-  arguments->slots[11] = var._INLINE_C_OBJECT;
+  arguments->slots[11] = unique__INLINE_C_OBJECT;
   arguments->slots[12] = frame->slots[20] /* temp__7 */;
-  arguments->slots[13] = var._UNIQUE_ITEM;
+  arguments->slots[13] = unique__UNIQUE_ITEM;
   arguments->slots[14] = frame->slots[21] /* temp__8 */;
-  arguments->slots[15] = var._CONSTANT;
+  arguments->slots[15] = unique__CONSTANT;
   arguments->slots[16] = frame->slots[22] /* temp__9 */;
   arguments->slots[17] = frame->slots[23] /* temp__10 */;
   result_count = 0;
@@ -20159,7 +20012,7 @@ static void cont__compiler__extract_documentation_269(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[14] /* temp__1 */;
-  arguments->slots[1] = var._INLINE_C_TYPE;
+  arguments->slots[1] = unique__INLINE_C_TYPE;
   arguments->slots[2] = frame->slots[15] /* temp__2 */;
   result_count = frame->caller_result_count;
   myself = get__case();
@@ -20628,7 +20481,7 @@ static void cont__compiler__extract_documentation_319(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__extract_documentation_1(void) {
+static void entry__compiler__extract_documentation(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // paths: 0
@@ -20706,7 +20559,7 @@ static void entry__compiler__extract_documentation_5(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* path */;
   result_count = frame->caller_result_count;
-  myself = var._extract_documentation_from_directory;
+  myself = func__extract_documentation_from_directory;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -20811,7 +20664,7 @@ static void entry__compiler__extract_documentation_21(void) {
   arguments->slots[0] = frame->slots[0] /* base */;
   arguments->slots[1] = frame->slots[1] /* iname */;
   result_count = frame->caller_result_count;
-  myself = var._add_derived_type;
+  myself = func__add_derived_type;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -20942,7 +20795,7 @@ static void cont__compiler__extract_documentation_27(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = 1;
-  myself = var._resolved_name;
+  myself = func__resolved_name;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_28;
 }
@@ -20986,7 +20839,7 @@ static void cont__compiler__extract_documentation_31(void) {
   arguments->slots[0] = frame->slots[4] /* sd_name */;
   arguments->slots[1] = frame->slots[1] /* method_info */;
   result_count = 1;
-  myself = var._get_short_description;
+  myself = func__get_short_description;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_32;
 }
@@ -21050,7 +20903,7 @@ static void cont__compiler__extract_documentation_35(void) {
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
   arguments->slots[1] = frame->slots[7] /* temp__2 */;
   result_count = 1;
-  myself = var._ordered_name;
+  myself = func__ordered_name;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_36;
 }
@@ -21315,7 +21168,7 @@ static void cont__compiler__extract_documentation_13(void) {
   arguments->slots[0] = frame->slots[2] /* name */;
   arguments->slots[1] = frame->slots[1] /* info */;
   result_count = 1;
-  myself = var._get_short_description;
+  myself = func__get_short_description;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_14;
 }
@@ -21360,7 +21213,7 @@ static void cont__compiler__extract_documentation_16(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
-  arguments->slots[1] = var._INLINE_C_TYPE;
+  arguments->slots[1] = unique__INLINE_C_TYPE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -21425,7 +21278,7 @@ static void cont__compiler__extract_documentation_45(void) {
   arguments->slots[0] = string__5042403361ea61f3;
   arguments->slots[1] = func__compiler__extract_documentation_47;
   result_count = 0;
-  myself = var._create_page;
+  myself = func__create_page;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_85;
 }
@@ -21479,7 +21332,7 @@ static void cont__compiler__extract_documentation_78(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
-  arguments->slots[1] = var._INLINE_C_TYPE;
+  arguments->slots[1] = unique__INLINE_C_TYPE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -21632,7 +21485,7 @@ static void entry__compiler__extract_documentation_47(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
-  myself = var._link_bar;
+  myself = func__link_bar;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_74;
 }
@@ -21815,7 +21668,7 @@ static void cont__compiler__extract_documentation_56(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* qname */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_57;
 }
@@ -22006,7 +21859,7 @@ static void entry__compiler__extract_documentation_66(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* remark_lines */;
   result_count = 1;
-  myself = var._to_paragraphs;
+  myself = func__to_paragraphs;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_67;
 }
@@ -22184,7 +22037,7 @@ static void cont__compiler__extract_documentation_85(void) {
   arguments->slots[0] = string__323311dc18f7db38;
   arguments->slots[1] = func__compiler__extract_documentation_87;
   result_count = 0;
-  myself = var._create_page;
+  myself = func__create_page;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_180;
 }
@@ -22271,7 +22124,7 @@ static void entry__compiler__extract_documentation_172(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_173;
 }
@@ -22827,7 +22680,7 @@ static void entry__compiler__extract_documentation_128(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* remark_lines */;
   result_count = 1;
-  myself = var._to_paragraphs;
+  myself = func__to_paragraphs;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_129;
 }
@@ -22892,23 +22745,23 @@ static void cont__compiler__extract_documentation_132(void) {
   argument_count = 20;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
-  arguments->slots[1] = var._FUNCTION;
+  arguments->slots[1] = unique__FUNCTION;
   arguments->slots[2] = func__compiler__extract_documentation_133;
-  arguments->slots[3] = var._POLYMORPHIC_FUNCTION;
+  arguments->slots[3] = unique__POLYMORPHIC_FUNCTION;
   arguments->slots[4] = func__compiler__extract_documentation_135;
-  arguments->slots[5] = var._POLYMORPHIC_ATTRIBUTE;
+  arguments->slots[5] = unique__POLYMORPHIC_ATTRIBUTE;
   arguments->slots[6] = func__compiler__extract_documentation_137;
-  arguments->slots[7] = var._INLINE_C_TYPE;
+  arguments->slots[7] = unique__INLINE_C_TYPE;
   arguments->slots[8] = func__compiler__extract_documentation_139;
-  arguments->slots[9] = var._INLINE_C_OBJECT;
+  arguments->slots[9] = unique__INLINE_C_OBJECT;
   arguments->slots[10] = func__compiler__extract_documentation_141;
-  arguments->slots[11] = var._INLINE_C_FUNCTION;
+  arguments->slots[11] = unique__INLINE_C_FUNCTION;
   arguments->slots[12] = func__compiler__extract_documentation_143;
-  arguments->slots[13] = var._UNIQUE_ITEM;
+  arguments->slots[13] = unique__UNIQUE_ITEM;
   arguments->slots[14] = func__compiler__extract_documentation_145;
-  arguments->slots[15] = var._CONSTANT;
+  arguments->slots[15] = unique__CONSTANT;
   arguments->slots[16] = func__compiler__extract_documentation_147;
-  arguments->slots[17] = var._OTHER;
+  arguments->slots[17] = unique__OTHER;
   arguments->slots[18] = func__compiler__extract_documentation_149;
   arguments->slots[19] = func__compiler__extract_documentation_151;
   result_count = 1;
@@ -23354,7 +23207,7 @@ static void entry__compiler__extract_documentation_87(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
-  myself = var._link_bar;
+  myself = func__link_bar;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_88;
 }
@@ -23583,7 +23436,7 @@ static void cont__compiler__extract_documentation_188(void) {
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   arguments->slots[1] = frame->slots[1] /* method_info */;
   result_count = frame->caller_result_count;
-  myself = var._create_info_page;
+  myself = func__create_info_page;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -23659,7 +23512,7 @@ static void cont__compiler__extract_documentation_182(void) {
   arguments->slots[0] = frame->slots[2] /* name */;
   arguments->slots[1] = frame->slots[1] /* info */;
   result_count = 0;
-  myself = var._create_info_page;
+  myself = func__create_info_page;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_183;
 }
@@ -23693,7 +23546,7 @@ static void cont__compiler__extract_documentation_184(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
-  arguments->slots[1] = var._INLINE_C_TYPE;
+  arguments->slots[1] = unique__INLINE_C_TYPE;
   arguments->slots[2] = frame->slots[4] /* temp__2 */;
   result_count = frame->caller_result_count;
   myself = get__case();
@@ -23717,7 +23570,7 @@ static void cont__compiler__extract_documentation_189(void) {
   arguments->slots[0] = string__37b4111ed8c9af38;
   arguments->slots[1] = func__compiler__extract_documentation_191;
   result_count = 0;
-  myself = var._create_page;
+  myself = func__create_page;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_204;
 }
@@ -23895,7 +23748,7 @@ static void entry__compiler__extract_documentation_191(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
-  myself = var._link_bar;
+  myself = func__link_bar;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_192;
 }
@@ -24006,7 +23859,7 @@ static void entry__compiler__extract_documentation_223(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* reference */;
   result_count = 1;
-  myself = var._mangled;
+  myself = func__mangled;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_224;
 }
@@ -24166,7 +24019,7 @@ static void entry__compiler__extract_documentation_210(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
-  myself = var._link_bar;
+  myself = func__link_bar;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_211;
 }
@@ -24263,7 +24116,7 @@ static void entry__compiler__extract_documentation_217(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* paragraph */;
   result_count = 1;
-  myself = var._add_links;
+  myself = func__add_links;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_218;
 }
@@ -24430,7 +24283,7 @@ static void cont__compiler__extract_documentation_209(void) {
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   result_count = frame->caller_result_count;
-  myself = var._create_page;
+  myself = func__create_page;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -24450,7 +24303,7 @@ static void cont__compiler__extract_documentation_230(void) {
   arguments->slots[0] = string__c901ef2c97c0c8f2;
   arguments->slots[1] = func__compiler__extract_documentation_232;
   result_count = 0;
-  myself = var._create_page;
+  myself = func__create_page;
   func = myself->type;
   frame->cont = cont__compiler__extract_documentation_246;
 }
@@ -24695,34 +24548,11 @@ EXPORT void collect__extractor(void) {
   var._topics = collect_node(var._topics);
   var._topics_paragraphs = collect_node(var._topics_paragraphs);
   var._missing_documentation_count = collect_node(var._missing_documentation_count);
-  var._FUNCTION = collect_node(var._FUNCTION);
-  var._POLYMORPHIC_FUNCTION = collect_node(var._POLYMORPHIC_FUNCTION);
-  var._POLYMORPHIC_ATTRIBUTE = collect_node(var._POLYMORPHIC_ATTRIBUTE);
-  var._INLINE_C_TYPE = collect_node(var._INLINE_C_TYPE);
-  var._INLINE_C_OBJECT = collect_node(var._INLINE_C_OBJECT);
-  var._INLINE_C_FUNCTION = collect_node(var._INLINE_C_FUNCTION);
-  var._UNIQUE_ITEM = collect_node(var._UNIQUE_ITEM);
-  var._CONSTANT = collect_node(var._CONSTANT);
-  var._OTHER = collect_node(var._OTHER);
   var._PARAMETER_COUNT_OR_MYSELF = collect_node(var._PARAMETER_COUNT_OR_MYSELF);
   var._path_prefix = collect_node(var._path_prefix);
-  var._create_page = collect_node(var._create_page);
   var._symbol_info = collect_node(var._symbol_info);
-  var._extract_remark_lines = collect_node(var._extract_remark_lines);
-  var._extract_documentation_from_file = collect_node(var._extract_documentation_from_file);
-  var._extract_documentation_from_directory = collect_node(var._extract_documentation_from_directory);
-  var._resolved_name = collect_node(var._resolved_name);
-  var._add_derived_type = collect_node(var._add_derived_type);
-  var._mangled = collect_node(var._mangled);
-  var._ordered_name = collect_node(var._ordered_name);
-  var._link_bar = collect_node(var._link_bar);
   var._TOPIC = collect_node(var._TOPIC);
   var._EXAMPLE = collect_node(var._EXAMPLE);
-  var._to_paragraphs = collect_node(var._to_paragraphs);
-  var._resolve_reference = collect_node(var._resolve_reference);
-  var._add_links = collect_node(var._add_links);
-  var._create_info_page = collect_node(var._create_info_page);
-  var._get_short_description = collect_node(var._get_short_description);
   var.compiler__extract_exports = collect_node(var.compiler__extract_exports);
   var.compiler__extract_documentation = collect_node(var.compiler__extract_documentation);
 }
@@ -24768,15 +24598,6 @@ EXPORT void phase_2__extractor(void) {
   register_polymorphic_function_with_setter("_extractor::derived_types_of", &poly_idx__derived_types_of);
   register_polymorphic_function_with_setter("_extractor::methods_of", &poly_idx__methods_of);
   register_polymorphic_function_with_setter("_extractor::types_of", &poly_idx__types_of);
-  unique__FUNCTION = register_unique_item("FUNCTION");
-  unique__POLYMORPHIC_FUNCTION = register_unique_item("POLYMORPHIC_FUNCTION");
-  unique__POLYMORPHIC_ATTRIBUTE = register_unique_item("POLYMORPHIC_ATTRIBUTE");
-  unique__INLINE_C_TYPE = register_unique_item("INLINE_C_TYPE");
-  unique__INLINE_C_OBJECT = register_unique_item("INLINE_C_OBJECT");
-  unique__INLINE_C_FUNCTION = register_unique_item("INLINE_C_FUNCTION");
-  unique__UNIQUE_ITEM = register_unique_item("UNIQUE_ITEM");
-  unique__CONSTANT = register_unique_item("CONSTANT");
-  unique__OTHER = register_unique_item("OTHER");
   string__38ea9d2e8a7087ec = from_latin_1_string(
     "body {\n"
     "  background-color: white;\n"
@@ -24858,10 +24679,10 @@ EXPORT void phase_2__extractor(void) {
     "}\n",
     1234);
   func__create_page_4 = create_function(entry__create_page_4, 0);
-  func__create_page_1 = create_function(entry__create_page_1, 2);
+  func__create_page = create_function(entry__create_page, 2);
   func__extract_remark_lines_14 = create_function(entry__extract_remark_lines_14, 0);
   func__extract_remark_lines_15 = create_function(entry__extract_remark_lines_15, 0);
-  func__extract_remark_lines_1 = create_function(entry__extract_remark_lines_1, 1);
+  func__extract_remark_lines = create_function(entry__extract_remark_lines, 1);
   string__f68a3e9b60626ed6 = from_latin_1_string("extracting documentation from ", 30);
   string__1cbf9967f0b4797a = from_latin_1_string("Empty source text!", 18);
   func__extract_documentation_from_file_10 = create_function(entry__extract_documentation_from_file_10, 0);
@@ -24872,31 +24693,36 @@ EXPORT void phase_2__extractor(void) {
   string__9e0aed8b5d287d54 = from_latin_1_string(".sim", 4);
   string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
   func__extract_documentation_from_file_32 = create_function(entry__extract_documentation_from_file_32, 1);
-  func__extract_documentation_from_file_43 = create_function(entry__extract_documentation_from_file_43, 0);
   string__fa724815d896ba8 = from_latin_1_string("std", 3);
-  func__extract_documentation_from_file_53 = create_function(entry__extract_documentation_from_file_53, 0);
-  func__extract_documentation_from_file_60 = create_function(entry__extract_documentation_from_file_60, 0);
-  func__extract_documentation_from_file_63 = create_function(entry__extract_documentation_from_file_63, 0);
+  func__extract_documentation_from_file_51 = create_function(entry__extract_documentation_from_file_51, 0);
   string__781f541a81a2a2ed = from_latin_1_string("Topic:", 6);
-  func__extract_documentation_from_file_122 = create_function(entry__extract_documentation_from_file_122, 0);
+  func__extract_documentation_from_file_118 = create_function(entry__extract_documentation_from_file_118, 0);
+  unique__INLINE_C_TYPE = register_unique_item("INLINE_C_TYPE");
+  unique__INLINE_C_OBJECT = register_unique_item("INLINE_C_OBJECT");
   string__2a0aef0b5de07d5c = from_latin_1_string("type", 4);
   string__4c1f570701a272a3 = from_latin_1_string("object", 6);
-  func__extract_documentation_from_file_145 = create_function(entry__extract_documentation_from_file_145, 1);
-  func__extract_documentation_from_file_162 = create_function(entry__extract_documentation_from_file_162, 0);
-  func__extract_documentation_from_file_163 = create_function(entry__extract_documentation_from_file_163, 0);
+  func__extract_documentation_from_file_141 = create_function(entry__extract_documentation_from_file_141, 1);
+  unique__POLYMORPHIC_ATTRIBUTE = register_unique_item("POLYMORPHIC_ATTRIBUTE");
+  func__extract_documentation_from_file_158 = create_function(entry__extract_documentation_from_file_158, 0);
+  unique__POLYMORPHIC_FUNCTION = register_unique_item("POLYMORPHIC_FUNCTION");
+  func__extract_documentation_from_file_159 = create_function(entry__extract_documentation_from_file_159, 0);
   string__f7c371b7c3c668a7 = from_latin_1_string("types::function", 15);
-  func__extract_documentation_from_file_1 = create_function(entry__extract_documentation_from_file_1, 1);
+  unique__FUNCTION = register_unique_item("FUNCTION");
+  unique__INLINE_C_FUNCTION = register_unique_item("INLINE_C_FUNCTION");
+  unique__UNIQUE_ITEM = register_unique_item("UNIQUE_ITEM");
+  unique__CONSTANT = register_unique_item("CONSTANT");
+  func__extract_documentation_from_file = create_function(entry__extract_documentation_from_file, 1);
   func__extract_documentation_from_directory_4 = create_function(entry__extract_documentation_from_directory_4, 1);
-  func__extract_documentation_from_directory_1 = create_function(entry__extract_documentation_from_directory_1, 1);
+  func__extract_documentation_from_directory = create_function(entry__extract_documentation_from_directory, 1);
   string__7f3103e18f358a6f = from_latin_1_string("The attribute \042", 15);
   string__abd8bded937d2ca5 = from_latin_1_string("\042 cannot be uniquely resolved!\012", 31);
   string__8906d104d2e53fac = from_latin_1_string("\042 cannot be resolved!\012", 22);
   string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
-  func__resolved_name_1 = create_function(entry__resolved_name_1, 1);
-  func__add_derived_type_1 = create_function(entry__add_derived_type_1, 2);
+  func__resolved_name = create_function(entry__resolved_name, 1);
+  func__add_derived_type = create_function(entry__add_derived_type, 2);
   string__fa72f815cd16b93 = from_latin_1_string("___", 3);
-  func__mangled_1 = create_function(entry__mangled_1, 1);
-  func__ordered_name_1 = create_function(entry__ordered_name_1, 2);
+  func__mangled = create_function(entry__mangled, 1);
+  func__ordered_name = create_function(entry__ordered_name, 2);
   string__120aedcb5d487d5f = from_latin_1_string("href", 4);
   string__25705d17a847956d = from_latin_1_string("index.html", 10);
   string__520aea8b5d087d5c = from_latin_1_string("Home", 4);
@@ -24910,16 +24736,16 @@ EXPORT void phase_2__extractor(void) {
   string__b982567928221cc5 = from_latin_1_string("topics_index.html", 17);
   string__5691f96d534696f2 = from_latin_1_string("Topics Index", 12);
   func__link_bar_2 = create_function(entry__link_bar_2, 0);
-  func__link_bar_1 = create_function(entry__link_bar_1, 0);
-  func__to_paragraphs_1 = create_function(entry__to_paragraphs_1, 1);
+  func__link_bar = create_function(entry__link_bar, 0);
+  func__to_paragraphs = create_function(entry__to_paragraphs, 1);
   string__b854091e176bc0c0 = from_latin_1_string("types::", 7);
   string__625aea03e819206d = from_latin_1_string("std::", 5);
-  func__resolve_reference_1 = create_function(entry__resolve_reference_1, 1);
+  func__resolve_reference = create_function(entry__resolve_reference, 1);
   string__578a5af303e9cba = from_latin_1_string("[", 1);
   string__2d7981f4e5e02bed = from_latin_1_string("](", 2);
   string__701f552781dad2fe = from_latin_1_string(".html)", 6);
   func__add_links_5 = create_function(entry__add_links_5, 1);
-  func__add_links_1 = create_function(entry__add_links_1, 1);
+  func__add_links = create_function(entry__add_links, 1);
   string__3da288aac4394c18 = from_latin_1_string("The documentation for \042", 23);
   string__740195f292b901ee = from_latin_1_string(
     "\042\n"
@@ -24951,14 +24777,13 @@ EXPORT void phase_2__extractor(void) {
   string__76a4224cb17b643f = from_latin_1_string("See also:", 9);
   string__8f3750dfc2ad5d0a = from_latin_1_string("Technical Details:", 18);
   func__create_info_page_213 = create_function(entry__create_info_page_213, 0);
-  func__create_info_page_217 = create_function(entry__create_info_page_217, 0);
   string__1d61915d27bb27b2 = from_latin_1_string("Parameters", 10);
-  func__create_info_page_227 = create_function(entry__create_info_page_227, 1);
-  func__create_info_page_237 = create_function(entry__create_info_page_237, 1);
+  func__create_info_page_226 = create_function(entry__create_info_page_226, 1);
+  func__create_info_page_236 = create_function(entry__create_info_page_236, 1);
   string__a8951b1f3c70ab27 = from_latin_1_string("Description", 11);
-  func__create_info_page_247 = create_function(entry__create_info_page_247, 1);
+  func__create_info_page_246 = create_function(entry__create_info_page_246, 1);
   string__aba611e6ea1bf855 = from_latin_1_string("Technical Details", 17);
-  func__create_info_page_253 = create_function(entry__create_info_page_253, 1);
+  func__create_info_page_252 = create_function(entry__create_info_page_252, 1);
   string__6c80aed48449962f = from_latin_1_string("See also", 8);
   string__5c1f52a3813ab2ec = from_latin_1_string("&nbsp;", 6);
   string__9db99ab8b96e438c = from_latin_1_string("Implemented by", 14);
@@ -24967,14 +24792,14 @@ EXPORT void phase_2__extractor(void) {
   string__ef7adaf915740b94 = from_latin_1_string("Supported Polymorphic Functions", 31);
   string__781f541a81a2a2a4 = from_latin_1_string("Topics", 6);
   string__578a5af303e9cbe = from_latin_1_string("_", 1);
-  func__create_info_page_331 = create_function(entry__create_info_page_331, 1);
+  func__create_info_page_330 = create_function(entry__create_info_page_330, 1);
   string__525aeb43ea502024 = from_latin_1_string("class", 5);
-  func__create_info_page_354 = create_function(entry__create_info_page_354, 1);
+  func__create_info_page_353 = create_function(entry__create_info_page_353, 1);
   string__2d7981f4e6582bef = from_latin_1_string("**", 2);
   string__461f53438192a2a5 = from_latin_1_string("footer", 6);
   string__ae5520fdce447e8 = from_latin_1_string("(defined in ", 12);
   string__2d7981f4e6402bcf = from_latin_1_string(")\012", 2);
-  func__create_info_page_1 = create_function(entry__create_info_page_1, 2);
+  func__create_info_page = create_function(entry__create_info_page, 2);
   string__10bb152df59cfc0e = from_latin_1_string(
     "\n"
     "The short description for \042",
@@ -24984,7 +24809,7 @@ EXPORT void phase_2__extractor(void) {
     "is quite long:\n",
     18);
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
-  func__get_short_description_1 = create_function(entry__get_short_description_1, 2);
+  func__get_short_description = create_function(entry__get_short_description, 2);
   func__compiler__extract_exports_5 = create_function(entry__compiler__extract_exports_5, 1);
   func__compiler__extract_exports_15 = create_function(entry__compiler__extract_exports_15, 0);
   string__2d7981f4e6282be1 = from_latin_1_string("$$", 2);
@@ -24996,9 +24821,10 @@ EXPORT void phase_2__extractor(void) {
   func__compiler__extract_exports_21 = create_function(entry__compiler__extract_exports_21, 0);
   string__2d7981f4e6482bec = from_latin_1_string("()", 2);
   func__compiler__extract_exports_23 = create_function(entry__compiler__extract_exports_23, 0);
+  unique__OTHER = register_unique_item("OTHER");
   func__compiler__extract_exports_25 = create_function(entry__compiler__extract_exports_25, 0);
   func__compiler__extract_exports_7 = create_function(entry__compiler__extract_exports_7, 2);
-  func__compiler__extract_exports_1 = create_function(entry__compiler__extract_exports_1, 1);
+  func__compiler__extract_exports = create_function(entry__compiler__extract_exports, 1);
   func__compiler__extract_documentation_5 = create_function(entry__compiler__extract_documentation_5, 1);
   string__8f47f24352a780c2 = from_latin_1_string(
     "Incomplete definition encountered:\n"
@@ -25115,7 +24941,7 @@ EXPORT void phase_2__extractor(void) {
     "missing documentation: ",
     25);
   func__compiler__extract_documentation_247 = create_function(entry__compiler__extract_documentation_247, 0);
-  func__compiler__extract_documentation_1 = create_function(entry__compiler__extract_documentation_1, 1);
+  func__compiler__extract_documentation = create_function(entry__compiler__extract_documentation, 1);
   string__545aef03ea835034 = from_latin_1_string("Topic", 5);
   string__a89009de95dad09f = from_latin_1_string("Example", 7);
   string__701f5257011302a3 = from_latin_1_string("Output", 6);
@@ -25128,15 +24954,6 @@ EXPORT void phase_3__extractor(void) {
   already_run_phase_3 = true;
   set_module("extractor");
   set_used_namespaces(used_namespaces);
-  assign_value(&var._FUNCTION, unique__FUNCTION);
-  assign_value(&var._POLYMORPHIC_FUNCTION, unique__POLYMORPHIC_FUNCTION);
-  assign_value(&var._POLYMORPHIC_ATTRIBUTE, unique__POLYMORPHIC_ATTRIBUTE);
-  assign_value(&var._INLINE_C_TYPE, unique__INLINE_C_TYPE);
-  assign_value(&var._INLINE_C_OBJECT, unique__INLINE_C_OBJECT);
-  assign_value(&var._INLINE_C_FUNCTION, unique__INLINE_C_FUNCTION);
-  assign_value(&var._UNIQUE_ITEM, unique__UNIQUE_ITEM);
-  assign_value(&var._CONSTANT, unique__CONSTANT);
-  assign_value(&var._OTHER, unique__OTHER);
   var._PARAMETER_COUNT_OR_MYSELF = create_future();
   var._symbol_info = create_future();
   var._TOPIC = create_future();
@@ -25334,22 +25151,8 @@ EXPORT void phase_5__extractor(void) {
   assign_value(&var._derived_types_of, create_function(type__derived_types_of, -1));
   assign_value(&var._methods_of, create_function(type__methods_of, -1));
   assign_value(&var._types_of, create_function(type__types_of, -1));
-  assign_variable(&var._create_page, &func__create_page_1);
-  assign_variable(&var._extract_remark_lines, &func__extract_remark_lines_1);
-  assign_variable(&var._extract_documentation_from_file, &func__extract_documentation_from_file_1);
-  assign_variable(&var._extract_documentation_from_directory, &func__extract_documentation_from_directory_1);
-  assign_variable(&var._resolved_name, &func__resolved_name_1);
-  assign_variable(&var._add_derived_type, &func__add_derived_type_1);
-  assign_variable(&var._mangled, &func__mangled_1);
-  assign_variable(&var._ordered_name, &func__ordered_name_1);
-  assign_variable(&var._link_bar, &func__link_bar_1);
-  assign_variable(&var._to_paragraphs, &func__to_paragraphs_1);
-  assign_variable(&var._resolve_reference, &func__resolve_reference_1);
-  assign_variable(&var._add_links, &func__add_links_1);
-  assign_variable(&var._create_info_page, &func__create_info_page_1);
-  assign_variable(&var._get_short_description, &func__get_short_description_1);
-  initialize_future(var.compiler__extract_exports, func__compiler__extract_exports_1);
-  initialize_future(var.compiler__extract_documentation, func__compiler__extract_documentation_1);
+  initialize_future(var.compiler__extract_exports, func__compiler__extract_exports);
+  initialize_future(var.compiler__extract_documentation, func__compiler__extract_documentation);
 }
 
 static int already_run_phase_6 = false;

@@ -358,9 +358,9 @@ static NODE *get__compiler__outdent_marker(void) {
 static NODE *get__compiler__newline(void) {
   return var.compiler__newline;
 }
-static NODE *func__compiler__tokenize_1;
-static void entry__compiler__tokenize_1(void);
-static FRAME_INFO frame__compiler__tokenize_1 = {11, {"fragment", "text", "i", "s", "new_text", "pending_newlines", "quote_count", "TokenizationError", "skip_line", "get_indent", "convert"}};
+static NODE *func__compiler__tokenize;
+static void entry__compiler__tokenize(void);
+static FRAME_INFO frame__compiler__tokenize = {11, {"fragment", "text", "i", "s", "new_text", "pending_newlines", "quote_count", "TokenizationError", "skip_line", "get_indent", "convert"}};
 static NODE *func__compiler__tokenize_2;
 static void entry__compiler__tokenize_2(void);
 static FRAME_INFO frame__compiler__tokenize_2 = {5, {"msg", "fragment", "text", "i", "line_no"}};
@@ -711,11 +711,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__tokenize_139, &frame__compiler__tokenize_69, 137, 137, 7, 17},
   {entry__compiler__tokenize_68, NULL, 88, 137, 5, 17},
   {cont__compiler__tokenize_140, &frame__compiler__tokenize_68, 137, 137, 17, 17},
-  {entry__compiler__tokenize_1, NULL, 37, 37, 3, 25},
-  {cont__compiler__tokenize_141, &frame__compiler__tokenize_1, 139, 139, 10, 19},
-  {cont__compiler__tokenize_142, &frame__compiler__tokenize_1, 139, 139, 3, 19},
-  {cont__compiler__tokenize_143, &frame__compiler__tokenize_1, 140, 140, 3, 24},
-  {cont__compiler__tokenize_144, &frame__compiler__tokenize_1, 141, 141, 30, 30}
+  {entry__compiler__tokenize, NULL, 37, 37, 3, 25},
+  {cont__compiler__tokenize_141, &frame__compiler__tokenize, 139, 139, 10, 19},
+  {cont__compiler__tokenize_142, &frame__compiler__tokenize, 139, 139, 3, 19},
+  {cont__compiler__tokenize_143, &frame__compiler__tokenize, 140, 140, 3, 24},
+  {cont__compiler__tokenize_144, &frame__compiler__tokenize, 141, 141, 30, 30}
 };
 
 union NODE {
@@ -774,7 +774,7 @@ EXPORT void run__tokenizer(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__tokenize_1(void) {
+static void entry__compiler__tokenize(void) {
   allocate_initialized_frame_gc(1, 12);
   // slot allocations:
   // fragment: 0
@@ -3630,7 +3630,7 @@ EXPORT void phase_2__tokenizer(void) {
   string__dd17af2f619a6908 = from_latin_1_string("tabulator character within line detected", 40);
   string__97eea539018d4d4b = from_latin_1_string("empty line contains whitespace", 30);
   string__f6816391653ef18d = from_latin_1_string("invalid indentation", 19);
-  func__compiler__tokenize_1 = create_function(entry__compiler__tokenize_1, 1);
+  func__compiler__tokenize = create_function(entry__compiler__tokenize, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -3705,7 +3705,7 @@ EXPORT void phase_5__tokenizer(void) {
   initialize_future(var.compiler__indent_marker, character__1);
   initialize_future(var.compiler__outdent_marker, character__2);
   initialize_future(var.compiler__newline, character__10);
-  initialize_future(var.compiler__tokenize, func__compiler__tokenize_1);
+  initialize_future(var.compiler__tokenize, func__compiler__tokenize);
 }
 
 static int already_run_phase_6 = false;

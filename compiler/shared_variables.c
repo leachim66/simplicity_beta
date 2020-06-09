@@ -600,6 +600,16 @@ static void set__compiler__index(NODE *node) {
 static void define__compiler__index(NODE *node) {
   define_dynamic_cell(dyna_idx__compiler__index, node);
 }
+static int dyna_idx__compiler__named_constants;
+static NODE *get__compiler__named_constants(void) {
+  return get_dynamic_cell(dyna_idx__compiler__named_constants);
+}
+static void set__compiler__named_constants(NODE *node) {
+  set_dynamic_cell(dyna_idx__compiler__named_constants, node);
+}
+static void define__compiler__named_constants(NODE *node) {
+  define_dynamic_cell(dyna_idx__compiler__named_constants, node);
+}
 static int dyna_idx__compiler__definitions;
 static NODE *get__compiler__definitions(void) {
   return get_dynamic_cell(dyna_idx__compiler__definitions);
@@ -724,6 +734,16 @@ static void set__compiler__unique_item_index(NODE *node) {
 static void define__compiler__unique_item_index(NODE *node) {
   define_dynamic_cell(dyna_idx__compiler__unique_item_index, node);
 }
+static int dyna_idx__compiler__used_unique_items;
+static NODE *get__compiler__used_unique_items(void) {
+  return get_dynamic_cell(dyna_idx__compiler__used_unique_items);
+}
+static void set__compiler__used_unique_items(NODE *node) {
+  set_dynamic_cell(dyna_idx__compiler__used_unique_items, node);
+}
+static void define__compiler__used_unique_items(NODE *node) {
+  define_dynamic_cell(dyna_idx__compiler__used_unique_items, node);
+}
 static NODE *get__compiler__vtable_entries(void) {
   return var.compiler__vtable_entries;
 }
@@ -746,7 +766,7 @@ static NODE *string__5af91691bb71fca7;
 static NODE *string__7e88296f0e7a3463;
 static NODE *string__541f558a01dab2b3;
 static NODE *string__ee216a04cf7d466f;
-static void cont__106_20(void);
+static void cont__110_20(void);
 void run__shared_variables(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -754,8 +774,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__compiler__text_of, NULL, 32, 32, 2, 18},
   {type__compiler__source_of, NULL, 33, 33, 2, 20},
   {type__compiler__indents_of, NULL, 34, 34, 2, 21},
-  {run__shared_variables, NULL, 130, 150, 1, 19},
-  {cont__106_20, NULL, }
+  {run__shared_variables, NULL, 138, 158, 1, 19},
+  {cont__110_20, NULL, }
 };
 
 union NODE {
@@ -976,53 +996,61 @@ EXPORT void run__shared_variables(void) {
   initialize_maybe_future(get__compiler__submodule_no(), get__undefined());
   // 93: %%compiler::index undefined # used for enumerating expanded source code items
   set__compiler__index(get__undefined());
-  // 94: %%compiler::definitions undefined # a list of key-value pairs
+  // 94: %%compiler::named_constants undefined # a table of top-level symbolic constants
+  set__compiler__named_constants(get__undefined());
+  // 95: %%compiler::definitions undefined # a list of key-value pairs
   set__compiler__definitions(get__undefined());
-  // 95: %%compiler::statements undefined # a list of statements
+  // 96: %%compiler::statements undefined # a list of statements
   set__compiler__statements(get__undefined());
-  // 96: %%compiler::actions undefined # a list of deferred actions (closures)
+  // 97: %%compiler::actions undefined # a list of deferred actions (closures)
   set__compiler__actions(get__undefined());
-  // 98: %%compiler::temp_idx undefined
-  // 99:   # total count of already defined temporaries (initialized to 0)
+  //  99: %%compiler::temp_idx undefined
+  // 100:   # total count of already defined temporaries (initialized to 0)
   set__compiler__temp_idx(get__undefined());
-  // 101: %compiler::current_fragment undefined # used for generating error messages
+  // 102: %compiler::current_fragment undefined # used for generating error messages
   initialize_maybe_future(get__compiler__current_fragment(), get__undefined());
-  // 103: %compiler::already_defined_names undefined
-  // 104:   # names that must not be redefined as local symbols
+  // 104: %compiler::already_defined_names undefined
+  // 105:   # names that must not be redefined as local symbols
   initialize_maybe_future(get__compiler__already_defined_names(), get__undefined());
-  // 106: %%compiler::defined_names undefined # used for collecting defined symbols
+  // 107: %%compiler::defined_names undefined
+  // 108:   # an insert-order set used for collecting defined symbols
   set__compiler__defined_names(get__undefined());
-  // 107: %%compiler::used_names undefined # used for collecting usages of symbols
+  // 110: %%compiler::used_names undefined
+  // 111:   # an insert-order table used for collecting usages of symbols
   set__compiler__used_names(get__undefined());
-  // 109: %%compiler::assigned_names undefined
-  // 110:   #
-  // 111:     used for collecting assignments to symbols;
-  // 112:     only used for creating appropriate warning messages
+  // 113: %%compiler::assigned_names undefined
+  // 114:   #
+  // 115:     used for collecting assignments to symbols;
+  // 116:     only used for creating appropriate warning messages
   set__compiler__assigned_names(get__undefined());
-  // 114: %%compiler::used_string_literals undefined
-  // 115:   # a a table that stores already defined string literals
+  // 118: %%compiler::used_string_literals undefined
+  // 119:   # a a table that stores already defined string literals
   set__compiler__used_string_literals(get__undefined());
-  // 117: %%compiler::current_continuation_info undefined
-  // 118:   # stores debug information about the current continuation function
+  // 121: %%compiler::current_continuation_info undefined
+  // 122:   # stores debug information about the current continuation function
   set__compiler__current_continuation_info(get__undefined());
-  // 120: %%compiler::string_literals undefined
-  // 121:   #
-  // 122:     a table that matches string hashes to string literals
-  set__compiler__string_literals(get__undefined());
-  // 124: %%compiler::unique_item_index undefined
+  // 124: %%compiler::string_literals undefined
   // 125:   #
-  // 126:     the index no. of the next anonymous unique item
+  // 126:     a table that matches string hashes to string literals
+  set__compiler__string_literals(get__undefined());
+  // 128: %%compiler::unique_item_index undefined
+  // 129:   #
+  // 130:     the index no. of the next anonymous unique item
   set__compiler__unique_item_index(get__undefined());
-  // 130: $compiler::vtable_entries
-  // 131:   list
-  // 132:     "to_int8"
-  // 133:     "to_int16"
-  // 134:     "to_int32"
-  // 135:     "to_int64"
-  // 136:     "to_uint8"
-  // 137:     "to_uint16"
-  // 138:     "to_uint32"
-  // 139:     "to_uint64"
+  // 132: %%compiler::used_unique_items undefined
+  // 133:   #
+  // 134:     a set containing all unique item names
+  set__compiler__used_unique_items(get__undefined());
+  // 138: $compiler::vtable_entries
+  // 139:   list
+  // 140:     "to_int8"
+  // 141:     "to_int16"
+  // 142:     "to_int32"
+  // 143:     "to_int64"
+  // 144:     "to_uint8"
+  // 145:     "to_uint16"
+  // 146:     "to_uint32"
+  // 147:     "to_uint64"
   // ...
   argument_count = 19;
   arguments = node_p;
@@ -1048,9 +1076,9 @@ EXPORT void run__shared_variables(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__106_20;
+  frame->cont = cont__110_20;
 }
-static void cont__106_20(void) {
+static void cont__110_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1184,6 +1212,8 @@ EXPORT void phase_3__shared_variables(void) {
   define__compiler__submodule_no(create_future());
   define_multi_assign_dynamic("compiler", "index", get__compiler__index, set__compiler__index, define__compiler__index, &dyna_idx__compiler__index);
   define__compiler__index(undefined);
+  define_multi_assign_dynamic("compiler", "named_constants", get__compiler__named_constants, set__compiler__named_constants, define__compiler__named_constants, &dyna_idx__compiler__named_constants);
+  define__compiler__named_constants(undefined);
   define_multi_assign_dynamic("compiler", "definitions", get__compiler__definitions, set__compiler__definitions, define__compiler__definitions, &dyna_idx__compiler__definitions);
   define__compiler__definitions(undefined);
   define_multi_assign_dynamic("compiler", "statements", get__compiler__statements, set__compiler__statements, define__compiler__statements, &dyna_idx__compiler__statements);
@@ -1210,6 +1240,8 @@ EXPORT void phase_3__shared_variables(void) {
   define__compiler__string_literals(undefined);
   define_multi_assign_dynamic("compiler", "unique_item_index", get__compiler__unique_item_index, set__compiler__unique_item_index, define__compiler__unique_item_index, &dyna_idx__compiler__unique_item_index);
   define__compiler__unique_item_index(undefined);
+  define_multi_assign_dynamic("compiler", "used_unique_items", get__compiler__used_unique_items, set__compiler__used_unique_items, define__compiler__used_unique_items, &dyna_idx__compiler__used_unique_items);
+  define__compiler__used_unique_items(undefined);
   define_single_assign_static("compiler", "vtable_entries", get__compiler__vtable_entries, &var.compiler__vtable_entries);
 }
 

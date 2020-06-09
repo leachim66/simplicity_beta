@@ -228,7 +228,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -363,13 +362,11 @@ static NODE_GETTER get_value_or_future__update_each;
 static NODE_GETTER get__while;
 static NODE_GETTER get_value_or_future__while;
 static struct {
-  NODE *_expand_arguments;
   NODE *compiler__expand_statement;
   NODE *compiler__expand_expression;
   NODE *compiler__expand_operator_call;
 } var;
 static const char *var_names[] = {
-  "expand_arguments"
 };
 static int poly_idx__compiler__expand_statement;
 static void type__compiler__expand_statement(void);
@@ -381,9 +378,9 @@ static void type__compiler__expand_expression(void);
 static NODE *get__compiler__expand_expression(void) {
   return var.compiler__expand_expression;
 }
-static NODE *func__expand_arguments_1;
-static void entry__expand_arguments_1(void);
-static FRAME_INFO frame__expand_arguments_1 = {2, {"arguments", "new_arguments"}};
+static NODE *func__expand_arguments;
+static void entry__expand_arguments(void);
+static FRAME_INFO frame__expand_arguments = {2, {"arguments", "new_arguments"}};
 static NODE *func__expand_arguments_2;
 static void entry__expand_arguments_2(void);
 static FRAME_INFO frame__expand_arguments_2 = {2, {"argument", "new_arguments"}};
@@ -402,22 +399,22 @@ static FRAME_INFO frame__expand_arguments_10 = {2, {"new_arguments", "argument"}
 static void cont__expand_arguments_11(void);
 static void cont__expand_arguments_12(void);
 static void cont__expand_arguments_13(void);
-static NODE *func__types__grammar_node__expand_statement_1;
-static void entry__types__grammar_node__expand_statement_1(void);
-static FRAME_INFO frame__types__grammar_node__expand_statement_1 = {1, {"self"}};
+static NODE *func__types__grammar_node___expand_statement;
+static void entry__types__grammar_node___expand_statement(void);
+static FRAME_INFO frame__types__grammar_node___expand_statement = {1, {"self"}};
 static NODE *string__582ccfaf004aa58;
-static void cont__types__grammar_node__expand_statement_3(void);
-static NODE *func__types__grammar_node__expand_expression_1;
-static void entry__types__grammar_node__expand_expression_1(void);
-static FRAME_INFO frame__types__grammar_node__expand_expression_1 = {1, {"self"}};
+static void cont__types__grammar_node___expand_statement_3(void);
+static NODE *func__types__grammar_node___expand_expression;
+static void entry__types__grammar_node___expand_expression(void);
+static FRAME_INFO frame__types__grammar_node___expand_expression = {1, {"self"}};
 static NODE *string__4bcf31e55e19ce58;
-static void cont__types__grammar_node__expand_expression_3(void);
-static NODE *func__compiler__body__expand_expression_1;
-static void entry__compiler__body__expand_expression_1(void);
-static FRAME_INFO frame__compiler__body__expand_expression_1 = {1, {"self"}};
+static void cont__types__grammar_node___expand_expression_3(void);
+static NODE *func__compiler__body___expand_expression;
+static void entry__compiler__body___expand_expression(void);
+static FRAME_INFO frame__compiler__body___expand_expression = {1, {"self"}};
 static NODE *string__c4e5f299bf2dab78;
-static void cont__compiler__body__expand_expression_3(void);
-static void cont__compiler__body__expand_expression_4(void);
+static void cont__compiler__body___expand_expression_3(void);
+static void cont__compiler__body___expand_expression_4(void);
 static NODE *func__compiler__body__expand_expression_5;
 static void entry__compiler__body__expand_expression_5(void);
 static FRAME_INFO frame__compiler__body__expand_expression_5 = {1, {"parameter"}};
@@ -429,19 +426,19 @@ static FRAME_INFO frame__compiler__body__expand_expression_8 = {1, {"parameter"}
 static void cont__compiler__body__expand_expression_9(void);
 static void cont__compiler__body__expand_expression_10(void);
 static void cont__compiler__body__expand_expression_11(void);
-static void cont__compiler__body__expand_expression_12(void);
-static void cont__compiler__body__expand_expression_13(void);
+static void cont__compiler__body___expand_expression_12(void);
+static void cont__compiler__body___expand_expression_13(void);
 static NODE *func__compiler__body__expand_expression_14;
 static void entry__compiler__body__expand_expression_14(void);
 static FRAME_INFO frame__compiler__body__expand_expression_14 = {1, {"stmt"}};
 static void cont__compiler__body__expand_expression_15(void);
-static void cont__compiler__body__expand_expression_16(void);
-static NODE *func__compiler__call__expand_statement_1;
-static void entry__compiler__call__expand_statement_1(void);
-static FRAME_INFO frame__compiler__call__expand_statement_1 = {1, {"self"}};
-static void cont__compiler__call__expand_statement_2(void);
-static void cont__compiler__call__expand_statement_3(void);
-static void cont__compiler__call__expand_statement_4(void);
+static void cont__compiler__body___expand_expression_16(void);
+static NODE *func__compiler__call___expand_statement;
+static void entry__compiler__call___expand_statement(void);
+static FRAME_INFO frame__compiler__call___expand_statement = {1, {"self"}};
+static void cont__compiler__call___expand_statement_2(void);
+static void cont__compiler__call___expand_statement_3(void);
+static void cont__compiler__call___expand_statement_4(void);
 static NODE *func__compiler__call__expand_statement_5;
 static void entry__compiler__call__expand_statement_5(void);
 static FRAME_INFO frame__compiler__call__expand_statement_5 = {1, {"self"}};
@@ -455,12 +452,12 @@ static void cont__compiler__call__expand_statement_10(void);
 static void cont__compiler__call__expand_statement_11(void);
 static void cont__compiler__call__expand_statement_12(void);
 static void cont__compiler__call__expand_statement_13(void);
-static void cont__compiler__call__expand_statement_14(void);
-static void cont__compiler__call__expand_statement_15(void);
-static void cont__compiler__call__expand_statement_16(void);
-static NODE *func__compiler__expand_operator_call_1;
-static void entry__compiler__expand_operator_call_1(void);
-static FRAME_INFO frame__compiler__expand_operator_call_1 = {3, {"self", "make_right_argument_lazy", "functor"}};
+static void cont__compiler__call___expand_statement_14(void);
+static void cont__compiler__call___expand_statement_15(void);
+static void cont__compiler__call___expand_statement_16(void);
+static NODE *func__compiler__expand_operator_call;
+static void entry__compiler__expand_operator_call(void);
+static FRAME_INFO frame__compiler__expand_operator_call = {3, {"self", "make_right_argument_lazy", "functor"}};
 static NODE *func__compiler__expand_operator_call_2;
 static void entry__compiler__expand_operator_call_2(void);
 static FRAME_INFO frame__compiler__expand_operator_call_2 = {2, {"self", "right"}};
@@ -635,13 +632,13 @@ static void cont__compiler__expand_operator_call_124(void);
 static NODE *get__compiler__expand_operator_call(void) {
   return var.compiler__expand_operator_call;
 }
-static NODE *func__compiler__function_call__expand_expression_1;
-static void entry__compiler__function_call__expand_expression_1(void);
-static FRAME_INFO frame__compiler__function_call__expand_expression_1 = {1, {"self"}};
+static NODE *func__compiler__function_call___expand_expression;
+static void entry__compiler__function_call___expand_expression(void);
+static FRAME_INFO frame__compiler__function_call___expand_expression = {1, {"self"}};
 static NODE *string__2ae70e1058c2c0b7;
-static void cont__compiler__function_call__expand_expression_3(void);
-static void cont__compiler__function_call__expand_expression_4(void);
-static void cont__compiler__function_call__expand_expression_5(void);
+static void cont__compiler__function_call___expand_expression_3(void);
+static void cont__compiler__function_call___expand_expression_4(void);
+static void cont__compiler__function_call___expand_expression_5(void);
 static NODE *func__compiler__function_call__expand_expression_6;
 static void entry__compiler__function_call__expand_expression_6(void);
 static FRAME_INFO frame__compiler__function_call__expand_expression_6 = {2, {"self", "functor"}};
@@ -693,21 +690,21 @@ static FRAME_INFO frame__compiler__function_call__expand_expression_39 = {1, {"s
 static void cont__compiler__function_call__expand_expression_40(void);
 static void cont__compiler__function_call__expand_expression_41(void);
 static void cont__compiler__function_call__expand_expression_42(void);
-static void cont__compiler__function_call__expand_expression_43(void);
-static NODE *func__compiler__attribute_value_pair__expand_expression_1;
-static void entry__compiler__attribute_value_pair__expand_expression_1(void);
-static FRAME_INFO frame__compiler__attribute_value_pair__expand_expression_1 = {1, {"self"}};
+static void cont__compiler__function_call___expand_expression_43(void);
+static NODE *func__compiler__attribute_value_pair___expand_expression;
+static void entry__compiler__attribute_value_pair___expand_expression(void);
+static FRAME_INFO frame__compiler__attribute_value_pair___expand_expression = {1, {"self"}};
 static NODE *string__30246dda36d83a54;
-static void cont__compiler__attribute_value_pair__expand_expression_3(void);
-static void cont__compiler__attribute_value_pair__expand_expression_4(void);
-static void cont__compiler__attribute_value_pair__expand_expression_5(void);
-static NODE *func__compiler__attribute_function_pair__expand_expression_1;
-static void entry__compiler__attribute_function_pair__expand_expression_1(void);
-static FRAME_INFO frame__compiler__attribute_function_pair__expand_expression_1 = {1, {"self"}};
+static void cont__compiler__attribute_value_pair___expand_expression_3(void);
+static void cont__compiler__attribute_value_pair___expand_expression_4(void);
+static void cont__compiler__attribute_value_pair___expand_expression_5(void);
+static NODE *func__compiler__attribute_function_pair___expand_expression;
+static void entry__compiler__attribute_function_pair___expand_expression(void);
+static FRAME_INFO frame__compiler__attribute_function_pair___expand_expression = {1, {"self"}};
 static NODE *string__2c1ce19c26092926;
-static void cont__compiler__attribute_function_pair__expand_expression_3(void);
-static void cont__compiler__attribute_function_pair__expand_expression_4(void);
-static void cont__compiler__attribute_function_pair__expand_expression_5(void);
+static void cont__compiler__attribute_function_pair___expand_expression_3(void);
+static void cont__compiler__attribute_function_pair___expand_expression_4(void);
+static void cont__compiler__attribute_function_pair___expand_expression_5(void);
 void run__expander(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -725,12 +722,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__expand_arguments_12, &frame__expand_arguments_10, 42, 42, 55, 55},
   {entry__expand_arguments_2, NULL, 36, 36, 7, 41},
   {cont__expand_arguments_3, &frame__expand_arguments_2, 35, 42, 5, 56},
-  {entry__expand_arguments_1, NULL, 34, 42, 3, 57},
-  {cont__expand_arguments_13, &frame__expand_arguments_1, 43, 43, 3, 18},
-  {entry__types__grammar_node__expand_statement_1, NULL, 49, 49, 3, 45},
-  {cont__types__grammar_node__expand_statement_3, &frame__types__grammar_node__expand_statement_1, },
-  {entry__types__grammar_node__expand_expression_1, NULL, 52, 52, 3, 46},
-  {cont__types__grammar_node__expand_expression_3, &frame__types__grammar_node__expand_expression_1, },
+  {entry__expand_arguments, NULL, 34, 42, 3, 57},
+  {cont__expand_arguments_13, &frame__expand_arguments, 43, 43, 3, 18},
+  {entry__types__grammar_node___expand_statement, NULL, 49, 49, 3, 45},
+  {cont__types__grammar_node___expand_statement_3, &frame__types__grammar_node___expand_statement, },
+  {entry__types__grammar_node___expand_expression, NULL, 52, 52, 3, 46},
+  {cont__types__grammar_node___expand_expression_3, &frame__types__grammar_node___expand_expression, },
   {entry__compiler__body__expand_expression_8, NULL, 61, 61, 26, 51},
   {cont__compiler__body__expand_expression_9, &frame__compiler__body__expand_expression_8, 61, 61, 7, 51},
   {cont__compiler__body__expand_expression_10, &frame__compiler__body__expand_expression_8, 61, 61, 51, 51},
@@ -740,12 +737,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__body__expand_expression_11, &frame__compiler__body__expand_expression_5, },
   {entry__compiler__body__expand_expression_14, NULL, 62, 62, 44, 65},
   {cont__compiler__body__expand_expression_15, &frame__compiler__body__expand_expression_14, 62, 62, 65, 65},
-  {entry__compiler__body__expand_expression_1, NULL, 58, 58, 3, 40},
-  {cont__compiler__body__expand_expression_3, &frame__compiler__body__expand_expression_1, 59, 59, 16, 33},
-  {cont__compiler__body__expand_expression_4, &frame__compiler__body__expand_expression_1, 59, 61, 3, 52},
-  {cont__compiler__body__expand_expression_12, &frame__compiler__body__expand_expression_1, 62, 62, 16, 33},
-  {cont__compiler__body__expand_expression_13, &frame__compiler__body__expand_expression_1, 62, 62, 3, 65},
-  {cont__compiler__body__expand_expression_16, &frame__compiler__body__expand_expression_1, 62, 62, 65, 65},
+  {entry__compiler__body___expand_expression, NULL, 58, 58, 3, 40},
+  {cont__compiler__body___expand_expression_3, &frame__compiler__body___expand_expression, 59, 59, 16, 33},
+  {cont__compiler__body___expand_expression_4, &frame__compiler__body___expand_expression, 59, 61, 3, 52},
+  {cont__compiler__body___expand_expression_12, &frame__compiler__body___expand_expression, 62, 62, 16, 33},
+  {cont__compiler__body___expand_expression_13, &frame__compiler__body___expand_expression, 62, 62, 3, 65},
+  {cont__compiler__body___expand_expression_16, &frame__compiler__body___expand_expression, 62, 62, 65, 65},
   {entry__compiler__call__expand_statement_8, NULL, 70, 70, 61, 80},
   {cont__compiler__call__expand_statement_9, &frame__compiler__call__expand_statement_8, 70, 70, 42, 80},
   {cont__compiler__call__expand_statement_10, &frame__compiler__call__expand_statement_8, 70, 70, 80, 80},
@@ -755,13 +752,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__call__expand_statement_11, &frame__compiler__call__expand_statement_5, 71, 71, 24, 38},
   {cont__compiler__call__expand_statement_12, &frame__compiler__call__expand_statement_5, 71, 71, 5, 38},
   {cont__compiler__call__expand_statement_13, &frame__compiler__call__expand_statement_5, 71, 71, 38, 38},
-  {entry__compiler__call__expand_statement_1, NULL, 68, 68, 3, 45},
-  {cont__compiler__call__expand_statement_2, &frame__compiler__call__expand_statement_1, 69, 69, 6, 21},
-  {cont__compiler__call__expand_statement_3, &frame__compiler__call__expand_statement_1, 69, 69, 6, 32},
-  {cont__compiler__call__expand_statement_4, &frame__compiler__call__expand_statement_1, 69, 71, 3, 38},
-  {cont__compiler__call__expand_statement_14, &frame__compiler__call__expand_statement_1, 72, 72, 21, 37},
-  {cont__compiler__call__expand_statement_15, &frame__compiler__call__expand_statement_1, 72, 72, 3, 37},
-  {cont__compiler__call__expand_statement_16, &frame__compiler__call__expand_statement_1, 72, 72, 37, 37},
+  {entry__compiler__call___expand_statement, NULL, 68, 68, 3, 45},
+  {cont__compiler__call___expand_statement_2, &frame__compiler__call___expand_statement, 69, 69, 6, 21},
+  {cont__compiler__call___expand_statement_3, &frame__compiler__call___expand_statement, 69, 69, 6, 32},
+  {cont__compiler__call___expand_statement_4, &frame__compiler__call___expand_statement, 69, 71, 3, 38},
+  {cont__compiler__call___expand_statement_14, &frame__compiler__call___expand_statement, 72, 72, 21, 37},
+  {cont__compiler__call___expand_statement_15, &frame__compiler__call___expand_statement, 72, 72, 3, 37},
+  {cont__compiler__call___expand_statement_16, &frame__compiler__call___expand_statement, 72, 72, 37, 37},
   {entry__compiler__expand_operator_call_2, NULL, 79, 79, 12, 29},
   {cont__compiler__expand_operator_call_3, &frame__compiler__expand_operator_call_2, 79, 79, 5, 32},
   {cont__compiler__expand_operator_call_4, &frame__compiler__expand_operator_call_2, 85, 85, 29, 39},
@@ -846,10 +843,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__compiler__expand_operator_call_17, NULL, 96, 96, 10, 25},
   {cont__compiler__expand_operator_call_18, &frame__compiler__expand_operator_call_17, 96, 145, 5, 50},
   {cont__compiler__expand_operator_call_116, &frame__compiler__expand_operator_call_17, 147, 154, 5, 50},
-  {entry__compiler__expand_operator_call_1, NULL, 93, 93, 3, 28},
-  {cont__compiler__expand_operator_call_15, &frame__compiler__expand_operator_call_1, 94, 94, 6, 34},
-  {cont__compiler__expand_operator_call_16, &frame__compiler__expand_operator_call_1, 94, 154, 3, 51},
-  {cont__compiler__expand_operator_call_124, &frame__compiler__expand_operator_call_1, },
+  {entry__compiler__expand_operator_call, NULL, 93, 93, 3, 28},
+  {cont__compiler__expand_operator_call_15, &frame__compiler__expand_operator_call, 94, 94, 6, 34},
+  {cont__compiler__expand_operator_call_16, &frame__compiler__expand_operator_call, 94, 154, 3, 51},
+  {cont__compiler__expand_operator_call_124, &frame__compiler__expand_operator_call, },
   {entry__compiler__function_call__expand_expression_11, NULL, 165, 165, 40, 55},
   {cont__compiler__function_call__expand_expression_12, &frame__compiler__function_call__expand_expression_11, 165, 165, 40, 62},
   {cont__compiler__function_call__expand_expression_14, &frame__compiler__function_call__expand_expression_11, 165, 165, 40, 62},
@@ -885,19 +882,19 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__function_call__expand_expression_9, &frame__compiler__function_call__expand_expression_6, 165, 165, 7, 35},
   {cont__compiler__function_call__expand_expression_10, &frame__compiler__function_call__expand_expression_6, 165, 165, 7, 62},
   {cont__compiler__function_call__expand_expression_15, &frame__compiler__function_call__expand_expression_6, 164, 177, 5, 35},
-  {entry__compiler__function_call__expand_expression_1, NULL, 157, 157, 3, 49},
-  {cont__compiler__function_call__expand_expression_3, &frame__compiler__function_call__expand_expression_1, 161, 161, 6, 21},
-  {cont__compiler__function_call__expand_expression_4, &frame__compiler__function_call__expand_expression_1, 161, 161, 6, 32},
-  {cont__compiler__function_call__expand_expression_5, &frame__compiler__function_call__expand_expression_1, 161, 177, 3, 36},
-  {cont__compiler__function_call__expand_expression_43, &frame__compiler__function_call__expand_expression_1, },
-  {entry__compiler__attribute_value_pair__expand_expression_1, NULL, 183, 183, 3, 56},
-  {cont__compiler__attribute_value_pair__expand_expression_3, &frame__compiler__attribute_value_pair__expand_expression_1, 184, 184, 21, 37},
-  {cont__compiler__attribute_value_pair__expand_expression_4, &frame__compiler__attribute_value_pair__expand_expression_1, 184, 184, 3, 37},
-  {cont__compiler__attribute_value_pair__expand_expression_5, &frame__compiler__attribute_value_pair__expand_expression_1, 184, 184, 37, 37},
-  {entry__compiler__attribute_function_pair__expand_expression_1, NULL, 190, 190, 3, 59},
-  {cont__compiler__attribute_function_pair__expand_expression_3, &frame__compiler__attribute_function_pair__expand_expression_1, 191, 191, 21, 37},
-  {cont__compiler__attribute_function_pair__expand_expression_4, &frame__compiler__attribute_function_pair__expand_expression_1, 191, 191, 3, 37},
-  {cont__compiler__attribute_function_pair__expand_expression_5, &frame__compiler__attribute_function_pair__expand_expression_1, 191, 191, 37, 37}
+  {entry__compiler__function_call___expand_expression, NULL, 157, 157, 3, 49},
+  {cont__compiler__function_call___expand_expression_3, &frame__compiler__function_call___expand_expression, 161, 161, 6, 21},
+  {cont__compiler__function_call___expand_expression_4, &frame__compiler__function_call___expand_expression, 161, 161, 6, 32},
+  {cont__compiler__function_call___expand_expression_5, &frame__compiler__function_call___expand_expression, 161, 177, 3, 36},
+  {cont__compiler__function_call___expand_expression_43, &frame__compiler__function_call___expand_expression, },
+  {entry__compiler__attribute_value_pair___expand_expression, NULL, 183, 183, 3, 56},
+  {cont__compiler__attribute_value_pair___expand_expression_3, &frame__compiler__attribute_value_pair___expand_expression, 184, 184, 21, 37},
+  {cont__compiler__attribute_value_pair___expand_expression_4, &frame__compiler__attribute_value_pair___expand_expression, 184, 184, 3, 37},
+  {cont__compiler__attribute_value_pair___expand_expression_5, &frame__compiler__attribute_value_pair___expand_expression, 184, 184, 37, 37},
+  {entry__compiler__attribute_function_pair___expand_expression, NULL, 190, 190, 3, 59},
+  {cont__compiler__attribute_function_pair___expand_expression_3, &frame__compiler__attribute_function_pair___expand_expression, 191, 191, 21, 37},
+  {cont__compiler__attribute_function_pair___expand_expression_4, &frame__compiler__attribute_function_pair___expand_expression, 191, 191, 3, 37},
+  {cont__compiler__attribute_function_pair___expand_expression_5, &frame__compiler__attribute_function_pair___expand_expression, 191, 191, 37, 37}
 };
 
 union NODE {
@@ -1000,7 +997,7 @@ EXPORT void run__expander(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__expand_arguments_1(void) {
+static void entry__expand_arguments(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // arguments: 0
@@ -1257,7 +1254,7 @@ static void cont__expand_arguments_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__grammar_node__expand_statement_1(void) {
+static void entry__types__grammar_node___expand_statement(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -1275,9 +1272,9 @@ static void entry__types__grammar_node__expand_statement_1(void) {
     frame->caller_result_count-1 : -1;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__types__grammar_node__expand_statement_3;
+  frame->cont = cont__types__grammar_node___expand_statement_3;
 }
-static void cont__types__grammar_node__expand_statement_3(void) {
+static void cont__types__grammar_node___expand_statement_3(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -1288,7 +1285,7 @@ static void cont__types__grammar_node__expand_statement_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__grammar_node__expand_expression_1(void) {
+static void entry__types__grammar_node___expand_expression(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -1306,9 +1303,9 @@ static void entry__types__grammar_node__expand_expression_1(void) {
     frame->caller_result_count-1 : -1;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__types__grammar_node__expand_expression_3;
+  frame->cont = cont__types__grammar_node___expand_expression_3;
 }
-static void cont__types__grammar_node__expand_expression_3(void) {
+static void cont__types__grammar_node___expand_expression_3(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -1319,7 +1316,7 @@ static void cont__types__grammar_node__expand_expression_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__body__expand_expression_1(void) {
+static void entry__compiler__body___expand_expression(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1335,9 +1332,9 @@ static void entry__compiler__body__expand_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__body__expand_expression_3;
+  frame->cont = cont__compiler__body___expand_expression_3;
 }
-static void cont__compiler__body__expand_expression_3(void) {
+static void cont__compiler__body___expand_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1349,9 +1346,9 @@ static void cont__compiler__body__expand_expression_3(void) {
   result_count = 1;
   myself = get__parameters_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__expand_expression_4;
+  frame->cont = cont__compiler__body___expand_expression_4;
 }
-static void cont__compiler__body__expand_expression_4(void) {
+static void cont__compiler__body___expand_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1367,7 +1364,7 @@ static void cont__compiler__body__expand_expression_4(void) {
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__compiler__body__expand_expression_12;
+  frame->cont = cont__compiler__body___expand_expression_12;
 }
 static void entry__compiler__body__expand_expression_5(void) {
   allocate_initialized_frame_gc(1, 4);
@@ -1488,7 +1485,7 @@ static void cont__compiler__body__expand_expression_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__body__expand_expression_12(void) {
+static void cont__compiler__body___expand_expression_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1509,9 +1506,9 @@ static void cont__compiler__body__expand_expression_12(void) {
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__expand_expression_13;
+  frame->cont = cont__compiler__body___expand_expression_13;
 }
-static void cont__compiler__body__expand_expression_13(void) {
+static void cont__compiler__body___expand_expression_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1525,7 +1522,7 @@ static void cont__compiler__body__expand_expression_13(void) {
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__compiler__body__expand_expression_16;
+  frame->cont = cont__compiler__body___expand_expression_16;
 }
 static void entry__compiler__body__expand_expression_14(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -1558,7 +1555,7 @@ static void cont__compiler__body__expand_expression_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__body__expand_expression_16(void) {
+static void cont__compiler__body___expand_expression_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1579,7 +1576,7 @@ static void cont__compiler__body__expand_expression_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__call__expand_statement_1(void) {
+static void entry__compiler__call___expand_statement(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -1595,9 +1592,9 @@ static void entry__compiler__call__expand_statement_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__call__expand_statement_2;
+  frame->cont = cont__compiler__call___expand_statement_2;
 }
-static void cont__compiler__call__expand_statement_2(void) {
+static void cont__compiler__call___expand_statement_2(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1609,9 +1606,9 @@ static void cont__compiler__call__expand_statement_2(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__compiler__call__expand_statement_3;
+  frame->cont = cont__compiler__call___expand_statement_3;
 }
-static void cont__compiler__call__expand_statement_3(void) {
+static void cont__compiler__call___expand_statement_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1624,9 +1621,9 @@ static void cont__compiler__call__expand_statement_3(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__compiler__call__expand_statement_4;
+  frame->cont = cont__compiler__call___expand_statement_4;
 }
-static void cont__compiler__call__expand_statement_4(void) {
+static void cont__compiler__call___expand_statement_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1646,7 +1643,7 @@ static void cont__compiler__call__expand_statement_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__call__expand_statement_14;
+  frame->cont = cont__compiler__call___expand_statement_14;
 }
 static void entry__compiler__call__expand_statement_5(void) {
   allocate_initialized_frame_gc(1, 4);
@@ -1801,7 +1798,7 @@ static void cont__compiler__call__expand_statement_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__call__expand_statement_14(void) {
+static void cont__compiler__call___expand_statement_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1813,9 +1810,9 @@ static void cont__compiler__call__expand_statement_14(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__compiler__call__expand_statement_15;
+  frame->cont = cont__compiler__call___expand_statement_15;
 }
-static void cont__compiler__call__expand_statement_15(void) {
+static void cont__compiler__call___expand_statement_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1826,11 +1823,11 @@ static void cont__compiler__call__expand_statement_15(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   result_count = 1;
-  myself = var._expand_arguments;
+  myself = func__expand_arguments;
   func = myself->type;
-  frame->cont = cont__compiler__call__expand_statement_16;
+  frame->cont = cont__compiler__call___expand_statement_16;
 }
-static void cont__compiler__call__expand_statement_16(void) {
+static void cont__compiler__call___expand_statement_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1851,7 +1848,7 @@ static void cont__compiler__call__expand_statement_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__expand_operator_call_1(void) {
+static void entry__compiler__expand_operator_call(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -3515,7 +3512,7 @@ static void cont__compiler__expand_operator_call_124(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__function_call__expand_expression_1(void) {
+static void entry__compiler__function_call___expand_expression(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -3531,9 +3528,9 @@ static void entry__compiler__function_call__expand_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__expand_expression_3;
+  frame->cont = cont__compiler__function_call___expand_expression_3;
 }
-static void cont__compiler__function_call__expand_expression_3(void) {
+static void cont__compiler__function_call___expand_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3545,9 +3542,9 @@ static void cont__compiler__function_call__expand_expression_3(void) {
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__expand_expression_4;
+  frame->cont = cont__compiler__function_call___expand_expression_4;
 }
-static void cont__compiler__function_call__expand_expression_4(void) {
+static void cont__compiler__function_call___expand_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3560,9 +3557,9 @@ static void cont__compiler__function_call__expand_expression_4(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__expand_expression_5;
+  frame->cont = cont__compiler__function_call___expand_expression_5;
 }
-static void cont__compiler__function_call__expand_expression_5(void) {
+static void cont__compiler__function_call___expand_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3600,7 +3597,7 @@ static void cont__compiler__function_call__expand_expression_5(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__expand_expression_43;
+  frame->cont = cont__compiler__function_call___expand_expression_43;
 }
 static void entry__compiler__function_call__expand_expression_16(void) {
   allocate_initialized_frame_gc(1, 5);
@@ -3960,7 +3957,7 @@ static void cont__compiler__function_call__expand_expression_37(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* arguments */;
   result_count = 1;
-  myself = var._expand_arguments;
+  myself = func__expand_arguments;
   func = myself->type;
   frame->cont = cont__compiler__function_call__expand_expression_38;
 }
@@ -4013,7 +4010,7 @@ static void cont__compiler__function_call__expand_expression_40(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   result_count = 1;
-  myself = var._expand_arguments;
+  myself = func__expand_arguments;
   func = myself->type;
   frame->cont = cont__compiler__function_call__expand_expression_41;
 }
@@ -4233,7 +4230,7 @@ static void cont__compiler__function_call__expand_expression_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__function_call__expand_expression_43(void) {
+static void cont__compiler__function_call___expand_expression_43(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -4244,7 +4241,7 @@ static void cont__compiler__function_call__expand_expression_43(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__attribute_value_pair__expand_expression_1(void) {
+static void entry__compiler__attribute_value_pair___expand_expression(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -4260,9 +4257,9 @@ static void entry__compiler__attribute_value_pair__expand_expression_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__attribute_value_pair__expand_expression_3;
+  frame->cont = cont__compiler__attribute_value_pair___expand_expression_3;
 }
-static void cont__compiler__attribute_value_pair__expand_expression_3(void) {
+static void cont__compiler__attribute_value_pair___expand_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4274,9 +4271,9 @@ static void cont__compiler__attribute_value_pair__expand_expression_3(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__compiler__attribute_value_pair__expand_expression_4;
+  frame->cont = cont__compiler__attribute_value_pair___expand_expression_4;
 }
-static void cont__compiler__attribute_value_pair__expand_expression_4(void) {
+static void cont__compiler__attribute_value_pair___expand_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4287,11 +4284,11 @@ static void cont__compiler__attribute_value_pair__expand_expression_4(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   result_count = 1;
-  myself = var._expand_arguments;
+  myself = func__expand_arguments;
   func = myself->type;
-  frame->cont = cont__compiler__attribute_value_pair__expand_expression_5;
+  frame->cont = cont__compiler__attribute_value_pair___expand_expression_5;
 }
-static void cont__compiler__attribute_value_pair__expand_expression_5(void) {
+static void cont__compiler__attribute_value_pair___expand_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4312,7 +4309,7 @@ static void cont__compiler__attribute_value_pair__expand_expression_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__attribute_function_pair__expand_expression_1(void) {
+static void entry__compiler__attribute_function_pair___expand_expression(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -4328,9 +4325,9 @@ static void entry__compiler__attribute_function_pair__expand_expression_1(void) 
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__attribute_function_pair__expand_expression_3;
+  frame->cont = cont__compiler__attribute_function_pair___expand_expression_3;
 }
-static void cont__compiler__attribute_function_pair__expand_expression_3(void) {
+static void cont__compiler__attribute_function_pair___expand_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4342,9 +4339,9 @@ static void cont__compiler__attribute_function_pair__expand_expression_3(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__compiler__attribute_function_pair__expand_expression_4;
+  frame->cont = cont__compiler__attribute_function_pair___expand_expression_4;
 }
-static void cont__compiler__attribute_function_pair__expand_expression_4(void) {
+static void cont__compiler__attribute_function_pair___expand_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4355,11 +4352,11 @@ static void cont__compiler__attribute_function_pair__expand_expression_4(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   result_count = 1;
-  myself = var._expand_arguments;
+  myself = func__expand_arguments;
   func = myself->type;
-  frame->cont = cont__compiler__attribute_function_pair__expand_expression_5;
+  frame->cont = cont__compiler__attribute_function_pair___expand_expression_5;
 }
-static void cont__compiler__attribute_function_pair__expand_expression_5(void) {
+static void cont__compiler__attribute_function_pair___expand_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4383,7 +4380,6 @@ static void cont__compiler__attribute_function_pair__expand_expression_5(void) {
 EXPORT void collect__expander(void) {
   var.compiler__expand_statement = collect_node(var.compiler__expand_statement);
   var.compiler__expand_expression = collect_node(var.compiler__expand_expression);
-  var._expand_arguments = collect_node(var._expand_arguments);
   var.compiler__expand_operator_call = collect_node(var.compiler__expand_operator_call);
 }
 
@@ -4405,16 +4401,16 @@ EXPORT void phase_2__expander(void) {
   number__2 = from_uint32(2U);
   define_polymorphic_function("compiler", "expand_statement", get__compiler__expand_statement, &poly_idx__compiler__expand_statement, &var.compiler__expand_statement);
   define_polymorphic_function("compiler", "expand_expression", get__compiler__expand_expression, &poly_idx__compiler__expand_expression, &var.compiler__expand_expression);
-  func__expand_arguments_1 = create_function(entry__expand_arguments_1, 1);
+  func__expand_arguments = create_function(entry__expand_arguments, 1);
   string__582ccfaf004aa58 = from_latin_1_string("expand statement", 16);
-  func__types__grammar_node__expand_statement_1 = create_function(entry__types__grammar_node__expand_statement_1, 1);
+  func__types__grammar_node___expand_statement = create_function(entry__types__grammar_node___expand_statement, 1);
   string__4bcf31e55e19ce58 = from_latin_1_string("expand expression", 17);
-  func__types__grammar_node__expand_expression_1 = create_function(entry__types__grammar_node__expand_expression_1, 1);
+  func__types__grammar_node___expand_expression = create_function(entry__types__grammar_node___expand_expression, 1);
   string__c4e5f299bf2dab78 = from_latin_1_string("expand body", 11);
   func__compiler__body__expand_expression_5 = create_function(entry__compiler__body__expand_expression_5, 1);
   func__compiler__body__expand_expression_14 = create_function(entry__compiler__body__expand_expression_14, 1);
-  func__compiler__body__expand_expression_1 = create_function(entry__compiler__body__expand_expression_1, 1);
-  func__compiler__call__expand_statement_1 = create_function(entry__compiler__call__expand_statement_1, 1);
+  func__compiler__body___expand_expression = create_function(entry__compiler__body___expand_expression, 1);
+  func__compiler__call___expand_statement = create_function(entry__compiler__call___expand_statement, 1);
   string__585ae843eae15024 = from_latin_1_string("times", 5);
   string__1c0aeccb5d487d4b = from_latin_1_string("over", 4);
   string__220aea4b5dc87d4a = from_latin_1_string("plus", 4);
@@ -4451,15 +4447,15 @@ EXPORT void phase_2__expander(void) {
   string__2d7981f4e6782beb = from_latin_1_string("..", 2);
   string__578a5af303e9cdc = from_latin_1_string("=", 1);
   string__fa723c15d516bb8 = from_latin_1_string("not", 3);
-  func__compiler__expand_operator_call_1 = create_function(entry__compiler__expand_operator_call_1, 1);
+  func__compiler__expand_operator_call = create_function(entry__compiler__expand_operator_call, 1);
   string__2ae70e1058c2c0b7 = from_latin_1_string("expand function call", 20);
   string__578a5af303e9ccd = from_latin_1_string(",", 1);
   string__6480ae5e84ccc225 = from_latin_1_string("sequence", 8);
-  func__compiler__function_call__expand_expression_1 = create_function(entry__compiler__function_call__expand_expression_1, 1);
+  func__compiler__function_call___expand_expression = create_function(entry__compiler__function_call___expand_expression, 1);
   string__30246dda36d83a54 = from_latin_1_string("expand attribute-value pair", 27);
-  func__compiler__attribute_value_pair__expand_expression_1 = create_function(entry__compiler__attribute_value_pair__expand_expression_1, 1);
+  func__compiler__attribute_value_pair___expand_expression = create_function(entry__compiler__attribute_value_pair___expand_expression, 1);
   string__2c1ce19c26092926 = from_latin_1_string("expand attribute-function pair", 30);
-  func__compiler__attribute_function_pair__expand_expression_1 = create_function(entry__compiler__attribute_function_pair__expand_expression_1, 1);
+  func__compiler__attribute_function_pair___expand_expression = create_function(entry__compiler__attribute_function_pair___expand_expression, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -4525,13 +4521,13 @@ EXPORT void phase_4__expander(void) {
   use_read_only("types", "grammar_node", &get__types__grammar_node, &get_value_or_future__types__grammar_node);
   use_read_only(NULL, "update_each", &get__update_each, &get_value_or_future__update_each);
   use_read_only(NULL, "while", &get__while, &get_value_or_future__while);
-  define_method("types", "grammar_node", poly_idx__expand_statement, func__types__grammar_node__expand_statement_1);
-  define_method("types", "grammar_node", poly_idx__expand_expression, func__types__grammar_node__expand_expression_1);
-  define_method("compiler", "body", poly_idx__expand_expression, func__compiler__body__expand_expression_1);
-  define_method("compiler", "call", poly_idx__expand_statement, func__compiler__call__expand_statement_1);
-  define_method("compiler", "function_call", poly_idx__expand_expression, func__compiler__function_call__expand_expression_1);
-  define_method("compiler", "attribute_value_pair", poly_idx__expand_expression, func__compiler__attribute_value_pair__expand_expression_1);
-  define_method("compiler", "attribute_function_pair", poly_idx__expand_expression, func__compiler__attribute_function_pair__expand_expression_1);
+  define_method("types", "grammar_node", poly_idx__expand_statement, func__types__grammar_node___expand_statement);
+  define_method("types", "grammar_node", poly_idx__expand_expression, func__types__grammar_node___expand_expression);
+  define_method("compiler", "body", poly_idx__expand_expression, func__compiler__body___expand_expression);
+  define_method("compiler", "call", poly_idx__expand_statement, func__compiler__call___expand_statement);
+  define_method("compiler", "function_call", poly_idx__expand_expression, func__compiler__function_call___expand_expression);
+  define_method("compiler", "attribute_value_pair", poly_idx__expand_expression, func__compiler__attribute_value_pair___expand_expression);
+  define_method("compiler", "attribute_function_pair", poly_idx__expand_expression, func__compiler__attribute_function_pair___expand_expression);
 }
 
 static int already_run_phase_5 = false;
@@ -4541,8 +4537,7 @@ EXPORT void phase_5__expander(void) {
   already_run_phase_5 = true;
   assign_value(&var.compiler__expand_statement, create_function(type__compiler__expand_statement, -1));
   assign_value(&var.compiler__expand_expression, create_function(type__compiler__expand_expression, -1));
-  assign_variable(&var._expand_arguments, &func__expand_arguments_1);
-  initialize_future(var.compiler__expand_operator_call, func__compiler__expand_operator_call_1);
+  initialize_future(var.compiler__expand_operator_call, func__compiler__expand_operator_call);
 }
 
 static int already_run_phase_6 = false;

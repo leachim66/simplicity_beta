@@ -421,28 +421,28 @@ static void entry__types__date_and_time__less_1(void);
 static NODE *func__types__date_and_time__less_1;
 static void entry__types__date_and_time__time_shift_of_1(void);
 static NODE *func__types__date_and_time__time_shift_of_1;
-static NODE *func__types__date_and_time__to_string_1;
-static void entry__types__date_and_time__to_string_1(void);
-static FRAME_INFO frame__types__date_and_time__to_string_1 = {4, {"self", "ts", "t", "second"}};
-static void cont__types__date_and_time__to_string_2(void);
-static void cont__types__date_and_time__to_string_3(void);
-static void cont__types__date_and_time__to_string_4(void);
-static void cont__types__date_and_time__to_string_5(void);
-static void cont__types__date_and_time__to_string_6(void);
+static NODE *func__types__date_and_time___to_string;
+static void entry__types__date_and_time___to_string(void);
+static FRAME_INFO frame__types__date_and_time___to_string = {4, {"self", "ts", "t", "second"}};
+static void cont__types__date_and_time___to_string_2(void);
+static void cont__types__date_and_time___to_string_3(void);
+static void cont__types__date_and_time___to_string_4(void);
+static void cont__types__date_and_time___to_string_5(void);
+static void cont__types__date_and_time___to_string_6(void);
 static NODE *string__578a5af303e9cd1;
-static void cont__types__date_and_time__to_string_8(void);
-static void cont__types__date_and_time__to_string_9(void);
-static void cont__types__date_and_time__to_string_10(void);
-static void cont__types__date_and_time__to_string_11(void);
-static void cont__types__date_and_time__to_string_12(void);
-static void cont__types__date_and_time__to_string_13(void);
-static void cont__types__date_and_time__to_string_14(void);
-static void cont__types__date_and_time__to_string_15(void);
-static void cont__types__date_and_time__to_string_16(void);
-static void cont__types__date_and_time__to_string_17(void);
-static void cont__types__date_and_time__to_string_18(void);
-static void cont__types__date_and_time__to_string_19(void);
-static void cont__types__date_and_time__to_string_20(void);
+static void cont__types__date_and_time___to_string_8(void);
+static void cont__types__date_and_time___to_string_9(void);
+static void cont__types__date_and_time___to_string_10(void);
+static void cont__types__date_and_time___to_string_11(void);
+static void cont__types__date_and_time___to_string_12(void);
+static void cont__types__date_and_time___to_string_13(void);
+static void cont__types__date_and_time___to_string_14(void);
+static void cont__types__date_and_time___to_string_15(void);
+static void cont__types__date_and_time___to_string_16(void);
+static void cont__types__date_and_time___to_string_17(void);
+static void cont__types__date_and_time___to_string_18(void);
+static void cont__types__date_and_time___to_string_19(void);
+static void cont__types__date_and_time___to_string_20(void);
 static NODE *func__types__date_and_time__to_string_21;
 static void entry__types__date_and_time__to_string_21(void);
 static FRAME_INFO frame__types__date_and_time__to_string_21 = {1, {"ts"}};
@@ -467,11 +467,11 @@ static FRAME_INFO frame__types__date_and_time__to_string_31 = {0, {}};
 static NODE *func__types__date_and_time__to_string_32;
 static void entry__types__date_and_time__to_string_32(void);
 static FRAME_INFO frame__types__date_and_time__to_string_32 = {0, {}};
-static void cont__types__date_and_time__to_string_33(void);
+static void cont__types__date_and_time___to_string_33(void);
 static NODE *string__578a5af303e9ccc;
 static NODE *string__578a5af303e9cdb;
 static NODE *string__820ae08b5c087d6d;
-static void cont__types__date_and_time__to_string_37(void);
+static void cont__types__date_and_time___to_string_37(void);
 static void entry__std__sleep_1(void);
 static NODE *func__std__sleep_1;
 static NODE *get__std__sleep(void) {
@@ -515,27 +515,27 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__date_and_time__to_string_28, &frame__types__date_and_time__to_string_27, 497, 497, 9, 28, 1},
   {entry__types__date_and_time__to_string_32, NULL, 498, 498, 17, 21, 1},
   {entry__types__date_and_time__to_string_31, NULL, 498, 498, 9, 21, 1},
-  {entry__types__date_and_time__to_string_1, NULL, 476, 476, 3, 25, 1},
-  {cont__types__date_and_time__to_string_2, &frame__types__date_and_time__to_string_1, 477, 477, 3, 12, 1},
-  {cont__types__date_and_time__to_string_3, &frame__types__date_and_time__to_string_1, 478, 478, 3, 22, 1},
-  {cont__types__date_and_time__to_string_4, &frame__types__date_and_time__to_string_1, 481, 481, 7, 16, 1},
-  {cont__types__date_and_time__to_string_5, &frame__types__date_and_time__to_string_1, 483, 483, 16, 26, 1},
-  {cont__types__date_and_time__to_string_6, &frame__types__date_and_time__to_string_1, 483, 483, 7, 33, 1},
-  {cont__types__date_and_time__to_string_8, &frame__types__date_and_time__to_string_1, 485, 485, 16, 24, 1},
-  {cont__types__date_and_time__to_string_9, &frame__types__date_and_time__to_string_1, 485, 485, 7, 31, 1},
-  {cont__types__date_and_time__to_string_10, &frame__types__date_and_time__to_string_1, 487, 487, 7, 16, 1},
-  {cont__types__date_and_time__to_string_11, &frame__types__date_and_time__to_string_1, 489, 489, 16, 27, 1},
-  {cont__types__date_and_time__to_string_12, &frame__types__date_and_time__to_string_1, 489, 489, 7, 34, 1},
-  {cont__types__date_and_time__to_string_13, &frame__types__date_and_time__to_string_1, 491, 491, 16, 28, 1},
-  {cont__types__date_and_time__to_string_14, &frame__types__date_and_time__to_string_1, 491, 491, 7, 35, 1},
-  {cont__types__date_and_time__to_string_15, &frame__types__date_and_time__to_string_1, 493, 493, 35, 47, 1},
-  {cont__types__date_and_time__to_string_16, &frame__types__date_and_time__to_string_1, 493, 493, 28, 47, 1},
-  {cont__types__date_and_time__to_string_17, &frame__types__date_and_time__to_string_1, 493, 493, 22, 47, 1},
-  {cont__types__date_and_time__to_string_18, &frame__types__date_and_time__to_string_1, 493, 493, 16, 49, 1},
-  {cont__types__date_and_time__to_string_19, &frame__types__date_and_time__to_string_1, 493, 493, 7, 56, 1},
-  {cont__types__date_and_time__to_string_20, &frame__types__date_and_time__to_string_1, 497, 497, 9, 28, 1},
-  {cont__types__date_and_time__to_string_33, &frame__types__date_and_time__to_string_1, },
-  {cont__types__date_and_time__to_string_37, &frame__types__date_and_time__to_string_1, 479, 498, 3, 23, 1},
+  {entry__types__date_and_time___to_string, NULL, 476, 476, 3, 25, 1},
+  {cont__types__date_and_time___to_string_2, &frame__types__date_and_time___to_string, 477, 477, 3, 12, 1},
+  {cont__types__date_and_time___to_string_3, &frame__types__date_and_time___to_string, 478, 478, 3, 22, 1},
+  {cont__types__date_and_time___to_string_4, &frame__types__date_and_time___to_string, 481, 481, 7, 16, 1},
+  {cont__types__date_and_time___to_string_5, &frame__types__date_and_time___to_string, 483, 483, 16, 26, 1},
+  {cont__types__date_and_time___to_string_6, &frame__types__date_and_time___to_string, 483, 483, 7, 33, 1},
+  {cont__types__date_and_time___to_string_8, &frame__types__date_and_time___to_string, 485, 485, 16, 24, 1},
+  {cont__types__date_and_time___to_string_9, &frame__types__date_and_time___to_string, 485, 485, 7, 31, 1},
+  {cont__types__date_and_time___to_string_10, &frame__types__date_and_time___to_string, 487, 487, 7, 16, 1},
+  {cont__types__date_and_time___to_string_11, &frame__types__date_and_time___to_string, 489, 489, 16, 27, 1},
+  {cont__types__date_and_time___to_string_12, &frame__types__date_and_time___to_string, 489, 489, 7, 34, 1},
+  {cont__types__date_and_time___to_string_13, &frame__types__date_and_time___to_string, 491, 491, 16, 28, 1},
+  {cont__types__date_and_time___to_string_14, &frame__types__date_and_time___to_string, 491, 491, 7, 35, 1},
+  {cont__types__date_and_time___to_string_15, &frame__types__date_and_time___to_string, 493, 493, 35, 47, 1},
+  {cont__types__date_and_time___to_string_16, &frame__types__date_and_time___to_string, 493, 493, 28, 47, 1},
+  {cont__types__date_and_time___to_string_17, &frame__types__date_and_time___to_string, 493, 493, 22, 47, 1},
+  {cont__types__date_and_time___to_string_18, &frame__types__date_and_time___to_string, 493, 493, 16, 49, 1},
+  {cont__types__date_and_time___to_string_19, &frame__types__date_and_time___to_string, 493, 493, 7, 56, 1},
+  {cont__types__date_and_time___to_string_20, &frame__types__date_and_time___to_string, 497, 497, 9, 28, 1},
+  {cont__types__date_and_time___to_string_33, &frame__types__date_and_time___to_string, },
+  {cont__types__date_and_time___to_string_37, &frame__types__date_and_time___to_string, 479, 498, 3, 23, 1},
   {entry__std__sleep_1, NULL, 507, 517, 3, 2, 1}
 };
 
@@ -1303,7 +1303,7 @@ static void entry__types__date_and_time__time_shift_of_1(void) {
     return;
   }
 }
-static void entry__types__date_and_time__to_string_1(void) {
+static void entry__types__date_and_time___to_string(void) {
   allocate_initialized_frame_gc(1, 23);
   // slot allocations:
   // self: 0
@@ -1324,9 +1324,9 @@ static void entry__types__date_and_time__to_string_1(void) {
   result_count = 1;
   myself = get__time_shift_of();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_2;
+  frame->cont = cont__types__date_and_time___to_string_2;
 }
-static void cont__types__date_and_time__to_string_2(void) {
+static void cont__types__date_and_time___to_string_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1340,9 +1340,9 @@ static void cont__types__date_and_time__to_string_2(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_3;
+  frame->cont = cont__types__date_and_time___to_string_3;
 }
-static void cont__types__date_and_time__to_string_3(void) {
+static void cont__types__date_and_time___to_string_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1355,9 +1355,9 @@ static void cont__types__date_and_time__to_string_3(void) {
   result_count = 1;
   myself = get__second_of();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_4;
+  frame->cont = cont__types__date_and_time___to_string_4;
 }
-static void cont__types__date_and_time__to_string_4(void) {
+static void cont__types__date_and_time___to_string_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1370,9 +1370,9 @@ static void cont__types__date_and_time__to_string_4(void) {
   result_count = 1;
   myself = get__year_of();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_5;
+  frame->cont = cont__types__date_and_time___to_string_5;
 }
-static void cont__types__date_and_time__to_string_5(void) {
+static void cont__types__date_and_time___to_string_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1385,9 +1385,9 @@ static void cont__types__date_and_time__to_string_5(void) {
   result_count = 1;
   myself = get__month_of();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_6;
+  frame->cont = cont__types__date_and_time___to_string_6;
 }
-static void cont__types__date_and_time__to_string_6(void) {
+static void cont__types__date_and_time___to_string_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1402,9 +1402,9 @@ static void cont__types__date_and_time__to_string_6(void) {
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_8;
+  frame->cont = cont__types__date_and_time___to_string_8;
 }
-static void cont__types__date_and_time__to_string_8(void) {
+static void cont__types__date_and_time___to_string_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1417,9 +1417,9 @@ static void cont__types__date_and_time__to_string_8(void) {
   result_count = 1;
   myself = get__day_of();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_9;
+  frame->cont = cont__types__date_and_time___to_string_9;
 }
-static void cont__types__date_and_time__to_string_9(void) {
+static void cont__types__date_and_time___to_string_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1434,9 +1434,9 @@ static void cont__types__date_and_time__to_string_9(void) {
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_10;
+  frame->cont = cont__types__date_and_time___to_string_10;
 }
-static void cont__types__date_and_time__to_string_10(void) {
+static void cont__types__date_and_time___to_string_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1449,9 +1449,9 @@ static void cont__types__date_and_time__to_string_10(void) {
   result_count = 1;
   myself = get__hour_of();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_11;
+  frame->cont = cont__types__date_and_time___to_string_11;
 }
-static void cont__types__date_and_time__to_string_11(void) {
+static void cont__types__date_and_time___to_string_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1464,9 +1464,9 @@ static void cont__types__date_and_time__to_string_11(void) {
   result_count = 1;
   myself = get__minute_of();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_12;
+  frame->cont = cont__types__date_and_time___to_string_12;
 }
-static void cont__types__date_and_time__to_string_12(void) {
+static void cont__types__date_and_time___to_string_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1481,9 +1481,9 @@ static void cont__types__date_and_time__to_string_12(void) {
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_13;
+  frame->cont = cont__types__date_and_time___to_string_13;
 }
-static void cont__types__date_and_time__to_string_13(void) {
+static void cont__types__date_and_time___to_string_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1496,9 +1496,9 @@ static void cont__types__date_and_time__to_string_13(void) {
   result_count = 1;
   myself = get__floor();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_14;
+  frame->cont = cont__types__date_and_time___to_string_14;
 }
-static void cont__types__date_and_time__to_string_14(void) {
+static void cont__types__date_and_time___to_string_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1513,9 +1513,9 @@ static void cont__types__date_and_time__to_string_14(void) {
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_15;
+  frame->cont = cont__types__date_and_time___to_string_15;
 }
-static void cont__types__date_and_time__to_string_15(void) {
+static void cont__types__date_and_time___to_string_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1528,9 +1528,9 @@ static void cont__types__date_and_time__to_string_15(void) {
   result_count = 1;
   myself = get__floor();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_16;
+  frame->cont = cont__types__date_and_time___to_string_16;
 }
-static void cont__types__date_and_time__to_string_16(void) {
+static void cont__types__date_and_time___to_string_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1544,9 +1544,9 @@ static void cont__types__date_and_time__to_string_16(void) {
   result_count = 1;
   myself = get__std__minus();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_17;
+  frame->cont = cont__types__date_and_time___to_string_17;
 }
-static void cont__types__date_and_time__to_string_17(void) {
+static void cont__types__date_and_time___to_string_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1560,9 +1560,9 @@ static void cont__types__date_and_time__to_string_17(void) {
   result_count = 1;
   myself = get__std__times();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_18;
+  frame->cont = cont__types__date_and_time___to_string_18;
 }
-static void cont__types__date_and_time__to_string_18(void) {
+static void cont__types__date_and_time___to_string_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1575,9 +1575,9 @@ static void cont__types__date_and_time__to_string_18(void) {
   result_count = 1;
   myself = get__floor();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_19;
+  frame->cont = cont__types__date_and_time___to_string_19;
 }
-static void cont__types__date_and_time__to_string_19(void) {
+static void cont__types__date_and_time___to_string_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1592,9 +1592,9 @@ static void cont__types__date_and_time__to_string_19(void) {
   result_count = 1;
   myself = get__pad_left();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_20;
+  frame->cont = cont__types__date_and_time___to_string_20;
 }
-static void cont__types__date_and_time__to_string_20(void) {
+static void cont__types__date_and_time___to_string_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1612,7 +1612,7 @@ static void cont__types__date_and_time__to_string_20(void) {
   result_count = 1;
   myself = get__cond();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_33;
+  frame->cont = cont__types__date_and_time___to_string_33;
 }
 static void entry__types__date_and_time__to_string_32(void) {
   allocate_initialized_frame_gc(0, 0);
@@ -1799,7 +1799,7 @@ static void entry__types__date_and_time__to_string_31(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__date_and_time__to_string_33(void) {
+static void cont__types__date_and_time___to_string_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1825,9 +1825,9 @@ static void cont__types__date_and_time__to_string_33(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__types__date_and_time__to_string_37;
+  frame->cont = cont__types__date_and_time___to_string_37;
 }
-static void cont__types__date_and_time__to_string_37(void) {
+static void cont__types__date_and_time___to_string_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1938,7 +1938,7 @@ EXPORT void phase_2__basic__types__date_and_time(void) {
   string__578a5af303e9ccc = from_latin_1_string("-", 1);
   string__578a5af303e9cdb = from_latin_1_string(":", 1);
   string__820ae08b5c087d6d = from_latin_1_string(" GMT", 4);
-  func__types__date_and_time__to_string_1 = create_function(entry__types__date_and_time__to_string_1, 1);
+  func__types__date_and_time___to_string = create_function(entry__types__date_and_time___to_string, 1);
   func__std__sleep_1 = create_function(entry__std__sleep_1, 1);
 }
 
@@ -2004,7 +2004,7 @@ EXPORT void phase_4__basic__types__date_and_time(void) {
   define_method("types", "date_and_time", poly_idx__equal, func__types__date_and_time__equal_1);
   define_method("types", "date_and_time", poly_idx__less, func__types__date_and_time__less_1);
   define_method("types", "date_and_time", poly_idx__time_shift_of, func__types__date_and_time__time_shift_of_1);
-  define_method("types", "date_and_time", poly_idx__to_string, func__types__date_and_time__to_string_1);
+  define_method("types", "date_and_time", poly_idx__to_string, func__types__date_and_time___to_string);
 }
 
 static int already_run_phase_5 = false;

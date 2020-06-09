@@ -327,10 +327,10 @@ static NODE *func__types__value_range__upper_bound_of_1;
 static long func__types__value_range___debug_string(
   NODE *node, int indent, int max_depth, char *buf
 );
-static NODE *func__types__value_range__equal_1;
-static void entry__types__value_range__equal_1(void);
-static FRAME_INFO frame__types__value_range__equal_1 = {2, {"left", "right"}};
-static void cont__types__value_range__equal_2(void);
+static NODE *func__types__value_range___equal;
+static void entry__types__value_range___equal(void);
+static FRAME_INFO frame__types__value_range___equal = {2, {"left", "right"}};
+static void cont__types__value_range___equal_2(void);
 static NODE *func__types__value_range__equal_3;
 static void entry__types__value_range__equal_3(void);
 static FRAME_INFO frame__types__value_range__equal_3 = {2, {"left", "right"}};
@@ -344,44 +344,44 @@ static void cont__types__value_range__equal_8(void);
 static void cont__types__value_range__equal_9(void);
 static void cont__types__value_range__equal_10(void);
 static void cont__types__value_range__equal_11(void);
-static void cont__types__value_range__equal_12(void);
-static NODE *func__types__value_range__contains_1;
-static void entry__types__value_range__contains_1(void);
-static FRAME_INFO frame__types__value_range__contains_1 = {2, {"self", "item"}};
-static void cont__types__value_range__contains_2(void);
-static void cont__types__value_range__contains_3(void);
-static void cont__types__value_range__contains_4(void);
+static void cont__types__value_range___equal_12(void);
+static NODE *func__types__value_range___contains;
+static void entry__types__value_range___contains(void);
+static FRAME_INFO frame__types__value_range___contains = {2, {"self", "item"}};
+static void cont__types__value_range___contains_2(void);
+static void cont__types__value_range___contains_3(void);
+static void cont__types__value_range___contains_4(void);
 static NODE *func__types__value_range__contains_5;
 static void entry__types__value_range__contains_5(void);
 static FRAME_INFO frame__types__value_range__contains_5 = {2, {"self", "item"}};
 static void cont__types__value_range__contains_6(void);
 static void cont__types__value_range__contains_7(void);
 static void cont__types__value_range__contains_8(void);
-static void cont__types__value_range__contains_9(void);
-static NODE *func__types__value_range__for_each_1;
-static void entry__types__value_range__for_each_1(void);
-static FRAME_INFO frame__types__value_range__for_each_1 = {2, {"self", "body"}};
-static void cont__types__value_range__for_each_2(void);
-static void cont__types__value_range__for_each_3(void);
+static void cont__types__value_range___contains_9(void);
+static NODE *func__types__value_range___for_each;
+static void entry__types__value_range___for_each(void);
+static FRAME_INFO frame__types__value_range___for_each = {2, {"self", "body"}};
+static void cont__types__value_range___for_each_2(void);
+static void cont__types__value_range___for_each_3(void);
 static NODE *func__types__value_range__for_each_4;
 static void entry__types__value_range__for_each_4(void);
 static FRAME_INFO frame__types__value_range__for_each_4 = {2, {"item", "body"}};
-static NODE *func__types__value_range__serialize_1;
-static void entry__types__value_range__serialize_1(void);
-static FRAME_INFO frame__types__value_range__serialize_1 = {2, {"self", "indent"}};
-static void cont__types__value_range__serialize_2(void);
-static void cont__types__value_range__serialize_3(void);
-static void cont__types__value_range__serialize_4(void);
-static void cont__types__value_range__serialize_5(void);
-static void cont__types__value_range__serialize_6(void);
-static void cont__types__value_range__serialize_7(void);
-static void cont__types__value_range__serialize_8(void);
-static void cont__types__value_range__serialize_9(void);
-static void cont__types__value_range__serialize_10(void);
-static void cont__types__value_range__serialize_11(void);
+static NODE *func__types__value_range___serialize;
+static void entry__types__value_range___serialize(void);
+static FRAME_INFO frame__types__value_range___serialize = {2, {"self", "indent"}};
+static void cont__types__value_range___serialize_2(void);
+static void cont__types__value_range___serialize_3(void);
+static void cont__types__value_range___serialize_4(void);
+static void cont__types__value_range___serialize_5(void);
+static void cont__types__value_range___serialize_6(void);
+static void cont__types__value_range___serialize_7(void);
+static void cont__types__value_range___serialize_8(void);
+static void cont__types__value_range___serialize_9(void);
+static void cont__types__value_range___serialize_10(void);
+static void cont__types__value_range___serialize_11(void);
 static NODE *string__d62119844f001643;
 static NODE *string__578a5af303e9ceb;
-static void cont__types__value_range__serialize_14(void);
+static void cont__types__value_range___serialize_14(void);
 void run__basic__types__value_range(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -399,34 +399,34 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__value_range__equal_5, &frame__types__value_range__equal_3, 104, 104, 7, 51},
   {cont__types__value_range__equal_6, &frame__types__value_range__equal_3, 105, 105, 7, 51},
   {cont__types__value_range__equal_11, &frame__types__value_range__equal_3, },
-  {entry__types__value_range__equal_1, NULL, 103, 103, 7, 28},
-  {cont__types__value_range__equal_2, &frame__types__value_range__equal_1, },
-  {cont__types__value_range__equal_12, &frame__types__value_range__equal_1, 101, 105, 3, 52},
+  {entry__types__value_range___equal, NULL, 103, 103, 7, 28},
+  {cont__types__value_range___equal_2, &frame__types__value_range___equal, },
+  {cont__types__value_range___equal_12, &frame__types__value_range___equal, 101, 105, 3, 52},
   {entry__types__value_range__contains_5, NULL, 119, 119, 46, 65},
   {cont__types__value_range__contains_6, &frame__types__value_range__contains_5, 119, 119, 38, 65},
   {cont__types__value_range__contains_7, &frame__types__value_range__contains_5, 119, 119, 38, 65},
   {cont__types__value_range__contains_8, &frame__types__value_range__contains_5, 119, 119, 38, 65},
-  {entry__types__value_range__contains_1, NULL, 119, 119, 14, 33},
-  {cont__types__value_range__contains_2, &frame__types__value_range__contains_1, 119, 119, 6, 33},
-  {cont__types__value_range__contains_3, &frame__types__value_range__contains_1, 119, 119, 6, 33},
-  {cont__types__value_range__contains_4, &frame__types__value_range__contains_1, 119, 119, 6, 65},
-  {cont__types__value_range__contains_9, &frame__types__value_range__contains_1, 119, 119, 3, 65},
+  {entry__types__value_range___contains, NULL, 119, 119, 14, 33},
+  {cont__types__value_range___contains_2, &frame__types__value_range___contains, 119, 119, 6, 33},
+  {cont__types__value_range___contains_3, &frame__types__value_range___contains, 119, 119, 6, 33},
+  {cont__types__value_range___contains_4, &frame__types__value_range___contains, 119, 119, 6, 65},
+  {cont__types__value_range___contains_9, &frame__types__value_range___contains, 119, 119, 3, 65},
   {entry__types__value_range__for_each_4, NULL, 133, 133, 61, 69},
-  {entry__types__value_range__for_each_1, NULL, 133, 133, 11, 30},
-  {cont__types__value_range__for_each_2, &frame__types__value_range__for_each_1, 133, 133, 32, 51},
-  {cont__types__value_range__for_each_3, &frame__types__value_range__for_each_1, 133, 133, 3, 69},
-  {entry__types__value_range__serialize_1, NULL, 144, 144, 14, 21},
-  {cont__types__value_range__serialize_2, &frame__types__value_range__serialize_1, 144, 144, 7, 22},
-  {cont__types__value_range__serialize_3, &frame__types__value_range__serialize_1, 144, 144, 36, 55},
-  {cont__types__value_range__serialize_4, &frame__types__value_range__serialize_1, 144, 144, 26, 56},
-  {cont__types__value_range__serialize_5, &frame__types__value_range__serialize_1, 144, 144, 60, 67},
-  {cont__types__value_range__serialize_6, &frame__types__value_range__serialize_1, 145, 145, 18, 25},
-  {cont__types__value_range__serialize_7, &frame__types__value_range__serialize_1, 145, 145, 11, 26},
-  {cont__types__value_range__serialize_8, &frame__types__value_range__serialize_1, 145, 145, 40, 59},
-  {cont__types__value_range__serialize_9, &frame__types__value_range__serialize_1, 145, 145, 30, 60},
-  {cont__types__value_range__serialize_10, &frame__types__value_range__serialize_1, 145, 145, 64, 71},
-  {cont__types__value_range__serialize_11, &frame__types__value_range__serialize_1, 142, 145, 6, 72},
-  {cont__types__value_range__serialize_14, &frame__types__value_range__serialize_1, 142, 145, 3, 72}
+  {entry__types__value_range___for_each, NULL, 133, 133, 11, 30},
+  {cont__types__value_range___for_each_2, &frame__types__value_range___for_each, 133, 133, 32, 51},
+  {cont__types__value_range___for_each_3, &frame__types__value_range___for_each, 133, 133, 3, 69},
+  {entry__types__value_range___serialize, NULL, 144, 144, 14, 21},
+  {cont__types__value_range___serialize_2, &frame__types__value_range___serialize, 144, 144, 7, 22},
+  {cont__types__value_range___serialize_3, &frame__types__value_range___serialize, 144, 144, 36, 55},
+  {cont__types__value_range___serialize_4, &frame__types__value_range___serialize, 144, 144, 26, 56},
+  {cont__types__value_range___serialize_5, &frame__types__value_range___serialize, 144, 144, 60, 67},
+  {cont__types__value_range___serialize_6, &frame__types__value_range___serialize, 145, 145, 18, 25},
+  {cont__types__value_range___serialize_7, &frame__types__value_range___serialize, 145, 145, 11, 26},
+  {cont__types__value_range___serialize_8, &frame__types__value_range___serialize, 145, 145, 40, 59},
+  {cont__types__value_range___serialize_9, &frame__types__value_range___serialize, 145, 145, 30, 60},
+  {cont__types__value_range___serialize_10, &frame__types__value_range___serialize, 145, 145, 64, 71},
+  {cont__types__value_range___serialize_11, &frame__types__value_range___serialize, 142, 145, 6, 72},
+  {cont__types__value_range___serialize_14, &frame__types__value_range___serialize, 142, 145, 3, 72}
 };
 
 union NODE {
@@ -622,7 +622,7 @@ static long func__types__value_range___debug_string(
   n += len;
   return n;
 }
-static void entry__types__value_range__equal_1(void) {
+static void entry__types__value_range___equal(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // left: 0
@@ -638,9 +638,9 @@ static void entry__types__value_range__equal_1(void) {
   result_count = 1;
   myself = get__is_a_value_range();
   func = myself->type;
-  frame->cont = cont__types__value_range__equal_2;
+  frame->cont = cont__types__value_range___equal_2;
 }
-static void cont__types__value_range__equal_2(void) {
+static void cont__types__value_range___equal_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -654,7 +654,7 @@ static void cont__types__value_range__equal_2(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__types__value_range__equal_12;
+  frame->cont = cont__types__value_range___equal_12;
 }
 static void entry__types__value_range__equal_3(void) {
   allocate_initialized_frame_gc(2, 7);
@@ -802,7 +802,7 @@ static void cont__types__value_range__equal_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__value_range__equal_12(void) {
+static void cont__types__value_range___equal_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -820,7 +820,7 @@ static void cont__types__value_range__equal_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__value_range__contains_1(void) {
+static void entry__types__value_range___contains(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -836,9 +836,9 @@ static void entry__types__value_range__contains_1(void) {
   result_count = 1;
   myself = get__lower_bound_of();
   func = myself->type;
-  frame->cont = cont__types__value_range__contains_2;
+  frame->cont = cont__types__value_range___contains_2;
 }
-static void cont__types__value_range__contains_2(void) {
+static void cont__types__value_range___contains_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -852,9 +852,9 @@ static void cont__types__value_range__contains_2(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__types__value_range__contains_3;
+  frame->cont = cont__types__value_range___contains_3;
 }
-static void cont__types__value_range__contains_3(void) {
+static void cont__types__value_range___contains_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -867,9 +867,9 @@ static void cont__types__value_range__contains_3(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__types__value_range__contains_4;
+  frame->cont = cont__types__value_range___contains_4;
 }
-static void cont__types__value_range__contains_4(void) {
+static void cont__types__value_range___contains_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -885,7 +885,7 @@ static void cont__types__value_range__contains_4(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__types__value_range__contains_9;
+  frame->cont = cont__types__value_range___contains_9;
 }
 static void entry__types__value_range__contains_5(void) {
   allocate_initialized_frame_gc(2, 5);
@@ -952,7 +952,7 @@ static void cont__types__value_range__contains_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__value_range__contains_9(void) {
+static void cont__types__value_range___contains_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -985,7 +985,7 @@ static void entry__types__value_range__for_each_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__value_range__for_each_1(void) {
+static void entry__types__value_range___for_each(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -1001,9 +1001,9 @@ static void entry__types__value_range__for_each_1(void) {
   result_count = 1;
   myself = get__lower_bound_of();
   func = myself->type;
-  frame->cont = cont__types__value_range__for_each_2;
+  frame->cont = cont__types__value_range___for_each_2;
 }
-static void cont__types__value_range__for_each_2(void) {
+static void cont__types__value_range___for_each_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1016,9 +1016,9 @@ static void cont__types__value_range__for_each_2(void) {
   result_count = 1;
   myself = get__upper_bound_of();
   func = myself->type;
-  frame->cont = cont__types__value_range__for_each_3;
+  frame->cont = cont__types__value_range___for_each_3;
 }
-static void cont__types__value_range__for_each_3(void) {
+static void cont__types__value_range___for_each_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1037,7 +1037,7 @@ static void cont__types__value_range__for_each_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__value_range__serialize_1(void) {
+static void entry__types__value_range___serialize(void) {
   allocate_initialized_frame_gc(2, 13);
   // slot allocations:
   // self: 0
@@ -1065,9 +1065,9 @@ static void entry__types__value_range__serialize_1(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__types__value_range__serialize_2;
+  frame->cont = cont__types__value_range___serialize_2;
 }
-static void cont__types__value_range__serialize_2(void) {
+static void cont__types__value_range___serialize_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1080,9 +1080,9 @@ static void cont__types__value_range__serialize_2(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__types__value_range__serialize_3;
+  frame->cont = cont__types__value_range___serialize_3;
 }
-static void cont__types__value_range__serialize_3(void) {
+static void cont__types__value_range___serialize_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1095,9 +1095,9 @@ static void cont__types__value_range__serialize_3(void) {
   result_count = 1;
   myself = get__lower_bound_of();
   func = myself->type;
-  frame->cont = cont__types__value_range__serialize_4;
+  frame->cont = cont__types__value_range___serialize_4;
 }
-static void cont__types__value_range__serialize_4(void) {
+static void cont__types__value_range___serialize_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1110,9 +1110,9 @@ static void cont__types__value_range__serialize_4(void) {
   result_count = 1;
   myself = get__serialize();
   func = myself->type;
-  frame->cont = cont__types__value_range__serialize_5;
+  frame->cont = cont__types__value_range___serialize_5;
 }
-static void cont__types__value_range__serialize_5(void) {
+static void cont__types__value_range___serialize_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1126,9 +1126,9 @@ static void cont__types__value_range__serialize_5(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__types__value_range__serialize_6;
+  frame->cont = cont__types__value_range___serialize_6;
 }
-static void cont__types__value_range__serialize_6(void) {
+static void cont__types__value_range___serialize_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1142,9 +1142,9 @@ static void cont__types__value_range__serialize_6(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__types__value_range__serialize_7;
+  frame->cont = cont__types__value_range___serialize_7;
 }
-static void cont__types__value_range__serialize_7(void) {
+static void cont__types__value_range___serialize_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1157,9 +1157,9 @@ static void cont__types__value_range__serialize_7(void) {
   result_count = 1;
   myself = get__spaces();
   func = myself->type;
-  frame->cont = cont__types__value_range__serialize_8;
+  frame->cont = cont__types__value_range___serialize_8;
 }
-static void cont__types__value_range__serialize_8(void) {
+static void cont__types__value_range___serialize_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1172,9 +1172,9 @@ static void cont__types__value_range__serialize_8(void) {
   result_count = 1;
   myself = get__upper_bound_of();
   func = myself->type;
-  frame->cont = cont__types__value_range__serialize_9;
+  frame->cont = cont__types__value_range___serialize_9;
 }
-static void cont__types__value_range__serialize_9(void) {
+static void cont__types__value_range___serialize_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1187,9 +1187,9 @@ static void cont__types__value_range__serialize_9(void) {
   result_count = 1;
   myself = get__serialize();
   func = myself->type;
-  frame->cont = cont__types__value_range__serialize_10;
+  frame->cont = cont__types__value_range___serialize_10;
 }
-static void cont__types__value_range__serialize_10(void) {
+static void cont__types__value_range___serialize_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1203,9 +1203,9 @@ static void cont__types__value_range__serialize_10(void) {
   result_count = 1;
   myself = get__std__plus();
   func = myself->type;
-  frame->cont = cont__types__value_range__serialize_11;
+  frame->cont = cont__types__value_range___serialize_11;
 }
-static void cont__types__value_range__serialize_11(void) {
+static void cont__types__value_range___serialize_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1229,9 +1229,9 @@ static void cont__types__value_range__serialize_11(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__types__value_range__serialize_14;
+  frame->cont = cont__types__value_range___serialize_14;
 }
-static void cont__types__value_range__serialize_14(void) {
+static void cont__types__value_range___serialize_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1275,12 +1275,12 @@ EXPORT void phase_2__basic__types__value_range(void) {
   func__std__value_range_1 = create_function(entry__std__value_range_1, 2);
   func__types__value_range__lower_bound_of_1 = create_function(entry__types__value_range__lower_bound_of_1, 1);
   func__types__value_range__upper_bound_of_1 = create_function(entry__types__value_range__upper_bound_of_1, 1);
-  func__types__value_range__equal_1 = create_function(entry__types__value_range__equal_1, 2);
-  func__types__value_range__contains_1 = create_function(entry__types__value_range__contains_1, 2);
-  func__types__value_range__for_each_1 = create_function(entry__types__value_range__for_each_1, 2);
+  func__types__value_range___equal = create_function(entry__types__value_range___equal, 2);
+  func__types__value_range___contains = create_function(entry__types__value_range___contains, 2);
+  func__types__value_range___for_each = create_function(entry__types__value_range___for_each, 2);
   string__d62119844f001643 = from_latin_1_string("value_range\012", 12);
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
-  func__types__value_range__serialize_1 = create_function(entry__types__value_range__serialize_1, -1);
+  func__types__value_range___serialize = create_function(entry__types__value_range___serialize, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -1325,10 +1325,10 @@ EXPORT void phase_4__basic__types__value_range(void) {
   define_attribute("types", "value_range", poly_idx__is_a_value_range, get__true());
   define_method("types", "value_range", poly_idx__lower_bound_of, func__types__value_range__lower_bound_of_1);
   define_method("types", "value_range", poly_idx__upper_bound_of, func__types__value_range__upper_bound_of_1);
-  define_method("types", "value_range", poly_idx__equal, func__types__value_range__equal_1);
-  define_method("types", "value_range", poly_idx__contains, func__types__value_range__contains_1);
-  define_method("types", "value_range", poly_idx__for_each, func__types__value_range__for_each_1);
-  define_method("types", "value_range", poly_idx__serialize, func__types__value_range__serialize_1);
+  define_method("types", "value_range", poly_idx__equal, func__types__value_range___equal);
+  define_method("types", "value_range", poly_idx__contains, func__types__value_range___contains);
+  define_method("types", "value_range", poly_idx__for_each, func__types__value_range___for_each);
+  define_method("types", "value_range", poly_idx__serialize, func__types__value_range___serialize);
 }
 
 static int already_run_phase_5 = false;

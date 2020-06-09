@@ -280,9 +280,9 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static NODE *func__std__serialize_object_1;
-static void entry__std__serialize_object_1(void);
-static FRAME_INFO frame__std__serialize_object_1 = {5, {"tag", "prototype", "obj", "attributes", "buf"}};
+static NODE *func__std__serialize_object;
+static void entry__std__serialize_object(void);
+static FRAME_INFO frame__std__serialize_object = {5, {"tag", "prototype", "obj", "attributes", "buf"}};
 static NODE *func__std__serialize_object_2;
 static void entry__std__serialize_object_2(void);
 static FRAME_INFO frame__std__serialize_object_2 = {6, {"attribute_name", "attribute_getter", "obj", "prototype", "buf", "attribute"}};
@@ -338,10 +338,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__serialize_object_6, &frame__std__serialize_object_2, 39, 46, 5, 34},
   {entry__std__serialize_object_20, NULL, 47, 47, 18, 33},
   {cont__std__serialize_object_22, &frame__std__serialize_object_20, 47, 47, 33, 33},
-  {entry__std__serialize_object_1, NULL, 37, 46, 3, 35},
-  {cont__std__serialize_object_18, &frame__std__serialize_object_1, 47, 47, 6, 15},
-  {cont__std__serialize_object_19, &frame__std__serialize_object_1, 47, 47, 3, 33},
-  {cont__std__serialize_object_23, &frame__std__serialize_object_1, 48, 48, 3, 8}
+  {entry__std__serialize_object, NULL, 37, 46, 3, 35},
+  {cont__std__serialize_object_18, &frame__std__serialize_object, 47, 47, 6, 15},
+  {cont__std__serialize_object_19, &frame__std__serialize_object, 47, 47, 3, 33},
+  {cont__std__serialize_object_23, &frame__std__serialize_object, 48, 48, 3, 8}
 };
 
 union NODE {
@@ -391,7 +391,7 @@ EXPORT void run__basic__serialize(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__serialize_object_1(void) {
+static void entry__std__serialize_object(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
@@ -818,7 +818,7 @@ EXPORT void phase_2__basic__serialize(void) {
     3);
   string__578a5af303e9cdb = from_latin_1_string(":", 1);
   string__2d7981f4e6482bec = from_latin_1_string("()", 2);
-  func__std__serialize_object_1 = create_function(entry__std__serialize_object_1, -1);
+  func__std__serialize_object = create_function(entry__std__serialize_object, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -855,7 +855,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__serialize(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  initialize_future(var.std__serialize_object, func__std__serialize_object_1);
+  initialize_future(var.std__serialize_object, func__std__serialize_object);
 }
 
 static int already_run_phase_6 = false;

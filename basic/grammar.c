@@ -452,24 +452,24 @@ static void type__function_of(void);
 static NODE *get__types__optional(void) {
   return var.types__optional;
 }
-static NODE *func__types__optional__grammar__match_1;
-static void entry__types__optional__grammar__match_1(void);
-static FRAME_INFO frame__types__optional__grammar__match_1 = {2, {"self", "stream"}};
-static void cont__types__optional__grammar__match_2(void);
-static void cont__types__optional__grammar__match_3(void);
-static void cont__types__optional__grammar__match_4(void);
-static NODE *func__std__optional_1;
-static void entry__std__optional_1(void);
-static FRAME_INFO frame__std__optional_1 = {1, {"expr"}};
+static NODE *func__types__optional___grammar__match;
+static void entry__types__optional___grammar__match(void);
+static FRAME_INFO frame__types__optional___grammar__match = {2, {"self", "stream"}};
+static void cont__types__optional___grammar__match_2(void);
+static void cont__types__optional___grammar__match_3(void);
+static void cont__types__optional___grammar__match_4(void);
+static NODE *func__std__optional;
+static void entry__std__optional(void);
+static FRAME_INFO frame__std__optional = {1, {"expr"}};
 static NODE *get__std__optional(void) {
   return var.std__optional;
 }
 static NODE *get__types__many(void) {
   return var.types__many;
 }
-static NODE *func__types__many__grammar__match_1;
-static void entry__types__many__grammar__match_1(void);
-static FRAME_INFO frame__types__many__grammar__match_1 = {4, {"self", "stream", "return", "len"}};
+static NODE *func__types__many___grammar__match;
+static void entry__types__many___grammar__match(void);
+static FRAME_INFO frame__types__many___grammar__match = {4, {"self", "stream", "return", "len"}};
 static NODE *func__types__many__grammar__match_2;
 static void entry__types__many__grammar__match_2(void);
 static FRAME_INFO frame__types__many__grammar__match_2 = {5, {"self", "stream", "return", "len", "n"}};
@@ -497,19 +497,19 @@ static void cont__types__many__grammar__match_15(void);
 static void cont__types__many__grammar__match_16(void);
 static void cont__types__many__grammar__match_17(void);
 static void cont__types__many__grammar__match_18(void);
-static void cont__types__many__grammar__match_19(void);
-static NODE *func__std__many_1;
-static void entry__std__many_1(void);
-static FRAME_INFO frame__std__many_1 = {1, {"expr"}};
+static void cont__types__many___grammar__match_19(void);
+static NODE *func__std__many;
+static void entry__std__many(void);
+static FRAME_INFO frame__std__many = {1, {"expr"}};
 static NODE *get__std__many(void) {
   return var.std__many;
 }
 static NODE *get__types__some(void) {
   return var.types__some;
 }
-static NODE *func__types__some__grammar__match_1;
-static void entry__types__some__grammar__match_1(void);
-static FRAME_INFO frame__types__some__grammar__match_1 = {4, {"self", "stream", "return", "len"}};
+static NODE *func__types__some___grammar__match;
+static void entry__types__some___grammar__match(void);
+static FRAME_INFO frame__types__some___grammar__match = {4, {"self", "stream", "return", "len"}};
 static NODE *func__types__some__grammar__match_2;
 static void entry__types__some__grammar__match_2(void);
 static FRAME_INFO frame__types__some__grammar__match_2 = {5, {"self", "stream", "return", "len", "n"}};
@@ -537,20 +537,20 @@ static void cont__types__some__grammar__match_15(void);
 static void cont__types__some__grammar__match_16(void);
 static void cont__types__some__grammar__match_17(void);
 static void cont__types__some__grammar__match_18(void);
-static void cont__types__some__grammar__match_19(void);
-static NODE *func__std__some_1;
-static void entry__std__some_1(void);
-static FRAME_INFO frame__std__some_1 = {1, {"expr"}};
+static void cont__types__some___grammar__match_19(void);
+static NODE *func__std__some;
+static void entry__std__some(void);
+static FRAME_INFO frame__std__some = {1, {"expr"}};
 static NODE *get__std__some(void) {
   return var.std__some;
 }
 static NODE *get__types__alt(void) {
   return var.types__alt;
 }
-static NODE *func__types__alt__grammar__match_1;
-static void entry__types__alt__grammar__match_1(void);
-static FRAME_INFO frame__types__alt__grammar__match_1 = {4, {"self", "stream", "return", "alternatives"}};
-static void cont__types__alt__grammar__match_2(void);
+static NODE *func__types__alt___grammar__match;
+static void entry__types__alt___grammar__match(void);
+static FRAME_INFO frame__types__alt___grammar__match = {4, {"self", "stream", "return", "alternatives"}};
+static void cont__types__alt___grammar__match_2(void);
 static NODE *func__types__alt__grammar__match_3;
 static void entry__types__alt__grammar__match_3(void);
 static FRAME_INFO frame__types__alt__grammar__match_3 = {4, {"alternative", "stream", "return", "n"}};
@@ -559,66 +559,66 @@ static void cont__types__alt__grammar__match_5(void);
 static NODE *func__types__alt__grammar__match_6;
 static void entry__types__alt__grammar__match_6(void);
 static FRAME_INFO frame__types__alt__grammar__match_6 = {2, {"return", "n"}};
-static void cont__types__alt__grammar__match_7(void);
-static NODE *func__std__alt_1;
-static void entry__std__alt_1(void);
-static FRAME_INFO frame__std__alt_1 = {1, {"alternatives"}};
+static void cont__types__alt___grammar__match_7(void);
+static NODE *func__std__alt;
+static void entry__std__alt(void);
+static FRAME_INFO frame__std__alt = {1, {"alternatives"}};
 static NODE *get__std__alt(void) {
   return var.std__alt;
 }
 static NODE *get__types__followed_by(void) {
   return var.types__followed_by;
 }
-static NODE *func__types__followed_by__grammar__match_1;
-static void entry__types__followed_by__grammar__match_1(void);
-static FRAME_INFO frame__types__followed_by__grammar__match_1 = {4, {"self", "stream", "return", "original_node"}};
-static void cont__types__followed_by__grammar__match_2(void);
-static void cont__types__followed_by__grammar__match_3(void);
-static void cont__types__followed_by__grammar__match_4(void);
+static NODE *func__types__followed_by___grammar__match;
+static void entry__types__followed_by___grammar__match(void);
+static FRAME_INFO frame__types__followed_by___grammar__match = {4, {"self", "stream", "return", "original_node"}};
+static void cont__types__followed_by___grammar__match_2(void);
+static void cont__types__followed_by___grammar__match_3(void);
+static void cont__types__followed_by___grammar__match_4(void);
 static NODE *func__types__followed_by__grammar__match_5;
 static void entry__types__followed_by__grammar__match_5(void);
 static FRAME_INFO frame__types__followed_by__grammar__match_5 = {2, {"original_node", "return"}};
 static NODE *func__types__followed_by__grammar__match_6;
 static void entry__types__followed_by__grammar__match_6(void);
 static FRAME_INFO frame__types__followed_by__grammar__match_6 = {1, {"return"}};
-static void cont__types__followed_by__grammar__match_7(void);
-static NODE *func__std__followed_by_1;
-static void entry__std__followed_by_1(void);
-static FRAME_INFO frame__std__followed_by_1 = {1, {"expr"}};
+static void cont__types__followed_by___grammar__match_7(void);
+static NODE *func__std__followed_by;
+static void entry__std__followed_by(void);
+static FRAME_INFO frame__std__followed_by = {1, {"expr"}};
 static NODE *get__std__followed_by(void) {
   return var.std__followed_by;
 }
 static NODE *get__types__not_followed_by(void) {
   return var.types__not_followed_by;
 }
-static NODE *func__types__not_followed_by__grammar__match_1;
-static void entry__types__not_followed_by__grammar__match_1(void);
-static FRAME_INFO frame__types__not_followed_by__grammar__match_1 = {4, {"self", "stream", "return", "original_node"}};
-static void cont__types__not_followed_by__grammar__match_2(void);
-static void cont__types__not_followed_by__grammar__match_3(void);
-static void cont__types__not_followed_by__grammar__match_4(void);
+static NODE *func__types__not_followed_by___grammar__match;
+static void entry__types__not_followed_by___grammar__match(void);
+static FRAME_INFO frame__types__not_followed_by___grammar__match = {4, {"self", "stream", "return", "original_node"}};
+static void cont__types__not_followed_by___grammar__match_2(void);
+static void cont__types__not_followed_by___grammar__match_3(void);
+static void cont__types__not_followed_by___grammar__match_4(void);
 static NODE *func__types__not_followed_by__grammar__match_5;
 static void entry__types__not_followed_by__grammar__match_5(void);
 static FRAME_INFO frame__types__not_followed_by__grammar__match_5 = {2, {"original_node", "return"}};
 static NODE *func__types__not_followed_by__grammar__match_6;
 static void entry__types__not_followed_by__grammar__match_6(void);
 static FRAME_INFO frame__types__not_followed_by__grammar__match_6 = {1, {"return"}};
-static void cont__types__not_followed_by__grammar__match_7(void);
-static NODE *func__std__not_followed_by_1;
-static void entry__std__not_followed_by_1(void);
-static FRAME_INFO frame__std__not_followed_by_1 = {1, {"expr"}};
+static void cont__types__not_followed_by___grammar__match_7(void);
+static NODE *func__std__not_followed_by;
+static void entry__std__not_followed_by(void);
+static FRAME_INFO frame__std__not_followed_by = {1, {"expr"}};
 static NODE *get__std__not_followed_by(void) {
   return var.std__not_followed_by;
 }
 static NODE *get__types__capture(void) {
   return var.types__capture;
 }
-static NODE *func__types__capture__grammar__match_1;
-static void entry__types__capture__grammar__match_1(void);
-static FRAME_INFO frame__types__capture__grammar__match_1 = {3, {"self", "stream", "len"}};
-static void cont__types__capture__grammar__match_2(void);
-static void cont__types__capture__grammar__match_3(void);
-static void cont__types__capture__grammar__match_4(void);
+static NODE *func__types__capture___grammar__match;
+static void entry__types__capture___grammar__match(void);
+static FRAME_INFO frame__types__capture___grammar__match = {3, {"self", "stream", "len"}};
+static void cont__types__capture___grammar__match_2(void);
+static void cont__types__capture___grammar__match_3(void);
+static void cont__types__capture___grammar__match_4(void);
 static NODE *func__types__capture__grammar__match_5;
 static void entry__types__capture__grammar__match_5(void);
 static FRAME_INFO frame__types__capture__grammar__match_5 = {5, {"self", "stream", "len", "setter", "value"}};
@@ -632,22 +632,22 @@ static void cont__types__capture__grammar__match_10(void);
 static NODE *func__types__capture__grammar__match_11;
 static void entry__types__capture__grammar__match_11(void);
 static FRAME_INFO frame__types__capture__grammar__match_11 = {1, {"value"}};
-static void cont__types__capture__grammar__match_12(void);
-static NODE *func__std__capture_1;
-static void entry__std__capture_1(void);
-static FRAME_INFO frame__std__capture_1 = {2, {"setter", "expr"}};
+static void cont__types__capture___grammar__match_12(void);
+static NODE *func__std__capture;
+static void entry__std__capture(void);
+static FRAME_INFO frame__std__capture = {2, {"setter", "expr"}};
 static NODE *get__std__capture(void) {
   return var.std__capture;
 }
 static NODE *get__types__multi_capture(void) {
   return var.types__multi_capture;
 }
-static NODE *func__types__multi_capture__grammar__match_1;
-static void entry__types__multi_capture__grammar__match_1(void);
-static FRAME_INFO frame__types__multi_capture__grammar__match_1 = {3, {"self", "stream", "len"}};
-static void cont__types__multi_capture__grammar__match_2(void);
-static void cont__types__multi_capture__grammar__match_3(void);
-static void cont__types__multi_capture__grammar__match_4(void);
+static NODE *func__types__multi_capture___grammar__match;
+static void entry__types__multi_capture___grammar__match(void);
+static FRAME_INFO frame__types__multi_capture___grammar__match = {3, {"self", "stream", "len"}};
+static void cont__types__multi_capture___grammar__match_2(void);
+static void cont__types__multi_capture___grammar__match_3(void);
+static void cont__types__multi_capture___grammar__match_4(void);
 static NODE *func__types__multi_capture__grammar__match_5;
 static void entry__types__multi_capture__grammar__match_5(void);
 static FRAME_INFO frame__types__multi_capture__grammar__match_5 = {5, {"self", "stream", "len", "setter", "value"}};
@@ -665,19 +665,19 @@ static NODE *func__types__multi_capture__grammar__match_14;
 static void entry__types__multi_capture__grammar__match_14(void);
 static FRAME_INFO frame__types__multi_capture__grammar__match_14 = {1, {"value"}};
 static void cont__types__multi_capture__grammar__match_15(void);
-static void cont__types__multi_capture__grammar__match_16(void);
-static NODE *func__std__multi_capture_1;
-static void entry__std__multi_capture_1(void);
-static FRAME_INFO frame__std__multi_capture_1 = {2, {"setter", "expr"}};
+static void cont__types__multi_capture___grammar__match_16(void);
+static NODE *func__std__multi_capture;
+static void entry__std__multi_capture(void);
+static FRAME_INFO frame__std__multi_capture = {2, {"setter", "expr"}};
 static NODE *get__std__multi_capture(void) {
   return var.std__multi_capture;
 }
 static NODE *get__types__span(void) {
   return var.types__span;
 }
-static NODE *func__types__span__grammar__match_1;
-static void entry__types__span__grammar__match_1(void);
-static FRAME_INFO frame__types__span__grammar__match_1 = {5, {"self", "stream", "return", "outer_node", "len"}};
+static NODE *func__types__span___grammar__match;
+static void entry__types__span___grammar__match(void);
+static FRAME_INFO frame__types__span___grammar__match = {5, {"self", "stream", "return", "outer_node", "len"}};
 static NODE *func__types__span__grammar__match_2;
 static void entry__types__span__grammar__match_2(void);
 static FRAME_INFO frame__types__span__grammar__match_2 = {6, {"return__1", "len", "self", "stream", "return", "outer_node"}};
@@ -690,19 +690,19 @@ static FRAME_INFO frame__types__span__grammar__match_6 = {1, {"return"}};
 static void cont__types__span__grammar__match_7(void);
 static void cont__types__span__grammar__match_8(void);
 static void cont__types__span__grammar__match_9(void);
-static void cont__types__span__grammar__match_10(void);
-static NODE *func__std__span_1;
-static void entry__std__span_1(void);
-static FRAME_INFO frame__std__span_1 = {2, {"setter", "expr"}};
+static void cont__types__span___grammar__match_10(void);
+static NODE *func__std__span;
+static void entry__std__span(void);
+static FRAME_INFO frame__std__span = {2, {"setter", "expr"}};
 static NODE *get__std__span(void) {
   return var.std__span;
 }
 static NODE *get__types__multi_span(void) {
   return var.types__multi_span;
 }
-static NODE *func__types__multi_span__grammar__match_1;
-static void entry__types__multi_span__grammar__match_1(void);
-static FRAME_INFO frame__types__multi_span__grammar__match_1 = {5, {"self", "stream", "return", "outer_node", "len"}};
+static NODE *func__types__multi_span___grammar__match;
+static void entry__types__multi_span___grammar__match(void);
+static FRAME_INFO frame__types__multi_span___grammar__match = {5, {"self", "stream", "return", "outer_node", "len"}};
 static NODE *func__types__multi_span__grammar__match_2;
 static void entry__types__multi_span__grammar__match_2(void);
 static FRAME_INFO frame__types__multi_span__grammar__match_2 = {7, {"return__1", "len", "self", "stream", "return", "outer_node", "setter"}};
@@ -726,57 +726,57 @@ static void entry__types__multi_span__grammar__match_14(void);
 static FRAME_INFO frame__types__multi_span__grammar__match_14 = {1, {"outer_node"}};
 static void cont__types__multi_span__grammar__match_15(void);
 static void cont__types__multi_span__grammar__match_16(void);
-static void cont__types__multi_span__grammar__match_17(void);
-static NODE *func__std__multi_span_1;
-static void entry__std__multi_span_1(void);
-static FRAME_INFO frame__std__multi_span_1 = {2, {"setter", "expr"}};
+static void cont__types__multi_span___grammar__match_17(void);
+static NODE *func__std__multi_span;
+static void entry__std__multi_span(void);
+static FRAME_INFO frame__std__multi_span = {2, {"setter", "expr"}};
 static NODE *get__std__multi_span(void) {
   return var.std__multi_span;
 }
 static NODE *get__types__set_node(void) {
   return var.types__set_node;
 }
-static NODE *func__types__set_node__grammar__match_1;
-static void entry__types__set_node__grammar__match_1(void);
-static FRAME_INFO frame__types__set_node__grammar__match_1 = {2, {"self", "stream"}};
-static void cont__types__set_node__grammar__match_2(void);
-static NODE *func__std__set_node_1;
-static void entry__std__set_node_1(void);
-static FRAME_INFO frame__std__set_node_1 = {1, {"node"}};
+static NODE *func__types__set_node___grammar__match;
+static void entry__types__set_node___grammar__match(void);
+static FRAME_INFO frame__types__set_node___grammar__match = {2, {"self", "stream"}};
+static void cont__types__set_node___grammar__match_2(void);
+static NODE *func__std__set_node;
+static void entry__std__set_node(void);
+static FRAME_INFO frame__std__set_node = {1, {"node"}};
 static NODE *get__std__set_node(void) {
   return var.std__set_node;
 }
 static NODE *get__types__inspect_node(void) {
   return var.types__inspect_node;
 }
-static NODE *func__types__inspect_node__grammar__match_1;
-static void entry__types__inspect_node__grammar__match_1(void);
-static FRAME_INFO frame__types__inspect_node__grammar__match_1 = {3, {"self", "stream", "func"}};
-static void cont__types__inspect_node__grammar__match_2(void);
-static void cont__types__inspect_node__grammar__match_3(void);
-static void cont__types__inspect_node__grammar__match_4(void);
+static NODE *func__types__inspect_node___grammar__match;
+static void entry__types__inspect_node___grammar__match(void);
+static FRAME_INFO frame__types__inspect_node___grammar__match = {3, {"self", "stream", "func"}};
+static void cont__types__inspect_node___grammar__match_2(void);
+static void cont__types__inspect_node___grammar__match_3(void);
+static void cont__types__inspect_node___grammar__match_4(void);
 static NODE *func__types__inspect_node__grammar__match_5;
 static void entry__types__inspect_node__grammar__match_5(void);
 static FRAME_INFO frame__types__inspect_node__grammar__match_5 = {2, {"func", "stream"}};
 static NODE *func__types__inspect_node__grammar__match_6;
 static void entry__types__inspect_node__grammar__match_6(void);
 static FRAME_INFO frame__types__inspect_node__grammar__match_6 = {1, {"func"}};
-static void cont__types__inspect_node__grammar__match_7(void);
-static NODE *func__std__inspect_node_1;
-static void entry__std__inspect_node_1(void);
-static FRAME_INFO frame__std__inspect_node_1 = {1, {"func"}};
+static void cont__types__inspect_node___grammar__match_7(void);
+static NODE *func__std__inspect_node;
+static void entry__std__inspect_node(void);
+static FRAME_INFO frame__std__inspect_node = {1, {"func"}};
 static NODE *get__std__inspect_node(void) {
   return var.std__inspect_node;
 }
 static NODE *get__types__modify_node(void) {
   return var.types__modify_node;
 }
-static NODE *func__types__modify_node__grammar__match_1;
-static void entry__types__modify_node__grammar__match_1(void);
-static FRAME_INFO frame__types__modify_node__grammar__match_1 = {3, {"self", "stream", "func"}};
-static void cont__types__modify_node__grammar__match_2(void);
-static void cont__types__modify_node__grammar__match_3(void);
-static void cont__types__modify_node__grammar__match_4(void);
+static NODE *func__types__modify_node___grammar__match;
+static void entry__types__modify_node___grammar__match(void);
+static FRAME_INFO frame__types__modify_node___grammar__match = {3, {"self", "stream", "func"}};
+static void cont__types__modify_node___grammar__match_2(void);
+static void cont__types__modify_node___grammar__match_3(void);
+static void cont__types__modify_node___grammar__match_4(void);
 static NODE *func__types__modify_node__grammar__match_5;
 static void entry__types__modify_node__grammar__match_5(void);
 static FRAME_INFO frame__types__modify_node__grammar__match_5 = {2, {"func", "stream"}};
@@ -785,22 +785,22 @@ static NODE *func__types__modify_node__grammar__match_7;
 static void entry__types__modify_node__grammar__match_7(void);
 static FRAME_INFO frame__types__modify_node__grammar__match_7 = {1, {"func"}};
 static void cont__types__modify_node__grammar__match_8(void);
-static void cont__types__modify_node__grammar__match_9(void);
-static NODE *func__std__modify_node_1;
-static void entry__std__modify_node_1(void);
-static FRAME_INFO frame__std__modify_node_1 = {1, {"func"}};
+static void cont__types__modify_node___grammar__match_9(void);
+static NODE *func__std__modify_node;
+static void entry__std__modify_node(void);
+static FRAME_INFO frame__std__modify_node = {1, {"func"}};
 static NODE *get__std__modify_node(void) {
   return var.std__modify_node;
 }
 static NODE *get__types__check_node(void) {
   return var.types__check_node;
 }
-static NODE *func__types__check_node__grammar__match_1;
-static void entry__types__check_node__grammar__match_1(void);
-static FRAME_INFO frame__types__check_node__grammar__match_1 = {4, {"self", "stream", "return", "func"}};
-static void cont__types__check_node__grammar__match_2(void);
-static void cont__types__check_node__grammar__match_3(void);
-static void cont__types__check_node__grammar__match_4(void);
+static NODE *func__types__check_node___grammar__match;
+static void entry__types__check_node___grammar__match(void);
+static FRAME_INFO frame__types__check_node___grammar__match = {4, {"self", "stream", "return", "func"}};
+static void cont__types__check_node___grammar__match_2(void);
+static void cont__types__check_node___grammar__match_3(void);
+static void cont__types__check_node___grammar__match_4(void);
 static NODE *func__types__check_node__grammar__match_5;
 static void entry__types__check_node__grammar__match_5(void);
 static FRAME_INFO frame__types__check_node__grammar__match_5 = {3, {"func", "stream", "return"}};
@@ -815,49 +815,49 @@ static void cont__types__check_node__grammar__match_9(void);
 static NODE *func__types__check_node__grammar__match_10;
 static void entry__types__check_node__grammar__match_10(void);
 static FRAME_INFO frame__types__check_node__grammar__match_10 = {1, {"return"}};
-static void cont__types__check_node__grammar__match_11(void);
-static NODE *func__std__check_node_1;
-static void entry__std__check_node_1(void);
-static FRAME_INFO frame__std__check_node_1 = {1, {"func"}};
+static void cont__types__check_node___grammar__match_11(void);
+static NODE *func__std__check_node;
+static void entry__std__check_node(void);
+static FRAME_INFO frame__std__check_node = {1, {"func"}};
 static NODE *get__std__check_node(void) {
   return var.std__check_node;
 }
 static NODE *get__types__grammar_action(void) {
   return var.types__grammar_action;
 }
-static NODE *func__types__grammar_action__grammar__match_1;
-static void entry__types__grammar_action__grammar__match_1(void);
-static FRAME_INFO frame__types__grammar_action__grammar__match_1 = {2, {"self", "stream"}};
-static void cont__types__grammar_action__grammar__match_2(void);
-static void cont__types__grammar_action__grammar__match_3(void);
-static NODE *func__std__grammar_action_1;
-static void entry__std__grammar_action_1(void);
-static FRAME_INFO frame__std__grammar_action_1 = {1, {"func"}};
+static NODE *func__types__grammar_action___grammar__match;
+static void entry__types__grammar_action___grammar__match(void);
+static FRAME_INFO frame__types__grammar_action___grammar__match = {2, {"self", "stream"}};
+static void cont__types__grammar_action___grammar__match_2(void);
+static void cont__types__grammar_action___grammar__match_3(void);
+static NODE *func__std__grammar_action;
+static void entry__std__grammar_action(void);
+static FRAME_INFO frame__std__grammar_action = {1, {"func"}};
 static NODE *get__std__grammar_action(void) {
   return var.std__grammar_action;
 }
 static NODE *get__types__set_field(void) {
   return var.types__set_field;
 }
-static NODE *func__types__set_field__grammar__match_1;
-static void entry__types__set_field__grammar__match_1(void);
-static FRAME_INFO frame__types__set_field__grammar__match_1 = {2, {"self", "stream"}};
-static void cont__types__set_field__grammar__match_2(void);
-static void cont__types__set_field__grammar__match_3(void);
-static void cont__types__set_field__grammar__match_4(void);
-static NODE *func__std__set_field_1;
-static void entry__std__set_field_1(void);
-static FRAME_INFO frame__std__set_field_1 = {2, {"setter", "expr"}};
+static NODE *func__types__set_field___grammar__match;
+static void entry__types__set_field___grammar__match(void);
+static FRAME_INFO frame__types__set_field___grammar__match = {2, {"self", "stream"}};
+static void cont__types__set_field___grammar__match_2(void);
+static void cont__types__set_field___grammar__match_3(void);
+static void cont__types__set_field___grammar__match_4(void);
+static NODE *func__std__set_field;
+static void entry__std__set_field(void);
+static FRAME_INFO frame__std__set_field = {2, {"setter", "expr"}};
 static NODE *get__std__set_field(void) {
   return var.std__set_field;
 }
 static NODE *get__std__END_OF_TEXT(void) {
   return var.std__END_OF_TEXT;
 }
-static NODE *func__std__END_OF_TEXT__grammar__match_1;
-static void entry__std__END_OF_TEXT__grammar__match_1(void);
-static FRAME_INFO frame__std__END_OF_TEXT__grammar__match_1 = {2, {"self", "stream"}};
-static void cont__std__END_OF_TEXT__grammar__match_2(void);
+static NODE *func__std__END_OF_TEXT___grammar__match;
+static void entry__std__END_OF_TEXT___grammar__match(void);
+static FRAME_INFO frame__std__END_OF_TEXT___grammar__match = {2, {"self", "stream"}};
+static void cont__std__END_OF_TEXT___grammar__match_2(void);
 static NODE *func__std__END_OF_TEXT__grammar__match_3;
 static void entry__std__END_OF_TEXT__grammar__match_3(void);
 static FRAME_INFO frame__std__END_OF_TEXT__grammar__match_3 = {0, {}};
@@ -867,24 +867,24 @@ static FRAME_INFO frame__std__END_OF_TEXT__grammar__match_4 = {0, {}};
 static NODE *get__std__LETTER(void) {
   return var.std__LETTER;
 }
-static NODE *func__std__LETTER__grammar__match_1;
-static void entry__std__LETTER__grammar__match_1(void);
-static FRAME_INFO frame__std__LETTER__grammar__match_1 = {3, {"self", "stream", "return"}};
-static void cont__std__LETTER__grammar__match_2(void);
+static NODE *func__std__LETTER___grammar__match;
+static void entry__std__LETTER___grammar__match(void);
+static FRAME_INFO frame__std__LETTER___grammar__match = {3, {"self", "stream", "return"}};
+static void cont__std__LETTER___grammar__match_2(void);
 static NODE *func__std__LETTER__grammar__match_3;
 static void entry__std__LETTER__grammar__match_3(void);
 static FRAME_INFO frame__std__LETTER__grammar__match_3 = {1, {"return"}};
-static void cont__std__LETTER__grammar__match_4(void);
-static void cont__std__LETTER__grammar__match_5(void);
-static void cont__std__LETTER__grammar__match_6(void);
-static void cont__std__LETTER__grammar__match_7(void);
+static void cont__std__LETTER___grammar__match_4(void);
+static void cont__std__LETTER___grammar__match_5(void);
+static void cont__std__LETTER___grammar__match_6(void);
+static void cont__std__LETTER___grammar__match_7(void);
 static NODE *func__std__LETTER__grammar__match_8;
 static void entry__std__LETTER__grammar__match_8(void);
 static FRAME_INFO frame__std__LETTER__grammar__match_8 = {1, {"stream"}};
 static void cont__std__LETTER__grammar__match_9(void);
 static void cont__std__LETTER__grammar__match_10(void);
 static void cont__std__LETTER__grammar__match_11(void);
-static void cont__std__LETTER__grammar__match_12(void);
+static void cont__std__LETTER___grammar__match_12(void);
 static NODE *func__std__LETTER__grammar__match_13;
 static void entry__std__LETTER__grammar__match_13(void);
 static FRAME_INFO frame__std__LETTER__grammar__match_13 = {1, {"stream"}};
@@ -898,209 +898,209 @@ static void cont__std__LETTER__grammar__match_18(void);
 static void cont__std__LETTER__grammar__match_19(void);
 static void cont__std__LETTER__grammar__match_20(void);
 static void cont__std__LETTER__grammar__match_21(void);
-static void cont__std__LETTER__grammar__match_22(void);
+static void cont__std__LETTER___grammar__match_22(void);
 static NODE *func__std__LETTER__grammar__match_23;
 static void entry__std__LETTER__grammar__match_23(void);
 static FRAME_INFO frame__std__LETTER__grammar__match_23 = {1, {"return"}};
-static void cont__std__LETTER__grammar__match_24(void);
+static void cont__std__LETTER___grammar__match_24(void);
 static NODE *get__std__UPPER_CASE_LETTER(void) {
   return var.std__UPPER_CASE_LETTER;
 }
-static NODE *func__std__UPPER_CASE_LETTER__grammar__match_1;
-static void entry__std__UPPER_CASE_LETTER__grammar__match_1(void);
-static FRAME_INFO frame__std__UPPER_CASE_LETTER__grammar__match_1 = {3, {"self", "stream", "return"}};
-static void cont__std__UPPER_CASE_LETTER__grammar__match_2(void);
+static NODE *func__std__UPPER_CASE_LETTER___grammar__match;
+static void entry__std__UPPER_CASE_LETTER___grammar__match(void);
+static FRAME_INFO frame__std__UPPER_CASE_LETTER___grammar__match = {3, {"self", "stream", "return"}};
+static void cont__std__UPPER_CASE_LETTER___grammar__match_2(void);
 static NODE *func__std__UPPER_CASE_LETTER__grammar__match_3;
 static void entry__std__UPPER_CASE_LETTER__grammar__match_3(void);
 static FRAME_INFO frame__std__UPPER_CASE_LETTER__grammar__match_3 = {1, {"return"}};
-static void cont__std__UPPER_CASE_LETTER__grammar__match_4(void);
-static void cont__std__UPPER_CASE_LETTER__grammar__match_5(void);
-static void cont__std__UPPER_CASE_LETTER__grammar__match_6(void);
-static void cont__std__UPPER_CASE_LETTER__grammar__match_7(void);
+static void cont__std__UPPER_CASE_LETTER___grammar__match_4(void);
+static void cont__std__UPPER_CASE_LETTER___grammar__match_5(void);
+static void cont__std__UPPER_CASE_LETTER___grammar__match_6(void);
+static void cont__std__UPPER_CASE_LETTER___grammar__match_7(void);
 static NODE *func__std__UPPER_CASE_LETTER__grammar__match_8;
 static void entry__std__UPPER_CASE_LETTER__grammar__match_8(void);
 static FRAME_INFO frame__std__UPPER_CASE_LETTER__grammar__match_8 = {1, {"stream"}};
 static void cont__std__UPPER_CASE_LETTER__grammar__match_9(void);
 static void cont__std__UPPER_CASE_LETTER__grammar__match_10(void);
 static void cont__std__UPPER_CASE_LETTER__grammar__match_11(void);
-static void cont__std__UPPER_CASE_LETTER__grammar__match_12(void);
+static void cont__std__UPPER_CASE_LETTER___grammar__match_12(void);
 static NODE *func__std__UPPER_CASE_LETTER__grammar__match_13;
 static void entry__std__UPPER_CASE_LETTER__grammar__match_13(void);
 static FRAME_INFO frame__std__UPPER_CASE_LETTER__grammar__match_13 = {1, {"return"}};
-static void cont__std__UPPER_CASE_LETTER__grammar__match_14(void);
+static void cont__std__UPPER_CASE_LETTER___grammar__match_14(void);
 static NODE *get__std__LOWER_CASE_LETTER(void) {
   return var.std__LOWER_CASE_LETTER;
 }
-static NODE *func__std__LOWER_CASE_LETTER__grammar__match_1;
-static void entry__std__LOWER_CASE_LETTER__grammar__match_1(void);
-static FRAME_INFO frame__std__LOWER_CASE_LETTER__grammar__match_1 = {3, {"self", "stream", "return"}};
-static void cont__std__LOWER_CASE_LETTER__grammar__match_2(void);
+static NODE *func__std__LOWER_CASE_LETTER___grammar__match;
+static void entry__std__LOWER_CASE_LETTER___grammar__match(void);
+static FRAME_INFO frame__std__LOWER_CASE_LETTER___grammar__match = {3, {"self", "stream", "return"}};
+static void cont__std__LOWER_CASE_LETTER___grammar__match_2(void);
 static NODE *func__std__LOWER_CASE_LETTER__grammar__match_3;
 static void entry__std__LOWER_CASE_LETTER__grammar__match_3(void);
 static FRAME_INFO frame__std__LOWER_CASE_LETTER__grammar__match_3 = {1, {"return"}};
-static void cont__std__LOWER_CASE_LETTER__grammar__match_4(void);
-static void cont__std__LOWER_CASE_LETTER__grammar__match_5(void);
-static void cont__std__LOWER_CASE_LETTER__grammar__match_6(void);
-static void cont__std__LOWER_CASE_LETTER__grammar__match_7(void);
+static void cont__std__LOWER_CASE_LETTER___grammar__match_4(void);
+static void cont__std__LOWER_CASE_LETTER___grammar__match_5(void);
+static void cont__std__LOWER_CASE_LETTER___grammar__match_6(void);
+static void cont__std__LOWER_CASE_LETTER___grammar__match_7(void);
 static NODE *func__std__LOWER_CASE_LETTER__grammar__match_8;
 static void entry__std__LOWER_CASE_LETTER__grammar__match_8(void);
 static FRAME_INFO frame__std__LOWER_CASE_LETTER__grammar__match_8 = {1, {"stream"}};
 static void cont__std__LOWER_CASE_LETTER__grammar__match_9(void);
 static void cont__std__LOWER_CASE_LETTER__grammar__match_10(void);
 static void cont__std__LOWER_CASE_LETTER__grammar__match_11(void);
-static void cont__std__LOWER_CASE_LETTER__grammar__match_12(void);
+static void cont__std__LOWER_CASE_LETTER___grammar__match_12(void);
 static NODE *func__std__LOWER_CASE_LETTER__grammar__match_13;
 static void entry__std__LOWER_CASE_LETTER__grammar__match_13(void);
 static FRAME_INFO frame__std__LOWER_CASE_LETTER__grammar__match_13 = {1, {"return"}};
-static void cont__std__LOWER_CASE_LETTER__grammar__match_14(void);
+static void cont__std__LOWER_CASE_LETTER___grammar__match_14(void);
 static NODE *get__std__DIGIT(void) {
   return var.std__DIGIT;
 }
-static NODE *func__std__DIGIT__grammar__match_1;
-static void entry__std__DIGIT__grammar__match_1(void);
-static FRAME_INFO frame__std__DIGIT__grammar__match_1 = {3, {"self", "stream", "return"}};
-static void cont__std__DIGIT__grammar__match_2(void);
+static NODE *func__std__DIGIT___grammar__match;
+static void entry__std__DIGIT___grammar__match(void);
+static FRAME_INFO frame__std__DIGIT___grammar__match = {3, {"self", "stream", "return"}};
+static void cont__std__DIGIT___grammar__match_2(void);
 static NODE *func__std__DIGIT__grammar__match_3;
 static void entry__std__DIGIT__grammar__match_3(void);
 static FRAME_INFO frame__std__DIGIT__grammar__match_3 = {1, {"return"}};
-static void cont__std__DIGIT__grammar__match_4(void);
-static void cont__std__DIGIT__grammar__match_5(void);
-static void cont__std__DIGIT__grammar__match_6(void);
-static void cont__std__DIGIT__grammar__match_7(void);
+static void cont__std__DIGIT___grammar__match_4(void);
+static void cont__std__DIGIT___grammar__match_5(void);
+static void cont__std__DIGIT___grammar__match_6(void);
+static void cont__std__DIGIT___grammar__match_7(void);
 static NODE *func__std__DIGIT__grammar__match_8;
 static void entry__std__DIGIT__grammar__match_8(void);
 static FRAME_INFO frame__std__DIGIT__grammar__match_8 = {1, {"stream"}};
 static void cont__std__DIGIT__grammar__match_9(void);
 static void cont__std__DIGIT__grammar__match_10(void);
 static void cont__std__DIGIT__grammar__match_11(void);
-static void cont__std__DIGIT__grammar__match_12(void);
+static void cont__std__DIGIT___grammar__match_12(void);
 static NODE *func__std__DIGIT__grammar__match_13;
 static void entry__std__DIGIT__grammar__match_13(void);
 static FRAME_INFO frame__std__DIGIT__grammar__match_13 = {1, {"return"}};
-static void cont__std__DIGIT__grammar__match_14(void);
+static void cont__std__DIGIT___grammar__match_14(void);
 static NODE *get__std__WHITESPACE_CHARACTER(void) {
   return var.std__WHITESPACE_CHARACTER;
 }
-static NODE *func__std__WHITESPACE_CHARACTER__grammar__match_1;
-static void entry__std__WHITESPACE_CHARACTER__grammar__match_1(void);
-static FRAME_INFO frame__std__WHITESPACE_CHARACTER__grammar__match_1 = {4, {"self", "stream", "return", "chr"}};
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_2(void);
+static NODE *func__std__WHITESPACE_CHARACTER___grammar__match;
+static void entry__std__WHITESPACE_CHARACTER___grammar__match(void);
+static FRAME_INFO frame__std__WHITESPACE_CHARACTER___grammar__match = {4, {"self", "stream", "return", "chr"}};
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_2(void);
 static NODE *func__std__WHITESPACE_CHARACTER__grammar__match_3;
 static void entry__std__WHITESPACE_CHARACTER__grammar__match_3(void);
 static FRAME_INFO frame__std__WHITESPACE_CHARACTER__grammar__match_3 = {1, {"return"}};
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_4(void);
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_5(void);
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_6(void);
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_7(void);
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_4(void);
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_5(void);
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_6(void);
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_7(void);
 static NODE *func__std__WHITESPACE_CHARACTER__grammar__match_8;
 static void entry__std__WHITESPACE_CHARACTER__grammar__match_8(void);
 static FRAME_INFO frame__std__WHITESPACE_CHARACTER__grammar__match_8 = {1, {"chr"}};
 static void cont__std__WHITESPACE_CHARACTER__grammar__match_9(void);
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_10(void);
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_10(void);
 static NODE *func__std__WHITESPACE_CHARACTER__grammar__match_11;
 static void entry__std__WHITESPACE_CHARACTER__grammar__match_11(void);
 static FRAME_INFO frame__std__WHITESPACE_CHARACTER__grammar__match_11 = {1, {"return"}};
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_12(void);
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_12(void);
 static NODE *get__std__WHITESPACE(void) {
   return var.std__WHITESPACE;
 }
 static NODE *get__std__PRINTABLE_CHARACTER(void) {
   return var.std__PRINTABLE_CHARACTER;
 }
-static NODE *func__std__PRINTABLE_CHARACTER__grammar__match_1;
-static void entry__std__PRINTABLE_CHARACTER__grammar__match_1(void);
-static FRAME_INFO frame__std__PRINTABLE_CHARACTER__grammar__match_1 = {4, {"self", "stream", "return", "chr"}};
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_2(void);
+static NODE *func__std__PRINTABLE_CHARACTER___grammar__match;
+static void entry__std__PRINTABLE_CHARACTER___grammar__match(void);
+static FRAME_INFO frame__std__PRINTABLE_CHARACTER___grammar__match = {4, {"self", "stream", "return", "chr"}};
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_2(void);
 static NODE *func__std__PRINTABLE_CHARACTER__grammar__match_3;
 static void entry__std__PRINTABLE_CHARACTER__grammar__match_3(void);
 static FRAME_INFO frame__std__PRINTABLE_CHARACTER__grammar__match_3 = {1, {"return"}};
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_4(void);
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_5(void);
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_6(void);
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_7(void);
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_4(void);
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_5(void);
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_6(void);
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_7(void);
 static NODE *func__std__PRINTABLE_CHARACTER__grammar__match_8;
 static void entry__std__PRINTABLE_CHARACTER__grammar__match_8(void);
 static FRAME_INFO frame__std__PRINTABLE_CHARACTER__grammar__match_8 = {1, {"chr"}};
 static void cont__std__PRINTABLE_CHARACTER__grammar__match_9(void);
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_10(void);
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_10(void);
 static NODE *func__std__PRINTABLE_CHARACTER__grammar__match_11;
 static void entry__std__PRINTABLE_CHARACTER__grammar__match_11(void);
 static FRAME_INFO frame__std__PRINTABLE_CHARACTER__grammar__match_11 = {1, {"chr"}};
 static void cont__std__PRINTABLE_CHARACTER__grammar__match_12(void);
 static void cont__std__PRINTABLE_CHARACTER__grammar__match_13(void);
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_14(void);
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_14(void);
 static NODE *func__std__PRINTABLE_CHARACTER__grammar__match_15;
 static void entry__std__PRINTABLE_CHARACTER__grammar__match_15(void);
 static FRAME_INFO frame__std__PRINTABLE_CHARACTER__grammar__match_15 = {1, {"return"}};
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_16(void);
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_16(void);
 static NODE *get__std__NON_SPACE_CHARACTER(void) {
   return var.std__NON_SPACE_CHARACTER;
 }
-static NODE *func__std__NON_SPACE_CHARACTER__grammar__match_1;
-static void entry__std__NON_SPACE_CHARACTER__grammar__match_1(void);
-static FRAME_INFO frame__std__NON_SPACE_CHARACTER__grammar__match_1 = {4, {"self", "stream", "return", "chr"}};
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_2(void);
+static NODE *func__std__NON_SPACE_CHARACTER___grammar__match;
+static void entry__std__NON_SPACE_CHARACTER___grammar__match(void);
+static FRAME_INFO frame__std__NON_SPACE_CHARACTER___grammar__match = {4, {"self", "stream", "return", "chr"}};
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_2(void);
 static NODE *func__std__NON_SPACE_CHARACTER__grammar__match_3;
 static void entry__std__NON_SPACE_CHARACTER__grammar__match_3(void);
 static FRAME_INFO frame__std__NON_SPACE_CHARACTER__grammar__match_3 = {1, {"return"}};
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_4(void);
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_5(void);
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_6(void);
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_4(void);
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_5(void);
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_6(void);
 static NODE *func__std__NON_SPACE_CHARACTER__grammar__match_7;
 static void entry__std__NON_SPACE_CHARACTER__grammar__match_7(void);
 static FRAME_INFO frame__std__NON_SPACE_CHARACTER__grammar__match_7 = {1, {"chr"}};
 static void cont__std__NON_SPACE_CHARACTER__grammar__match_8(void);
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_9(void);
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_9(void);
 static NODE *func__std__NON_SPACE_CHARACTER__grammar__match_10;
 static void entry__std__NON_SPACE_CHARACTER__grammar__match_10(void);
 static FRAME_INFO frame__std__NON_SPACE_CHARACTER__grammar__match_10 = {1, {"chr"}};
 static void cont__std__NON_SPACE_CHARACTER__grammar__match_11(void);
 static void cont__std__NON_SPACE_CHARACTER__grammar__match_12(void);
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_13(void);
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_13(void);
 static NODE *func__std__NON_SPACE_CHARACTER__grammar__match_14;
 static void entry__std__NON_SPACE_CHARACTER__grammar__match_14(void);
 static FRAME_INFO frame__std__NON_SPACE_CHARACTER__grammar__match_14 = {1, {"return"}};
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_15(void);
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_15(void);
 static NODE *get__std__ANY_CHARACTER(void) {
   return var.std__ANY_CHARACTER;
 }
-static NODE *func__std__ANY_CHARACTER__grammar__match_1;
-static void entry__std__ANY_CHARACTER__grammar__match_1(void);
-static FRAME_INFO frame__std__ANY_CHARACTER__grammar__match_1 = {3, {"self", "stream", "return"}};
-static void cont__std__ANY_CHARACTER__grammar__match_2(void);
+static NODE *func__std__ANY_CHARACTER___grammar__match;
+static void entry__std__ANY_CHARACTER___grammar__match(void);
+static FRAME_INFO frame__std__ANY_CHARACTER___grammar__match = {3, {"self", "stream", "return"}};
+static void cont__std__ANY_CHARACTER___grammar__match_2(void);
 static NODE *func__std__ANY_CHARACTER__grammar__match_3;
 static void entry__std__ANY_CHARACTER__grammar__match_3(void);
 static FRAME_INFO frame__std__ANY_CHARACTER__grammar__match_3 = {1, {"return"}};
-static void cont__std__ANY_CHARACTER__grammar__match_4(void);
-static NODE *func__types__character__grammar__match_1;
-static void entry__types__character__grammar__match_1(void);
-static FRAME_INFO frame__types__character__grammar__match_1 = {2, {"chr", "stream"}};
-static NODE *func__types__value_range__grammar__match_1;
-static void entry__types__value_range__grammar__match_1(void);
-static FRAME_INFO frame__types__value_range__grammar__match_1 = {4, {"self", "stream", "return", "chr"}};
-static void cont__types__value_range__grammar__match_2(void);
+static void cont__std__ANY_CHARACTER___grammar__match_4(void);
+static NODE *func__types__character___grammar__match;
+static void entry__types__character___grammar__match(void);
+static FRAME_INFO frame__types__character___grammar__match = {2, {"chr", "stream"}};
+static NODE *func__types__value_range___grammar__match;
+static void entry__types__value_range___grammar__match(void);
+static FRAME_INFO frame__types__value_range___grammar__match = {4, {"self", "stream", "return", "chr"}};
+static void cont__types__value_range___grammar__match_2(void);
 static NODE *func__types__value_range__grammar__match_3;
 static void entry__types__value_range__grammar__match_3(void);
 static FRAME_INFO frame__types__value_range__grammar__match_3 = {1, {"return"}};
-static void cont__types__value_range__grammar__match_4(void);
-static void cont__types__value_range__grammar__match_5(void);
-static void cont__types__value_range__grammar__match_6(void);
-static void cont__types__value_range__grammar__match_7(void);
-static void cont__types__value_range__grammar__match_8(void);
+static void cont__types__value_range___grammar__match_4(void);
+static void cont__types__value_range___grammar__match_5(void);
+static void cont__types__value_range___grammar__match_6(void);
+static void cont__types__value_range___grammar__match_7(void);
+static void cont__types__value_range___grammar__match_8(void);
 static NODE *func__types__value_range__grammar__match_9;
 static void entry__types__value_range__grammar__match_9(void);
 static FRAME_INFO frame__types__value_range__grammar__match_9 = {2, {"self", "chr"}};
 static void cont__types__value_range__grammar__match_10(void);
 static void cont__types__value_range__grammar__match_11(void);
 static void cont__types__value_range__grammar__match_12(void);
-static void cont__types__value_range__grammar__match_13(void);
+static void cont__types__value_range___grammar__match_13(void);
 static NODE *func__types__value_range__grammar__match_14;
 static void entry__types__value_range__grammar__match_14(void);
 static FRAME_INFO frame__types__value_range__grammar__match_14 = {1, {"return"}};
-static void cont__types__value_range__grammar__match_15(void);
-static NODE *func__types__list__grammar__match_1;
-static void entry__types__list__grammar__match_1(void);
-static FRAME_INFO frame__types__list__grammar__match_1 = {5, {"self", "stream", "return", "len", "original_node"}};
+static void cont__types__value_range___grammar__match_15(void);
+static NODE *func__types__list___grammar__match;
+static void entry__types__list___grammar__match(void);
+static FRAME_INFO frame__types__list___grammar__match = {5, {"self", "stream", "return", "len", "original_node"}};
 static NODE *func__types__list__grammar__match_2;
 static void entry__types__list__grammar__match_2(void);
 static FRAME_INFO frame__types__list__grammar__match_2 = {6, {"expr", "stream", "original_node", "return", "len", "n"}};
@@ -1114,11 +1114,11 @@ static void cont__types__list__grammar__match_7(void);
 static void cont__types__list__grammar__match_8(void);
 static void cont__types__list__grammar__match_9(void);
 static void cont__types__list__grammar__match_10(void);
-static void cont__types__list__grammar__match_11(void);
-static NODE *func__types__object__grammar__search_1;
-static void entry__types__object__grammar__search_1(void);
-static FRAME_INFO frame__types__object__grammar__search_1 = {6, {"expr", "stream", "nth", "return", "pos", "s"}};
-static void cont__types__object__grammar__search_2(void);
+static void cont__types__list___grammar__match_11(void);
+static NODE *func__types__object___grammar__search;
+static void entry__types__object___grammar__search(void);
+static FRAME_INFO frame__types__object___grammar__search = {6, {"expr", "stream", "nth", "return", "pos", "s"}};
+static void cont__types__object___grammar__search_2(void);
 static NODE *func__types__object__grammar__search_3;
 static void entry__types__object__grammar__search_3(void);
 static FRAME_INFO frame__types__object__grammar__search_3 = {5, {"expr", "s", "nth", "return", "pos"}};
@@ -1204,7 +1204,7 @@ static void cont__types__object__grammar__search_58(void);
 static void cont__types__object__grammar__search_59(void);
 static void cont__types__object__grammar__search_60(void);
 static void cont__types__object__grammar__search_61(void);
-static void cont__types__object__grammar__search_62(void);
+static void cont__types__object___grammar__search_62(void);
 static void cont__152_1(void);
 void run__basic__grammar(void);
 
@@ -1218,11 +1218,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__function_of, NULL, 59, 59, 2, 12},
   {run__basic__grammar, NULL, 793, 797, 1, 19},
   {cont__152_1, NULL, },
-  {entry__types__optional__grammar__match_1, NULL, 77, 77, 21, 33},
-  {cont__types__optional__grammar__match_2, &frame__types__optional__grammar__match_1, 77, 77, 6, 41},
-  {cont__types__optional__grammar__match_3, &frame__types__optional__grammar__match_1, 77, 77, 6, 59},
-  {cont__types__optional__grammar__match_4, &frame__types__optional__grammar__match_1, 77, 77, 3, 59},
-  {entry__std__optional_1, NULL, 89, 89, 3, 35},
+  {entry__types__optional___grammar__match, NULL, 77, 77, 21, 33},
+  {cont__types__optional___grammar__match_2, &frame__types__optional___grammar__match, 77, 77, 6, 41},
+  {cont__types__optional___grammar__match_3, &frame__types__optional___grammar__match, 77, 77, 6, 59},
+  {cont__types__optional___grammar__match_4, &frame__types__optional___grammar__match, 77, 77, 3, 59},
+  {entry__std__optional, NULL, 89, 89, 3, 35},
   {entry__types__many__grammar__match_6, NULL, 109, 109, 26, 35},
   {entry__types__many__grammar__match_9, NULL, 112, 112, 9, 19},
   {cont__types__many__grammar__match_10, &frame__types__many__grammar__match_9, 112, 112, 19, 19},
@@ -1240,9 +1240,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__many__grammar__match_16, &frame__types__many__grammar__match_2, 116, 116, 24, 24},
   {cont__types__many__grammar__match_17, &frame__types__many__grammar__match_2, 116, 116, 5, 24},
   {cont__types__many__grammar__match_18, &frame__types__many__grammar__match_2, 116, 116, 24, 24},
-  {entry__types__many__grammar__match_1, NULL, 107, 116, 3, 24},
-  {cont__types__many__grammar__match_19, &frame__types__many__grammar__match_1, 116, 116, 24, 24},
-  {entry__std__many_1, NULL, 128, 128, 3, 31},
+  {entry__types__many___grammar__match, NULL, 107, 116, 3, 24},
+  {cont__types__many___grammar__match_19, &frame__types__many___grammar__match, 116, 116, 24, 24},
+  {entry__std__many, NULL, 128, 128, 3, 31},
   {entry__types__some__grammar__match_6, NULL, 150, 150, 26, 35},
   {entry__types__some__grammar__match_9, NULL, 153, 153, 9, 19},
   {cont__types__some__grammar__match_10, &frame__types__some__grammar__match_9, 153, 153, 19, 19},
@@ -1260,33 +1260,33 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__some__grammar__match_16, &frame__types__some__grammar__match_2, 157, 157, 24, 24},
   {cont__types__some__grammar__match_17, &frame__types__some__grammar__match_2, 157, 157, 5, 24},
   {cont__types__some__grammar__match_18, &frame__types__some__grammar__match_2, 157, 157, 24, 24},
-  {entry__types__some__grammar__match_1, NULL, 148, 157, 3, 24},
-  {cont__types__some__grammar__match_19, &frame__types__some__grammar__match_1, 157, 157, 24, 24},
-  {entry__std__some_1, NULL, 169, 169, 3, 31},
+  {entry__types__some___grammar__match, NULL, 148, 157, 3, 24},
+  {cont__types__some___grammar__match_19, &frame__types__some___grammar__match, 157, 157, 24, 24},
+  {entry__std__some, NULL, 169, 169, 3, 31},
   {entry__types__alt__grammar__match_6, NULL, 191, 191, 22, 29},
   {entry__types__alt__grammar__match_3, NULL, 190, 190, 5, 41},
   {cont__types__alt__grammar__match_4, &frame__types__alt__grammar__match_3, 191, 191, 8, 19},
   {cont__types__alt__grammar__match_5, &frame__types__alt__grammar__match_3, 191, 191, 5, 29},
-  {entry__types__alt__grammar__match_1, NULL, 188, 188, 3, 37},
-  {cont__types__alt__grammar__match_2, &frame__types__alt__grammar__match_1, 189, 191, 3, 29},
-  {cont__types__alt__grammar__match_7, &frame__types__alt__grammar__match_1, 192, 192, 3, 14},
-  {entry__std__alt_1, NULL, 200, 200, 3, 46},
+  {entry__types__alt___grammar__match, NULL, 188, 188, 3, 37},
+  {cont__types__alt___grammar__match_2, &frame__types__alt___grammar__match, 189, 191, 3, 29},
+  {cont__types__alt___grammar__match_7, &frame__types__alt___grammar__match, 192, 192, 3, 14},
+  {entry__std__alt, NULL, 200, 200, 3, 46},
   {entry__types__followed_by__grammar__match_5, NULL, 223, 223, 7, 14},
   {entry__types__followed_by__grammar__match_6, NULL, 225, 225, 7, 22},
-  {entry__types__followed_by__grammar__match_1, NULL, 221, 221, 20, 32},
-  {cont__types__followed_by__grammar__match_2, &frame__types__followed_by__grammar__match_1, 221, 221, 5, 40},
-  {cont__types__followed_by__grammar__match_3, &frame__types__followed_by__grammar__match_1, 221, 221, 5, 51},
-  {cont__types__followed_by__grammar__match_4, &frame__types__followed_by__grammar__match_1, 220, 225, 3, 23},
-  {cont__types__followed_by__grammar__match_7, &frame__types__followed_by__grammar__match_1, 225, 225, 23, 23},
-  {entry__std__followed_by_1, NULL, 240, 240, 3, 38},
+  {entry__types__followed_by___grammar__match, NULL, 221, 221, 20, 32},
+  {cont__types__followed_by___grammar__match_2, &frame__types__followed_by___grammar__match, 221, 221, 5, 40},
+  {cont__types__followed_by___grammar__match_3, &frame__types__followed_by___grammar__match, 221, 221, 5, 51},
+  {cont__types__followed_by___grammar__match_4, &frame__types__followed_by___grammar__match, 220, 225, 3, 23},
+  {cont__types__followed_by___grammar__match_7, &frame__types__followed_by___grammar__match, 225, 225, 23, 23},
+  {entry__std__followed_by, NULL, 240, 240, 3, 38},
   {entry__types__not_followed_by__grammar__match_5, NULL, 263, 263, 7, 22},
   {entry__types__not_followed_by__grammar__match_6, NULL, 265, 265, 7, 14},
-  {entry__types__not_followed_by__grammar__match_1, NULL, 261, 261, 20, 32},
-  {cont__types__not_followed_by__grammar__match_2, &frame__types__not_followed_by__grammar__match_1, 261, 261, 5, 40},
-  {cont__types__not_followed_by__grammar__match_3, &frame__types__not_followed_by__grammar__match_1, 261, 261, 5, 51},
-  {cont__types__not_followed_by__grammar__match_4, &frame__types__not_followed_by__grammar__match_1, 260, 265, 3, 15},
-  {cont__types__not_followed_by__grammar__match_7, &frame__types__not_followed_by__grammar__match_1, 265, 265, 15, 15},
-  {entry__std__not_followed_by_1, NULL, 280, 280, 3, 42},
+  {entry__types__not_followed_by___grammar__match, NULL, 261, 261, 20, 32},
+  {cont__types__not_followed_by___grammar__match_2, &frame__types__not_followed_by___grammar__match, 261, 261, 5, 40},
+  {cont__types__not_followed_by___grammar__match_3, &frame__types__not_followed_by___grammar__match, 261, 261, 5, 51},
+  {cont__types__not_followed_by___grammar__match_4, &frame__types__not_followed_by___grammar__match, 260, 265, 3, 15},
+  {cont__types__not_followed_by___grammar__match_7, &frame__types__not_followed_by___grammar__match, 265, 265, 15, 15},
+  {entry__std__not_followed_by, NULL, 280, 280, 3, 42},
   {entry__types__capture__grammar__match_9, NULL, 304, 304, 9, 43},
   {cont__types__capture__grammar__match_10, &frame__types__capture__grammar__match_9, 304, 304, 43, 43},
   {entry__types__capture__grammar__match_11, NULL, 306, 306, 36, 36},
@@ -1294,12 +1294,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__capture__grammar__match_6, &frame__types__capture__grammar__match_5, 301, 301, 5, 30},
   {cont__types__capture__grammar__match_7, &frame__types__capture__grammar__match_5, 303, 303, 7, 23},
   {cont__types__capture__grammar__match_8, &frame__types__capture__grammar__match_5, 302, 306, 5, 37},
-  {entry__types__capture__grammar__match_1, NULL, 298, 298, 23, 35},
-  {cont__types__capture__grammar__match_2, &frame__types__capture__grammar__match_1, 298, 298, 3, 43},
-  {cont__types__capture__grammar__match_3, &frame__types__capture__grammar__match_1, 299, 299, 6, 19},
-  {cont__types__capture__grammar__match_4, &frame__types__capture__grammar__match_1, 299, 306, 3, 38},
-  {cont__types__capture__grammar__match_12, &frame__types__capture__grammar__match_1, 307, 307, 3, 8},
-  {entry__std__capture_1, NULL, 320, 320, 3, 52},
+  {entry__types__capture___grammar__match, NULL, 298, 298, 23, 35},
+  {cont__types__capture___grammar__match_2, &frame__types__capture___grammar__match, 298, 298, 3, 43},
+  {cont__types__capture___grammar__match_3, &frame__types__capture___grammar__match, 299, 299, 6, 19},
+  {cont__types__capture___grammar__match_4, &frame__types__capture___grammar__match, 299, 306, 3, 38},
+  {cont__types__capture___grammar__match_12, &frame__types__capture___grammar__match, 307, 307, 3, 8},
+  {entry__std__capture, NULL, 320, 320, 3, 52},
   {entry__types__multi_capture__grammar__match_9, NULL, 346, 346, 16, 30},
   {cont__types__multi_capture__grammar__match_10, &frame__types__multi_capture__grammar__match_9, 346, 346, 16, 53},
   {cont__types__multi_capture__grammar__match_11, &frame__types__multi_capture__grammar__match_9, 346, 346, 11, 60},
@@ -1311,12 +1311,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__multi_capture__grammar__match_6, &frame__types__multi_capture__grammar__match_5, 341, 341, 5, 30},
   {cont__types__multi_capture__grammar__match_7, &frame__types__multi_capture__grammar__match_5, 343, 343, 7, 23},
   {cont__types__multi_capture__grammar__match_8, &frame__types__multi_capture__grammar__match_5, 342, 348, 5, 42},
-  {entry__types__multi_capture__grammar__match_1, NULL, 338, 338, 23, 35},
-  {cont__types__multi_capture__grammar__match_2, &frame__types__multi_capture__grammar__match_1, 338, 338, 3, 43},
-  {cont__types__multi_capture__grammar__match_3, &frame__types__multi_capture__grammar__match_1, 339, 339, 6, 19},
-  {cont__types__multi_capture__grammar__match_4, &frame__types__multi_capture__grammar__match_1, 339, 348, 3, 43},
-  {cont__types__multi_capture__grammar__match_16, &frame__types__multi_capture__grammar__match_1, 349, 349, 3, 8},
-  {entry__std__multi_capture_1, NULL, 367, 367, 3, 58},
+  {entry__types__multi_capture___grammar__match, NULL, 338, 338, 23, 35},
+  {cont__types__multi_capture___grammar__match_2, &frame__types__multi_capture___grammar__match, 338, 338, 3, 43},
+  {cont__types__multi_capture___grammar__match_3, &frame__types__multi_capture___grammar__match, 339, 339, 6, 19},
+  {cont__types__multi_capture___grammar__match_4, &frame__types__multi_capture___grammar__match, 339, 348, 3, 43},
+  {cont__types__multi_capture___grammar__match_16, &frame__types__multi_capture___grammar__match, 349, 349, 3, 8},
+  {entry__std__multi_capture, NULL, 367, 367, 3, 58},
   {entry__types__span__grammar__match_6, NULL, 391, 391, 28, 43},
   {entry__types__span__grammar__match_2, NULL, 390, 390, 25, 37},
   {cont__types__span__grammar__match_3, &frame__types__span__grammar__match_2, 390, 390, 5, 45},
@@ -1325,9 +1325,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__span__grammar__match_7, &frame__types__span__grammar__match_2, 392, 392, 5, 19},
   {cont__types__span__grammar__match_8, &frame__types__span__grammar__match_2, 392, 392, 5, 53},
   {cont__types__span__grammar__match_9, &frame__types__span__grammar__match_2, },
-  {entry__types__span__grammar__match_1, NULL, 388, 392, 3, 53},
-  {cont__types__span__grammar__match_10, &frame__types__span__grammar__match_1, 394, 394, 3, 8},
-  {entry__std__span_1, NULL, 409, 409, 3, 49},
+  {entry__types__span___grammar__match, NULL, 388, 392, 3, 53},
+  {cont__types__span___grammar__match_10, &frame__types__span___grammar__match, 394, 394, 3, 8},
+  {entry__std__span, NULL, 409, 409, 3, 49},
   {entry__types__multi_span__grammar__match_6, NULL, 433, 433, 28, 43},
   {entry__types__multi_span__grammar__match_10, NULL, 437, 437, 33, 50},
   {cont__types__multi_span__grammar__match_11, &frame__types__multi_span__grammar__match_10, 437, 437, 28, 73},
@@ -1343,55 +1343,55 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__multi_span__grammar__match_8, &frame__types__multi_span__grammar__match_2, 436, 436, 7, 23},
   {cont__types__multi_span__grammar__match_9, &frame__types__multi_span__grammar__match_2, 435, 439, 5, 47},
   {cont__types__multi_span__grammar__match_16, &frame__types__multi_span__grammar__match_2, 439, 439, 47, 47},
-  {entry__types__multi_span__grammar__match_1, NULL, 430, 439, 3, 48},
-  {cont__types__multi_span__grammar__match_17, &frame__types__multi_span__grammar__match_1, 441, 441, 3, 8},
-  {entry__std__multi_span_1, NULL, 461, 461, 3, 55},
-  {entry__types__set_node__grammar__match_1, NULL, 479, 479, 3, 38},
-  {cont__types__set_node__grammar__match_2, &frame__types__set_node__grammar__match_1, 480, 480, 3, 6},
-  {entry__std__set_node_1, NULL, 488, 488, 3, 35},
+  {entry__types__multi_span___grammar__match, NULL, 430, 439, 3, 48},
+  {cont__types__multi_span___grammar__match_17, &frame__types__multi_span___grammar__match, 441, 441, 3, 8},
+  {entry__std__multi_span, NULL, 461, 461, 3, 55},
+  {entry__types__set_node___grammar__match, NULL, 479, 479, 3, 38},
+  {cont__types__set_node___grammar__match_2, &frame__types__set_node___grammar__match, 480, 480, 3, 6},
+  {entry__std__set_node, NULL, 488, 488, 3, 35},
   {entry__types__inspect_node__grammar__match_5, NULL, 509, 509, 7, 39},
   {entry__types__inspect_node__grammar__match_6, NULL, 511, 511, 7, 32},
-  {entry__types__inspect_node__grammar__match_1, NULL, 506, 506, 3, 25},
-  {cont__types__inspect_node__grammar__match_2, &frame__types__inspect_node__grammar__match_1, 508, 508, 5, 28},
-  {cont__types__inspect_node__grammar__match_3, &frame__types__inspect_node__grammar__match_1, 508, 508, 5, 33},
-  {cont__types__inspect_node__grammar__match_4, &frame__types__inspect_node__grammar__match_1, 507, 511, 3, 33},
-  {cont__types__inspect_node__grammar__match_7, &frame__types__inspect_node__grammar__match_1, 512, 512, 3, 6},
-  {entry__std__inspect_node_1, NULL, 524, 524, 3, 43},
+  {entry__types__inspect_node___grammar__match, NULL, 506, 506, 3, 25},
+  {cont__types__inspect_node___grammar__match_2, &frame__types__inspect_node___grammar__match, 508, 508, 5, 28},
+  {cont__types__inspect_node___grammar__match_3, &frame__types__inspect_node___grammar__match, 508, 508, 5, 33},
+  {cont__types__inspect_node___grammar__match_4, &frame__types__inspect_node___grammar__match, 507, 511, 3, 33},
+  {cont__types__inspect_node___grammar__match_7, &frame__types__inspect_node___grammar__match, 512, 512, 3, 6},
+  {entry__std__inspect_node, NULL, 524, 524, 3, 43},
   {entry__types__modify_node__grammar__match_5, NULL, 545, 545, 7, 40},
   {cont__types__modify_node__grammar__match_6, &frame__types__modify_node__grammar__match_5, 545, 545, 40, 40},
   {entry__types__modify_node__grammar__match_7, NULL, 547, 547, 7, 33},
   {cont__types__modify_node__grammar__match_8, &frame__types__modify_node__grammar__match_7, 547, 547, 33, 33},
-  {entry__types__modify_node__grammar__match_1, NULL, 542, 542, 3, 25},
-  {cont__types__modify_node__grammar__match_2, &frame__types__modify_node__grammar__match_1, 544, 544, 5, 28},
-  {cont__types__modify_node__grammar__match_3, &frame__types__modify_node__grammar__match_1, 544, 544, 5, 33},
-  {cont__types__modify_node__grammar__match_4, &frame__types__modify_node__grammar__match_1, 543, 547, 3, 34},
-  {cont__types__modify_node__grammar__match_9, &frame__types__modify_node__grammar__match_1, 548, 548, 3, 6},
-  {entry__std__modify_node_1, NULL, 560, 560, 3, 42},
+  {entry__types__modify_node___grammar__match, NULL, 542, 542, 3, 25},
+  {cont__types__modify_node___grammar__match_2, &frame__types__modify_node___grammar__match, 544, 544, 5, 28},
+  {cont__types__modify_node___grammar__match_3, &frame__types__modify_node___grammar__match, 544, 544, 5, 33},
+  {cont__types__modify_node___grammar__match_4, &frame__types__modify_node___grammar__match, 543, 547, 3, 34},
+  {cont__types__modify_node___grammar__match_9, &frame__types__modify_node___grammar__match, 548, 548, 3, 6},
+  {entry__std__modify_node, NULL, 560, 560, 3, 42},
   {entry__types__check_node__grammar__match_7, NULL, 582, 582, 50, 65},
   {entry__types__check_node__grammar__match_5, NULL, 582, 582, 14, 47},
   {cont__types__check_node__grammar__match_6, &frame__types__check_node__grammar__match_5, 582, 582, 7, 65},
   {entry__types__check_node__grammar__match_10, NULL, 584, 584, 43, 58},
   {entry__types__check_node__grammar__match_8, NULL, 584, 584, 14, 40},
   {cont__types__check_node__grammar__match_9, &frame__types__check_node__grammar__match_8, 584, 584, 7, 58},
-  {entry__types__check_node__grammar__match_1, NULL, 579, 579, 3, 25},
-  {cont__types__check_node__grammar__match_2, &frame__types__check_node__grammar__match_1, 581, 581, 5, 28},
-  {cont__types__check_node__grammar__match_3, &frame__types__check_node__grammar__match_1, 581, 581, 5, 33},
-  {cont__types__check_node__grammar__match_4, &frame__types__check_node__grammar__match_1, 580, 584, 3, 59},
-  {cont__types__check_node__grammar__match_11, &frame__types__check_node__grammar__match_1, 585, 585, 3, 6},
-  {entry__std__check_node_1, NULL, 597, 597, 3, 41},
-  {entry__types__grammar_action__grammar__match_1, NULL, 613, 613, 6, 22},
-  {cont__types__grammar_action__grammar__match_2, &frame__types__grammar_action__grammar__match_1, 613, 613, 6, 30},
-  {cont__types__grammar_action__grammar__match_3, &frame__types__grammar_action__grammar__match_1, 613, 613, 3, 30},
-  {entry__std__grammar_action_1, NULL, 626, 626, 3, 45},
-  {entry__types__set_field__grammar__match_1, NULL, 644, 644, 42, 54},
-  {cont__types__set_field__grammar__match_2, &frame__types__set_field__grammar__match_1, 644, 644, 3, 17},
-  {cont__types__set_field__grammar__match_3, &frame__types__set_field__grammar__match_1, 644, 644, 3, 54},
-  {cont__types__set_field__grammar__match_4, &frame__types__set_field__grammar__match_1, 645, 645, 3, 6},
-  {entry__std__set_field_1, NULL, 658, 658, 3, 54},
+  {entry__types__check_node___grammar__match, NULL, 579, 579, 3, 25},
+  {cont__types__check_node___grammar__match_2, &frame__types__check_node___grammar__match, 581, 581, 5, 28},
+  {cont__types__check_node___grammar__match_3, &frame__types__check_node___grammar__match, 581, 581, 5, 33},
+  {cont__types__check_node___grammar__match_4, &frame__types__check_node___grammar__match, 580, 584, 3, 59},
+  {cont__types__check_node___grammar__match_11, &frame__types__check_node___grammar__match, 585, 585, 3, 6},
+  {entry__std__check_node, NULL, 597, 597, 3, 41},
+  {entry__types__grammar_action___grammar__match, NULL, 613, 613, 6, 22},
+  {cont__types__grammar_action___grammar__match_2, &frame__types__grammar_action___grammar__match, 613, 613, 6, 30},
+  {cont__types__grammar_action___grammar__match_3, &frame__types__grammar_action___grammar__match, 613, 613, 3, 30},
+  {entry__std__grammar_action, NULL, 626, 626, 3, 45},
+  {entry__types__set_field___grammar__match, NULL, 644, 644, 42, 54},
+  {cont__types__set_field___grammar__match_2, &frame__types__set_field___grammar__match, 644, 644, 3, 17},
+  {cont__types__set_field___grammar__match_3, &frame__types__set_field___grammar__match, 644, 644, 3, 54},
+  {cont__types__set_field___grammar__match_4, &frame__types__set_field___grammar__match, 645, 645, 3, 6},
+  {entry__std__set_field, NULL, 658, 658, 3, 54},
   {entry__std__END_OF_TEXT__grammar__match_3, NULL, 678, 678, 5, 16},
   {entry__std__END_OF_TEXT__grammar__match_4, NULL, 679, 679, 5, 8},
-  {entry__std__END_OF_TEXT__grammar__match_1, NULL, 677, 677, 5, 33},
-  {cont__std__END_OF_TEXT__grammar__match_2, &frame__std__END_OF_TEXT__grammar__match_1, 676, 679, 3, 8},
+  {entry__std__END_OF_TEXT___grammar__match, NULL, 677, 677, 5, 33},
+  {cont__std__END_OF_TEXT___grammar__match_2, &frame__std__END_OF_TEXT___grammar__match, 676, 679, 3, 8},
   {entry__std__LETTER__grammar__match_3, NULL, 698, 698, 41, 56},
   {entry__std__LETTER__grammar__match_8, NULL, 700, 700, 25, 33},
   {cont__std__LETTER__grammar__match_9, &frame__std__LETTER__grammar__match_8, 700, 700, 25, 40},
@@ -1407,69 +1407,69 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__LETTER__grammar__match_16, &frame__std__LETTER__grammar__match_13, 700, 700, 45, 80},
   {cont__std__LETTER__grammar__match_21, &frame__std__LETTER__grammar__match_13, 700, 700, 45, 80},
   {entry__std__LETTER__grammar__match_23, NULL, 702, 702, 7, 14},
-  {entry__std__LETTER__grammar__match_1, NULL, 698, 698, 10, 38},
-  {cont__std__LETTER__grammar__match_2, &frame__std__LETTER__grammar__match_1, 698, 698, 3, 56},
-  {cont__std__LETTER__grammar__match_4, &frame__std__LETTER__grammar__match_1, 700, 700, 5, 13},
-  {cont__std__LETTER__grammar__match_5, &frame__std__LETTER__grammar__match_1, 700, 700, 5, 20},
-  {cont__std__LETTER__grammar__match_6, &frame__std__LETTER__grammar__match_1, 700, 700, 5, 20},
-  {cont__std__LETTER__grammar__match_7, &frame__std__LETTER__grammar__match_1, 700, 700, 5, 40},
-  {cont__std__LETTER__grammar__match_12, &frame__std__LETTER__grammar__match_1, 700, 700, 5, 80},
-  {cont__std__LETTER__grammar__match_22, &frame__std__LETTER__grammar__match_1, 699, 702, 3, 15},
-  {cont__std__LETTER__grammar__match_24, &frame__std__LETTER__grammar__match_1, 703, 703, 3, 14},
+  {entry__std__LETTER___grammar__match, NULL, 698, 698, 10, 38},
+  {cont__std__LETTER___grammar__match_2, &frame__std__LETTER___grammar__match, 698, 698, 3, 56},
+  {cont__std__LETTER___grammar__match_4, &frame__std__LETTER___grammar__match, 700, 700, 5, 13},
+  {cont__std__LETTER___grammar__match_5, &frame__std__LETTER___grammar__match, 700, 700, 5, 20},
+  {cont__std__LETTER___grammar__match_6, &frame__std__LETTER___grammar__match, 700, 700, 5, 20},
+  {cont__std__LETTER___grammar__match_7, &frame__std__LETTER___grammar__match, 700, 700, 5, 40},
+  {cont__std__LETTER___grammar__match_12, &frame__std__LETTER___grammar__match, 700, 700, 5, 80},
+  {cont__std__LETTER___grammar__match_22, &frame__std__LETTER___grammar__match, 699, 702, 3, 15},
+  {cont__std__LETTER___grammar__match_24, &frame__std__LETTER___grammar__match, 703, 703, 3, 14},
   {entry__std__UPPER_CASE_LETTER__grammar__match_3, NULL, 722, 722, 41, 56},
   {entry__std__UPPER_CASE_LETTER__grammar__match_8, NULL, 723, 723, 26, 34},
   {cont__std__UPPER_CASE_LETTER__grammar__match_9, &frame__std__UPPER_CASE_LETTER__grammar__match_8, 723, 723, 26, 41},
   {cont__std__UPPER_CASE_LETTER__grammar__match_10, &frame__std__UPPER_CASE_LETTER__grammar__match_8, 723, 723, 26, 41},
   {cont__std__UPPER_CASE_LETTER__grammar__match_11, &frame__std__UPPER_CASE_LETTER__grammar__match_8, 723, 723, 26, 41},
   {entry__std__UPPER_CASE_LETTER__grammar__match_13, NULL, 723, 723, 44, 51},
-  {entry__std__UPPER_CASE_LETTER__grammar__match_1, NULL, 722, 722, 10, 38},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_2, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 722, 722, 3, 56},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_4, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 723, 723, 6, 14},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_5, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 723, 723, 6, 21},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_6, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 723, 723, 6, 21},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_7, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 723, 723, 6, 41},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_12, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 723, 723, 3, 51},
-  {cont__std__UPPER_CASE_LETTER__grammar__match_14, &frame__std__UPPER_CASE_LETTER__grammar__match_1, 724, 724, 3, 14},
+  {entry__std__UPPER_CASE_LETTER___grammar__match, NULL, 722, 722, 10, 38},
+  {cont__std__UPPER_CASE_LETTER___grammar__match_2, &frame__std__UPPER_CASE_LETTER___grammar__match, 722, 722, 3, 56},
+  {cont__std__UPPER_CASE_LETTER___grammar__match_4, &frame__std__UPPER_CASE_LETTER___grammar__match, 723, 723, 6, 14},
+  {cont__std__UPPER_CASE_LETTER___grammar__match_5, &frame__std__UPPER_CASE_LETTER___grammar__match, 723, 723, 6, 21},
+  {cont__std__UPPER_CASE_LETTER___grammar__match_6, &frame__std__UPPER_CASE_LETTER___grammar__match, 723, 723, 6, 21},
+  {cont__std__UPPER_CASE_LETTER___grammar__match_7, &frame__std__UPPER_CASE_LETTER___grammar__match, 723, 723, 6, 41},
+  {cont__std__UPPER_CASE_LETTER___grammar__match_12, &frame__std__UPPER_CASE_LETTER___grammar__match, 723, 723, 3, 51},
+  {cont__std__UPPER_CASE_LETTER___grammar__match_14, &frame__std__UPPER_CASE_LETTER___grammar__match, 724, 724, 3, 14},
   {entry__std__LOWER_CASE_LETTER__grammar__match_3, NULL, 743, 743, 41, 56},
   {entry__std__LOWER_CASE_LETTER__grammar__match_8, NULL, 744, 744, 26, 34},
   {cont__std__LOWER_CASE_LETTER__grammar__match_9, &frame__std__LOWER_CASE_LETTER__grammar__match_8, 744, 744, 26, 41},
   {cont__std__LOWER_CASE_LETTER__grammar__match_10, &frame__std__LOWER_CASE_LETTER__grammar__match_8, 744, 744, 26, 41},
   {cont__std__LOWER_CASE_LETTER__grammar__match_11, &frame__std__LOWER_CASE_LETTER__grammar__match_8, 744, 744, 26, 41},
   {entry__std__LOWER_CASE_LETTER__grammar__match_13, NULL, 744, 744, 44, 51},
-  {entry__std__LOWER_CASE_LETTER__grammar__match_1, NULL, 743, 743, 10, 38},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_2, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 743, 743, 3, 56},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_4, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 744, 744, 6, 14},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_5, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 744, 744, 6, 21},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_6, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 744, 744, 6, 21},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_7, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 744, 744, 6, 41},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_12, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 744, 744, 3, 51},
-  {cont__std__LOWER_CASE_LETTER__grammar__match_14, &frame__std__LOWER_CASE_LETTER__grammar__match_1, 745, 745, 3, 14},
+  {entry__std__LOWER_CASE_LETTER___grammar__match, NULL, 743, 743, 10, 38},
+  {cont__std__LOWER_CASE_LETTER___grammar__match_2, &frame__std__LOWER_CASE_LETTER___grammar__match, 743, 743, 3, 56},
+  {cont__std__LOWER_CASE_LETTER___grammar__match_4, &frame__std__LOWER_CASE_LETTER___grammar__match, 744, 744, 6, 14},
+  {cont__std__LOWER_CASE_LETTER___grammar__match_5, &frame__std__LOWER_CASE_LETTER___grammar__match, 744, 744, 6, 21},
+  {cont__std__LOWER_CASE_LETTER___grammar__match_6, &frame__std__LOWER_CASE_LETTER___grammar__match, 744, 744, 6, 21},
+  {cont__std__LOWER_CASE_LETTER___grammar__match_7, &frame__std__LOWER_CASE_LETTER___grammar__match, 744, 744, 6, 41},
+  {cont__std__LOWER_CASE_LETTER___grammar__match_12, &frame__std__LOWER_CASE_LETTER___grammar__match, 744, 744, 3, 51},
+  {cont__std__LOWER_CASE_LETTER___grammar__match_14, &frame__std__LOWER_CASE_LETTER___grammar__match, 745, 745, 3, 14},
   {entry__std__DIGIT__grammar__match_3, NULL, 764, 764, 41, 56},
   {entry__std__DIGIT__grammar__match_8, NULL, 765, 765, 26, 34},
   {cont__std__DIGIT__grammar__match_9, &frame__std__DIGIT__grammar__match_8, 765, 765, 26, 41},
   {cont__std__DIGIT__grammar__match_10, &frame__std__DIGIT__grammar__match_8, 765, 765, 26, 41},
   {cont__std__DIGIT__grammar__match_11, &frame__std__DIGIT__grammar__match_8, 765, 765, 26, 41},
   {entry__std__DIGIT__grammar__match_13, NULL, 765, 765, 44, 51},
-  {entry__std__DIGIT__grammar__match_1, NULL, 764, 764, 10, 38},
-  {cont__std__DIGIT__grammar__match_2, &frame__std__DIGIT__grammar__match_1, 764, 764, 3, 56},
-  {cont__std__DIGIT__grammar__match_4, &frame__std__DIGIT__grammar__match_1, 765, 765, 6, 14},
-  {cont__std__DIGIT__grammar__match_5, &frame__std__DIGIT__grammar__match_1, 765, 765, 6, 21},
-  {cont__std__DIGIT__grammar__match_6, &frame__std__DIGIT__grammar__match_1, 765, 765, 6, 21},
-  {cont__std__DIGIT__grammar__match_7, &frame__std__DIGIT__grammar__match_1, 765, 765, 6, 41},
-  {cont__std__DIGIT__grammar__match_12, &frame__std__DIGIT__grammar__match_1, 765, 765, 3, 51},
-  {cont__std__DIGIT__grammar__match_14, &frame__std__DIGIT__grammar__match_1, 766, 766, 3, 14},
+  {entry__std__DIGIT___grammar__match, NULL, 764, 764, 10, 38},
+  {cont__std__DIGIT___grammar__match_2, &frame__std__DIGIT___grammar__match, 764, 764, 3, 56},
+  {cont__std__DIGIT___grammar__match_4, &frame__std__DIGIT___grammar__match, 765, 765, 6, 14},
+  {cont__std__DIGIT___grammar__match_5, &frame__std__DIGIT___grammar__match, 765, 765, 6, 21},
+  {cont__std__DIGIT___grammar__match_6, &frame__std__DIGIT___grammar__match, 765, 765, 6, 21},
+  {cont__std__DIGIT___grammar__match_7, &frame__std__DIGIT___grammar__match, 765, 765, 6, 41},
+  {cont__std__DIGIT___grammar__match_12, &frame__std__DIGIT___grammar__match, 765, 765, 3, 51},
+  {cont__std__DIGIT___grammar__match_14, &frame__std__DIGIT___grammar__match, 766, 766, 3, 14},
   {entry__std__WHITESPACE_CHARACTER__grammar__match_3, NULL, 785, 785, 41, 56},
   {entry__std__WHITESPACE_CHARACTER__grammar__match_8, NULL, 787, 787, 20, 33},
   {cont__std__WHITESPACE_CHARACTER__grammar__match_9, &frame__std__WHITESPACE_CHARACTER__grammar__match_8, 787, 787, 20, 33},
   {entry__std__WHITESPACE_CHARACTER__grammar__match_11, NULL, 787, 787, 36, 43},
-  {entry__std__WHITESPACE_CHARACTER__grammar__match_1, NULL, 785, 785, 10, 38},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_2, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 785, 785, 3, 56},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_4, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 786, 786, 3, 16},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_5, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 787, 787, 6, 15},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_6, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 787, 787, 6, 15},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_7, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 787, 787, 6, 33},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_10, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 787, 787, 3, 43},
-  {cont__std__WHITESPACE_CHARACTER__grammar__match_12, &frame__std__WHITESPACE_CHARACTER__grammar__match_1, 788, 788, 3, 14},
+  {entry__std__WHITESPACE_CHARACTER___grammar__match, NULL, 785, 785, 10, 38},
+  {cont__std__WHITESPACE_CHARACTER___grammar__match_2, &frame__std__WHITESPACE_CHARACTER___grammar__match, 785, 785, 3, 56},
+  {cont__std__WHITESPACE_CHARACTER___grammar__match_4, &frame__std__WHITESPACE_CHARACTER___grammar__match, 786, 786, 3, 16},
+  {cont__std__WHITESPACE_CHARACTER___grammar__match_5, &frame__std__WHITESPACE_CHARACTER___grammar__match, 787, 787, 6, 15},
+  {cont__std__WHITESPACE_CHARACTER___grammar__match_6, &frame__std__WHITESPACE_CHARACTER___grammar__match, 787, 787, 6, 15},
+  {cont__std__WHITESPACE_CHARACTER___grammar__match_7, &frame__std__WHITESPACE_CHARACTER___grammar__match, 787, 787, 6, 33},
+  {cont__std__WHITESPACE_CHARACTER___grammar__match_10, &frame__std__WHITESPACE_CHARACTER___grammar__match, 787, 787, 3, 43},
+  {cont__std__WHITESPACE_CHARACTER___grammar__match_12, &frame__std__WHITESPACE_CHARACTER___grammar__match, 788, 788, 3, 14},
   {entry__std__PRINTABLE_CHARACTER__grammar__match_3, NULL, 816, 816, 41, 56},
   {entry__std__PRINTABLE_CHARACTER__grammar__match_8, NULL, 818, 818, 20, 32},
   {cont__std__PRINTABLE_CHARACTER__grammar__match_9, &frame__std__PRINTABLE_CHARACTER__grammar__match_8, 818, 818, 20, 32},
@@ -1477,15 +1477,15 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__PRINTABLE_CHARACTER__grammar__match_12, &frame__std__PRINTABLE_CHARACTER__grammar__match_11, 818, 818, 37, 51},
   {cont__std__PRINTABLE_CHARACTER__grammar__match_13, &frame__std__PRINTABLE_CHARACTER__grammar__match_11, 818, 818, 37, 51},
   {entry__std__PRINTABLE_CHARACTER__grammar__match_15, NULL, 818, 818, 54, 61},
-  {entry__std__PRINTABLE_CHARACTER__grammar__match_1, NULL, 816, 816, 10, 38},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_2, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 816, 816, 3, 56},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_4, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 817, 817, 3, 16},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_5, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 818, 818, 6, 15},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_6, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 818, 818, 6, 15},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_7, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 818, 818, 6, 32},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_10, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 818, 818, 6, 51},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_14, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 818, 818, 3, 61},
-  {cont__std__PRINTABLE_CHARACTER__grammar__match_16, &frame__std__PRINTABLE_CHARACTER__grammar__match_1, 819, 819, 3, 14},
+  {entry__std__PRINTABLE_CHARACTER___grammar__match, NULL, 816, 816, 10, 38},
+  {cont__std__PRINTABLE_CHARACTER___grammar__match_2, &frame__std__PRINTABLE_CHARACTER___grammar__match, 816, 816, 3, 56},
+  {cont__std__PRINTABLE_CHARACTER___grammar__match_4, &frame__std__PRINTABLE_CHARACTER___grammar__match, 817, 817, 3, 16},
+  {cont__std__PRINTABLE_CHARACTER___grammar__match_5, &frame__std__PRINTABLE_CHARACTER___grammar__match, 818, 818, 6, 15},
+  {cont__std__PRINTABLE_CHARACTER___grammar__match_6, &frame__std__PRINTABLE_CHARACTER___grammar__match, 818, 818, 6, 15},
+  {cont__std__PRINTABLE_CHARACTER___grammar__match_7, &frame__std__PRINTABLE_CHARACTER___grammar__match, 818, 818, 6, 32},
+  {cont__std__PRINTABLE_CHARACTER___grammar__match_10, &frame__std__PRINTABLE_CHARACTER___grammar__match, 818, 818, 6, 51},
+  {cont__std__PRINTABLE_CHARACTER___grammar__match_14, &frame__std__PRINTABLE_CHARACTER___grammar__match, 818, 818, 3, 61},
+  {cont__std__PRINTABLE_CHARACTER___grammar__match_16, &frame__std__PRINTABLE_CHARACTER___grammar__match, 819, 819, 3, 14},
   {entry__std__NON_SPACE_CHARACTER__grammar__match_3, NULL, 838, 838, 41, 56},
   {entry__std__NON_SPACE_CHARACTER__grammar__match_7, NULL, 840, 840, 19, 31},
   {cont__std__NON_SPACE_CHARACTER__grammar__match_8, &frame__std__NON_SPACE_CHARACTER__grammar__match_7, 840, 840, 19, 31},
@@ -1493,34 +1493,34 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__NON_SPACE_CHARACTER__grammar__match_11, &frame__std__NON_SPACE_CHARACTER__grammar__match_10, 840, 840, 36, 50},
   {cont__std__NON_SPACE_CHARACTER__grammar__match_12, &frame__std__NON_SPACE_CHARACTER__grammar__match_10, 840, 840, 36, 50},
   {entry__std__NON_SPACE_CHARACTER__grammar__match_14, NULL, 840, 840, 53, 60},
-  {entry__std__NON_SPACE_CHARACTER__grammar__match_1, NULL, 838, 838, 10, 38},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_2, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 838, 838, 3, 56},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_4, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 839, 839, 3, 16},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_5, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 840, 840, 6, 14},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_6, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 840, 840, 6, 31},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_9, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 840, 840, 6, 50},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_13, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 840, 840, 3, 60},
-  {cont__std__NON_SPACE_CHARACTER__grammar__match_15, &frame__std__NON_SPACE_CHARACTER__grammar__match_1, 841, 841, 3, 14},
+  {entry__std__NON_SPACE_CHARACTER___grammar__match, NULL, 838, 838, 10, 38},
+  {cont__std__NON_SPACE_CHARACTER___grammar__match_2, &frame__std__NON_SPACE_CHARACTER___grammar__match, 838, 838, 3, 56},
+  {cont__std__NON_SPACE_CHARACTER___grammar__match_4, &frame__std__NON_SPACE_CHARACTER___grammar__match, 839, 839, 3, 16},
+  {cont__std__NON_SPACE_CHARACTER___grammar__match_5, &frame__std__NON_SPACE_CHARACTER___grammar__match, 840, 840, 6, 14},
+  {cont__std__NON_SPACE_CHARACTER___grammar__match_6, &frame__std__NON_SPACE_CHARACTER___grammar__match, 840, 840, 6, 31},
+  {cont__std__NON_SPACE_CHARACTER___grammar__match_9, &frame__std__NON_SPACE_CHARACTER___grammar__match, 840, 840, 6, 50},
+  {cont__std__NON_SPACE_CHARACTER___grammar__match_13, &frame__std__NON_SPACE_CHARACTER___grammar__match, 840, 840, 3, 60},
+  {cont__std__NON_SPACE_CHARACTER___grammar__match_15, &frame__std__NON_SPACE_CHARACTER___grammar__match, 841, 841, 3, 14},
   {entry__std__ANY_CHARACTER__grammar__match_3, NULL, 860, 860, 41, 56},
-  {entry__std__ANY_CHARACTER__grammar__match_1, NULL, 860, 860, 10, 38},
-  {cont__std__ANY_CHARACTER__grammar__match_2, &frame__std__ANY_CHARACTER__grammar__match_1, 860, 860, 3, 56},
-  {cont__std__ANY_CHARACTER__grammar__match_4, &frame__std__ANY_CHARACTER__grammar__match_1, 861, 861, 3, 6},
-  {entry__types__character__grammar__match_1, NULL, 875, 875, 3, 28},
+  {entry__std__ANY_CHARACTER___grammar__match, NULL, 860, 860, 10, 38},
+  {cont__std__ANY_CHARACTER___grammar__match_2, &frame__std__ANY_CHARACTER___grammar__match, 860, 860, 3, 56},
+  {cont__std__ANY_CHARACTER___grammar__match_4, &frame__std__ANY_CHARACTER___grammar__match, 861, 861, 3, 6},
+  {entry__types__character___grammar__match, NULL, 875, 875, 3, 28},
   {entry__types__value_range__grammar__match_3, NULL, 890, 890, 41, 56},
   {entry__types__value_range__grammar__match_9, NULL, 892, 892, 44, 63},
   {cont__types__value_range__grammar__match_10, &frame__types__value_range__grammar__match_9, 892, 892, 37, 63},
   {cont__types__value_range__grammar__match_11, &frame__types__value_range__grammar__match_9, 892, 892, 37, 63},
   {cont__types__value_range__grammar__match_12, &frame__types__value_range__grammar__match_9, 892, 892, 37, 63},
   {entry__types__value_range__grammar__match_14, NULL, 892, 892, 66, 73},
-  {entry__types__value_range__grammar__match_1, NULL, 890, 890, 10, 38},
-  {cont__types__value_range__grammar__match_2, &frame__types__value_range__grammar__match_1, 890, 890, 3, 56},
-  {cont__types__value_range__grammar__match_4, &frame__types__value_range__grammar__match_1, 891, 891, 3, 16},
-  {cont__types__value_range__grammar__match_5, &frame__types__value_range__grammar__match_1, 892, 892, 13, 32},
-  {cont__types__value_range__grammar__match_6, &frame__types__value_range__grammar__match_1, 892, 892, 6, 32},
-  {cont__types__value_range__grammar__match_7, &frame__types__value_range__grammar__match_1, 892, 892, 6, 32},
-  {cont__types__value_range__grammar__match_8, &frame__types__value_range__grammar__match_1, 892, 892, 6, 63},
-  {cont__types__value_range__grammar__match_13, &frame__types__value_range__grammar__match_1, 892, 892, 3, 73},
-  {cont__types__value_range__grammar__match_15, &frame__types__value_range__grammar__match_1, 893, 893, 3, 14},
+  {entry__types__value_range___grammar__match, NULL, 890, 890, 10, 38},
+  {cont__types__value_range___grammar__match_2, &frame__types__value_range___grammar__match, 890, 890, 3, 56},
+  {cont__types__value_range___grammar__match_4, &frame__types__value_range___grammar__match, 891, 891, 3, 16},
+  {cont__types__value_range___grammar__match_5, &frame__types__value_range___grammar__match, 892, 892, 13, 32},
+  {cont__types__value_range___grammar__match_6, &frame__types__value_range___grammar__match, 892, 892, 6, 32},
+  {cont__types__value_range___grammar__match_7, &frame__types__value_range___grammar__match, 892, 892, 6, 32},
+  {cont__types__value_range___grammar__match_8, &frame__types__value_range___grammar__match, 892, 892, 6, 63},
+  {cont__types__value_range___grammar__match_13, &frame__types__value_range___grammar__match, 892, 892, 3, 73},
+  {cont__types__value_range___grammar__match_15, &frame__types__value_range___grammar__match, 893, 893, 3, 14},
   {entry__types__list__grammar__match_5, NULL, 915, 915, 7, 22},
   {entry__types__list__grammar__match_2, NULL, 912, 912, 5, 34},
   {cont__types__list__grammar__match_3, &frame__types__list__grammar__match_2, 913, 913, 12, 23},
@@ -1530,8 +1530,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__list__grammar__match_8, &frame__types__list__grammar__match_2, 916, 916, 5, 24},
   {cont__types__list__grammar__match_9, &frame__types__list__grammar__match_2, 917, 917, 5, 15},
   {cont__types__list__grammar__match_10, &frame__types__list__grammar__match_2, 917, 917, 15, 15},
-  {entry__types__list__grammar__match_1, NULL, 911, 917, 3, 15},
-  {cont__types__list__grammar__match_11, &frame__types__list__grammar__match_1, 918, 918, 3, 8},
+  {entry__types__list___grammar__match, NULL, 911, 917, 3, 15},
+  {cont__types__list___grammar__match_11, &frame__types__list___grammar__match, 918, 918, 3, 8},
   {entry__types__object__grammar__search_9, NULL, 938, 938, 24, 37},
   {entry__types__object__grammar__search_12, NULL, 940, 940, 23, 27},
   {cont__types__object__grammar__search_13, &frame__types__object__grammar__search_12, 940, 940, 13, 27},
@@ -1591,9 +1591,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__object__grammar__search_61, &frame__types__object__grammar__search_28, 965, 965, 21, 21},
   {entry__types__object__grammar__search_26, NULL, 947, 947, 7, 17},
   {cont__types__object__grammar__search_27, &frame__types__object__grammar__search_26, 950, 965, 7, 21},
-  {entry__types__object__grammar__search_1, NULL, 934, 934, 5, 11},
-  {cont__types__object__grammar__search_2, &frame__types__object__grammar__search_1, 933, 965, 3, 23},
-  {cont__types__object__grammar__search_62, &frame__types__object__grammar__search_1, 965, 965, 23, 23}
+  {entry__types__object___grammar__search, NULL, 934, 934, 5, 11},
+  {cont__types__object___grammar__search_2, &frame__types__object___grammar__search, 933, 965, 3, 23},
+  {cont__types__object___grammar__search_62, &frame__types__object___grammar__search, 965, 965, 23, 23}
 };
 
 union NODE {
@@ -1871,7 +1871,7 @@ static void cont__152_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__optional__grammar__match_1(void) {
+static void entry__types__optional___grammar__match(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -1887,9 +1887,9 @@ static void entry__types__optional__grammar__match_1(void) {
   result_count = 1;
   myself = var._expr_of;
   func = myself->type;
-  frame->cont = cont__types__optional__grammar__match_2;
+  frame->cont = cont__types__optional___grammar__match_2;
 }
-static void cont__types__optional__grammar__match_2(void) {
+static void cont__types__optional___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1903,9 +1903,9 @@ static void cont__types__optional__grammar__match_2(void) {
   result_count = 1;
   myself = var.grammar__match;
   func = myself->type;
-  frame->cont = cont__types__optional__grammar__match_3;
+  frame->cont = cont__types__optional___grammar__match_3;
 }
-static void cont__types__optional__grammar__match_3(void) {
+static void cont__types__optional___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1919,9 +1919,9 @@ static void cont__types__optional__grammar__match_3(void) {
   result_count = 1;
   myself = get__default_value();
   func = myself->type;
-  frame->cont = cont__types__optional__grammar__match_4;
+  frame->cont = cont__types__optional___grammar__match_4;
 }
-static void cont__types__optional__grammar__match_4(void) {
+static void cont__types__optional___grammar__match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1935,7 +1935,7 @@ static void cont__types__optional__grammar__match_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__optional_1(void) {
+static void entry__std__optional(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expr: 0
@@ -1959,7 +1959,7 @@ static void entry__std__optional_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__many__grammar__match_1(void) {
+static void entry__types__many___grammar__match(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -2002,7 +2002,7 @@ static void entry__types__many__grammar__match_1(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__types__many__grammar__match_19;
+  frame->cont = cont__types__many___grammar__match_19;
 }
 static void entry__types__many__grammar__match_2(void) {
   allocate_initialized_frame_gc(4, 8);
@@ -2304,12 +2304,12 @@ static void cont__types__many__grammar__match_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__many__grammar__match_19(void) {
+static void cont__types__many___grammar__match_19(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__many_1(void) {
+static void entry__std__many(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expr: 0
@@ -2333,7 +2333,7 @@ static void entry__std__many_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__some__grammar__match_1(void) {
+static void entry__types__some___grammar__match(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -2376,7 +2376,7 @@ static void entry__types__some__grammar__match_1(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__types__some__grammar__match_19;
+  frame->cont = cont__types__some___grammar__match_19;
 }
 static void entry__types__some__grammar__match_2(void) {
   allocate_initialized_frame_gc(4, 8);
@@ -2678,12 +2678,12 @@ static void cont__types__some__grammar__match_18(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__some__grammar__match_19(void) {
+static void cont__types__some___grammar__match_19(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__some_1(void) {
+static void entry__std__some(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expr: 0
@@ -2707,7 +2707,7 @@ static void entry__std__some_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__alt__grammar__match_1(void) {
+static void entry__types__alt___grammar__match(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -2727,9 +2727,9 @@ static void entry__types__alt__grammar__match_1(void) {
   result_count = 1;
   myself = var._alternatives_of;
   func = myself->type;
-  frame->cont = cont__types__alt__grammar__match_2;
+  frame->cont = cont__types__alt___grammar__match_2;
 }
-static void cont__types__alt__grammar__match_2(void) {
+static void cont__types__alt___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2749,7 +2749,7 @@ static void cont__types__alt__grammar__match_2(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__types__alt__grammar__match_7;
+  frame->cont = cont__types__alt___grammar__match_7;
 }
 static void entry__types__alt__grammar__match_6(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -2828,7 +2828,7 @@ static void cont__types__alt__grammar__match_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__alt__grammar__match_7(void) {
+static void cont__types__alt___grammar__match_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2841,7 +2841,7 @@ static void cont__types__alt__grammar__match_7(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__alt_1(void) {
+static void entry__std__alt(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
@@ -2863,7 +2863,7 @@ static void entry__std__alt_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__followed_by__grammar__match_1(void) {
+static void entry__types__followed_by___grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -2885,9 +2885,9 @@ static void entry__types__followed_by__grammar__match_1(void) {
   result_count = 1;
   myself = var._expr_of;
   func = myself->type;
-  frame->cont = cont__types__followed_by__grammar__match_2;
+  frame->cont = cont__types__followed_by___grammar__match_2;
 }
-static void cont__types__followed_by__grammar__match_2(void) {
+static void cont__types__followed_by___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2901,9 +2901,9 @@ static void cont__types__followed_by__grammar__match_2(void) {
   result_count = 1;
   myself = var.grammar__match;
   func = myself->type;
-  frame->cont = cont__types__followed_by__grammar__match_3;
+  frame->cont = cont__types__followed_by___grammar__match_3;
 }
-static void cont__types__followed_by__grammar__match_3(void) {
+static void cont__types__followed_by___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2916,9 +2916,9 @@ static void cont__types__followed_by__grammar__match_3(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__followed_by__grammar__match_4;
+  frame->cont = cont__types__followed_by___grammar__match_4;
 }
-static void cont__types__followed_by__grammar__match_4(void) {
+static void cont__types__followed_by___grammar__match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2945,7 +2945,7 @@ static void cont__types__followed_by__grammar__match_4(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__followed_by__grammar__match_7;
+  frame->cont = cont__types__followed_by___grammar__match_7;
 }
 static void entry__types__followed_by__grammar__match_5(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -2987,12 +2987,12 @@ static void entry__types__followed_by__grammar__match_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__followed_by__grammar__match_7(void) {
+static void cont__types__followed_by___grammar__match_7(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__followed_by_1(void) {
+static void entry__std__followed_by(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expr: 0
@@ -3016,7 +3016,7 @@ static void entry__std__followed_by_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__not_followed_by__grammar__match_1(void) {
+static void entry__types__not_followed_by___grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -3038,9 +3038,9 @@ static void entry__types__not_followed_by__grammar__match_1(void) {
   result_count = 1;
   myself = var._expr_of;
   func = myself->type;
-  frame->cont = cont__types__not_followed_by__grammar__match_2;
+  frame->cont = cont__types__not_followed_by___grammar__match_2;
 }
-static void cont__types__not_followed_by__grammar__match_2(void) {
+static void cont__types__not_followed_by___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3054,9 +3054,9 @@ static void cont__types__not_followed_by__grammar__match_2(void) {
   result_count = 1;
   myself = var.grammar__match;
   func = myself->type;
-  frame->cont = cont__types__not_followed_by__grammar__match_3;
+  frame->cont = cont__types__not_followed_by___grammar__match_3;
 }
-static void cont__types__not_followed_by__grammar__match_3(void) {
+static void cont__types__not_followed_by___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3069,9 +3069,9 @@ static void cont__types__not_followed_by__grammar__match_3(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__not_followed_by__grammar__match_4;
+  frame->cont = cont__types__not_followed_by___grammar__match_4;
 }
-static void cont__types__not_followed_by__grammar__match_4(void) {
+static void cont__types__not_followed_by___grammar__match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3098,7 +3098,7 @@ static void cont__types__not_followed_by__grammar__match_4(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__not_followed_by__grammar__match_7;
+  frame->cont = cont__types__not_followed_by___grammar__match_7;
 }
 static void entry__types__not_followed_by__grammar__match_5(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -3140,12 +3140,12 @@ static void entry__types__not_followed_by__grammar__match_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__not_followed_by__grammar__match_7(void) {
+static void cont__types__not_followed_by___grammar__match_7(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__not_followed_by_1(void) {
+static void entry__std__not_followed_by(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expr: 0
@@ -3169,7 +3169,7 @@ static void entry__std__not_followed_by_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__capture__grammar__match_1(void) {
+static void entry__types__capture___grammar__match(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -3187,9 +3187,9 @@ static void entry__types__capture__grammar__match_1(void) {
   result_count = 1;
   myself = var._expr_of;
   func = myself->type;
-  frame->cont = cont__types__capture__grammar__match_2;
+  frame->cont = cont__types__capture___grammar__match_2;
 }
-static void cont__types__capture__grammar__match_2(void) {
+static void cont__types__capture___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3203,9 +3203,9 @@ static void cont__types__capture__grammar__match_2(void) {
   result_count = 1;
   myself = var.grammar__match;
   func = myself->type;
-  frame->cont = cont__types__capture__grammar__match_3;
+  frame->cont = cont__types__capture___grammar__match_3;
 }
-static void cont__types__capture__grammar__match_3(void) {
+static void cont__types__capture___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3218,9 +3218,9 @@ static void cont__types__capture__grammar__match_3(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__capture__grammar__match_4;
+  frame->cont = cont__types__capture___grammar__match_4;
 }
-static void cont__types__capture__grammar__match_4(void) {
+static void cont__types__capture___grammar__match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3250,7 +3250,7 @@ static void cont__types__capture__grammar__match_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__capture__grammar__match_12;
+  frame->cont = cont__types__capture___grammar__match_12;
 }
 static void entry__types__capture__grammar__match_9(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -3387,7 +3387,7 @@ static void cont__types__capture__grammar__match_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__capture__grammar__match_12(void) {
+static void cont__types__capture___grammar__match_12(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3400,7 +3400,7 @@ static void cont__types__capture__grammar__match_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__capture_1(void) {
+static void entry__std__capture(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // setter: 0
@@ -3438,7 +3438,7 @@ static void entry__std__capture_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__multi_capture__grammar__match_1(void) {
+static void entry__types__multi_capture___grammar__match(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -3456,9 +3456,9 @@ static void entry__types__multi_capture__grammar__match_1(void) {
   result_count = 1;
   myself = var._expr_of;
   func = myself->type;
-  frame->cont = cont__types__multi_capture__grammar__match_2;
+  frame->cont = cont__types__multi_capture___grammar__match_2;
 }
-static void cont__types__multi_capture__grammar__match_2(void) {
+static void cont__types__multi_capture___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3472,9 +3472,9 @@ static void cont__types__multi_capture__grammar__match_2(void) {
   result_count = 1;
   myself = var.grammar__match;
   func = myself->type;
-  frame->cont = cont__types__multi_capture__grammar__match_3;
+  frame->cont = cont__types__multi_capture___grammar__match_3;
 }
-static void cont__types__multi_capture__grammar__match_3(void) {
+static void cont__types__multi_capture___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3487,9 +3487,9 @@ static void cont__types__multi_capture__grammar__match_3(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__multi_capture__grammar__match_4;
+  frame->cont = cont__types__multi_capture___grammar__match_4;
 }
-static void cont__types__multi_capture__grammar__match_4(void) {
+static void cont__types__multi_capture___grammar__match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3523,7 +3523,7 @@ static void cont__types__multi_capture__grammar__match_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__multi_capture__grammar__match_16;
+  frame->cont = cont__types__multi_capture___grammar__match_16;
 }
 static void entry__types__multi_capture__grammar__match_9(void) {
   allocate_initialized_frame_gc(3, 6);
@@ -3728,7 +3728,7 @@ static void cont__types__multi_capture__grammar__match_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__multi_capture__grammar__match_16(void) {
+static void cont__types__multi_capture___grammar__match_16(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3741,7 +3741,7 @@ static void cont__types__multi_capture__grammar__match_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__multi_capture_1(void) {
+static void entry__std__multi_capture(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // setter: 0
@@ -3779,7 +3779,7 @@ static void entry__std__multi_capture_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__span__grammar__match_1(void) {
+static void entry__types__span___grammar__match(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -3815,7 +3815,7 @@ static void entry__types__span__grammar__match_1(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__types__span__grammar__match_10;
+  frame->cont = cont__types__span___grammar__match_10;
 }
 static void entry__types__span__grammar__match_2(void) {
   allocate_initialized_frame_gc(6, 8);
@@ -3957,7 +3957,7 @@ static void cont__types__span__grammar__match_9(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__types__span__grammar__match_10(void) {
+static void cont__types__span___grammar__match_10(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3972,7 +3972,7 @@ static void cont__types__span__grammar__match_10(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__span_1(void) {
+static void entry__std__span(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // setter: 0
@@ -3998,7 +3998,7 @@ static void entry__std__span_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__multi_span__grammar__match_1(void) {
+static void entry__types__multi_span___grammar__match(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -4044,7 +4044,7 @@ static void entry__types__multi_span__grammar__match_1(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__types__multi_span__grammar__match_17;
+  frame->cont = cont__types__multi_span___grammar__match_17;
 }
 static void entry__types__multi_span__grammar__match_2(void) {
   allocate_initialized_frame_gc(6, 10);
@@ -4302,7 +4302,7 @@ static void cont__types__multi_span__grammar__match_16(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__types__multi_span__grammar__match_17(void) {
+static void cont__types__multi_span___grammar__match_17(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4317,7 +4317,7 @@ static void cont__types__multi_span__grammar__match_17(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__multi_span_1(void) {
+static void entry__std__multi_span(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // setter: 0
@@ -4355,7 +4355,7 @@ static void entry__std__multi_span_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__set_node__grammar__match_1(void) {
+static void entry__types__set_node___grammar__match(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // self: 0
@@ -4371,9 +4371,9 @@ static void entry__types__set_node__grammar__match_1(void) {
   result_count = 1;
   myself = var._node_of;
   func = myself->type;
-  frame->cont = cont__types__set_node__grammar__match_2;
+  frame->cont = cont__types__set_node___grammar__match_2;
 }
-static void cont__types__set_node__grammar__match_2(void) {
+static void cont__types__set_node___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4387,7 +4387,7 @@ static void cont__types__set_node__grammar__match_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__set_node_1(void) {
+static void entry__std__set_node(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // node: 0
@@ -4411,7 +4411,7 @@ static void entry__std__set_node_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__inspect_node__grammar__match_1(void) {
+static void entry__types__inspect_node___grammar__match(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -4429,9 +4429,9 @@ static void entry__types__inspect_node__grammar__match_1(void) {
   result_count = 1;
   myself = var._function_of;
   func = myself->type;
-  frame->cont = cont__types__inspect_node__grammar__match_2;
+  frame->cont = cont__types__inspect_node___grammar__match_2;
 }
-static void cont__types__inspect_node__grammar__match_2(void) {
+static void cont__types__inspect_node___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4444,9 +4444,9 @@ static void cont__types__inspect_node__grammar__match_2(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__types__inspect_node__grammar__match_3;
+  frame->cont = cont__types__inspect_node___grammar__match_3;
 }
-static void cont__types__inspect_node__grammar__match_3(void) {
+static void cont__types__inspect_node___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4460,9 +4460,9 @@ static void cont__types__inspect_node__grammar__match_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__inspect_node__grammar__match_4;
+  frame->cont = cont__types__inspect_node___grammar__match_4;
 }
-static void cont__types__inspect_node__grammar__match_4(void) {
+static void cont__types__inspect_node___grammar__match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4487,7 +4487,7 @@ static void cont__types__inspect_node__grammar__match_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__inspect_node__grammar__match_7;
+  frame->cont = cont__types__inspect_node___grammar__match_7;
 }
 static void entry__types__inspect_node__grammar__match_5(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -4528,7 +4528,7 @@ static void entry__types__inspect_node__grammar__match_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__inspect_node__grammar__match_7(void) {
+static void cont__types__inspect_node___grammar__match_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4541,7 +4541,7 @@ static void cont__types__inspect_node__grammar__match_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__inspect_node_1(void) {
+static void entry__std__inspect_node(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // func: 0
@@ -4565,7 +4565,7 @@ static void entry__std__inspect_node_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__modify_node__grammar__match_1(void) {
+static void entry__types__modify_node___grammar__match(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -4583,9 +4583,9 @@ static void entry__types__modify_node__grammar__match_1(void) {
   result_count = 1;
   myself = var._function_of;
   func = myself->type;
-  frame->cont = cont__types__modify_node__grammar__match_2;
+  frame->cont = cont__types__modify_node___grammar__match_2;
 }
-static void cont__types__modify_node__grammar__match_2(void) {
+static void cont__types__modify_node___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4598,9 +4598,9 @@ static void cont__types__modify_node__grammar__match_2(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__types__modify_node__grammar__match_3;
+  frame->cont = cont__types__modify_node___grammar__match_3;
 }
-static void cont__types__modify_node__grammar__match_3(void) {
+static void cont__types__modify_node___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4614,9 +4614,9 @@ static void cont__types__modify_node__grammar__match_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__modify_node__grammar__match_4;
+  frame->cont = cont__types__modify_node___grammar__match_4;
 }
-static void cont__types__modify_node__grammar__match_4(void) {
+static void cont__types__modify_node___grammar__match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4641,7 +4641,7 @@ static void cont__types__modify_node__grammar__match_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__modify_node__grammar__match_9;
+  frame->cont = cont__types__modify_node___grammar__match_9;
 }
 static void entry__types__modify_node__grammar__match_5(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -4706,7 +4706,7 @@ static void cont__types__modify_node__grammar__match_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__modify_node__grammar__match_9(void) {
+static void cont__types__modify_node___grammar__match_9(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4719,7 +4719,7 @@ static void cont__types__modify_node__grammar__match_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__modify_node_1(void) {
+static void entry__std__modify_node(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // func: 0
@@ -4743,7 +4743,7 @@ static void entry__std__modify_node_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__check_node__grammar__match_1(void) {
+static void entry__types__check_node___grammar__match(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // self: 0
@@ -4763,9 +4763,9 @@ static void entry__types__check_node__grammar__match_1(void) {
   result_count = 1;
   myself = var._function_of;
   func = myself->type;
-  frame->cont = cont__types__check_node__grammar__match_2;
+  frame->cont = cont__types__check_node___grammar__match_2;
 }
-static void cont__types__check_node__grammar__match_2(void) {
+static void cont__types__check_node___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4778,9 +4778,9 @@ static void cont__types__check_node__grammar__match_2(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__types__check_node__grammar__match_3;
+  frame->cont = cont__types__check_node___grammar__match_3;
 }
-static void cont__types__check_node__grammar__match_3(void) {
+static void cont__types__check_node___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4794,9 +4794,9 @@ static void cont__types__check_node__grammar__match_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__check_node__grammar__match_4;
+  frame->cont = cont__types__check_node___grammar__match_4;
 }
-static void cont__types__check_node__grammar__match_4(void) {
+static void cont__types__check_node___grammar__match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4821,7 +4821,7 @@ static void cont__types__check_node__grammar__match_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__check_node__grammar__match_11;
+  frame->cont = cont__types__check_node___grammar__match_11;
 }
 static void entry__types__check_node__grammar__match_10(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -4938,7 +4938,7 @@ static void cont__types__check_node__grammar__match_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__check_node__grammar__match_11(void) {
+static void cont__types__check_node___grammar__match_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4951,7 +4951,7 @@ static void cont__types__check_node__grammar__match_11(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__check_node_1(void) {
+static void entry__std__check_node(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // func: 0
@@ -4975,7 +4975,7 @@ static void entry__std__check_node_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__grammar_action__grammar__match_1(void) {
+static void entry__types__grammar_action___grammar__match(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -4991,9 +4991,9 @@ static void entry__types__grammar_action__grammar__match_1(void) {
   result_count = 1;
   myself = var._function_of;
   func = myself->type;
-  frame->cont = cont__types__grammar_action__grammar__match_2;
+  frame->cont = cont__types__grammar_action___grammar__match_2;
 }
-static void cont__types__grammar_action__grammar__match_2(void) {
+static void cont__types__grammar_action___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5006,9 +5006,9 @@ static void cont__types__grammar_action__grammar__match_2(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__types__grammar_action__grammar__match_3;
+  frame->cont = cont__types__grammar_action___grammar__match_3;
 }
-static void cont__types__grammar_action__grammar__match_3(void) {
+static void cont__types__grammar_action___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5022,7 +5022,7 @@ static void cont__types__grammar_action__grammar__match_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__grammar_action_1(void) {
+static void entry__std__grammar_action(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // func: 0
@@ -5046,7 +5046,7 @@ static void entry__std__grammar_action_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__set_field__grammar__match_1(void) {
+static void entry__types__set_field___grammar__match(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -5062,9 +5062,9 @@ static void entry__types__set_field__grammar__match_1(void) {
   result_count = 1;
   myself = var._expr_of;
   func = myself->type;
-  frame->cont = cont__types__set_field__grammar__match_2;
+  frame->cont = cont__types__set_field___grammar__match_2;
 }
-static void cont__types__set_field__grammar__match_2(void) {
+static void cont__types__set_field___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5077,9 +5077,9 @@ static void cont__types__set_field__grammar__match_2(void) {
   result_count = 1;
   myself = var._setter_of;
   func = myself->type;
-  frame->cont = cont__types__set_field__grammar__match_3;
+  frame->cont = cont__types__set_field___grammar__match_3;
 }
-static void cont__types__set_field__grammar__match_3(void) {
+static void cont__types__set_field___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5093,9 +5093,9 @@ static void cont__types__set_field__grammar__match_3(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__2 */;
   func = myself->type;
-  frame->cont = cont__types__set_field__grammar__match_4;
+  frame->cont = cont__types__set_field___grammar__match_4;
 }
-static void cont__types__set_field__grammar__match_4(void) {
+static void cont__types__set_field___grammar__match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5109,7 +5109,7 @@ static void cont__types__set_field__grammar__match_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__set_field_1(void) {
+static void entry__std__set_field(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // setter: 0
@@ -5165,7 +5165,7 @@ static void entry__std__END_OF_TEXT__grammar__match_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__END_OF_TEXT__grammar__match_1(void) {
+static void entry__std__END_OF_TEXT___grammar__match(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -5182,9 +5182,9 @@ static void entry__std__END_OF_TEXT__grammar__match_1(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__std__END_OF_TEXT__grammar__match_2;
+  frame->cont = cont__std__END_OF_TEXT___grammar__match_2;
 }
-static void cont__std__END_OF_TEXT__grammar__match_2(void) {
+static void cont__std__END_OF_TEXT___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5204,7 +5204,7 @@ static void cont__std__END_OF_TEXT__grammar__match_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__LETTER__grammar__match_1(void) {
+static void entry__std__LETTER___grammar__match(void) {
   allocate_initialized_frame_gc(3, 11);
   // slot allocations:
   // self: 0
@@ -5223,9 +5223,9 @@ static void entry__std__LETTER__grammar__match_1(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__std__LETTER__grammar__match_2;
+  frame->cont = cont__std__LETTER___grammar__match_2;
 }
-static void cont__std__LETTER__grammar__match_2(void) {
+static void cont__std__LETTER___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5241,7 +5241,7 @@ static void cont__std__LETTER__grammar__match_2(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__std__LETTER__grammar__match_4;
+  frame->cont = cont__std__LETTER___grammar__match_4;
 }
 static void entry__std__LETTER__grammar__match_3(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -5261,7 +5261,7 @@ static void entry__std__LETTER__grammar__match_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__LETTER__grammar__match_4(void) {
+static void cont__std__LETTER___grammar__match_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5273,9 +5273,9 @@ static void cont__std__LETTER__grammar__match_4(void) {
   result_count = 1;
   myself = frame->slots[1] /* stream */;
   func = myself->type;
-  frame->cont = cont__std__LETTER__grammar__match_5;
+  frame->cont = cont__std__LETTER___grammar__match_5;
 }
-static void cont__std__LETTER__grammar__match_5(void) {
+static void cont__std__LETTER___grammar__match_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5289,9 +5289,9 @@ static void cont__std__LETTER__grammar__match_5(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__std__LETTER__grammar__match_6;
+  frame->cont = cont__std__LETTER___grammar__match_6;
 }
-static void cont__std__LETTER__grammar__match_6(void) {
+static void cont__std__LETTER___grammar__match_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5304,9 +5304,9 @@ static void cont__std__LETTER__grammar__match_6(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__std__LETTER__grammar__match_7;
+  frame->cont = cont__std__LETTER___grammar__match_7;
 }
-static void cont__std__LETTER__grammar__match_7(void) {
+static void cont__std__LETTER___grammar__match_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5322,7 +5322,7 @@ static void cont__std__LETTER__grammar__match_7(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__std__LETTER__grammar__match_12;
+  frame->cont = cont__std__LETTER___grammar__match_12;
 }
 static void entry__std__LETTER__grammar__match_8(void) {
   allocate_initialized_frame_gc(1, 4);
@@ -5387,7 +5387,7 @@ static void cont__std__LETTER__grammar__match_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__LETTER__grammar__match_12(void) {
+static void cont__std__LETTER___grammar__match_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5403,7 +5403,7 @@ static void cont__std__LETTER__grammar__match_12(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__std__LETTER__grammar__match_22;
+  frame->cont = cont__std__LETTER___grammar__match_22;
 }
 static void entry__std__LETTER__grammar__match_13(void) {
   allocate_initialized_frame_gc(1, 6);
@@ -5549,7 +5549,7 @@ static void cont__std__LETTER__grammar__match_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__LETTER__grammar__match_22(void) {
+static void cont__std__LETTER___grammar__match_22(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5569,7 +5569,7 @@ static void cont__std__LETTER__grammar__match_22(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__std__LETTER__grammar__match_24;
+  frame->cont = cont__std__LETTER___grammar__match_24;
 }
 static void entry__std__LETTER__grammar__match_23(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -5589,7 +5589,7 @@ static void entry__std__LETTER__grammar__match_23(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__LETTER__grammar__match_24(void) {
+static void cont__std__LETTER___grammar__match_24(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5602,7 +5602,7 @@ static void cont__std__LETTER__grammar__match_24(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__UPPER_CASE_LETTER__grammar__match_1(void) {
+static void entry__std__UPPER_CASE_LETTER___grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -5621,9 +5621,9 @@ static void entry__std__UPPER_CASE_LETTER__grammar__match_1(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__std__UPPER_CASE_LETTER__grammar__match_2;
+  frame->cont = cont__std__UPPER_CASE_LETTER___grammar__match_2;
 }
-static void cont__std__UPPER_CASE_LETTER__grammar__match_2(void) {
+static void cont__std__UPPER_CASE_LETTER___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5639,7 +5639,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_2(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__std__UPPER_CASE_LETTER__grammar__match_4;
+  frame->cont = cont__std__UPPER_CASE_LETTER___grammar__match_4;
 }
 static void entry__std__UPPER_CASE_LETTER__grammar__match_3(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -5659,7 +5659,7 @@ static void entry__std__UPPER_CASE_LETTER__grammar__match_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__UPPER_CASE_LETTER__grammar__match_4(void) {
+static void cont__std__UPPER_CASE_LETTER___grammar__match_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5671,9 +5671,9 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_4(void) {
   result_count = 1;
   myself = frame->slots[1] /* stream */;
   func = myself->type;
-  frame->cont = cont__std__UPPER_CASE_LETTER__grammar__match_5;
+  frame->cont = cont__std__UPPER_CASE_LETTER___grammar__match_5;
 }
-static void cont__std__UPPER_CASE_LETTER__grammar__match_5(void) {
+static void cont__std__UPPER_CASE_LETTER___grammar__match_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5687,9 +5687,9 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_5(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__std__UPPER_CASE_LETTER__grammar__match_6;
+  frame->cont = cont__std__UPPER_CASE_LETTER___grammar__match_6;
 }
-static void cont__std__UPPER_CASE_LETTER__grammar__match_6(void) {
+static void cont__std__UPPER_CASE_LETTER___grammar__match_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5702,9 +5702,9 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_6(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__std__UPPER_CASE_LETTER__grammar__match_7;
+  frame->cont = cont__std__UPPER_CASE_LETTER___grammar__match_7;
 }
-static void cont__std__UPPER_CASE_LETTER__grammar__match_7(void) {
+static void cont__std__UPPER_CASE_LETTER___grammar__match_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5720,7 +5720,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_7(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__std__UPPER_CASE_LETTER__grammar__match_12;
+  frame->cont = cont__std__UPPER_CASE_LETTER___grammar__match_12;
 }
 static void entry__std__UPPER_CASE_LETTER__grammar__match_8(void) {
   allocate_initialized_frame_gc(1, 4);
@@ -5785,7 +5785,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__UPPER_CASE_LETTER__grammar__match_12(void) {
+static void cont__std__UPPER_CASE_LETTER___grammar__match_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5801,7 +5801,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_12(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__std__UPPER_CASE_LETTER__grammar__match_14;
+  frame->cont = cont__std__UPPER_CASE_LETTER___grammar__match_14;
 }
 static void entry__std__UPPER_CASE_LETTER__grammar__match_13(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -5821,7 +5821,7 @@ static void entry__std__UPPER_CASE_LETTER__grammar__match_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__UPPER_CASE_LETTER__grammar__match_14(void) {
+static void cont__std__UPPER_CASE_LETTER___grammar__match_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5834,7 +5834,7 @@ static void cont__std__UPPER_CASE_LETTER__grammar__match_14(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__LOWER_CASE_LETTER__grammar__match_1(void) {
+static void entry__std__LOWER_CASE_LETTER___grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -5853,9 +5853,9 @@ static void entry__std__LOWER_CASE_LETTER__grammar__match_1(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__std__LOWER_CASE_LETTER__grammar__match_2;
+  frame->cont = cont__std__LOWER_CASE_LETTER___grammar__match_2;
 }
-static void cont__std__LOWER_CASE_LETTER__grammar__match_2(void) {
+static void cont__std__LOWER_CASE_LETTER___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5871,7 +5871,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_2(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__std__LOWER_CASE_LETTER__grammar__match_4;
+  frame->cont = cont__std__LOWER_CASE_LETTER___grammar__match_4;
 }
 static void entry__std__LOWER_CASE_LETTER__grammar__match_3(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -5891,7 +5891,7 @@ static void entry__std__LOWER_CASE_LETTER__grammar__match_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__LOWER_CASE_LETTER__grammar__match_4(void) {
+static void cont__std__LOWER_CASE_LETTER___grammar__match_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5903,9 +5903,9 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_4(void) {
   result_count = 1;
   myself = frame->slots[1] /* stream */;
   func = myself->type;
-  frame->cont = cont__std__LOWER_CASE_LETTER__grammar__match_5;
+  frame->cont = cont__std__LOWER_CASE_LETTER___grammar__match_5;
 }
-static void cont__std__LOWER_CASE_LETTER__grammar__match_5(void) {
+static void cont__std__LOWER_CASE_LETTER___grammar__match_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5919,9 +5919,9 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_5(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__std__LOWER_CASE_LETTER__grammar__match_6;
+  frame->cont = cont__std__LOWER_CASE_LETTER___grammar__match_6;
 }
-static void cont__std__LOWER_CASE_LETTER__grammar__match_6(void) {
+static void cont__std__LOWER_CASE_LETTER___grammar__match_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5934,9 +5934,9 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_6(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__std__LOWER_CASE_LETTER__grammar__match_7;
+  frame->cont = cont__std__LOWER_CASE_LETTER___grammar__match_7;
 }
-static void cont__std__LOWER_CASE_LETTER__grammar__match_7(void) {
+static void cont__std__LOWER_CASE_LETTER___grammar__match_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5952,7 +5952,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_7(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__std__LOWER_CASE_LETTER__grammar__match_12;
+  frame->cont = cont__std__LOWER_CASE_LETTER___grammar__match_12;
 }
 static void entry__std__LOWER_CASE_LETTER__grammar__match_8(void) {
   allocate_initialized_frame_gc(1, 4);
@@ -6017,7 +6017,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__LOWER_CASE_LETTER__grammar__match_12(void) {
+static void cont__std__LOWER_CASE_LETTER___grammar__match_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6033,7 +6033,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_12(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__std__LOWER_CASE_LETTER__grammar__match_14;
+  frame->cont = cont__std__LOWER_CASE_LETTER___grammar__match_14;
 }
 static void entry__std__LOWER_CASE_LETTER__grammar__match_13(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -6053,7 +6053,7 @@ static void entry__std__LOWER_CASE_LETTER__grammar__match_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__LOWER_CASE_LETTER__grammar__match_14(void) {
+static void cont__std__LOWER_CASE_LETTER___grammar__match_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6066,7 +6066,7 @@ static void cont__std__LOWER_CASE_LETTER__grammar__match_14(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__DIGIT__grammar__match_1(void) {
+static void entry__std__DIGIT___grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -6085,9 +6085,9 @@ static void entry__std__DIGIT__grammar__match_1(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__std__DIGIT__grammar__match_2;
+  frame->cont = cont__std__DIGIT___grammar__match_2;
 }
-static void cont__std__DIGIT__grammar__match_2(void) {
+static void cont__std__DIGIT___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6103,7 +6103,7 @@ static void cont__std__DIGIT__grammar__match_2(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__std__DIGIT__grammar__match_4;
+  frame->cont = cont__std__DIGIT___grammar__match_4;
 }
 static void entry__std__DIGIT__grammar__match_3(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -6123,7 +6123,7 @@ static void entry__std__DIGIT__grammar__match_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__DIGIT__grammar__match_4(void) {
+static void cont__std__DIGIT___grammar__match_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6135,9 +6135,9 @@ static void cont__std__DIGIT__grammar__match_4(void) {
   result_count = 1;
   myself = frame->slots[1] /* stream */;
   func = myself->type;
-  frame->cont = cont__std__DIGIT__grammar__match_5;
+  frame->cont = cont__std__DIGIT___grammar__match_5;
 }
-static void cont__std__DIGIT__grammar__match_5(void) {
+static void cont__std__DIGIT___grammar__match_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6151,9 +6151,9 @@ static void cont__std__DIGIT__grammar__match_5(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__std__DIGIT__grammar__match_6;
+  frame->cont = cont__std__DIGIT___grammar__match_6;
 }
-static void cont__std__DIGIT__grammar__match_6(void) {
+static void cont__std__DIGIT___grammar__match_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6166,9 +6166,9 @@ static void cont__std__DIGIT__grammar__match_6(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__std__DIGIT__grammar__match_7;
+  frame->cont = cont__std__DIGIT___grammar__match_7;
 }
-static void cont__std__DIGIT__grammar__match_7(void) {
+static void cont__std__DIGIT___grammar__match_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6184,7 +6184,7 @@ static void cont__std__DIGIT__grammar__match_7(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__std__DIGIT__grammar__match_12;
+  frame->cont = cont__std__DIGIT___grammar__match_12;
 }
 static void entry__std__DIGIT__grammar__match_8(void) {
   allocate_initialized_frame_gc(1, 4);
@@ -6249,7 +6249,7 @@ static void cont__std__DIGIT__grammar__match_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__DIGIT__grammar__match_12(void) {
+static void cont__std__DIGIT___grammar__match_12(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6265,7 +6265,7 @@ static void cont__std__DIGIT__grammar__match_12(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__std__DIGIT__grammar__match_14;
+  frame->cont = cont__std__DIGIT___grammar__match_14;
 }
 static void entry__std__DIGIT__grammar__match_13(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -6285,7 +6285,7 @@ static void entry__std__DIGIT__grammar__match_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__DIGIT__grammar__match_14(void) {
+static void cont__std__DIGIT___grammar__match_14(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6298,7 +6298,7 @@ static void cont__std__DIGIT__grammar__match_14(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__WHITESPACE_CHARACTER__grammar__match_1(void) {
+static void entry__std__WHITESPACE_CHARACTER___grammar__match(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // self: 0
@@ -6319,9 +6319,9 @@ static void entry__std__WHITESPACE_CHARACTER__grammar__match_1(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__std__WHITESPACE_CHARACTER__grammar__match_2;
+  frame->cont = cont__std__WHITESPACE_CHARACTER___grammar__match_2;
 }
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_2(void) {
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6337,7 +6337,7 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_2(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__std__WHITESPACE_CHARACTER__grammar__match_4;
+  frame->cont = cont__std__WHITESPACE_CHARACTER___grammar__match_4;
 }
 static void entry__std__WHITESPACE_CHARACTER__grammar__match_3(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -6357,7 +6357,7 @@ static void entry__std__WHITESPACE_CHARACTER__grammar__match_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_4(void) {
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6369,9 +6369,9 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_4(void) {
   result_count = 1;
   myself = frame->slots[1] /* stream */;
   func = myself->type;
-  frame->cont = cont__std__WHITESPACE_CHARACTER__grammar__match_5;
+  frame->cont = cont__std__WHITESPACE_CHARACTER___grammar__match_5;
 }
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_5(void) {
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6385,9 +6385,9 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_5(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__std__WHITESPACE_CHARACTER__grammar__match_6;
+  frame->cont = cont__std__WHITESPACE_CHARACTER___grammar__match_6;
 }
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_6(void) {
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6400,9 +6400,9 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_6(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__std__WHITESPACE_CHARACTER__grammar__match_7;
+  frame->cont = cont__std__WHITESPACE_CHARACTER___grammar__match_7;
 }
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_7(void) {
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6418,7 +6418,7 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_7(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__std__WHITESPACE_CHARACTER__grammar__match_10;
+  frame->cont = cont__std__WHITESPACE_CHARACTER___grammar__match_10;
 }
 static void entry__std__WHITESPACE_CHARACTER__grammar__match_8(void) {
   allocate_initialized_frame_gc(1, 2);
@@ -6453,7 +6453,7 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_10(void) {
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6469,7 +6469,7 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_10(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__std__WHITESPACE_CHARACTER__grammar__match_12;
+  frame->cont = cont__std__WHITESPACE_CHARACTER___grammar__match_12;
 }
 static void entry__std__WHITESPACE_CHARACTER__grammar__match_11(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -6489,7 +6489,7 @@ static void entry__std__WHITESPACE_CHARACTER__grammar__match_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__WHITESPACE_CHARACTER__grammar__match_12(void) {
+static void cont__std__WHITESPACE_CHARACTER___grammar__match_12(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6502,7 +6502,7 @@ static void cont__std__WHITESPACE_CHARACTER__grammar__match_12(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__PRINTABLE_CHARACTER__grammar__match_1(void) {
+static void entry__std__PRINTABLE_CHARACTER___grammar__match(void) {
   allocate_initialized_frame_gc(3, 11);
   // slot allocations:
   // self: 0
@@ -6523,9 +6523,9 @@ static void entry__std__PRINTABLE_CHARACTER__grammar__match_1(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__std__PRINTABLE_CHARACTER__grammar__match_2;
+  frame->cont = cont__std__PRINTABLE_CHARACTER___grammar__match_2;
 }
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_2(void) {
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6541,7 +6541,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_2(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__std__PRINTABLE_CHARACTER__grammar__match_4;
+  frame->cont = cont__std__PRINTABLE_CHARACTER___grammar__match_4;
 }
 static void entry__std__PRINTABLE_CHARACTER__grammar__match_3(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -6561,7 +6561,7 @@ static void entry__std__PRINTABLE_CHARACTER__grammar__match_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_4(void) {
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6573,9 +6573,9 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_4(void) {
   result_count = 1;
   myself = frame->slots[1] /* stream */;
   func = myself->type;
-  frame->cont = cont__std__PRINTABLE_CHARACTER__grammar__match_5;
+  frame->cont = cont__std__PRINTABLE_CHARACTER___grammar__match_5;
 }
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_5(void) {
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6589,9 +6589,9 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_5(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__std__PRINTABLE_CHARACTER__grammar__match_6;
+  frame->cont = cont__std__PRINTABLE_CHARACTER___grammar__match_6;
 }
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_6(void) {
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6604,9 +6604,9 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_6(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__std__PRINTABLE_CHARACTER__grammar__match_7;
+  frame->cont = cont__std__PRINTABLE_CHARACTER___grammar__match_7;
 }
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_7(void) {
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6622,7 +6622,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_7(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__std__PRINTABLE_CHARACTER__grammar__match_10;
+  frame->cont = cont__std__PRINTABLE_CHARACTER___grammar__match_10;
 }
 static void entry__std__PRINTABLE_CHARACTER__grammar__match_8(void) {
   allocate_initialized_frame_gc(1, 2);
@@ -6657,7 +6657,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_10(void) {
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6673,7 +6673,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_10(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__std__PRINTABLE_CHARACTER__grammar__match_14;
+  frame->cont = cont__std__PRINTABLE_CHARACTER___grammar__match_14;
 }
 static void entry__std__PRINTABLE_CHARACTER__grammar__match_11(void) {
   allocate_initialized_frame_gc(1, 3);
@@ -6723,7 +6723,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_14(void) {
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6739,7 +6739,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_14(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__std__PRINTABLE_CHARACTER__grammar__match_16;
+  frame->cont = cont__std__PRINTABLE_CHARACTER___grammar__match_16;
 }
 static void entry__std__PRINTABLE_CHARACTER__grammar__match_15(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -6759,7 +6759,7 @@ static void entry__std__PRINTABLE_CHARACTER__grammar__match_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__PRINTABLE_CHARACTER__grammar__match_16(void) {
+static void cont__std__PRINTABLE_CHARACTER___grammar__match_16(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6772,7 +6772,7 @@ static void cont__std__PRINTABLE_CHARACTER__grammar__match_16(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__NON_SPACE_CHARACTER__grammar__match_1(void) {
+static void entry__std__NON_SPACE_CHARACTER___grammar__match(void) {
   allocate_initialized_frame_gc(3, 10);
   // slot allocations:
   // self: 0
@@ -6793,9 +6793,9 @@ static void entry__std__NON_SPACE_CHARACTER__grammar__match_1(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__std__NON_SPACE_CHARACTER__grammar__match_2;
+  frame->cont = cont__std__NON_SPACE_CHARACTER___grammar__match_2;
 }
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_2(void) {
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6811,7 +6811,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_2(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__std__NON_SPACE_CHARACTER__grammar__match_4;
+  frame->cont = cont__std__NON_SPACE_CHARACTER___grammar__match_4;
 }
 static void entry__std__NON_SPACE_CHARACTER__grammar__match_3(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -6831,7 +6831,7 @@ static void entry__std__NON_SPACE_CHARACTER__grammar__match_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_4(void) {
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -6843,9 +6843,9 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_4(void) {
   result_count = 1;
   myself = frame->slots[1] /* stream */;
   func = myself->type;
-  frame->cont = cont__std__NON_SPACE_CHARACTER__grammar__match_5;
+  frame->cont = cont__std__NON_SPACE_CHARACTER___grammar__match_5;
 }
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_5(void) {
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6859,9 +6859,9 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_5(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__std__NON_SPACE_CHARACTER__grammar__match_6;
+  frame->cont = cont__std__NON_SPACE_CHARACTER___grammar__match_6;
 }
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_6(void) {
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6877,7 +6877,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_6(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__std__NON_SPACE_CHARACTER__grammar__match_9;
+  frame->cont = cont__std__NON_SPACE_CHARACTER___grammar__match_9;
 }
 static void entry__std__NON_SPACE_CHARACTER__grammar__match_7(void) {
   allocate_initialized_frame_gc(1, 2);
@@ -6912,7 +6912,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_9(void) {
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6928,7 +6928,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_9(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__std__NON_SPACE_CHARACTER__grammar__match_13;
+  frame->cont = cont__std__NON_SPACE_CHARACTER___grammar__match_13;
 }
 static void entry__std__NON_SPACE_CHARACTER__grammar__match_10(void) {
   allocate_initialized_frame_gc(1, 3);
@@ -6978,7 +6978,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_13(void) {
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6994,7 +6994,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_13(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__std__NON_SPACE_CHARACTER__grammar__match_15;
+  frame->cont = cont__std__NON_SPACE_CHARACTER___grammar__match_15;
 }
 static void entry__std__NON_SPACE_CHARACTER__grammar__match_14(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -7014,7 +7014,7 @@ static void entry__std__NON_SPACE_CHARACTER__grammar__match_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__NON_SPACE_CHARACTER__grammar__match_15(void) {
+static void cont__std__NON_SPACE_CHARACTER___grammar__match_15(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7027,7 +7027,7 @@ static void cont__std__NON_SPACE_CHARACTER__grammar__match_15(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__ANY_CHARACTER__grammar__match_1(void) {
+static void entry__std__ANY_CHARACTER___grammar__match(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -7046,9 +7046,9 @@ static void entry__std__ANY_CHARACTER__grammar__match_1(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__std__ANY_CHARACTER__grammar__match_2;
+  frame->cont = cont__std__ANY_CHARACTER___grammar__match_2;
 }
-static void cont__std__ANY_CHARACTER__grammar__match_2(void) {
+static void cont__std__ANY_CHARACTER___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7064,7 +7064,7 @@ static void cont__std__ANY_CHARACTER__grammar__match_2(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__std__ANY_CHARACTER__grammar__match_4;
+  frame->cont = cont__std__ANY_CHARACTER___grammar__match_4;
 }
 static void entry__std__ANY_CHARACTER__grammar__match_3(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -7084,7 +7084,7 @@ static void entry__std__ANY_CHARACTER__grammar__match_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__ANY_CHARACTER__grammar__match_4(void) {
+static void cont__std__ANY_CHARACTER___grammar__match_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7097,7 +7097,7 @@ static void cont__std__ANY_CHARACTER__grammar__match_4(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__character__grammar__match_1(void) {
+static void entry__types__character___grammar__match(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // chr: 0
@@ -7116,7 +7116,7 @@ static void entry__types__character__grammar__match_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__value_range__grammar__match_1(void) {
+static void entry__types__value_range___grammar__match(void) {
   allocate_initialized_frame_gc(3, 10);
   // slot allocations:
   // self: 0
@@ -7137,9 +7137,9 @@ static void entry__types__value_range__grammar__match_1(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__types__value_range__grammar__match_2;
+  frame->cont = cont__types__value_range___grammar__match_2;
 }
-static void cont__types__value_range__grammar__match_2(void) {
+static void cont__types__value_range___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7155,7 +7155,7 @@ static void cont__types__value_range__grammar__match_2(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__types__value_range__grammar__match_4;
+  frame->cont = cont__types__value_range___grammar__match_4;
 }
 static void entry__types__value_range__grammar__match_3(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -7175,7 +7175,7 @@ static void entry__types__value_range__grammar__match_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__value_range__grammar__match_4(void) {
+static void cont__types__value_range___grammar__match_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7187,9 +7187,9 @@ static void cont__types__value_range__grammar__match_4(void) {
   result_count = 1;
   myself = frame->slots[1] /* stream */;
   func = myself->type;
-  frame->cont = cont__types__value_range__grammar__match_5;
+  frame->cont = cont__types__value_range___grammar__match_5;
 }
-static void cont__types__value_range__grammar__match_5(void) {
+static void cont__types__value_range___grammar__match_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7202,9 +7202,9 @@ static void cont__types__value_range__grammar__match_5(void) {
   result_count = 1;
   myself = get__lower_bound_of();
   func = myself->type;
-  frame->cont = cont__types__value_range__grammar__match_6;
+  frame->cont = cont__types__value_range___grammar__match_6;
 }
-static void cont__types__value_range__grammar__match_6(void) {
+static void cont__types__value_range___grammar__match_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7218,9 +7218,9 @@ static void cont__types__value_range__grammar__match_6(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__types__value_range__grammar__match_7;
+  frame->cont = cont__types__value_range___grammar__match_7;
 }
-static void cont__types__value_range__grammar__match_7(void) {
+static void cont__types__value_range___grammar__match_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7233,9 +7233,9 @@ static void cont__types__value_range__grammar__match_7(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__types__value_range__grammar__match_8;
+  frame->cont = cont__types__value_range___grammar__match_8;
 }
-static void cont__types__value_range__grammar__match_8(void) {
+static void cont__types__value_range___grammar__match_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7251,7 +7251,7 @@ static void cont__types__value_range__grammar__match_8(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__types__value_range__grammar__match_13;
+  frame->cont = cont__types__value_range___grammar__match_13;
 }
 static void entry__types__value_range__grammar__match_9(void) {
   allocate_initialized_frame_gc(2, 5);
@@ -7318,7 +7318,7 @@ static void cont__types__value_range__grammar__match_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__value_range__grammar__match_13(void) {
+static void cont__types__value_range___grammar__match_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7334,7 +7334,7 @@ static void cont__types__value_range__grammar__match_13(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__value_range__grammar__match_15;
+  frame->cont = cont__types__value_range___grammar__match_15;
 }
 static void entry__types__value_range__grammar__match_14(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -7354,7 +7354,7 @@ static void entry__types__value_range__grammar__match_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__value_range__grammar__match_15(void) {
+static void cont__types__value_range___grammar__match_15(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7367,7 +7367,7 @@ static void cont__types__value_range__grammar__match_15(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__list__grammar__match_1(void) {
+static void entry__types__list___grammar__match(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -7409,7 +7409,7 @@ static void entry__types__list__grammar__match_1(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__types__list__grammar__match_11;
+  frame->cont = cont__types__list___grammar__match_11;
 }
 static void entry__types__list__grammar__match_2(void) {
   allocate_initialized_frame_gc(5, 8);
@@ -7573,7 +7573,7 @@ static void cont__types__list__grammar__match_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__list__grammar__match_11(void) {
+static void cont__types__list___grammar__match_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -7586,7 +7586,7 @@ static void cont__types__list__grammar__match_11(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__object__grammar__search_1(void) {
+static void entry__types__object___grammar__search(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // expr: 0
@@ -7625,9 +7625,9 @@ static void entry__types__object__grammar__search_1(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__types__object__grammar__search_2;
+  frame->cont = cont__types__object___grammar__search_2;
 }
-static void cont__types__object__grammar__search_2(void) {
+static void cont__types__object___grammar__search_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7676,7 +7676,7 @@ static void cont__types__object__grammar__search_2(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__object__grammar__search_62;
+  frame->cont = cont__types__object___grammar__search_62;
 }
 static void entry__types__object__grammar__search_28(void) {
   allocate_initialized_frame_gc(7, 10);
@@ -8809,7 +8809,7 @@ static void cont__types__object__grammar__search_27(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__object__grammar__search_62(void) {
+static void cont__types__object___grammar__search_62(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
@@ -8902,53 +8902,53 @@ EXPORT void phase_2__basic__grammar(void) {
   register_polymorphic_function_with_setter("_basic__grammar::setter_of", &poly_idx__setter_of);
   register_polymorphic_function_with_setter("_basic__grammar::node_of", &poly_idx__node_of);
   register_polymorphic_function_with_setter("_basic__grammar::function_of", &poly_idx__function_of);
-  func__types__optional__grammar__match_1 = create_function(entry__types__optional__grammar__match_1, 2);
-  func__std__optional_1 = create_function(entry__std__optional_1, 1);
-  func__types__many__grammar__match_1 = create_function(entry__types__many__grammar__match_1, 2);
-  func__std__many_1 = create_function(entry__std__many_1, 1);
-  func__types__some__grammar__match_1 = create_function(entry__types__some__grammar__match_1, 2);
-  func__std__some_1 = create_function(entry__std__some_1, 1);
-  func__types__alt__grammar__match_1 = create_function(entry__types__alt__grammar__match_1, 2);
-  func__std__alt_1 = create_function(entry__std__alt_1, -1);
-  func__types__followed_by__grammar__match_1 = create_function(entry__types__followed_by__grammar__match_1, 2);
-  func__std__followed_by_1 = create_function(entry__std__followed_by_1, 1);
-  func__types__not_followed_by__grammar__match_1 = create_function(entry__types__not_followed_by__grammar__match_1, 2);
-  func__std__not_followed_by_1 = create_function(entry__std__not_followed_by_1, 1);
-  func__types__capture__grammar__match_1 = create_function(entry__types__capture__grammar__match_1, 2);
-  func__std__capture_1 = create_function(entry__std__capture_1, -1);
-  func__types__multi_capture__grammar__match_1 = create_function(entry__types__multi_capture__grammar__match_1, 2);
-  func__std__multi_capture_1 = create_function(entry__std__multi_capture_1, -1);
-  func__types__span__grammar__match_1 = create_function(entry__types__span__grammar__match_1, 2);
-  func__std__span_1 = create_function(entry__std__span_1, 2);
-  func__types__multi_span__grammar__match_1 = create_function(entry__types__multi_span__grammar__match_1, 2);
-  func__std__multi_span_1 = create_function(entry__std__multi_span_1, -1);
-  func__types__set_node__grammar__match_1 = create_function(entry__types__set_node__grammar__match_1, 2);
-  func__std__set_node_1 = create_function(entry__std__set_node_1, 1);
-  func__types__inspect_node__grammar__match_1 = create_function(entry__types__inspect_node__grammar__match_1, 2);
-  func__std__inspect_node_1 = create_function(entry__std__inspect_node_1, 1);
-  func__types__modify_node__grammar__match_1 = create_function(entry__types__modify_node__grammar__match_1, 2);
-  func__std__modify_node_1 = create_function(entry__std__modify_node_1, 1);
-  func__types__check_node__grammar__match_1 = create_function(entry__types__check_node__grammar__match_1, 2);
-  func__std__check_node_1 = create_function(entry__std__check_node_1, 1);
-  func__types__grammar_action__grammar__match_1 = create_function(entry__types__grammar_action__grammar__match_1, 2);
-  func__std__grammar_action_1 = create_function(entry__std__grammar_action_1, 1);
-  func__types__set_field__grammar__match_1 = create_function(entry__types__set_field__grammar__match_1, 2);
-  func__std__set_field_1 = create_function(entry__std__set_field_1, 2);
+  func__types__optional___grammar__match = create_function(entry__types__optional___grammar__match, 2);
+  func__std__optional = create_function(entry__std__optional, 1);
+  func__types__many___grammar__match = create_function(entry__types__many___grammar__match, 2);
+  func__std__many = create_function(entry__std__many, 1);
+  func__types__some___grammar__match = create_function(entry__types__some___grammar__match, 2);
+  func__std__some = create_function(entry__std__some, 1);
+  func__types__alt___grammar__match = create_function(entry__types__alt___grammar__match, 2);
+  func__std__alt = create_function(entry__std__alt, -1);
+  func__types__followed_by___grammar__match = create_function(entry__types__followed_by___grammar__match, 2);
+  func__std__followed_by = create_function(entry__std__followed_by, 1);
+  func__types__not_followed_by___grammar__match = create_function(entry__types__not_followed_by___grammar__match, 2);
+  func__std__not_followed_by = create_function(entry__std__not_followed_by, 1);
+  func__types__capture___grammar__match = create_function(entry__types__capture___grammar__match, 2);
+  func__std__capture = create_function(entry__std__capture, -1);
+  func__types__multi_capture___grammar__match = create_function(entry__types__multi_capture___grammar__match, 2);
+  func__std__multi_capture = create_function(entry__std__multi_capture, -1);
+  func__types__span___grammar__match = create_function(entry__types__span___grammar__match, 2);
+  func__std__span = create_function(entry__std__span, 2);
+  func__types__multi_span___grammar__match = create_function(entry__types__multi_span___grammar__match, 2);
+  func__std__multi_span = create_function(entry__std__multi_span, -1);
+  func__types__set_node___grammar__match = create_function(entry__types__set_node___grammar__match, 2);
+  func__std__set_node = create_function(entry__std__set_node, 1);
+  func__types__inspect_node___grammar__match = create_function(entry__types__inspect_node___grammar__match, 2);
+  func__std__inspect_node = create_function(entry__std__inspect_node, 1);
+  func__types__modify_node___grammar__match = create_function(entry__types__modify_node___grammar__match, 2);
+  func__std__modify_node = create_function(entry__std__modify_node, 1);
+  func__types__check_node___grammar__match = create_function(entry__types__check_node___grammar__match, 2);
+  func__std__check_node = create_function(entry__std__check_node, 1);
+  func__types__grammar_action___grammar__match = create_function(entry__types__grammar_action___grammar__match, 2);
+  func__std__grammar_action = create_function(entry__std__grammar_action, 1);
+  func__types__set_field___grammar__match = create_function(entry__types__set_field___grammar__match, 2);
+  func__std__set_field = create_function(entry__std__set_field, 2);
   func__std__END_OF_TEXT__grammar__match_3 = create_function(entry__std__END_OF_TEXT__grammar__match_3, 0);
   func__std__END_OF_TEXT__grammar__match_4 = create_function(entry__std__END_OF_TEXT__grammar__match_4, 0);
-  func__std__END_OF_TEXT__grammar__match_1 = create_function(entry__std__END_OF_TEXT__grammar__match_1, 2);
-  func__std__LETTER__grammar__match_1 = create_function(entry__std__LETTER__grammar__match_1, 2);
-  func__std__UPPER_CASE_LETTER__grammar__match_1 = create_function(entry__std__UPPER_CASE_LETTER__grammar__match_1, 2);
-  func__std__LOWER_CASE_LETTER__grammar__match_1 = create_function(entry__std__LOWER_CASE_LETTER__grammar__match_1, 2);
-  func__std__DIGIT__grammar__match_1 = create_function(entry__std__DIGIT__grammar__match_1, 2);
-  func__std__WHITESPACE_CHARACTER__grammar__match_1 = create_function(entry__std__WHITESPACE_CHARACTER__grammar__match_1, 2);
-  func__std__PRINTABLE_CHARACTER__grammar__match_1 = create_function(entry__std__PRINTABLE_CHARACTER__grammar__match_1, 2);
-  func__std__NON_SPACE_CHARACTER__grammar__match_1 = create_function(entry__std__NON_SPACE_CHARACTER__grammar__match_1, 2);
-  func__std__ANY_CHARACTER__grammar__match_1 = create_function(entry__std__ANY_CHARACTER__grammar__match_1, 2);
-  func__types__character__grammar__match_1 = create_function(entry__types__character__grammar__match_1, 2);
-  func__types__value_range__grammar__match_1 = create_function(entry__types__value_range__grammar__match_1, 2);
-  func__types__list__grammar__match_1 = create_function(entry__types__list__grammar__match_1, 2);
-  func__types__object__grammar__search_1 = create_function(entry__types__object__grammar__search_1, -1);
+  func__std__END_OF_TEXT___grammar__match = create_function(entry__std__END_OF_TEXT___grammar__match, 2);
+  func__std__LETTER___grammar__match = create_function(entry__std__LETTER___grammar__match, 2);
+  func__std__UPPER_CASE_LETTER___grammar__match = create_function(entry__std__UPPER_CASE_LETTER___grammar__match, 2);
+  func__std__LOWER_CASE_LETTER___grammar__match = create_function(entry__std__LOWER_CASE_LETTER___grammar__match, 2);
+  func__std__DIGIT___grammar__match = create_function(entry__std__DIGIT___grammar__match, 2);
+  func__std__WHITESPACE_CHARACTER___grammar__match = create_function(entry__std__WHITESPACE_CHARACTER___grammar__match, 2);
+  func__std__PRINTABLE_CHARACTER___grammar__match = create_function(entry__std__PRINTABLE_CHARACTER___grammar__match, 2);
+  func__std__NON_SPACE_CHARACTER___grammar__match = create_function(entry__std__NON_SPACE_CHARACTER___grammar__match, 2);
+  func__std__ANY_CHARACTER___grammar__match = create_function(entry__std__ANY_CHARACTER___grammar__match, 2);
+  func__types__character___grammar__match = create_function(entry__types__character___grammar__match, 2);
+  func__types__value_range___grammar__match = create_function(entry__types__value_range___grammar__match, 2);
+  func__types__list___grammar__match = create_function(entry__types__list___grammar__match, 2);
+  func__types__object___grammar__search = create_function(entry__types__object___grammar__search, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -9090,35 +9090,35 @@ EXPORT void phase_4__basic__grammar(void) {
   use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
   use_read_only(NULL, "unless", &get__unless, &get_value_or_future__unless);
   use_read_only(NULL, "upper_bound_of", &get__upper_bound_of, &get_value_or_future__upper_bound_of);
-  define_method("types", "optional", poly_idx__grammar__match, func__types__optional__grammar__match_1);
-  define_method("types", "many", poly_idx__grammar__match, func__types__many__grammar__match_1);
-  define_method("types", "some", poly_idx__grammar__match, func__types__some__grammar__match_1);
-  define_method("types", "alt", poly_idx__grammar__match, func__types__alt__grammar__match_1);
-  define_method("types", "followed_by", poly_idx__grammar__match, func__types__followed_by__grammar__match_1);
-  define_method("types", "not_followed_by", poly_idx__grammar__match, func__types__not_followed_by__grammar__match_1);
-  define_method("types", "capture", poly_idx__grammar__match, func__types__capture__grammar__match_1);
-  define_method("types", "multi_capture", poly_idx__grammar__match, func__types__multi_capture__grammar__match_1);
-  define_method("types", "span", poly_idx__grammar__match, func__types__span__grammar__match_1);
-  define_method("types", "multi_span", poly_idx__grammar__match, func__types__multi_span__grammar__match_1);
-  define_method("types", "set_node", poly_idx__grammar__match, func__types__set_node__grammar__match_1);
-  define_method("types", "inspect_node", poly_idx__grammar__match, func__types__inspect_node__grammar__match_1);
-  define_method("types", "modify_node", poly_idx__grammar__match, func__types__modify_node__grammar__match_1);
-  define_method("types", "check_node", poly_idx__grammar__match, func__types__check_node__grammar__match_1);
-  define_method("types", "grammar_action", poly_idx__grammar__match, func__types__grammar_action__grammar__match_1);
-  define_method("types", "set_field", poly_idx__grammar__match, func__types__set_field__grammar__match_1);
-  define_method("std", "END_OF_TEXT", poly_idx__grammar__match, func__std__END_OF_TEXT__grammar__match_1);
-  define_method("std", "LETTER", poly_idx__grammar__match, func__std__LETTER__grammar__match_1);
-  define_method("std", "UPPER_CASE_LETTER", poly_idx__grammar__match, func__std__UPPER_CASE_LETTER__grammar__match_1);
-  define_method("std", "LOWER_CASE_LETTER", poly_idx__grammar__match, func__std__LOWER_CASE_LETTER__grammar__match_1);
-  define_method("std", "DIGIT", poly_idx__grammar__match, func__std__DIGIT__grammar__match_1);
-  define_method("std", "WHITESPACE_CHARACTER", poly_idx__grammar__match, func__std__WHITESPACE_CHARACTER__grammar__match_1);
-  define_method("std", "PRINTABLE_CHARACTER", poly_idx__grammar__match, func__std__PRINTABLE_CHARACTER__grammar__match_1);
-  define_method("std", "NON_SPACE_CHARACTER", poly_idx__grammar__match, func__std__NON_SPACE_CHARACTER__grammar__match_1);
-  define_method("std", "ANY_CHARACTER", poly_idx__grammar__match, func__std__ANY_CHARACTER__grammar__match_1);
-  define_method("types", "character", poly_idx__grammar__match, func__types__character__grammar__match_1);
-  define_method("types", "value_range", poly_idx__grammar__match, func__types__value_range__grammar__match_1);
-  define_method("types", "list", poly_idx__grammar__match, func__types__list__grammar__match_1);
-  define_method("types", "object", poly_idx__grammar__search, func__types__object__grammar__search_1);
+  define_method("types", "optional", poly_idx__grammar__match, func__types__optional___grammar__match);
+  define_method("types", "many", poly_idx__grammar__match, func__types__many___grammar__match);
+  define_method("types", "some", poly_idx__grammar__match, func__types__some___grammar__match);
+  define_method("types", "alt", poly_idx__grammar__match, func__types__alt___grammar__match);
+  define_method("types", "followed_by", poly_idx__grammar__match, func__types__followed_by___grammar__match);
+  define_method("types", "not_followed_by", poly_idx__grammar__match, func__types__not_followed_by___grammar__match);
+  define_method("types", "capture", poly_idx__grammar__match, func__types__capture___grammar__match);
+  define_method("types", "multi_capture", poly_idx__grammar__match, func__types__multi_capture___grammar__match);
+  define_method("types", "span", poly_idx__grammar__match, func__types__span___grammar__match);
+  define_method("types", "multi_span", poly_idx__grammar__match, func__types__multi_span___grammar__match);
+  define_method("types", "set_node", poly_idx__grammar__match, func__types__set_node___grammar__match);
+  define_method("types", "inspect_node", poly_idx__grammar__match, func__types__inspect_node___grammar__match);
+  define_method("types", "modify_node", poly_idx__grammar__match, func__types__modify_node___grammar__match);
+  define_method("types", "check_node", poly_idx__grammar__match, func__types__check_node___grammar__match);
+  define_method("types", "grammar_action", poly_idx__grammar__match, func__types__grammar_action___grammar__match);
+  define_method("types", "set_field", poly_idx__grammar__match, func__types__set_field___grammar__match);
+  define_method("std", "END_OF_TEXT", poly_idx__grammar__match, func__std__END_OF_TEXT___grammar__match);
+  define_method("std", "LETTER", poly_idx__grammar__match, func__std__LETTER___grammar__match);
+  define_method("std", "UPPER_CASE_LETTER", poly_idx__grammar__match, func__std__UPPER_CASE_LETTER___grammar__match);
+  define_method("std", "LOWER_CASE_LETTER", poly_idx__grammar__match, func__std__LOWER_CASE_LETTER___grammar__match);
+  define_method("std", "DIGIT", poly_idx__grammar__match, func__std__DIGIT___grammar__match);
+  define_method("std", "WHITESPACE_CHARACTER", poly_idx__grammar__match, func__std__WHITESPACE_CHARACTER___grammar__match);
+  define_method("std", "PRINTABLE_CHARACTER", poly_idx__grammar__match, func__std__PRINTABLE_CHARACTER___grammar__match);
+  define_method("std", "NON_SPACE_CHARACTER", poly_idx__grammar__match, func__std__NON_SPACE_CHARACTER___grammar__match);
+  define_method("std", "ANY_CHARACTER", poly_idx__grammar__match, func__std__ANY_CHARACTER___grammar__match);
+  define_method("types", "character", poly_idx__grammar__match, func__types__character___grammar__match);
+  define_method("types", "value_range", poly_idx__grammar__match, func__types__value_range___grammar__match);
+  define_method("types", "list", poly_idx__grammar__match, func__types__list___grammar__match);
+  define_method("types", "object", poly_idx__grammar__search, func__types__object___grammar__search);
 }
 
 static int already_run_phase_5 = false;
@@ -9136,37 +9136,37 @@ EXPORT void phase_5__basic__grammar(void) {
   assign_value(&var._node_of, create_function(type__node_of, -1));
   assign_value(&var._function_of, create_function(type__function_of, -1));
   initialize_future(var.types__optional, var.types__grammar_object);
-  initialize_future(var.std__optional, func__std__optional_1);
+  initialize_future(var.std__optional, func__std__optional);
   initialize_future(var.types__many, var.types__grammar_object);
-  initialize_future(var.std__many, func__std__many_1);
+  initialize_future(var.std__many, func__std__many);
   initialize_future(var.types__some, var.types__grammar_object);
-  initialize_future(var.std__some, func__std__some_1);
+  initialize_future(var.std__some, func__std__some);
   initialize_future(var.types__alt, var.types__grammar_object);
-  initialize_future(var.std__alt, func__std__alt_1);
+  initialize_future(var.std__alt, func__std__alt);
   initialize_future(var.types__followed_by, var.types__grammar_object);
-  initialize_future(var.std__followed_by, func__std__followed_by_1);
+  initialize_future(var.std__followed_by, func__std__followed_by);
   initialize_future(var.types__not_followed_by, var.types__grammar_object);
-  initialize_future(var.std__not_followed_by, func__std__not_followed_by_1);
+  initialize_future(var.std__not_followed_by, func__std__not_followed_by);
   initialize_future(var.types__capture, var.types__grammar_object);
-  initialize_future(var.std__capture, func__std__capture_1);
+  initialize_future(var.std__capture, func__std__capture);
   initialize_future(var.types__multi_capture, var.types__grammar_object);
-  initialize_future(var.std__multi_capture, func__std__multi_capture_1);
+  initialize_future(var.std__multi_capture, func__std__multi_capture);
   initialize_future(var.types__span, var.types__grammar_object);
-  initialize_future(var.std__span, func__std__span_1);
+  initialize_future(var.std__span, func__std__span);
   initialize_future(var.types__multi_span, var.types__grammar_object);
-  initialize_future(var.std__multi_span, func__std__multi_span_1);
+  initialize_future(var.std__multi_span, func__std__multi_span);
   initialize_future(var.types__set_node, var.types__grammar_object);
-  initialize_future(var.std__set_node, func__std__set_node_1);
+  initialize_future(var.std__set_node, func__std__set_node);
   initialize_future(var.types__inspect_node, var.types__grammar_object);
-  initialize_future(var.std__inspect_node, func__std__inspect_node_1);
+  initialize_future(var.std__inspect_node, func__std__inspect_node);
   initialize_future(var.types__modify_node, var.types__grammar_object);
-  initialize_future(var.std__modify_node, func__std__modify_node_1);
+  initialize_future(var.std__modify_node, func__std__modify_node);
   initialize_future(var.types__check_node, var.types__grammar_object);
-  initialize_future(var.std__check_node, func__std__check_node_1);
+  initialize_future(var.std__check_node, func__std__check_node);
   initialize_future(var.types__grammar_action, var.types__grammar_object);
-  initialize_future(var.std__grammar_action, func__std__grammar_action_1);
+  initialize_future(var.std__grammar_action, func__std__grammar_action);
   initialize_future(var.types__set_field, var.types__grammar_object);
-  initialize_future(var.std__set_field, func__std__set_field_1);
+  initialize_future(var.std__set_field, func__std__set_field);
   initialize_future(var.std__END_OF_TEXT, var.types__grammar_object);
   initialize_future(var.std__LETTER, var.types__grammar_object);
   initialize_future(var.std__UPPER_CASE_LETTER, var.types__grammar_object);

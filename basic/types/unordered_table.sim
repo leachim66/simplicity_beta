@@ -399,7 +399,7 @@ $insert_item
       entries = new_data->entries;
     }
 
-    NODE *key_node = var._NONE; // default: item has been inserted
+    NODE *key_node = unique__NONE; // default: item has been inserted
 
     long idx = hash % size;
     //fprintf(stderr, "insert into slot %ld\n", idx);
@@ -435,7 +435,7 @@ $insert_item
       // fall through
       // the key is no longer present - must be removed by a garbage collection
       // so insert a new key collision entry
-    } else if (cmp_key == var._NONE) {
+    } else if (cmp_key == unique__NONE) {
       // first call to attempt to insert the new key and value
 
       while (key_collision) {
@@ -446,7 +446,7 @@ $insert_item
         // another object for the same key-value
         // we delegate the decision to the caller unless we find an identical key
 
-        if (cmp_key == var._NONE) {
+        if (cmp_key == unique__NONE) {
           // let's store this key for later check by the caller
 
           cmp_key = key_collision->key;
@@ -455,7 +455,7 @@ $insert_item
         key_collision = key_collision->link;
       }
 
-      if (cmp_key != var._NONE) {
+      if (cmp_key != unique__NONE) {
         // let the caller check this key
 
         //fprintf(stderr, "let the caller check this key\n");
@@ -551,7 +551,7 @@ $retrieve_item
     long rev_no = myself->rev_no;
     UNORDERED_TABLE_DATA *data = myself->data;
 
-    NODE *key_node = var._NONE;
+    NODE *key_node = unique__NONE;
     NODE *value_node = UNDEFINED;
     if (!data) goto leave;
 
@@ -573,7 +573,7 @@ $retrieve_item
     //fprintf(stderr, "found identical hash\n");
     UNORDERED_TABLE_KEY_COLLISION *key_collision = hash_collision->key_collisions;
 
-    if (cmp_key == var._NONE) {
+    if (cmp_key == unique__NONE) {
       if (key_collision) goto found_matching_key;
       goto leave;
     }
@@ -678,7 +678,7 @@ $next_key_and_value
     uint32_t hash = to_uint32(ARGUMENTS(1));
     NODE *cmp_key = ARGUMENTS(2);
 
-    NODE *key_node = var._NONE; // default: no more key and value found
+    NODE *key_node = unique__NONE; // default: no more key and value found
     NODE *value_node = UNDEFINED;
 
     UNORDERED_TABLE_DATA *data = myself->data;
@@ -690,7 +690,7 @@ $next_key_and_value
       UNORDERED_TABLE_HASH_COLLISION *hash_collision;
       UNORDERED_TABLE_KEY_COLLISION *key_collision;
       UNORDERED_TABLE_REVISION *revision;
-      if (cmp_key == var._NONE) {
+      if (cmp_key == unique__NONE) {
         // find first key
         for (idx = 0; idx < size; ++idx) {
           hash_collision = entries[idx];
@@ -748,7 +748,7 @@ $previous_key_and_value
     uint32_t hash = to_uint32(ARGUMENTS(1));
     NODE *cmp_key = ARGUMENTS(2);
 
-    NODE *key_node = var._NONE; // default: no more key and value found
+    NODE *key_node = unique__NONE; // default: no more key and value found
     NODE *value_node = UNDEFINED;
 
     UNORDERED_TABLE_DATA *data = myself->data;
@@ -760,7 +760,7 @@ $previous_key_and_value
       UNORDERED_TABLE_HASH_COLLISION *hash_collision;
       UNORDERED_TABLE_KEY_COLLISION *key_collision;
       UNORDERED_TABLE_REVISION *revision;
-      if (cmp_key == var._NONE) {
+      if (cmp_key == unique__NONE) {
         // find last key
         idx = size-1;
       } else {
@@ -777,8 +777,8 @@ $previous_key_and_value
               if (revision->rev_no <= rev_no) {
                 if (revision->value == UNDEFINED) goto skip;
                 if (key_collision->key == cmp_key) {
-                  if (key_node != var._NONE) goto leave;
-                  cmp_key = var._NONE;
+                  if (key_node != unique__NONE) goto leave;
+                  cmp_key = unique__NONE;
                   goto find_previous;
                 }
                 key_node = key_collision->key;
@@ -792,7 +792,7 @@ $previous_key_and_value
           }
           hash_collision = hash_collision->link;
         }
-        if (key_node != var._NONE) goto leave;
+        if (key_node != unique__NONE) goto leave;
         find_previous:
         --idx;
       }

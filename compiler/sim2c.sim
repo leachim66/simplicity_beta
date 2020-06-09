@@ -194,6 +194,18 @@ $compiler::update_info:
     :
       return info
 
+#
+  passes:
+
+  fragmenter
+  tokenizer
+  parser
+  (pretty printer)
+  expander
+  annotater
+  simplifier
+  code generator
+
 $compiler::sim2c:
   (
     filenames
@@ -226,7 +238,8 @@ $compiler::sim2c:
   %%compiler::needed_names empty_key_order_table
   %%compiler::assigned_names empty_set
   %%compiler::string_literals empty_table
-  %%compiler::unique_item_index 1
+  %%compiler::unique_item_index 0
+  %%compiler::used_unique_items empty_set
   %%compiler::use_inline_c false # set, if an inline-C expression is encountered
   %%compiler::defined_structs set("NODE")
   %%compiler::defined_nodes table("SIMPLE_NODE" = c_code(.source_of ""))
@@ -362,6 +375,44 @@ $compiler::sim2c:
   if do_dump_trees:
     for_each trees: (tree) write debug_string(strip(tree) 0 99)
     terminate
+
+  #
+    find potential named constants (literals and function bodies)
+
+  %%named_constants empty_table
+  for_each trees: (tree)
+    if tree.is_an_assignment:
+      $arguments arguments_of(tree)
+      $destination arguments(1)
+      $source arguments(2)
+
+      #
+	namespaced objects could be modified elsewhere
+
+      if
+	&&
+	  destination.is_a_static_single_definition
+	  namespace_of(identifier_of(destination)).is_undefined
+	  not(source.is_a_polymorphic_function_constant)
+	  #not(source.is_a_body)
+	  not(source.is_a_c_body)
+	  source.is_a_constant
+	:
+	  !named_constants(name_of(identifier_of(destination)))
+	    source(.is_a_reference true)
+
+  #
+    remove all prototype objects from the table of named constants
+
+  for_each trees: (tree)
+    if tree.is_an_assignment:
+      $destination arguments_of(tree)(1)
+      if
+	&&
+	  destination.is_a_static_single_definition
+	  attribute_kind_of(destination) != NONE
+	:
+	  !named_constants(identifier_of(destination).to_string) undefined
   $$all_definitions empty_list
   $$all_statements empty_list
   $$max_temp_idx 0
@@ -611,12 +662,20 @@ $compiler::sim2c:
 		      :
 			define_type_function definition source
 		  :
-		    define_variable
-		      definition
-		      source
+		    $identifier identifier_of(definition)
+		    if
 		      ||
-			identifier_of(definition).to_string.is_a_prototype
-			namespace_of(identifier_of(definition)).is_defined
+			namespace_of(identifier).is_defined
+			named_constants(name_of(identifier)).is_undefined
+		      :
+			define_variable
+			  definition
+			  source
+			  ||
+			    identifier_of(definition).to_string.is_a_prototype
+			    namespace_of(identifier_of(definition)).is_defined
+		      :
+			if source.is_a_body: ignore source.to_c
     if delayed_code != "": write_to_delayed_statements delayed_code
     push &actions: append &generated_code code
     push &all_actions actions

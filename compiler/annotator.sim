@@ -29,6 +29,7 @@
 <using node>
 
 %%defines_dynamics undefined
+%level 1
 
 $compiler::annotate_statement ()
 $compiler::annotate_expression ()
@@ -92,11 +93,13 @@ $compiler::check_definitions: (defined_names used_names)
 $compiler::body/annotate_expression: (&self)
   show_compiler_debug_info "annotate body"
   $$locally_assigned_names undefined
+  $outer_level level
   do:
     %%compiler::defined_names empty_list
     %%compiler::used_names empty_insert_order_table
     %%compiler::assigned_names empty_set
     %%defines_dynamics false
+    %level outer_level+1
     update_each &self.parameters_of: (&parameter)
       push &defined_names parameter
       if
@@ -161,15 +164,24 @@ $compiler::call/annotate_statement: (&self)
 	annotate_expression &self.continuation_of
       annotate_expression &self.functor_of
     :
-      unless arguments_of(self).is_empty:
-	$destination arguments_of(self)(1)
+      $destination arguments_of(self)(1)
+      if destination.is_a_definition:
+	$source arguments_of(self)(2)
 	if
-	  &&
-	    destination.is_a_definition
-	    arguments_of(self)(2).is_a_unique_item_constant
+	  ||
+	    source.is_a_unique_item_constant
+	    source.is_a_body && level == 1
+	    source.is_a_c_body && level == 1
 	  :
-	    !self.arguments_of(2).name_of
-	      mangled_name_of(identifier_of(destination))
+	    $$name mangled_name_of(identifier_of(destination))
+	    if attribute_kind_of(destination) != NONE:
+	      $attribute attribute_of(destination)
+	      if
+		attribute.is_defined:
+		  append &name string("___" mangled_name_of(attribute))
+		:
+		  append &name string("____type")
+	    !self.arguments_of(2).name_of name
   annotate_arguments &self.arguments_of
 
 ###

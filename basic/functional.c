@@ -286,9 +286,9 @@ static struct {
 } var;
 static const char *var_names[] = {
 };
-static NODE *func__std__any_of_1;
-static void entry__std__any_of_1(void);
-static FRAME_INFO frame__std__any_of_1 = {4, {"collection", "test", "arguments", "return"}};
+static NODE *func__std__any_of;
+static void entry__std__any_of(void);
+static FRAME_INFO frame__std__any_of = {4, {"collection", "test", "arguments", "return"}};
 static void cont__std__any_of_2(void);
 static NODE *func__std__any_of_3;
 static void entry__std__any_of_3(void);
@@ -314,9 +314,9 @@ static void cont__std__any_of_11(void);
 static NODE *get__std__any_of(void) {
   return var.std__any_of;
 }
-static NODE *func__std__all_of_1;
-static void entry__std__all_of_1(void);
-static FRAME_INFO frame__std__all_of_1 = {4, {"collection", "test", "arguments", "return"}};
+static NODE *func__std__all_of;
+static void entry__std__all_of(void);
+static FRAME_INFO frame__std__all_of = {4, {"collection", "test", "arguments", "return"}};
 static void cont__std__all_of_2(void);
 static NODE *func__std__all_of_3;
 static void entry__std__all_of_3(void);
@@ -342,9 +342,9 @@ static void cont__std__all_of_11(void);
 static NODE *get__std__all_of(void) {
   return var.std__all_of;
 }
-static NODE *func__std__fold_1;
-static void entry__std__fold_1(void);
-static FRAME_INFO frame__std__fold_1 = {4, {"base", "func", "collection", "result"}};
+static NODE *func__std__fold;
+static void entry__std__fold(void);
+static FRAME_INFO frame__std__fold = {4, {"base", "func", "collection", "result"}};
 static NODE *func__std__fold_2;
 static void entry__std__fold_2(void);
 static FRAME_INFO frame__std__fold_2 = {3, {"item", "result", "func"}};
@@ -360,9 +360,9 @@ static void cont__std__fold_7(void);
 static NODE *get__std__fold(void) {
   return var.std__fold;
 }
-static NODE *func__std__find_first_1;
-static void entry__std__find_first_1(void);
-static FRAME_INFO frame__std__find_first_1 = {4, {"collection", "test", "arguments", "return"}};
+static NODE *func__std__find_first;
+static void entry__std__find_first(void);
+static FRAME_INFO frame__std__find_first = {4, {"collection", "test", "arguments", "return"}};
 static void cont__std__find_first_2(void);
 static void cont__std__find_first_3(void);
 static NODE *func__std__find_first_4;
@@ -431,9 +431,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__any_of_8, NULL, 39, 39, 38, 58},
   {cont__std__any_of_9, &frame__std__any_of_8, 39, 39, 35, 71},
   {entry__std__any_of_7, NULL, 39, 39, 7, 71},
-  {entry__std__any_of_1, NULL, 36, 36, 5, 22},
-  {cont__std__any_of_2, &frame__std__any_of_1, 35, 39, 3, 72},
-  {cont__std__any_of_11, &frame__std__any_of_1, 40, 40, 3, 10},
+  {entry__std__any_of, NULL, 36, 36, 5, 22},
+  {cont__std__any_of_2, &frame__std__any_of, 35, 39, 3, 72},
+  {cont__std__any_of_11, &frame__std__any_of, 40, 40, 3, 10},
   {entry__std__all_of_6, NULL, 56, 56, 54, 65},
   {entry__std__all_of_4, NULL, 56, 56, 42, 51},
   {cont__std__all_of_5, &frame__std__all_of_4, 56, 56, 35, 65},
@@ -442,16 +442,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__all_of_8, NULL, 58, 58, 42, 62},
   {cont__std__all_of_9, &frame__std__all_of_8, 58, 58, 35, 76},
   {entry__std__all_of_7, NULL, 58, 58, 7, 76},
-  {entry__std__all_of_1, NULL, 55, 55, 5, 22},
-  {cont__std__all_of_2, &frame__std__all_of_1, 54, 58, 3, 77},
-  {cont__std__all_of_11, &frame__std__all_of_1, 59, 59, 3, 9},
+  {entry__std__all_of, NULL, 55, 55, 5, 22},
+  {cont__std__all_of_2, &frame__std__all_of, 54, 58, 3, 77},
+  {cont__std__all_of_11, &frame__std__all_of, 59, 59, 3, 9},
   {entry__std__fold_4, NULL, 91, 91, 9, 33},
   {cont__std__fold_5, &frame__std__fold_4, 91, 91, 33, 33},
   {entry__std__fold_6, NULL, 93, 93, 20, 20},
   {entry__std__fold_2, NULL, 90, 90, 7, 23},
   {cont__std__fold_3, &frame__std__fold_2, 89, 93, 5, 21},
-  {entry__std__fold_1, NULL, 88, 93, 3, 22},
-  {cont__std__fold_7, &frame__std__fold_1, 94, 94, 3, 11},
+  {entry__std__fold, NULL, 88, 93, 3, 22},
+  {cont__std__fold_7, &frame__std__fold, 94, 94, 3, 11},
   {entry__std__find_first_9, NULL, 117, 117, 58, 72},
   {entry__std__find_first_7, NULL, 117, 117, 46, 55},
   {cont__std__find_first_8, &frame__std__find_first_7, 117, 117, 43, 72},
@@ -474,10 +474,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__find_first_15, NULL, 124, 124, 9, 26},
   {cont__std__find_first_16, &frame__std__find_first_15, 123, 127, 7, 81},
   {cont__std__find_first_25, &frame__std__find_first_15, 128, 128, 7, 18},
-  {entry__std__find_first_1, NULL, 114, 114, 5, 30},
-  {cont__std__find_first_2, &frame__std__find_first_1, 114, 114, 5, 35},
-  {cont__std__find_first_3, &frame__std__find_first_1, 113, 128, 3, 19},
-  {cont__std__find_first_26, &frame__std__find_first_1, 128, 128, 19, 19}
+  {entry__std__find_first, NULL, 114, 114, 5, 30},
+  {cont__std__find_first_2, &frame__std__find_first, 114, 114, 5, 35},
+  {cont__std__find_first_3, &frame__std__find_first, 113, 128, 3, 19},
+  {cont__std__find_first_26, &frame__std__find_first, 128, 128, 19, 19}
 };
 
 union NODE {
@@ -525,7 +525,7 @@ EXPORT void run__basic__functional(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__any_of_1(void) {
+static void entry__std__any_of(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
@@ -759,7 +759,7 @@ static void cont__std__any_of_11(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__all_of_1(void) {
+static void entry__std__all_of(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
@@ -993,7 +993,7 @@ static void cont__std__all_of_11(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__fold_1(void) {
+static void entry__std__fold(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // base: 0
@@ -1157,7 +1157,7 @@ static void cont__std__fold_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__find_first_1(void) {
+static void entry__std__find_first(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
@@ -1754,10 +1754,10 @@ EXPORT void phase_2__basic__functional(void) {
   already_run_phase_2 = true;
   set_module("basic__functional");
   number__2 = from_uint32(2U);
-  func__std__any_of_1 = create_function(entry__std__any_of_1, -1);
-  func__std__all_of_1 = create_function(entry__std__all_of_1, -1);
-  func__std__fold_1 = create_function(entry__std__fold_1, -1);
-  func__std__find_first_1 = create_function(entry__std__find_first_1, -1);
+  func__std__any_of = create_function(entry__std__any_of, -1);
+  func__std__all_of = create_function(entry__std__all_of, -1);
+  func__std__fold = create_function(entry__std__fold, -1);
+  func__std__find_first = create_function(entry__std__find_first, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -1801,10 +1801,10 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__functional(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  initialize_future(var.std__any_of, func__std__any_of_1);
-  initialize_future(var.std__all_of, func__std__all_of_1);
-  initialize_future(var.std__fold, func__std__fold_1);
-  initialize_future(var.std__find_first, func__std__find_first_1);
+  initialize_future(var.std__any_of, func__std__any_of);
+  initialize_future(var.std__all_of, func__std__all_of);
+  initialize_future(var.std__fold, func__std__fold);
+  initialize_future(var.std__find_first, func__std__find_first);
 }
 
 static int already_run_phase_6 = false;

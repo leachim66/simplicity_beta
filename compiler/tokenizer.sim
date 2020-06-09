@@ -20,8 +20,8 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 #
-  converts the indentation of a fragment into tokens for indent_marker, outdent_marker and
-  newline;
+  converts the indentation of a fragment into tokens for indent_marker,
+  outdent_marker and newline;
   if there are multiple successive OUTDENTS, only the last one is followed by a
   newline
 

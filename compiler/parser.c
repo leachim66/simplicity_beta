@@ -224,7 +224,6 @@ IMPORT void define_single_assign_static(
   NODE_GETTER getter, NODE **var_p
 );
 IMPORT void register_dynamic(int *id_p);
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -245,7 +244,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void def_attribute(NODE **var_p, int idx, void *attr);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void maybe_initialize_future(NODE *var, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
@@ -717,27 +715,16 @@ static NODE_GETTER get__variable_kind_of;
 static NODE_GETTER get__while;
 static NODE_GETTER get_value_or_future__while;
 static struct {
-  NODE *_print_message;
-  NODE *_ExitWithSyntaxError;
-  NODE *_ParseError;
-  NODE *_syntax_error;
-  NODE *_unexpected_input_error;
   NODE *_dump_stream;
   NODE *_dump;
   NODE *_dump3;
   NODE *_dump5;
   NODE *_precedence_table;
-  NODE *_is_right_associative;
-  NODE *_infix_operator;
-  NODE *_interleaved;
-  NODE *_store_arguments_index;
-  NODE *_inline;
   NODE *_NOT_INLINE;
   NODE *_NEWLINE;
   NODE *_INDENT;
   NODE *_OUTDENT;
   NODE *_HASHTAG;
-  NODE *_expect;
   NODE *_SEPARATOR;
   NODE *_NEWLINES;
   NODE *_STORE_POSITION;
@@ -856,10 +843,6 @@ static struct {
   NODE *_INLINE_ARGUMENTS;
   NODE *_INDENTED_ARGUMENTS;
   NODE *_ARGUMENTS;
-  NODE *_ONE_OR_MORE;
-  NODE *_check_functor;
-  NODE *_check_arguments;
-  NODE *_CHECK_ARGUMENTS;
   NODE *_ASSIGNMENT_STATEMENT;
   NODE *_PROCEDURE_STATEMENT;
   NODE *_RETURN_STATEMENT;
@@ -901,27 +884,16 @@ static struct {
   NODE *compiler__parse_statement;
 } var;
 static const char *var_names[] = {
-  "print_message",
-  "ExitWithSyntaxError",
-  "ParseError",
-  "syntax_error",
-  "unexpected_input_error",
   "dump_stream",
   "dump",
   "dump3",
   "dump5",
   "precedence_table",
-  "is_right_associative",
-  "infix_operator",
-  "interleaved",
-  "store_arguments_index",
-  "inline",
   "NOT_INLINE",
   "NEWLINE",
   "INDENT",
   "OUTDENT",
   "HASHTAG",
-  "expect",
   "SEPARATOR",
   "NEWLINES",
   "STORE_POSITION",
@@ -1040,10 +1012,6 @@ static const char *var_names[] = {
   "INLINE_ARGUMENTS",
   "INDENTED_ARGUMENTS",
   "ARGUMENTS",
-  "ONE_OR_MORE",
-  "check_functor",
-  "check_arguments",
-  "CHECK_ARGUMENTS",
   "ASSIGNMENT_STATEMENT",
   "PROCEDURE_STATEMENT",
   "RETURN_STATEMENT",
@@ -1068,16 +1036,16 @@ static const char *var_names[] = {
   "META_FRAGMENT",
   "FRAGMENT"
 };
-static NODE *func__compiler__std_identifier_1;
-static void entry__compiler__std_identifier_1(void);
-static FRAME_INFO frame__compiler__std_identifier_1 = {1, {"name"}};
+static NODE *func__compiler__std_identifier;
+static void entry__compiler__std_identifier(void);
+static FRAME_INFO frame__compiler__std_identifier = {1, {"name"}};
 static NODE *string__fa724815d896ba8;
 static NODE *get__compiler__std_identifier(void) {
   return var.compiler__std_identifier;
 }
-static NODE *func__print_message_1;
-static void entry__print_message_1(void);
-static FRAME_INFO frame__print_message_1 = {12, {"fragment", "offset", "msg_type", "msg", "source", "pos", "line_no", "line_offset", "n", "text", "rest", "line"}};
+static NODE *func__print_message;
+static void entry__print_message(void);
+static FRAME_INFO frame__print_message = {12, {"fragment", "offset", "msg_type", "msg", "source", "pos", "line_no", "line_offset", "n", "text", "rest", "line"}};
 static void cont__print_message_2(void);
 static void cont__print_message_3(void);
 static void cont__print_message_4(void);
@@ -1164,55 +1132,55 @@ static void cont__print_message_64(void);
 static NODE *string__578a5af303e9cc1;
 static void cont__print_message_66(void);
 static NODE *string__578a5af303e9cbf;
-static NODE *func__compiler__Warning_1;
-static void entry__compiler__Warning_1(void);
-static FRAME_INFO frame__compiler__Warning_1 = {2, {"obj", "msg"}};
+static NODE *func__compiler__Warning;
+static void entry__compiler__Warning(void);
+static FRAME_INFO frame__compiler__Warning = {2, {"obj", "msg"}};
 static void cont__compiler__Warning_2(void);
 static void cont__compiler__Warning_3(void);
 static NODE *string__eed8078214c9e0bd;
 static NODE *get__compiler__Warning(void) {
   return var.compiler__Warning;
 }
-static NODE *func__ExitWithSyntaxError_1;
-static void entry__ExitWithSyntaxError_1(void);
-static FRAME_INFO frame__ExitWithSyntaxError_1 = {3, {"fragment", "offset", "msg"}};
+static NODE *func__ExitWithSyntaxError;
+static void entry__ExitWithSyntaxError(void);
+static FRAME_INFO frame__ExitWithSyntaxError = {3, {"fragment", "offset", "msg"}};
 static NODE *string__ae3c04ed6f185295;
 static void cont__ExitWithSyntaxError_3(void);
-static NODE *func__compiler__SyntaxError_1;
-static void entry__compiler__SyntaxError_1(void);
-static FRAME_INFO frame__compiler__SyntaxError_1 = {2, {"obj", "msg"}};
+static NODE *func__compiler__SyntaxError;
+static void entry__compiler__SyntaxError(void);
+static FRAME_INFO frame__compiler__SyntaxError = {2, {"obj", "msg"}};
 static void cont__compiler__SyntaxError_2(void);
 static void cont__compiler__SyntaxError_3(void);
 static NODE *get__compiler__SyntaxError(void) {
   return var.compiler__SyntaxError;
 }
-static NODE *func__ParseError_1;
-static void entry__ParseError_1(void);
-static FRAME_INFO frame__ParseError_1 = {2, {"stream", "msg"}};
+static NODE *func__ParseError;
+static void entry__ParseError(void);
+static FRAME_INFO frame__ParseError = {2, {"stream", "msg"}};
 static void cont__ParseError_2(void);
 static NODE *get__types__syntax_error(void) {
   return var.types__syntax_error;
 }
-static NODE *func__types__syntax_error__grammar__match_1;
-static void entry__types__syntax_error__grammar__match_1(void);
-static FRAME_INFO frame__types__syntax_error__grammar__match_1 = {2, {"self", "stream"}};
-static void cont__types__syntax_error__grammar__match_2(void);
-static NODE *func__syntax_error_1;
-static void entry__syntax_error_1(void);
-static FRAME_INFO frame__syntax_error_1 = {1, {"message"}};
+static NODE *func__types__syntax_error___grammar__match;
+static void entry__types__syntax_error___grammar__match(void);
+static FRAME_INFO frame__types__syntax_error___grammar__match = {2, {"self", "stream"}};
+static void cont__types__syntax_error___grammar__match_2(void);
+static NODE *func__syntax_error;
+static void entry__syntax_error(void);
+static FRAME_INFO frame__syntax_error = {1, {"message"}};
 static NODE *get__types__unexpected_input_error(void) {
   return var.types__unexpected_input_error;
 }
-static NODE *func__types__unexpected_input_error__grammar__match_1;
-static void entry__types__unexpected_input_error__grammar__match_1(void);
-static FRAME_INFO frame__types__unexpected_input_error__grammar__match_1 = {3, {"self", "stream", "expression"}};
-static void cont__types__unexpected_input_error__grammar__match_2(void);
-static void cont__types__unexpected_input_error__grammar__match_3(void);
+static NODE *func__types__unexpected_input_error___grammar__match;
+static void entry__types__unexpected_input_error___grammar__match(void);
+static FRAME_INFO frame__types__unexpected_input_error___grammar__match = {3, {"self", "stream", "expression"}};
+static void cont__types__unexpected_input_error___grammar__match_2(void);
+static void cont__types__unexpected_input_error___grammar__match_3(void);
 static NODE *func__types__unexpected_input_error__grammar__match_4;
 static void entry__types__unexpected_input_error__grammar__match_4(void);
 static FRAME_INFO frame__types__unexpected_input_error__grammar__match_4 = {1, {"expression"}};
 static void cont__types__unexpected_input_error__grammar__match_5(void);
-static void cont__types__unexpected_input_error__grammar__match_6(void);
+static void cont__types__unexpected_input_error___grammar__match_6(void);
 static NODE *func__types__unexpected_input_error__grammar__match_7;
 static void entry__types__unexpected_input_error__grammar__match_7(void);
 static FRAME_INFO frame__types__unexpected_input_error__grammar__match_7 = {2, {"expression", "stream"}};
@@ -1250,21 +1218,21 @@ static NODE *func__types__unexpected_input_error__grammar__match_26;
 static void entry__types__unexpected_input_error__grammar__match_26(void);
 static FRAME_INFO frame__types__unexpected_input_error__grammar__match_26 = {1, {"stream"}};
 static NODE *string__4914d002f7e03078;
-static NODE *func__unexpected_input_error_1;
-static void entry__unexpected_input_error_1(void);
-static FRAME_INFO frame__unexpected_input_error_1 = {1, {"expression"}};
-static NODE *func__dump_stream__grammar__match_1;
-static void entry__dump_stream__grammar__match_1(void);
-static FRAME_INFO frame__dump_stream__grammar__match_1 = {2, {"self", "stream"}};
+static NODE *func__unexpected_input_error;
+static void entry__unexpected_input_error(void);
+static FRAME_INFO frame__unexpected_input_error = {1, {"expression"}};
+static NODE *func__dump_stream___grammar__match;
+static void entry__dump_stream___grammar__match(void);
+static FRAME_INFO frame__dump_stream___grammar__match = {2, {"self", "stream"}};
 static NODE *string__8c16e735f8cebe3d;
-static void cont__dump_stream__grammar__match_3(void);
-static void cont__dump_stream__grammar__match_4(void);
-static void cont__dump_stream__grammar__match_5(void);
+static void cont__dump_stream___grammar__match_3(void);
+static void cont__dump_stream___grammar__match_4(void);
+static void cont__dump_stream___grammar__match_5(void);
 static NODE *string__881ef7b4fade9e7f;
-static void cont__dump_stream__grammar__match_7(void);
-static NODE *func__compiler__strip_1;
-static void entry__compiler__strip_1(void);
-static FRAME_INFO frame__compiler__strip_1 = {1, {"node"}};
+static void cont__dump_stream___grammar__match_7(void);
+static NODE *func__compiler__strip;
+static void entry__compiler__strip(void);
+static FRAME_INFO frame__compiler__strip = {1, {"node"}};
 static void cont__compiler__strip_2(void);
 static void cont__compiler__strip_3(void);
 static NODE *func__compiler__strip_4;
@@ -1336,31 +1304,31 @@ static void cont__compiler__strip_49(void);
 static NODE *get__compiler__strip(void) {
   return var.compiler__strip;
 }
-static NODE *func__dump__grammar__match_1;
-static void entry__dump__grammar__match_1(void);
-static FRAME_INFO frame__dump__grammar__match_1 = {2, {"self", "stream"}};
-static void cont__dump__grammar__match_2(void);
+static NODE *func__dump___grammar__match;
+static void entry__dump___grammar__match(void);
+static FRAME_INFO frame__dump___grammar__match = {2, {"self", "stream"}};
+static void cont__dump___grammar__match_2(void);
 static NODE *string__665e06ec4dcad6be;
-static void cont__dump__grammar__match_4(void);
-static NODE *func__dump3__grammar__match_1;
-static void entry__dump3__grammar__match_1(void);
-static FRAME_INFO frame__dump3__grammar__match_1 = {2, {"self", "stream"}};
-static void cont__dump3__grammar__match_2(void);
-static void cont__dump3__grammar__match_3(void);
-static NODE *func__dump5__grammar__match_1;
-static void entry__dump5__grammar__match_1(void);
-static FRAME_INFO frame__dump5__grammar__match_1 = {2, {"self", "stream"}};
-static void cont__dump5__grammar__match_2(void);
-static void cont__dump5__grammar__match_3(void);
+static void cont__dump___grammar__match_4(void);
+static NODE *func__dump3___grammar__match;
+static void entry__dump3___grammar__match(void);
+static FRAME_INFO frame__dump3___grammar__match = {2, {"self", "stream"}};
+static void cont__dump3___grammar__match_2(void);
+static void cont__dump3___grammar__match_3(void);
+static NODE *func__dump5___grammar__match;
+static void entry__dump5___grammar__match(void);
+static FRAME_INFO frame__dump5___grammar__match = {2, {"self", "stream"}};
+static void cont__dump5___grammar__match_2(void);
+static void cont__dump5___grammar__match_3(void);
 static NODE *get__compiler__HIGHEST_PRECEDENCE(void) {
   return var.compiler__HIGHEST_PRECEDENCE;
 }
 static NODE *get__compiler__INFIX_PRECEDENCE(void) {
   return var.compiler__INFIX_PRECEDENCE;
 }
-static NODE *func__compiler__precedence_1;
-static void entry__compiler__precedence_1(void);
-static FRAME_INFO frame__compiler__precedence_1 = {1, {"op"}};
+static NODE *func__compiler__precedence;
+static void entry__compiler__precedence(void);
+static FRAME_INFO frame__compiler__precedence = {1, {"op"}};
 static void cont__compiler__precedence_2(void);
 static NODE *func__compiler__precedence_3;
 static void entry__compiler__precedence_3(void);
@@ -1372,26 +1340,26 @@ static FRAME_INFO frame__compiler__precedence_5 = {0, {}};
 static NODE *get__compiler__precedence(void) {
   return var.compiler__precedence;
 }
-static NODE *func__compiler__is_left_associative_1;
-static void entry__compiler__is_left_associative_1(void);
-static FRAME_INFO frame__compiler__is_left_associative_1 = {1, {"prec"}};
+static NODE *func__compiler__is_left_associative;
+static void entry__compiler__is_left_associative(void);
+static FRAME_INFO frame__compiler__is_left_associative = {1, {"prec"}};
 static void cont__compiler__is_left_associative_2(void);
 static NODE *get__compiler__is_left_associative(void) {
   return var.compiler__is_left_associative;
 }
-static NODE *func__is_right_associative_1;
-static void entry__is_right_associative_1(void);
-static FRAME_INFO frame__is_right_associative_1 = {1, {"prec"}};
+static NODE *func__is_right_associative;
+static void entry__is_right_associative(void);
+static FRAME_INFO frame__is_right_associative = {1, {"prec"}};
 static void cont__is_right_associative_2(void);
 static void cont__is_right_associative_3(void);
-static NODE *func__infix_operator_1;
-static void entry__infix_operator_1(void);
-static FRAME_INFO frame__infix_operator_1 = {1, {"operator"}};
+static NODE *func__infix_operator;
+static void entry__infix_operator(void);
+static FRAME_INFO frame__infix_operator = {1, {"operator"}};
 static void cont__infix_operator_2(void);
 static void cont__infix_operator_3(void);
-static NODE *func__interleaved_1;
-static void entry__interleaved_1(void);
-static FRAME_INFO frame__interleaved_1 = {2, {"expression", "separator"}};
+static NODE *func__interleaved;
+static void entry__interleaved(void);
+static FRAME_INFO frame__interleaved = {2, {"expression", "separator"}};
 static void cont__interleaved_2(void);
 static void cont__interleaved_3(void);
 static void cont__interleaved_4(void);
@@ -1405,16 +1373,16 @@ static void define__arguments_index(NODE *node) {
 static NODE *get__types__store_arguments_index(void) {
   return var.types__store_arguments_index;
 }
-static NODE *func__types__store_arguments_index__grammar__match_1;
-static void entry__types__store_arguments_index__grammar__match_1(void);
-static FRAME_INFO frame__types__store_arguments_index__grammar__match_1 = {3, {"self", "stream", "return__1"}};
-static void cont__types__store_arguments_index__grammar__match_2(void);
-static void cont__types__store_arguments_index__grammar__match_3(void);
-static void cont__types__store_arguments_index__grammar__match_4(void);
-static void cont__types__store_arguments_index__grammar__match_5(void);
-static NODE *func__store_arguments_index_1;
-static void entry__store_arguments_index_1(void);
-static FRAME_INFO frame__store_arguments_index_1 = {1, {"expression"}};
+static NODE *func__types__store_arguments_index___grammar__match;
+static void entry__types__store_arguments_index___grammar__match(void);
+static FRAME_INFO frame__types__store_arguments_index___grammar__match = {3, {"self", "stream", "return__1"}};
+static void cont__types__store_arguments_index___grammar__match_2(void);
+static void cont__types__store_arguments_index___grammar__match_3(void);
+static void cont__types__store_arguments_index___grammar__match_4(void);
+static void cont__types__store_arguments_index___grammar__match_5(void);
+static NODE *func__store_arguments_index;
+static void entry__store_arguments_index(void);
+static FRAME_INFO frame__store_arguments_index = {1, {"expression"}};
 static int dyna_idx__within_inline_expression;
 static NODE *get__within_inline_expression(void) {
   return get_dynamic_slot(dyna_idx__within_inline_expression);
@@ -1425,17 +1393,17 @@ static void define__within_inline_expression(NODE *node) {
 static NODE *get__types__inline(void) {
   return var.types__inline;
 }
-static NODE *func__types__inline__grammar__match_1;
-static void entry__types__inline__grammar__match_1(void);
-static FRAME_INFO frame__types__inline__grammar__match_1 = {3, {"self", "stream", "return__1"}};
-static void cont__types__inline__grammar__match_2(void);
-static void cont__types__inline__grammar__match_3(void);
-static NODE *func__inline_1;
-static void entry__inline_1(void);
-static FRAME_INFO frame__inline_1 = {1, {"expression"}};
-static NODE *func__expect_1;
-static void entry__expect_1(void);
-static FRAME_INFO frame__expect_1 = {2, {"expression", "description"}};
+static NODE *func__types__inline___grammar__match;
+static void entry__types__inline___grammar__match(void);
+static FRAME_INFO frame__types__inline___grammar__match = {3, {"self", "stream", "return__1"}};
+static void cont__types__inline___grammar__match_2(void);
+static void cont__types__inline___grammar__match_3(void);
+static NODE *func__inline;
+static void entry__inline(void);
+static FRAME_INFO frame__inline = {1, {"expression"}};
+static NODE *func__expect;
+static void entry__expect(void);
+static FRAME_INFO frame__expect = {2, {"expression", "description"}};
 static void cont__expect_2(void);
 static NODE *func__expect_3;
 static void entry__expect_3(void);
@@ -1448,9 +1416,9 @@ static void entry__expect_7(void);
 static FRAME_INFO frame__expect_7 = {1, {"expression"}};
 static void cont__expect_8(void);
 static void cont__expect_9(void);
-static NODE *func__compiler__arguments_span_1;
-static void entry__compiler__arguments_span_1(void);
-static FRAME_INFO frame__compiler__arguments_span_1 = {1, {"expression"}};
+static NODE *func__compiler__arguments_span;
+static void entry__compiler__arguments_span(void);
+static FRAME_INFO frame__compiler__arguments_span = {1, {"expression"}};
 static void cont__compiler__arguments_span_2(void);
 static NODE *get__compiler__arguments_span(void) {
   return var.compiler__arguments_span;
@@ -1458,10 +1426,9 @@ static NODE *get__compiler__arguments_span(void) {
 static NODE *get__compiler__WHITESPACE(void) {
   return var.compiler__WHITESPACE;
 }
-static NODE *unique__ONE_OR_MORE;
-static NODE *func__check_functor_1;
-static void entry__check_functor_1(void);
-static FRAME_INFO frame__check_functor_1 = {1, {"functor"}};
+static NODE *func__check_functor;
+static void entry__check_functor(void);
+static FRAME_INFO frame__check_functor = {1, {"functor"}};
 static void cont__check_functor_2(void);
 static NODE *func__check_functor_3;
 static void entry__check_functor_3(void);
@@ -1478,9 +1445,9 @@ static NODE *func__check_functor_10;
 static void entry__check_functor_10(void);
 static FRAME_INFO frame__check_functor_10 = {1, {"functor"}};
 static NODE *string__120dee9a1dcec47c;
-static NODE *func__check_arguments_1;
-static void entry__check_arguments_1(void);
-static FRAME_INFO frame__check_arguments_1 = {9, {"node", "kind", "wanted_outputs", "wanted_inputs", "outputs", "inputs", "contains_attribute_value_pair", "contains_simple_input_argument", "add_argument"}};
+static NODE *func__check_arguments;
+static void entry__check_arguments(void);
+static FRAME_INFO frame__check_arguments = {9, {"node", "kind", "wanted_outputs", "wanted_inputs", "outputs", "inputs", "contains_attribute_value_pair", "contains_simple_input_argument", "add_argument"}};
 static NODE *func__check_arguments_2;
 static void entry__check_arguments_2(void);
 static FRAME_INFO frame__check_arguments_2 = {5, {"argument", "outputs", "contains_simple_input_argument", "contains_attribute_value_pair", "inputs"}};
@@ -1571,6 +1538,7 @@ static void cont__check_arguments_54(void);
 static NODE *func__check_arguments_55;
 static void entry__check_arguments_55(void);
 static FRAME_INFO frame__check_arguments_55 = {6, {"wanted_inputs", "inputs", "node", "kind", "min_inputs", "max_inputs"}};
+static NODE *unique__ONE_OR_MORE;
 static void cont__check_arguments_56(void);
 static NODE *func__check_arguments_57;
 static void entry__check_arguments_57(void);
@@ -1627,15 +1595,15 @@ static void entry__check_arguments_85(void);
 static FRAME_INFO frame__check_arguments_85 = {2, {"node", "kind"}};
 static NODE *string__bb0c2c1e659a1755;
 static void cont__check_arguments_87(void);
-static NODE *func__CHECK_ARGUMENTS_1;
-static void entry__CHECK_ARGUMENTS_1(void);
-static FRAME_INFO frame__CHECK_ARGUMENTS_1 = {3, {"kind", "wanted_outputs", "wanted_inputs"}};
+static NODE *func__CHECK_ARGUMENTS;
+static void entry__CHECK_ARGUMENTS(void);
+static FRAME_INFO frame__CHECK_ARGUMENTS = {3, {"kind", "wanted_outputs", "wanted_inputs"}};
 static NODE *func__CHECK_ARGUMENTS_2;
 static void entry__CHECK_ARGUMENTS_2(void);
 static FRAME_INFO frame__CHECK_ARGUMENTS_2 = {4, {"node", "kind", "wanted_outputs", "wanted_inputs"}};
-static NODE *func__compiler__parse_meta_instruction_1;
-static void entry__compiler__parse_meta_instruction_1(void);
-static FRAME_INFO frame__compiler__parse_meta_instruction_1 = {5, {"fragment", "return__1", "source", "len", "cap"}};
+static NODE *func__compiler__parse_meta_instruction;
+static void entry__compiler__parse_meta_instruction(void);
+static FRAME_INFO frame__compiler__parse_meta_instruction = {5, {"fragment", "return__1", "source", "len", "cap"}};
 static void cont__compiler__parse_meta_instruction_2(void);
 static void cont__compiler__parse_meta_instruction_3(void);
 static void cont__compiler__parse_meta_instruction_4(void);
@@ -1649,9 +1617,9 @@ static void cont__compiler__parse_meta_instruction_9(void);
 static NODE *get__compiler__parse_meta_instruction(void) {
   return var.compiler__parse_meta_instruction;
 }
-static NODE *func__compiler__parse_statement_1;
-static void entry__compiler__parse_statement_1(void);
-static FRAME_INFO frame__compiler__parse_statement_1 = {5, {"fragment", "return__1", "source", "len", "cap"}};
+static NODE *func__compiler__parse_statement;
+static void entry__compiler__parse_statement(void);
+static FRAME_INFO frame__compiler__parse_statement = {5, {"fragment", "return__1", "source", "len", "cap"}};
 static void cont__compiler__parse_statement_2(void);
 static void cont__compiler__parse_statement_3(void);
 static void cont__compiler__parse_statement_4(void);
@@ -3523,7 +3491,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__382_4, NULL, 1539, 1539, 5, 32},
   {cont__382_5, NULL, 1536, 1539, 1, 33},
   {cont__382_6, NULL, },
-  {entry__compiler__std_identifier_1, NULL, 31, 31, 3, 50},
+  {entry__compiler__std_identifier, NULL, 31, 31, 3, 50},
   {entry__print_message_13, NULL, 61, 61, 38, 63},
   {cont__print_message_14, &frame__print_message_13, 61, 61, 23, 75},
   {cont__print_message_15, &frame__print_message_13, 61, 61, 75, 75},
@@ -3553,46 +3521,46 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__print_message_63, &frame__print_message_56, 85, 85, 7, 19},
   {cont__print_message_64, &frame__print_message_56, 86, 86, 16, 25},
   {cont__print_message_66, &frame__print_message_56, 86, 86, 7, 29},
-  {entry__print_message_1, NULL, 53, 53, 3, 40},
-  {cont__print_message_2, &frame__print_message_1, 54, 54, 8, 24},
-  {cont__print_message_3, &frame__print_message_1, 54, 54, 8, 31},
-  {cont__print_message_4, &frame__print_message_1, 54, 54, 3, 33},
-  {cont__print_message_5, &frame__print_message_1, 55, 55, 3, 32},
-  {cont__print_message_6, &frame__print_message_1, 58, 58, 38, 42},
-  {cont__print_message_7, &frame__print_message_1, 58, 58, 23, 43},
-  {cont__print_message_8, &frame__print_message_1, 58, 58, 45, 70},
-  {cont__print_message_9, &frame__print_message_1, 57, 58, 3, 71},
-  {cont__print_message_10, &frame__print_message_1, 60, 60, 3, 27},
-  {cont__print_message_11, &frame__print_message_1, 61, 61, 6, 20},
-  {cont__print_message_12, &frame__print_message_1, 61, 61, 3, 75},
-  {cont__print_message_16, &frame__print_message_1, 62, 62, 7, 23},
-  {cont__print_message_17, &frame__print_message_1, 62, 62, 3, 30},
-  {cont__print_message_18, &frame__print_message_1, 63, 63, 3, 43},
-  {cont__print_message_27, &frame__print_message_1, 64, 64, 3, 35},
-  {cont__print_message_28, &frame__print_message_1, 68, 68, 7, 21},
-  {cont__print_message_29, &frame__print_message_1, 66, 70, 3, 14},
-  {cont__print_message_33, &frame__print_message_1, 72, 72, 42, 59},
-  {cont__print_message_34, &frame__print_message_1, 72, 72, 21, 59},
-  {cont__print_message_35, &frame__print_message_1, 72, 72, 61, 79},
-  {cont__print_message_37, &frame__print_message_1, 72, 72, 3, 80},
-  {cont__print_message_38, &frame__print_message_1, 73, 76, 3, 13},
-  {cont__print_message_46, &frame__print_message_1, 77, 77, 18, 23},
-  {cont__print_message_47, &frame__print_message_1, 77, 77, 3, 23},
-  {cont__print_message_48, &frame__print_message_1, 77, 77, 17, 23},
-  {cont__print_message_49, &frame__print_message_1, 78, 86, 3, 30},
-  {entry__compiler__Warning_1, NULL, 89, 89, 17, 32},
-  {cont__compiler__Warning_2, &frame__compiler__Warning_1, 89, 89, 34, 56},
-  {cont__compiler__Warning_3, &frame__compiler__Warning_1, 89, 89, 3, 70},
-  {entry__ExitWithSyntaxError_1, NULL, 92, 92, 3, 50},
-  {cont__ExitWithSyntaxError_3, &frame__ExitWithSyntaxError_1, 93, 93, 3, 8},
-  {entry__compiler__SyntaxError_1, NULL, 96, 96, 23, 38},
-  {cont__compiler__SyntaxError_2, &frame__compiler__SyntaxError_1, 96, 96, 40, 62},
-  {cont__compiler__SyntaxError_3, &frame__compiler__SyntaxError_1, 96, 96, 3, 66},
-  {entry__ParseError_1, NULL, 99, 99, 40, 56},
-  {cont__ParseError_2, &frame__ParseError_1, 99, 99, 3, 60},
-  {entry__types__syntax_error__grammar__match_1, NULL, 104, 104, 21, 36},
-  {cont__types__syntax_error__grammar__match_2, &frame__types__syntax_error__grammar__match_1, 104, 104, 3, 36},
-  {entry__syntax_error_1, NULL, 106, 106, 26, 68},
+  {entry__print_message, NULL, 53, 53, 3, 40},
+  {cont__print_message_2, &frame__print_message, 54, 54, 8, 24},
+  {cont__print_message_3, &frame__print_message, 54, 54, 8, 31},
+  {cont__print_message_4, &frame__print_message, 54, 54, 3, 33},
+  {cont__print_message_5, &frame__print_message, 55, 55, 3, 32},
+  {cont__print_message_6, &frame__print_message, 58, 58, 38, 42},
+  {cont__print_message_7, &frame__print_message, 58, 58, 23, 43},
+  {cont__print_message_8, &frame__print_message, 58, 58, 45, 70},
+  {cont__print_message_9, &frame__print_message, 57, 58, 3, 71},
+  {cont__print_message_10, &frame__print_message, 60, 60, 3, 27},
+  {cont__print_message_11, &frame__print_message, 61, 61, 6, 20},
+  {cont__print_message_12, &frame__print_message, 61, 61, 3, 75},
+  {cont__print_message_16, &frame__print_message, 62, 62, 7, 23},
+  {cont__print_message_17, &frame__print_message, 62, 62, 3, 30},
+  {cont__print_message_18, &frame__print_message, 63, 63, 3, 43},
+  {cont__print_message_27, &frame__print_message, 64, 64, 3, 35},
+  {cont__print_message_28, &frame__print_message, 68, 68, 7, 21},
+  {cont__print_message_29, &frame__print_message, 66, 70, 3, 14},
+  {cont__print_message_33, &frame__print_message, 72, 72, 42, 59},
+  {cont__print_message_34, &frame__print_message, 72, 72, 21, 59},
+  {cont__print_message_35, &frame__print_message, 72, 72, 61, 79},
+  {cont__print_message_37, &frame__print_message, 72, 72, 3, 80},
+  {cont__print_message_38, &frame__print_message, 73, 76, 3, 13},
+  {cont__print_message_46, &frame__print_message, 77, 77, 18, 23},
+  {cont__print_message_47, &frame__print_message, 77, 77, 3, 23},
+  {cont__print_message_48, &frame__print_message, 77, 77, 17, 23},
+  {cont__print_message_49, &frame__print_message, 78, 86, 3, 30},
+  {entry__compiler__Warning, NULL, 89, 89, 17, 32},
+  {cont__compiler__Warning_2, &frame__compiler__Warning, 89, 89, 34, 56},
+  {cont__compiler__Warning_3, &frame__compiler__Warning, 89, 89, 3, 70},
+  {entry__ExitWithSyntaxError, NULL, 92, 92, 3, 50},
+  {cont__ExitWithSyntaxError_3, &frame__ExitWithSyntaxError, 93, 93, 3, 8},
+  {entry__compiler__SyntaxError, NULL, 96, 96, 23, 38},
+  {cont__compiler__SyntaxError_2, &frame__compiler__SyntaxError, 96, 96, 40, 62},
+  {cont__compiler__SyntaxError_3, &frame__compiler__SyntaxError, 96, 96, 3, 66},
+  {entry__ParseError, NULL, 99, 99, 40, 56},
+  {cont__ParseError_2, &frame__ParseError, 99, 99, 3, 60},
+  {entry__types__syntax_error___grammar__match, NULL, 104, 104, 21, 36},
+  {cont__types__syntax_error___grammar__match_2, &frame__types__syntax_error___grammar__match, 104, 104, 3, 36},
+  {entry__syntax_error, NULL, 106, 106, 26, 68},
   {entry__types__unexpected_input_error__grammar__match_4, NULL, 116, 116, 34, 55},
   {cont__types__unexpected_input_error__grammar__match_5, &frame__types__unexpected_input_error__grammar__match_4, 116, 116, 34, 55},
   {entry__types__unexpected_input_error__grammar__match_8, NULL, 120, 120, 11, 46},
@@ -3609,16 +3577,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__unexpected_input_error__grammar__match_25, &frame__types__unexpected_input_error__grammar__match_16, 131, 131, 11, 52},
   {entry__types__unexpected_input_error__grammar__match_7, NULL, 117, 131, 7, 53},
   {entry__types__unexpected_input_error__grammar__match_26, NULL, 133, 133, 7, 42},
-  {entry__types__unexpected_input_error__grammar__match_1, NULL, 114, 114, 3, 34},
-  {cont__types__unexpected_input_error__grammar__match_2, &frame__types__unexpected_input_error__grammar__match_1, 116, 116, 5, 29},
-  {cont__types__unexpected_input_error__grammar__match_3, &frame__types__unexpected_input_error__grammar__match_1, 116, 116, 5, 55},
-  {cont__types__unexpected_input_error__grammar__match_6, &frame__types__unexpected_input_error__grammar__match_1, 115, 133, 3, 43},
-  {entry__unexpected_input_error_1, NULL, 136, 136, 3, 61},
-  {entry__dump_stream__grammar__match_1, NULL, 155, 155, 3, 23},
-  {cont__dump_stream__grammar__match_3, &frame__dump_stream__grammar__match_1, 156, 156, 17, 48},
-  {cont__dump_stream__grammar__match_4, &frame__dump_stream__grammar__match_1, 156, 156, 3, 48},
-  {cont__dump_stream__grammar__match_5, &frame__dump_stream__grammar__match_1, 157, 157, 3, 23},
-  {cont__dump_stream__grammar__match_7, &frame__dump_stream__grammar__match_1, 158, 158, 3, 6},
+  {entry__types__unexpected_input_error___grammar__match, NULL, 114, 114, 3, 34},
+  {cont__types__unexpected_input_error___grammar__match_2, &frame__types__unexpected_input_error___grammar__match, 116, 116, 5, 29},
+  {cont__types__unexpected_input_error___grammar__match_3, &frame__types__unexpected_input_error___grammar__match, 116, 116, 5, 55},
+  {cont__types__unexpected_input_error___grammar__match_6, &frame__types__unexpected_input_error___grammar__match, 115, 133, 3, 43},
+  {entry__unexpected_input_error, NULL, 136, 136, 3, 61},
+  {entry__dump_stream___grammar__match, NULL, 155, 155, 3, 23},
+  {cont__dump_stream___grammar__match_3, &frame__dump_stream___grammar__match, 156, 156, 17, 48},
+  {cont__dump_stream___grammar__match_4, &frame__dump_stream___grammar__match, 156, 156, 3, 48},
+  {cont__dump_stream___grammar__match_5, &frame__dump_stream___grammar__match, 157, 157, 3, 23},
+  {cont__dump_stream___grammar__match_7, &frame__dump_stream___grammar__match, 158, 158, 3, 6},
   {entry__compiler__strip_4, NULL, 171, 171, 42, 56},
   {cont__compiler__strip_5, &frame__compiler__strip_4, 171, 171, 35, 56},
   {cont__compiler__strip_6, &frame__compiler__strip_4, 171, 171, 56, 56},
@@ -3646,64 +3614,64 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__compiler__strip_46, NULL, 180, 180, 45, 62},
   {cont__compiler__strip_47, &frame__compiler__strip_46, 180, 180, 38, 62},
   {cont__compiler__strip_48, &frame__compiler__strip_46, 180, 180, 62, 62},
-  {entry__compiler__strip_1, NULL, 171, 171, 6, 21},
-  {cont__compiler__strip_2, &frame__compiler__strip_1, 171, 171, 6, 32},
-  {cont__compiler__strip_3, &frame__compiler__strip_1, 171, 171, 3, 56},
-  {cont__compiler__strip_7, &frame__compiler__strip_1, 172, 172, 6, 23},
-  {cont__compiler__strip_8, &frame__compiler__strip_1, 172, 172, 6, 34},
-  {cont__compiler__strip_9, &frame__compiler__strip_1, 172, 172, 3, 60},
-  {cont__compiler__strip_13, &frame__compiler__strip_1, 173, 173, 6, 24},
-  {cont__compiler__strip_14, &frame__compiler__strip_1, 173, 173, 6, 35},
-  {cont__compiler__strip_15, &frame__compiler__strip_1, 173, 174, 3, 66},
-  {cont__compiler__strip_21, &frame__compiler__strip_1, 175, 175, 6, 24},
-  {cont__compiler__strip_22, &frame__compiler__strip_1, 175, 175, 6, 35},
-  {cont__compiler__strip_23, &frame__compiler__strip_1, 175, 176, 3, 66},
-  {cont__compiler__strip_29, &frame__compiler__strip_1, 177, 177, 6, 23},
-  {cont__compiler__strip_30, &frame__compiler__strip_1, 177, 177, 6, 34},
-  {cont__compiler__strip_31, &frame__compiler__strip_1, 177, 178, 3, 63},
-  {cont__compiler__strip_37, &frame__compiler__strip_1, 179, 179, 6, 20},
-  {cont__compiler__strip_38, &frame__compiler__strip_1, 179, 179, 6, 31},
-  {cont__compiler__strip_39, &frame__compiler__strip_1, 179, 179, 3, 54},
-  {cont__compiler__strip_43, &frame__compiler__strip_1, 180, 180, 6, 24},
-  {cont__compiler__strip_44, &frame__compiler__strip_1, 180, 180, 6, 35},
-  {cont__compiler__strip_45, &frame__compiler__strip_1, 180, 180, 3, 62},
-  {cont__compiler__strip_49, &frame__compiler__strip_1, },
-  {entry__dump__grammar__match_1, NULL, 185, 185, 10, 37},
-  {cont__dump__grammar__match_2, &frame__dump__grammar__match_1, 185, 185, 3, 37},
-  {cont__dump__grammar__match_4, &frame__dump__grammar__match_1, 186, 186, 3, 6},
-  {entry__dump3__grammar__match_1, NULL, 191, 191, 12, 39},
-  {cont__dump3__grammar__match_2, &frame__dump3__grammar__match_1, 191, 191, 3, 39},
-  {cont__dump3__grammar__match_3, &frame__dump3__grammar__match_1, 192, 192, 3, 6},
-  {entry__dump5__grammar__match_1, NULL, 197, 197, 12, 39},
-  {cont__dump5__grammar__match_2, &frame__dump5__grammar__match_1, 197, 197, 3, 39},
-  {cont__dump5__grammar__match_3, &frame__dump5__grammar__match_1, 198, 198, 3, 6},
+  {entry__compiler__strip, NULL, 171, 171, 6, 21},
+  {cont__compiler__strip_2, &frame__compiler__strip, 171, 171, 6, 32},
+  {cont__compiler__strip_3, &frame__compiler__strip, 171, 171, 3, 56},
+  {cont__compiler__strip_7, &frame__compiler__strip, 172, 172, 6, 23},
+  {cont__compiler__strip_8, &frame__compiler__strip, 172, 172, 6, 34},
+  {cont__compiler__strip_9, &frame__compiler__strip, 172, 172, 3, 60},
+  {cont__compiler__strip_13, &frame__compiler__strip, 173, 173, 6, 24},
+  {cont__compiler__strip_14, &frame__compiler__strip, 173, 173, 6, 35},
+  {cont__compiler__strip_15, &frame__compiler__strip, 173, 174, 3, 66},
+  {cont__compiler__strip_21, &frame__compiler__strip, 175, 175, 6, 24},
+  {cont__compiler__strip_22, &frame__compiler__strip, 175, 175, 6, 35},
+  {cont__compiler__strip_23, &frame__compiler__strip, 175, 176, 3, 66},
+  {cont__compiler__strip_29, &frame__compiler__strip, 177, 177, 6, 23},
+  {cont__compiler__strip_30, &frame__compiler__strip, 177, 177, 6, 34},
+  {cont__compiler__strip_31, &frame__compiler__strip, 177, 178, 3, 63},
+  {cont__compiler__strip_37, &frame__compiler__strip, 179, 179, 6, 20},
+  {cont__compiler__strip_38, &frame__compiler__strip, 179, 179, 6, 31},
+  {cont__compiler__strip_39, &frame__compiler__strip, 179, 179, 3, 54},
+  {cont__compiler__strip_43, &frame__compiler__strip, 180, 180, 6, 24},
+  {cont__compiler__strip_44, &frame__compiler__strip, 180, 180, 6, 35},
+  {cont__compiler__strip_45, &frame__compiler__strip, 180, 180, 3, 62},
+  {cont__compiler__strip_49, &frame__compiler__strip, },
+  {entry__dump___grammar__match, NULL, 185, 185, 10, 37},
+  {cont__dump___grammar__match_2, &frame__dump___grammar__match, 185, 185, 3, 37},
+  {cont__dump___grammar__match_4, &frame__dump___grammar__match, 186, 186, 3, 6},
+  {entry__dump3___grammar__match, NULL, 191, 191, 12, 39},
+  {cont__dump3___grammar__match_2, &frame__dump3___grammar__match, 191, 191, 3, 39},
+  {cont__dump3___grammar__match_3, &frame__dump3___grammar__match, 192, 192, 3, 6},
+  {entry__dump5___grammar__match, NULL, 197, 197, 12, 39},
+  {cont__dump5___grammar__match_2, &frame__dump5___grammar__match, 197, 197, 3, 39},
+  {cont__dump5___grammar__match_3, &frame__dump5___grammar__match, 198, 198, 3, 6},
   {entry__compiler__precedence_3, NULL, 233, 233, 8, 27},
   {cont__compiler__precedence_4, &frame__compiler__precedence_3, 233, 233, 5, 27},
   {entry__compiler__precedence_5, NULL, 234, 234, 5, 23},
-  {entry__compiler__precedence_1, NULL, 232, 232, 5, 18},
-  {cont__compiler__precedence_2, &frame__compiler__precedence_1, 231, 234, 3, 23},
-  {entry__compiler__is_left_associative_1, NULL, 236, 236, 43, 50},
-  {cont__compiler__is_left_associative_2, &frame__compiler__is_left_associative_1, 236, 236, 40, 50},
-  {entry__is_right_associative_1, NULL, 238, 238, 34, 42},
-  {cont__is_right_associative_2, &frame__is_right_associative_1, 238, 238, 34, 42},
-  {cont__is_right_associative_3, &frame__is_right_associative_1, 238, 238, 31, 42},
-  {entry__infix_operator_1, NULL, 241, 241, 19, 70},
-  {cont__infix_operator_2, &frame__infix_operator_1, 241, 241, 6, 71},
-  {cont__infix_operator_3, &frame__infix_operator_1, 241, 241, 3, 71},
-  {entry__interleaved_1, NULL, 243, 243, 58, 78},
-  {cont__interleaved_2, &frame__interleaved_1, 243, 243, 53, 79},
-  {cont__interleaved_3, &frame__interleaved_1, 243, 243, 41, 79},
-  {cont__interleaved_4, &frame__interleaved_1, 243, 243, 38, 79},
-  {entry__types__store_arguments_index__grammar__match_1, NULL, 252, 252, 30, 64},
-  {cont__types__store_arguments_index__grammar__match_2, &frame__types__store_arguments_index__grammar__match_1, 252, 252, 3, 65},
-  {cont__types__store_arguments_index__grammar__match_3, &frame__types__store_arguments_index__grammar__match_1, 253, 253, 18, 36},
-  {cont__types__store_arguments_index__grammar__match_4, &frame__types__store_arguments_index__grammar__match_1, 253, 253, 3, 43},
-  {cont__types__store_arguments_index__grammar__match_5, &frame__types__store_arguments_index__grammar__match_1, 253, 253, 43, 43},
-  {entry__store_arguments_index_1, NULL, 256, 256, 3, 60},
-  {entry__types__inline__grammar__match_1, NULL, 266, 266, 18, 36},
-  {cont__types__inline__grammar__match_2, &frame__types__inline__grammar__match_1, 266, 266, 3, 43},
-  {cont__types__inline__grammar__match_3, &frame__types__inline__grammar__match_1, 266, 266, 43, 43},
-  {entry__inline_1, NULL, 268, 268, 23, 65},
+  {entry__compiler__precedence, NULL, 232, 232, 5, 18},
+  {cont__compiler__precedence_2, &frame__compiler__precedence, 231, 234, 3, 23},
+  {entry__compiler__is_left_associative, NULL, 236, 236, 43, 50},
+  {cont__compiler__is_left_associative_2, &frame__compiler__is_left_associative, 236, 236, 40, 50},
+  {entry__is_right_associative, NULL, 238, 238, 34, 42},
+  {cont__is_right_associative_2, &frame__is_right_associative, 238, 238, 34, 42},
+  {cont__is_right_associative_3, &frame__is_right_associative, 238, 238, 31, 42},
+  {entry__infix_operator, NULL, 241, 241, 19, 70},
+  {cont__infix_operator_2, &frame__infix_operator, 241, 241, 6, 71},
+  {cont__infix_operator_3, &frame__infix_operator, 241, 241, 3, 71},
+  {entry__interleaved, NULL, 243, 243, 58, 78},
+  {cont__interleaved_2, &frame__interleaved, 243, 243, 53, 79},
+  {cont__interleaved_3, &frame__interleaved, 243, 243, 41, 79},
+  {cont__interleaved_4, &frame__interleaved, 243, 243, 38, 79},
+  {entry__types__store_arguments_index___grammar__match, NULL, 252, 252, 30, 64},
+  {cont__types__store_arguments_index___grammar__match_2, &frame__types__store_arguments_index___grammar__match, 252, 252, 3, 65},
+  {cont__types__store_arguments_index___grammar__match_3, &frame__types__store_arguments_index___grammar__match, 253, 253, 18, 36},
+  {cont__types__store_arguments_index___grammar__match_4, &frame__types__store_arguments_index___grammar__match, 253, 253, 3, 43},
+  {cont__types__store_arguments_index___grammar__match_5, &frame__types__store_arguments_index___grammar__match, 253, 253, 43, 43},
+  {entry__store_arguments_index, NULL, 256, 256, 3, 60},
+  {entry__types__inline___grammar__match, NULL, 266, 266, 18, 36},
+  {cont__types__inline___grammar__match_2, &frame__types__inline___grammar__match, 266, 266, 3, 43},
+  {cont__types__inline___grammar__match_3, &frame__types__inline___grammar__match, 266, 266, 43, 43},
+  {entry__inline, NULL, 268, 268, 23, 65},
   {entry__expect_3, NULL, 286, 286, 36, 60},
   {cont__expect_4, &frame__expect_3, 286, 286, 23, 61},
   {cont__expect_5, &frame__expect_3, 286, 286, 8, 62},
@@ -3711,10 +3679,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__expect_7, NULL, 287, 287, 23, 56},
   {cont__expect_8, &frame__expect_7, 287, 287, 8, 57},
   {cont__expect_9, &frame__expect_7, 287, 287, 5, 57},
-  {entry__expect_1, NULL, 285, 285, 5, 26},
-  {cont__expect_2, &frame__expect_1, 284, 287, 3, 57},
-  {entry__compiler__arguments_span_1, NULL, 289, 289, 44, 78},
-  {cont__compiler__arguments_span_2, &frame__compiler__arguments_span_1, 289, 289, 41, 78},
+  {entry__expect, NULL, 285, 285, 5, 26},
+  {cont__expect_2, &frame__expect, 284, 287, 3, 57},
+  {entry__compiler__arguments_span, NULL, 289, 289, 44, 78},
+  {cont__compiler__arguments_span_2, &frame__compiler__arguments_span, 289, 289, 41, 78},
   {entry__check_functor_5, NULL, 1322, 1322, 41, 68},
   {cont__check_functor_6, &frame__check_functor_5, 1322, 1322, 37, 69},
   {cont__check_functor_7, &frame__check_functor_5, 1322, 1322, 37, 69},
@@ -3722,9 +3690,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__check_functor_4, &frame__check_functor_3, 1322, 1322, 7, 69},
   {cont__check_functor_8, &frame__check_functor_3, 1322, 1322, 7, 69},
   {entry__check_functor_10, NULL, 1324, 1324, 7, 43},
-  {entry__check_functor_1, NULL, 1321, 1321, 7, 30},
-  {cont__check_functor_2, &frame__check_functor_1, 1320, 1322, 5, 69},
-  {cont__check_functor_9, &frame__check_functor_1, 1319, 1324, 3, 44},
+  {entry__check_functor, NULL, 1321, 1321, 7, 30},
+  {cont__check_functor_2, &frame__check_functor, 1320, 1322, 5, 69},
+  {cont__check_functor_9, &frame__check_functor, 1319, 1324, 3, 44},
   {entry__check_arguments_4, NULL, 1333, 1333, 35, 46},
   {cont__check_arguments_5, &frame__check_arguments_4, 1333, 1333, 46, 46},
   {entry__check_arguments_9, NULL, 1334, 1334, 42, 77},
@@ -3795,25 +3763,25 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__check_arguments_80, &frame__check_arguments_55, 1384, 1384, 8, 28},
   {cont__check_arguments_81, &frame__check_arguments_55, 1384, 1384, 8, 51},
   {cont__check_arguments_84, &frame__check_arguments_55, 1384, 1385, 5, 60},
-  {entry__check_arguments_1, NULL, 1346, 1346, 12, 29},
-  {cont__check_arguments_24, &frame__check_arguments_1, 1346, 1353, 3, 34},
-  {cont__check_arguments_34, &frame__check_arguments_1, 1354, 1354, 6, 29},
-  {cont__check_arguments_36, &frame__check_arguments_1, 1354, 1354, 6, 62},
-  {cont__check_arguments_38, &frame__check_arguments_1, 1354, 1356, 3, 21},
-  {cont__check_arguments_41, &frame__check_arguments_1, 1357, 1357, 6, 30},
-  {cont__check_arguments_42, &frame__check_arguments_1, 1357, 1361, 3, 62},
-  {cont__check_arguments_53, &frame__check_arguments_1, 1362, 1362, 6, 29},
-  {cont__check_arguments_54, &frame__check_arguments_1, 1362, 1385, 3, 61},
+  {entry__check_arguments, NULL, 1346, 1346, 12, 29},
+  {cont__check_arguments_24, &frame__check_arguments, 1346, 1353, 3, 34},
+  {cont__check_arguments_34, &frame__check_arguments, 1354, 1354, 6, 29},
+  {cont__check_arguments_36, &frame__check_arguments, 1354, 1354, 6, 62},
+  {cont__check_arguments_38, &frame__check_arguments, 1354, 1356, 3, 21},
+  {cont__check_arguments_41, &frame__check_arguments, 1357, 1357, 6, 30},
+  {cont__check_arguments_42, &frame__check_arguments, 1357, 1361, 3, 62},
+  {cont__check_arguments_53, &frame__check_arguments, 1362, 1362, 6, 29},
+  {cont__check_arguments_54, &frame__check_arguments, 1362, 1385, 3, 61},
   {entry__CHECK_ARGUMENTS_2, NULL, 1388, 1388, 24, 77},
-  {entry__CHECK_ARGUMENTS_1, NULL, 1388, 1388, 3, 77},
+  {entry__CHECK_ARGUMENTS, NULL, 1388, 1388, 3, 77},
   {entry__compiler__parse_meta_instruction_7, NULL, 1550, 1550, 32, 75},
-  {entry__compiler__parse_meta_instruction_1, NULL, 1548, 1548, 3, 39},
-  {cont__compiler__parse_meta_instruction_2, &frame__compiler__parse_meta_instruction_1, 1549, 1549, 3, 38},
-  {cont__compiler__parse_meta_instruction_3, &frame__compiler__parse_meta_instruction_1, 1550, 1550, 13, 29},
-  {cont__compiler__parse_meta_instruction_4, &frame__compiler__parse_meta_instruction_1, 1550, 1550, 6, 29},
-  {cont__compiler__parse_meta_instruction_5, &frame__compiler__parse_meta_instruction_1, 1550, 1550, 6, 29},
-  {cont__compiler__parse_meta_instruction_6, &frame__compiler__parse_meta_instruction_1, 1550, 1550, 3, 75},
-  {cont__compiler__parse_meta_instruction_9, &frame__compiler__parse_meta_instruction_1, 1551, 1551, 3, 8},
+  {entry__compiler__parse_meta_instruction, NULL, 1548, 1548, 3, 39},
+  {cont__compiler__parse_meta_instruction_2, &frame__compiler__parse_meta_instruction, 1549, 1549, 3, 38},
+  {cont__compiler__parse_meta_instruction_3, &frame__compiler__parse_meta_instruction, 1550, 1550, 13, 29},
+  {cont__compiler__parse_meta_instruction_4, &frame__compiler__parse_meta_instruction, 1550, 1550, 6, 29},
+  {cont__compiler__parse_meta_instruction_5, &frame__compiler__parse_meta_instruction, 1550, 1550, 6, 29},
+  {cont__compiler__parse_meta_instruction_6, &frame__compiler__parse_meta_instruction, 1550, 1550, 3, 75},
+  {cont__compiler__parse_meta_instruction_9, &frame__compiler__parse_meta_instruction, 1551, 1551, 3, 8},
   {entry__compiler__parse_statement_9, NULL, 1562, 1562, 9, 67},
   {entry__compiler__parse_statement_5, NULL, 1561, 1561, 17, 33},
   {cont__compiler__parse_statement_6, &frame__compiler__parse_statement_5, 1561, 1561, 10, 33},
@@ -3823,11 +3791,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__parse_statement_13, &frame__compiler__parse_statement_11, 1565, 1565, 7, 26},
   {cont__compiler__parse_statement_14, &frame__compiler__parse_statement_11, 1566, 1566, 7, 25},
   {cont__compiler__parse_statement_16, &frame__compiler__parse_statement_11, 1567, 1567, 7, 12},
-  {entry__compiler__parse_statement_1, NULL, 1557, 1557, 3, 39},
-  {cont__compiler__parse_statement_2, &frame__compiler__parse_statement_1, 1558, 1558, 3, 33},
-  {cont__compiler__parse_statement_3, &frame__compiler__parse_statement_1, 1560, 1560, 5, 18},
-  {cont__compiler__parse_statement_4, &frame__compiler__parse_statement_1, 1559, 1567, 3, 13},
-  {cont__compiler__parse_statement_17, &frame__compiler__parse_statement_1, 1568, 1568, 3, 8},
+  {entry__compiler__parse_statement, NULL, 1557, 1557, 3, 39},
+  {cont__compiler__parse_statement_2, &frame__compiler__parse_statement, 1558, 1558, 3, 33},
+  {cont__compiler__parse_statement_3, &frame__compiler__parse_statement, 1560, 1560, 5, 18},
+  {cont__compiler__parse_statement_4, &frame__compiler__parse_statement, 1559, 1567, 3, 13},
+  {cont__compiler__parse_statement_17, &frame__compiler__parse_statement, 1568, 1568, 3, 8},
   {entry__230_2, NULL, 274, 275, 9, 23},
   {entry__230_1, NULL, 273, 275, 7, 24},
   {cont__230_4, &frame__230_1, 276, 276, 7, 13},
@@ -4698,7 +4666,7 @@ static void entry__230_2(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = string__ccbf6d451aa8563f;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -5553,7 +5521,7 @@ static void cont__245_2(void) {
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e6d82bff;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__245_3;
 }
@@ -5814,7 +5782,7 @@ static void cont__247_10(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -5919,7 +5887,7 @@ static void cont__248_2(void) {
   arguments = node_p;
   arguments->slots[0] = string__578a5af303e9cdc;
   result_count = 1;
-  myself = var._infix_operator;
+  myself = func__infix_operator;
   func = myself->type;
   frame->cont = cont__248_3;
 }
@@ -6131,7 +6099,7 @@ static void cont__248_20(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -6240,7 +6208,7 @@ static void cont__248_27(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -6531,7 +6499,7 @@ static void cont__249_8(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -6843,7 +6811,7 @@ static void cont__252_9(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -7042,7 +7010,7 @@ static void cont__253_9(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -7356,7 +7324,7 @@ static void cont__256_8(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -7448,7 +7416,7 @@ static void cont__257_1(void) {
   arguments = node_p;
   arguments->slots[0] = get__outdent_marker();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__257_2;
 }
@@ -7562,7 +7530,7 @@ static void cont__258_2(void) {
   arguments->slots[0] = var._REMARK_LINE;
   arguments->slots[1] = var._NEWLINE;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__259_1;
 }
@@ -7577,7 +7545,7 @@ static void cont__259_1(void) {
   arguments = node_p;
   arguments->slots[0] = get__outdent_marker();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__259_2;
 }
@@ -8135,7 +8103,7 @@ static void cont__267_7(void) {
   arguments = node_p;
   arguments->slots[0] = string__4456c807200257a4;
   result_count = 1;
-  myself = var._CHECK_ARGUMENTS;
+  myself = func__CHECK_ARGUMENTS;
   func = myself->type;
   frame->cont = cont__267_9;
 }
@@ -8150,7 +8118,7 @@ static void cont__267_9(void) {
   arguments = node_p;
   arguments->slots[0] = character__41;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__267_10;
 }
@@ -8501,7 +8469,7 @@ static void cont__275_1(void) {
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   arguments->slots[1] = character__39;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__275_2;
 }
@@ -8709,7 +8677,7 @@ static void cont__277_1(void) {
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   arguments->slots[1] = character__39;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__277_2;
 }
@@ -8772,7 +8740,7 @@ static void cont__279_1(void) {
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   arguments->slots[1] = character__39;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__279_2;
 }
@@ -8868,7 +8836,7 @@ static void cont__281_1(void) {
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   arguments->slots[1] = character__39;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__281_2;
 }
@@ -9239,7 +9207,7 @@ static void entry__285_6(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = string__dea962eab6ac8f23;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -9554,7 +9522,7 @@ static void cont__286_15(void) {
   arguments = node_p;
   arguments->slots[0] = string__4313674f4741806a;
   result_count = 1;
-  myself = var._syntax_error;
+  myself = func__syntax_error;
   func = myself->type;
   frame->cont = cont__287_2;
 }
@@ -9639,7 +9607,7 @@ static void cont__289_1(void) {
   arguments = node_p;
   arguments->slots[0] = character__39;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__289_2;
 }
@@ -9984,7 +9952,7 @@ static void cont__291_10(void) {
   arguments->slots[0] = frame->slots[2] /* temp__3 */;
   arguments->slots[1] = var.compiler__WHITESPACE;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__291_11;
 }
@@ -9999,7 +9967,7 @@ static void cont__291_11(void) {
   arguments = node_p;
   arguments->slots[0] = character__41;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__291_12;
 }
@@ -10495,7 +10463,7 @@ static void cont__293_6(void) {
   arguments = node_p;
   arguments->slots[0] = character__34;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__293_7;
 }
@@ -10810,7 +10778,7 @@ static void cont__296_4(void) {
   arguments = node_p;
   arguments->slots[0] = get__outdent_marker();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__296_5;
 }
@@ -10937,7 +10905,7 @@ static void cont__297_3(void) {
   arguments = node_p;
   arguments->slots[0] = string__55df65a142fc9536;
   result_count = 1;
-  myself = var._syntax_error;
+  myself = func__syntax_error;
   func = myself->type;
   frame->cont = cont__298_2;
 }
@@ -10969,7 +10937,7 @@ static void cont__298_3(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
-  myself = var._inline;
+  myself = func__inline;
   func = myself->type;
   frame->cont = cont__298_4;
 }
@@ -10984,7 +10952,7 @@ static void cont__298_4(void) {
   arguments = node_p;
   arguments->slots[0] = character__41;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__298_5;
 }
@@ -11448,7 +11416,7 @@ static void cont__304_1(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
   result_count = 1;
-  myself = var._infix_operator;
+  myself = func__infix_operator;
   func = myself->type;
   frame->cont = cont__304_2;
 }
@@ -11511,7 +11479,7 @@ static void cont__306_1(void) {
   arguments = node_p;
   arguments->slots[0] = var.compiler__WHITESPACE;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__306_2;
 }
@@ -12344,7 +12312,7 @@ static void entry__308_22(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* prec */;
   result_count = 1;
-  myself = var._is_right_associative;
+  myself = func__is_right_associative;
   func = myself->type;
   frame->cont = cont__308_23;
 }
@@ -13119,7 +13087,7 @@ static void cont__309_6(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__9 */;
   result_count = 1;
-  myself = var._infix_operator;
+  myself = func__infix_operator;
   func = myself->type;
   frame->cont = cont__309_7;
 }
@@ -13207,7 +13175,7 @@ static void cont__310_1(void) {
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
   arguments->slots[1] = string__395c5a51a203e553;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__310_3;
 }
@@ -14195,7 +14163,7 @@ static void cont__325_3(void) {
   arguments->slots[1] = number__0;
   arguments->slots[2] = number__1;
   result_count = 1;
-  myself = var._CHECK_ARGUMENTS;
+  myself = func__CHECK_ARGUMENTS;
   func = myself->type;
   frame->cont = cont__325_5;
 }
@@ -14726,7 +14694,7 @@ static void cont__328_8(void) {
   arguments->slots[0] = string__137554cc13b7640e;
   arguments->slots[1] = number__0;
   result_count = 1;
-  myself = var._CHECK_ARGUMENTS;
+  myself = func__CHECK_ARGUMENTS;
   func = myself->type;
   frame->cont = cont__328_10;
 }
@@ -14833,7 +14801,7 @@ static void entry__328_15(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = string__733ccdbfc49ced05;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -15704,7 +15672,7 @@ static void cont__329_14(void) {
   arguments = node_p;
   arguments->slots[0] = character__61;
   result_count = 1;
-  myself = var._infix_operator;
+  myself = func__infix_operator;
   func = myself->type;
   frame->cont = cont__330_1;
 }
@@ -16205,7 +16173,7 @@ static void cont__337_1(void) {
   arguments->slots[0] = frame->slots[4] /* temp__5 */;
   arguments->slots[1] = var.compiler__WHITESPACE;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__337_2;
 }
@@ -16327,7 +16295,7 @@ static void cont__337_9(void) {
   arguments = node_p;
   arguments->slots[0] = character__41;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__337_10;
 }
@@ -16385,7 +16353,7 @@ static void cont__338_1(void) {
   arguments->slots[0] = frame->slots[3] /* temp__4 */;
   arguments->slots[1] = var._NEWLINE;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__338_2;
 }
@@ -16493,7 +16461,7 @@ static void cont__338_8(void) {
   arguments = node_p;
   arguments->slots[0] = get__outdent_marker();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__338_9;
 }
@@ -16508,7 +16476,7 @@ static void cont__338_9(void) {
   arguments = node_p;
   arguments->slots[0] = get__newline();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__338_10;
 }
@@ -16523,7 +16491,7 @@ static void cont__338_10(void) {
   arguments = node_p;
   arguments->slots[0] = character__41;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__338_11;
 }
@@ -16832,7 +16800,7 @@ static void cont__339_16(void) {
   arguments = node_p;
   arguments->slots[0] = get__outdent_marker();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__339_17;
 }
@@ -16960,7 +16928,7 @@ static void cont__339_24(void) {
   arguments = node_p;
   arguments->slots[0] = get__outdent_marker();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__339_25;
 }
@@ -17170,7 +17138,7 @@ static void cont__342_1(void) {
   arguments = node_p;
   arguments->slots[0] = get__indent_marker();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__342_2;
 }
@@ -17247,7 +17215,7 @@ static void cont__342_6(void) {
   arguments = node_p;
   arguments->slots[0] = get__outdent_marker();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__342_7;
 }
@@ -17262,7 +17230,7 @@ static void cont__342_7(void) {
   arguments = node_p;
   arguments->slots[0] = get__newline();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__342_8;
 }
@@ -17277,7 +17245,7 @@ static void cont__342_8(void) {
   arguments = node_p;
   arguments->slots[0] = character__125;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__342_9;
 }
@@ -17722,7 +17690,7 @@ static void cont__349_12(void) {
   arguments = node_p;
   arguments->slots[0] = string__e1e3be9ec64af0e1;
   result_count = 1;
-  myself = var._syntax_error;
+  myself = func__syntax_error;
   func = myself->type;
   frame->cont = cont__349_14;
 }
@@ -18012,7 +17980,7 @@ static void cont__351_10(void) {
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* argument */;
   arguments->slots[1] = string__4456c807200257a4;
   result_count = 0;
-  myself = var._check_arguments;
+  myself = func__check_arguments;
   func = myself->type;
   frame->cont = cont__351_11;
 }
@@ -18094,7 +18062,7 @@ static void entry__351_21(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* functor */;
   result_count = frame->caller_result_count;
-  myself = var._check_functor;
+  myself = func__check_functor;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -18320,7 +18288,7 @@ static void cont__351_27(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
-  myself = var._store_arguments_index;
+  myself = func__store_arguments_index;
   func = myself->type;
   frame->cont = cont__351_28;
 }
@@ -18618,7 +18586,7 @@ static void cont__353_1(void) {
   arguments->slots[0] = var._ARGUMENT;
   arguments->slots[1] = var.compiler__WHITESPACE;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__353_2;
 }
@@ -18699,7 +18667,7 @@ static void cont__353_6(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
   result_count = 1;
-  myself = var._inline;
+  myself = func__inline;
   func = myself->type;
   frame->cont = cont__353_7;
 }
@@ -18730,7 +18698,7 @@ static void cont__354_1(void) {
   arguments->slots[0] = var._ARGUMENT_LINE;
   arguments->slots[1] = var._NEWLINES;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__354_2;
 }
@@ -18846,7 +18814,7 @@ static void cont__360_2(void) {
   arguments->slots[1] = number__1;
   arguments->slots[2] = number__1;
   result_count = 1;
-  myself = var._CHECK_ARGUMENTS;
+  myself = func__CHECK_ARGUMENTS;
   func = myself->type;
   frame->cont = cont__360_4;
 }
@@ -19461,7 +19429,7 @@ static void cont__361_2(void) {
   arguments = node_p;
   arguments->slots[0] = string__4f498b003024119a;
   result_count = 1;
-  myself = var._CHECK_ARGUMENTS;
+  myself = func__CHECK_ARGUMENTS;
   func = myself->type;
   frame->cont = cont__361_3;
 }
@@ -19520,9 +19488,9 @@ static void cont__362_1(void) {
   arguments = node_p;
   arguments->slots[0] = string__8782cdb8103cde5a;
   arguments->slots[1] = number__0;
-  arguments->slots[2] = var._ONE_OR_MORE;
+  arguments->slots[2] = unique__ONE_OR_MORE;
   result_count = 1;
-  myself = var._CHECK_ARGUMENTS;
+  myself = func__CHECK_ARGUMENTS;
   func = myself->type;
   frame->cont = cont__362_3;
 }
@@ -19564,7 +19532,7 @@ static void cont__362_4(void) {
   arguments = node_p;
   arguments->slots[0] = string__5ed2969d8211684f;
   result_count = 1;
-  myself = var._syntax_error;
+  myself = func__syntax_error;
   func = myself->type;
   frame->cont = cont__363_2;
 }
@@ -19621,7 +19589,7 @@ static void cont__364_1(void) {
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   arguments->slots[1] = var._NEWLINES;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__364_2;
 }
@@ -20144,7 +20112,7 @@ static void cont__367_2(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__367_3;
 }
@@ -20210,7 +20178,7 @@ static void cont__368_2(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__368_3;
 }
@@ -20274,7 +20242,7 @@ static void cont__369_2(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__369_3;
 }
@@ -20336,7 +20304,7 @@ static void cont__370_2(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__370_3;
 }
@@ -20403,7 +20371,7 @@ static void cont__371_2(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__371_3;
 }
@@ -20482,7 +20450,7 @@ static void cont__372_7(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__372_8;
 }
@@ -20551,7 +20519,7 @@ static void cont__373_2(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__373_3;
 }
@@ -20585,7 +20553,7 @@ static void cont__373_5(void) {
   arguments = node_p;
   arguments->slots[0] = string__399cfc434d66f26;
   result_count = 1;
-  myself = var._syntax_error;
+  myself = func__syntax_error;
   func = myself->type;
   frame->cont = cont__374_2;
 }
@@ -20631,7 +20599,7 @@ static void cont__374_3(void) {
   arguments = node_p;
   arguments->slots[0] = character__62;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__375_1;
 }
@@ -20664,7 +20632,7 @@ static void cont__375_2(void) {
   arguments->slots[0] = var._ANNOTATION;
   arguments->slots[1] = var._NEWLINES;
   result_count = 1;
-  myself = var._interleaved;
+  myself = func__interleaved;
   func = myself->type;
   frame->cont = cont__376_1;
 }
@@ -20853,7 +20821,7 @@ static void cont__380_1(void) {
   arguments = node_p;
   arguments->slots[0] = get__indent_marker();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__380_2;
 }
@@ -20931,7 +20899,7 @@ static void cont__380_6(void) {
   arguments = node_p;
   arguments->slots[0] = get__outdent_marker();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__380_7;
 }
@@ -20946,7 +20914,7 @@ static void cont__380_7(void) {
   arguments = node_p;
   arguments->slots[0] = get__newline();
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__380_8;
 }
@@ -20976,7 +20944,7 @@ static void cont__380_9(void) {
   arguments = node_p;
   arguments->slots[0] = character__125;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__380_10;
 }
@@ -21038,7 +21006,7 @@ static void cont__381_1(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__2 */;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__381_2;
 }
@@ -21069,7 +21037,7 @@ static void cont__381_3(void) {
   arguments = node_p;
   arguments->slots[0] = string__227de92deba39b6b;
   result_count = 1;
-  myself = var._syntax_error;
+  myself = func__syntax_error;
   func = myself->type;
   frame->cont = cont__382_2;
 }
@@ -21117,7 +21085,7 @@ static void cont__382_4(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__4 */;
   result_count = 1;
-  myself = var._expect;
+  myself = func__expect;
   func = myself->type;
   frame->cont = cont__382_5;
 }
@@ -21150,7 +21118,7 @@ static void cont__382_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__std_identifier_1(void) {
+static void entry__compiler__std_identifier(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // name: 0
@@ -21333,7 +21301,7 @@ static void cont__print_message_66(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__print_message_1(void) {
+static void entry__print_message(void) {
   allocate_initialized_frame_gc(4, 15);
   // slot allocations:
   // fragment: 0
@@ -22169,7 +22137,7 @@ static void cont__print_message_49(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__Warning_1(void) {
+static void entry__compiler__Warning(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // obj: 0
@@ -22216,11 +22184,11 @@ static void cont__compiler__Warning_3(void) {
   arguments->slots[2] = string__eed8078214c9e0bd;
   arguments->slots[3] = frame->slots[1] /* msg */;
   result_count = frame->caller_result_count;
-  myself = var._print_message;
+  myself = func__print_message;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__ExitWithSyntaxError_1(void) {
+static void entry__ExitWithSyntaxError(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // fragment: 0
@@ -22238,7 +22206,7 @@ static void entry__ExitWithSyntaxError_1(void) {
   arguments->slots[2] = string__ae3c04ed6f185295;
   arguments->slots[3] = frame->slots[2] /* msg */;
   result_count = 0;
-  myself = var._print_message;
+  myself = func__print_message;
   func = myself->type;
   frame->cont = cont__ExitWithSyntaxError_3;
 }
@@ -22256,7 +22224,7 @@ static void cont__ExitWithSyntaxError_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__SyntaxError_1(void) {
+static void entry__compiler__SyntaxError(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // obj: 0
@@ -22302,11 +22270,11 @@ static void cont__compiler__SyntaxError_3(void) {
   arguments->slots[1] = frame->slots[3] /* temp__2 */;
   arguments->slots[2] = frame->slots[1] /* msg */;
   result_count = frame->caller_result_count;
-  myself = var._ExitWithSyntaxError;
+  myself = func__ExitWithSyntaxError;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__ParseError_1(void) {
+static void entry__ParseError(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // stream: 0
@@ -22337,11 +22305,11 @@ static void cont__ParseError_2(void) {
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   arguments->slots[2] = frame->slots[1] /* msg */;
   result_count = frame->caller_result_count;
-  myself = var._ExitWithSyntaxError;
+  myself = func__ExitWithSyntaxError;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__syntax_error__grammar__match_1(void) {
+static void entry__types__syntax_error___grammar__match(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -22357,9 +22325,9 @@ static void entry__types__syntax_error__grammar__match_1(void) {
   result_count = 1;
   myself = get__message_of();
   func = myself->type;
-  frame->cont = cont__types__syntax_error__grammar__match_2;
+  frame->cont = cont__types__syntax_error___grammar__match_2;
 }
-static void cont__types__syntax_error__grammar__match_2(void) {
+static void cont__types__syntax_error___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22371,11 +22339,11 @@ static void cont__types__syntax_error__grammar__match_2(void) {
   arguments->slots[0] = frame->slots[1] /* stream */;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__syntax_error_1(void) {
+static void entry__syntax_error(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // message: 0
@@ -22414,7 +22382,7 @@ static void entry__types__unexpected_input_error__grammar__match_8(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = string__9a64e069c352dc6a;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -22433,7 +22401,7 @@ static void entry__types__unexpected_input_error__grammar__match_10(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = string__927507b8d9967cca;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -22452,7 +22420,7 @@ static void entry__types__unexpected_input_error__grammar__match_12(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = string__9be468e9e34a9c6a;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -22471,7 +22439,7 @@ static void entry__types__unexpected_input_error__grammar__match_14(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = string__ab853eb411a7faea;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -22604,7 +22572,7 @@ static void cont__types__unexpected_input_error__grammar__match_25(void) {
   arguments->slots[0] = frame->slots[1] /* stream */;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -22680,11 +22648,11 @@ static void entry__types__unexpected_input_error__grammar__match_26(void) {
   arguments->slots[0] = frame->slots[0] /* stream */;
   arguments->slots[1] = string__4914d002f7e03078;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__unexpected_input_error__grammar__match_1(void) {
+static void entry__types__unexpected_input_error___grammar__match(void) {
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
   // self: 0
@@ -22702,9 +22670,9 @@ static void entry__types__unexpected_input_error__grammar__match_1(void) {
   result_count = 1;
   myself = get__expression_of();
   func = myself->type;
-  frame->cont = cont__types__unexpected_input_error__grammar__match_2;
+  frame->cont = cont__types__unexpected_input_error___grammar__match_2;
 }
-static void cont__types__unexpected_input_error__grammar__match_2(void) {
+static void cont__types__unexpected_input_error___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22717,9 +22685,9 @@ static void cont__types__unexpected_input_error__grammar__match_2(void) {
   result_count = 1;
   myself = get__is_a_character();
   func = myself->type;
-  frame->cont = cont__types__unexpected_input_error__grammar__match_3;
+  frame->cont = cont__types__unexpected_input_error___grammar__match_3;
 }
-static void cont__types__unexpected_input_error__grammar__match_3(void) {
+static void cont__types__unexpected_input_error___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22735,7 +22703,7 @@ static void cont__types__unexpected_input_error__grammar__match_3(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__types__unexpected_input_error__grammar__match_6;
+  frame->cont = cont__types__unexpected_input_error___grammar__match_6;
 }
 static void entry__types__unexpected_input_error__grammar__match_4(void) {
   allocate_initialized_frame_gc(1, 2);
@@ -22769,7 +22737,7 @@ static void cont__types__unexpected_input_error__grammar__match_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__unexpected_input_error__grammar__match_6(void) {
+static void cont__types__unexpected_input_error___grammar__match_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22811,7 +22779,7 @@ static void cont__types__unexpected_input_error__grammar__match_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__unexpected_input_error_1(void) {
+static void entry__unexpected_input_error(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expression: 0
@@ -22835,7 +22803,7 @@ static void entry__unexpected_input_error_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__dump_stream__grammar__match_1(void) {
+static void entry__dump_stream___grammar__match(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -22851,9 +22819,9 @@ static void entry__dump_stream__grammar__match_1(void) {
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
-  frame->cont = cont__dump_stream__grammar__match_3;
+  frame->cont = cont__dump_stream___grammar__match_3;
 }
-static void cont__dump_stream__grammar__match_3(void) {
+static void cont__dump_stream___grammar__match_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -22867,9 +22835,9 @@ static void cont__dump_stream__grammar__match_3(void) {
   result_count = 1;
   myself = get__truncate_behind();
   func = myself->type;
-  frame->cont = cont__dump_stream__grammar__match_4;
+  frame->cont = cont__dump_stream___grammar__match_4;
 }
-static void cont__dump_stream__grammar__match_4(void) {
+static void cont__dump_stream___grammar__match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -22882,9 +22850,9 @@ static void cont__dump_stream__grammar__match_4(void) {
   result_count = 0;
   myself = get__eprint_source();
   func = myself->type;
-  frame->cont = cont__dump_stream__grammar__match_5;
+  frame->cont = cont__dump_stream___grammar__match_5;
 }
-static void cont__dump_stream__grammar__match_5(void) {
+static void cont__dump_stream___grammar__match_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -22896,9 +22864,9 @@ static void cont__dump_stream__grammar__match_5(void) {
   result_count = 0;
   myself = get__ewriteln();
   func = myself->type;
-  frame->cont = cont__dump_stream__grammar__match_7;
+  frame->cont = cont__dump_stream___grammar__match_7;
 }
-static void cont__dump_stream__grammar__match_7(void) {
+static void cont__dump_stream___grammar__match_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -22911,7 +22879,7 @@ static void cont__dump_stream__grammar__match_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__strip_1(void) {
+static void entry__compiler__strip(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // node: 0
@@ -23778,7 +23746,7 @@ static void cont__compiler__strip_49(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__dump__grammar__match_1(void) {
+static void entry__dump___grammar__match(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -23794,9 +23762,9 @@ static void entry__dump__grammar__match_1(void) {
   result_count = 1;
   myself = get__strip();
   func = myself->type;
-  frame->cont = cont__dump__grammar__match_2;
+  frame->cont = cont__dump___grammar__match_2;
 }
-static void cont__dump__grammar__match_2(void) {
+static void cont__dump___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23810,9 +23778,9 @@ static void cont__dump__grammar__match_2(void) {
   result_count = 0;
   myself = get__edump();
   func = myself->type;
-  frame->cont = cont__dump__grammar__match_4;
+  frame->cont = cont__dump___grammar__match_4;
 }
-static void cont__dump__grammar__match_4(void) {
+static void cont__dump___grammar__match_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -23825,7 +23793,7 @@ static void cont__dump__grammar__match_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__dump3__grammar__match_1(void) {
+static void entry__dump3___grammar__match(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -23841,9 +23809,9 @@ static void entry__dump3__grammar__match_1(void) {
   result_count = 1;
   myself = get__strip();
   func = myself->type;
-  frame->cont = cont__dump3__grammar__match_2;
+  frame->cont = cont__dump3___grammar__match_2;
 }
-static void cont__dump3__grammar__match_2(void) {
+static void cont__dump3___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23858,9 +23826,9 @@ static void cont__dump3__grammar__match_2(void) {
   result_count = 0;
   myself = get__edump();
   func = myself->type;
-  frame->cont = cont__dump3__grammar__match_3;
+  frame->cont = cont__dump3___grammar__match_3;
 }
-static void cont__dump3__grammar__match_3(void) {
+static void cont__dump3___grammar__match_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -23873,7 +23841,7 @@ static void cont__dump3__grammar__match_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__dump5__grammar__match_1(void) {
+static void entry__dump5___grammar__match(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // self: 0
@@ -23889,9 +23857,9 @@ static void entry__dump5__grammar__match_1(void) {
   result_count = 1;
   myself = get__strip();
   func = myself->type;
-  frame->cont = cont__dump5__grammar__match_2;
+  frame->cont = cont__dump5___grammar__match_2;
 }
-static void cont__dump5__grammar__match_2(void) {
+static void cont__dump5___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -23906,9 +23874,9 @@ static void cont__dump5__grammar__match_2(void) {
   result_count = 0;
   myself = get__edump();
   func = myself->type;
-  frame->cont = cont__dump5__grammar__match_3;
+  frame->cont = cont__dump5___grammar__match_3;
 }
-static void cont__dump5__grammar__match_3(void) {
+static void cont__dump5___grammar__match_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -23968,7 +23936,7 @@ static void entry__compiler__precedence_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__precedence_1(void) {
+static void entry__compiler__precedence(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // op: 0
@@ -24007,7 +23975,7 @@ static void cont__compiler__precedence_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__is_left_associative_1(void) {
+static void entry__compiler__is_left_associative(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // prec: 0
@@ -24039,7 +24007,7 @@ static void cont__compiler__is_left_associative_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__is_right_associative_1(void) {
+static void entry__is_right_associative(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // prec: 0
@@ -24086,7 +24054,7 @@ static void cont__is_right_associative_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__infix_operator_1(void) {
+static void entry__infix_operator(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // operator: 0
@@ -24135,7 +24103,7 @@ static void cont__infix_operator_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__interleaved_1(void) {
+static void entry__interleaved(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // expression: 0
@@ -24199,7 +24167,7 @@ static void cont__interleaved_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__store_arguments_index__grammar__match_1(void) {
+static void entry__types__store_arguments_index___grammar__match(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // self: 0
@@ -24218,9 +24186,9 @@ static void entry__types__store_arguments_index__grammar__match_1(void) {
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__types__store_arguments_index__grammar__match_2;
+  frame->cont = cont__types__store_arguments_index___grammar__match_2;
 }
-static void cont__types__store_arguments_index__grammar__match_2(void) {
+static void cont__types__store_arguments_index___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24233,9 +24201,9 @@ static void cont__types__store_arguments_index__grammar__match_2(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__types__store_arguments_index__grammar__match_3;
+  frame->cont = cont__types__store_arguments_index___grammar__match_3;
 }
-static void cont__types__store_arguments_index__grammar__match_3(void) {
+static void cont__types__store_arguments_index___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24248,9 +24216,9 @@ static void cont__types__store_arguments_index__grammar__match_3(void) {
   result_count = 1;
   myself = get__expression_of();
   func = myself->type;
-  frame->cont = cont__types__store_arguments_index__grammar__match_4;
+  frame->cont = cont__types__store_arguments_index___grammar__match_4;
 }
-static void cont__types__store_arguments_index__grammar__match_4(void) {
+static void cont__types__store_arguments_index___grammar__match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24264,14 +24232,14 @@ static void cont__types__store_arguments_index__grammar__match_4(void) {
   result_count = frame->caller_result_count;
   myself = get__grammar__match();
   func = myself->type;
-  frame->cont = cont__types__store_arguments_index__grammar__match_5;
+  frame->cont = cont__types__store_arguments_index___grammar__match_5;
 }
-static void cont__types__store_arguments_index__grammar__match_5(void) {
+static void cont__types__store_arguments_index___grammar__match_5(void) {
   myself = frame->slots[2] /* return__1 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__store_arguments_index_1(void) {
+static void entry__store_arguments_index(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expression: 0
@@ -24295,7 +24263,7 @@ static void entry__store_arguments_index_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__inline__grammar__match_1(void) {
+static void entry__types__inline___grammar__match(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // self: 0
@@ -24317,9 +24285,9 @@ static void entry__types__inline__grammar__match_1(void) {
   result_count = 1;
   myself = get__expression_of();
   func = myself->type;
-  frame->cont = cont__types__inline__grammar__match_2;
+  frame->cont = cont__types__inline___grammar__match_2;
 }
-static void cont__types__inline__grammar__match_2(void) {
+static void cont__types__inline___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -24333,14 +24301,14 @@ static void cont__types__inline__grammar__match_2(void) {
   result_count = frame->caller_result_count;
   myself = get__grammar__match();
   func = myself->type;
-  frame->cont = cont__types__inline__grammar__match_3;
+  frame->cont = cont__types__inline___grammar__match_3;
 }
-static void cont__types__inline__grammar__match_3(void) {
+static void cont__types__inline___grammar__match_3(void) {
   myself = frame->slots[2] /* return__1 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__inline_1(void) {
+static void entry__inline(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expression: 0
@@ -24396,7 +24364,7 @@ static void cont__expect_4(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
   result_count = 1;
-  myself = var._syntax_error;
+  myself = func__syntax_error;
   func = myself->type;
   frame->cont = cont__expect_5;
 }
@@ -24444,7 +24412,7 @@ static void entry__expect_7(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* expression */;
   result_count = 1;
-  myself = var._unexpected_input_error;
+  myself = func__unexpected_input_error;
   func = myself->type;
   frame->cont = cont__expect_8;
 }
@@ -24478,7 +24446,7 @@ static void cont__expect_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__expect_1(void) {
+static void entry__expect(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // expression: 0
@@ -24531,7 +24499,7 @@ static void cont__expect_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__arguments_span_1(void) {
+static void entry__compiler__arguments_span(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // expression: 0
@@ -24582,7 +24550,7 @@ static void entry__check_functor_10(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__check_functor_1(void) {
+static void entry__check_functor(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // functor: 0
@@ -24800,7 +24768,7 @@ static void entry__check_arguments_55(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* wanted_inputs */;
-  arguments->slots[1] = var._ONE_OR_MORE;
+  arguments->slots[1] = unique__ONE_OR_MORE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -24871,7 +24839,7 @@ static void cont__check_arguments_59(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* wanted_inputs */;
-  arguments->slots[1] = var._ONE_OR_MORE;
+  arguments->slots[1] = unique__ONE_OR_MORE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -25343,7 +25311,7 @@ static void cont__check_arguments_84(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__check_arguments_1(void) {
+static void entry__check_arguments(void) {
   allocate_initialized_frame_gc(4, 13);
   // slot allocations:
   // node: 0
@@ -26395,11 +26363,11 @@ static void entry__CHECK_ARGUMENTS_2(void) {
   arguments->slots[2] = frame->slots[2] /* wanted_outputs */;
   arguments->slots[3] = frame->slots[3] /* wanted_inputs */;
   result_count = frame->caller_result_count;
-  myself = var._check_arguments;
+  myself = func__check_arguments;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__CHECK_ARGUMENTS_1(void) {
+static void entry__CHECK_ARGUMENTS(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // kind: 0
@@ -26433,7 +26401,7 @@ static void entry__CHECK_ARGUMENTS_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__parse_meta_instruction_1(void) {
+static void entry__compiler__parse_meta_instruction(void) {
   allocate_initialized_frame_gc(2, 9);
   // slot allocations:
   // fragment: 0
@@ -26559,7 +26527,7 @@ static void entry__compiler__parse_meta_instruction_7(void) {
   arguments->slots[0] = frame->slots[0] /* source */;
   arguments->slots[1] = string__12eb1acbffa2ae01;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -26576,7 +26544,7 @@ static void cont__compiler__parse_meta_instruction_9(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__parse_statement_1(void) {
+static void entry__compiler__parse_statement(void) {
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
   // fragment: 0
@@ -26688,7 +26656,7 @@ static void entry__compiler__parse_statement_9(void) {
   arguments->slots[0] = frame->slots[0] /* source */;
   arguments->slots[1] = string__482d004bd19ca8db;
   result_count = frame->caller_result_count;
-  myself = var._ParseError;
+  myself = func__ParseError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -26838,15 +26806,10 @@ static void cont__compiler__parse_statement_17(void) {
 }
 EXPORT void collect__parser(void) {
   var.compiler__std_identifier = collect_node(var.compiler__std_identifier);
-  var._print_message = collect_node(var._print_message);
   var.compiler__Warning = collect_node(var.compiler__Warning);
-  var._ExitWithSyntaxError = collect_node(var._ExitWithSyntaxError);
   var.compiler__SyntaxError = collect_node(var.compiler__SyntaxError);
-  var._ParseError = collect_node(var._ParseError);
   var.types__syntax_error = collect_node(var.types__syntax_error);
-  var._syntax_error = collect_node(var._syntax_error);
   var.types__unexpected_input_error = collect_node(var.types__unexpected_input_error);
-  var._unexpected_input_error = collect_node(var._unexpected_input_error);
   var._dump_stream = collect_node(var._dump_stream);
   var.compiler__strip = collect_node(var.compiler__strip);
   var._dump = collect_node(var._dump);
@@ -26857,19 +26820,13 @@ EXPORT void collect__parser(void) {
   var._precedence_table = collect_node(var._precedence_table);
   var.compiler__precedence = collect_node(var.compiler__precedence);
   var.compiler__is_left_associative = collect_node(var.compiler__is_left_associative);
-  var._is_right_associative = collect_node(var._is_right_associative);
-  var._infix_operator = collect_node(var._infix_operator);
-  var._interleaved = collect_node(var._interleaved);
   var.types__store_arguments_index = collect_node(var.types__store_arguments_index);
-  var._store_arguments_index = collect_node(var._store_arguments_index);
   var.types__inline = collect_node(var.types__inline);
-  var._inline = collect_node(var._inline);
   var._NOT_INLINE = collect_node(var._NOT_INLINE);
   var._NEWLINE = collect_node(var._NEWLINE);
   var._INDENT = collect_node(var._INDENT);
   var._OUTDENT = collect_node(var._OUTDENT);
   var._HASHTAG = collect_node(var._HASHTAG);
-  var._expect = collect_node(var._expect);
   var.compiler__arguments_span = collect_node(var.compiler__arguments_span);
   var.compiler__WHITESPACE = collect_node(var.compiler__WHITESPACE);
   var._SEPARATOR = collect_node(var._SEPARATOR);
@@ -26990,10 +26947,6 @@ EXPORT void collect__parser(void) {
   var._INLINE_ARGUMENTS = collect_node(var._INLINE_ARGUMENTS);
   var._INDENTED_ARGUMENTS = collect_node(var._INDENTED_ARGUMENTS);
   var._ARGUMENTS = collect_node(var._ARGUMENTS);
-  var._ONE_OR_MORE = collect_node(var._ONE_OR_MORE);
-  var._check_functor = collect_node(var._check_functor);
-  var._check_arguments = collect_node(var._check_arguments);
-  var._CHECK_ARGUMENTS = collect_node(var._CHECK_ARGUMENTS);
   var._ASSIGNMENT_STATEMENT = collect_node(var._ASSIGNMENT_STATEMENT);
   var._PROCEDURE_STATEMENT = collect_node(var._PROCEDURE_STATEMENT);
   var._RETURN_STATEMENT = collect_node(var._RETURN_STATEMENT);
@@ -27093,7 +27046,7 @@ EXPORT void phase_2__parser(void) {
   character__62 = from_uchar32(62);
   number__14 = from_uint32(14U);
   string__fa724815d896ba8 = from_latin_1_string("std", 3);
-  func__compiler__std_identifier_1 = create_function(entry__compiler__std_identifier_1, 1);
+  func__compiler__std_identifier = create_function(entry__compiler__std_identifier, 1);
   string__ef94bdf606d19800 = from_latin_1_string("        ", 8);
   string__578a5af303e9cdb = from_latin_1_string(":", 1);
   string__2d7981f4e6d82be5 = from_latin_1_string(": ", 2);
@@ -27105,15 +27058,15 @@ EXPORT void phase_2__parser(void) {
   string__2d7981f4e6002bcf = from_latin_1_string("!\012", 2);
   string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
   string__578a5af303e9cbf = from_latin_1_string("^", 1);
-  func__print_message_1 = create_function(entry__print_message_1, 4);
+  func__print_message = create_function(entry__print_message, 4);
   string__eed8078214c9e0bd = from_latin_1_string("WARNING", 7);
-  func__compiler__Warning_1 = create_function(entry__compiler__Warning_1, 2);
+  func__compiler__Warning = create_function(entry__compiler__Warning, 2);
   string__ae3c04ed6f185295 = from_latin_1_string("SYNTAX ERROR", 12);
-  func__ExitWithSyntaxError_1 = create_function(entry__ExitWithSyntaxError_1, 3);
-  func__compiler__SyntaxError_1 = create_function(entry__compiler__SyntaxError_1, 2);
-  func__ParseError_1 = create_function(entry__ParseError_1, 2);
-  func__types__syntax_error__grammar__match_1 = create_function(entry__types__syntax_error__grammar__match_1, 2);
-  func__syntax_error_1 = create_function(entry__syntax_error_1, 1);
+  func__ExitWithSyntaxError = create_function(entry__ExitWithSyntaxError, 3);
+  func__compiler__SyntaxError = create_function(entry__compiler__SyntaxError, 2);
+  func__ParseError = create_function(entry__ParseError, 2);
+  func__types__syntax_error___grammar__match = create_function(entry__types__syntax_error___grammar__match, 2);
+  func__syntax_error = create_function(entry__syntax_error, 1);
   string__9a64e069c352dc6a = from_latin_1_string("newline expected", 16);
   string__927507b8d9967cca = from_latin_1_string("indent expected", 15);
   string__9be468e9e34a9c6a = from_latin_1_string("outdent expected", 16);
@@ -27121,52 +27074,52 @@ EXPORT void phase_2__parser(void) {
   string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
   string__68d023a4c22b2461 = from_latin_1_string(" expected", 9);
   string__4914d002f7e03078 = from_latin_1_string("unexpected input", 16);
-  func__types__unexpected_input_error__grammar__match_1 = create_function(entry__types__unexpected_input_error__grammar__match_1, 2);
-  func__unexpected_input_error_1 = create_function(entry__unexpected_input_error_1, 1);
+  func__types__unexpected_input_error___grammar__match = create_function(entry__types__unexpected_input_error___grammar__match, 2);
+  func__unexpected_input_error = create_function(entry__unexpected_input_error, 1);
   string__8c16e735f8cebe3d = from_latin_1_string("<<<<<<<<<<", 10);
   string__881ef7b4fade9e7f = from_latin_1_string(">>>>>>>>>>", 10);
-  func__dump_stream__grammar__match_1 = create_function(entry__dump_stream__grammar__match_1, 2);
+  func__dump_stream___grammar__match = create_function(entry__dump_stream___grammar__match, 2);
   func__compiler__strip_18 = create_function(entry__compiler__strip_18, 1);
   func__compiler__strip_26 = create_function(entry__compiler__strip_26, 1);
   func__compiler__strip_34 = create_function(entry__compiler__strip_34, 1);
-  func__compiler__strip_1 = create_function(entry__compiler__strip_1, 1);
+  func__compiler__strip = create_function(entry__compiler__strip, 1);
   string__665e06ec4dcad6be = from_latin_1_string("strip(grammar::current_node)", 28);
-  func__dump__grammar__match_1 = create_function(entry__dump__grammar__match_1, 2);
-  func__dump3__grammar__match_1 = create_function(entry__dump3__grammar__match_1, 2);
-  func__dump5__grammar__match_1 = create_function(entry__dump5__grammar__match_1, 2);
+  func__dump___grammar__match = create_function(entry__dump___grammar__match, 2);
+  func__dump3___grammar__match = create_function(entry__dump3___grammar__match, 2);
+  func__dump5___grammar__match = create_function(entry__dump5___grammar__match, 2);
   func__compiler__precedence_5 = create_function(entry__compiler__precedence_5, 0);
-  func__compiler__precedence_1 = create_function(entry__compiler__precedence_1, 1);
-  func__compiler__is_left_associative_1 = create_function(entry__compiler__is_left_associative_1, 1);
-  func__is_right_associative_1 = create_function(entry__is_right_associative_1, 1);
-  func__infix_operator_1 = create_function(entry__infix_operator_1, 1);
-  func__interleaved_1 = create_function(entry__interleaved_1, 2);
-  func__types__store_arguments_index__grammar__match_1 = create_function(entry__types__store_arguments_index__grammar__match_1, 2);
-  func__store_arguments_index_1 = create_function(entry__store_arguments_index_1, 1);
-  func__types__inline__grammar__match_1 = create_function(entry__types__inline__grammar__match_1, 2);
-  func__inline_1 = create_function(entry__inline_1, 1);
-  func__expect_1 = create_function(entry__expect_1, -1);
-  func__compiler__arguments_span_1 = create_function(entry__compiler__arguments_span_1, 1);
-  unique__ONE_OR_MORE = register_unique_item("ONE_OR_MORE");
+  func__compiler__precedence = create_function(entry__compiler__precedence, 1);
+  func__compiler__is_left_associative = create_function(entry__compiler__is_left_associative, 1);
+  func__is_right_associative = create_function(entry__is_right_associative, 1);
+  func__infix_operator = create_function(entry__infix_operator, 1);
+  func__interleaved = create_function(entry__interleaved, 2);
+  func__types__store_arguments_index___grammar__match = create_function(entry__types__store_arguments_index___grammar__match, 2);
+  func__store_arguments_index = create_function(entry__store_arguments_index, 1);
+  func__types__inline___grammar__match = create_function(entry__types__inline___grammar__match, 2);
+  func__inline = create_function(entry__inline, 1);
+  func__expect = create_function(entry__expect, -1);
+  func__compiler__arguments_span = create_function(entry__compiler__arguments_span, 1);
   string__120dee9a1dcec47c = from_latin_1_string("invalid functor", 15);
-  func__check_functor_1 = create_function(entry__check_functor_1, 1);
+  func__check_functor = create_function(entry__check_functor, 1);
   string__c5acb93e4d23cfd9 = from_latin_1_string("unexpected attribute-value-pair", 31);
   string__687da0cc5622be9c = from_latin_1_string("simple argument within attribute definition", 43);
   string__4f498b003024119a = from_latin_1_string("procedure call", 14);
   string__47a9393383380498 = from_latin_1_string("object definition", 17);
   string__5fa0d5b2a9ee383d = from_latin_1_string("too many output arguments for ", 30);
   string__1b6e5ce3b21cbf2f = from_latin_1_string("too few output arguments for ", 29);
+  unique__ONE_OR_MORE = register_unique_item("ONE_OR_MORE");
   func__check_arguments_58 = create_function(entry__check_arguments_58, 0);
   func__check_arguments_62 = create_function(entry__check_arguments_62, 0);
   string__ebee6487b4b0342b = from_latin_1_string("too many input arguments for ", 29);
   string__bb0c2c1e659a1755 = from_latin_1_string("too few input arguments for ", 28);
-  func__check_arguments_1 = create_function(entry__check_arguments_1, -1);
-  func__CHECK_ARGUMENTS_1 = create_function(entry__CHECK_ARGUMENTS_1, -1);
+  func__check_arguments = create_function(entry__check_arguments, -1);
+  func__CHECK_ARGUMENTS = create_function(entry__CHECK_ARGUMENTS, -1);
   string__12eb1acbffa2ae01 = from_latin_1_string("invalid meta instruction", 24);
-  func__compiler__parse_meta_instruction_1 = create_function(entry__compiler__parse_meta_instruction_1, 1);
+  func__compiler__parse_meta_instruction = create_function(entry__compiler__parse_meta_instruction, 1);
   string__482d004bd19ca8db = from_latin_1_string("superficious input at end of expression", 39);
   string__5278dd75c73e18e3 = from_latin_1_string("________________________________________", 40);
   string__6ca8a8f604cd4188 = from_latin_1_string("no match", 8);
-  func__compiler__parse_statement_1 = create_function(entry__compiler__parse_statement_1, 1);
+  func__compiler__parse_statement = create_function(entry__compiler__parse_statement, 1);
   string__578a5af303e9ccb = from_latin_1_string("*", 1);
   string__578a5af303e9cce = from_latin_1_string("/", 1);
   string__578a5af303e9cca = from_latin_1_string("+", 1);
@@ -27460,7 +27413,6 @@ EXPORT void phase_3__parser(void) {
   var._INLINE_ARGUMENTS = create_future();
   var._INDENTED_ARGUMENTS = create_future();
   var._ARGUMENTS = create_future();
-  assign_value(&var._ONE_OR_MORE, unique__ONE_OR_MORE);
   var._ASSIGNMENT_STATEMENT = create_future();
   var._PROCEDURE_STATEMENT = create_future();
   var._RETURN_STATEMENT = create_future();
@@ -27710,18 +27662,18 @@ EXPORT void phase_4__parser(void) {
   use_read_only(NULL, "using_instruction", &get__using_instruction, &get_value_or_future__using_instruction);
   use_polymorphic_function(NULL, "variable_kind_of", &get__variable_kind_of, &poly_idx__variable_kind_of);
   use_read_only(NULL, "while", &get__while, &get_value_or_future__while);
-  define_method("types", "syntax_error", poly_idx__grammar__match, func__types__syntax_error__grammar__match_1);
-  define_method("types", "unexpected_input_error", poly_idx__grammar__match, func__types__unexpected_input_error__grammar__match_1);
+  define_method("types", "syntax_error", poly_idx__grammar__match, func__types__syntax_error___grammar__match);
+  define_method("types", "unexpected_input_error", poly_idx__grammar__match, func__types__unexpected_input_error___grammar__match);
   update_start_p = node_p;
-  def_attribute(&var._dump_stream, poly_idx__grammar__match, func__dump_stream__grammar__match_1);
+  def_attribute(&var._dump_stream, poly_idx__grammar__match, func__dump_stream___grammar__match);
   update_start_p = node_p;
-  def_attribute(&var._dump, poly_idx__grammar__match, func__dump__grammar__match_1);
+  def_attribute(&var._dump, poly_idx__grammar__match, func__dump___grammar__match);
   update_start_p = node_p;
-  def_attribute(&var._dump3, poly_idx__grammar__match, func__dump3__grammar__match_1);
+  def_attribute(&var._dump3, poly_idx__grammar__match, func__dump3___grammar__match);
   update_start_p = node_p;
-  def_attribute(&var._dump5, poly_idx__grammar__match, func__dump5__grammar__match_1);
-  define_method("types", "store_arguments_index", poly_idx__grammar__match, func__types__store_arguments_index__grammar__match_1);
-  define_method("types", "inline", poly_idx__grammar__match, func__types__inline__grammar__match_1);
+  def_attribute(&var._dump5, poly_idx__grammar__match, func__dump5___grammar__match);
+  define_method("types", "store_arguments_index", poly_idx__grammar__match, func__types__store_arguments_index___grammar__match);
+  define_method("types", "inline", poly_idx__grammar__match, func__types__inline___grammar__match);
 }
 
 static int already_run_phase_5 = false;
@@ -27729,41 +27681,27 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__parser(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  initialize_future(var.compiler__std_identifier, func__compiler__std_identifier_1);
-  assign_variable(&var._print_message, &func__print_message_1);
-  initialize_future(var.compiler__Warning, func__compiler__Warning_1);
-  assign_variable(&var._ExitWithSyntaxError, &func__ExitWithSyntaxError_1);
-  initialize_future(var.compiler__SyntaxError, func__compiler__SyntaxError_1);
-  assign_variable(&var._ParseError, &func__ParseError_1);
+  initialize_future(var.compiler__std_identifier, func__compiler__std_identifier);
+  initialize_future(var.compiler__Warning, func__compiler__Warning);
+  initialize_future(var.compiler__SyntaxError, func__compiler__SyntaxError);
   initialize_future(var.types__syntax_error, get__types__grammar_object());
-  assign_variable(&var._syntax_error, &func__syntax_error_1);
   initialize_future(var.types__unexpected_input_error, get__types__grammar_object());
-  assign_variable(&var._unexpected_input_error, &func__unexpected_input_error_1);
   initialize_future(var._dump_stream, get__types__grammar_object());
-  initialize_future(var.compiler__strip, func__compiler__strip_1);
+  initialize_future(var.compiler__strip, func__compiler__strip);
   initialize_future(var._dump, get__types__grammar_object());
   initialize_future(var._dump3, get__types__grammar_object());
   initialize_future(var._dump5, get__types__grammar_object());
   initialize_future(var.compiler__HIGHEST_PRECEDENCE, number__99);
   initialize_future(var.compiler__INFIX_PRECEDENCE, number__6);
-  initialize_future(var.compiler__precedence, func__compiler__precedence_1);
-  initialize_future(var.compiler__is_left_associative, func__compiler__is_left_associative_1);
-  assign_variable(&var._is_right_associative, &func__is_right_associative_1);
-  assign_variable(&var._infix_operator, &func__infix_operator_1);
-  assign_variable(&var._interleaved, &func__interleaved_1);
+  initialize_future(var.compiler__precedence, func__compiler__precedence);
+  initialize_future(var.compiler__is_left_associative, func__compiler__is_left_associative);
   maybe_initialize_future(get__arguments_index(), get__undefined());
   initialize_future(var.types__store_arguments_index, get__types__grammar_object());
-  assign_variable(&var._store_arguments_index, &func__store_arguments_index_1);
   maybe_initialize_future(get__within_inline_expression(), get__false());
   initialize_future(var.types__inline, get__types__grammar_object());
-  assign_variable(&var._inline, &func__inline_1);
-  assign_variable(&var._expect, &func__expect_1);
-  initialize_future(var.compiler__arguments_span, func__compiler__arguments_span_1);
-  assign_variable(&var._check_functor, &func__check_functor_1);
-  assign_variable(&var._check_arguments, &func__check_arguments_1);
-  assign_variable(&var._CHECK_ARGUMENTS, &func__CHECK_ARGUMENTS_1);
-  initialize_future(var.compiler__parse_meta_instruction, func__compiler__parse_meta_instruction_1);
-  initialize_future(var.compiler__parse_statement, func__compiler__parse_statement_1);
+  initialize_future(var.compiler__arguments_span, func__compiler__arguments_span);
+  initialize_future(var.compiler__parse_meta_instruction, func__compiler__parse_meta_instruction);
+  initialize_future(var.compiler__parse_statement, func__compiler__parse_statement);
 }
 
 static int already_run_phase_6 = false;

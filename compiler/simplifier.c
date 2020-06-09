@@ -250,7 +250,6 @@ IMPORT void define_method(
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void maybe_initialize_future(NODE *var, NODE *val);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -348,6 +347,8 @@ static NODE_GETTER get__compiler__call;
 static NODE_GETTER get_value_or_future__compiler__call;
 static NODE_GETTER get__compiler__function_call;
 static NODE_GETTER get_value_or_future__compiler__function_call;
+static NODE_GETTER get__compiler__identifier;
+static NODE_GETTER get_value_or_future__compiler__identifier;
 static NODE_GETTER get__compiler__temp_idx;
 static NODE_SETTER set__compiler__temp_idx;
 static NODE_SETTER define__compiler__temp_idx;
@@ -440,6 +441,8 @@ static NODE_GETTER get__is_empty;
 static NODE_GETTER get_value_or_future__is_empty;
 static NODE_GETTER get__is_single_assign;
 static NODE_GETTER get_value_or_future__is_single_assign;
+static NODE_GETTER get__is_undefined;
+static NODE_GETTER get_value_or_future__is_undefined;
 static NODE_GETTER get__kind_of;
 static NODE_GETTER get_value_or_future__kind_of;
 static NODE_GETTER get__length_of;
@@ -450,6 +453,10 @@ static NODE_GETTER get__might_be_constant;
 static NODE_GETTER get_value_or_future__might_be_constant;
 static int poly_idx__name_of;
 static NODE_GETTER get__name_of;
+static NODE_GETTER get__named_constants;
+static NODE_GETTER get_value_or_future__named_constants;
+static NODE_GETTER get__namespace_of;
+static NODE_GETTER get_value_or_future__namespace_of;
 static NODE_GETTER get__not;
 static NODE_GETTER get_value_or_future__not;
 static int poly_idx__parameters_of;
@@ -524,21 +531,11 @@ static NODE_GETTER get_value_or_future__used_names_of;
 static NODE_GETTER get__variable_kind_of;
 static NODE_GETTER get_value_or_future__variable_kind_of;
 static struct {
-  NODE *_temporary_identifier;
-  NODE *_simplify_input_arguments;
-  NODE *_simplify_output_arguments;
-  NODE *_do_store;
-  NODE *_store_result;
   NODE *compiler__simplify_statement;
   NODE *compiler__simplify_expression;
   NODE *compiler__check_usage;
 } var;
 static const char *var_names[] = {
-  "temporary_identifier",
-  "simplify_input_arguments",
-  "simplify_output_arguments",
-  "do_store",
-  "store_result"
 };
 static int poly_idx__compiler__simplify_statement;
 static void type__compiler__simplify_statement(void);
@@ -564,15 +561,15 @@ static NODE *get__inherited_names(void) {
 static void define__inherited_names(NODE *node) {
   define_dynamic_slot(dyna_idx__inherited_names, node);
 }
-static NODE *func__temporary_identifier_1;
-static void entry__temporary_identifier_1(void);
-static FRAME_INFO frame__temporary_identifier_1 = {1, {"id"}};
+static NODE *func__temporary_identifier;
+static void entry__temporary_identifier(void);
+static FRAME_INFO frame__temporary_identifier = {1, {"id"}};
 static void cont__temporary_identifier_2(void);
 static NODE *string__421f524a80420288;
 static void cont__temporary_identifier_4(void);
-static NODE *func__simplify_input_arguments_1;
-static void entry__simplify_input_arguments_1(void);
-static FRAME_INFO frame__simplify_input_arguments_1 = {1, {"input_arguments"}};
+static NODE *func__simplify_input_arguments;
+static void entry__simplify_input_arguments(void);
+static FRAME_INFO frame__simplify_input_arguments = {1, {"input_arguments"}};
 static NODE *func__simplify_input_arguments_2;
 static void entry__simplify_input_arguments_2(void);
 static FRAME_INFO frame__simplify_input_arguments_2 = {1, {"argument"}};
@@ -598,9 +595,9 @@ static FRAME_INFO frame__simplify_input_arguments_11 = {1, {"argument"}};
 static void cont__simplify_input_arguments_12(void);
 static void cont__simplify_input_arguments_13(void);
 static void cont__simplify_input_arguments_14(void);
-static NODE *func__simplify_output_arguments_1;
-static void entry__simplify_output_arguments_1(void);
-static FRAME_INFO frame__simplify_output_arguments_1 = {2, {"output_arguments", "final_destinations"}};
+static NODE *func__simplify_output_arguments;
+static void entry__simplify_output_arguments(void);
+static FRAME_INFO frame__simplify_output_arguments = {2, {"output_arguments", "final_destinations"}};
 static void cont__simplify_output_arguments_2(void);
 static NODE *func__simplify_output_arguments_3;
 static void entry__simplify_output_arguments_3(void);
@@ -674,9 +671,9 @@ static void cont__simplify_output_arguments_39(void);
 static void cont__simplify_output_arguments_40(void);
 static void cont__simplify_output_arguments_41(void);
 static void cont__simplify_output_arguments_42(void);
-static NODE *func__compiler__check_usage_1;
-static void entry__compiler__check_usage_1(void);
-static FRAME_INFO frame__compiler__check_usage_1 = {3, {"name", "definition", "info"}};
+static NODE *func__compiler__check_usage;
+static void entry__compiler__check_usage(void);
+static FRAME_INFO frame__compiler__check_usage = {3, {"name", "definition", "info"}};
 static void cont__compiler__check_usage_2(void);
 static NODE *func__compiler__check_usage_3;
 static void entry__compiler__check_usage_3(void);
@@ -737,169 +734,221 @@ static void cont__compiler__check_usage_38(void);
 static NODE *get__compiler__check_usage(void) {
   return var.compiler__check_usage;
 }
-static NODE *func__types__grammar_node__simplify_statement_1;
-static void entry__types__grammar_node__simplify_statement_1(void);
-static FRAME_INFO frame__types__grammar_node__simplify_statement_1 = {1, {"self"}};
+static NODE *func__types__grammar_node___simplify_statement;
+static void entry__types__grammar_node___simplify_statement(void);
+static FRAME_INFO frame__types__grammar_node___simplify_statement = {1, {"self"}};
 static NODE *string__4a1f5794bff5c237;
-static void cont__types__grammar_node__simplify_statement_3(void);
-static void cont__types__grammar_node__simplify_statement_4(void);
-static NODE *func__types__grammar_node__simplify_expression_1;
-static void entry__types__grammar_node__simplify_expression_1(void);
-static FRAME_INFO frame__types__grammar_node__simplify_expression_1 = {1, {"self"}};
+static void cont__types__grammar_node___simplify_statement_3(void);
+static void cont__types__grammar_node___simplify_statement_4(void);
+static NODE *func__types__grammar_node___simplify_expression;
+static void entry__types__grammar_node___simplify_expression(void);
+static FRAME_INFO frame__types__grammar_node___simplify_expression = {1, {"self"}};
 static NODE *string__5af95dddc656868;
-static void cont__types__grammar_node__simplify_expression_3(void);
-static NODE *func__compiler__body__simplify_expression_1;
-static void entry__compiler__body__simplify_expression_1(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_1 = {2, {"self", "all_defined_names"}};
+static void cont__types__grammar_node___simplify_expression_3(void);
+static NODE *func__compiler__identifier___simplify_expression;
+static void entry__compiler__identifier___simplify_expression(void);
+static FRAME_INFO frame__compiler__identifier___simplify_expression = {1, {"self"}};
+static NODE *string__929a5bb3435c71bb;
+static void cont__compiler__identifier___simplify_expression_3(void);
+static void cont__compiler__identifier___simplify_expression_4(void);
+static void cont__compiler__identifier___simplify_expression_5(void);
+static NODE *func__compiler__identifier__simplify_expression_6;
+static void entry__compiler__identifier__simplify_expression_6(void);
+static FRAME_INFO frame__compiler__identifier__simplify_expression_6 = {2, {"self", "constant"}};
+static void cont__compiler__identifier__simplify_expression_7(void);
+static void cont__compiler__identifier__simplify_expression_8(void);
+static void cont__compiler__identifier__simplify_expression_9(void);
+static NODE *func__compiler__identifier__simplify_expression_10;
+static void entry__compiler__identifier__simplify_expression_10(void);
+static FRAME_INFO frame__compiler__identifier__simplify_expression_10 = {2, {"self", "constant"}};
+static void cont__compiler__identifier___simplify_expression_11(void);
+static NODE *func__compiler__body___simplify_expression;
+static void entry__compiler__body___simplify_expression(void);
+static FRAME_INFO frame__compiler__body___simplify_expression = {1, {"self"}};
 static NODE *string__867252dcb87a57b1;
-static void cont__compiler__body__simplify_expression_3(void);
-static void cont__compiler__body__simplify_expression_4(void);
-static NODE *func__compiler__body__simplify_expression_5;
-static void entry__compiler__body__simplify_expression_5(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_5 = {4, {"name", "info", "all_defined_names", "outer_info"}};
-static void cont__compiler__body__simplify_expression_6(void);
+static void cont__compiler__body___simplify_expression_3(void);
+static void cont__compiler__body___simplify_expression_4(void);
+static void cont__compiler__body___simplify_expression_5(void);
+static NODE *func__compiler__body__simplify_expression_6;
+static void entry__compiler__body__simplify_expression_6(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_6 = {1, {"self"}};
 static void cont__compiler__body__simplify_expression_7(void);
-static NODE *func__compiler__body__simplify_expression_8;
-static void entry__compiler__body__simplify_expression_8(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_8 = {2, {"info", "name"}};
+static void cont__compiler__body__simplify_expression_8(void);
 static void cont__compiler__body__simplify_expression_9(void);
-static NODE *string__b18861f6a8c886ba;
-static NODE *string__ff65db3940410371;
+static NODE *func__compiler__body__simplify_expression_10;
+static void entry__compiler__body__simplify_expression_10(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_10 = {1, {"self"}};
+static void cont__compiler__body__simplify_expression_11(void);
 static void cont__compiler__body__simplify_expression_12(void);
-static NODE *func__compiler__body__simplify_expression_13;
-static void entry__compiler__body__simplify_expression_13(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_13 = {3, {"all_defined_names", "name", "info"}};
+static void cont__compiler__body__simplify_expression_13(void);
 static void cont__compiler__body__simplify_expression_14(void);
-static void cont__compiler__body__simplify_expression_15(void);
+static NODE *func__compiler__body__simplify_expression_15;
+static void entry__compiler__body__simplify_expression_15(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_15 = {1, {"self"}};
 static void cont__compiler__body__simplify_expression_16(void);
-static NODE *func__compiler__body__simplify_expression_17;
-static void entry__compiler__body__simplify_expression_17(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_17 = {5, {"name", "info", "all_defined_names", "self", "definition"}};
+static void cont__compiler__body__simplify_expression_17(void);
 static void cont__compiler__body__simplify_expression_18(void);
 static void cont__compiler__body__simplify_expression_19(void);
-static NODE *func__compiler__body__simplify_expression_20;
-static void entry__compiler__body__simplify_expression_20(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_20 = {4, {"name", "definition", "info", "self"}};
+static void cont__compiler__body__simplify_expression_20(void);
 static void cont__compiler__body__simplify_expression_21(void);
-static void cont__compiler__body__simplify_expression_22(void);
-static void cont__compiler__body__simplify_expression_23(void);
-static NODE *func__compiler__body__simplify_expression_24;
-static void entry__compiler__body__simplify_expression_24(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_24 = {1, {"name"}};
+static void cont__compiler__body___simplify_expression_22(void);
+static NODE *func__compiler__body__simplify_expression_23;
+static void entry__compiler__body__simplify_expression_23(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_23 = {1, {"self"}};
+static void cont__compiler__body__simplify_expression_24(void);
 static void cont__compiler__body__simplify_expression_25(void);
 static void cont__compiler__body__simplify_expression_26(void);
 static void cont__compiler__body__simplify_expression_27(void);
 static NODE *func__compiler__body__simplify_expression_28;
 static void entry__compiler__body__simplify_expression_28(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_28 = {3, {"self", "name", "info"}};
+static FRAME_INFO frame__compiler__body__simplify_expression_28 = {2, {"self", "all_defined_names"}};
 static void cont__compiler__body__simplify_expression_29(void);
-static void cont__compiler__body__simplify_expression_30(void);
+static NODE *func__compiler__body__simplify_expression_30;
+static void entry__compiler__body__simplify_expression_30(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_30 = {4, {"name", "info", "all_defined_names", "outer_info"}};
 static void cont__compiler__body__simplify_expression_31(void);
-static NODE *func__compiler__body__simplify_expression_32;
-static void entry__compiler__body__simplify_expression_32(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_32 = {4, {"return__4", "self", "all_defined_names", "max_temp_idx"}};
-static void cont__compiler__body__simplify_expression_33(void);
+static void cont__compiler__body__simplify_expression_32(void);
+static NODE *func__compiler__body__simplify_expression_33;
+static void entry__compiler__body__simplify_expression_33(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_33 = {2, {"info", "name"}};
 static void cont__compiler__body__simplify_expression_34(void);
-static void cont__compiler__body__simplify_expression_35(void);
-static NODE *func__compiler__body__simplify_expression_36;
-static void entry__compiler__body__simplify_expression_36(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_36 = {3, {"parameter", "max_temp_idx", "default_value"}};
+static NODE *string__b18861f6a8c886ba;
+static NODE *string__ff65db3940410371;
 static void cont__compiler__body__simplify_expression_37(void);
-static void cont__compiler__body__simplify_expression_38(void);
-static NODE *func__compiler__body__simplify_expression_39;
-static void entry__compiler__body__simplify_expression_39(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_39 = {3, {"default_value", "parameter", "max_temp_idx"}};
+static NODE *func__compiler__body__simplify_expression_38;
+static void entry__compiler__body__simplify_expression_38(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_38 = {3, {"all_defined_names", "name", "info"}};
+static void cont__compiler__body__simplify_expression_39(void);
 static void cont__compiler__body__simplify_expression_40(void);
-static NODE *func__compiler__body__simplify_expression_41;
-static void entry__compiler__body__simplify_expression_41(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_41 = {5, {"return__1", "parameter", "default_value", "max_temp_idx", "identifier"}};
-static void cont__compiler__body__simplify_expression_42(void);
+static void cont__compiler__body__simplify_expression_41(void);
+static NODE *func__compiler__body__simplify_expression_42;
+static void entry__compiler__body__simplify_expression_42(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_42 = {5, {"name", "info", "all_defined_names", "self", "definition"}};
 static void cont__compiler__body__simplify_expression_43(void);
 static void cont__compiler__body__simplify_expression_44(void);
-static void cont__compiler__body__simplify_expression_45(void);
+static NODE *func__compiler__body__simplify_expression_45;
+static void entry__compiler__body__simplify_expression_45(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_45 = {4, {"name", "definition", "info", "self"}};
 static void cont__compiler__body__simplify_expression_46(void);
 static void cont__compiler__body__simplify_expression_47(void);
 static void cont__compiler__body__simplify_expression_48(void);
 static NODE *func__compiler__body__simplify_expression_49;
 static void entry__compiler__body__simplify_expression_49(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_49 = {2, {"default_value", "parameter"}};
+static FRAME_INFO frame__compiler__body__simplify_expression_49 = {1, {"name"}};
 static void cont__compiler__body__simplify_expression_50(void);
 static void cont__compiler__body__simplify_expression_51(void);
 static void cont__compiler__body__simplify_expression_52(void);
-static void cont__compiler__body__simplify_expression_53(void);
-static NODE *func__compiler__body__simplify_expression_54;
-static void entry__compiler__body__simplify_expression_54(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_54 = {2, {"statement", "max_temp_idx"}};
+static NODE *func__compiler__body__simplify_expression_53;
+static void entry__compiler__body__simplify_expression_53(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_53 = {3, {"self", "name", "info"}};
+static void cont__compiler__body__simplify_expression_54(void);
 static void cont__compiler__body__simplify_expression_55(void);
-static NODE *func__compiler__body__simplify_expression_56;
-static void entry__compiler__body__simplify_expression_56(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_56 = {2, {"statement", "max_temp_idx"}};
-static void cont__compiler__body__simplify_expression_57(void);
-static NODE *func__compiler__body__simplify_expression_58;
-static void entry__compiler__body__simplify_expression_58(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_58 = {1, {"statement"}};
+static void cont__compiler__body__simplify_expression_56(void);
+static NODE *func__compiler__body__simplify_expression_57;
+static void entry__compiler__body__simplify_expression_57(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_57 = {4, {"return__4", "self", "all_defined_names", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_58(void);
 static void cont__compiler__body__simplify_expression_59(void);
 static void cont__compiler__body__simplify_expression_60(void);
-static void cont__compiler__body__simplify_expression_61(void);
-static NODE *func__compiler__body__simplify_expression_62;
-static void entry__compiler__body__simplify_expression_62(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_62 = {1, {"statement"}};
+static NODE *func__compiler__body__simplify_expression_61;
+static void entry__compiler__body__simplify_expression_61(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_61 = {3, {"parameter", "max_temp_idx", "default_value"}};
+static void cont__compiler__body__simplify_expression_62(void);
 static void cont__compiler__body__simplify_expression_63(void);
-static void cont__compiler__body__simplify_expression_64(void);
+static NODE *func__compiler__body__simplify_expression_64;
+static void entry__compiler__body__simplify_expression_64(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_64 = {3, {"default_value", "parameter", "max_temp_idx"}};
 static void cont__compiler__body__simplify_expression_65(void);
-static void cont__compiler__body__simplify_expression_66(void);
+static NODE *func__compiler__body__simplify_expression_66;
+static void entry__compiler__body__simplify_expression_66(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_66 = {5, {"return__1", "parameter", "default_value", "max_temp_idx", "identifier"}};
 static void cont__compiler__body__simplify_expression_67(void);
-static NODE *func__compiler__body__simplify_expression_68;
-static void entry__compiler__body__simplify_expression_68(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_68 = {3, {"return__2", "statement", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_68(void);
 static void cont__compiler__body__simplify_expression_69(void);
 static void cont__compiler__body__simplify_expression_70(void);
 static void cont__compiler__body__simplify_expression_71(void);
 static void cont__compiler__body__simplify_expression_72(void);
-static NODE *func__compiler__body__simplify_expression_73;
-static void entry__compiler__body__simplify_expression_73(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_73 = {2, {"statement", "max_temp_idx"}};
-static void cont__compiler__body__simplify_expression_74(void);
-static NODE *func__compiler__body__simplify_expression_75;
-static void entry__compiler__body__simplify_expression_75(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_75 = {2, {"statement", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_73(void);
+static NODE *func__compiler__body__simplify_expression_74;
+static void entry__compiler__body__simplify_expression_74(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_74 = {2, {"default_value", "parameter"}};
+static void cont__compiler__body__simplify_expression_75(void);
 static void cont__compiler__body__simplify_expression_76(void);
-static NODE *func__compiler__body__simplify_expression_77;
-static void entry__compiler__body__simplify_expression_77(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_77 = {1, {"statement"}};
+static void cont__compiler__body__simplify_expression_77(void);
 static void cont__compiler__body__simplify_expression_78(void);
-static void cont__compiler__body__simplify_expression_79(void);
+static NODE *func__compiler__body__simplify_expression_79;
+static void entry__compiler__body__simplify_expression_79(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_79 = {2, {"statement", "max_temp_idx"}};
 static void cont__compiler__body__simplify_expression_80(void);
 static NODE *func__compiler__body__simplify_expression_81;
 static void entry__compiler__body__simplify_expression_81(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_81 = {1, {"statement"}};
+static FRAME_INFO frame__compiler__body__simplify_expression_81 = {2, {"statement", "max_temp_idx"}};
 static void cont__compiler__body__simplify_expression_82(void);
-static void cont__compiler__body__simplify_expression_83(void);
+static NODE *func__compiler__body__simplify_expression_83;
+static void entry__compiler__body__simplify_expression_83(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_83 = {1, {"statement"}};
 static void cont__compiler__body__simplify_expression_84(void);
 static void cont__compiler__body__simplify_expression_85(void);
 static void cont__compiler__body__simplify_expression_86(void);
 static NODE *func__compiler__body__simplify_expression_87;
 static void entry__compiler__body__simplify_expression_87(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_87 = {3, {"return__3", "statement", "max_temp_idx"}};
+static FRAME_INFO frame__compiler__body__simplify_expression_87 = {1, {"statement"}};
 static void cont__compiler__body__simplify_expression_88(void);
 static void cont__compiler__body__simplify_expression_89(void);
 static void cont__compiler__body__simplify_expression_90(void);
 static void cont__compiler__body__simplify_expression_91(void);
 static void cont__compiler__body__simplify_expression_92(void);
-static void cont__compiler__body__simplify_expression_93(void);
-static NODE *func__compiler__body__simplify_expression_94;
-static void entry__compiler__body__simplify_expression_94(void);
-static FRAME_INFO frame__compiler__body__simplify_expression_94 = {2, {"self", "temp"}};
+static NODE *func__compiler__body__simplify_expression_93;
+static void entry__compiler__body__simplify_expression_93(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_93 = {3, {"return__2", "statement", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_94(void);
 static void cont__compiler__body__simplify_expression_95(void);
 static void cont__compiler__body__simplify_expression_96(void);
 static void cont__compiler__body__simplify_expression_97(void);
-static void cont__compiler__body__simplify_expression_98(void);
+static NODE *func__compiler__body__simplify_expression_98;
+static void entry__compiler__body__simplify_expression_98(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_98 = {2, {"statement", "max_temp_idx"}};
 static void cont__compiler__body__simplify_expression_99(void);
-static void cont__compiler__body__simplify_expression_100(void);
+static NODE *func__compiler__body__simplify_expression_100;
+static void entry__compiler__body__simplify_expression_100(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_100 = {2, {"statement", "max_temp_idx"}};
 static void cont__compiler__body__simplify_expression_101(void);
-static NODE *func__do_store_1;
-static void entry__do_store_1(void);
-static FRAME_INFO frame__do_store_1 = {6, {"functor", "arguments", "result", "rest", "infos", "info"}};
+static NODE *func__compiler__body__simplify_expression_102;
+static void entry__compiler__body__simplify_expression_102(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_102 = {1, {"statement"}};
+static void cont__compiler__body__simplify_expression_103(void);
+static void cont__compiler__body__simplify_expression_104(void);
+static void cont__compiler__body__simplify_expression_105(void);
+static NODE *func__compiler__body__simplify_expression_106;
+static void entry__compiler__body__simplify_expression_106(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_106 = {1, {"statement"}};
+static void cont__compiler__body__simplify_expression_107(void);
+static void cont__compiler__body__simplify_expression_108(void);
+static void cont__compiler__body__simplify_expression_109(void);
+static void cont__compiler__body__simplify_expression_110(void);
+static void cont__compiler__body__simplify_expression_111(void);
+static NODE *func__compiler__body__simplify_expression_112;
+static void entry__compiler__body__simplify_expression_112(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_112 = {3, {"return__3", "statement", "max_temp_idx"}};
+static void cont__compiler__body__simplify_expression_113(void);
+static void cont__compiler__body__simplify_expression_114(void);
+static void cont__compiler__body__simplify_expression_115(void);
+static void cont__compiler__body__simplify_expression_116(void);
+static void cont__compiler__body__simplify_expression_117(void);
+static void cont__compiler__body__simplify_expression_118(void);
+static NODE *func__compiler__body__simplify_expression_119;
+static void entry__compiler__body__simplify_expression_119(void);
+static FRAME_INFO frame__compiler__body__simplify_expression_119 = {2, {"self", "temp"}};
+static void cont__compiler__body__simplify_expression_120(void);
+static void cont__compiler__body__simplify_expression_121(void);
+static void cont__compiler__body__simplify_expression_122(void);
+static void cont__compiler__body__simplify_expression_123(void);
+static void cont__compiler__body__simplify_expression_124(void);
+static void cont__compiler__body__simplify_expression_125(void);
+static void cont__compiler__body___simplify_expression_126(void);
+static NODE *func__do_store;
+static void entry__do_store(void);
+static FRAME_INFO frame__do_store = {6, {"functor", "arguments", "result", "rest", "infos", "info"}};
 static void cont__do_store_2(void);
 static void cont__do_store_3(void);
 static NODE *func__do_store_4;
@@ -967,9 +1016,9 @@ static void cont__do_store_51(void);
 static void cont__do_store_52(void);
 static void cont__do_store_53(void);
 static void cont__do_store_54(void);
-static NODE *func__store_result_1;
-static void entry__store_result_1(void);
-static FRAME_INFO frame__store_result_1 = {5, {"destination", "result", "rest", "infos", "arguments"}};
+static NODE *func__store_result;
+static void entry__store_result(void);
+static FRAME_INFO frame__store_result = {5, {"destination", "result", "rest", "infos", "arguments"}};
 static void cont__store_result_2(void);
 static void cont__store_result_3(void);
 static void cont__store_result_4(void);
@@ -999,9 +1048,9 @@ static NODE *func__store_result_17;
 static void entry__store_result_17(void);
 static FRAME_INFO frame__store_result_17 = {5, {"functor", "result", "rest", "arguments", "infos"}};
 static void cont__store_result_18(void);
-static NODE *func__compiler__call__simplify_statement_1;
-static void entry__compiler__call__simplify_statement_1(void);
-static FRAME_INFO frame__compiler__call__simplify_statement_1 = {6, {"self", "return", "output_arguments", "input_arguments", "add_arguments", "final_destinations"}};
+static NODE *func__compiler__call___simplify_statement;
+static void entry__compiler__call___simplify_statement(void);
+static FRAME_INFO frame__compiler__call___simplify_statement = {6, {"self", "return", "output_arguments", "input_arguments", "add_arguments", "final_destinations"}};
 static NODE *func__compiler__call__simplify_statement_2;
 static void entry__compiler__call__simplify_statement_2(void);
 static FRAME_INFO frame__compiler__call__simplify_statement_2 = {3, {"arguments", "output_arguments", "input_arguments"}};
@@ -1030,16 +1079,16 @@ static void entry__compiler__call__simplify_statement_13(void);
 static FRAME_INFO frame__compiler__call__simplify_statement_13 = {2, {"input_arguments", "argument"}};
 static void cont__compiler__call__simplify_statement_14(void);
 static NODE *string__8629329e514f7a7a;
-static void cont__compiler__call__simplify_statement_16(void);
-static void cont__compiler__call__simplify_statement_17(void);
-static void cont__compiler__call__simplify_statement_18(void);
-static void cont__compiler__call__simplify_statement_19(void);
+static void cont__compiler__call___simplify_statement_16(void);
+static void cont__compiler__call___simplify_statement_17(void);
+static void cont__compiler__call___simplify_statement_18(void);
+static void cont__compiler__call___simplify_statement_19(void);
 static NODE *func__compiler__call__simplify_statement_20;
 static void entry__compiler__call__simplify_statement_20(void);
 static FRAME_INFO frame__compiler__call__simplify_statement_20 = {1, {"input_arguments"}};
 static void cont__compiler__call__simplify_statement_21(void);
 static void cont__compiler__call__simplify_statement_22(void);
-static void cont__compiler__call__simplify_statement_23(void);
+static void cont__compiler__call___simplify_statement_23(void);
 static NODE *func__compiler__call__simplify_statement_24;
 static void entry__compiler__call__simplify_statement_24(void);
 static FRAME_INFO frame__compiler__call__simplify_statement_24 = {5, {"input_arguments", "output_arguments", "add_arguments", "self", "source"}};
@@ -1056,9 +1105,9 @@ static void cont__compiler__call__simplify_statement_32(void);
 static void cont__compiler__call__simplify_statement_33(void);
 static void cont__compiler__call__simplify_statement_34(void);
 static void cont__compiler__call__simplify_statement_35(void);
-static void cont__compiler__call__simplify_statement_36(void);
-static void cont__compiler__call__simplify_statement_37(void);
-static void cont__compiler__call__simplify_statement_38(void);
+static void cont__compiler__call___simplify_statement_36(void);
+static void cont__compiler__call___simplify_statement_37(void);
+static void cont__compiler__call___simplify_statement_38(void);
 static NODE *func__compiler__call__simplify_statement_39;
 static void entry__compiler__call__simplify_statement_39(void);
 static FRAME_INFO frame__compiler__call__simplify_statement_39 = {1, {"output_arguments"}};
@@ -1066,9 +1115,9 @@ static void cont__compiler__call__simplify_statement_40(void);
 static NODE *func__compiler__call__simplify_statement_41;
 static void entry__compiler__call__simplify_statement_41(void);
 static FRAME_INFO frame__compiler__call__simplify_statement_41 = {0, {}};
-static void cont__compiler__call__simplify_statement_42(void);
-static void cont__compiler__call__simplify_statement_43(void);
-static void cont__compiler__call__simplify_statement_44(void);
+static void cont__compiler__call___simplify_statement_42(void);
+static void cont__compiler__call___simplify_statement_43(void);
+static void cont__compiler__call___simplify_statement_44(void);
 static NODE *func__compiler__call__simplify_statement_45;
 static void entry__compiler__call__simplify_statement_45(void);
 static FRAME_INFO frame__compiler__call__simplify_statement_45 = {1, {"self"}};
@@ -1090,8 +1139,8 @@ static void cont__compiler__call__simplify_statement_56(void);
 static void cont__compiler__call__simplify_statement_57(void);
 static void cont__compiler__call__simplify_statement_58(void);
 static void cont__compiler__call__simplify_statement_59(void);
-static void cont__compiler__call__simplify_statement_60(void);
-static void cont__compiler__call__simplify_statement_61(void);
+static void cont__compiler__call___simplify_statement_60(void);
+static void cont__compiler__call___simplify_statement_61(void);
 static NODE *func__compiler__call__simplify_statement_62;
 static void entry__compiler__call__simplify_statement_62(void);
 static FRAME_INFO frame__compiler__call__simplify_statement_62 = {5, {"output_arguments", "input_arguments", "return", "self", "destination"}};
@@ -1176,10 +1225,10 @@ static FRAME_INFO frame__compiler__call__simplify_statement_110 = {1, {"argument
 static void cont__compiler__call__simplify_statement_111(void);
 static void cont__compiler__call__simplify_statement_112(void);
 static void cont__compiler__call__simplify_statement_113(void);
-static void cont__compiler__call__simplify_statement_114(void);
-static void cont__compiler__call__simplify_statement_115(void);
-static void cont__compiler__call__simplify_statement_116(void);
-static void cont__compiler__call__simplify_statement_117(void);
+static void cont__compiler__call___simplify_statement_114(void);
+static void cont__compiler__call___simplify_statement_115(void);
+static void cont__compiler__call___simplify_statement_116(void);
+static void cont__compiler__call___simplify_statement_117(void);
 static NODE *func__compiler__call__simplify_statement_118;
 static void entry__compiler__call__simplify_statement_118(void);
 static FRAME_INFO frame__compiler__call__simplify_statement_118 = {2, {"final_destinations", "output_arguments"}};
@@ -1211,44 +1260,44 @@ static void cont__compiler__call__simplify_statement_131(void);
 static void cont__compiler__call__simplify_statement_132(void);
 static void cont__compiler__call__simplify_statement_133(void);
 static void cont__compiler__call__simplify_statement_134(void);
-static void cont__compiler__call__simplify_statement_135(void);
-static NODE *func__compiler__function_call__simplify_expression_1;
-static void entry__compiler__function_call__simplify_expression_1(void);
-static FRAME_INFO frame__compiler__function_call__simplify_expression_1 = {2, {"self", "temp"}};
+static void cont__compiler__call___simplify_statement_135(void);
+static NODE *func__compiler__function_call___simplify_expression;
+static void entry__compiler__function_call___simplify_expression(void);
+static FRAME_INFO frame__compiler__function_call___simplify_expression = {2, {"self", "temp"}};
 static NODE *string__95014404e5c0e88d;
-static void cont__compiler__function_call__simplify_expression_3(void);
-static void cont__compiler__function_call__simplify_expression_4(void);
-static void cont__compiler__function_call__simplify_expression_5(void);
-static void cont__compiler__function_call__simplify_expression_6(void);
-static void cont__compiler__function_call__simplify_expression_7(void);
-static void cont__compiler__function_call__simplify_expression_8(void);
-static void cont__compiler__function_call__simplify_expression_9(void);
-static void cont__compiler__function_call__simplify_expression_10(void);
-static void cont__compiler__function_call__simplify_expression_11(void);
-static NODE *func__compiler__attribute_value_pair__simplify_expression_1;
-static void entry__compiler__attribute_value_pair__simplify_expression_1(void);
-static FRAME_INFO frame__compiler__attribute_value_pair__simplify_expression_1 = {1, {"self"}};
+static void cont__compiler__function_call___simplify_expression_3(void);
+static void cont__compiler__function_call___simplify_expression_4(void);
+static void cont__compiler__function_call___simplify_expression_5(void);
+static void cont__compiler__function_call___simplify_expression_6(void);
+static void cont__compiler__function_call___simplify_expression_7(void);
+static void cont__compiler__function_call___simplify_expression_8(void);
+static void cont__compiler__function_call___simplify_expression_9(void);
+static void cont__compiler__function_call___simplify_expression_10(void);
+static void cont__compiler__function_call___simplify_expression_11(void);
+static NODE *func__compiler__attribute_value_pair___simplify_expression;
+static void entry__compiler__attribute_value_pair___simplify_expression(void);
+static FRAME_INFO frame__compiler__attribute_value_pair___simplify_expression = {1, {"self"}};
 static NODE *string__cced2f4d969d3d03;
-static void cont__compiler__attribute_value_pair__simplify_expression_3(void);
-static void cont__compiler__attribute_value_pair__simplify_expression_4(void);
-static void cont__compiler__attribute_value_pair__simplify_expression_5(void);
-static NODE *func__compiler__attribute_function_pair__simplify_expression_1;
-static void entry__compiler__attribute_function_pair__simplify_expression_1(void);
-static FRAME_INFO frame__compiler__attribute_function_pair__simplify_expression_1 = {1, {"self"}};
+static void cont__compiler__attribute_value_pair___simplify_expression_3(void);
+static void cont__compiler__attribute_value_pair___simplify_expression_4(void);
+static void cont__compiler__attribute_value_pair___simplify_expression_5(void);
+static NODE *func__compiler__attribute_function_pair___simplify_expression;
+static void entry__compiler__attribute_function_pair___simplify_expression(void);
+static FRAME_INFO frame__compiler__attribute_function_pair___simplify_expression = {1, {"self"}};
 static NODE *string__83e573190949a328;
-static void cont__compiler__attribute_function_pair__simplify_expression_3(void);
-static void cont__compiler__attribute_function_pair__simplify_expression_4(void);
-static void cont__compiler__attribute_function_pair__simplify_expression_5(void);
-static NODE *func__compiler__c_code__simplify_statement_1;
-static void entry__compiler__c_code__simplify_statement_1(void);
-static FRAME_INFO frame__compiler__c_code__simplify_statement_1 = {1, {"self"}};
+static void cont__compiler__attribute_function_pair___simplify_expression_3(void);
+static void cont__compiler__attribute_function_pair___simplify_expression_4(void);
+static void cont__compiler__attribute_function_pair___simplify_expression_5(void);
+static NODE *func__compiler__c_code___simplify_statement;
+static void entry__compiler__c_code___simplify_statement(void);
+static FRAME_INFO frame__compiler__c_code___simplify_statement = {1, {"self"}};
 static NODE *string__1095e9f11fb0974b;
-static void cont__compiler__c_code__simplify_statement_3(void);
+static void cont__compiler__c_code___simplify_statement_3(void);
 static NODE *func__compiler__c_code__simplify_statement_4;
 static void entry__compiler__c_code__simplify_statement_4(void);
 static FRAME_INFO frame__compiler__c_code__simplify_statement_4 = {0, {}};
-static void cont__compiler__c_code__simplify_statement_5(void);
-static void cont__compiler__c_code__simplify_statement_6(void);
+static void cont__compiler__c_code___simplify_statement_5(void);
+static void cont__compiler__c_code___simplify_statement_6(void);
 static NODE *func__compiler__c_code__simplify_statement_7;
 static void entry__compiler__c_code__simplify_statement_7(void);
 static FRAME_INFO frame__compiler__c_code__simplify_statement_7 = {2, {"self", "name"}};
@@ -1285,26 +1334,26 @@ static void cont__compiler__c_code__simplify_statement_27(void);
 static NODE *string__7c1f530901a312a3;
 static NODE *string__1e0aea8b5d407d5c;
 static NODE *string__46c0af9104ada08e;
-static void cont__compiler__c_code__simplify_statement_31(void);
-static void cont__compiler__c_code__simplify_statement_32(void);
-static NODE *func__compiler__c_body__simplify_expression_1;
-static void entry__compiler__c_body__simplify_expression_1(void);
-static FRAME_INFO frame__compiler__c_body__simplify_expression_1 = {1, {"self"}};
+static void cont__compiler__c_code___simplify_statement_31(void);
+static void cont__compiler__c_code___simplify_statement_32(void);
+static NODE *func__compiler__c_body___simplify_expression;
+static void entry__compiler__c_body___simplify_expression(void);
+static FRAME_INFO frame__compiler__c_body___simplify_expression = {1, {"self"}};
 static NODE *string__1295e9f11fb09757;
-static void cont__compiler__c_body__simplify_expression_3(void);
+static void cont__compiler__c_body___simplify_expression_3(void);
 static NODE *func__compiler__c_body__simplify_expression_4;
 static void entry__compiler__c_body__simplify_expression_4(void);
 static FRAME_INFO frame__compiler__c_body__simplify_expression_4 = {0, {}};
-static void cont__compiler__c_body__simplify_expression_5(void);
+static void cont__compiler__c_body___simplify_expression_5(void);
 void run__simplifier(void);
 
 static CONTINUATION_INFO continuation_info[] = {
   {type__compiler__simplify_statement, NULL, 30, 30, 2, 29},
   {type__compiler__simplify_expression, NULL, 31, 31, 2, 30},
   {run__simplifier, NULL, 34, 34, 1, 28},
-  {entry__temporary_identifier_1, NULL, 37, 37, 3, 15},
-  {cont__temporary_identifier_2, &frame__temporary_identifier_1, 38, 38, 26, 44},
-  {cont__temporary_identifier_4, &frame__temporary_identifier_1, 39, 39, 3, 7},
+  {entry__temporary_identifier, NULL, 37, 37, 3, 15},
+  {cont__temporary_identifier_2, &frame__temporary_identifier, 38, 38, 26, 44},
+  {cont__temporary_identifier_4, &frame__temporary_identifier, 39, 39, 3, 7},
   {entry__simplify_input_arguments_5, NULL, 46, 46, 9, 37},
   {cont__simplify_input_arguments_6, &frame__simplify_input_arguments_5, 47, 47, 42, 42},
   {entry__simplify_input_arguments_3, NULL, 44, 44, 10, 37},
@@ -1317,8 +1366,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__simplify_input_arguments_12, &frame__simplify_input_arguments_11, 53, 53, 37, 37},
   {entry__simplify_input_arguments_2, NULL, 43, 53, 5, 38},
   {cont__simplify_input_arguments_13, &frame__simplify_input_arguments_2, },
-  {entry__simplify_input_arguments_1, NULL, 42, 53, 3, 39},
-  {cont__simplify_input_arguments_14, &frame__simplify_input_arguments_1, 53, 53, 40, 40},
+  {entry__simplify_input_arguments, NULL, 42, 53, 3, 39},
+  {cont__simplify_input_arguments_14, &frame__simplify_input_arguments, 53, 53, 40, 40},
   {entry__simplify_output_arguments_10, NULL, 69, 69, 15, 41},
   {cont__simplify_output_arguments_11, &frame__simplify_output_arguments_10, 69, 69, 15, 46},
   {cont__simplify_output_arguments_12, &frame__simplify_output_arguments_10, 69, 69, 15, 46},
@@ -1358,9 +1407,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__simplify_output_arguments_3, NULL, 62, 76, 5, 20},
   {cont__simplify_output_arguments_20, &frame__simplify_output_arguments_3, 77, 77, 8, 39},
   {cont__simplify_output_arguments_21, &frame__simplify_output_arguments_3, 77, 97, 5, 53},
-  {entry__simplify_output_arguments_1, NULL, 60, 60, 6, 32},
-  {cont__simplify_output_arguments_2, &frame__simplify_output_arguments_1, 60, 97, 3, 54},
-  {cont__simplify_output_arguments_42, &frame__simplify_output_arguments_1, 98, 98, 3, 23},
+  {entry__simplify_output_arguments, NULL, 60, 60, 6, 32},
+  {cont__simplify_output_arguments_2, &frame__simplify_output_arguments, 60, 97, 3, 54},
+  {cont__simplify_output_arguments_42, &frame__simplify_output_arguments, 98, 98, 3, 23},
   {entry__compiler__check_usage_6, NULL, 104, 104, 21, 39},
   {cont__compiler__check_usage_7, &frame__compiler__check_usage_6, 104, 105, 41, 64},
   {cont__compiler__check_usage_10, &frame__compiler__check_usage_6, 104, 105, 9, 64},
@@ -1391,367 +1440,402 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__compiler__check_usage_32, NULL, 123, 123, 12, 33},
   {cont__compiler__check_usage_33, &frame__compiler__check_usage_32, 123, 123, 35, 74},
   {cont__compiler__check_usage_34, &frame__compiler__check_usage_32, 123, 125, 7, 72},
-  {entry__compiler__check_usage_1, NULL, 101, 101, 8, 35},
-  {cont__compiler__check_usage_2, &frame__compiler__check_usage_1, 101, 125, 3, 74},
-  {entry__types__grammar_node__simplify_statement_1, NULL, 131, 131, 3, 57},
-  {cont__types__grammar_node__simplify_statement_3, &frame__types__grammar_node__simplify_statement_1, 132, 132, 3, 23},
-  {cont__types__grammar_node__simplify_statement_4, &frame__types__grammar_node__simplify_statement_1, 132, 132, 23, 23},
-  {entry__types__grammar_node__simplify_expression_1, NULL, 135, 135, 3, 58},
-  {cont__types__grammar_node__simplify_expression_3, &frame__types__grammar_node__simplify_expression_1, },
-  {entry__compiler__body__simplify_expression_8, NULL, 147, 147, 21, 39},
-  {cont__compiler__body__simplify_expression_9, &frame__compiler__body__simplify_expression_8, 147, 149, 41, 33},
-  {cont__compiler__body__simplify_expression_12, &frame__compiler__body__simplify_expression_8, 147, 149, 9, 33},
-  {entry__compiler__body__simplify_expression_13, NULL, 151, 151, 9, 32},
-  {cont__compiler__body__simplify_expression_14, &frame__compiler__body__simplify_expression_13, 151, 151, 37, 37},
-  {entry__compiler__body__simplify_expression_5, NULL, 144, 144, 5, 43},
-  {cont__compiler__body__simplify_expression_6, &frame__compiler__body__simplify_expression_5, 146, 146, 7, 27},
-  {cont__compiler__body__simplify_expression_7, &frame__compiler__body__simplify_expression_5, 145, 151, 5, 38},
-  {entry__compiler__body__simplify_expression_24, NULL, 156, 156, 44, 64},
-  {cont__compiler__body__simplify_expression_25, &frame__compiler__body__simplify_expression_24, 156, 156, 44, 75},
-  {cont__compiler__body__simplify_expression_26, &frame__compiler__body__simplify_expression_24, 156, 156, 44, 75},
-  {entry__compiler__body__simplify_expression_28, NULL, 157, 157, 10, 32},
-  {cont__compiler__body__simplify_expression_29, &frame__compiler__body__simplify_expression_28, 157, 157, 9, 38},
-  {cont__compiler__body__simplify_expression_30, &frame__compiler__body__simplify_expression_28, 157, 157, 43, 43},
-  {entry__compiler__body__simplify_expression_20, NULL, 155, 155, 7, 38},
-  {cont__compiler__body__simplify_expression_21, &frame__compiler__body__simplify_expression_20, 156, 156, 10, 28},
-  {cont__compiler__body__simplify_expression_22, &frame__compiler__body__simplify_expression_20, 156, 156, 10, 39},
-  {cont__compiler__body__simplify_expression_23, &frame__compiler__body__simplify_expression_20, 156, 156, 10, 75},
-  {cont__compiler__body__simplify_expression_27, &frame__compiler__body__simplify_expression_20, 156, 157, 7, 43},
-  {entry__compiler__body__simplify_expression_17, NULL, 153, 153, 5, 39},
-  {cont__compiler__body__simplify_expression_18, &frame__compiler__body__simplify_expression_17, 154, 154, 8, 28},
-  {cont__compiler__body__simplify_expression_19, &frame__compiler__body__simplify_expression_17, 154, 157, 5, 44},
-  {entry__compiler__body__simplify_expression_41, NULL, 172, 172, 13, 48},
-  {cont__compiler__body__simplify_expression_42, &frame__compiler__body__simplify_expression_41, 176, 176, 19, 75},
-  {cont__compiler__body__simplify_expression_43, &frame__compiler__body__simplify_expression_41, 177, 177, 30, 52},
-  {cont__compiler__body__simplify_expression_44, &frame__compiler__body__simplify_expression_41, 178, 178, 37, 66},
-  {cont__compiler__body__simplify_expression_45, &frame__compiler__body__simplify_expression_41, 179, 179, 34, 60},
-  {cont__compiler__body__simplify_expression_46, &frame__compiler__body__simplify_expression_41, 173, 179, 13, 61},
-  {cont__compiler__body__simplify_expression_47, &frame__compiler__body__simplify_expression_41, 180, 180, 13, 44},
-  {cont__compiler__body__simplify_expression_48, &frame__compiler__body__simplify_expression_41, 181, 181, 13, 36},
-  {entry__compiler__body__simplify_expression_49, NULL, 183, 183, 13, 46},
-  {cont__compiler__body__simplify_expression_50, &frame__compiler__body__simplify_expression_49, 184, 184, 53, 53},
-  {entry__compiler__body__simplify_expression_39, NULL, 169, 169, 11, 42},
-  {cont__compiler__body__simplify_expression_40, &frame__compiler__body__simplify_expression_39, 168, 184, 9, 54},
-  {entry__compiler__body__simplify_expression_36, NULL, 166, 166, 7, 49},
-  {cont__compiler__body__simplify_expression_37, &frame__compiler__body__simplify_expression_36, 167, 167, 10, 33},
-  {cont__compiler__body__simplify_expression_38, &frame__compiler__body__simplify_expression_36, 167, 184, 7, 55},
-  {cont__compiler__body__simplify_expression_51, &frame__compiler__body__simplify_expression_36, },
-  {entry__compiler__body__simplify_expression_62, NULL, 194, 194, 13, 35},
-  {cont__compiler__body__simplify_expression_63, &frame__compiler__body__simplify_expression_62, 194, 194, 13, 38},
-  {cont__compiler__body__simplify_expression_64, &frame__compiler__body__simplify_expression_62, 194, 194, 13, 52},
-  {cont__compiler__body__simplify_expression_65, &frame__compiler__body__simplify_expression_62, 194, 194, 13, 52},
-  {entry__compiler__body__simplify_expression_58, NULL, 193, 193, 13, 35},
-  {cont__compiler__body__simplify_expression_59, &frame__compiler__body__simplify_expression_58, 193, 193, 13, 38},
-  {cont__compiler__body__simplify_expression_60, &frame__compiler__body__simplify_expression_58, 193, 193, 13, 68},
-  {cont__compiler__body__simplify_expression_61, &frame__compiler__body__simplify_expression_58, 194, 194, 13, 52},
-  {cont__compiler__body__simplify_expression_66, &frame__compiler__body__simplify_expression_58, },
-  {entry__compiler__body__simplify_expression_68, NULL, 197, 197, 13, 40},
-  {cont__compiler__body__simplify_expression_69, &frame__compiler__body__simplify_expression_68, 198, 198, 13, 44},
-  {cont__compiler__body__simplify_expression_70, &frame__compiler__body__simplify_expression_68, },
-  {entry__compiler__body__simplify_expression_56, NULL, 192, 192, 13, 38},
-  {cont__compiler__body__simplify_expression_57, &frame__compiler__body__simplify_expression_56, },
-  {cont__compiler__body__simplify_expression_67, &frame__compiler__body__simplify_expression_56, 190, 198, 9, 45},
-  {entry__compiler__body__simplify_expression_54, NULL, 189, 189, 14, 34},
-  {cont__compiler__body__simplify_expression_55, &frame__compiler__body__simplify_expression_54, 189, 198, 7, 46},
-  {entry__compiler__body__simplify_expression_81, NULL, 208, 208, 13, 35},
-  {cont__compiler__body__simplify_expression_82, &frame__compiler__body__simplify_expression_81, 208, 208, 13, 38},
-  {cont__compiler__body__simplify_expression_83, &frame__compiler__body__simplify_expression_81, 208, 208, 13, 52},
-  {cont__compiler__body__simplify_expression_84, &frame__compiler__body__simplify_expression_81, 208, 208, 13, 52},
-  {entry__compiler__body__simplify_expression_77, NULL, 207, 207, 13, 35},
-  {cont__compiler__body__simplify_expression_78, &frame__compiler__body__simplify_expression_77, 207, 207, 13, 38},
-  {cont__compiler__body__simplify_expression_79, &frame__compiler__body__simplify_expression_77, 207, 207, 13, 68},
-  {cont__compiler__body__simplify_expression_80, &frame__compiler__body__simplify_expression_77, 208, 208, 13, 52},
-  {cont__compiler__body__simplify_expression_85, &frame__compiler__body__simplify_expression_77, },
-  {entry__compiler__body__simplify_expression_87, NULL, 211, 211, 13, 40},
-  {cont__compiler__body__simplify_expression_88, &frame__compiler__body__simplify_expression_87, 212, 212, 13, 44},
-  {cont__compiler__body__simplify_expression_89, &frame__compiler__body__simplify_expression_87, },
-  {entry__compiler__body__simplify_expression_75, NULL, 206, 206, 13, 38},
-  {cont__compiler__body__simplify_expression_76, &frame__compiler__body__simplify_expression_75, },
-  {cont__compiler__body__simplify_expression_86, &frame__compiler__body__simplify_expression_75, 204, 212, 9, 45},
-  {entry__compiler__body__simplify_expression_73, NULL, 203, 203, 14, 34},
-  {cont__compiler__body__simplify_expression_74, &frame__compiler__body__simplify_expression_73, 203, 212, 7, 46},
-  {entry__compiler__body__simplify_expression_32, NULL, 159, 159, 5, 41},
-  {cont__compiler__body__simplify_expression_33, &frame__compiler__body__simplify_expression_32, 160, 160, 5, 45},
-  {cont__compiler__body__simplify_expression_34, &frame__compiler__body__simplify_expression_32, 165, 165, 18, 35},
-  {cont__compiler__body__simplify_expression_35, &frame__compiler__body__simplify_expression_32, 165, 184, 5, 56},
-  {cont__compiler__body__simplify_expression_52, &frame__compiler__body__simplify_expression_32, 188, 188, 14, 32},
-  {cont__compiler__body__simplify_expression_53, &frame__compiler__body__simplify_expression_32, 188, 198, 5, 47},
-  {cont__compiler__body__simplify_expression_71, &frame__compiler__body__simplify_expression_32, 202, 202, 14, 32},
-  {cont__compiler__body__simplify_expression_72, &frame__compiler__body__simplify_expression_32, 202, 212, 5, 47},
-  {cont__compiler__body__simplify_expression_90, &frame__compiler__body__simplify_expression_32, 215, 215, 5, 28},
-  {entry__compiler__body__simplify_expression_94, NULL, 221, 221, 5, 32},
-  {cont__compiler__body__simplify_expression_95, &frame__compiler__body__simplify_expression_94, 225, 225, 23, 61},
-  {cont__compiler__body__simplify_expression_96, &frame__compiler__body__simplify_expression_94, 226, 226, 22, 38},
-  {cont__compiler__body__simplify_expression_97, &frame__compiler__body__simplify_expression_94, 227, 227, 29, 52},
-  {cont__compiler__body__simplify_expression_98, &frame__compiler__body__simplify_expression_94, 228, 228, 26, 46},
-  {cont__compiler__body__simplify_expression_99, &frame__compiler__body__simplify_expression_94, 222, 228, 5, 47},
-  {cont__compiler__body__simplify_expression_100, &frame__compiler__body__simplify_expression_94, 229, 229, 14, 14},
-  {entry__compiler__body__simplify_expression_1, NULL, 141, 141, 3, 42},
-  {cont__compiler__body__simplify_expression_3, &frame__compiler__body__simplify_expression_1, 143, 143, 12, 33},
-  {cont__compiler__body__simplify_expression_4, &frame__compiler__body__simplify_expression_1, 143, 151, 3, 39},
-  {cont__compiler__body__simplify_expression_15, &frame__compiler__body__simplify_expression_1, 152, 152, 12, 30},
-  {cont__compiler__body__simplify_expression_16, &frame__compiler__body__simplify_expression_1, 152, 157, 3, 45},
-  {cont__compiler__body__simplify_expression_31, &frame__compiler__body__simplify_expression_1, 158, 215, 3, 41},
-  {cont__compiler__body__simplify_expression_91, &frame__compiler__body__simplify_expression_1, 216, 216, 10, 33},
-  {cont__compiler__body__simplify_expression_92, &frame__compiler__body__simplify_expression_1, 216, 216, 10, 42},
-  {cont__compiler__body__simplify_expression_93, &frame__compiler__body__simplify_expression_1, 216, 229, 3, 14},
-  {cont__compiler__body__simplify_expression_101, &frame__compiler__body__simplify_expression_1, },
-  {entry__do_store_5, NULL, 238, 238, 43, 71},
-  {cont__do_store_6, &frame__do_store_5, 238, 238, 71, 71},
-  {entry__do_store_10, NULL, 240, 240, 9, 36},
-  {cont__do_store_11, &frame__do_store_10, 245, 245, 27, 69},
-  {cont__do_store_12, &frame__do_store_10, 246, 246, 26, 42},
-  {cont__do_store_13, &frame__do_store_10, 247, 247, 33, 56},
-  {cont__do_store_14, &frame__do_store_10, 248, 248, 30, 50},
-  {cont__do_store_15, &frame__do_store_10, 241, 248, 9, 51},
-  {cont__do_store_16, &frame__do_store_10, 249, 249, 23, 31},
-  {cont__do_store_17, &frame__do_store_10, 249, 249, 40, 48},
-  {cont__do_store_18, &frame__do_store_10, 249, 249, 9, 54},
-  {cont__do_store_19, &frame__do_store_10, 250, 250, 20, 20},
-  {entry__do_store_4, NULL, 238, 238, 7, 71},
-  {cont__do_store_7, &frame__do_store_4, 239, 239, 10, 24},
-  {cont__do_store_8, &frame__do_store_4, 239, 239, 10, 28},
-  {cont__do_store_9, &frame__do_store_4, 239, 250, 7, 20},
-  {cont__do_store_20, &frame__do_store_4, 257, 257, 15, 60},
-  {cont__do_store_21, &frame__do_store_4, 258, 258, 15, 45},
-  {cont__do_store_22, &frame__do_store_4, 259, 259, 24, 40},
-  {cont__do_store_23, &frame__do_store_4, 260, 260, 31, 54},
-  {cont__do_store_24, &frame__do_store_4, 260, 260, 31, 56},
-  {cont__do_store_25, &frame__do_store_4, 261, 261, 28, 48},
-  {cont__do_store_26, &frame__do_store_4, 251, 261, 7, 49},
-  {cont__do_store_27, &frame__do_store_4, 261, 261, 50, 50},
-  {entry__do_store_31, NULL, 264, 264, 9, 36},
-  {cont__do_store_32, &frame__do_store_31, 268, 268, 25, 45},
-  {cont__do_store_33, &frame__do_store_31, 269, 269, 27, 68},
-  {cont__do_store_34, &frame__do_store_31, 270, 270, 26, 42},
-  {cont__do_store_35, &frame__do_store_31, 271, 271, 33, 56},
-  {cont__do_store_36, &frame__do_store_31, 272, 272, 30, 50},
-  {cont__do_store_37, &frame__do_store_31, 265, 272, 9, 51},
-  {cont__do_store_38, &frame__do_store_31, 273, 273, 23, 31},
-  {cont__do_store_39, &frame__do_store_31, 273, 273, 40, 48},
-  {cont__do_store_40, &frame__do_store_31, 273, 273, 9, 54},
-  {cont__do_store_41, &frame__do_store_31, 274, 274, 20, 20},
-  {entry__do_store_44, NULL, 279, 279, 11, 36},
-  {entry__do_store_45, NULL, 280, 280, 11, 33},
-  {entry__do_store_28, NULL, 263, 263, 10, 24},
-  {cont__do_store_29, &frame__do_store_28, 263, 263, 10, 28},
-  {cont__do_store_30, &frame__do_store_28, 263, 274, 7, 20},
-  {cont__do_store_42, &frame__do_store_28, 278, 278, 11, 42},
-  {cont__do_store_43, &frame__do_store_28, 276, 280, 7, 34},
-  {cont__do_store_46, &frame__do_store_28, 289, 289, 32, 52},
-  {cont__do_store_47, &frame__do_store_28, 290, 290, 31, 42},
+  {entry__compiler__check_usage, NULL, 101, 101, 8, 35},
+  {cont__compiler__check_usage_2, &frame__compiler__check_usage, 101, 125, 3, 74},
+  {entry__types__grammar_node___simplify_statement, NULL, 131, 131, 3, 57},
+  {cont__types__grammar_node___simplify_statement_3, &frame__types__grammar_node___simplify_statement, 132, 132, 3, 23},
+  {cont__types__grammar_node___simplify_statement_4, &frame__types__grammar_node___simplify_statement, 132, 132, 23, 23},
+  {entry__types__grammar_node___simplify_expression, NULL, 135, 135, 3, 58},
+  {cont__types__grammar_node___simplify_expression_3, &frame__types__grammar_node___simplify_expression, },
+  {entry__compiler__identifier__simplify_expression_10, NULL, 144, 144, 42, 42},
+  {entry__compiler__identifier__simplify_expression_6, NULL, 143, 143, 31, 43},
+  {cont__compiler__identifier__simplify_expression_7, &frame__compiler__identifier__simplify_expression_6, 143, 143, 5, 44},
+  {cont__compiler__identifier__simplify_expression_8, &frame__compiler__identifier__simplify_expression_6, 144, 144, 8, 26},
+  {cont__compiler__identifier__simplify_expression_9, &frame__compiler__identifier__simplify_expression_6, 144, 144, 5, 42},
+  {entry__compiler__identifier___simplify_expression, NULL, 141, 141, 3, 48},
+  {cont__compiler__identifier___simplify_expression_3, &frame__compiler__identifier___simplify_expression, 142, 142, 6, 23},
+  {cont__compiler__identifier___simplify_expression_4, &frame__compiler__identifier___simplify_expression, 142, 142, 6, 36},
+  {cont__compiler__identifier___simplify_expression_5, &frame__compiler__identifier___simplify_expression, 142, 144, 3, 42},
+  {cont__compiler__identifier___simplify_expression_11, &frame__compiler__identifier___simplify_expression, },
+  {entry__compiler__body__simplify_expression_15, NULL, 156, 156, 18, 36},
+  {cont__compiler__body__simplify_expression_16, &frame__compiler__body__simplify_expression_15, 156, 156, 18, 39},
+  {cont__compiler__body__simplify_expression_17, &frame__compiler__body__simplify_expression_15, 156, 156, 7, 40},
+  {cont__compiler__body__simplify_expression_18, &frame__compiler__body__simplify_expression_15, 156, 156, 7, 57},
+  {cont__compiler__body__simplify_expression_19, &frame__compiler__body__simplify_expression_15, 156, 156, 7, 57},
+  {entry__compiler__body__simplify_expression_10, NULL, 155, 155, 20, 38},
+  {cont__compiler__body__simplify_expression_11, &frame__compiler__body__simplify_expression_10, 155, 155, 20, 41},
+  {cont__compiler__body__simplify_expression_12, &frame__compiler__body__simplify_expression_10, 155, 155, 7, 42},
+  {cont__compiler__body__simplify_expression_13, &frame__compiler__body__simplify_expression_10, 155, 155, 7, 51},
+  {cont__compiler__body__simplify_expression_14, &frame__compiler__body__simplify_expression_10, 156, 156, 7, 57},
+  {cont__compiler__body__simplify_expression_20, &frame__compiler__body__simplify_expression_10, },
+  {entry__compiler__body__simplify_expression_6, NULL, 154, 154, 17, 35},
+  {cont__compiler__body__simplify_expression_7, &frame__compiler__body__simplify_expression_6, 154, 154, 7, 36},
+  {cont__compiler__body__simplify_expression_8, &frame__compiler__body__simplify_expression_6, 154, 154, 7, 41},
+  {cont__compiler__body__simplify_expression_9, &frame__compiler__body__simplify_expression_6, },
+  {cont__compiler__body__simplify_expression_21, &frame__compiler__body__simplify_expression_6, },
+  {entry__compiler__body__simplify_expression_23, NULL, 160, 160, 44, 62},
+  {cont__compiler__body__simplify_expression_24, &frame__compiler__body__simplify_expression_23, 160, 160, 44, 65},
+  {cont__compiler__body__simplify_expression_25, &frame__compiler__body__simplify_expression_23, 160, 160, 33, 66},
+  {cont__compiler__body__simplify_expression_26, &frame__compiler__body__simplify_expression_23, 160, 160, 7, 67},
+  {cont__compiler__body__simplify_expression_27, &frame__compiler__body__simplify_expression_23, 160, 160, 67, 67},
+  {entry__compiler__body__simplify_expression_33, NULL, 167, 167, 25, 43},
+  {cont__compiler__body__simplify_expression_34, &frame__compiler__body__simplify_expression_33, 167, 169, 45, 43},
+  {cont__compiler__body__simplify_expression_37, &frame__compiler__body__simplify_expression_33, 167, 169, 13, 43},
+  {entry__compiler__body__simplify_expression_38, NULL, 171, 171, 13, 36},
+  {cont__compiler__body__simplify_expression_39, &frame__compiler__body__simplify_expression_38, 171, 171, 41, 41},
+  {entry__compiler__body__simplify_expression_30, NULL, 164, 164, 9, 47},
+  {cont__compiler__body__simplify_expression_31, &frame__compiler__body__simplify_expression_30, 166, 166, 11, 31},
+  {cont__compiler__body__simplify_expression_32, &frame__compiler__body__simplify_expression_30, 165, 171, 9, 42},
+  {entry__compiler__body__simplify_expression_49, NULL, 176, 176, 48, 68},
+  {cont__compiler__body__simplify_expression_50, &frame__compiler__body__simplify_expression_49, 176, 176, 48, 79},
+  {cont__compiler__body__simplify_expression_51, &frame__compiler__body__simplify_expression_49, 176, 176, 48, 79},
+  {entry__compiler__body__simplify_expression_53, NULL, 177, 177, 14, 36},
+  {cont__compiler__body__simplify_expression_54, &frame__compiler__body__simplify_expression_53, 177, 177, 13, 42},
+  {cont__compiler__body__simplify_expression_55, &frame__compiler__body__simplify_expression_53, 177, 177, 47, 47},
+  {entry__compiler__body__simplify_expression_45, NULL, 175, 175, 11, 42},
+  {cont__compiler__body__simplify_expression_46, &frame__compiler__body__simplify_expression_45, 176, 176, 14, 32},
+  {cont__compiler__body__simplify_expression_47, &frame__compiler__body__simplify_expression_45, 176, 176, 14, 43},
+  {cont__compiler__body__simplify_expression_48, &frame__compiler__body__simplify_expression_45, 176, 176, 14, 79},
+  {cont__compiler__body__simplify_expression_52, &frame__compiler__body__simplify_expression_45, 176, 177, 11, 47},
+  {entry__compiler__body__simplify_expression_42, NULL, 173, 173, 9, 43},
+  {cont__compiler__body__simplify_expression_43, &frame__compiler__body__simplify_expression_42, 174, 174, 12, 32},
+  {cont__compiler__body__simplify_expression_44, &frame__compiler__body__simplify_expression_42, 174, 177, 9, 48},
+  {entry__compiler__body__simplify_expression_66, NULL, 192, 192, 17, 52},
+  {cont__compiler__body__simplify_expression_67, &frame__compiler__body__simplify_expression_66, 196, 196, 23, 79},
+  {cont__compiler__body__simplify_expression_68, &frame__compiler__body__simplify_expression_66, 197, 197, 34, 56},
+  {cont__compiler__body__simplify_expression_69, &frame__compiler__body__simplify_expression_66, 198, 198, 41, 70},
+  {cont__compiler__body__simplify_expression_70, &frame__compiler__body__simplify_expression_66, 199, 199, 38, 64},
+  {cont__compiler__body__simplify_expression_71, &frame__compiler__body__simplify_expression_66, 193, 199, 17, 65},
+  {cont__compiler__body__simplify_expression_72, &frame__compiler__body__simplify_expression_66, 200, 200, 17, 48},
+  {cont__compiler__body__simplify_expression_73, &frame__compiler__body__simplify_expression_66, 201, 201, 17, 40},
+  {entry__compiler__body__simplify_expression_74, NULL, 203, 203, 17, 50},
+  {cont__compiler__body__simplify_expression_75, &frame__compiler__body__simplify_expression_74, 204, 204, 57, 57},
+  {entry__compiler__body__simplify_expression_64, NULL, 189, 189, 15, 46},
+  {cont__compiler__body__simplify_expression_65, &frame__compiler__body__simplify_expression_64, 188, 204, 13, 58},
+  {entry__compiler__body__simplify_expression_61, NULL, 186, 186, 11, 53},
+  {cont__compiler__body__simplify_expression_62, &frame__compiler__body__simplify_expression_61, 187, 187, 14, 37},
+  {cont__compiler__body__simplify_expression_63, &frame__compiler__body__simplify_expression_61, 187, 204, 11, 59},
+  {cont__compiler__body__simplify_expression_76, &frame__compiler__body__simplify_expression_61, },
+  {entry__compiler__body__simplify_expression_87, NULL, 214, 214, 17, 39},
+  {cont__compiler__body__simplify_expression_88, &frame__compiler__body__simplify_expression_87, 214, 214, 17, 42},
+  {cont__compiler__body__simplify_expression_89, &frame__compiler__body__simplify_expression_87, 214, 214, 17, 56},
+  {cont__compiler__body__simplify_expression_90, &frame__compiler__body__simplify_expression_87, 214, 214, 17, 56},
+  {entry__compiler__body__simplify_expression_83, NULL, 213, 213, 17, 39},
+  {cont__compiler__body__simplify_expression_84, &frame__compiler__body__simplify_expression_83, 213, 213, 17, 42},
+  {cont__compiler__body__simplify_expression_85, &frame__compiler__body__simplify_expression_83, 213, 213, 17, 72},
+  {cont__compiler__body__simplify_expression_86, &frame__compiler__body__simplify_expression_83, 214, 214, 17, 56},
+  {cont__compiler__body__simplify_expression_91, &frame__compiler__body__simplify_expression_83, },
+  {entry__compiler__body__simplify_expression_93, NULL, 217, 217, 17, 44},
+  {cont__compiler__body__simplify_expression_94, &frame__compiler__body__simplify_expression_93, 218, 218, 17, 48},
+  {cont__compiler__body__simplify_expression_95, &frame__compiler__body__simplify_expression_93, },
+  {entry__compiler__body__simplify_expression_81, NULL, 212, 212, 17, 42},
+  {cont__compiler__body__simplify_expression_82, &frame__compiler__body__simplify_expression_81, },
+  {cont__compiler__body__simplify_expression_92, &frame__compiler__body__simplify_expression_81, 210, 218, 13, 49},
+  {entry__compiler__body__simplify_expression_79, NULL, 209, 209, 18, 38},
+  {cont__compiler__body__simplify_expression_80, &frame__compiler__body__simplify_expression_79, 209, 218, 11, 50},
+  {entry__compiler__body__simplify_expression_106, NULL, 228, 228, 17, 39},
+  {cont__compiler__body__simplify_expression_107, &frame__compiler__body__simplify_expression_106, 228, 228, 17, 42},
+  {cont__compiler__body__simplify_expression_108, &frame__compiler__body__simplify_expression_106, 228, 228, 17, 56},
+  {cont__compiler__body__simplify_expression_109, &frame__compiler__body__simplify_expression_106, 228, 228, 17, 56},
+  {entry__compiler__body__simplify_expression_102, NULL, 227, 227, 17, 39},
+  {cont__compiler__body__simplify_expression_103, &frame__compiler__body__simplify_expression_102, 227, 227, 17, 42},
+  {cont__compiler__body__simplify_expression_104, &frame__compiler__body__simplify_expression_102, 227, 227, 17, 72},
+  {cont__compiler__body__simplify_expression_105, &frame__compiler__body__simplify_expression_102, 228, 228, 17, 56},
+  {cont__compiler__body__simplify_expression_110, &frame__compiler__body__simplify_expression_102, },
+  {entry__compiler__body__simplify_expression_112, NULL, 231, 231, 17, 44},
+  {cont__compiler__body__simplify_expression_113, &frame__compiler__body__simplify_expression_112, 232, 232, 17, 48},
+  {cont__compiler__body__simplify_expression_114, &frame__compiler__body__simplify_expression_112, },
+  {entry__compiler__body__simplify_expression_100, NULL, 226, 226, 17, 42},
+  {cont__compiler__body__simplify_expression_101, &frame__compiler__body__simplify_expression_100, },
+  {cont__compiler__body__simplify_expression_111, &frame__compiler__body__simplify_expression_100, 224, 232, 13, 49},
+  {entry__compiler__body__simplify_expression_98, NULL, 223, 223, 18, 38},
+  {cont__compiler__body__simplify_expression_99, &frame__compiler__body__simplify_expression_98, 223, 232, 11, 50},
+  {entry__compiler__body__simplify_expression_57, NULL, 179, 179, 9, 45},
+  {cont__compiler__body__simplify_expression_58, &frame__compiler__body__simplify_expression_57, 180, 180, 9, 49},
+  {cont__compiler__body__simplify_expression_59, &frame__compiler__body__simplify_expression_57, 185, 185, 22, 39},
+  {cont__compiler__body__simplify_expression_60, &frame__compiler__body__simplify_expression_57, 185, 204, 9, 60},
+  {cont__compiler__body__simplify_expression_77, &frame__compiler__body__simplify_expression_57, 208, 208, 18, 36},
+  {cont__compiler__body__simplify_expression_78, &frame__compiler__body__simplify_expression_57, 208, 218, 9, 51},
+  {cont__compiler__body__simplify_expression_96, &frame__compiler__body__simplify_expression_57, 222, 222, 18, 36},
+  {cont__compiler__body__simplify_expression_97, &frame__compiler__body__simplify_expression_57, 222, 232, 9, 51},
+  {cont__compiler__body__simplify_expression_115, &frame__compiler__body__simplify_expression_57, 235, 235, 9, 32},
+  {entry__compiler__body__simplify_expression_119, NULL, 241, 241, 9, 36},
+  {cont__compiler__body__simplify_expression_120, &frame__compiler__body__simplify_expression_119, 245, 245, 27, 65},
+  {cont__compiler__body__simplify_expression_121, &frame__compiler__body__simplify_expression_119, 246, 246, 26, 42},
+  {cont__compiler__body__simplify_expression_122, &frame__compiler__body__simplify_expression_119, 247, 247, 33, 56},
+  {cont__compiler__body__simplify_expression_123, &frame__compiler__body__simplify_expression_119, 248, 248, 30, 50},
+  {cont__compiler__body__simplify_expression_124, &frame__compiler__body__simplify_expression_119, 242, 248, 9, 51},
+  {cont__compiler__body__simplify_expression_125, &frame__compiler__body__simplify_expression_119, 249, 249, 18, 18},
+  {entry__compiler__body__simplify_expression_28, NULL, 163, 163, 16, 37},
+  {cont__compiler__body__simplify_expression_29, &frame__compiler__body__simplify_expression_28, 163, 171, 7, 43},
+  {cont__compiler__body__simplify_expression_40, &frame__compiler__body__simplify_expression_28, 172, 172, 16, 34},
+  {cont__compiler__body__simplify_expression_41, &frame__compiler__body__simplify_expression_28, 172, 177, 7, 49},
+  {cont__compiler__body__simplify_expression_56, &frame__compiler__body__simplify_expression_28, 178, 235, 7, 45},
+  {cont__compiler__body__simplify_expression_116, &frame__compiler__body__simplify_expression_28, 236, 236, 14, 37},
+  {cont__compiler__body__simplify_expression_117, &frame__compiler__body__simplify_expression_28, 236, 236, 14, 46},
+  {cont__compiler__body__simplify_expression_118, &frame__compiler__body__simplify_expression_28, 236, 249, 7, 18},
+  {entry__compiler__body___simplify_expression, NULL, 150, 150, 3, 42},
+  {cont__compiler__body___simplify_expression_3, &frame__compiler__body___simplify_expression, 153, 153, 7, 25},
+  {cont__compiler__body___simplify_expression_4, &frame__compiler__body___simplify_expression, 153, 153, 7, 34},
+  {cont__compiler__body___simplify_expression_5, &frame__compiler__body___simplify_expression, },
+  {cont__compiler__body___simplify_expression_22, &frame__compiler__body___simplify_expression, 151, 249, 3, 20},
+  {cont__compiler__body___simplify_expression_126, &frame__compiler__body___simplify_expression, },
+  {entry__do_store_5, NULL, 258, 258, 43, 71},
+  {cont__do_store_6, &frame__do_store_5, 258, 258, 71, 71},
+  {entry__do_store_10, NULL, 260, 260, 9, 36},
+  {cont__do_store_11, &frame__do_store_10, 265, 265, 27, 69},
+  {cont__do_store_12, &frame__do_store_10, 266, 266, 26, 42},
+  {cont__do_store_13, &frame__do_store_10, 267, 267, 33, 56},
+  {cont__do_store_14, &frame__do_store_10, 268, 268, 30, 50},
+  {cont__do_store_15, &frame__do_store_10, 261, 268, 9, 51},
+  {cont__do_store_16, &frame__do_store_10, 269, 269, 23, 31},
+  {cont__do_store_17, &frame__do_store_10, 269, 269, 40, 48},
+  {cont__do_store_18, &frame__do_store_10, 269, 269, 9, 54},
+  {cont__do_store_19, &frame__do_store_10, 270, 270, 20, 20},
+  {entry__do_store_4, NULL, 258, 258, 7, 71},
+  {cont__do_store_7, &frame__do_store_4, 259, 259, 10, 24},
+  {cont__do_store_8, &frame__do_store_4, 259, 259, 10, 28},
+  {cont__do_store_9, &frame__do_store_4, 259, 270, 7, 20},
+  {cont__do_store_20, &frame__do_store_4, 277, 277, 15, 60},
+  {cont__do_store_21, &frame__do_store_4, 278, 278, 15, 45},
+  {cont__do_store_22, &frame__do_store_4, 279, 279, 24, 40},
+  {cont__do_store_23, &frame__do_store_4, 280, 280, 31, 54},
+  {cont__do_store_24, &frame__do_store_4, 280, 280, 31, 56},
+  {cont__do_store_25, &frame__do_store_4, 281, 281, 28, 48},
+  {cont__do_store_26, &frame__do_store_4, 271, 281, 7, 49},
+  {cont__do_store_27, &frame__do_store_4, 281, 281, 50, 50},
+  {entry__do_store_31, NULL, 284, 284, 9, 36},
+  {cont__do_store_32, &frame__do_store_31, 288, 288, 25, 45},
+  {cont__do_store_33, &frame__do_store_31, 289, 289, 27, 68},
+  {cont__do_store_34, &frame__do_store_31, 290, 290, 26, 42},
+  {cont__do_store_35, &frame__do_store_31, 291, 291, 33, 56},
+  {cont__do_store_36, &frame__do_store_31, 292, 292, 30, 50},
+  {cont__do_store_37, &frame__do_store_31, 285, 292, 9, 51},
+  {cont__do_store_38, &frame__do_store_31, 293, 293, 23, 31},
+  {cont__do_store_39, &frame__do_store_31, 293, 293, 40, 48},
+  {cont__do_store_40, &frame__do_store_31, 293, 293, 9, 54},
+  {cont__do_store_41, &frame__do_store_31, 294, 294, 20, 20},
+  {entry__do_store_44, NULL, 299, 299, 11, 36},
+  {entry__do_store_45, NULL, 300, 300, 11, 33},
+  {entry__do_store_28, NULL, 283, 283, 10, 24},
+  {cont__do_store_29, &frame__do_store_28, 283, 283, 10, 28},
+  {cont__do_store_30, &frame__do_store_28, 283, 294, 7, 20},
+  {cont__do_store_42, &frame__do_store_28, 298, 298, 11, 42},
+  {cont__do_store_43, &frame__do_store_28, 296, 300, 7, 34},
+  {cont__do_store_46, &frame__do_store_28, 309, 309, 32, 52},
+  {cont__do_store_47, &frame__do_store_28, 310, 310, 31, 42},
   {cont__do_store_48, &frame__do_store_28, },
-  {cont__do_store_49, &frame__do_store_28, 291, 291, 24, 40},
-  {cont__do_store_50, &frame__do_store_28, 292, 292, 31, 54},
-  {cont__do_store_51, &frame__do_store_28, 292, 292, 31, 56},
-  {cont__do_store_52, &frame__do_store_28, 293, 293, 28, 48},
-  {cont__do_store_53, &frame__do_store_28, 282, 293, 7, 49},
-  {cont__do_store_54, &frame__do_store_28, 293, 293, 50, 50},
-  {entry__do_store_1, NULL, 235, 235, 3, 18},
-  {cont__do_store_2, &frame__do_store_1, 237, 237, 5, 23},
-  {cont__do_store_3, &frame__do_store_1, 236, 293, 3, 51},
-  {entry__store_result_8, NULL, 308, 308, 20, 31},
-  {cont__store_result_9, &frame__store_result_8, 308, 308, 11, 61},
-  {entry__store_result_10, NULL, 310, 310, 24, 35},
-  {cont__store_result_11, &frame__store_result_10, 310, 310, 44, 65},
-  {cont__store_result_12, &frame__store_result_10, 310, 310, 11, 71},
-  {entry__store_result_5, NULL, 307, 307, 9, 20},
-  {cont__store_result_6, &frame__store_result_5, 307, 307, 9, 37},
-  {cont__store_result_7, &frame__store_result_5, 306, 310, 7, 72},
-  {entry__store_result_16, NULL, 315, 315, 11, 54},
-  {entry__store_result_17, NULL, 317, 317, 39, 58},
-  {cont__store_result_18, &frame__store_result_17, 317, 317, 11, 64},
-  {entry__store_result_13, NULL, 312, 312, 7, 38},
-  {cont__store_result_14, &frame__store_result_13, 314, 314, 9, 32},
-  {cont__store_result_15, &frame__store_result_13, 313, 317, 7, 65},
-  {entry__store_result_1, NULL, 302, 302, 3, 25},
-  {cont__store_result_2, &frame__store_result_1, 303, 303, 3, 38},
-  {cont__store_result_3, &frame__store_result_1, 305, 305, 5, 38},
-  {cont__store_result_4, &frame__store_result_1, 304, 317, 3, 67},
-  {entry__compiler__call__simplify_statement_6, NULL, 333, 333, 11, 41},
-  {cont__compiler__call__simplify_statement_7, &frame__compiler__call__simplify_statement_6, 334, 334, 11, 65},
-  {cont__compiler__call__simplify_statement_8, &frame__compiler__call__simplify_statement_6, 334, 334, 65, 65},
-  {entry__compiler__call__simplify_statement_4, NULL, 331, 331, 12, 47},
-  {cont__compiler__call__simplify_statement_5, &frame__compiler__call__simplify_statement_4, 331, 334, 9, 65},
-  {entry__compiler__call__simplify_statement_11, NULL, 335, 335, 39, 69},
-  {cont__compiler__call__simplify_statement_12, &frame__compiler__call__simplify_statement_11, 335, 335, 69, 69},
-  {entry__compiler__call__simplify_statement_9, NULL, 335, 335, 12, 36},
-  {cont__compiler__call__simplify_statement_10, &frame__compiler__call__simplify_statement_9, 335, 335, 9, 69},
-  {entry__compiler__call__simplify_statement_13, NULL, 337, 337, 11, 40},
-  {cont__compiler__call__simplify_statement_14, &frame__compiler__call__simplify_statement_13, 337, 337, 40, 40},
-  {entry__compiler__call__simplify_statement_3, NULL, 330, 337, 7, 41},
-  {entry__compiler__call__simplify_statement_2, NULL, 329, 337, 5, 42},
-  {entry__compiler__call__simplify_statement_20, NULL, 340, 340, 31, 56},
-  {cont__compiler__call__simplify_statement_21, &frame__compiler__call__simplify_statement_20, 340, 340, 31, 61},
-  {cont__compiler__call__simplify_statement_22, &frame__compiler__call__simplify_statement_20, 340, 340, 31, 61},
-  {entry__compiler__call__simplify_statement_27, NULL, 343, 343, 7, 38},
-  {cont__compiler__call__simplify_statement_28, &frame__compiler__call__simplify_statement_27, 346, 346, 21, 40},
-  {cont__compiler__call__simplify_statement_29, &frame__compiler__call__simplify_statement_27, 346, 346, 7, 40},
-  {cont__compiler__call__simplify_statement_30, &frame__compiler__call__simplify_statement_27, 347, 347, 7, 40},
-  {cont__compiler__call__simplify_statement_31, &frame__compiler__call__simplify_statement_27, 350, 350, 23, 40},
-  {cont__compiler__call__simplify_statement_32, &frame__compiler__call__simplify_statement_27, 351, 351, 24, 40},
-  {cont__compiler__call__simplify_statement_33, &frame__compiler__call__simplify_statement_27, 352, 352, 31, 54},
-  {cont__compiler__call__simplify_statement_34, &frame__compiler__call__simplify_statement_27, 353, 353, 28, 48},
-  {cont__compiler__call__simplify_statement_35, &frame__compiler__call__simplify_statement_27, 353, 353, 50, 50},
-  {entry__compiler__call__simplify_statement_24, NULL, 341, 341, 5, 30},
-  {cont__compiler__call__simplify_statement_25, &frame__compiler__call__simplify_statement_24, 342, 342, 8, 32},
-  {cont__compiler__call__simplify_statement_26, &frame__compiler__call__simplify_statement_24, 342, 353, 5, 50},
-  {entry__compiler__call__simplify_statement_39, NULL, 360, 360, 10, 53},
-  {cont__compiler__call__simplify_statement_40, &frame__compiler__call__simplify_statement_39, 360, 360, 7, 53},
-  {entry__compiler__call__simplify_statement_41, NULL, 359, 359, 7, 18},
-  {entry__compiler__call__simplify_statement_48, NULL, 364, 364, 28, 47},
-  {cont__compiler__call__simplify_statement_49, &frame__compiler__call__simplify_statement_48, 364, 364, 7, 47},
-  {cont__compiler__call__simplify_statement_50, &frame__compiler__call__simplify_statement_48, 364, 364, 47, 47},
-  {entry__compiler__call__simplify_statement_54, NULL, 366, 366, 28, 47},
-  {cont__compiler__call__simplify_statement_55, &frame__compiler__call__simplify_statement_54, 366, 366, 7, 47},
-  {cont__compiler__call__simplify_statement_56, &frame__compiler__call__simplify_statement_54, 366, 366, 47, 47},
-  {entry__compiler__call__simplify_statement_45, NULL, 363, 363, 8, 28},
-  {cont__compiler__call__simplify_statement_46, &frame__compiler__call__simplify_statement_45, 363, 363, 8, 39},
-  {cont__compiler__call__simplify_statement_47, &frame__compiler__call__simplify_statement_45, 363, 364, 5, 47},
-  {cont__compiler__call__simplify_statement_51, &frame__compiler__call__simplify_statement_45, 365, 365, 8, 28},
-  {cont__compiler__call__simplify_statement_52, &frame__compiler__call__simplify_statement_45, 365, 365, 8, 39},
-  {cont__compiler__call__simplify_statement_53, &frame__compiler__call__simplify_statement_45, 365, 366, 5, 47},
-  {cont__compiler__call__simplify_statement_57, &frame__compiler__call__simplify_statement_45, 367, 367, 26, 40},
-  {cont__compiler__call__simplify_statement_58, &frame__compiler__call__simplify_statement_45, 367, 367, 5, 40},
-  {cont__compiler__call__simplify_statement_59, &frame__compiler__call__simplify_statement_45, 367, 367, 40, 40},
-  {entry__compiler__call__simplify_statement_72, NULL, 376, 376, 33, 52},
-  {cont__compiler__call__simplify_statement_73, &frame__compiler__call__simplify_statement_72, 376, 376, 15, 52},
-  {cont__compiler__call__simplify_statement_74, &frame__compiler__call__simplify_statement_72, 377, 377, 15, 20},
-  {entry__compiler__call__simplify_statement_78, NULL, 379, 379, 42, 64},
-  {cont__compiler__call__simplify_statement_79, &frame__compiler__call__simplify_statement_78, 379, 379, 42, 64},
-  {entry__compiler__call__simplify_statement_81, NULL, 380, 380, 35, 54},
-  {cont__compiler__call__simplify_statement_82, &frame__compiler__call__simplify_statement_81, 380, 380, 17, 54},
-  {cont__compiler__call__simplify_statement_83, &frame__compiler__call__simplify_statement_81, 381, 381, 17, 22},
-  {entry__compiler__call__simplify_statement_76, NULL, 379, 379, 18, 37},
-  {cont__compiler__call__simplify_statement_77, &frame__compiler__call__simplify_statement_76, 379, 379, 18, 64},
-  {cont__compiler__call__simplify_statement_80, &frame__compiler__call__simplify_statement_76, 379, 381, 15, 22},
-  {entry__compiler__call__simplify_statement_86, NULL, 383, 383, 35, 54},
-  {cont__compiler__call__simplify_statement_87, &frame__compiler__call__simplify_statement_86, 383, 383, 17, 54},
-  {cont__compiler__call__simplify_statement_88, &frame__compiler__call__simplify_statement_86, 384, 384, 18, 36},
-  {cont__compiler__call__simplify_statement_89, &frame__compiler__call__simplify_statement_86, 384, 384, 17, 36},
-  {cont__compiler__call__simplify_statement_90, &frame__compiler__call__simplify_statement_86, 384, 384, 62, 62},
-  {entry__compiler__call__simplify_statement_84, NULL, 382, 382, 18, 41},
-  {cont__compiler__call__simplify_statement_85, &frame__compiler__call__simplify_statement_84, 382, 384, 15, 62},
-  {entry__compiler__call__simplify_statement_91, NULL, 386, 386, 17, 45},
-  {cont__compiler__call__simplify_statement_92, &frame__compiler__call__simplify_statement_91, 387, 387, 18, 36},
-  {cont__compiler__call__simplify_statement_93, &frame__compiler__call__simplify_statement_91, 387, 387, 17, 36},
-  {cont__compiler__call__simplify_statement_94, &frame__compiler__call__simplify_statement_91, 387, 387, 62, 62},
-  {entry__compiler__call__simplify_statement_67, NULL, 374, 374, 13, 38},
-  {cont__compiler__call__simplify_statement_68, &frame__compiler__call__simplify_statement_67, 375, 375, 16, 45},
-  {cont__compiler__call__simplify_statement_69, &frame__compiler__call__simplify_statement_67, 375, 375, 16, 53},
-  {cont__compiler__call__simplify_statement_70, &frame__compiler__call__simplify_statement_67, 375, 375, 16, 53},
-  {cont__compiler__call__simplify_statement_71, &frame__compiler__call__simplify_statement_67, 375, 377, 13, 20},
-  {cont__compiler__call__simplify_statement_75, &frame__compiler__call__simplify_statement_67, 378, 387, 13, 63},
-  {entry__compiler__call__simplify_statement_95, NULL, 389, 389, 13, 41},
-  {cont__compiler__call__simplify_statement_96, &frame__compiler__call__simplify_statement_95, 390, 390, 14, 32},
-  {cont__compiler__call__simplify_statement_97, &frame__compiler__call__simplify_statement_95, 390, 390, 13, 32},
-  {cont__compiler__call__simplify_statement_98, &frame__compiler__call__simplify_statement_95, 390, 390, 58, 58},
-  {entry__compiler__call__simplify_statement_65, NULL, 373, 373, 11, 51},
-  {cont__compiler__call__simplify_statement_66, &frame__compiler__call__simplify_statement_65, 372, 390, 9, 59},
-  {entry__compiler__call__simplify_statement_101, NULL, 393, 393, 36, 53},
-  {cont__compiler__call__simplify_statement_102, &frame__compiler__call__simplify_statement_101, 393, 393, 11, 53},
-  {entry__compiler__call__simplify_statement_103, NULL, 395, 395, 11, 69},
-  {cont__compiler__call__simplify_statement_104, &frame__compiler__call__simplify_statement_103, 396, 396, 11, 31},
-  {cont__compiler__call__simplify_statement_105, &frame__compiler__call__simplify_statement_103, 396, 396, 31, 31},
-  {entry__compiler__call__simplify_statement_62, NULL, 370, 370, 7, 38},
-  {cont__compiler__call__simplify_statement_63, &frame__compiler__call__simplify_statement_62, 371, 371, 10, 36},
-  {cont__compiler__call__simplify_statement_64, &frame__compiler__call__simplify_statement_62, 371, 390, 7, 60},
-  {cont__compiler__call__simplify_statement_99, &frame__compiler__call__simplify_statement_62, 392, 392, 9, 38},
-  {cont__compiler__call__simplify_statement_100, &frame__compiler__call__simplify_statement_62, 391, 396, 7, 32},
-  {cont__compiler__call__simplify_statement_106, &frame__compiler__call__simplify_statement_62, 397, 397, 7, 12},
-  {entry__compiler__call__simplify_statement_110, NULL, 401, 401, 11, 36},
-  {cont__compiler__call__simplify_statement_111, &frame__compiler__call__simplify_statement_110, 402, 402, 45, 45},
-  {entry__compiler__call__simplify_statement_108, NULL, 400, 400, 12, 35},
-  {cont__compiler__call__simplify_statement_109, &frame__compiler__call__simplify_statement_108, 400, 402, 9, 45},
+  {cont__do_store_49, &frame__do_store_28, 311, 311, 24, 40},
+  {cont__do_store_50, &frame__do_store_28, 312, 312, 31, 54},
+  {cont__do_store_51, &frame__do_store_28, 312, 312, 31, 56},
+  {cont__do_store_52, &frame__do_store_28, 313, 313, 28, 48},
+  {cont__do_store_53, &frame__do_store_28, 302, 313, 7, 49},
+  {cont__do_store_54, &frame__do_store_28, 313, 313, 50, 50},
+  {entry__do_store, NULL, 255, 255, 3, 18},
+  {cont__do_store_2, &frame__do_store, 257, 257, 5, 23},
+  {cont__do_store_3, &frame__do_store, 256, 313, 3, 51},
+  {entry__store_result_8, NULL, 328, 328, 20, 31},
+  {cont__store_result_9, &frame__store_result_8, 328, 328, 11, 61},
+  {entry__store_result_10, NULL, 330, 330, 24, 35},
+  {cont__store_result_11, &frame__store_result_10, 330, 330, 44, 65},
+  {cont__store_result_12, &frame__store_result_10, 330, 330, 11, 71},
+  {entry__store_result_5, NULL, 327, 327, 9, 20},
+  {cont__store_result_6, &frame__store_result_5, 327, 327, 9, 37},
+  {cont__store_result_7, &frame__store_result_5, 326, 330, 7, 72},
+  {entry__store_result_16, NULL, 335, 335, 11, 54},
+  {entry__store_result_17, NULL, 337, 337, 39, 58},
+  {cont__store_result_18, &frame__store_result_17, 337, 337, 11, 64},
+  {entry__store_result_13, NULL, 332, 332, 7, 38},
+  {cont__store_result_14, &frame__store_result_13, 334, 334, 9, 32},
+  {cont__store_result_15, &frame__store_result_13, 333, 337, 7, 65},
+  {entry__store_result, NULL, 322, 322, 3, 25},
+  {cont__store_result_2, &frame__store_result, 323, 323, 3, 38},
+  {cont__store_result_3, &frame__store_result, 325, 325, 5, 38},
+  {cont__store_result_4, &frame__store_result, 324, 337, 3, 67},
+  {entry__compiler__call__simplify_statement_6, NULL, 353, 353, 11, 41},
+  {cont__compiler__call__simplify_statement_7, &frame__compiler__call__simplify_statement_6, 354, 354, 11, 65},
+  {cont__compiler__call__simplify_statement_8, &frame__compiler__call__simplify_statement_6, 354, 354, 65, 65},
+  {entry__compiler__call__simplify_statement_4, NULL, 351, 351, 12, 47},
+  {cont__compiler__call__simplify_statement_5, &frame__compiler__call__simplify_statement_4, 351, 354, 9, 65},
+  {entry__compiler__call__simplify_statement_11, NULL, 355, 355, 39, 69},
+  {cont__compiler__call__simplify_statement_12, &frame__compiler__call__simplify_statement_11, 355, 355, 69, 69},
+  {entry__compiler__call__simplify_statement_9, NULL, 355, 355, 12, 36},
+  {cont__compiler__call__simplify_statement_10, &frame__compiler__call__simplify_statement_9, 355, 355, 9, 69},
+  {entry__compiler__call__simplify_statement_13, NULL, 357, 357, 11, 40},
+  {cont__compiler__call__simplify_statement_14, &frame__compiler__call__simplify_statement_13, 357, 357, 40, 40},
+  {entry__compiler__call__simplify_statement_3, NULL, 350, 357, 7, 41},
+  {entry__compiler__call__simplify_statement_2, NULL, 349, 357, 5, 42},
+  {entry__compiler__call__simplify_statement_20, NULL, 360, 360, 31, 56},
+  {cont__compiler__call__simplify_statement_21, &frame__compiler__call__simplify_statement_20, 360, 360, 31, 61},
+  {cont__compiler__call__simplify_statement_22, &frame__compiler__call__simplify_statement_20, 360, 360, 31, 61},
+  {entry__compiler__call__simplify_statement_27, NULL, 363, 363, 7, 38},
+  {cont__compiler__call__simplify_statement_28, &frame__compiler__call__simplify_statement_27, 366, 366, 21, 40},
+  {cont__compiler__call__simplify_statement_29, &frame__compiler__call__simplify_statement_27, 366, 366, 7, 40},
+  {cont__compiler__call__simplify_statement_30, &frame__compiler__call__simplify_statement_27, 367, 367, 7, 40},
+  {cont__compiler__call__simplify_statement_31, &frame__compiler__call__simplify_statement_27, 370, 370, 23, 40},
+  {cont__compiler__call__simplify_statement_32, &frame__compiler__call__simplify_statement_27, 371, 371, 24, 40},
+  {cont__compiler__call__simplify_statement_33, &frame__compiler__call__simplify_statement_27, 372, 372, 31, 54},
+  {cont__compiler__call__simplify_statement_34, &frame__compiler__call__simplify_statement_27, 373, 373, 28, 48},
+  {cont__compiler__call__simplify_statement_35, &frame__compiler__call__simplify_statement_27, 373, 373, 50, 50},
+  {entry__compiler__call__simplify_statement_24, NULL, 361, 361, 5, 30},
+  {cont__compiler__call__simplify_statement_25, &frame__compiler__call__simplify_statement_24, 362, 362, 8, 32},
+  {cont__compiler__call__simplify_statement_26, &frame__compiler__call__simplify_statement_24, 362, 373, 5, 50},
+  {entry__compiler__call__simplify_statement_39, NULL, 380, 380, 10, 53},
+  {cont__compiler__call__simplify_statement_40, &frame__compiler__call__simplify_statement_39, 380, 380, 7, 53},
+  {entry__compiler__call__simplify_statement_41, NULL, 379, 379, 7, 18},
+  {entry__compiler__call__simplify_statement_48, NULL, 384, 384, 28, 47},
+  {cont__compiler__call__simplify_statement_49, &frame__compiler__call__simplify_statement_48, 384, 384, 7, 47},
+  {cont__compiler__call__simplify_statement_50, &frame__compiler__call__simplify_statement_48, 384, 384, 47, 47},
+  {entry__compiler__call__simplify_statement_54, NULL, 386, 386, 28, 47},
+  {cont__compiler__call__simplify_statement_55, &frame__compiler__call__simplify_statement_54, 386, 386, 7, 47},
+  {cont__compiler__call__simplify_statement_56, &frame__compiler__call__simplify_statement_54, 386, 386, 47, 47},
+  {entry__compiler__call__simplify_statement_45, NULL, 383, 383, 8, 28},
+  {cont__compiler__call__simplify_statement_46, &frame__compiler__call__simplify_statement_45, 383, 383, 8, 39},
+  {cont__compiler__call__simplify_statement_47, &frame__compiler__call__simplify_statement_45, 383, 384, 5, 47},
+  {cont__compiler__call__simplify_statement_51, &frame__compiler__call__simplify_statement_45, 385, 385, 8, 28},
+  {cont__compiler__call__simplify_statement_52, &frame__compiler__call__simplify_statement_45, 385, 385, 8, 39},
+  {cont__compiler__call__simplify_statement_53, &frame__compiler__call__simplify_statement_45, 385, 386, 5, 47},
+  {cont__compiler__call__simplify_statement_57, &frame__compiler__call__simplify_statement_45, 387, 387, 26, 40},
+  {cont__compiler__call__simplify_statement_58, &frame__compiler__call__simplify_statement_45, 387, 387, 5, 40},
+  {cont__compiler__call__simplify_statement_59, &frame__compiler__call__simplify_statement_45, 387, 387, 40, 40},
+  {entry__compiler__call__simplify_statement_72, NULL, 396, 396, 33, 52},
+  {cont__compiler__call__simplify_statement_73, &frame__compiler__call__simplify_statement_72, 396, 396, 15, 52},
+  {cont__compiler__call__simplify_statement_74, &frame__compiler__call__simplify_statement_72, 397, 397, 15, 20},
+  {entry__compiler__call__simplify_statement_78, NULL, 399, 399, 42, 64},
+  {cont__compiler__call__simplify_statement_79, &frame__compiler__call__simplify_statement_78, 399, 399, 42, 64},
+  {entry__compiler__call__simplify_statement_81, NULL, 400, 400, 35, 54},
+  {cont__compiler__call__simplify_statement_82, &frame__compiler__call__simplify_statement_81, 400, 400, 17, 54},
+  {cont__compiler__call__simplify_statement_83, &frame__compiler__call__simplify_statement_81, 401, 401, 17, 22},
+  {entry__compiler__call__simplify_statement_76, NULL, 399, 399, 18, 37},
+  {cont__compiler__call__simplify_statement_77, &frame__compiler__call__simplify_statement_76, 399, 399, 18, 64},
+  {cont__compiler__call__simplify_statement_80, &frame__compiler__call__simplify_statement_76, 399, 401, 15, 22},
+  {entry__compiler__call__simplify_statement_86, NULL, 403, 403, 35, 54},
+  {cont__compiler__call__simplify_statement_87, &frame__compiler__call__simplify_statement_86, 403, 403, 17, 54},
+  {cont__compiler__call__simplify_statement_88, &frame__compiler__call__simplify_statement_86, 404, 404, 18, 36},
+  {cont__compiler__call__simplify_statement_89, &frame__compiler__call__simplify_statement_86, 404, 404, 17, 36},
+  {cont__compiler__call__simplify_statement_90, &frame__compiler__call__simplify_statement_86, 404, 404, 62, 62},
+  {entry__compiler__call__simplify_statement_84, NULL, 402, 402, 18, 41},
+  {cont__compiler__call__simplify_statement_85, &frame__compiler__call__simplify_statement_84, 402, 404, 15, 62},
+  {entry__compiler__call__simplify_statement_91, NULL, 406, 406, 17, 45},
+  {cont__compiler__call__simplify_statement_92, &frame__compiler__call__simplify_statement_91, 407, 407, 18, 36},
+  {cont__compiler__call__simplify_statement_93, &frame__compiler__call__simplify_statement_91, 407, 407, 17, 36},
+  {cont__compiler__call__simplify_statement_94, &frame__compiler__call__simplify_statement_91, 407, 407, 62, 62},
+  {entry__compiler__call__simplify_statement_67, NULL, 394, 394, 13, 38},
+  {cont__compiler__call__simplify_statement_68, &frame__compiler__call__simplify_statement_67, 395, 395, 16, 45},
+  {cont__compiler__call__simplify_statement_69, &frame__compiler__call__simplify_statement_67, 395, 395, 16, 53},
+  {cont__compiler__call__simplify_statement_70, &frame__compiler__call__simplify_statement_67, 395, 395, 16, 53},
+  {cont__compiler__call__simplify_statement_71, &frame__compiler__call__simplify_statement_67, 395, 397, 13, 20},
+  {cont__compiler__call__simplify_statement_75, &frame__compiler__call__simplify_statement_67, 398, 407, 13, 63},
+  {entry__compiler__call__simplify_statement_95, NULL, 409, 409, 13, 41},
+  {cont__compiler__call__simplify_statement_96, &frame__compiler__call__simplify_statement_95, 410, 410, 14, 32},
+  {cont__compiler__call__simplify_statement_97, &frame__compiler__call__simplify_statement_95, 410, 410, 13, 32},
+  {cont__compiler__call__simplify_statement_98, &frame__compiler__call__simplify_statement_95, 410, 410, 58, 58},
+  {entry__compiler__call__simplify_statement_65, NULL, 393, 393, 11, 51},
+  {cont__compiler__call__simplify_statement_66, &frame__compiler__call__simplify_statement_65, 392, 410, 9, 59},
+  {entry__compiler__call__simplify_statement_101, NULL, 413, 413, 36, 53},
+  {cont__compiler__call__simplify_statement_102, &frame__compiler__call__simplify_statement_101, 413, 413, 11, 53},
+  {entry__compiler__call__simplify_statement_103, NULL, 415, 415, 11, 69},
+  {cont__compiler__call__simplify_statement_104, &frame__compiler__call__simplify_statement_103, 416, 416, 11, 31},
+  {cont__compiler__call__simplify_statement_105, &frame__compiler__call__simplify_statement_103, 416, 416, 31, 31},
+  {entry__compiler__call__simplify_statement_62, NULL, 390, 390, 7, 38},
+  {cont__compiler__call__simplify_statement_63, &frame__compiler__call__simplify_statement_62, 391, 391, 10, 36},
+  {cont__compiler__call__simplify_statement_64, &frame__compiler__call__simplify_statement_62, 391, 410, 7, 60},
+  {cont__compiler__call__simplify_statement_99, &frame__compiler__call__simplify_statement_62, 412, 412, 9, 38},
+  {cont__compiler__call__simplify_statement_100, &frame__compiler__call__simplify_statement_62, 411, 416, 7, 32},
+  {cont__compiler__call__simplify_statement_106, &frame__compiler__call__simplify_statement_62, 417, 417, 7, 12},
+  {entry__compiler__call__simplify_statement_110, NULL, 421, 421, 11, 36},
+  {cont__compiler__call__simplify_statement_111, &frame__compiler__call__simplify_statement_110, 422, 422, 45, 45},
+  {entry__compiler__call__simplify_statement_108, NULL, 420, 420, 12, 35},
+  {cont__compiler__call__simplify_statement_109, &frame__compiler__call__simplify_statement_108, 420, 422, 9, 45},
   {cont__compiler__call__simplify_statement_112, &frame__compiler__call__simplify_statement_108, },
-  {entry__compiler__call__simplify_statement_107, NULL, 399, 402, 7, 46},
-  {cont__compiler__call__simplify_statement_113, &frame__compiler__call__simplify_statement_107, 402, 402, 47, 47},
-  {entry__compiler__call__simplify_statement_124, NULL, 416, 416, 13, 43},
-  {entry__compiler__call__simplify_statement_127, NULL, 425, 425, 17, 30},
-  {entry__compiler__call__simplify_statement_128, NULL, 426, 426, 20, 45},
-  {cont__compiler__call__simplify_statement_129, &frame__compiler__call__simplify_statement_128, 426, 426, 17, 45},
-  {entry__compiler__call__simplify_statement_125, NULL, 424, 424, 17, 44},
-  {cont__compiler__call__simplify_statement_126, &frame__compiler__call__simplify_statement_125, 422, 426, 13, 46},
-  {cont__compiler__call__simplify_statement_130, &frame__compiler__call__simplify_statement_125, 430, 430, 31, 54},
-  {cont__compiler__call__simplify_statement_131, &frame__compiler__call__simplify_statement_125, 431, 431, 30, 52},
-  {cont__compiler__call__simplify_statement_132, &frame__compiler__call__simplify_statement_125, 432, 432, 37, 66},
-  {cont__compiler__call__simplify_statement_133, &frame__compiler__call__simplify_statement_125, 433, 433, 34, 60},
-  {cont__compiler__call__simplify_statement_134, &frame__compiler__call__simplify_statement_125, 428, 433, 13, 61},
-  {entry__compiler__call__simplify_statement_121, NULL, 409, 409, 11, 31},
-  {cont__compiler__call__simplify_statement_122, &frame__compiler__call__simplify_statement_121, 415, 415, 11, 40},
-  {cont__compiler__call__simplify_statement_123, &frame__compiler__call__simplify_statement_121, 414, 433, 9, 63},
-  {entry__compiler__call__simplify_statement_119, NULL, 407, 407, 10, 31},
-  {cont__compiler__call__simplify_statement_120, &frame__compiler__call__simplify_statement_119, 407, 433, 7, 64},
-  {entry__compiler__call__simplify_statement_118, NULL, 406, 433, 5, 65},
-  {entry__compiler__call__simplify_statement_1, NULL, 324, 324, 3, 47},
-  {cont__compiler__call__simplify_statement_16, &frame__compiler__call__simplify_statement_1, 339, 339, 17, 34},
-  {cont__compiler__call__simplify_statement_17, &frame__compiler__call__simplify_statement_1, 339, 339, 3, 34},
-  {cont__compiler__call__simplify_statement_18, &frame__compiler__call__simplify_statement_1, 340, 340, 6, 26},
-  {cont__compiler__call__simplify_statement_19, &frame__compiler__call__simplify_statement_1, 340, 340, 6, 61},
-  {cont__compiler__call__simplify_statement_23, &frame__compiler__call__simplify_statement_1, 340, 353, 3, 51},
-  {cont__compiler__call__simplify_statement_36, &frame__compiler__call__simplify_statement_1, 354, 354, 3, 43},
-  {cont__compiler__call__simplify_statement_37, &frame__compiler__call__simplify_statement_1, 358, 358, 7, 27},
-  {cont__compiler__call__simplify_statement_38, &frame__compiler__call__simplify_statement_1, 356, 360, 3, 54},
-  {cont__compiler__call__simplify_statement_42, &frame__compiler__call__simplify_statement_1, 362, 362, 6, 21},
-  {cont__compiler__call__simplify_statement_43, &frame__compiler__call__simplify_statement_1, 362, 362, 6, 32},
-  {cont__compiler__call__simplify_statement_44, &frame__compiler__call__simplify_statement_1, 362, 367, 3, 40},
-  {cont__compiler__call__simplify_statement_60, &frame__compiler__call__simplify_statement_1, 369, 369, 5, 25},
-  {cont__compiler__call__simplify_statement_61, &frame__compiler__call__simplify_statement_1, 368, 402, 3, 48},
-  {cont__compiler__call__simplify_statement_114, &frame__compiler__call__simplify_statement_1, 403, 403, 3, 61},
-  {cont__compiler__call__simplify_statement_115, &frame__compiler__call__simplify_statement_1, 404, 404, 3, 23},
-  {cont__compiler__call__simplify_statement_116, &frame__compiler__call__simplify_statement_1, 405, 405, 6, 34},
-  {cont__compiler__call__simplify_statement_117, &frame__compiler__call__simplify_statement_1, 405, 433, 3, 66},
-  {cont__compiler__call__simplify_statement_135, &frame__compiler__call__simplify_statement_1, 433, 433, 66, 66},
-  {entry__compiler__function_call__simplify_expression_1, NULL, 439, 439, 3, 51},
-  {cont__compiler__function_call__simplify_expression_3, &frame__compiler__function_call__simplify_expression_1, 440, 440, 3, 30},
-  {cont__compiler__function_call__simplify_expression_4, &frame__compiler__function_call__simplify_expression_1, 443, 443, 19, 34},
-  {cont__compiler__function_call__simplify_expression_5, &frame__compiler__function_call__simplify_expression_1, 444, 444, 26, 43},
-  {cont__compiler__function_call__simplify_expression_6, &frame__compiler__function_call__simplify_expression_1, 444, 444, 21, 73},
-  {cont__compiler__function_call__simplify_expression_7, &frame__compiler__function_call__simplify_expression_1, 445, 445, 20, 36},
-  {cont__compiler__function_call__simplify_expression_8, &frame__compiler__function_call__simplify_expression_1, 446, 446, 27, 50},
-  {cont__compiler__function_call__simplify_expression_9, &frame__compiler__function_call__simplify_expression_1, 447, 447, 24, 44},
-  {cont__compiler__function_call__simplify_expression_10, &frame__compiler__function_call__simplify_expression_1, 441, 447, 3, 45},
-  {cont__compiler__function_call__simplify_expression_11, &frame__compiler__function_call__simplify_expression_1, 448, 448, 3, 9},
-  {entry__compiler__attribute_value_pair__simplify_expression_1, NULL, 454, 454, 3, 58},
-  {cont__compiler__attribute_value_pair__simplify_expression_3, &frame__compiler__attribute_value_pair__simplify_expression_1, 455, 455, 29, 45},
-  {cont__compiler__attribute_value_pair__simplify_expression_4, &frame__compiler__attribute_value_pair__simplify_expression_1, 455, 456, 3, 47},
-  {cont__compiler__attribute_value_pair__simplify_expression_5, &frame__compiler__attribute_value_pair__simplify_expression_1, 456, 456, 48, 48},
-  {entry__compiler__attribute_function_pair__simplify_expression_1, NULL, 462, 462, 3, 61},
-  {cont__compiler__attribute_function_pair__simplify_expression_3, &frame__compiler__attribute_function_pair__simplify_expression_1, 463, 463, 29, 45},
-  {cont__compiler__attribute_function_pair__simplify_expression_4, &frame__compiler__attribute_function_pair__simplify_expression_1, 463, 464, 3, 47},
-  {cont__compiler__attribute_function_pair__simplify_expression_5, &frame__compiler__attribute_function_pair__simplify_expression_1, 464, 464, 48, 48},
-  {entry__compiler__c_code__simplify_statement_4, NULL, 471, 471, 35, 35},
-  {entry__compiler__c_code__simplify_statement_10, NULL, 475, 475, 22, 43},
-  {cont__compiler__c_code__simplify_statement_11, &frame__compiler__c_code__simplify_statement_10, 475, 475, 48, 48},
-  {entry__compiler__c_code__simplify_statement_7, NULL, 474, 474, 21, 39},
-  {cont__compiler__c_code__simplify_statement_8, &frame__compiler__c_code__simplify_statement_7, 474, 474, 7, 40},
-  {cont__compiler__c_code__simplify_statement_9, &frame__compiler__c_code__simplify_statement_7, 475, 475, 7, 48},
-  {cont__compiler__c_code__simplify_statement_12, &frame__compiler__c_code__simplify_statement_7, 475, 475, 48, 48},
-  {entry__compiler__c_code__simplify_statement_16, NULL, 478, 478, 22, 41},
-  {cont__compiler__c_code__simplify_statement_17, &frame__compiler__c_code__simplify_statement_16, 478, 478, 46, 46},
-  {entry__compiler__c_code__simplify_statement_13, NULL, 477, 477, 21, 39},
-  {cont__compiler__c_code__simplify_statement_14, &frame__compiler__c_code__simplify_statement_13, 477, 477, 7, 40},
-  {cont__compiler__c_code__simplify_statement_15, &frame__compiler__c_code__simplify_statement_13, 478, 478, 7, 46},
-  {cont__compiler__c_code__simplify_statement_18, &frame__compiler__c_code__simplify_statement_13, 478, 478, 46, 46},
-  {entry__compiler__c_code__simplify_statement_25, NULL, 481, 481, 22, 45},
-  {cont__compiler__c_code__simplify_statement_26, &frame__compiler__c_code__simplify_statement_25, 481, 481, 50, 50},
-  {entry__compiler__c_code__simplify_statement_19, NULL, 480, 480, 20, 34},
-  {cont__compiler__c_code__simplify_statement_20, &frame__compiler__c_code__simplify_statement_19, 480, 480, 20, 47},
-  {cont__compiler__c_code__simplify_statement_21, &frame__compiler__c_code__simplify_statement_19, 480, 480, 49, 60},
-  {cont__compiler__c_code__simplify_statement_22, &frame__compiler__c_code__simplify_statement_19, 480, 480, 63, 63},
-  {cont__compiler__c_code__simplify_statement_23, &frame__compiler__c_code__simplify_statement_19, 480, 480, 7, 64},
-  {cont__compiler__c_code__simplify_statement_24, &frame__compiler__c_code__simplify_statement_19, 481, 481, 7, 50},
-  {cont__compiler__c_code__simplify_statement_27, &frame__compiler__c_code__simplify_statement_19, 481, 481, 50, 50},
-  {entry__compiler__c_code__simplify_statement_1, NULL, 470, 470, 3, 44},
-  {cont__compiler__c_code__simplify_statement_3, &frame__compiler__c_code__simplify_statement_1, 471, 471, 3, 35},
-  {cont__compiler__c_code__simplify_statement_5, &frame__compiler__c_code__simplify_statement_1, 472, 472, 8, 20},
-  {cont__compiler__c_code__simplify_statement_6, &frame__compiler__c_code__simplify_statement_1, 472, 481, 3, 51},
-  {cont__compiler__c_code__simplify_statement_31, &frame__compiler__c_code__simplify_statement_1, 482, 482, 3, 24},
-  {cont__compiler__c_code__simplify_statement_32, &frame__compiler__c_code__simplify_statement_1, 482, 482, 24, 24},
-  {entry__compiler__c_body__simplify_expression_4, NULL, 489, 489, 35, 35},
-  {entry__compiler__c_body__simplify_expression_1, NULL, 488, 488, 3, 44},
-  {cont__compiler__c_body__simplify_expression_3, &frame__compiler__c_body__simplify_expression_1, 489, 489, 3, 35},
-  {cont__compiler__c_body__simplify_expression_5, &frame__compiler__c_body__simplify_expression_1, 489, 489, 35, 35}
+  {entry__compiler__call__simplify_statement_107, NULL, 419, 422, 7, 46},
+  {cont__compiler__call__simplify_statement_113, &frame__compiler__call__simplify_statement_107, 422, 422, 47, 47},
+  {entry__compiler__call__simplify_statement_124, NULL, 436, 436, 13, 43},
+  {entry__compiler__call__simplify_statement_127, NULL, 445, 445, 17, 30},
+  {entry__compiler__call__simplify_statement_128, NULL, 446, 446, 20, 45},
+  {cont__compiler__call__simplify_statement_129, &frame__compiler__call__simplify_statement_128, 446, 446, 17, 45},
+  {entry__compiler__call__simplify_statement_125, NULL, 444, 444, 17, 44},
+  {cont__compiler__call__simplify_statement_126, &frame__compiler__call__simplify_statement_125, 442, 446, 13, 46},
+  {cont__compiler__call__simplify_statement_130, &frame__compiler__call__simplify_statement_125, 450, 450, 31, 54},
+  {cont__compiler__call__simplify_statement_131, &frame__compiler__call__simplify_statement_125, 451, 451, 30, 52},
+  {cont__compiler__call__simplify_statement_132, &frame__compiler__call__simplify_statement_125, 452, 452, 37, 66},
+  {cont__compiler__call__simplify_statement_133, &frame__compiler__call__simplify_statement_125, 453, 453, 34, 60},
+  {cont__compiler__call__simplify_statement_134, &frame__compiler__call__simplify_statement_125, 448, 453, 13, 61},
+  {entry__compiler__call__simplify_statement_121, NULL, 429, 429, 11, 31},
+  {cont__compiler__call__simplify_statement_122, &frame__compiler__call__simplify_statement_121, 435, 435, 11, 40},
+  {cont__compiler__call__simplify_statement_123, &frame__compiler__call__simplify_statement_121, 434, 453, 9, 63},
+  {entry__compiler__call__simplify_statement_119, NULL, 427, 427, 10, 31},
+  {cont__compiler__call__simplify_statement_120, &frame__compiler__call__simplify_statement_119, 427, 453, 7, 64},
+  {entry__compiler__call__simplify_statement_118, NULL, 426, 453, 5, 65},
+  {entry__compiler__call___simplify_statement, NULL, 344, 344, 3, 47},
+  {cont__compiler__call___simplify_statement_16, &frame__compiler__call___simplify_statement, 359, 359, 17, 34},
+  {cont__compiler__call___simplify_statement_17, &frame__compiler__call___simplify_statement, 359, 359, 3, 34},
+  {cont__compiler__call___simplify_statement_18, &frame__compiler__call___simplify_statement, 360, 360, 6, 26},
+  {cont__compiler__call___simplify_statement_19, &frame__compiler__call___simplify_statement, 360, 360, 6, 61},
+  {cont__compiler__call___simplify_statement_23, &frame__compiler__call___simplify_statement, 360, 373, 3, 51},
+  {cont__compiler__call___simplify_statement_36, &frame__compiler__call___simplify_statement, 374, 374, 3, 43},
+  {cont__compiler__call___simplify_statement_37, &frame__compiler__call___simplify_statement, 378, 378, 7, 27},
+  {cont__compiler__call___simplify_statement_38, &frame__compiler__call___simplify_statement, 376, 380, 3, 54},
+  {cont__compiler__call___simplify_statement_42, &frame__compiler__call___simplify_statement, 382, 382, 6, 21},
+  {cont__compiler__call___simplify_statement_43, &frame__compiler__call___simplify_statement, 382, 382, 6, 32},
+  {cont__compiler__call___simplify_statement_44, &frame__compiler__call___simplify_statement, 382, 387, 3, 40},
+  {cont__compiler__call___simplify_statement_60, &frame__compiler__call___simplify_statement, 389, 389, 5, 25},
+  {cont__compiler__call___simplify_statement_61, &frame__compiler__call___simplify_statement, 388, 422, 3, 48},
+  {cont__compiler__call___simplify_statement_114, &frame__compiler__call___simplify_statement, 423, 423, 3, 61},
+  {cont__compiler__call___simplify_statement_115, &frame__compiler__call___simplify_statement, 424, 424, 3, 23},
+  {cont__compiler__call___simplify_statement_116, &frame__compiler__call___simplify_statement, 425, 425, 6, 34},
+  {cont__compiler__call___simplify_statement_117, &frame__compiler__call___simplify_statement, 425, 453, 3, 66},
+  {cont__compiler__call___simplify_statement_135, &frame__compiler__call___simplify_statement, 453, 453, 66, 66},
+  {entry__compiler__function_call___simplify_expression, NULL, 459, 459, 3, 51},
+  {cont__compiler__function_call___simplify_expression_3, &frame__compiler__function_call___simplify_expression, 460, 460, 3, 30},
+  {cont__compiler__function_call___simplify_expression_4, &frame__compiler__function_call___simplify_expression, 463, 463, 19, 34},
+  {cont__compiler__function_call___simplify_expression_5, &frame__compiler__function_call___simplify_expression, 464, 464, 26, 43},
+  {cont__compiler__function_call___simplify_expression_6, &frame__compiler__function_call___simplify_expression, 464, 464, 21, 73},
+  {cont__compiler__function_call___simplify_expression_7, &frame__compiler__function_call___simplify_expression, 465, 465, 20, 36},
+  {cont__compiler__function_call___simplify_expression_8, &frame__compiler__function_call___simplify_expression, 466, 466, 27, 50},
+  {cont__compiler__function_call___simplify_expression_9, &frame__compiler__function_call___simplify_expression, 467, 467, 24, 44},
+  {cont__compiler__function_call___simplify_expression_10, &frame__compiler__function_call___simplify_expression, 461, 467, 3, 45},
+  {cont__compiler__function_call___simplify_expression_11, &frame__compiler__function_call___simplify_expression, 468, 468, 3, 9},
+  {entry__compiler__attribute_value_pair___simplify_expression, NULL, 474, 474, 3, 58},
+  {cont__compiler__attribute_value_pair___simplify_expression_3, &frame__compiler__attribute_value_pair___simplify_expression, 475, 475, 29, 45},
+  {cont__compiler__attribute_value_pair___simplify_expression_4, &frame__compiler__attribute_value_pair___simplify_expression, 475, 476, 3, 47},
+  {cont__compiler__attribute_value_pair___simplify_expression_5, &frame__compiler__attribute_value_pair___simplify_expression, 476, 476, 48, 48},
+  {entry__compiler__attribute_function_pair___simplify_expression, NULL, 482, 482, 3, 61},
+  {cont__compiler__attribute_function_pair___simplify_expression_3, &frame__compiler__attribute_function_pair___simplify_expression, 483, 483, 29, 45},
+  {cont__compiler__attribute_function_pair___simplify_expression_4, &frame__compiler__attribute_function_pair___simplify_expression, 483, 484, 3, 47},
+  {cont__compiler__attribute_function_pair___simplify_expression_5, &frame__compiler__attribute_function_pair___simplify_expression, 484, 484, 48, 48},
+  {entry__compiler__c_code__simplify_statement_4, NULL, 491, 491, 35, 35},
+  {entry__compiler__c_code__simplify_statement_10, NULL, 495, 495, 22, 43},
+  {cont__compiler__c_code__simplify_statement_11, &frame__compiler__c_code__simplify_statement_10, 495, 495, 48, 48},
+  {entry__compiler__c_code__simplify_statement_7, NULL, 494, 494, 21, 39},
+  {cont__compiler__c_code__simplify_statement_8, &frame__compiler__c_code__simplify_statement_7, 494, 494, 7, 40},
+  {cont__compiler__c_code__simplify_statement_9, &frame__compiler__c_code__simplify_statement_7, 495, 495, 7, 48},
+  {cont__compiler__c_code__simplify_statement_12, &frame__compiler__c_code__simplify_statement_7, 495, 495, 48, 48},
+  {entry__compiler__c_code__simplify_statement_16, NULL, 498, 498, 22, 41},
+  {cont__compiler__c_code__simplify_statement_17, &frame__compiler__c_code__simplify_statement_16, 498, 498, 46, 46},
+  {entry__compiler__c_code__simplify_statement_13, NULL, 497, 497, 21, 39},
+  {cont__compiler__c_code__simplify_statement_14, &frame__compiler__c_code__simplify_statement_13, 497, 497, 7, 40},
+  {cont__compiler__c_code__simplify_statement_15, &frame__compiler__c_code__simplify_statement_13, 498, 498, 7, 46},
+  {cont__compiler__c_code__simplify_statement_18, &frame__compiler__c_code__simplify_statement_13, 498, 498, 46, 46},
+  {entry__compiler__c_code__simplify_statement_25, NULL, 501, 501, 22, 45},
+  {cont__compiler__c_code__simplify_statement_26, &frame__compiler__c_code__simplify_statement_25, 501, 501, 50, 50},
+  {entry__compiler__c_code__simplify_statement_19, NULL, 500, 500, 20, 34},
+  {cont__compiler__c_code__simplify_statement_20, &frame__compiler__c_code__simplify_statement_19, 500, 500, 20, 47},
+  {cont__compiler__c_code__simplify_statement_21, &frame__compiler__c_code__simplify_statement_19, 500, 500, 49, 60},
+  {cont__compiler__c_code__simplify_statement_22, &frame__compiler__c_code__simplify_statement_19, 500, 500, 63, 63},
+  {cont__compiler__c_code__simplify_statement_23, &frame__compiler__c_code__simplify_statement_19, 500, 500, 7, 64},
+  {cont__compiler__c_code__simplify_statement_24, &frame__compiler__c_code__simplify_statement_19, 501, 501, 7, 50},
+  {cont__compiler__c_code__simplify_statement_27, &frame__compiler__c_code__simplify_statement_19, 501, 501, 50, 50},
+  {entry__compiler__c_code___simplify_statement, NULL, 490, 490, 3, 44},
+  {cont__compiler__c_code___simplify_statement_3, &frame__compiler__c_code___simplify_statement, 491, 491, 3, 35},
+  {cont__compiler__c_code___simplify_statement_5, &frame__compiler__c_code___simplify_statement, 492, 492, 8, 20},
+  {cont__compiler__c_code___simplify_statement_6, &frame__compiler__c_code___simplify_statement, 492, 501, 3, 51},
+  {cont__compiler__c_code___simplify_statement_31, &frame__compiler__c_code___simplify_statement, 502, 502, 3, 24},
+  {cont__compiler__c_code___simplify_statement_32, &frame__compiler__c_code___simplify_statement, 502, 502, 24, 24},
+  {entry__compiler__c_body__simplify_expression_4, NULL, 509, 509, 35, 35},
+  {entry__compiler__c_body___simplify_expression, NULL, 508, 508, 3, 44},
+  {cont__compiler__c_body___simplify_expression_3, &frame__compiler__c_body___simplify_expression, 509, 509, 3, 35},
+  {cont__compiler__c_body___simplify_expression_5, &frame__compiler__c_body___simplify_expression, 509, 509, 35, 35}
 };
 
 union NODE {
@@ -1862,7 +1946,7 @@ EXPORT void run__simplifier(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__temporary_identifier_1(void) {
+static void entry__temporary_identifier(void) {
   allocate_initialized_frame_gc(0, 2);
   // slot allocations:
   // id: 0
@@ -1918,7 +2002,7 @@ static void cont__temporary_identifier_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__simplify_input_arguments_1(void) {
+static void entry__simplify_input_arguments(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // input_arguments: 0
@@ -2220,7 +2304,7 @@ static void cont__simplify_input_arguments_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__simplify_output_arguments_1(void) {
+static void entry__simplify_output_arguments(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // output_arguments: 0
@@ -2493,7 +2577,7 @@ static void entry__simplify_output_arguments_30(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
-  myself = var._temporary_identifier;
+  myself = func__temporary_identifier;
   func = myself->type;
   frame->cont = cont__simplify_output_arguments_31;
 }
@@ -3734,7 +3818,7 @@ static void cont__compiler__check_usage_34(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__check_usage_1(void) {
+static void entry__compiler__check_usage(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // name: 0
@@ -3817,7 +3901,7 @@ static void cont__compiler__check_usage_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__grammar_node__simplify_statement_1(void) {
+static void entry__types__grammar_node___simplify_statement(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -3832,9 +3916,9 @@ static void entry__types__grammar_node__simplify_statement_1(void) {
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__types__grammar_node__simplify_statement_3;
+  frame->cont = cont__types__grammar_node___simplify_statement_3;
 }
-static void cont__types__grammar_node__simplify_statement_3(void) {
+static void cont__types__grammar_node___simplify_statement_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -3847,9 +3931,9 @@ static void cont__types__grammar_node__simplify_statement_3(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__types__grammar_node__simplify_statement_4;
+  frame->cont = cont__types__grammar_node___simplify_statement_4;
 }
-static void cont__types__grammar_node__simplify_statement_4(void) {
+static void cont__types__grammar_node___simplify_statement_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3861,7 +3945,7 @@ static void cont__types__grammar_node__simplify_statement_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__grammar_node__simplify_expression_1(void) {
+static void entry__types__grammar_node___simplify_expression(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -3879,9 +3963,9 @@ static void entry__types__grammar_node__simplify_expression_1(void) {
     frame->caller_result_count-1 : -1;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__types__grammar_node__simplify_expression_3;
+  frame->cont = cont__types__grammar_node___simplify_expression_3;
 }
-static void cont__types__grammar_node__simplify_expression_3(void) {
+static void cont__types__grammar_node___simplify_expression_3(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -3892,67 +3976,788 @@ static void cont__types__grammar_node__simplify_expression_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__body__simplify_expression_1(void) {
-  allocate_initialized_frame_gc(1, 5);
+static void entry__compiler__identifier___simplify_expression(void) {
+  allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
-  // all_defined_names: 1
-  frame->slots[1] /* all_defined_names */ = create_cell();
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 141: show_compiler_debug_info "simplify body"
+  // 141: show_compiler_debug_info "simplify identifier"
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = string__929a5bb3435c71bb;
+  result_count = 0;
+  myself = get__show_compiler_debug_info();
+  func = myself->type;
+  frame->cont = cont__compiler__identifier___simplify_expression_3;
+}
+static void cont__compiler__identifier___simplify_expression_3(void) {
+  if (argument_count != 0) {
+    invalid_results_error();
+    return;
+  }
+  // 142: ... namespace_of(self)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
+  result_count = 1;
+  myself = get__namespace_of();
+  func = myself->type;
+  frame->cont = cont__compiler__identifier___simplify_expression_4;
+}
+static void cont__compiler__identifier___simplify_expression_4(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__2 */ = arguments->slots[0];
+  // 142: ... namespace_of(self).is_undefined
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__2 */;
+  result_count = 1;
+  myself = get__is_undefined();
+  func = myself->type;
+  frame->cont = cont__compiler__identifier___simplify_expression_5;
+}
+static void cont__compiler__identifier___simplify_expression_5(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 142: ... :
+  // 143:   $constant named_constants(name_of(self))
+  // 144:   if constant.is_defined: !self constant
+  frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__identifier__simplify_expression_6, 0);
+  // 142: if namespace_of(self).is_undefined:
+  // 143:   $constant named_constants(name_of(self))
+  // 144:   if constant.is_defined: !self constant
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  arguments->slots[1] = frame->slots[3] /* temp__3 */;
+  result_count =
+    frame->caller_result_count >= 1 ?
+    frame->caller_result_count-1 : -1;
+  myself = get__if();
+  func = myself->type;
+  frame->cont = cont__compiler__identifier___simplify_expression_11;
+}
+static void entry__compiler__identifier__simplify_expression_10(void) {
+  allocate_initialized_frame_gc(2, 2);
+  // slot allocations:
+  // self: 0
+  // constant: 1
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[1] = myself->closure.frame->slots[1]; /* constant */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 144: ... !self constant
+  ((CELL *)frame->slots[0])->contents /* self */ = frame->slots[1] /* constant */;
+  argument_count = 0;
+  arguments = node_p;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void entry__compiler__identifier__simplify_expression_6(void) {
+  allocate_initialized_frame_gc(1, 4);
+  // slot allocations:
+  // self: 0
+  // constant: 1
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[1] /* constant */ = create_future();
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 143: ... name_of(self)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
+  result_count = 1;
+  myself = get__name_of();
+  func = myself->type;
+  frame->cont = cont__compiler__identifier__simplify_expression_7;
+}
+static void cont__compiler__identifier__simplify_expression_7(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__1 */ = arguments->slots[0];
+  // 143: $constant named_constants(name_of(self))
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__1 */;
+  result_count = 1;
+  myself = get__named_constants();
+  func = myself->type;
+  frame->cont = cont__compiler__identifier__simplify_expression_8;
+}
+static void cont__compiler__identifier__simplify_expression_8(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  initialize_future(frame->slots[1] /* constant */, arguments->slots[0]);
+  // 144: ... constant.is_defined
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* constant */;
+  result_count = 1;
+  myself = get__is_defined();
+  func = myself->type;
+  frame->cont = cont__compiler__identifier__simplify_expression_9;
+}
+static void cont__compiler__identifier__simplify_expression_9(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__1 */ = arguments->slots[0];
+  // 144: ... : !self constant
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__identifier__simplify_expression_10, 0);
+  // 144: if constant.is_defined: !self constant
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__1 */;
+  arguments->slots[1] = frame->slots[3] /* temp__2 */;
+  result_count = frame->caller_result_count;
+  myself = get__if();
+  func = myself->type;
+  frame = frame->caller_frame;
+}
+static void cont__compiler__identifier___simplify_expression_11(void) {
+  int i = argument_count;
+  while (--i >= 0) {
+    arguments->slots[i+1] = arguments->slots[i];
+  }
+  argument_count += 1;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void entry__compiler__body___simplify_expression(void) {
+  allocate_initialized_frame_gc(1, 7);
+  // slot allocations:
+  // self: 0
+  if (argument_count != 1) {
+    invalid_arguments_error();
+    return;
+  }
+  frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
+  // 150: show_compiler_debug_info "simplify body"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__867252dcb87a57b1;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_3;
+  frame->cont = cont__compiler__body___simplify_expression_3;
 }
-static void cont__compiler__body__simplify_expression_3(void) {
+static void cont__compiler__body___simplify_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 142: $$all_defined_names already_defined_names
+  // 153: parameters_of(self)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
+  result_count = 1;
+  myself = get__parameters_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body___simplify_expression_4;
+}
+static void cont__compiler__body___simplify_expression_4(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[3] /* temp__3 */ = arguments->slots[0];
+  // 153: parameters_of(self).is_empty
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[3] /* temp__3 */;
+  result_count = 1;
+  myself = get__is_empty();
+  func = myself->type;
+  frame->cont = cont__compiler__body___simplify_expression_5;
+}
+static void cont__compiler__body___simplify_expression_5(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__2 */ = arguments->slots[0];
+  frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__body__simplify_expression_6, 0);
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__2 */;
+  arguments->slots[1] = frame->slots[4] /* temp__4 */;
+  result_count = 1;
+  myself = get__std__and();
+  func = myself->type;
+  frame->cont = cont__compiler__body___simplify_expression_22;
+}
+static void entry__compiler__body__simplify_expression_6(void) {
+  allocate_initialized_frame_gc(1, 6);
+  // slot allocations:
+  // self: 0
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 154: ... statements_of(self)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
+  result_count = 1;
+  myself = get__statements_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_7;
+}
+static void cont__compiler__body__simplify_expression_7(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[4] /* temp__4 */ = arguments->slots[0];
+  // 154: length_of(statements_of(self))
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[4] /* temp__4 */;
+  result_count = 1;
+  myself = get__length_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_8;
+}
+static void cont__compiler__body__simplify_expression_8(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[3] /* temp__3 */ = arguments->slots[0];
+  // 154: length_of(statements_of(self)) == 1
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[3] /* temp__3 */;
+  arguments->slots[1] = number__1;
+  result_count = 1;
+  myself = get__std__equal();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_9;
+}
+static void cont__compiler__body__simplify_expression_9(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__2 */ = arguments->slots[0];
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__body__simplify_expression_10, 0);
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__2 */;
+  arguments->slots[1] = frame->slots[5] /* temp__5 */;
+  result_count = 1;
+  myself = get__std__and();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_21;
+}
+static void entry__compiler__body__simplify_expression_10(void) {
+  allocate_initialized_frame_gc(1, 7);
+  // slot allocations:
+  // self: 0
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 155: ... statements_of(self)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
+  result_count = 1;
+  myself = get__statements_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_11;
+}
+static void cont__compiler__body__simplify_expression_11(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[5] /* temp__5 */ = arguments->slots[0];
+  // 155: ... statements_of(self)(1)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = number__1;
+  result_count = 1;
+  myself = frame->slots[5] /* temp__5 */;
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_12;
+}
+static void cont__compiler__body__simplify_expression_12(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[4] /* temp__4 */ = arguments->slots[0];
+  // 155: arguments_of(statements_of(self)(1))
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[4] /* temp__4 */;
+  result_count = 1;
+  myself = get__arguments_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_13;
+}
+static void cont__compiler__body__simplify_expression_13(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[3] /* temp__3 */ = arguments->slots[0];
+  // 155: arguments_of(statements_of(self)(1)).is_empty
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[3] /* temp__3 */;
+  result_count = 1;
+  myself = get__is_empty();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_14;
+}
+static void cont__compiler__body__simplify_expression_14(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__2 */ = arguments->slots[0];
+  // 156: functor_of(statements_of(self)(1)).is_an_identifier
+  frame->slots[6] /* temp__6 */ = create_closure(entry__compiler__body__simplify_expression_15, 0);
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__2 */;
+  arguments->slots[1] = frame->slots[6] /* temp__6 */;
+  result_count = 1;
+  myself = get__std__and();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_20;
+}
+static void entry__compiler__body__simplify_expression_15(void) {
+  allocate_initialized_frame_gc(1, 5);
+  // slot allocations:
+  // self: 0
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 156: ... statements_of(self)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
+  result_count = 1;
+  myself = get__statements_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_16;
+}
+static void cont__compiler__body__simplify_expression_16(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[4] /* temp__4 */ = arguments->slots[0];
+  // 156: ... statements_of(self)(1)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = number__1;
+  result_count = 1;
+  myself = frame->slots[4] /* temp__4 */;
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_17;
+}
+static void cont__compiler__body__simplify_expression_17(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[3] /* temp__3 */ = arguments->slots[0];
+  // 156: functor_of(statements_of(self)(1))
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[3] /* temp__3 */;
+  result_count = 1;
+  myself = get__functor_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_18;
+}
+static void cont__compiler__body__simplify_expression_18(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__2 */ = arguments->slots[0];
+  // 156: functor_of(statements_of(self)(1)).is_an_identifier
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__2 */;
+  result_count = 1;
+  myself = get__is_an_identifier();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_19;
+}
+static void cont__compiler__body__simplify_expression_19(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 156: functor_of(statements_of(self)(1)).is_an_identifier
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void cont__compiler__body__simplify_expression_20(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void cont__compiler__body__simplify_expression_21(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void cont__compiler__body___simplify_expression_22(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 157: :
+  // 158:   # trivial body
+  // 159:   
+  // 160:   !self simplify_expression(functor_of(statements_of(self)(1)))
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__body__simplify_expression_23, 0);
+  // 161: :
+  // 162:   $$all_defined_names already_defined_names
+  // 163:   for_each defined_names_of(self): (name info)
+  // 164:     $outer_info already_defined_names(name)
+  // 165:     if
+  // 166:       outer_info.is_defined:
+  // 167:         SyntaxError identifier_of(info) "
+  // 168:           An identifier named "@(name)" was already defined in an outer @
+  // 169:           scope or in a used namespace@
+  // 170:       :
+  // ...
+  frame->slots[6] /* temp__6 */ = create_closure(entry__compiler__body__simplify_expression_28, 0);
+  // 151: if
+  // 152:   &&
+  // 153:     parameters_of(self).is_empty
+  // 154:     length_of(statements_of(self)) == 1
+  // 155:     arguments_of(statements_of(self)(1)).is_empty
+  // 156:     functor_of(statements_of(self)(1)).is_an_identifier
+  // 157:   :
+  // 158:     # trivial body
+  // 159:     
+  // 160:     !self simplify_expression(functor_of(statements_of(self)(1)))
+  // ...
+  argument_count = 3;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  arguments->slots[1] = frame->slots[5] /* temp__5 */;
+  arguments->slots[2] = frame->slots[6] /* temp__6 */;
+  result_count =
+    frame->caller_result_count >= 1 ?
+    frame->caller_result_count-1 : -1;
+  myself = get__if();
+  func = myself->type;
+  frame->cont = cont__compiler__body___simplify_expression_126;
+}
+static void entry__compiler__body__simplify_expression_119(void) {
+  allocate_initialized_frame_gc(1, 8);
+  // slot allocations:
+  // self: 0
+  // temp: 1
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[1] /* temp */ = create_future();
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 241: $temp temporary_identifier()
+  argument_count = 0;
+  arguments = node_p;
+  result_count = 1;
+  myself = func__temporary_identifier;
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_120;
+}
+static void cont__compiler__body__simplify_expression_120(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  initialize_future(frame->slots[1] /* temp */, arguments->slots[0]);
+  // 245: ... temp(.is_a_destination true)
+  {
+    NODE *temp = clone_object_and_attributes(frame->slots[1] /* temp */);
+    update_start_p = node_p;
+    set_attribute_value(temp->attributes, poly_idx__is_a_destination, get__true());
+    frame->slots[4] /* temp__3 */ = temp;
+
+  }
+  // 245: ... list(temp(.is_a_destination true) self)
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[4] /* temp__3 */;
+  arguments->slots[1] = ((CELL *)frame->slots[0])->contents /* self */;
+  result_count = 1;
+  myself = get__list();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_121;
+}
+static void cont__compiler__body__simplify_expression_121(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[3] /* temp__2 */ = arguments->slots[0];
+  // 246: ... fragment_of(self)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
+  result_count = 1;
+  myself = get__fragment_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_122;
+}
+static void cont__compiler__body__simplify_expression_122(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[5] /* temp__4 */ = arguments->slots[0];
+  // 247: ... source_position_of(self)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
+  result_count = 1;
+  myself = get__source_position_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_123;
+}
+static void cont__compiler__body__simplify_expression_123(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[6] /* temp__5 */ = arguments->slots[0];
+  // 248: ... end_position_of(self)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
+  result_count = 1;
+  myself = get__end_position_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_124;
+}
+static void cont__compiler__body__simplify_expression_124(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[7] /* temp__6 */ = arguments->slots[0];
+  {
+    NODE *temp = clone_object_and_attributes(get__assignment());
+    update_start_p = node_p;
+    set_attribute_value(temp->attributes, poly_idx__arguments_of, frame->slots[3] /* temp__2 */);
+    set_attribute_value(temp->attributes, poly_idx__fragment_of, frame->slots[5] /* temp__4 */);
+    set_attribute_value(temp->attributes, poly_idx__source_position_of, frame->slots[6] /* temp__5 */);
+    set_attribute_value(temp->attributes, poly_idx__end_position_of, frame->slots[7] /* temp__6 */);
+    frame->slots[2] /* temp__1 */ = temp;
+
+  }
+  // 242: push
+  // 243:   &statements
+  // 244:   assignment
+  // 245:     .arguments_of list(temp(.is_a_destination true) self)
+  // 246:     .fragment_of fragment_of(self)
+  // 247:     .source_position_of source_position_of(self)
+  // 248:     .end_position_of end_position_of(self)
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = get__statements();
+  arguments->slots[1] = frame->slots[2] /* temp__1 */;
+  result_count = 1;
+  myself = get__push();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_125;
+}
+static void cont__compiler__body__simplify_expression_125(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  set__statements(arguments->slots[0]);
+  // 249: !self temp
+  ((CELL *)frame->slots[0])->contents /* self */ = frame->slots[1] /* temp */;
+  argument_count = 0;
+  arguments = node_p;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void entry__compiler__body__simplify_expression_23(void) {
+  allocate_initialized_frame_gc(1, 4);
+  // slot allocations:
+  // self: 0
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 160: ... statements_of(self)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
+  result_count = 1;
+  myself = get__statements_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_24;
+}
+static void cont__compiler__body__simplify_expression_24(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[3] /* temp__3 */ = arguments->slots[0];
+  // 160: ... statements_of(self)(1)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = number__1;
+  result_count = 1;
+  myself = frame->slots[3] /* temp__3 */;
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_25;
+}
+static void cont__compiler__body__simplify_expression_25(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__2 */ = arguments->slots[0];
+  // 160: ... functor_of(statements_of(self)(1))
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__2 */;
+  result_count = 1;
+  myself = get__functor_of();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_26;
+}
+static void cont__compiler__body__simplify_expression_26(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 160: !self simplify_expression(functor_of(statements_of(self)(1)))
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  result_count = 1;
+  myself = get__simplify_expression();
+  func = myself->type;
+  frame->cont = cont__compiler__body__simplify_expression_27;
+}
+static void cont__compiler__body__simplify_expression_27(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  ((CELL *)frame->slots[0])->contents /* self */ = arguments->slots[0];
+  argument_count = 0;
+  arguments = node_p;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void entry__compiler__body__simplify_expression_28(void) {
+  allocate_initialized_frame_gc(1, 5);
+  // slot allocations:
+  // self: 0
+  // all_defined_names: 1
+  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
+  frame->slots[1] /* all_defined_names */ = create_cell();
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 162: $$all_defined_names already_defined_names
   ((CELL *)frame->slots[1])->contents /* all_defined_names */ = get__already_defined_names();
-  // 143: ... defined_names_of(self)
+  // 163: ... defined_names_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 1;
   myself = get__defined_names_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_4;
+  frame->cont = cont__compiler__body__simplify_expression_29;
 }
-static void cont__compiler__body__simplify_expression_4(void) {
+static void cont__compiler__body__simplify_expression_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 143: ... : (name info)
-  // 144:   $outer_info already_defined_names(name)
-  // 145:   if
-  // 146:     outer_info.is_defined:
-  // 147:       SyntaxError identifier_of(info) "
-  // 148:         An identifier named "@(name)" was already defined in an outer scope @
-  // 149:         or in a used namespace@
-  // 150:     :
-  // 151:       !all_defined_names(name) info
-  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_5, 2);
-  // 143: for_each defined_names_of(self): (name info)
-  // 144:   $outer_info already_defined_names(name)
-  // 145:   if
-  // 146:     outer_info.is_defined:
-  // 147:       SyntaxError identifier_of(info) "
-  // 148:         An identifier named "@(name)" was already defined in an outer scope @
-  // 149:         or in a used namespace@
-  // 150:     :
-  // 151:       !all_defined_names(name) info
+  // 163: ... : (name info)
+  // 164:   $outer_info already_defined_names(name)
+  // 165:   if
+  // 166:     outer_info.is_defined:
+  // 167:       SyntaxError identifier_of(info) "
+  // 168:         An identifier named "@(name)" was already defined in an outer @
+  // 169:         scope or in a used namespace@
+  // 170:     :
+  // 171:       !all_defined_names(name) info
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_30, 2);
+  // 163: for_each defined_names_of(self): (name info)
+  // 164:   $outer_info already_defined_names(name)
+  // 165:   if
+  // 166:     outer_info.is_defined:
+  // 167:       SyntaxError identifier_of(info) "
+  // 168:         An identifier named "@(name)" was already defined in an outer @
+  // 169:         scope or in a used namespace@
+  // 170:     :
+  // 171:       !all_defined_names(name) info
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -3960,9 +4765,9 @@ static void cont__compiler__body__simplify_expression_4(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_15;
+  frame->cont = cont__compiler__body__simplify_expression_40;
 }
-static void entry__compiler__body__simplify_expression_8(void) {
+static void entry__compiler__body__simplify_expression_33(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // info: 0
@@ -3973,24 +4778,24 @@ static void entry__compiler__body__simplify_expression_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 147: ... identifier_of(info)
+  // 167: ... identifier_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* info */;
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_9;
+  frame->cont = cont__compiler__body__simplify_expression_34;
 }
-static void cont__compiler__body__simplify_expression_9(void) {
+static void cont__compiler__body__simplify_expression_34(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 147: ... "
-  // 148:   An identifier named "@(name)" was already defined in an outer scope @
-  // 149:   or in a used namespace@
+  // 167: ... "
+  // 168:   An identifier named "@(name)" was already defined in an outer @
+  // 169:   scope or in a used namespace@
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__b18861f6a8c886ba;
@@ -3999,17 +4804,17 @@ static void cont__compiler__body__simplify_expression_9(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_12;
+  frame->cont = cont__compiler__body__simplify_expression_37;
 }
-static void cont__compiler__body__simplify_expression_12(void) {
+static void cont__compiler__body__simplify_expression_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 147: SyntaxError identifier_of(info) "
-  // 148:   An identifier named "@(name)" was already defined in an outer scope @
-  // 149:   or in a used namespace@
+  // 167: SyntaxError identifier_of(info) "
+  // 168:   An identifier named "@(name)" was already defined in an outer @
+  // 169:   scope or in a used namespace@
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4019,7 +4824,7 @@ static void cont__compiler__body__simplify_expression_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__body__simplify_expression_13(void) {
+static void entry__compiler__body__simplify_expression_38(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // all_defined_names: 0
@@ -4032,7 +4837,7 @@ static void entry__compiler__body__simplify_expression_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 151: !all_defined_names(name)
+  // 171: !all_defined_names(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* name */;
@@ -4040,9 +4845,9 @@ static void entry__compiler__body__simplify_expression_13(void) {
   result_count = 1;
   myself = ((CELL *)frame->slots[0])->contents /* all_defined_names */;
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_14;
+  frame->cont = cont__compiler__body__simplify_expression_39;
 }
-static void cont__compiler__body__simplify_expression_14(void) {
+static void cont__compiler__body__simplify_expression_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4054,7 +4859,7 @@ static void cont__compiler__body__simplify_expression_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__body__simplify_expression_5(void) {
+static void entry__compiler__body__simplify_expression_30(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // name: 0
@@ -4067,51 +4872,51 @@ static void entry__compiler__body__simplify_expression_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 144: $outer_info already_defined_names(name)
+  // 164: $outer_info already_defined_names(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
   result_count = 1;
   myself = get__already_defined_names();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_6;
+  frame->cont = cont__compiler__body__simplify_expression_31;
 }
-static void cont__compiler__body__simplify_expression_6(void) {
+static void cont__compiler__body__simplify_expression_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[3] /* outer_info */, arguments->slots[0]);
-  // 146: outer_info.is_defined
+  // 166: outer_info.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* outer_info */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_7;
+  frame->cont = cont__compiler__body__simplify_expression_32;
 }
-static void cont__compiler__body__simplify_expression_7(void) {
+static void cont__compiler__body__simplify_expression_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 146: ... :
-  // 147:   SyntaxError identifier_of(info) "
-  // 148:     An identifier named "@(name)" was already defined in an outer scope @
-  // 149:     or in a used namespace@
-  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_8, 0);
-  // 150: :
-  // 151:   !all_defined_names(name) info
-  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_13, 0);
-  // 145: if
-  // 146:   outer_info.is_defined:
-  // 147:     SyntaxError identifier_of(info) "
-  // 148:       An identifier named "@(name)" was already defined in an outer scope @
-  // 149:       or in a used namespace@
-  // 150:   :
-  // 151:     !all_defined_names(name) info
+  // 166: ... :
+  // 167:   SyntaxError identifier_of(info) "
+  // 168:     An identifier named "@(name)" was already defined in an outer @
+  // 169:     scope or in a used namespace@
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_33, 0);
+  // 170: :
+  // 171:   !all_defined_names(name) info
+  frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_38, 0);
+  // 165: if
+  // 166:   outer_info.is_defined:
+  // 167:     SyntaxError identifier_of(info) "
+  // 168:       An identifier named "@(name)" was already defined in an outer @
+  // 169:       scope or in a used namespace@
+  // 170:   :
+  // 171:     !all_defined_names(name) info
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -4122,39 +4927,39 @@ static void cont__compiler__body__simplify_expression_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__body__simplify_expression_15(void) {
+static void cont__compiler__body__simplify_expression_40(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 152: ... used_names_of(self)
+  // 172: ... used_names_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 1;
   myself = get__used_names_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_16;
+  frame->cont = cont__compiler__body__simplify_expression_41;
 }
-static void cont__compiler__body__simplify_expression_16(void) {
+static void cont__compiler__body__simplify_expression_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 152: ... : (name info)
-  // 153:   $definition all_defined_names(name)
-  // 154:   if definition.is_defined:
-  // 155:     check_usage name definition info
-  // 156:     if defined_names(name).is_defined || inherited_names(name).is_defined:
-  // 157:       !self.inherited_names_of(name) info
-  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_17, 2);
-  // 152: for_each used_names_of(self): (name info)
-  // 153:   $definition all_defined_names(name)
-  // 154:   if definition.is_defined:
-  // 155:     check_usage name definition info
-  // 156:     if defined_names(name).is_defined || inherited_names(name).is_defined:
-  // 157:       !self.inherited_names_of(name) info
+  // 172: ... : (name info)
+  // 173:   $definition all_defined_names(name)
+  // 174:   if definition.is_defined:
+  // 175:     check_usage name definition info
+  // 176:     if defined_names(name).is_defined || inherited_names(name).is_defined:
+  // 177:       !self.inherited_names_of(name) info
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_42, 2);
+  // 172: for_each used_names_of(self): (name info)
+  // 173:   $definition all_defined_names(name)
+  // 174:   if definition.is_defined:
+  // 175:     check_usage name definition info
+  // 176:     if defined_names(name).is_defined || inherited_names(name).is_defined:
+  // 177:       !self.inherited_names_of(name) info
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -4162,9 +4967,9 @@ static void cont__compiler__body__simplify_expression_16(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_31;
+  frame->cont = cont__compiler__body__simplify_expression_56;
 }
-static void entry__compiler__body__simplify_expression_28(void) {
+static void entry__compiler__body__simplify_expression_53(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // self: 0
@@ -4177,22 +4982,22 @@ static void entry__compiler__body__simplify_expression_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 157: ... self.inherited_names_of
+  // 177: ... self.inherited_names_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 1;
   myself = get__inherited_names_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_29;
+  frame->cont = cont__compiler__body__simplify_expression_54;
 }
-static void cont__compiler__body__simplify_expression_29(void) {
+static void cont__compiler__body__simplify_expression_54(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 157: !self.inherited_names_of(name)
+  // 177: !self.inherited_names_of(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* name */;
@@ -4200,15 +5005,15 @@ static void cont__compiler__body__simplify_expression_29(void) {
   result_count = 1;
   myself = frame->slots[3] /* temp__1 */;
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_30;
+  frame->cont = cont__compiler__body__simplify_expression_55;
 }
-static void cont__compiler__body__simplify_expression_30(void) {
+static void cont__compiler__body__simplify_expression_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 157: !self.inherited_names_of
+  // 177: !self.inherited_names_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -4222,7 +5027,7 @@ static void cont__compiler__body__simplify_expression_30(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__body__simplify_expression_20(void) {
+static void entry__compiler__body__simplify_expression_45(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // name: 0
@@ -4237,7 +5042,7 @@ static void entry__compiler__body__simplify_expression_20(void) {
     invalid_arguments_error();
     return;
   }
-  // 155: check_usage name definition info
+  // 175: check_usage name definition info
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -4246,46 +5051,46 @@ static void entry__compiler__body__simplify_expression_20(void) {
   result_count = 0;
   myself = get__check_usage();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_21;
+  frame->cont = cont__compiler__body__simplify_expression_46;
 }
-static void cont__compiler__body__simplify_expression_21(void) {
+static void cont__compiler__body__simplify_expression_46(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 156: ... defined_names(name)
+  // 176: ... defined_names(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
   result_count = 1;
   myself = get__defined_names();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_22;
+  frame->cont = cont__compiler__body__simplify_expression_47;
 }
-static void cont__compiler__body__simplify_expression_22(void) {
+static void cont__compiler__body__simplify_expression_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 156: ... defined_names(name).is_defined
+  // 176: ... defined_names(name).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_23;
+  frame->cont = cont__compiler__body__simplify_expression_48;
 }
-static void cont__compiler__body__simplify_expression_23(void) {
+static void cont__compiler__body__simplify_expression_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 156: ... inherited_names(name).is_defined
-  frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__body__simplify_expression_24, 0);
-  // 156: ... defined_names(name).is_defined || inherited_names(name).is_defined
+  // 176: ... inherited_names(name).is_defined
+  frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__body__simplify_expression_49, 0);
+  // 176: ... defined_names(name).is_defined || inherited_names(name).is_defined
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -4293,9 +5098,9 @@ static void cont__compiler__body__simplify_expression_23(void) {
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_27;
+  frame->cont = cont__compiler__body__simplify_expression_52;
 }
-static void entry__compiler__body__simplify_expression_24(void) {
+static void entry__compiler__body__simplify_expression_49(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // name: 0
@@ -4304,37 +5109,37 @@ static void entry__compiler__body__simplify_expression_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 156: ... inherited_names(name)
+  // 176: ... inherited_names(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
   result_count = 1;
   myself = get__inherited_names();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_25;
+  frame->cont = cont__compiler__body__simplify_expression_50;
 }
-static void cont__compiler__body__simplify_expression_25(void) {
+static void cont__compiler__body__simplify_expression_50(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 156: ... inherited_names(name).is_defined
+  // 176: ... inherited_names(name).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_26;
+  frame->cont = cont__compiler__body__simplify_expression_51;
 }
-static void cont__compiler__body__simplify_expression_26(void) {
+static void cont__compiler__body__simplify_expression_51(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 156: ... inherited_names(name).is_defined
+  // 176: ... inherited_names(name).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4342,17 +5147,17 @@ static void cont__compiler__body__simplify_expression_26(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__body__simplify_expression_27(void) {
+static void cont__compiler__body__simplify_expression_52(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 156: ... :
-  // 157:   !self.inherited_names_of(name) info
-  frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__body__simplify_expression_28, 0);
-  // 156: if defined_names(name).is_defined || inherited_names(name).is_defined:
-  // 157:   !self.inherited_names_of(name) info
+  // 176: ... :
+  // 177:   !self.inherited_names_of(name) info
+  frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__body__simplify_expression_53, 0);
+  // 176: if defined_names(name).is_defined || inherited_names(name).is_defined:
+  // 177:   !self.inherited_names_of(name) info
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -4362,7 +5167,7 @@ static void cont__compiler__body__simplify_expression_27(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__body__simplify_expression_17(void) {
+static void entry__compiler__body__simplify_expression_42(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // name: 0
@@ -4377,45 +5182,45 @@ static void entry__compiler__body__simplify_expression_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 153: $definition all_defined_names(name)
+  // 173: $definition all_defined_names(name)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
   result_count = 1;
   myself = ((CELL *)frame->slots[2])->contents /* all_defined_names */;
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_18;
+  frame->cont = cont__compiler__body__simplify_expression_43;
 }
-static void cont__compiler__body__simplify_expression_18(void) {
+static void cont__compiler__body__simplify_expression_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[4] /* definition */, arguments->slots[0]);
-  // 154: ... definition.is_defined
+  // 174: ... definition.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* definition */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_19;
+  frame->cont = cont__compiler__body__simplify_expression_44;
 }
-static void cont__compiler__body__simplify_expression_19(void) {
+static void cont__compiler__body__simplify_expression_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 154: ... :
-  // 155:   check_usage name definition info
-  // 156:   if defined_names(name).is_defined || inherited_names(name).is_defined:
-  // 157:     !self.inherited_names_of(name) info
-  frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_20, 0);
-  // 154: if definition.is_defined:
-  // 155:   check_usage name definition info
-  // 156:   if defined_names(name).is_defined || inherited_names(name).is_defined:
-  // 157:     !self.inherited_names_of(name) info
+  // 174: ... :
+  // 175:   check_usage name definition info
+  // 176:   if defined_names(name).is_defined || inherited_names(name).is_defined:
+  // 177:     !self.inherited_names_of(name) info
+  frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_45, 0);
+  // 174: if definition.is_defined:
+  // 175:   check_usage name definition info
+  // 176:   if defined_names(name).is_defined || inherited_names(name).is_defined:
+  // 177:     !self.inherited_names_of(name) info
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -4425,33 +5230,33 @@ static void cont__compiler__body__simplify_expression_19(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__body__simplify_expression_31(void) {
+static void cont__compiler__body__simplify_expression_56(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 158: ... :
-  // 159:   %defined_names defined_names_of(self)
-  // 160:   %inherited_names inherited_names_of(self)
-  // 161:   %already_defined_names all_defined_names
-  // 162:   %%definitions empty_list
-  // 163:   %%statements empty_list
-  // 164:   $$max_temp_idx 0
-  // 165:   update_each &self.parameters_of: (&parameter)
-  // 166:     $$default_value default_value_of(parameter)
-  // 167:     if default_value.is_defined:
+  // 178: ... :
+  // 179:   %defined_names defined_names_of(self)
+  // 180:   %inherited_names inherited_names_of(self)
+  // 181:   %already_defined_names all_defined_names
+  // 182:   %%definitions empty_list
+  // 183:   %%statements empty_list
+  // 184:   $$max_temp_idx 0
+  // 185:   update_each &self.parameters_of: (&parameter)
+  // 186:     $$default_value default_value_of(parameter)
+  // 187:     if default_value.is_defined:
   // ...
-  frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__body__simplify_expression_32, 0);
-  // 158: do:
-  // 159:   %defined_names defined_names_of(self)
-  // 160:   %inherited_names inherited_names_of(self)
-  // 161:   %already_defined_names all_defined_names
-  // 162:   %%definitions empty_list
-  // 163:   %%statements empty_list
-  // 164:   $$max_temp_idx 0
-  // 165:   update_each &self.parameters_of: (&parameter)
-  // 166:     $$default_value default_value_of(parameter)
-  // 167:     if default_value.is_defined:
+  frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__body__simplify_expression_57, 0);
+  // 178: do:
+  // 179:   %defined_names defined_names_of(self)
+  // 180:   %inherited_names inherited_names_of(self)
+  // 181:   %already_defined_names all_defined_names
+  // 182:   %%definitions empty_list
+  // 183:   %%statements empty_list
+  // 184:   $$max_temp_idx 0
+  // 185:   update_each &self.parameters_of: (&parameter)
+  // 186:     $$default_value default_value_of(parameter)
+  // 187:     if default_value.is_defined:
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -4459,9 +5264,9 @@ static void cont__compiler__body__simplify_expression_31(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_91;
+  frame->cont = cont__compiler__body__simplify_expression_116;
 }
-static void entry__compiler__body__simplify_expression_32(void) {
+static void entry__compiler__body__simplify_expression_57(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // return__4: 0
@@ -4482,81 +5287,81 @@ static void entry__compiler__body__simplify_expression_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 159: %defined_names defined_names_of(self)
+  // 179: %defined_names defined_names_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
   result_count = 1;
   myself = get__defined_names_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_33;
+  frame->cont = cont__compiler__body__simplify_expression_58;
 }
-static void cont__compiler__body__simplify_expression_33(void) {
+static void cont__compiler__body__simplify_expression_58(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(get__defined_names(), arguments->slots[0]);
-  // 160: %inherited_names inherited_names_of(self)
+  // 180: %inherited_names inherited_names_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
   result_count = 1;
   myself = get__inherited_names_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_34;
+  frame->cont = cont__compiler__body__simplify_expression_59;
 }
-static void cont__compiler__body__simplify_expression_34(void) {
+static void cont__compiler__body__simplify_expression_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(get__inherited_names(), arguments->slots[0]);
-  // 161: %already_defined_names all_defined_names
+  // 181: %already_defined_names all_defined_names
   initialize_maybe_future(get__already_defined_names(), ((CELL *)frame->slots[2])->contents /* all_defined_names */);
-  // 162: %%definitions empty_list
+  // 182: %%definitions empty_list
   set__definitions(get__empty_list());
-  // 163: %%statements empty_list
+  // 183: %%statements empty_list
   set__statements(get__empty_list());
-  // 164: $$max_temp_idx 0
+  // 184: $$max_temp_idx 0
   ((CELL *)frame->slots[3])->contents /* max_temp_idx */ = number__0;
-  // 165: ... self.parameters_of
+  // 185: ... self.parameters_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
   result_count = 1;
   myself = get__parameters_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_35;
+  frame->cont = cont__compiler__body__simplify_expression_60;
 }
-static void cont__compiler__body__simplify_expression_35(void) {
+static void cont__compiler__body__simplify_expression_60(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 165: ... : (&parameter)
-  // 166:   $$default_value default_value_of(parameter)
-  // 167:   if default_value.is_defined:
-  // 168:     if
-  // 169:       default_value.is_a_function_call:
-  // 170:         %%statements empty_list
-  // 171:         %%compiler::temp_idx 0
-  // 172:         $identifier identifier_of(parameter)
-  // 173:         simplify_statement
-  // 174:           assignment
+  // 185: ... : (&parameter)
+  // 186:   $$default_value default_value_of(parameter)
+  // 187:   if default_value.is_defined:
+  // 188:     if
+  // 189:       default_value.is_a_function_call:
+  // 190:         %%statements empty_list
+  // 191:         %%compiler::temp_idx 0
+  // 192:         $identifier identifier_of(parameter)
+  // 193:         simplify_statement
+  // 194:           assignment
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_36, 1);
-  // 165: update_each &self.parameters_of: (&parameter)
-  // 166:   $$default_value default_value_of(parameter)
-  // 167:   if default_value.is_defined:
-  // 168:     if
-  // 169:       default_value.is_a_function_call:
-  // 170:         %%statements empty_list
-  // 171:         %%compiler::temp_idx 0
-  // 172:         $identifier identifier_of(parameter)
-  // 173:         simplify_statement
-  // 174:           assignment
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_61, 1);
+  // 185: update_each &self.parameters_of: (&parameter)
+  // 186:   $$default_value default_value_of(parameter)
+  // 187:   if default_value.is_defined:
+  // 188:     if
+  // 189:       default_value.is_a_function_call:
+  // 190:         %%statements empty_list
+  // 191:         %%compiler::temp_idx 0
+  // 192:         $identifier identifier_of(parameter)
+  // 193:         simplify_statement
+  // 194:           assignment
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -4565,9 +5370,9 @@ static void cont__compiler__body__simplify_expression_35(void) {
   result_count = 1;
   myself = get__update_each();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_52;
+  frame->cont = cont__compiler__body__simplify_expression_77;
 }
-static void entry__compiler__body__simplify_expression_36(void) {
+static void entry__compiler__body__simplify_expression_61(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // parameter: 0
@@ -4580,58 +5385,58 @@ static void entry__compiler__body__simplify_expression_36(void) {
     return;
   }
   frame->slots[0] /* parameter */ = create_cell_with_contents(arguments->slots[0]);
-  // 166: $$default_value default_value_of(parameter)
+  // 186: $$default_value default_value_of(parameter)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* parameter */;
   result_count = 1;
   myself = get__default_value_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_37;
+  frame->cont = cont__compiler__body__simplify_expression_62;
 }
-static void cont__compiler__body__simplify_expression_37(void) {
+static void cont__compiler__body__simplify_expression_62(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[2])->contents /* default_value */ = arguments->slots[0];
-  // 167: ... default_value.is_defined
+  // 187: ... default_value.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* default_value */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_38;
+  frame->cont = cont__compiler__body__simplify_expression_63;
 }
-static void cont__compiler__body__simplify_expression_38(void) {
+static void cont__compiler__body__simplify_expression_63(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 167: ... :
-  // 168:   if
-  // 169:     default_value.is_a_function_call:
-  // 170:       %%statements empty_list
-  // 171:       %%compiler::temp_idx 0
-  // 172:       $identifier identifier_of(parameter)
-  // 173:       simplify_statement
-  // 174:         assignment
-  // 175:           .arguments_of
-  // 176:             list(parameter(.is_an_optional_item false) default_value)
+  // 187: ... :
+  // 188:   if
+  // 189:     default_value.is_a_function_call:
+  // 190:       %%statements empty_list
+  // 191:       %%compiler::temp_idx 0
+  // 192:       $identifier identifier_of(parameter)
+  // 193:       simplify_statement
+  // 194:         assignment
+  // 195:           .arguments_of
+  // 196:             list(parameter(.is_an_optional_item false) default_value)
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_39, 0);
-  // 167: if default_value.is_defined:
-  // 168:   if
-  // 169:     default_value.is_a_function_call:
-  // 170:       %%statements empty_list
-  // 171:       %%compiler::temp_idx 0
-  // 172:       $identifier identifier_of(parameter)
-  // 173:       simplify_statement
-  // 174:         assignment
-  // 175:           .arguments_of
-  // 176:             list(parameter(.is_an_optional_item false) default_value)
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_64, 0);
+  // 187: if default_value.is_defined:
+  // 188:   if
+  // 189:     default_value.is_a_function_call:
+  // 190:       %%statements empty_list
+  // 191:       %%compiler::temp_idx 0
+  // 192:       $identifier identifier_of(parameter)
+  // 193:       simplify_statement
+  // 194:         assignment
+  // 195:           .arguments_of
+  // 196:             list(parameter(.is_an_optional_item false) default_value)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -4642,9 +5447,9 @@ static void cont__compiler__body__simplify_expression_38(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_51;
+  frame->cont = cont__compiler__body__simplify_expression_76;
 }
-static void entry__compiler__body__simplify_expression_41(void) {
+static void entry__compiler__body__simplify_expression_66(void) {
   allocate_initialized_frame_gc(4, 11);
   // slot allocations:
   // return__1: 0
@@ -4663,26 +5468,26 @@ static void entry__compiler__body__simplify_expression_41(void) {
     invalid_arguments_error();
     return;
   }
-  // 170: %%statements empty_list
+  // 190: %%statements empty_list
   set__statements(get__empty_list());
-  // 171: %%compiler::temp_idx 0
+  // 191: %%compiler::temp_idx 0
   set__compiler__temp_idx(number__0);
-  // 172: $identifier identifier_of(parameter)
+  // 192: $identifier identifier_of(parameter)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* parameter */;
   result_count = 1;
   myself = get__identifier_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_42;
+  frame->cont = cont__compiler__body__simplify_expression_67;
 }
-static void cont__compiler__body__simplify_expression_42(void) {
+static void cont__compiler__body__simplify_expression_67(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[4] /* identifier */, arguments->slots[0]);
-  // 176: ... parameter(.is_an_optional_item false)
+  // 196: ... parameter(.is_an_optional_item false)
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* parameter */);
     update_start_p = node_p;
@@ -4690,7 +5495,7 @@ static void cont__compiler__body__simplify_expression_42(void) {
     frame->slots[7] /* temp__3 */ = temp;
 
   }
-  // 176: list(parameter(.is_an_optional_item false) default_value)
+  // 196: list(parameter(.is_an_optional_item false) default_value)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__3 */;
@@ -4698,54 +5503,54 @@ static void cont__compiler__body__simplify_expression_42(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_43;
+  frame->cont = cont__compiler__body__simplify_expression_68;
 }
-static void cont__compiler__body__simplify_expression_43(void) {
+static void cont__compiler__body__simplify_expression_68(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 177: ... fragment_of(identifier)
+  // 197: ... fragment_of(identifier)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* identifier */;
   result_count = 1;
   myself = get__fragment_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_44;
+  frame->cont = cont__compiler__body__simplify_expression_69;
 }
-static void cont__compiler__body__simplify_expression_44(void) {
+static void cont__compiler__body__simplify_expression_69(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[8] /* temp__4 */ = arguments->slots[0];
-  // 178: ... source_position_of(identifier)
+  // 198: ... source_position_of(identifier)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* identifier */;
   result_count = 1;
   myself = get__source_position_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_45;
+  frame->cont = cont__compiler__body__simplify_expression_70;
 }
-static void cont__compiler__body__simplify_expression_45(void) {
+static void cont__compiler__body__simplify_expression_70(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[9] /* temp__5 */ = arguments->slots[0];
-  // 179: ... end_position_of(identifier)
+  // 199: ... end_position_of(identifier)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* identifier */;
   result_count = 1;
   myself = get__end_position_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_46;
+  frame->cont = cont__compiler__body__simplify_expression_71;
 }
-static void cont__compiler__body__simplify_expression_46(void) {
+static void cont__compiler__body__simplify_expression_71(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4761,27 +5566,27 @@ static void cont__compiler__body__simplify_expression_46(void) {
     frame->slots[5] /* temp__1 */ = temp;
 
   }
-  // 173: simplify_statement
-  // 174:   assignment
-  // 175:     .arguments_of
-  // 176:       list(parameter(.is_an_optional_item false) default_value)
-  // 177:     .fragment_of fragment_of(identifier)
-  // 178:     .source_position_of source_position_of(identifier)
-  // 179:     .end_position_of end_position_of(identifier)
+  // 193: simplify_statement
+  // 194:   assignment
+  // 195:     .arguments_of
+  // 196:       list(parameter(.is_an_optional_item false) default_value)
+  // 197:     .fragment_of fragment_of(identifier)
+  // 198:     .source_position_of source_position_of(identifier)
+  // 199:     .end_position_of end_position_of(identifier)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
   result_count = 0;
   myself = get__simplify_statement();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_47;
+  frame->cont = cont__compiler__body__simplify_expression_72;
 }
-static void cont__compiler__body__simplify_expression_47(void) {
+static void cont__compiler__body__simplify_expression_72(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 180: extend_to &max_temp_idx temp_idx
+  // 200: extend_to &max_temp_idx temp_idx
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* max_temp_idx */;
@@ -4789,15 +5594,15 @@ static void cont__compiler__body__simplify_expression_47(void) {
   result_count = 1;
   myself = get__extend_to();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_48;
+  frame->cont = cont__compiler__body__simplify_expression_73;
 }
-static void cont__compiler__body__simplify_expression_48(void) {
+static void cont__compiler__body__simplify_expression_73(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[3])->contents /* max_temp_idx */ = arguments->slots[0];
-  // 181: !parameter.statements_of
+  // 201: !parameter.statements_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* parameter */);
     update_start_p = node_p;
@@ -4811,7 +5616,7 @@ static void cont__compiler__body__simplify_expression_48(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__body__simplify_expression_49(void) {
+static void entry__compiler__body__simplify_expression_74(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // default_value: 0
@@ -4822,22 +5627,22 @@ static void entry__compiler__body__simplify_expression_49(void) {
     invalid_arguments_error();
     return;
   }
-  // 183: simplify_expression &default_value
+  // 203: simplify_expression &default_value
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* default_value */;
   result_count = 1;
   myself = get__simplify_expression();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_50;
+  frame->cont = cont__compiler__body__simplify_expression_75;
 }
-static void cont__compiler__body__simplify_expression_50(void) {
+static void cont__compiler__body__simplify_expression_75(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[0])->contents /* default_value */ = arguments->slots[0];
-  // 184: !parameter.default_value_of
+  // 204: !parameter.default_value_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* parameter */);
     update_start_p = node_p;
@@ -4851,7 +5656,7 @@ static void cont__compiler__body__simplify_expression_50(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__body__simplify_expression_39(void) {
+static void entry__compiler__body__simplify_expression_64(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // default_value: 0
@@ -4864,47 +5669,47 @@ static void entry__compiler__body__simplify_expression_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 169: default_value.is_a_function_call
+  // 189: default_value.is_a_function_call
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* default_value */;
   result_count = 1;
   myself = get__is_a_function_call();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_40;
+  frame->cont = cont__compiler__body__simplify_expression_65;
 }
-static void cont__compiler__body__simplify_expression_40(void) {
+static void cont__compiler__body__simplify_expression_65(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 169: ... :
-  // 170:   %%statements empty_list
-  // 171:   %%compiler::temp_idx 0
-  // 172:   $identifier identifier_of(parameter)
-  // 173:   simplify_statement
-  // 174:     assignment
-  // 175:       .arguments_of
-  // 176:         list(parameter(.is_an_optional_item false) default_value)
-  // 177:       .fragment_of fragment_of(identifier)
-  // 178:       .source_position_of source_position_of(identifier)
+  // 189: ... :
+  // 190:   %%statements empty_list
+  // 191:   %%compiler::temp_idx 0
+  // 192:   $identifier identifier_of(parameter)
+  // 193:   simplify_statement
+  // 194:     assignment
+  // 195:       .arguments_of
+  // 196:         list(parameter(.is_an_optional_item false) default_value)
+  // 197:       .fragment_of fragment_of(identifier)
+  // 198:       .source_position_of source_position_of(identifier)
   // ...
-  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_41, 0);
-  // 182: :
-  // 183:   simplify_expression &default_value
-  // 184:   !parameter.default_value_of default_value
-  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_49, 0);
-  // 168: if
-  // 169:   default_value.is_a_function_call:
-  // 170:     %%statements empty_list
-  // 171:     %%compiler::temp_idx 0
-  // 172:     $identifier identifier_of(parameter)
-  // 173:     simplify_statement
-  // 174:       assignment
-  // 175:         .arguments_of
-  // 176:           list(parameter(.is_an_optional_item false) default_value)
-  // 177:         .fragment_of fragment_of(identifier)
+  frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_66, 0);
+  // 202: :
+  // 203:   simplify_expression &default_value
+  // 204:   !parameter.default_value_of default_value
+  frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_74, 0);
+  // 188: if
+  // 189:   default_value.is_a_function_call:
+  // 190:     %%statements empty_list
+  // 191:     %%compiler::temp_idx 0
+  // 192:     $identifier identifier_of(parameter)
+  // 193:     simplify_statement
+  // 194:       assignment
+  // 195:         .arguments_of
+  // 196:           list(parameter(.is_an_optional_item false) default_value)
+  // 197:         .fragment_of fragment_of(identifier)
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -4916,7 +5721,7 @@ static void cont__compiler__body__simplify_expression_40(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__body__simplify_expression_51(void) {
+static void cont__compiler__body__simplify_expression_76(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -4927,13 +5732,13 @@ static void cont__compiler__body__simplify_expression_51(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__body__simplify_expression_52(void) {
+static void cont__compiler__body__simplify_expression_77(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 165: ... &self.parameters_of
+  // 185: ... &self.parameters_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* self */);
     update_start_p = node_p;
@@ -4941,43 +5746,43 @@ static void cont__compiler__body__simplify_expression_52(void) {
     ((CELL *)frame->slots[1])->contents /* self */ = temp;
 
   }
-  // 188: ... statements_of(self)
+  // 208: ... statements_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_53;
+  frame->cont = cont__compiler__body__simplify_expression_78;
 }
-static void cont__compiler__body__simplify_expression_53(void) {
+static void cont__compiler__body__simplify_expression_78(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 188: ... : (statement)
-  // 189:   unless statement.is_a_remark:
-  // 190:     if
-  // 191:       &&
-  // 192:         statement.is_an_assignment
-  // 193:         arguments_of(statement)(1).is_a_static_single_definition
-  // 194:         arguments_of(statement)(2).is_a_constant
-  // 195:       :
-  // 196:         %%compiler::temp_idx 0
-  // 197:         simplify_statement statement
+  // 208: ... : (statement)
+  // 209:   unless statement.is_a_remark:
+  // 210:     if
+  // 211:       &&
+  // 212:         statement.is_an_assignment
+  // 213:         arguments_of(statement)(1).is_a_static_single_definition
+  // 214:         arguments_of(statement)(2).is_a_constant
+  // 215:       :
+  // 216:         %%compiler::temp_idx 0
+  // 217:         simplify_statement statement
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_54, 1);
-  // 188: for_each statements_of(self): (statement)
-  // 189:   unless statement.is_a_remark:
-  // 190:     if
-  // 191:       &&
-  // 192:         statement.is_an_assignment
-  // 193:         arguments_of(statement)(1).is_a_static_single_definition
-  // 194:         arguments_of(statement)(2).is_a_constant
-  // 195:       :
-  // 196:         %%compiler::temp_idx 0
-  // 197:         simplify_statement statement
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_79, 1);
+  // 208: for_each statements_of(self): (statement)
+  // 209:   unless statement.is_a_remark:
+  // 210:     if
+  // 211:       &&
+  // 212:         statement.is_an_assignment
+  // 213:         arguments_of(statement)(1).is_a_static_single_definition
+  // 214:         arguments_of(statement)(2).is_a_constant
+  // 215:       :
+  // 216:         %%compiler::temp_idx 0
+  // 217:         simplify_statement statement
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -4986,9 +5791,9 @@ static void cont__compiler__body__simplify_expression_53(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_71;
+  frame->cont = cont__compiler__body__simplify_expression_96;
 }
-static void entry__compiler__body__simplify_expression_68(void) {
+static void entry__compiler__body__simplify_expression_93(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // return__2: 0
@@ -5002,23 +5807,23 @@ static void entry__compiler__body__simplify_expression_68(void) {
     invalid_arguments_error();
     return;
   }
-  // 196: %%compiler::temp_idx 0
+  // 216: %%compiler::temp_idx 0
   set__compiler__temp_idx(number__0);
-  // 197: simplify_statement statement
+  // 217: simplify_statement statement
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* statement */;
   result_count = 0;
   myself = get__simplify_statement();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_69;
+  frame->cont = cont__compiler__body__simplify_expression_94;
 }
-static void cont__compiler__body__simplify_expression_69(void) {
+static void cont__compiler__body__simplify_expression_94(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 198: extend_to &max_temp_idx temp_idx
+  // 218: extend_to &max_temp_idx temp_idx
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* max_temp_idx */;
@@ -5026,9 +5831,9 @@ static void cont__compiler__body__simplify_expression_69(void) {
   result_count = 1;
   myself = get__extend_to();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_70;
+  frame->cont = cont__compiler__body__simplify_expression_95;
 }
-static void cont__compiler__body__simplify_expression_70(void) {
+static void cont__compiler__body__simplify_expression_95(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5040,7 +5845,7 @@ static void cont__compiler__body__simplify_expression_70(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__body__simplify_expression_56(void) {
+static void entry__compiler__body__simplify_expression_81(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // statement: 0
@@ -5051,22 +5856,22 @@ static void entry__compiler__body__simplify_expression_56(void) {
     invalid_arguments_error();
     return;
   }
-  // 192: statement.is_an_assignment
+  // 212: statement.is_an_assignment
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* statement */;
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_57;
+  frame->cont = cont__compiler__body__simplify_expression_82;
 }
-static void cont__compiler__body__simplify_expression_57(void) {
+static void cont__compiler__body__simplify_expression_82(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_58, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_83, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -5074,9 +5879,9 @@ static void cont__compiler__body__simplify_expression_57(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_67;
+  frame->cont = cont__compiler__body__simplify_expression_92;
 }
-static void entry__compiler__body__simplify_expression_58(void) {
+static void entry__compiler__body__simplify_expression_83(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // statement: 0
@@ -5085,53 +5890,53 @@ static void entry__compiler__body__simplify_expression_58(void) {
     invalid_arguments_error();
     return;
   }
-  // 193: arguments_of(statement)
+  // 213: arguments_of(statement)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* statement */;
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_59;
+  frame->cont = cont__compiler__body__simplify_expression_84;
 }
-static void cont__compiler__body__simplify_expression_59(void) {
+static void cont__compiler__body__simplify_expression_84(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 193: arguments_of(statement)(1)
+  // 213: arguments_of(statement)(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
   result_count = 1;
   myself = frame->slots[4] /* temp__4 */;
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_60;
+  frame->cont = cont__compiler__body__simplify_expression_85;
 }
-static void cont__compiler__body__simplify_expression_60(void) {
+static void cont__compiler__body__simplify_expression_85(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 193: arguments_of(statement)(1).is_a_static_single_definition
+  // 213: arguments_of(statement)(1).is_a_static_single_definition
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
   result_count = 1;
   myself = get__is_a_static_single_definition();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_61;
+  frame->cont = cont__compiler__body__simplify_expression_86;
 }
-static void cont__compiler__body__simplify_expression_61(void) {
+static void cont__compiler__body__simplify_expression_86(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 194: arguments_of(statement)(2).is_a_constant
-  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__body__simplify_expression_62, 0);
+  // 214: arguments_of(statement)(2).is_a_constant
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__body__simplify_expression_87, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -5139,9 +5944,9 @@ static void cont__compiler__body__simplify_expression_61(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_66;
+  frame->cont = cont__compiler__body__simplify_expression_91;
 }
-static void entry__compiler__body__simplify_expression_62(void) {
+static void entry__compiler__body__simplify_expression_87(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // statement: 0
@@ -5150,52 +5955,52 @@ static void entry__compiler__body__simplify_expression_62(void) {
     invalid_arguments_error();
     return;
   }
-  // 194: arguments_of(statement)
+  // 214: arguments_of(statement)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* statement */;
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_63;
+  frame->cont = cont__compiler__body__simplify_expression_88;
 }
-static void cont__compiler__body__simplify_expression_63(void) {
+static void cont__compiler__body__simplify_expression_88(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 194: arguments_of(statement)(2)
+  // 214: arguments_of(statement)(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
   result_count = 1;
   myself = frame->slots[3] /* temp__3 */;
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_64;
+  frame->cont = cont__compiler__body__simplify_expression_89;
 }
-static void cont__compiler__body__simplify_expression_64(void) {
+static void cont__compiler__body__simplify_expression_89(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 194: arguments_of(statement)(2).is_a_constant
+  // 214: arguments_of(statement)(2).is_a_constant
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
   result_count = 1;
   myself = get__is_a_constant();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_65;
+  frame->cont = cont__compiler__body__simplify_expression_90;
 }
-static void cont__compiler__body__simplify_expression_65(void) {
+static void cont__compiler__body__simplify_expression_90(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 194: arguments_of(statement)(2).is_a_constant
+  // 214: arguments_of(statement)(2).is_a_constant
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -5203,7 +6008,7 @@ static void cont__compiler__body__simplify_expression_65(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__body__simplify_expression_66(void) {
+static void cont__compiler__body__simplify_expression_91(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5216,26 +6021,26 @@ static void cont__compiler__body__simplify_expression_66(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__body__simplify_expression_67(void) {
+static void cont__compiler__body__simplify_expression_92(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 195: :
-  // 196:   %%compiler::temp_idx 0
-  // 197:   simplify_statement statement
-  // 198:   extend_to &max_temp_idx temp_idx
-  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__body__simplify_expression_68, 0);
-  // 190: if
-  // 191:   &&
-  // 192:     statement.is_an_assignment
-  // 193:     arguments_of(statement)(1).is_a_static_single_definition
-  // 194:     arguments_of(statement)(2).is_a_constant
-  // 195:   :
-  // 196:     %%compiler::temp_idx 0
-  // 197:     simplify_statement statement
-  // 198:     extend_to &max_temp_idx temp_idx
+  // 215: :
+  // 216:   %%compiler::temp_idx 0
+  // 217:   simplify_statement statement
+  // 218:   extend_to &max_temp_idx temp_idx
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__body__simplify_expression_93, 0);
+  // 210: if
+  // 211:   &&
+  // 212:     statement.is_an_assignment
+  // 213:     arguments_of(statement)(1).is_a_static_single_definition
+  // 214:     arguments_of(statement)(2).is_a_constant
+  // 215:   :
+  // 216:     %%compiler::temp_idx 0
+  // 217:     simplify_statement statement
+  // 218:     extend_to &max_temp_idx temp_idx
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5245,7 +6050,7 @@ static void cont__compiler__body__simplify_expression_67(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__body__simplify_expression_54(void) {
+static void entry__compiler__body__simplify_expression_79(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // statement: 0
@@ -5255,42 +6060,42 @@ static void entry__compiler__body__simplify_expression_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 189: ... statement.is_a_remark
+  // 209: ... statement.is_a_remark
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* statement */;
   result_count = 1;
   myself = get__is_a_remark();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_55;
+  frame->cont = cont__compiler__body__simplify_expression_80;
 }
-static void cont__compiler__body__simplify_expression_55(void) {
+static void cont__compiler__body__simplify_expression_80(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 189: ... :
-  // 190:   if
-  // 191:     &&
-  // 192:       statement.is_an_assignment
-  // 193:       arguments_of(statement)(1).is_a_static_single_definition
-  // 194:       arguments_of(statement)(2).is_a_constant
-  // 195:     :
-  // 196:       %%compiler::temp_idx 0
-  // 197:       simplify_statement statement
-  // 198:       extend_to &max_temp_idx temp_idx
-  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_56, 0);
-  // 189: unless statement.is_a_remark:
-  // 190:   if
-  // 191:     &&
-  // 192:       statement.is_an_assignment
-  // 193:       arguments_of(statement)(1).is_a_static_single_definition
-  // 194:       arguments_of(statement)(2).is_a_constant
-  // 195:     :
-  // 196:       %%compiler::temp_idx 0
-  // 197:       simplify_statement statement
-  // 198:       extend_to &max_temp_idx temp_idx
+  // 209: ... :
+  // 210:   if
+  // 211:     &&
+  // 212:       statement.is_an_assignment
+  // 213:       arguments_of(statement)(1).is_a_static_single_definition
+  // 214:       arguments_of(statement)(2).is_a_constant
+  // 215:     :
+  // 216:       %%compiler::temp_idx 0
+  // 217:       simplify_statement statement
+  // 218:       extend_to &max_temp_idx temp_idx
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_81, 0);
+  // 209: unless statement.is_a_remark:
+  // 210:   if
+  // 211:     &&
+  // 212:       statement.is_an_assignment
+  // 213:       arguments_of(statement)(1).is_a_static_single_definition
+  // 214:       arguments_of(statement)(2).is_a_constant
+  // 215:     :
+  // 216:       %%compiler::temp_idx 0
+  // 217:       simplify_statement statement
+  // 218:       extend_to &max_temp_idx temp_idx
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5300,48 +6105,48 @@ static void cont__compiler__body__simplify_expression_55(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__body__simplify_expression_71(void) {
+static void cont__compiler__body__simplify_expression_96(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 202: ... statements_of(self)
+  // 222: ... statements_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* self */;
   result_count = 1;
   myself = get__statements_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_72;
+  frame->cont = cont__compiler__body__simplify_expression_97;
 }
-static void cont__compiler__body__simplify_expression_72(void) {
+static void cont__compiler__body__simplify_expression_97(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 202: ... : (statement)
-  // 203:   unless statement.is_a_remark:
-  // 204:     unless
-  // 205:       &&
-  // 206:         statement.is_an_assignment
-  // 207:         arguments_of(statement)(1).is_a_static_single_definition
-  // 208:         arguments_of(statement)(2).is_a_constant
-  // 209:       :
-  // 210:         %%compiler::temp_idx 0
-  // 211:         simplify_statement statement
+  // 222: ... : (statement)
+  // 223:   unless statement.is_a_remark:
+  // 224:     unless
+  // 225:       &&
+  // 226:         statement.is_an_assignment
+  // 227:         arguments_of(statement)(1).is_a_static_single_definition
+  // 228:         arguments_of(statement)(2).is_a_constant
+  // 229:       :
+  // 230:         %%compiler::temp_idx 0
+  // 231:         simplify_statement statement
   // ...
-  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_73, 1);
-  // 202: for_each statements_of(self): (statement)
-  // 203:   unless statement.is_a_remark:
-  // 204:     unless
-  // 205:       &&
-  // 206:         statement.is_an_assignment
-  // 207:         arguments_of(statement)(1).is_a_static_single_definition
-  // 208:         arguments_of(statement)(2).is_a_constant
-  // 209:       :
-  // 210:         %%compiler::temp_idx 0
-  // 211:         simplify_statement statement
+  frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_98, 1);
+  // 222: for_each statements_of(self): (statement)
+  // 223:   unless statement.is_a_remark:
+  // 224:     unless
+  // 225:       &&
+  // 226:         statement.is_an_assignment
+  // 227:         arguments_of(statement)(1).is_a_static_single_definition
+  // 228:         arguments_of(statement)(2).is_a_constant
+  // 229:       :
+  // 230:         %%compiler::temp_idx 0
+  // 231:         simplify_statement statement
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -5350,9 +6155,9 @@ static void cont__compiler__body__simplify_expression_72(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_90;
+  frame->cont = cont__compiler__body__simplify_expression_115;
 }
-static void entry__compiler__body__simplify_expression_87(void) {
+static void entry__compiler__body__simplify_expression_112(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // return__3: 0
@@ -5366,23 +6171,23 @@ static void entry__compiler__body__simplify_expression_87(void) {
     invalid_arguments_error();
     return;
   }
-  // 210: %%compiler::temp_idx 0
+  // 230: %%compiler::temp_idx 0
   set__compiler__temp_idx(number__0);
-  // 211: simplify_statement statement
+  // 231: simplify_statement statement
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* statement */;
   result_count = 0;
   myself = get__simplify_statement();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_88;
+  frame->cont = cont__compiler__body__simplify_expression_113;
 }
-static void cont__compiler__body__simplify_expression_88(void) {
+static void cont__compiler__body__simplify_expression_113(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 212: extend_to &max_temp_idx temp_idx
+  // 232: extend_to &max_temp_idx temp_idx
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* max_temp_idx */;
@@ -5390,9 +6195,9 @@ static void cont__compiler__body__simplify_expression_88(void) {
   result_count = 1;
   myself = get__extend_to();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_89;
+  frame->cont = cont__compiler__body__simplify_expression_114;
 }
-static void cont__compiler__body__simplify_expression_89(void) {
+static void cont__compiler__body__simplify_expression_114(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5404,7 +6209,7 @@ static void cont__compiler__body__simplify_expression_89(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__body__simplify_expression_75(void) {
+static void entry__compiler__body__simplify_expression_100(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // statement: 0
@@ -5415,22 +6220,22 @@ static void entry__compiler__body__simplify_expression_75(void) {
     invalid_arguments_error();
     return;
   }
-  // 206: statement.is_an_assignment
+  // 226: statement.is_an_assignment
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* statement */;
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_76;
+  frame->cont = cont__compiler__body__simplify_expression_101;
 }
-static void cont__compiler__body__simplify_expression_76(void) {
+static void cont__compiler__body__simplify_expression_101(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_77, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_102, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -5438,9 +6243,9 @@ static void cont__compiler__body__simplify_expression_76(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_86;
+  frame->cont = cont__compiler__body__simplify_expression_111;
 }
-static void entry__compiler__body__simplify_expression_77(void) {
+static void entry__compiler__body__simplify_expression_102(void) {
   allocate_initialized_frame_gc(1, 6);
   // slot allocations:
   // statement: 0
@@ -5449,53 +6254,53 @@ static void entry__compiler__body__simplify_expression_77(void) {
     invalid_arguments_error();
     return;
   }
-  // 207: arguments_of(statement)
+  // 227: arguments_of(statement)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* statement */;
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_78;
+  frame->cont = cont__compiler__body__simplify_expression_103;
 }
-static void cont__compiler__body__simplify_expression_78(void) {
+static void cont__compiler__body__simplify_expression_103(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 207: arguments_of(statement)(1)
+  // 227: arguments_of(statement)(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
   result_count = 1;
   myself = frame->slots[4] /* temp__4 */;
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_79;
+  frame->cont = cont__compiler__body__simplify_expression_104;
 }
-static void cont__compiler__body__simplify_expression_79(void) {
+static void cont__compiler__body__simplify_expression_104(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 207: arguments_of(statement)(1).is_a_static_single_definition
+  // 227: arguments_of(statement)(1).is_a_static_single_definition
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
   result_count = 1;
   myself = get__is_a_static_single_definition();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_80;
+  frame->cont = cont__compiler__body__simplify_expression_105;
 }
-static void cont__compiler__body__simplify_expression_80(void) {
+static void cont__compiler__body__simplify_expression_105(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 208: arguments_of(statement)(2).is_a_constant
-  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__body__simplify_expression_81, 0);
+  // 228: arguments_of(statement)(2).is_a_constant
+  frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__body__simplify_expression_106, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -5503,9 +6308,9 @@ static void cont__compiler__body__simplify_expression_80(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_85;
+  frame->cont = cont__compiler__body__simplify_expression_110;
 }
-static void entry__compiler__body__simplify_expression_81(void) {
+static void entry__compiler__body__simplify_expression_106(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // statement: 0
@@ -5514,52 +6319,52 @@ static void entry__compiler__body__simplify_expression_81(void) {
     invalid_arguments_error();
     return;
   }
-  // 208: arguments_of(statement)
+  // 228: arguments_of(statement)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* statement */;
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_82;
+  frame->cont = cont__compiler__body__simplify_expression_107;
 }
-static void cont__compiler__body__simplify_expression_82(void) {
+static void cont__compiler__body__simplify_expression_107(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 208: arguments_of(statement)(2)
+  // 228: arguments_of(statement)(2)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
   result_count = 1;
   myself = frame->slots[3] /* temp__3 */;
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_83;
+  frame->cont = cont__compiler__body__simplify_expression_108;
 }
-static void cont__compiler__body__simplify_expression_83(void) {
+static void cont__compiler__body__simplify_expression_108(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 208: arguments_of(statement)(2).is_a_constant
+  // 228: arguments_of(statement)(2).is_a_constant
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
   result_count = 1;
   myself = get__is_a_constant();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_84;
+  frame->cont = cont__compiler__body__simplify_expression_109;
 }
-static void cont__compiler__body__simplify_expression_84(void) {
+static void cont__compiler__body__simplify_expression_109(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 208: arguments_of(statement)(2).is_a_constant
+  // 228: arguments_of(statement)(2).is_a_constant
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -5567,7 +6372,7 @@ static void cont__compiler__body__simplify_expression_84(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__body__simplify_expression_85(void) {
+static void cont__compiler__body__simplify_expression_110(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5580,26 +6385,26 @@ static void cont__compiler__body__simplify_expression_85(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__body__simplify_expression_86(void) {
+static void cont__compiler__body__simplify_expression_111(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 209: :
-  // 210:   %%compiler::temp_idx 0
-  // 211:   simplify_statement statement
-  // 212:   extend_to &max_temp_idx temp_idx
-  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__body__simplify_expression_87, 0);
-  // 204: unless
-  // 205:   &&
-  // 206:     statement.is_an_assignment
-  // 207:     arguments_of(statement)(1).is_a_static_single_definition
-  // 208:     arguments_of(statement)(2).is_a_constant
-  // 209:   :
-  // 210:     %%compiler::temp_idx 0
-  // 211:     simplify_statement statement
-  // 212:     extend_to &max_temp_idx temp_idx
+  // 229: :
+  // 230:   %%compiler::temp_idx 0
+  // 231:   simplify_statement statement
+  // 232:   extend_to &max_temp_idx temp_idx
+  frame->slots[5] /* temp__4 */ = create_closure(entry__compiler__body__simplify_expression_112, 0);
+  // 224: unless
+  // 225:   &&
+  // 226:     statement.is_an_assignment
+  // 227:     arguments_of(statement)(1).is_a_static_single_definition
+  // 228:     arguments_of(statement)(2).is_a_constant
+  // 229:   :
+  // 230:     %%compiler::temp_idx 0
+  // 231:     simplify_statement statement
+  // 232:     extend_to &max_temp_idx temp_idx
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5609,7 +6414,7 @@ static void cont__compiler__body__simplify_expression_86(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__body__simplify_expression_73(void) {
+static void entry__compiler__body__simplify_expression_98(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // statement: 0
@@ -5619,42 +6424,42 @@ static void entry__compiler__body__simplify_expression_73(void) {
     invalid_arguments_error();
     return;
   }
-  // 203: ... statement.is_a_remark
+  // 223: ... statement.is_a_remark
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* statement */;
   result_count = 1;
   myself = get__is_a_remark();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_74;
+  frame->cont = cont__compiler__body__simplify_expression_99;
 }
-static void cont__compiler__body__simplify_expression_74(void) {
+static void cont__compiler__body__simplify_expression_99(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 203: ... :
-  // 204:   unless
-  // 205:     &&
-  // 206:       statement.is_an_assignment
-  // 207:       arguments_of(statement)(1).is_a_static_single_definition
-  // 208:       arguments_of(statement)(2).is_a_constant
-  // 209:     :
-  // 210:       %%compiler::temp_idx 0
-  // 211:       simplify_statement statement
-  // 212:       extend_to &max_temp_idx temp_idx
-  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_75, 0);
-  // 203: unless statement.is_a_remark:
-  // 204:   unless
-  // 205:     &&
-  // 206:       statement.is_an_assignment
-  // 207:       arguments_of(statement)(1).is_a_static_single_definition
-  // 208:       arguments_of(statement)(2).is_a_constant
-  // 209:     :
-  // 210:       %%compiler::temp_idx 0
-  // 211:       simplify_statement statement
-  // 212:       extend_to &max_temp_idx temp_idx
+  // 223: ... :
+  // 224:   unless
+  // 225:     &&
+  // 226:       statement.is_an_assignment
+  // 227:       arguments_of(statement)(1).is_a_static_single_definition
+  // 228:       arguments_of(statement)(2).is_a_constant
+  // 229:     :
+  // 230:       %%compiler::temp_idx 0
+  // 231:       simplify_statement statement
+  // 232:       extend_to &max_temp_idx temp_idx
+  frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__body__simplify_expression_100, 0);
+  // 223: unless statement.is_a_remark:
+  // 224:   unless
+  // 225:     &&
+  // 226:       statement.is_an_assignment
+  // 227:       arguments_of(statement)(1).is_a_static_single_definition
+  // 228:       arguments_of(statement)(2).is_a_constant
+  // 229:     :
+  // 230:       %%compiler::temp_idx 0
+  // 231:       simplify_statement statement
+  // 232:       extend_to &max_temp_idx temp_idx
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -5664,12 +6469,12 @@ static void cont__compiler__body__simplify_expression_74(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__body__simplify_expression_90(void) {
+static void cont__compiler__body__simplify_expression_115(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 213: !self.definitions_of
+  // 233: !self.definitions_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* self */);
     update_start_p = node_p;
@@ -5677,7 +6482,7 @@ static void cont__compiler__body__simplify_expression_90(void) {
     ((CELL *)frame->slots[1])->contents /* self */ = temp;
 
   }
-  // 214: !self.statements_of
+  // 234: !self.statements_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* self */);
     update_start_p = node_p;
@@ -5685,7 +6490,7 @@ static void cont__compiler__body__simplify_expression_90(void) {
     ((CELL *)frame->slots[1])->contents /* self */ = temp;
 
   }
-  // 215: !self.temporary_count_of
+  // 235: !self.temporary_count_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[1])->contents /* self */);
     update_start_p = node_p;
@@ -5699,210 +6504,74 @@ static void cont__compiler__body__simplify_expression_90(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__body__simplify_expression_91(void) {
+static void cont__compiler__body__simplify_expression_116(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 216: ... inherited_names_of(self)
+  // 236: ... inherited_names_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 1;
   myself = get__inherited_names_of();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_92;
+  frame->cont = cont__compiler__body__simplify_expression_117;
 }
-static void cont__compiler__body__simplify_expression_92(void) {
+static void cont__compiler__body__simplify_expression_117(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 216: ... inherited_names_of(self).is_empty
+  // 236: ... inherited_names_of(self).is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_93;
+  frame->cont = cont__compiler__body__simplify_expression_118;
 }
-static void cont__compiler__body__simplify_expression_93(void) {
+static void cont__compiler__body__simplify_expression_118(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 216: ... :
-  // 217:   #
-  // 218:     a closure must be created in a separate step because it is not really
-  // 219:     a constant
-  // 220:   
-  // 221:   $temp temporary_identifier()
-  // 222:   push
-  // 223:     &statements
-  // 224:     assignment
-  // 225:       .arguments_of list(temp(.is_a_destination true) self)
+  // 236: ... :
+  // 237:   #
+  // 238:     a closure must be created in a separate step because it is not really
+  // 239:     a constant
+  // 240:   
+  // 241:   $temp temporary_identifier()
+  // 242:   push
+  // 243:     &statements
+  // 244:     assignment
+  // 245:       .arguments_of list(temp(.is_a_destination true) self)
   // ...
-  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_94, 0);
-  // 216: unless inherited_names_of(self).is_empty:
-  // 217:   #
-  // 218:     a closure must be created in a separate step because it is not really
-  // 219:     a constant
-  // 220:   
-  // 221:   $temp temporary_identifier()
-  // 222:   push
-  // 223:     &statements
-  // 224:     assignment
-  // 225:       .arguments_of list(temp(.is_a_destination true) self)
+  frame->slots[4] /* temp__3 */ = create_closure(entry__compiler__body__simplify_expression_119, 0);
+  // 236: unless inherited_names_of(self).is_empty:
+  // 237:   #
+  // 238:     a closure must be created in a separate step because it is not really
+  // 239:     a constant
+  // 240:   
+  // 241:   $temp temporary_identifier()
+  // 242:   push
+  // 243:     &statements
+  // 244:     assignment
+  // 245:       .arguments_of list(temp(.is_a_destination true) self)
   // ...
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   arguments->slots[1] = frame->slots[4] /* temp__3 */;
-  result_count =
-    frame->caller_result_count >= 1 ?
-    frame->caller_result_count-1 : -1;
+  result_count = frame->caller_result_count;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_101;
-}
-static void entry__compiler__body__simplify_expression_94(void) {
-  allocate_initialized_frame_gc(1, 8);
-  // slot allocations:
-  // self: 0
-  // temp: 1
-  frame->slots[0] = myself->closure.frame->slots[0]; /* self */
-  frame->slots[1] /* temp */ = create_future();
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 221: $temp temporary_identifier()
-  argument_count = 0;
-  arguments = node_p;
-  result_count = 1;
-  myself = var._temporary_identifier;
-  func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_95;
-}
-static void cont__compiler__body__simplify_expression_95(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  initialize_future(frame->slots[1] /* temp */, arguments->slots[0]);
-  // 225: ... temp(.is_a_destination true)
-  {
-    NODE *temp = clone_object_and_attributes(frame->slots[1] /* temp */);
-    update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__is_a_destination, get__true());
-    frame->slots[4] /* temp__3 */ = temp;
-
-  }
-  // 225: ... list(temp(.is_a_destination true) self)
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[4] /* temp__3 */;
-  arguments->slots[1] = ((CELL *)frame->slots[0])->contents /* self */;
-  result_count = 1;
-  myself = get__list();
-  func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_96;
-}
-static void cont__compiler__body__simplify_expression_96(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 226: ... fragment_of(self)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
-  result_count = 1;
-  myself = get__fragment_of();
-  func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_97;
-}
-static void cont__compiler__body__simplify_expression_97(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 227: ... source_position_of(self)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
-  result_count = 1;
-  myself = get__source_position_of();
-  func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_98;
-}
-static void cont__compiler__body__simplify_expression_98(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[6] /* temp__5 */ = arguments->slots[0];
-  // 228: ... end_position_of(self)
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
-  result_count = 1;
-  myself = get__end_position_of();
-  func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_99;
-}
-static void cont__compiler__body__simplify_expression_99(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[7] /* temp__6 */ = arguments->slots[0];
-  {
-    NODE *temp = clone_object_and_attributes(get__assignment());
-    update_start_p = node_p;
-    set_attribute_value(temp->attributes, poly_idx__arguments_of, frame->slots[3] /* temp__2 */);
-    set_attribute_value(temp->attributes, poly_idx__fragment_of, frame->slots[5] /* temp__4 */);
-    set_attribute_value(temp->attributes, poly_idx__source_position_of, frame->slots[6] /* temp__5 */);
-    set_attribute_value(temp->attributes, poly_idx__end_position_of, frame->slots[7] /* temp__6 */);
-    frame->slots[2] /* temp__1 */ = temp;
-
-  }
-  // 222: push
-  // 223:   &statements
-  // 224:   assignment
-  // 225:     .arguments_of list(temp(.is_a_destination true) self)
-  // 226:     .fragment_of fragment_of(self)
-  // 227:     .source_position_of source_position_of(self)
-  // 228:     .end_position_of end_position_of(self)
-  argument_count = 2;
-  arguments = node_p;
-  arguments->slots[0] = get__statements();
-  arguments->slots[1] = frame->slots[2] /* temp__1 */;
-  result_count = 1;
-  myself = get__push();
-  func = myself->type;
-  frame->cont = cont__compiler__body__simplify_expression_100;
-}
-static void cont__compiler__body__simplify_expression_100(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  set__statements(arguments->slots[0]);
-  // 229: !self temp
-  ((CELL *)frame->slots[0])->contents /* self */ = frame->slots[1] /* temp */;
-  argument_count = 0;
-  arguments = node_p;
   frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
 }
-static void cont__compiler__body__simplify_expression_101(void) {
+static void cont__compiler__body___simplify_expression_126(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -5932,7 +6601,7 @@ static void entry__do_store_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 238: update_each &arguments: (&argument) simplify_expression &argument
+  // 258: update_each &arguments: (&argument) simplify_expression &argument
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* arguments */;
@@ -5951,7 +6620,7 @@ static void entry__do_store_5(void) {
     return;
   }
   frame->slots[0] /* argument */ = create_cell_with_contents(arguments->slots[0]);
-  // 238: ... simplify_expression &argument
+  // 258: ... simplify_expression &argument
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* argument */;
@@ -5979,7 +6648,7 @@ static void cont__do_store_7(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* arguments */ = arguments->slots[0];
-  // 239: ... length_of(rest)
+  // 259: ... length_of(rest)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* rest */;
@@ -5994,7 +6663,7 @@ static void cont__do_store_8(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 239: ... length_of(rest) > 0
+  // 259: ... length_of(rest) > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -6010,28 +6679,28 @@ static void cont__do_store_9(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 239: ... :
-  // 240:   $temp temporary_identifier()
-  // 241:   push
-  // 242:     &statements
-  // 243:     procedure_call
-  // 244:       .functor_of functor
-  // 245:       .arguments_of put(arguments temp(.is_a_destination true))
-  // 246:       .fragment_of fragment_of(info)
-  // 247:       .source_position_of source_position_of(info)
-  // 248:       .end_position_of end_position_of(info)
+  // 259: ... :
+  // 260:   $temp temporary_identifier()
+  // 261:   push
+  // 262:     &statements
+  // 263:     procedure_call
+  // 264:       .functor_of functor
+  // 265:       .arguments_of put(arguments temp(.is_a_destination true))
+  // 266:       .fragment_of fragment_of(info)
+  // 267:       .source_position_of source_position_of(info)
+  // 268:       .end_position_of end_position_of(info)
   // ...
   frame->slots[8] /* temp__3 */ = create_closure(entry__do_store_10, 0);
-  // 239: if length_of(rest) > 0:
-  // 240:   $temp temporary_identifier()
-  // 241:   push
-  // 242:     &statements
-  // 243:     procedure_call
-  // 244:       .functor_of functor
-  // 245:       .arguments_of put(arguments temp(.is_a_destination true))
-  // 246:       .fragment_of fragment_of(info)
-  // 247:       .source_position_of source_position_of(info)
-  // 248:       .end_position_of end_position_of(info)
+  // 259: if length_of(rest) > 0:
+  // 260:   $temp temporary_identifier()
+  // 261:   push
+  // 262:     &statements
+  // 263:     procedure_call
+  // 264:       .functor_of functor
+  // 265:       .arguments_of put(arguments temp(.is_a_destination true))
+  // 266:       .fragment_of fragment_of(info)
+  // 267:       .source_position_of source_position_of(info)
+  // 268:       .end_position_of end_position_of(info)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -6063,11 +6732,11 @@ static void entry__do_store_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 240: $temp temporary_identifier()
+  // 260: $temp temporary_identifier()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
-  myself = var._temporary_identifier;
+  myself = func__temporary_identifier;
   func = myself->type;
   frame->cont = cont__do_store_11;
 }
@@ -6077,7 +6746,7 @@ static void cont__do_store_11(void) {
     return;
   }
   initialize_future(frame->slots[6] /* temp */, arguments->slots[0]);
-  // 245: ... temp(.is_a_destination true)
+  // 265: ... temp(.is_a_destination true)
   {
     NODE *temp = clone_object_and_attributes(frame->slots[6] /* temp */);
     update_start_p = node_p;
@@ -6085,7 +6754,7 @@ static void cont__do_store_11(void) {
     frame->slots[9] /* temp__3 */ = temp;
 
   }
-  // 245: ... put(arguments temp(.is_a_destination true))
+  // 265: ... put(arguments temp(.is_a_destination true))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* arguments */;
@@ -6101,7 +6770,7 @@ static void cont__do_store_12(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 246: ... fragment_of(info)
+  // 266: ... fragment_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* info */;
@@ -6116,7 +6785,7 @@ static void cont__do_store_13(void) {
     return;
   }
   frame->slots[10] /* temp__4 */ = arguments->slots[0];
-  // 247: ... source_position_of(info)
+  // 267: ... source_position_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* info */;
@@ -6131,7 +6800,7 @@ static void cont__do_store_14(void) {
     return;
   }
   frame->slots[11] /* temp__5 */ = arguments->slots[0];
-  // 248: ... end_position_of(info)
+  // 268: ... end_position_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* info */;
@@ -6157,14 +6826,14 @@ static void cont__do_store_15(void) {
     frame->slots[7] /* temp__1 */ = temp;
 
   }
-  // 241: push
-  // 242:   &statements
-  // 243:   procedure_call
-  // 244:     .functor_of functor
-  // 245:     .arguments_of put(arguments temp(.is_a_destination true))
-  // 246:     .fragment_of fragment_of(info)
-  // 247:     .source_position_of source_position_of(info)
-  // 248:     .end_position_of end_position_of(info)
+  // 261: push
+  // 262:   &statements
+  // 263:   procedure_call
+  // 264:     .functor_of functor
+  // 265:     .arguments_of put(arguments temp(.is_a_destination true))
+  // 266:     .fragment_of fragment_of(info)
+  // 267:     .source_position_of source_position_of(info)
+  // 268:     .end_position_of end_position_of(info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__statements();
@@ -6180,7 +6849,7 @@ static void cont__do_store_16(void) {
     return;
   }
   set__statements(arguments->slots[0]);
-  // 249: ... rest.peek
+  // 269: ... rest.peek
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* rest */;
@@ -6195,7 +6864,7 @@ static void cont__do_store_17(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 249: ... rest.drop
+  // 269: ... rest.drop
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* rest */;
@@ -6210,7 +6879,7 @@ static void cont__do_store_18(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 249: do_store temp rest.peek result rest.drop infos
+  // 269: do_store temp rest.peek result rest.drop infos
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp */;
@@ -6219,7 +6888,7 @@ static void cont__do_store_18(void) {
   arguments->slots[3] = frame->slots[8] /* temp__2 */;
   arguments->slots[4] = ((CELL *)frame->slots[5])->contents /* infos */;
   result_count = 0;
-  myself = var._do_store;
+  myself = func__do_store;
   func = myself->type;
   frame->cont = cont__do_store_19;
 }
@@ -6228,7 +6897,7 @@ static void cont__do_store_19(void) {
     invalid_results_error();
     return;
   }
-  // 250: !result temp
+  // 270: !result temp
   ((CELL *)frame->slots[4])->contents /* result */ = frame->slots[6] /* temp */;
   argument_count = 0;
   arguments = node_p;
@@ -6241,7 +6910,7 @@ static void cont__do_store_20(void) {
     invalid_results_error();
     return;
   }
-  // 257: ... functor(.is_a_destination true)
+  // 277: ... functor(.is_a_destination true)
   {
     NODE *temp = clone_object_and_attributes(frame->slots[2] /* functor */);
     update_start_p = node_p;
@@ -6249,7 +6918,7 @@ static void cont__do_store_20(void) {
     frame->slots[9] /* temp__4 */ = temp;
 
   }
-  // 257: put(arguments functor(.is_a_destination true))
+  // 277: put(arguments functor(.is_a_destination true))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* arguments */;
@@ -6265,7 +6934,7 @@ static void cont__do_store_21(void) {
     return;
   }
   frame->slots[8] /* temp__3 */ = arguments->slots[0];
-  // 258: result(.is_a_destination false)
+  // 278: result(.is_a_destination false)
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[4])->contents /* result */);
     update_start_p = node_p;
@@ -6288,7 +6957,7 @@ static void cont__do_store_22(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 259: ... fragment_of(info)
+  // 279: ... fragment_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* info */;
@@ -6303,7 +6972,7 @@ static void cont__do_store_23(void) {
     return;
   }
   frame->slots[11] /* temp__6 */ = arguments->slots[0];
-  // 260: ... source_position_of(info)
+  // 280: ... source_position_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* info */;
@@ -6318,7 +6987,7 @@ static void cont__do_store_24(void) {
     return;
   }
   frame->slots[13] /* temp__8 */ = arguments->slots[0];
-  // 260: ... source_position_of(info)+1
+  // 280: ... source_position_of(info)+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[13] /* temp__8 */;
@@ -6334,7 +7003,7 @@ static void cont__do_store_25(void) {
     return;
   }
   frame->slots[12] /* temp__7 */ = arguments->slots[0];
-  // 261: ... end_position_of(info)
+  // 281: ... end_position_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* info */;
@@ -6360,16 +7029,16 @@ static void cont__do_store_26(void) {
     frame->slots[6] /* temp__1 */ = temp;
 
   }
-  // 251: push
-  // 252:   &statements
-  // 253:   procedure_call
-  // 254:     .functor_of functor
-  // 255:     .arguments_of
-  // 256:       push
-  // 257:         put(arguments functor(.is_a_destination true))
-  // 258:         result(.is_a_destination false)
-  // 259:     .fragment_of fragment_of(info)
-  // 260:     .source_position_of source_position_of(info)+1
+  // 271: push
+  // 272:   &statements
+  // 273:   procedure_call
+  // 274:     .functor_of functor
+  // 275:     .arguments_of
+  // 276:       push
+  // 277:         put(arguments functor(.is_a_destination true))
+  // 278:         result(.is_a_destination false)
+  // 279:     .fragment_of fragment_of(info)
+  // 280:     .source_position_of source_position_of(info)+1
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -6413,7 +7082,7 @@ static void entry__do_store_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 263: ... length_of(rest)
+  // 283: ... length_of(rest)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* rest */;
@@ -6428,7 +7097,7 @@ static void cont__do_store_29(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 263: ... length_of(rest) > 0
+  // 283: ... length_of(rest) > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -6444,28 +7113,28 @@ static void cont__do_store_30(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 263: ... :
-  // 264:   $temp temporary_identifier()
-  // 265:   push
-  // 266:     &statements
-  // 267:     procedure_call
-  // 268:       .functor_of functor_of(arguments)
-  // 269:       .arguments_of list(temp(.is_a_destination true) functor)
-  // 270:       .fragment_of fragment_of(info)
-  // 271:       .source_position_of source_position_of(info)
-  // 272:       .end_position_of end_position_of(info)
+  // 283: ... :
+  // 284:   $temp temporary_identifier()
+  // 285:   push
+  // 286:     &statements
+  // 287:     procedure_call
+  // 288:       .functor_of functor_of(arguments)
+  // 289:       .arguments_of list(temp(.is_a_destination true) functor)
+  // 290:       .fragment_of fragment_of(info)
+  // 291:       .source_position_of source_position_of(info)
+  // 292:       .end_position_of end_position_of(info)
   // ...
   frame->slots[9] /* temp__3 */ = create_closure(entry__do_store_31, 0);
-  // 263: if length_of(rest) > 0:
-  // 264:   $temp temporary_identifier()
-  // 265:   push
-  // 266:     &statements
-  // 267:     procedure_call
-  // 268:       .functor_of functor_of(arguments)
-  // 269:       .arguments_of list(temp(.is_a_destination true) functor)
-  // 270:       .fragment_of fragment_of(info)
-  // 271:       .source_position_of source_position_of(info)
-  // 272:       .end_position_of end_position_of(info)
+  // 283: if length_of(rest) > 0:
+  // 284:   $temp temporary_identifier()
+  // 285:   push
+  // 286:     &statements
+  // 287:     procedure_call
+  // 288:       .functor_of functor_of(arguments)
+  // 289:       .arguments_of list(temp(.is_a_destination true) functor)
+  // 290:       .fragment_of fragment_of(info)
+  // 291:       .source_position_of source_position_of(info)
+  // 292:       .end_position_of end_position_of(info)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -6497,11 +7166,11 @@ static void entry__do_store_31(void) {
     invalid_arguments_error();
     return;
   }
-  // 264: $temp temporary_identifier()
+  // 284: $temp temporary_identifier()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
-  myself = var._temporary_identifier;
+  myself = func__temporary_identifier;
   func = myself->type;
   frame->cont = cont__do_store_32;
 }
@@ -6511,7 +7180,7 @@ static void cont__do_store_32(void) {
     return;
   }
   initialize_future(frame->slots[6] /* temp */, arguments->slots[0]);
-  // 268: ... functor_of(arguments)
+  // 288: ... functor_of(arguments)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* arguments */;
@@ -6526,7 +7195,7 @@ static void cont__do_store_33(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 269: ... temp(.is_a_destination true)
+  // 289: ... temp(.is_a_destination true)
   {
     NODE *temp = clone_object_and_attributes(frame->slots[6] /* temp */);
     update_start_p = node_p;
@@ -6534,7 +7203,7 @@ static void cont__do_store_33(void) {
     frame->slots[10] /* temp__4 */ = temp;
 
   }
-  // 269: ... list(temp(.is_a_destination true) functor)
+  // 289: ... list(temp(.is_a_destination true) functor)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__4 */;
@@ -6550,7 +7219,7 @@ static void cont__do_store_34(void) {
     return;
   }
   frame->slots[9] /* temp__3 */ = arguments->slots[0];
-  // 270: ... fragment_of(info)
+  // 290: ... fragment_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* info */;
@@ -6565,7 +7234,7 @@ static void cont__do_store_35(void) {
     return;
   }
   frame->slots[11] /* temp__5 */ = arguments->slots[0];
-  // 271: ... source_position_of(info)
+  // 291: ... source_position_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* info */;
@@ -6580,7 +7249,7 @@ static void cont__do_store_36(void) {
     return;
   }
   frame->slots[12] /* temp__6 */ = arguments->slots[0];
-  // 272: ... end_position_of(info)
+  // 292: ... end_position_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* info */;
@@ -6606,14 +7275,14 @@ static void cont__do_store_37(void) {
     frame->slots[7] /* temp__1 */ = temp;
 
   }
-  // 265: push
-  // 266:   &statements
-  // 267:   procedure_call
-  // 268:     .functor_of functor_of(arguments)
-  // 269:     .arguments_of list(temp(.is_a_destination true) functor)
-  // 270:     .fragment_of fragment_of(info)
-  // 271:     .source_position_of source_position_of(info)
-  // 272:     .end_position_of end_position_of(info)
+  // 285: push
+  // 286:   &statements
+  // 287:   procedure_call
+  // 288:     .functor_of functor_of(arguments)
+  // 289:     .arguments_of list(temp(.is_a_destination true) functor)
+  // 290:     .fragment_of fragment_of(info)
+  // 291:     .source_position_of source_position_of(info)
+  // 292:     .end_position_of end_position_of(info)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__statements();
@@ -6629,7 +7298,7 @@ static void cont__do_store_38(void) {
     return;
   }
   set__statements(arguments->slots[0]);
-  // 273: ... rest.peek
+  // 293: ... rest.peek
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* rest */;
@@ -6644,7 +7313,7 @@ static void cont__do_store_39(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 273: ... rest.drop
+  // 293: ... rest.drop
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* rest */;
@@ -6659,7 +7328,7 @@ static void cont__do_store_40(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 273: do_store temp rest.peek result rest.drop infos
+  // 293: do_store temp rest.peek result rest.drop infos
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp */;
@@ -6668,7 +7337,7 @@ static void cont__do_store_40(void) {
   arguments->slots[3] = frame->slots[8] /* temp__2 */;
   arguments->slots[4] = ((CELL *)frame->slots[5])->contents /* infos */;
   result_count = 0;
-  myself = var._do_store;
+  myself = func__do_store;
   func = myself->type;
   frame->cont = cont__do_store_41;
 }
@@ -6677,7 +7346,7 @@ static void cont__do_store_41(void) {
     invalid_results_error();
     return;
   }
-  // 274: !result temp
+  // 294: !result temp
   ((CELL *)frame->slots[4])->contents /* result */ = frame->slots[6] /* temp */;
   argument_count = 0;
   arguments = node_p;
@@ -6690,7 +7359,7 @@ static void cont__do_store_42(void) {
     invalid_results_error();
     return;
   }
-  // 278: arguments.is_a_method_definition
+  // 298: arguments.is_a_method_definition
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* arguments */;
@@ -6705,11 +7374,11 @@ static void cont__do_store_43(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 276: $attribute_pair
-  // 277:   if
-  // 278:     arguments.is_a_method_definition
-  // 279:     -> attribute_function_pair
-  // 280:     -> attribute_value_pair
+  // 296: $attribute_pair
+  // 297:   if
+  // 298:     arguments.is_a_method_definition
+  // 299:     -> attribute_function_pair
+  // 300:     -> attribute_value_pair
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -6727,7 +7396,7 @@ static void entry__do_store_44(void) {
     invalid_arguments_error();
     return;
   }
-  // 279: -> attribute_function_pair
+  // 299: -> attribute_function_pair
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__attribute_function_pair();
@@ -6742,7 +7411,7 @@ static void entry__do_store_45(void) {
     invalid_arguments_error();
     return;
   }
-  // 280: -> attribute_value_pair
+  // 300: -> attribute_value_pair
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__attribute_value_pair();
@@ -6756,7 +7425,7 @@ static void cont__do_store_46(void) {
     return;
   }
   initialize_future(frame->slots[6] /* attribute_pair */, arguments->slots[0]);
-  // 287: functor(.is_a_destination true)
+  // 307: functor(.is_a_destination true)
   {
     NODE *temp = clone_object_and_attributes(frame->slots[2] /* functor */);
     update_start_p = node_p;
@@ -6764,7 +7433,7 @@ static void cont__do_store_46(void) {
     frame->slots[9] /* temp__3 */ = temp;
 
   }
-  // 289: ... functor_of(arguments)
+  // 309: ... functor_of(arguments)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* arguments */;
@@ -6779,7 +7448,7 @@ static void cont__do_store_47(void) {
     return;
   }
   frame->slots[11] /* temp__5 */ = arguments->slots[0];
-  // 290: ... list(result)
+  // 310: ... list(result)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* result */;
@@ -6817,7 +7486,7 @@ static void cont__do_store_49(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 291: ... fragment_of(info)
+  // 311: ... fragment_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* info */;
@@ -6832,7 +7501,7 @@ static void cont__do_store_50(void) {
     return;
   }
   frame->slots[13] /* temp__7 */ = arguments->slots[0];
-  // 292: ... source_position_of(info)
+  // 312: ... source_position_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* info */;
@@ -6847,7 +7516,7 @@ static void cont__do_store_51(void) {
     return;
   }
   frame->slots[15] /* temp__9 */ = arguments->slots[0];
-  // 292: ... source_position_of(info)+1
+  // 312: ... source_position_of(info)+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[15] /* temp__9 */;
@@ -6863,7 +7532,7 @@ static void cont__do_store_52(void) {
     return;
   }
   frame->slots[14] /* temp__8 */ = arguments->slots[0];
-  // 293: ... end_position_of(info)
+  // 313: ... end_position_of(info)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* info */;
@@ -6888,16 +7557,16 @@ static void cont__do_store_53(void) {
     frame->slots[7] /* temp__1 */ = temp;
 
   }
-  // 282: push
-  // 283:   &statements
-  // 284:   assignment
-  // 285:     .arguments_of
-  // 286:       list
-  // 287:         functor(.is_a_destination true)
-  // 288:         attribute_pair
-  // 289:           .identifier_of functor_of(arguments)
-  // 290:           .arguments_of list(result)
-  // 291:     .fragment_of fragment_of(info)
+  // 302: push
+  // 303:   &statements
+  // 304:   assignment
+  // 305:     .arguments_of
+  // 306:       list
+  // 307:         functor(.is_a_destination true)
+  // 308:         attribute_pair
+  // 309:           .identifier_of functor_of(arguments)
+  // 310:           .arguments_of list(result)
+  // 311:     .fragment_of fragment_of(info)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -6920,7 +7589,7 @@ static void cont__do_store_54(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__do_store_1(void) {
+static void entry__do_store(void) {
   allocate_initialized_frame_gc(5, 9);
   // slot allocations:
   // functor: 0
@@ -6937,7 +7606,7 @@ static void entry__do_store_1(void) {
   frame->slots[1] /* arguments */ = create_cell_with_contents(arguments->slots[1]);
   frame->slots[2] /* result */ = create_cell_with_contents(arguments->slots[2]);
   frame->slots[4] /* infos */ = create_cell_with_contents(arguments->slots[4]);
-  // 235: pop &infos $info
+  // 255: pop &infos $info
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* infos */;
@@ -6953,7 +7622,7 @@ static void cont__do_store_2(void) {
   }
   ((CELL *)frame->slots[4])->contents /* infos */ = arguments->slots[0];
   initialize_future(frame->slots[5] /* info */, arguments->slots[1]);
-  // 237: arguments.is_a_list
+  // 257: arguments.is_a_list
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* arguments */;
@@ -6968,40 +7637,40 @@ static void cont__do_store_3(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 237: ... :
-  // 238:   update_each &arguments: (&argument) simplify_expression &argument
-  // 239:   if length_of(rest) > 0:
-  // 240:     $temp temporary_identifier()
-  // 241:     push
-  // 242:       &statements
-  // 243:       procedure_call
-  // 244:         .functor_of functor
-  // 245:         .arguments_of put(arguments temp(.is_a_destination true))
-  // 246:         .fragment_of fragment_of(info)
+  // 257: ... :
+  // 258:   update_each &arguments: (&argument) simplify_expression &argument
+  // 259:   if length_of(rest) > 0:
+  // 260:     $temp temporary_identifier()
+  // 261:     push
+  // 262:       &statements
+  // 263:       procedure_call
+  // 264:         .functor_of functor
+  // 265:         .arguments_of put(arguments temp(.is_a_destination true))
+  // 266:         .fragment_of fragment_of(info)
   // ...
   frame->slots[7] /* temp__2 */ = create_closure(entry__do_store_4, 0);
-  // 262: :
-  // 263:   if length_of(rest) > 0:
-  // 264:     $temp temporary_identifier()
-  // 265:     push
-  // 266:       &statements
-  // 267:       procedure_call
-  // 268:         .functor_of functor_of(arguments)
-  // 269:         .arguments_of list(temp(.is_a_destination true) functor)
-  // 270:         .fragment_of fragment_of(info)
-  // 271:         .source_position_of source_position_of(info)
+  // 282: :
+  // 283:   if length_of(rest) > 0:
+  // 284:     $temp temporary_identifier()
+  // 285:     push
+  // 286:       &statements
+  // 287:       procedure_call
+  // 288:         .functor_of functor_of(arguments)
+  // 289:         .arguments_of list(temp(.is_a_destination true) functor)
+  // 290:         .fragment_of fragment_of(info)
+  // 291:         .source_position_of source_position_of(info)
   // ...
   frame->slots[8] /* temp__3 */ = create_closure(entry__do_store_28, 0);
-  // 236: if
-  // 237:   arguments.is_a_list:
-  // 238:     update_each &arguments: (&argument) simplify_expression &argument
-  // 239:     if length_of(rest) > 0:
-  // 240:       $temp temporary_identifier()
-  // 241:       push
-  // 242:         &statements
-  // 243:         procedure_call
-  // 244:           .functor_of functor
-  // 245:           .arguments_of put(arguments temp(.is_a_destination true))
+  // 256: if
+  // 257:   arguments.is_a_list:
+  // 258:     update_each &arguments: (&argument) simplify_expression &argument
+  // 259:     if length_of(rest) > 0:
+  // 260:       $temp temporary_identifier()
+  // 261:       push
+  // 262:         &statements
+  // 263:         procedure_call
+  // 264:           .functor_of functor
+  // 265:           .arguments_of put(arguments temp(.is_a_destination true))
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -7030,7 +7699,7 @@ static void entry__store_result_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 315: do_store functor arguments result rest infos
+  // 335: do_store functor arguments result rest infos
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* functor */;
@@ -7039,7 +7708,7 @@ static void entry__store_result_16(void) {
   arguments->slots[3] = frame->slots[3] /* rest */;
   arguments->slots[4] = ((CELL *)frame->slots[4])->contents /* infos */;
   result_count = frame->caller_result_count;
-  myself = var._do_store;
+  myself = func__do_store;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -7060,7 +7729,7 @@ static void entry__store_result_17(void) {
     invalid_arguments_error();
     return;
   }
-  // 317: ... push(rest arguments)
+  // 337: ... push(rest arguments)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* rest */;
@@ -7076,7 +7745,7 @@ static void cont__store_result_18(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 317: store_result functor result push(rest arguments) infos
+  // 337: store_result functor result push(rest arguments) infos
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* functor */;
@@ -7084,7 +7753,7 @@ static void cont__store_result_18(void) {
   arguments->slots[2] = frame->slots[5] /* temp__1 */;
   arguments->slots[3] = ((CELL *)frame->slots[4])->contents /* infos */;
   result_count = frame->caller_result_count;
-  myself = var._store_result;
+  myself = func__store_result;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -7105,7 +7774,7 @@ static void entry__store_result_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 308: ... arguments(1)
+  // 328: ... arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7120,7 +7789,7 @@ static void cont__store_result_9(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 308: do_store arguments(1) destination result rest infos
+  // 328: do_store arguments(1) destination result rest infos
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -7129,7 +7798,7 @@ static void cont__store_result_9(void) {
   arguments->slots[3] = frame->slots[3] /* rest */;
   arguments->slots[4] = ((CELL *)frame->slots[4])->contents /* infos */;
   result_count = frame->caller_result_count;
-  myself = var._do_store;
+  myself = func__do_store;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -7150,7 +7819,7 @@ static void entry__store_result_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 310: ... arguments(1)
+  // 330: ... arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7165,7 +7834,7 @@ static void cont__store_result_11(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 310: ... push(rest destination)
+  // 330: ... push(rest destination)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* rest */;
@@ -7181,7 +7850,7 @@ static void cont__store_result_12(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 310: store_result arguments(1) result push(rest destination) infos
+  // 330: store_result arguments(1) result push(rest destination) infos
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -7189,7 +7858,7 @@ static void cont__store_result_12(void) {
   arguments->slots[2] = frame->slots[6] /* temp__2 */;
   arguments->slots[3] = ((CELL *)frame->slots[4])->contents /* infos */;
   result_count = frame->caller_result_count;
-  myself = var._store_result;
+  myself = func__store_result;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -7210,7 +7879,7 @@ static void entry__store_result_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 307: arguments(1)
+  // 327: arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7225,7 +7894,7 @@ static void cont__store_result_6(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 307: arguments(1).is_an_identifier
+  // 327: arguments(1).is_an_identifier
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -7240,17 +7909,17 @@ static void cont__store_result_7(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 307: ... :
-  // 308:   do_store arguments(1) destination result rest infos
+  // 327: ... :
+  // 328:   do_store arguments(1) destination result rest infos
   frame->slots[7] /* temp__3 */ = create_closure(entry__store_result_8, 0);
-  // 309: :
-  // 310:   store_result arguments(1) result push(rest destination) infos
+  // 329: :
+  // 330:   store_result arguments(1) result push(rest destination) infos
   frame->slots[8] /* temp__4 */ = create_closure(entry__store_result_10, 0);
-  // 306: if
-  // 307:   arguments(1).is_an_identifier:
-  // 308:     do_store arguments(1) destination result rest infos
-  // 309:   :
-  // 310:     store_result arguments(1) result push(rest destination) infos
+  // 326: if
+  // 327:   arguments(1).is_an_identifier:
+  // 328:     do_store arguments(1) destination result rest infos
+  // 329:   :
+  // 330:     store_result arguments(1) result push(rest destination) infos
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -7280,7 +7949,7 @@ static void entry__store_result_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 312: $functor functor_of(destination)
+  // 332: $functor functor_of(destination)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -7295,7 +7964,7 @@ static void cont__store_result_14(void) {
     return;
   }
   initialize_future(frame->slots[5] /* functor */, arguments->slots[0]);
-  // 314: functor.is_an_identifier
+  // 334: functor.is_an_identifier
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* functor */;
@@ -7310,17 +7979,17 @@ static void cont__store_result_15(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 314: ... :
-  // 315:   do_store functor arguments result rest infos
+  // 334: ... :
+  // 335:   do_store functor arguments result rest infos
   frame->slots[7] /* temp__2 */ = create_closure(entry__store_result_16, 0);
-  // 316: :
-  // 317:   store_result functor result push(rest arguments) infos
+  // 336: :
+  // 337:   store_result functor result push(rest arguments) infos
   frame->slots[8] /* temp__3 */ = create_closure(entry__store_result_17, 0);
-  // 313: if
-  // 314:   functor.is_an_identifier:
-  // 315:     do_store functor arguments result rest infos
-  // 316:   :
-  // 317:     store_result functor result push(rest arguments) infos
+  // 333: if
+  // 334:   functor.is_an_identifier:
+  // 335:     do_store functor arguments result rest infos
+  // 336:   :
+  // 337:     store_result functor result push(rest arguments) infos
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -7331,7 +8000,7 @@ static void cont__store_result_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__store_result_1(void) {
+static void entry__store_result(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // destination: 0
@@ -7357,7 +8026,7 @@ static void entry__store_result_1(void) {
     case 2: frame->slots[2] /* rest */ = get__empty_list();
     case 3: frame->slots[3] /* infos */ = create_cell_with_contents(get__empty_list());
   }
-  // 302: push &infos destination
+  // 322: push &infos destination
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* infos */;
@@ -7373,7 +8042,7 @@ static void cont__store_result_2(void) {
     return;
   }
   ((CELL *)frame->slots[3])->contents /* infos */ = arguments->slots[0];
-  // 303: $arguments arguments_of(destination)
+  // 323: $arguments arguments_of(destination)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -7388,7 +8057,7 @@ static void cont__store_result_3(void) {
     return;
   }
   initialize_future(frame->slots[4] /* arguments */, arguments->slots[0]);
-  // 305: destination.is_an_attribute_access
+  // 325: destination.is_an_attribute_access
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -7403,31 +8072,31 @@ static void cont__store_result_4(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 305: ... :
-  // 306:   if
-  // 307:     arguments(1).is_an_identifier:
-  // 308:       do_store arguments(1) destination result rest infos
-  // 309:     :
-  // 310:       store_result arguments(1) result push(rest destination) infos
+  // 325: ... :
+  // 326:   if
+  // 327:     arguments(1).is_an_identifier:
+  // 328:       do_store arguments(1) destination result rest infos
+  // 329:     :
+  // 330:       store_result arguments(1) result push(rest destination) infos
   frame->slots[6] /* temp__2 */ = create_closure(entry__store_result_5, 0);
-  // 311: :
-  // 312:   $functor functor_of(destination)
-  // 313:   if
-  // 314:     functor.is_an_identifier:
-  // 315:       do_store functor arguments result rest infos
-  // 316:     :
-  // 317:       store_result functor result push(rest arguments) infos
+  // 331: :
+  // 332:   $functor functor_of(destination)
+  // 333:   if
+  // 334:     functor.is_an_identifier:
+  // 335:       do_store functor arguments result rest infos
+  // 336:     :
+  // 337:       store_result functor result push(rest arguments) infos
   frame->slots[7] /* temp__3 */ = create_closure(entry__store_result_13, 0);
-  // 304: if
-  // 305:   destination.is_an_attribute_access:
-  // 306:     if
-  // 307:       arguments(1).is_an_identifier:
-  // 308:         do_store arguments(1) destination result rest infos
-  // 309:       :
-  // 310:         store_result arguments(1) result push(rest destination) infos
-  // 311:   :
-  // 312:     $functor functor_of(destination)
-  // 313:     if
+  // 324: if
+  // 325:   destination.is_an_attribute_access:
+  // 326:     if
+  // 327:       arguments(1).is_an_identifier:
+  // 328:         do_store arguments(1) destination result rest infos
+  // 329:       :
+  // 330:         store_result arguments(1) result push(rest destination) infos
+  // 331:   :
+  // 332:     $functor functor_of(destination)
+  // 333:     if
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -7439,7 +8108,7 @@ static void cont__store_result_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__call__simplify_statement_1(void) {
+static void entry__compiler__call___simplify_statement(void) {
   allocate_initialized_frame_gc(2, 10);
   // slot allocations:
   // self: 0
@@ -7458,36 +8127,36 @@ static void entry__compiler__call__simplify_statement_1(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 328: ... : (arguments)
-  // 329:   for_each arguments: ($argument)
-  // 330:     cond
-  // 331:       -> argument.is_an_input_output_argument:
-  // 332:         !argument.is_an_input_output_argument false
-  // 333:         push &output_arguments argument
-  // 334:         push &input_arguments argument(.is_a_destination false)
-  // 335:       -> argument.is_a_destination: push &output_arguments argument
-  // 336:       :
-  // 337:         push &input_arguments argument
+  // 348: ... : (arguments)
+  // 349:   for_each arguments: ($argument)
+  // 350:     cond
+  // 351:       -> argument.is_an_input_output_argument:
+  // 352:         !argument.is_an_input_output_argument false
+  // 353:         push &output_arguments argument
+  // 354:         push &input_arguments argument(.is_a_destination false)
+  // 355:       -> argument.is_a_destination: push &output_arguments argument
+  // 356:       :
+  // 357:         push &input_arguments argument
   frame->slots[6] /* temp__1 */ = create_closure(entry__compiler__call__simplify_statement_2, 1);
-  // 328: $add_arguments: (arguments)
-  // 329:   for_each arguments: ($argument)
-  // 330:     cond
-  // 331:       -> argument.is_an_input_output_argument:
-  // 332:         !argument.is_an_input_output_argument false
-  // 333:         push &output_arguments argument
-  // 334:         push &input_arguments argument(.is_a_destination false)
-  // 335:       -> argument.is_a_destination: push &output_arguments argument
-  // 336:       :
-  // 337:         push &input_arguments argument
+  // 348: $add_arguments: (arguments)
+  // 349:   for_each arguments: ($argument)
+  // 350:     cond
+  // 351:       -> argument.is_an_input_output_argument:
+  // 352:         !argument.is_an_input_output_argument false
+  // 353:         push &output_arguments argument
+  // 354:         push &input_arguments argument(.is_a_destination false)
+  // 355:       -> argument.is_a_destination: push &output_arguments argument
+  // 356:       :
+  // 357:         push &input_arguments argument
   initialize_future(frame->slots[4] /* add_arguments */, frame->slots[6] /* temp__1 */);
-  // 324: show_compiler_debug_info "simplify statement"
+  // 344: show_compiler_debug_info "simplify statement"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__8629329e514f7a7a;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_16;
+  frame->cont = cont__compiler__call___simplify_statement_16;
 }
 static void entry__compiler__call__simplify_statement_11(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -7500,7 +8169,7 @@ static void entry__compiler__call__simplify_statement_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 335: ... push &output_arguments argument
+  // 355: ... push &output_arguments argument
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* output_arguments */;
@@ -7535,7 +8204,7 @@ static void entry__compiler__call__simplify_statement_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 332: !argument.is_an_input_output_argument
+  // 352: !argument.is_an_input_output_argument
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* argument */);
     update_start_p = node_p;
@@ -7543,7 +8212,7 @@ static void entry__compiler__call__simplify_statement_6(void) {
     ((CELL *)frame->slots[0])->contents /* argument */ = temp;
 
   }
-  // 333: push &output_arguments argument
+  // 353: push &output_arguments argument
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* output_arguments */;
@@ -7559,7 +8228,7 @@ static void cont__compiler__call__simplify_statement_7(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* output_arguments */ = arguments->slots[0];
-  // 334: ... argument(.is_a_destination false)
+  // 354: ... argument(.is_a_destination false)
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* argument */);
     update_start_p = node_p;
@@ -7567,7 +8236,7 @@ static void cont__compiler__call__simplify_statement_7(void) {
     frame->slots[3] /* temp__1 */ = temp;
 
   }
-  // 334: push &input_arguments argument(.is_a_destination false)
+  // 354: push &input_arguments argument(.is_a_destination false)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* input_arguments */;
@@ -7602,7 +8271,7 @@ static void entry__compiler__call__simplify_statement_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 331: ... argument.is_an_input_output_argument
+  // 351: ... argument.is_an_input_output_argument
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* argument */;
@@ -7617,15 +8286,15 @@ static void cont__compiler__call__simplify_statement_5(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 331: ... :
-  // 332:   !argument.is_an_input_output_argument false
-  // 333:   push &output_arguments argument
-  // 334:   push &input_arguments argument(.is_a_destination false)
+  // 351: ... :
+  // 352:   !argument.is_an_input_output_argument false
+  // 353:   push &output_arguments argument
+  // 354:   push &input_arguments argument(.is_a_destination false)
   frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_6, 0);
-  // 331: -> argument.is_an_input_output_argument:
-  // 332:   !argument.is_an_input_output_argument false
-  // 333:   push &output_arguments argument
-  // 334:   push &input_arguments argument(.is_a_destination false)
+  // 351: -> argument.is_an_input_output_argument:
+  // 352:   !argument.is_an_input_output_argument false
+  // 353:   push &output_arguments argument
+  // 354:   push &input_arguments argument(.is_a_destination false)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -7645,7 +8314,7 @@ static void entry__compiler__call__simplify_statement_9(void) {
     invalid_arguments_error();
     return;
   }
-  // 335: ... argument.is_a_destination
+  // 355: ... argument.is_a_destination
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* argument */;
@@ -7660,9 +8329,9 @@ static void cont__compiler__call__simplify_statement_10(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 335: ... : push &output_arguments argument
+  // 355: ... : push &output_arguments argument
   frame->slots[3] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_11, 0);
-  // 335: -> argument.is_a_destination: push &output_arguments argument
+  // 355: -> argument.is_a_destination: push &output_arguments argument
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -7682,7 +8351,7 @@ static void entry__compiler__call__simplify_statement_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 337: push &input_arguments argument
+  // 357: push &input_arguments argument
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* input_arguments */;
@@ -7717,24 +8386,24 @@ static void entry__compiler__call__simplify_statement_3(void) {
     return;
   }
   frame->slots[0] /* argument */ = create_cell_with_contents(arguments->slots[0]);
-  // 331: -> argument.is_an_input_output_argument:
-  // 332:   !argument.is_an_input_output_argument false
-  // 333:   push &output_arguments argument
-  // 334:   push &input_arguments argument(.is_a_destination false)
+  // 351: -> argument.is_an_input_output_argument:
+  // 352:   !argument.is_an_input_output_argument false
+  // 353:   push &output_arguments argument
+  // 354:   push &input_arguments argument(.is_a_destination false)
   frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__call__simplify_statement_4, 0);
-  // 335: -> argument.is_a_destination: push &output_arguments argument
+  // 355: -> argument.is_a_destination: push &output_arguments argument
   frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_9, 0);
-  // 336: :
-  // 337:   push &input_arguments argument
+  // 356: :
+  // 357:   push &input_arguments argument
   frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_13, 0);
-  // 330: cond
-  // 331:   -> argument.is_an_input_output_argument:
-  // 332:     !argument.is_an_input_output_argument false
-  // 333:     push &output_arguments argument
-  // 334:     push &input_arguments argument(.is_a_destination false)
-  // 335:   -> argument.is_a_destination: push &output_arguments argument
-  // 336:   :
-  // 337:     push &input_arguments argument
+  // 350: cond
+  // 351:   -> argument.is_an_input_output_argument:
+  // 352:     !argument.is_an_input_output_argument false
+  // 353:     push &output_arguments argument
+  // 354:     push &input_arguments argument(.is_a_destination false)
+  // 355:   -> argument.is_a_destination: push &output_arguments argument
+  // 356:   :
+  // 357:     push &input_arguments argument
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -7757,25 +8426,25 @@ static void entry__compiler__call__simplify_statement_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 329: ... : ($argument)
-  // 330:   cond
-  // 331:     -> argument.is_an_input_output_argument:
-  // 332:       !argument.is_an_input_output_argument false
-  // 333:       push &output_arguments argument
-  // 334:       push &input_arguments argument(.is_a_destination false)
-  // 335:     -> argument.is_a_destination: push &output_arguments argument
-  // 336:     :
-  // 337:       push &input_arguments argument
+  // 349: ... : ($argument)
+  // 350:   cond
+  // 351:     -> argument.is_an_input_output_argument:
+  // 352:       !argument.is_an_input_output_argument false
+  // 353:       push &output_arguments argument
+  // 354:       push &input_arguments argument(.is_a_destination false)
+  // 355:     -> argument.is_a_destination: push &output_arguments argument
+  // 356:     :
+  // 357:       push &input_arguments argument
   frame->slots[3] /* temp__1 */ = create_closure(entry__compiler__call__simplify_statement_3, 1);
-  // 329: for_each arguments: ($argument)
-  // 330:   cond
-  // 331:     -> argument.is_an_input_output_argument:
-  // 332:       !argument.is_an_input_output_argument false
-  // 333:       push &output_arguments argument
-  // 334:       push &input_arguments argument(.is_a_destination false)
-  // 335:     -> argument.is_a_destination: push &output_arguments argument
-  // 336:     :
-  // 337:       push &input_arguments argument
+  // 349: for_each arguments: ($argument)
+  // 350:   cond
+  // 351:     -> argument.is_an_input_output_argument:
+  // 352:       !argument.is_an_input_output_argument false
+  // 353:       push &output_arguments argument
+  // 354:       push &input_arguments argument(.is_a_destination false)
+  // 355:     -> argument.is_a_destination: push &output_arguments argument
+  // 356:     :
+  // 357:       push &input_arguments argument
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* arguments */;
@@ -7785,62 +8454,62 @@ static void entry__compiler__call__simplify_statement_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__call__simplify_statement_16(void) {
+static void cont__compiler__call___simplify_statement_16(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 325: $$output_arguments empty_list
+  // 345: $$output_arguments empty_list
   ((CELL *)frame->slots[2])->contents /* output_arguments */ = get__empty_list();
-  // 326: $$input_arguments empty_list
+  // 346: $$input_arguments empty_list
   ((CELL *)frame->slots[3])->contents /* input_arguments */ = get__empty_list();
-  // 339: ... arguments_of(self)
+  // 359: ... arguments_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_17;
+  frame->cont = cont__compiler__call___simplify_statement_17;
 }
-static void cont__compiler__call__simplify_statement_17(void) {
+static void cont__compiler__call___simplify_statement_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 339: add_arguments arguments_of(self)
+  // 359: add_arguments arguments_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
   result_count = 0;
   myself = frame->slots[4] /* add_arguments */;
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_18;
+  frame->cont = cont__compiler__call___simplify_statement_18;
 }
-static void cont__compiler__call__simplify_statement_18(void) {
+static void cont__compiler__call___simplify_statement_18(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 340: ... self.is_an_assignment
+  // 360: ... self.is_an_assignment
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_19;
+  frame->cont = cont__compiler__call___simplify_statement_19;
 }
-static void cont__compiler__call__simplify_statement_19(void) {
+static void cont__compiler__call___simplify_statement_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 340: ... length_of(input_arguments) == 1
+  // 360: ... length_of(input_arguments) == 1
   frame->slots[8] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_20, 0);
-  // 340: ... self.is_an_assignment && length_of(input_arguments) == 1
+  // 360: ... self.is_an_assignment && length_of(input_arguments) == 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
@@ -7848,7 +8517,7 @@ static void cont__compiler__call__simplify_statement_19(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_23;
+  frame->cont = cont__compiler__call___simplify_statement_23;
 }
 static void entry__compiler__call__simplify_statement_20(void) {
   allocate_initialized_frame_gc(1, 3);
@@ -7859,7 +8528,7 @@ static void entry__compiler__call__simplify_statement_20(void) {
     invalid_arguments_error();
     return;
   }
-  // 340: ... length_of(input_arguments)
+  // 360: ... length_of(input_arguments)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* input_arguments */;
@@ -7874,7 +8543,7 @@ static void cont__compiler__call__simplify_statement_21(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 340: ... length_of(input_arguments) == 1
+  // 360: ... length_of(input_arguments) == 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -7890,7 +8559,7 @@ static void cont__compiler__call__simplify_statement_22(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 340: ... length_of(input_arguments) == 1
+  // 360: ... length_of(input_arguments) == 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -7898,34 +8567,34 @@ static void cont__compiler__call__simplify_statement_22(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__call__simplify_statement_23(void) {
+static void cont__compiler__call___simplify_statement_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 340: ... :
-  // 341:   $source input_arguments(1)
-  // 342:   if source.is_a_function_call:
-  // 343:     $destination output_arguments(1)
-  // 344:     !output_arguments empty_list
-  // 345:     !input_arguments empty_list
-  // 346:     add_arguments arguments_of(source)
-  // 347:     push &output_arguments destination
-  // 348:     !self
-  // 349:       procedure_call
+  // 360: ... :
+  // 361:   $source input_arguments(1)
+  // 362:   if source.is_a_function_call:
+  // 363:     $destination output_arguments(1)
+  // 364:     !output_arguments empty_list
+  // 365:     !input_arguments empty_list
+  // 366:     add_arguments arguments_of(source)
+  // 367:     push &output_arguments destination
+  // 368:     !self
+  // 369:       procedure_call
   // ...
   frame->slots[9] /* temp__4 */ = create_closure(entry__compiler__call__simplify_statement_24, 0);
-  // 340: if self.is_an_assignment && length_of(input_arguments) == 1:
-  // 341:   $source input_arguments(1)
-  // 342:   if source.is_a_function_call:
-  // 343:     $destination output_arguments(1)
-  // 344:     !output_arguments empty_list
-  // 345:     !input_arguments empty_list
-  // 346:     add_arguments arguments_of(source)
-  // 347:     push &output_arguments destination
-  // 348:     !self
-  // 349:       procedure_call
+  // 360: if self.is_an_assignment && length_of(input_arguments) == 1:
+  // 361:   $source input_arguments(1)
+  // 362:   if source.is_a_function_call:
+  // 363:     $destination output_arguments(1)
+  // 364:     !output_arguments empty_list
+  // 365:     !input_arguments empty_list
+  // 366:     add_arguments arguments_of(source)
+  // 367:     push &output_arguments destination
+  // 368:     !self
+  // 369:       procedure_call
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -7934,7 +8603,7 @@ static void cont__compiler__call__simplify_statement_23(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_36;
+  frame->cont = cont__compiler__call___simplify_statement_36;
 }
 static void entry__compiler__call__simplify_statement_27(void) {
   allocate_initialized_frame_gc(5, 10);
@@ -7955,7 +8624,7 @@ static void entry__compiler__call__simplify_statement_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 343: $destination output_arguments(1)
+  // 363: $destination output_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -7970,11 +8639,11 @@ static void cont__compiler__call__simplify_statement_28(void) {
     return;
   }
   initialize_future(frame->slots[5] /* destination */, arguments->slots[0]);
-  // 344: !output_arguments empty_list
+  // 364: !output_arguments empty_list
   ((CELL *)frame->slots[0])->contents /* output_arguments */ = get__empty_list();
-  // 345: !input_arguments empty_list
+  // 365: !input_arguments empty_list
   ((CELL *)frame->slots[1])->contents /* input_arguments */ = get__empty_list();
-  // 346: ... arguments_of(source)
+  // 366: ... arguments_of(source)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* source */;
@@ -7989,7 +8658,7 @@ static void cont__compiler__call__simplify_statement_29(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 346: add_arguments arguments_of(source)
+  // 366: add_arguments arguments_of(source)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -8003,7 +8672,7 @@ static void cont__compiler__call__simplify_statement_30(void) {
     invalid_results_error();
     return;
   }
-  // 347: push &output_arguments destination
+  // 367: push &output_arguments destination
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* output_arguments */;
@@ -8019,7 +8688,7 @@ static void cont__compiler__call__simplify_statement_31(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* output_arguments */ = arguments->slots[0];
-  // 350: ... functor_of(source)
+  // 370: ... functor_of(source)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* source */;
@@ -8034,7 +8703,7 @@ static void cont__compiler__call__simplify_statement_32(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 351: ... fragment_of(self)
+  // 371: ... fragment_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* self */;
@@ -8049,7 +8718,7 @@ static void cont__compiler__call__simplify_statement_33(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 352: ... source_position_of(self)
+  // 372: ... source_position_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* self */;
@@ -8064,7 +8733,7 @@ static void cont__compiler__call__simplify_statement_34(void) {
     return;
   }
   frame->slots[8] /* temp__3 */ = arguments->slots[0];
-  // 353: ... end_position_of(self)
+  // 373: ... end_position_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* self */;
@@ -8079,12 +8748,12 @@ static void cont__compiler__call__simplify_statement_35(void) {
     return;
   }
   frame->slots[9] /* temp__4 */ = arguments->slots[0];
-  // 348: !self
-  // 349:   procedure_call
-  // 350:     .functor_of functor_of(source)
-  // 351:     .fragment_of fragment_of(self)
-  // 352:     .source_position_of source_position_of(self)
-  // 353:     .end_position_of end_position_of(self)
+  // 368: !self
+  // 369:   procedure_call
+  // 370:     .functor_of functor_of(source)
+  // 371:     .fragment_of fragment_of(self)
+  // 372:     .source_position_of source_position_of(self)
+  // 373:     .end_position_of end_position_of(self)
   {
     NODE *temp = clone_object_and_attributes(get__procedure_call());
     update_start_p = node_p;
@@ -8118,7 +8787,7 @@ static void entry__compiler__call__simplify_statement_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 341: $source input_arguments(1)
+  // 361: $source input_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8133,7 +8802,7 @@ static void cont__compiler__call__simplify_statement_25(void) {
     return;
   }
   initialize_future(frame->slots[4] /* source */, arguments->slots[0]);
-  // 342: ... source.is_a_function_call
+  // 362: ... source.is_a_function_call
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* source */;
@@ -8148,28 +8817,28 @@ static void cont__compiler__call__simplify_statement_26(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 342: ... :
-  // 343:   $destination output_arguments(1)
-  // 344:   !output_arguments empty_list
-  // 345:   !input_arguments empty_list
-  // 346:   add_arguments arguments_of(source)
-  // 347:   push &output_arguments destination
-  // 348:   !self
-  // 349:     procedure_call
-  // 350:       .functor_of functor_of(source)
-  // 351:       .fragment_of fragment_of(self)
+  // 362: ... :
+  // 363:   $destination output_arguments(1)
+  // 364:   !output_arguments empty_list
+  // 365:   !input_arguments empty_list
+  // 366:   add_arguments arguments_of(source)
+  // 367:   push &output_arguments destination
+  // 368:   !self
+  // 369:     procedure_call
+  // 370:       .functor_of functor_of(source)
+  // 371:       .fragment_of fragment_of(self)
   // ...
   frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_27, 0);
-  // 342: if source.is_a_function_call:
-  // 343:   $destination output_arguments(1)
-  // 344:   !output_arguments empty_list
-  // 345:   !input_arguments empty_list
-  // 346:   add_arguments arguments_of(source)
-  // 347:   push &output_arguments destination
-  // 348:   !self
-  // 349:     procedure_call
-  // 350:       .functor_of functor_of(source)
-  // 351:       .fragment_of fragment_of(self)
+  // 362: if source.is_a_function_call:
+  // 363:   $destination output_arguments(1)
+  // 364:   !output_arguments empty_list
+  // 365:   !input_arguments empty_list
+  // 366:   add_arguments arguments_of(source)
+  // 367:   push &output_arguments destination
+  // 368:   !self
+  // 369:     procedure_call
+  // 370:       .functor_of functor_of(source)
+  // 371:       .fragment_of fragment_of(self)
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -8180,48 +8849,48 @@ static void cont__compiler__call__simplify_statement_26(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__call__simplify_statement_36(void) {
+static void cont__compiler__call___simplify_statement_36(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 354: simplify_input_arguments &input_arguments
+  // 374: simplify_input_arguments &input_arguments
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* input_arguments */;
   result_count = 1;
-  myself = var._simplify_input_arguments;
+  myself = func__simplify_input_arguments;
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_37;
+  frame->cont = cont__compiler__call___simplify_statement_37;
 }
-static void cont__compiler__call__simplify_statement_37(void) {
+static void cont__compiler__call___simplify_statement_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   ((CELL *)frame->slots[3])->contents /* input_arguments */ = arguments->slots[0];
-  // 358: self.is_an_assignment
+  // 378: self.is_an_assignment
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_38;
+  frame->cont = cont__compiler__call___simplify_statement_38;
 }
-static void cont__compiler__call__simplify_statement_38(void) {
+static void cont__compiler__call___simplify_statement_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 360: -> simplify_output_arguments(&output_arguments)
+  // 380: -> simplify_output_arguments(&output_arguments)
   frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_39, 0);
-  // 356: $final_destinations
-  // 357:   if
-  // 358:     self.is_an_assignment
-  // 359:     -> undefined
-  // 360:     -> simplify_output_arguments(&output_arguments)
+  // 376: $final_destinations
+  // 377:   if
+  // 378:     self.is_an_assignment
+  // 379:     -> undefined
+  // 380:     -> simplify_output_arguments(&output_arguments)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -8230,7 +8899,7 @@ static void cont__compiler__call__simplify_statement_38(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_42;
+  frame->cont = cont__compiler__call___simplify_statement_42;
 }
 static void entry__compiler__call__simplify_statement_39(void) {
   allocate_initialized_frame_gc(1, 2);
@@ -8241,12 +8910,12 @@ static void entry__compiler__call__simplify_statement_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 360: ... simplify_output_arguments(&output_arguments)
+  // 380: ... simplify_output_arguments(&output_arguments)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* output_arguments */;
   result_count = 2;
-  myself = var._simplify_output_arguments;
+  myself = func__simplify_output_arguments;
   func = myself->type;
   frame->cont = cont__compiler__call__simplify_statement_40;
 }
@@ -8257,7 +8926,7 @@ static void cont__compiler__call__simplify_statement_40(void) {
   }
   ((CELL *)frame->slots[0])->contents /* output_arguments */ = arguments->slots[0];
   frame->slots[1] /* temp__1 */ = arguments->slots[1];
-  // 360: -> simplify_output_arguments(&output_arguments)
+  // 380: -> simplify_output_arguments(&output_arguments)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8272,7 +8941,7 @@ static void entry__compiler__call__simplify_statement_41(void) {
     invalid_arguments_error();
     return;
   }
-  // 359: -> undefined
+  // 379: -> undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__undefined();
@@ -8280,55 +8949,55 @@ static void entry__compiler__call__simplify_statement_41(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__call__simplify_statement_42(void) {
+static void cont__compiler__call___simplify_statement_42(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[5] /* final_destinations */, arguments->slots[0]);
-  // 362: ... functor_of(self)
+  // 382: ... functor_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_43;
+  frame->cont = cont__compiler__call___simplify_statement_43;
 }
-static void cont__compiler__call__simplify_statement_43(void) {
+static void cont__compiler__call___simplify_statement_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 362: ... functor_of(self).is_defined
+  // 382: ... functor_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__2 */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_44;
+  frame->cont = cont__compiler__call___simplify_statement_44;
 }
-static void cont__compiler__call__simplify_statement_44(void) {
+static void cont__compiler__call___simplify_statement_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 362: ... :
-  // 363:   if result_count_of(self).is_defined:
-  // 364:     simplify_expression &self.result_count_of
-  // 365:   if continuation_of(self).is_defined:
-  // 366:     simplify_expression &self.continuation_of
-  // 367:   simplify_expression &self.functor_of
+  // 382: ... :
+  // 383:   if result_count_of(self).is_defined:
+  // 384:     simplify_expression &self.result_count_of
+  // 385:   if continuation_of(self).is_defined:
+  // 386:     simplify_expression &self.continuation_of
+  // 387:   simplify_expression &self.functor_of
   frame->slots[8] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_45, 0);
-  // 362: if functor_of(self).is_defined:
-  // 363:   if result_count_of(self).is_defined:
-  // 364:     simplify_expression &self.result_count_of
-  // 365:   if continuation_of(self).is_defined:
-  // 366:     simplify_expression &self.continuation_of
-  // 367:   simplify_expression &self.functor_of
+  // 382: if functor_of(self).is_defined:
+  // 383:   if result_count_of(self).is_defined:
+  // 384:     simplify_expression &self.result_count_of
+  // 385:   if continuation_of(self).is_defined:
+  // 386:     simplify_expression &self.continuation_of
+  // 387:   simplify_expression &self.functor_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -8336,7 +9005,7 @@ static void cont__compiler__call__simplify_statement_44(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_60;
+  frame->cont = cont__compiler__call___simplify_statement_60;
 }
 static void entry__compiler__call__simplify_statement_45(void) {
   allocate_initialized_frame_gc(1, 4);
@@ -8347,7 +9016,7 @@ static void entry__compiler__call__simplify_statement_45(void) {
     invalid_arguments_error();
     return;
   }
-  // 363: ... result_count_of(self)
+  // 383: ... result_count_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -8362,7 +9031,7 @@ static void cont__compiler__call__simplify_statement_46(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 363: ... result_count_of(self).is_defined
+  // 383: ... result_count_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -8377,11 +9046,11 @@ static void cont__compiler__call__simplify_statement_47(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 363: ... :
-  // 364:   simplify_expression &self.result_count_of
+  // 383: ... :
+  // 384:   simplify_expression &self.result_count_of
   frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_48, 0);
-  // 363: if result_count_of(self).is_defined:
-  // 364:   simplify_expression &self.result_count_of
+  // 383: if result_count_of(self).is_defined:
+  // 384:   simplify_expression &self.result_count_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8400,7 +9069,7 @@ static void entry__compiler__call__simplify_statement_48(void) {
     invalid_arguments_error();
     return;
   }
-  // 364: ... self.result_count_of
+  // 384: ... self.result_count_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -8415,7 +9084,7 @@ static void cont__compiler__call__simplify_statement_49(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 364: simplify_expression &self.result_count_of
+  // 384: simplify_expression &self.result_count_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8430,7 +9099,7 @@ static void cont__compiler__call__simplify_statement_50(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 364: ... &self.result_count_of
+  // 384: ... &self.result_count_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -8449,7 +9118,7 @@ static void cont__compiler__call__simplify_statement_51(void) {
     invalid_results_error();
     return;
   }
-  // 365: ... continuation_of(self)
+  // 385: ... continuation_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -8464,7 +9133,7 @@ static void cont__compiler__call__simplify_statement_52(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 365: ... continuation_of(self).is_defined
+  // 385: ... continuation_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -8479,11 +9148,11 @@ static void cont__compiler__call__simplify_statement_53(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 365: ... :
-  // 366:   simplify_expression &self.continuation_of
+  // 385: ... :
+  // 386:   simplify_expression &self.continuation_of
   frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_54, 0);
-  // 365: if continuation_of(self).is_defined:
-  // 366:   simplify_expression &self.continuation_of
+  // 385: if continuation_of(self).is_defined:
+  // 386:   simplify_expression &self.continuation_of
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8502,7 +9171,7 @@ static void entry__compiler__call__simplify_statement_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 366: ... self.continuation_of
+  // 386: ... self.continuation_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -8517,7 +9186,7 @@ static void cont__compiler__call__simplify_statement_55(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 366: simplify_expression &self.continuation_of
+  // 386: simplify_expression &self.continuation_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8532,7 +9201,7 @@ static void cont__compiler__call__simplify_statement_56(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 366: ... &self.continuation_of
+  // 386: ... &self.continuation_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -8551,7 +9220,7 @@ static void cont__compiler__call__simplify_statement_57(void) {
     invalid_results_error();
     return;
   }
-  // 367: ... self.functor_of
+  // 387: ... self.functor_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
@@ -8566,7 +9235,7 @@ static void cont__compiler__call__simplify_statement_58(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 367: simplify_expression &self.functor_of
+  // 387: simplify_expression &self.functor_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8581,7 +9250,7 @@ static void cont__compiler__call__simplify_statement_59(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 367: ... &self.functor_of
+  // 387: ... &self.functor_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -8595,54 +9264,54 @@ static void cont__compiler__call__simplify_statement_59(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__call__simplify_statement_60(void) {
+static void cont__compiler__call___simplify_statement_60(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 369: self.is_an_assignment
+  // 389: self.is_an_assignment
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 1;
   myself = get__is_an_assignment();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_61;
+  frame->cont = cont__compiler__call___simplify_statement_61;
 }
-static void cont__compiler__call__simplify_statement_61(void) {
+static void cont__compiler__call___simplify_statement_61(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 369: ... :
-  // 370:   $destination output_arguments(1)
-  // 371:   if destination.is_a_definition:
-  // 372:     if
-  // 373:       destination.is_a_single_assign_definition:
-  // 374:         $source input_arguments(1)
-  // 375:         if attribute_kind_of(destination) != NONE:
-  // 376:           push &definitions destination = source
-  // 377:           return
-  // 378:         cond
+  // 389: ... :
+  // 390:   $destination output_arguments(1)
+  // 391:   if destination.is_a_definition:
+  // 392:     if
+  // 393:       destination.is_a_single_assign_definition:
+  // 394:         $source input_arguments(1)
+  // 395:         if attribute_kind_of(destination) != NONE:
+  // 396:           push &definitions destination = source
+  // 397:           return
+  // 398:         cond
   // ...
   frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_62, 0);
-  // 398: :
-  // 399:   update_each &output_arguments: (&argument)
-  // 400:     if argument.is_a_definition:
-  // 401:       push &definitions argument
-  // 402:       !argument.is_an_initialization true
+  // 418: :
+  // 419:   update_each &output_arguments: (&argument)
+  // 420:     if argument.is_a_definition:
+  // 421:       push &definitions argument
+  // 422:       !argument.is_an_initialization true
   frame->slots[8] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_107, 0);
-  // 368: if
-  // 369:   self.is_an_assignment:
-  // 370:     $destination output_arguments(1)
-  // 371:     if destination.is_a_definition:
-  // 372:       if
-  // 373:         destination.is_a_single_assign_definition:
-  // 374:           $source input_arguments(1)
-  // 375:           if attribute_kind_of(destination) != NONE:
-  // 376:             push &definitions destination = source
-  // 377:             return
+  // 388: if
+  // 389:   self.is_an_assignment:
+  // 390:     $destination output_arguments(1)
+  // 391:     if destination.is_a_definition:
+  // 392:       if
+  // 393:         destination.is_a_single_assign_definition:
+  // 394:           $source input_arguments(1)
+  // 395:           if attribute_kind_of(destination) != NONE:
+  // 396:             push &definitions destination = source
+  // 397:             return
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -8652,7 +9321,7 @@ static void cont__compiler__call__simplify_statement_61(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_114;
+  frame->cont = cont__compiler__call___simplify_statement_114;
 }
 static void entry__compiler__call__simplify_statement_62(void) {
   allocate_initialized_frame_gc(4, 8);
@@ -8671,7 +9340,7 @@ static void entry__compiler__call__simplify_statement_62(void) {
     invalid_arguments_error();
     return;
   }
-  // 370: $destination output_arguments(1)
+  // 390: $destination output_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8686,7 +9355,7 @@ static void cont__compiler__call__simplify_statement_63(void) {
     return;
   }
   initialize_future(frame->slots[4] /* destination */, arguments->slots[0]);
-  // 371: ... destination.is_a_definition
+  // 391: ... destination.is_a_definition
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* destination */;
@@ -8701,28 +9370,28 @@ static void cont__compiler__call__simplify_statement_64(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 371: ... :
-  // 372:   if
-  // 373:     destination.is_a_single_assign_definition:
-  // 374:       $source input_arguments(1)
-  // 375:       if attribute_kind_of(destination) != NONE:
-  // 376:         push &definitions destination = source
-  // 377:         return
-  // 378:       cond
-  // 379:         -> source.is_a_constant || source.is_single_assign:
-  // 380:           push &definitions destination = source
+  // 391: ... :
+  // 392:   if
+  // 393:     destination.is_a_single_assign_definition:
+  // 394:       $source input_arguments(1)
+  // 395:       if attribute_kind_of(destination) != NONE:
+  // 396:         push &definitions destination = source
+  // 397:         return
+  // 398:       cond
+  // 399:         -> source.is_a_constant || source.is_single_assign:
+  // 400:           push &definitions destination = source
   // ...
   frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_65, 0);
-  // 371: if destination.is_a_definition:
-  // 372:   if
-  // 373:     destination.is_a_single_assign_definition:
-  // 374:       $source input_arguments(1)
-  // 375:       if attribute_kind_of(destination) != NONE:
-  // 376:         push &definitions destination = source
-  // 377:         return
-  // 378:       cond
-  // 379:         -> source.is_a_constant || source.is_single_assign:
-  // 380:           push &definitions destination = source
+  // 391: if destination.is_a_definition:
+  // 392:   if
+  // 393:     destination.is_a_single_assign_definition:
+  // 394:       $source input_arguments(1)
+  // 395:       if attribute_kind_of(destination) != NONE:
+  // 396:         push &definitions destination = source
+  // 397:         return
+  // 398:       cond
+  // 399:         -> source.is_a_constant || source.is_single_assign:
+  // 400:           push &definitions destination = source
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -8746,7 +9415,7 @@ static void entry__compiler__call__simplify_statement_86(void) {
     invalid_arguments_error();
     return;
   }
-  // 383: ... destination = source
+  // 403: ... destination = source
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -8762,7 +9431,7 @@ static void cont__compiler__call__simplify_statement_87(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 383: push &definitions destination = source
+  // 403: push &definitions destination = source
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__definitions();
@@ -8778,7 +9447,7 @@ static void cont__compiler__call__simplify_statement_88(void) {
     return;
   }
   set__definitions(arguments->slots[0]);
-  // 384: ... output_arguments(1)
+  // 404: ... output_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8793,7 +9462,7 @@ static void cont__compiler__call__simplify_statement_89(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 384: !output_arguments(1).is_an_initialization
+  // 404: !output_arguments(1).is_an_initialization
   {
     NODE *temp = clone_object_and_attributes(frame->slots[3] /* temp__1 */);
     update_start_p = node_p;
@@ -8801,7 +9470,7 @@ static void cont__compiler__call__simplify_statement_89(void) {
     frame->slots[3] /* temp__1 */ = temp;
 
   }
-  // 384: !output_arguments(1)
+  // 404: !output_arguments(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -8836,7 +9505,7 @@ static void entry__compiler__call__simplify_statement_81(void) {
     invalid_arguments_error();
     return;
   }
-  // 380: ... destination = source
+  // 400: ... destination = source
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -8852,7 +9521,7 @@ static void cont__compiler__call__simplify_statement_82(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 380: push &definitions destination = source
+  // 400: push &definitions destination = source
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__definitions();
@@ -8868,7 +9537,7 @@ static void cont__compiler__call__simplify_statement_83(void) {
     return;
   }
   set__definitions(arguments->slots[0]);
-  // 381: return
+  // 401: return
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -8889,7 +9558,7 @@ static void entry__compiler__call__simplify_statement_76(void) {
     invalid_arguments_error();
     return;
   }
-  // 379: ... source.is_a_constant
+  // 399: ... source.is_a_constant
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* source */;
@@ -8904,9 +9573,9 @@ static void cont__compiler__call__simplify_statement_77(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 379: ... source.is_single_assign
+  // 399: ... source.is_single_assign
   frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_78, 0);
-  // 379: ... source.is_a_constant || source.is_single_assign
+  // 399: ... source.is_a_constant || source.is_single_assign
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -8925,7 +9594,7 @@ static void entry__compiler__call__simplify_statement_78(void) {
     invalid_arguments_error();
     return;
   }
-  // 379: ... source.is_single_assign
+  // 399: ... source.is_single_assign
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* source */;
@@ -8940,7 +9609,7 @@ static void cont__compiler__call__simplify_statement_79(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 379: ... source.is_single_assign
+  // 399: ... source.is_single_assign
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -8954,13 +9623,13 @@ static void cont__compiler__call__simplify_statement_80(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 379: ... :
-  // 380:   push &definitions destination = source
-  // 381:   return
+  // 399: ... :
+  // 400:   push &definitions destination = source
+  // 401:   return
   frame->slots[6] /* temp__4 */ = create_closure(entry__compiler__call__simplify_statement_81, 0);
-  // 379: -> source.is_a_constant || source.is_single_assign:
-  // 380:   push &definitions destination = source
-  // 381:   return
+  // 399: -> source.is_a_constant || source.is_single_assign:
+  // 400:   push &definitions destination = source
+  // 401:   return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -8982,7 +9651,7 @@ static void entry__compiler__call__simplify_statement_84(void) {
     invalid_arguments_error();
     return;
   }
-  // 382: ... source.might_be_constant
+  // 402: ... source.might_be_constant
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* source */;
@@ -8997,13 +9666,13 @@ static void cont__compiler__call__simplify_statement_85(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 382: ... :
-  // 383:   push &definitions destination = source
-  // 384:   !output_arguments(1).is_an_initialization true
+  // 402: ... :
+  // 403:   push &definitions destination = source
+  // 404:   !output_arguments(1).is_an_initialization true
   frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_86, 0);
-  // 382: -> source.might_be_constant:
-  // 383:   push &definitions destination = source
-  // 384:   !output_arguments(1).is_an_initialization true
+  // 402: -> source.might_be_constant:
+  // 403:   push &definitions destination = source
+  // 404:   !output_arguments(1).is_an_initialization true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -9023,7 +9692,7 @@ static void entry__compiler__call__simplify_statement_91(void) {
     invalid_arguments_error();
     return;
   }
-  // 386: push &definitions destination
+  // 406: push &definitions destination
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__definitions();
@@ -9039,7 +9708,7 @@ static void cont__compiler__call__simplify_statement_92(void) {
     return;
   }
   set__definitions(arguments->slots[0]);
-  // 387: ... output_arguments(1)
+  // 407: ... output_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -9054,7 +9723,7 @@ static void cont__compiler__call__simplify_statement_93(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 387: !output_arguments(1).is_an_initialization
+  // 407: !output_arguments(1).is_an_initialization
   {
     NODE *temp = clone_object_and_attributes(frame->slots[2] /* temp__1 */);
     update_start_p = node_p;
@@ -9062,7 +9731,7 @@ static void cont__compiler__call__simplify_statement_93(void) {
     frame->slots[2] /* temp__1 */ = temp;
 
   }
-  // 387: !output_arguments(1)
+  // 407: !output_arguments(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -9101,7 +9770,7 @@ static void entry__compiler__call__simplify_statement_67(void) {
     invalid_arguments_error();
     return;
   }
-  // 374: $source input_arguments(1)
+  // 394: $source input_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -9116,7 +9785,7 @@ static void cont__compiler__call__simplify_statement_68(void) {
     return;
   }
   initialize_future(frame->slots[4] /* source */, arguments->slots[0]);
-  // 375: ... attribute_kind_of(destination)
+  // 395: ... attribute_kind_of(destination)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* destination */;
@@ -9131,7 +9800,7 @@ static void cont__compiler__call__simplify_statement_69(void) {
     return;
   }
   frame->slots[7] /* temp__3 */ = arguments->slots[0];
-  // 375: ... attribute_kind_of(destination) != NONE
+  // 395: ... attribute_kind_of(destination) != NONE
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__3 */;
@@ -9147,7 +9816,7 @@ static void cont__compiler__call__simplify_statement_70(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 375: ... attribute_kind_of(destination) != NONE
+  // 395: ... attribute_kind_of(destination) != NONE
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -9162,13 +9831,13 @@ static void cont__compiler__call__simplify_statement_71(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 375: ... :
-  // 376:   push &definitions destination = source
-  // 377:   return
+  // 395: ... :
+  // 396:   push &definitions destination = source
+  // 397:   return
   frame->slots[8] /* temp__4 */ = create_closure(entry__compiler__call__simplify_statement_72, 0);
-  // 375: if attribute_kind_of(destination) != NONE:
-  // 376:   push &definitions destination = source
-  // 377:   return
+  // 395: if attribute_kind_of(destination) != NONE:
+  // 396:   push &definitions destination = source
+  // 397:   return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -9191,7 +9860,7 @@ static void entry__compiler__call__simplify_statement_72(void) {
     invalid_arguments_error();
     return;
   }
-  // 376: ... destination = source
+  // 396: ... destination = source
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -9207,7 +9876,7 @@ static void cont__compiler__call__simplify_statement_73(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 376: push &definitions destination = source
+  // 396: push &definitions destination = source
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__definitions();
@@ -9223,7 +9892,7 @@ static void cont__compiler__call__simplify_statement_74(void) {
     return;
   }
   set__definitions(arguments->slots[0]);
-  // 377: return
+  // 397: return
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -9236,28 +9905,28 @@ static void cont__compiler__call__simplify_statement_75(void) {
     invalid_results_error();
     return;
   }
-  // 379: -> source.is_a_constant || source.is_single_assign:
-  // 380:   push &definitions destination = source
-  // 381:   return
+  // 399: -> source.is_a_constant || source.is_single_assign:
+  // 400:   push &definitions destination = source
+  // 401:   return
   frame->slots[5] /* temp__1 */ = create_closure(entry__compiler__call__simplify_statement_76, 0);
-  // 382: -> source.might_be_constant:
-  // 383:   push &definitions destination = source
-  // 384:   !output_arguments(1).is_an_initialization true
+  // 402: -> source.might_be_constant:
+  // 403:   push &definitions destination = source
+  // 404:   !output_arguments(1).is_an_initialization true
   frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_84, 0);
-  // 385: :
-  // 386:   push &definitions destination
-  // 387:   !output_arguments(1).is_an_initialization true
+  // 405: :
+  // 406:   push &definitions destination
+  // 407:   !output_arguments(1).is_an_initialization true
   frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_91, 0);
-  // 378: cond
-  // 379:   -> source.is_a_constant || source.is_single_assign:
-  // 380:     push &definitions destination = source
-  // 381:     return
-  // 382:   -> source.might_be_constant:
-  // 383:     push &definitions destination = source
-  // 384:     !output_arguments(1).is_an_initialization true
-  // 385:   :
-  // 386:     push &definitions destination
-  // 387:     !output_arguments(1).is_an_initialization true
+  // 398: cond
+  // 399:   -> source.is_a_constant || source.is_single_assign:
+  // 400:     push &definitions destination = source
+  // 401:     return
+  // 402:   -> source.might_be_constant:
+  // 403:     push &definitions destination = source
+  // 404:     !output_arguments(1).is_an_initialization true
+  // 405:   :
+  // 406:     push &definitions destination
+  // 407:     !output_arguments(1).is_an_initialization true
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -9279,7 +9948,7 @@ static void entry__compiler__call__simplify_statement_95(void) {
     invalid_arguments_error();
     return;
   }
-  // 389: push &definitions destination
+  // 409: push &definitions destination
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__definitions();
@@ -9295,7 +9964,7 @@ static void cont__compiler__call__simplify_statement_96(void) {
     return;
   }
   set__definitions(arguments->slots[0]);
-  // 390: ... output_arguments(1)
+  // 410: ... output_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -9310,7 +9979,7 @@ static void cont__compiler__call__simplify_statement_97(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 390: !output_arguments(1).is_an_initialization
+  // 410: !output_arguments(1).is_an_initialization
   {
     NODE *temp = clone_object_and_attributes(frame->slots[2] /* temp__1 */);
     update_start_p = node_p;
@@ -9318,7 +9987,7 @@ static void cont__compiler__call__simplify_statement_97(void) {
     frame->slots[2] /* temp__1 */ = temp;
 
   }
-  // 390: !output_arguments(1)
+  // 410: !output_arguments(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -9355,7 +10024,7 @@ static void entry__compiler__call__simplify_statement_65(void) {
     invalid_arguments_error();
     return;
   }
-  // 373: destination.is_a_single_assign_definition
+  // 393: destination.is_a_single_assign_definition
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -9370,32 +10039,32 @@ static void cont__compiler__call__simplify_statement_66(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 373: ... :
-  // 374:   $source input_arguments(1)
-  // 375:   if attribute_kind_of(destination) != NONE:
-  // 376:     push &definitions destination = source
-  // 377:     return
-  // 378:   cond
-  // 379:     -> source.is_a_constant || source.is_single_assign:
-  // 380:       push &definitions destination = source
-  // 381:       return
-  // 382:     -> source.might_be_constant:
+  // 393: ... :
+  // 394:   $source input_arguments(1)
+  // 395:   if attribute_kind_of(destination) != NONE:
+  // 396:     push &definitions destination = source
+  // 397:     return
+  // 398:   cond
+  // 399:     -> source.is_a_constant || source.is_single_assign:
+  // 400:       push &definitions destination = source
+  // 401:       return
+  // 402:     -> source.might_be_constant:
   // ...
   frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_67, 0);
-  // 388: :
-  // 389:   push &definitions destination
-  // 390:   !output_arguments(1).is_an_initialization true
+  // 408: :
+  // 409:   push &definitions destination
+  // 410:   !output_arguments(1).is_an_initialization true
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_95, 0);
-  // 372: if
-  // 373:   destination.is_a_single_assign_definition:
-  // 374:     $source input_arguments(1)
-  // 375:     if attribute_kind_of(destination) != NONE:
-  // 376:       push &definitions destination = source
-  // 377:       return
-  // 378:     cond
-  // 379:       -> source.is_a_constant || source.is_single_assign:
-  // 380:         push &definitions destination = source
-  // 381:         return
+  // 392: if
+  // 393:   destination.is_a_single_assign_definition:
+  // 394:     $source input_arguments(1)
+  // 395:     if attribute_kind_of(destination) != NONE:
+  // 396:       push &definitions destination = source
+  // 397:       return
+  // 398:     cond
+  // 399:       -> source.is_a_constant || source.is_single_assign:
+  // 400:         push &definitions destination = source
+  // 401:         return
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -9412,7 +10081,7 @@ static void cont__compiler__call__simplify_statement_99(void) {
     invalid_results_error();
     return;
   }
-  // 392: destination.is_a_function_call
+  // 412: destination.is_a_function_call
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* destination */;
@@ -9427,19 +10096,19 @@ static void cont__compiler__call__simplify_statement_100(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 392: ... :
-  // 393:   store_result destination input_arguments(1)
+  // 412: ... :
+  // 413:   store_result destination input_arguments(1)
   frame->slots[6] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_101, 0);
-  // 394: :
-  // 395:   !self.arguments_of append(output_arguments input_arguments)
-  // 396:   push &statements self
+  // 414: :
+  // 415:   !self.arguments_of append(output_arguments input_arguments)
+  // 416:   push &statements self
   frame->slots[7] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_103, 0);
-  // 391: if
-  // 392:   destination.is_a_function_call:
-  // 393:     store_result destination input_arguments(1)
-  // 394:   :
-  // 395:     !self.arguments_of append(output_arguments input_arguments)
-  // 396:     push &statements self
+  // 411: if
+  // 412:   destination.is_a_function_call:
+  // 413:     store_result destination input_arguments(1)
+  // 414:   :
+  // 415:     !self.arguments_of append(output_arguments input_arguments)
+  // 416:     push &statements self
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -9461,7 +10130,7 @@ static void entry__compiler__call__simplify_statement_101(void) {
     invalid_arguments_error();
     return;
   }
-  // 393: ... input_arguments(1)
+  // 413: ... input_arguments(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -9476,13 +10145,13 @@ static void cont__compiler__call__simplify_statement_102(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 393: store_result destination input_arguments(1)
+  // 413: store_result destination input_arguments(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
   arguments->slots[1] = frame->slots[2] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = var._store_result;
+  myself = func__store_result;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -9499,7 +10168,7 @@ static void entry__compiler__call__simplify_statement_103(void) {
     invalid_arguments_error();
     return;
   }
-  // 395: !self.arguments_of append(output_arguments input_arguments)
+  // 415: !self.arguments_of append(output_arguments input_arguments)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* output_arguments */;
@@ -9515,7 +10184,7 @@ static void cont__compiler__call__simplify_statement_104(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 395: !self.arguments_of
+  // 415: !self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -9523,7 +10192,7 @@ static void cont__compiler__call__simplify_statement_104(void) {
     ((CELL *)frame->slots[0])->contents /* self */ = temp;
 
   }
-  // 396: push &statements self
+  // 416: push &statements self
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__statements();
@@ -9550,7 +10219,7 @@ static void cont__compiler__call__simplify_statement_106(void) {
     invalid_results_error();
     return;
   }
-  // 397: return
+  // 417: return
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -9567,10 +10236,10 @@ static void entry__compiler__call__simplify_statement_107(void) {
     invalid_arguments_error();
     return;
   }
-  // 399: update_each &output_arguments: (&argument)
-  // 400:   if argument.is_a_definition:
-  // 401:     push &definitions argument
-  // 402:     !argument.is_an_initialization true
+  // 419: update_each &output_arguments: (&argument)
+  // 420:   if argument.is_a_definition:
+  // 421:     push &definitions argument
+  // 422:     !argument.is_an_initialization true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* output_arguments */;
@@ -9589,7 +10258,7 @@ static void entry__compiler__call__simplify_statement_108(void) {
     return;
   }
   frame->slots[0] /* argument */ = create_cell_with_contents(arguments->slots[0]);
-  // 400: ... argument.is_a_definition
+  // 420: ... argument.is_a_definition
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* argument */;
@@ -9604,13 +10273,13 @@ static void cont__compiler__call__simplify_statement_109(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 400: ... :
-  // 401:   push &definitions argument
-  // 402:   !argument.is_an_initialization true
+  // 420: ... :
+  // 421:   push &definitions argument
+  // 422:   !argument.is_an_initialization true
   frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_110, 0);
-  // 400: if argument.is_a_definition:
-  // 401:   push &definitions argument
-  // 402:   !argument.is_an_initialization true
+  // 420: if argument.is_a_definition:
+  // 421:   push &definitions argument
+  // 422:   !argument.is_an_initialization true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -9631,7 +10300,7 @@ static void entry__compiler__call__simplify_statement_110(void) {
     invalid_arguments_error();
     return;
   }
-  // 401: push &definitions argument
+  // 421: push &definitions argument
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__definitions();
@@ -9647,7 +10316,7 @@ static void cont__compiler__call__simplify_statement_111(void) {
     return;
   }
   set__definitions(arguments->slots[0]);
-  // 402: !argument.is_an_initialization
+  // 422: !argument.is_an_initialization
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* argument */);
     update_start_p = node_p;
@@ -9684,12 +10353,12 @@ static void cont__compiler__call__simplify_statement_113(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__call__simplify_statement_114(void) {
+static void cont__compiler__call___simplify_statement_114(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 403: !self.arguments_of append(output_arguments input_arguments)
+  // 423: !self.arguments_of append(output_arguments input_arguments)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* output_arguments */;
@@ -9697,15 +10366,15 @@ static void cont__compiler__call__simplify_statement_114(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_115;
+  frame->cont = cont__compiler__call___simplify_statement_115;
 }
-static void cont__compiler__call__simplify_statement_115(void) {
+static void cont__compiler__call___simplify_statement_115(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 403: !self.arguments_of
+  // 423: !self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -9713,7 +10382,7 @@ static void cont__compiler__call__simplify_statement_115(void) {
     ((CELL *)frame->slots[0])->contents /* self */ = temp;
 
   }
-  // 404: push &statements self
+  // 424: push &statements self
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__statements();
@@ -9721,51 +10390,51 @@ static void cont__compiler__call__simplify_statement_115(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_116;
+  frame->cont = cont__compiler__call___simplify_statement_116;
 }
-static void cont__compiler__call__simplify_statement_116(void) {
+static void cont__compiler__call___simplify_statement_116(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   set__statements(arguments->slots[0]);
-  // 405: ... final_destinations.is_defined
+  // 425: ... final_destinations.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* final_destinations */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_117;
+  frame->cont = cont__compiler__call___simplify_statement_117;
 }
-static void cont__compiler__call__simplify_statement_117(void) {
+static void cont__compiler__call___simplify_statement_117(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 405: ... :
-  // 406:   for_each final_destinations: (idx destination)
-  // 407:     if destination.is_defined:
-  // 408:       $result
-  // 409:         output_arguments(idx)
-  // 410:           .is_an_optional_item false
-  // 411:           .is_an_expanded_item false
-  // 412:           .is_a_destination false
-  // 413:       
-  // 414:       if
+  // 425: ... :
+  // 426:   for_each final_destinations: (idx destination)
+  // 427:     if destination.is_defined:
+  // 428:       $result
+  // 429:         output_arguments(idx)
+  // 430:           .is_an_optional_item false
+  // 431:           .is_an_expanded_item false
+  // 432:           .is_a_destination false
+  // 433:       
+  // 434:       if
   // ...
   frame->slots[7] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_118, 0);
-  // 405: if final_destinations.is_defined:
-  // 406:   for_each final_destinations: (idx destination)
-  // 407:     if destination.is_defined:
-  // 408:       $result
-  // 409:         output_arguments(idx)
-  // 410:           .is_an_optional_item false
-  // 411:           .is_an_expanded_item false
-  // 412:           .is_a_destination false
-  // 413:       
-  // 414:       if
+  // 425: if final_destinations.is_defined:
+  // 426:   for_each final_destinations: (idx destination)
+  // 427:     if destination.is_defined:
+  // 428:       $result
+  // 429:         output_arguments(idx)
+  // 430:           .is_an_optional_item false
+  // 431:           .is_an_expanded_item false
+  // 432:           .is_a_destination false
+  // 433:       
+  // 434:       if
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -9774,7 +10443,7 @@ static void cont__compiler__call__simplify_statement_117(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__call__simplify_statement_135;
+  frame->cont = cont__compiler__call___simplify_statement_135;
 }
 static void entry__compiler__call__simplify_statement_124(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -9787,13 +10456,13 @@ static void entry__compiler__call__simplify_statement_124(void) {
     invalid_arguments_error();
     return;
   }
-  // 416: store_result destination result
+  // 436: store_result destination result
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
   arguments->slots[1] = frame->slots[1] /* result */;
   result_count = frame->caller_result_count;
-  myself = var._store_result;
+  myself = func__store_result;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -9810,7 +10479,7 @@ static void entry__compiler__call__simplify_statement_125(void) {
     invalid_arguments_error();
     return;
   }
-  // 424: destination.is_an_identifier
+  // 444: destination.is_an_identifier
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -9825,15 +10494,15 @@ static void cont__compiler__call__simplify_statement_126(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 425: -> destination
+  // 445: -> destination
   frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_127, 0);
-  // 426: -> identifier_of(destination)
+  // 446: -> identifier_of(destination)
   frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_128, 0);
-  // 422: $identifier
-  // 423:   if
-  // 424:     destination.is_an_identifier
-  // 425:     -> destination
-  // 426:     -> identifier_of(destination)
+  // 442: $identifier
+  // 443:   if
+  // 444:     destination.is_an_identifier
+  // 445:     -> destination
+  // 446:     -> identifier_of(destination)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -9853,7 +10522,7 @@ static void entry__compiler__call__simplify_statement_127(void) {
     invalid_arguments_error();
     return;
   }
-  // 425: -> destination
+  // 445: -> destination
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -9870,7 +10539,7 @@ static void entry__compiler__call__simplify_statement_128(void) {
     invalid_arguments_error();
     return;
   }
-  // 426: ... identifier_of(destination)
+  // 446: ... identifier_of(destination)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -9885,7 +10554,7 @@ static void cont__compiler__call__simplify_statement_129(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 426: -> identifier_of(destination)
+  // 446: -> identifier_of(destination)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -9899,7 +10568,7 @@ static void cont__compiler__call__simplify_statement_130(void) {
     return;
   }
   initialize_future(frame->slots[2] /* identifier */, arguments->slots[0]);
-  // 430: ... list(destination result)
+  // 450: ... list(destination result)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* destination */;
@@ -9915,7 +10584,7 @@ static void cont__compiler__call__simplify_statement_131(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 431: ... fragment_of(identifier)
+  // 451: ... fragment_of(identifier)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* identifier */;
@@ -9930,7 +10599,7 @@ static void cont__compiler__call__simplify_statement_132(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 432: ... source_position_of(identifier)
+  // 452: ... source_position_of(identifier)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* identifier */;
@@ -9945,7 +10614,7 @@ static void cont__compiler__call__simplify_statement_133(void) {
     return;
   }
   frame->slots[6] /* temp__4 */ = arguments->slots[0];
-  // 433: ... end_position_of(identifier)
+  // 453: ... end_position_of(identifier)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* identifier */;
@@ -9970,12 +10639,12 @@ static void cont__compiler__call__simplify_statement_134(void) {
     frame->slots[3] /* temp__1 */ = temp;
 
   }
-  // 428: simplify_statement
-  // 429:   assignment
-  // 430:     .arguments_of list(destination result)
-  // 431:     .fragment_of fragment_of(identifier)
-  // 432:     .source_position_of source_position_of(identifier)
-  // 433:     .end_position_of end_position_of(identifier)
+  // 448: simplify_statement
+  // 449:   assignment
+  // 450:     .arguments_of list(destination result)
+  // 451:     .fragment_of fragment_of(identifier)
+  // 452:     .source_position_of source_position_of(identifier)
+  // 453:     .end_position_of end_position_of(identifier)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -9999,7 +10668,7 @@ static void entry__compiler__call__simplify_statement_121(void) {
     invalid_arguments_error();
     return;
   }
-  // 409: output_arguments(idx)
+  // 429: output_arguments(idx)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* idx */;
@@ -10014,11 +10683,11 @@ static void cont__compiler__call__simplify_statement_122(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 408: $result
-  // 409:   output_arguments(idx)
-  // 410:     .is_an_optional_item false
-  // 411:     .is_an_expanded_item false
-  // 412:     .is_a_destination false
+  // 428: $result
+  // 429:   output_arguments(idx)
+  // 430:     .is_an_optional_item false
+  // 431:     .is_an_expanded_item false
+  // 432:     .is_a_destination false
   {
     NODE *temp = clone_object_and_attributes(frame->slots[4] /* temp__1 */);
     update_start_p = node_p;
@@ -10028,7 +10697,7 @@ static void cont__compiler__call__simplify_statement_122(void) {
     initialize_future(frame->slots[3] /* result */, temp);
 
   }
-  // 415: destination.is_a_function_call
+  // 435: destination.is_a_function_call
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* destination */;
@@ -10043,31 +10712,31 @@ static void cont__compiler__call__simplify_statement_123(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 415: ... :
-  // 416:   store_result destination result
+  // 435: ... :
+  // 436:   store_result destination result
   frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_124, 0);
-  // 417: :
-  // 418:   #
-  // 419:     ATTENTION: strange - only two source code files have destinations
-  // 420:     that actually are identifier nodes - maybe an error in the AST?
-  // 421:   
-  // 422:   $identifier
-  // 423:     if
-  // 424:       destination.is_an_identifier
-  // 425:       -> destination
-  // 426:       -> identifier_of(destination)
+  // 437: :
+  // 438:   #
+  // 439:     ATTENTION: strange - only two source code files have destinations
+  // 440:     that actually are identifier nodes - maybe an error in the AST?
+  // 441:   
+  // 442:   $identifier
+  // 443:     if
+  // 444:       destination.is_an_identifier
+  // 445:       -> destination
+  // 446:       -> identifier_of(destination)
   // ...
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__call__simplify_statement_125, 0);
-  // 414: if
-  // 415:   destination.is_a_function_call:
-  // 416:     store_result destination result
-  // 417:   :
-  // 418:     #
-  // 419:       ATTENTION: strange - only two source code files have destinations
-  // 420:       that actually are identifier nodes - maybe an error in the AST?
-  // 421:     
-  // 422:     $identifier
-  // 423:       if
+  // 434: if
+  // 435:   destination.is_a_function_call:
+  // 436:     store_result destination result
+  // 437:   :
+  // 438:     #
+  // 439:       ATTENTION: strange - only two source code files have destinations
+  // 440:       that actually are identifier nodes - maybe an error in the AST?
+  // 441:     
+  // 442:     $identifier
+  // 443:       if
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -10090,7 +10759,7 @@ static void entry__compiler__call__simplify_statement_119(void) {
     invalid_arguments_error();
     return;
   }
-  // 407: ... destination.is_defined
+  // 427: ... destination.is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* destination */;
@@ -10105,28 +10774,28 @@ static void cont__compiler__call__simplify_statement_120(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 407: ... :
-  // 408:   $result
-  // 409:     output_arguments(idx)
-  // 410:       .is_an_optional_item false
-  // 411:       .is_an_expanded_item false
-  // 412:       .is_a_destination false
-  // 413:   
-  // 414:   if
-  // 415:     destination.is_a_function_call:
-  // 416:       store_result destination result
+  // 427: ... :
+  // 428:   $result
+  // 429:     output_arguments(idx)
+  // 430:       .is_an_optional_item false
+  // 431:       .is_an_expanded_item false
+  // 432:       .is_a_destination false
+  // 433:   
+  // 434:   if
+  // 435:     destination.is_a_function_call:
+  // 436:       store_result destination result
   // ...
   frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__call__simplify_statement_121, 0);
-  // 407: if destination.is_defined:
-  // 408:   $result
-  // 409:     output_arguments(idx)
-  // 410:       .is_an_optional_item false
-  // 411:       .is_an_expanded_item false
-  // 412:       .is_a_destination false
-  // 413:   
-  // 414:   if
-  // 415:     destination.is_a_function_call:
-  // 416:       store_result destination result
+  // 427: if destination.is_defined:
+  // 428:   $result
+  // 429:     output_arguments(idx)
+  // 430:       .is_an_optional_item false
+  // 431:       .is_an_expanded_item false
+  // 432:       .is_a_destination false
+  // 433:   
+  // 434:   if
+  // 435:     destination.is_a_function_call:
+  // 436:       store_result destination result
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -10148,28 +10817,28 @@ static void entry__compiler__call__simplify_statement_118(void) {
     invalid_arguments_error();
     return;
   }
-  // 406: ... : (idx destination)
-  // 407:   if destination.is_defined:
-  // 408:     $result
-  // 409:       output_arguments(idx)
-  // 410:         .is_an_optional_item false
-  // 411:         .is_an_expanded_item false
-  // 412:         .is_a_destination false
-  // 413:     
-  // 414:     if
-  // 415:       destination.is_a_function_call:
+  // 426: ... : (idx destination)
+  // 427:   if destination.is_defined:
+  // 428:     $result
+  // 429:       output_arguments(idx)
+  // 430:         .is_an_optional_item false
+  // 431:         .is_an_expanded_item false
+  // 432:         .is_a_destination false
+  // 433:     
+  // 434:     if
+  // 435:       destination.is_a_function_call:
   // ...
   frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__call__simplify_statement_119, 2);
-  // 406: for_each final_destinations: (idx destination)
-  // 407:   if destination.is_defined:
-  // 408:     $result
-  // 409:       output_arguments(idx)
-  // 410:         .is_an_optional_item false
-  // 411:         .is_an_expanded_item false
-  // 412:         .is_a_destination false
-  // 413:     
-  // 414:     if
-  // 415:       destination.is_a_function_call:
+  // 426: for_each final_destinations: (idx destination)
+  // 427:   if destination.is_defined:
+  // 428:     $result
+  // 429:       output_arguments(idx)
+  // 430:         .is_an_optional_item false
+  // 431:         .is_an_expanded_item false
+  // 432:         .is_a_destination false
+  // 433:     
+  // 434:     if
+  // 435:       destination.is_a_function_call:
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -10180,12 +10849,12 @@ static void entry__compiler__call__simplify_statement_118(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__compiler__call__simplify_statement_135(void) {
+static void cont__compiler__call___simplify_statement_135(void) {
   myself = frame->slots[1] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__function_call__simplify_expression_1(void) {
+static void entry__compiler__function_call___simplify_expression(void) {
   allocate_initialized_frame_gc(1, 10);
   // slot allocations:
   // self: 0
@@ -10195,65 +10864,65 @@ static void entry__compiler__function_call__simplify_expression_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 439: show_compiler_debug_info "simplify function call"
+  // 459: show_compiler_debug_info "simplify function call"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__95014404e5c0e88d;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__simplify_expression_3;
+  frame->cont = cont__compiler__function_call___simplify_expression_3;
 }
-static void cont__compiler__function_call__simplify_expression_3(void) {
+static void cont__compiler__function_call___simplify_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 440: $temp temporary_identifier()
+  // 460: $temp temporary_identifier()
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
-  myself = var._temporary_identifier;
+  myself = func__temporary_identifier;
   func = myself->type;
-  frame->cont = cont__compiler__function_call__simplify_expression_4;
+  frame->cont = cont__compiler__function_call___simplify_expression_4;
 }
-static void cont__compiler__function_call__simplify_expression_4(void) {
+static void cont__compiler__function_call___simplify_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   initialize_future(frame->slots[1] /* temp */, arguments->slots[0]);
-  // 443: ... functor_of(self)
+  // 463: ... functor_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
   result_count = 1;
   myself = get__functor_of();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__simplify_expression_5;
+  frame->cont = cont__compiler__function_call___simplify_expression_5;
 }
-static void cont__compiler__function_call__simplify_expression_5(void) {
+static void cont__compiler__function_call___simplify_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 444: ... arguments_of(self)
+  // 464: ... arguments_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__simplify_expression_6;
+  frame->cont = cont__compiler__function_call___simplify_expression_6;
 }
-static void cont__compiler__function_call__simplify_expression_6(void) {
+static void cont__compiler__function_call___simplify_expression_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 444: ... temp(.is_a_destination true)
+  // 464: ... temp(.is_a_destination true)
   {
     NODE *temp = clone_object_and_attributes(frame->slots[1] /* temp */);
     update_start_p = node_p;
@@ -10261,7 +10930,7 @@ static void cont__compiler__function_call__simplify_expression_6(void) {
     frame->slots[6] /* temp__5 */ = temp;
 
   }
-  // 444: ... push(arguments_of(self) temp(.is_a_destination true))
+  // 464: ... push(arguments_of(self) temp(.is_a_destination true))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__4 */;
@@ -10269,54 +10938,54 @@ static void cont__compiler__function_call__simplify_expression_6(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__simplify_expression_7;
+  frame->cont = cont__compiler__function_call___simplify_expression_7;
 }
-static void cont__compiler__function_call__simplify_expression_7(void) {
+static void cont__compiler__function_call___simplify_expression_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 445: ... fragment_of(self)
+  // 465: ... fragment_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
   result_count = 1;
   myself = get__fragment_of();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__simplify_expression_8;
+  frame->cont = cont__compiler__function_call___simplify_expression_8;
 }
-static void cont__compiler__function_call__simplify_expression_8(void) {
+static void cont__compiler__function_call___simplify_expression_8(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[7] /* temp__6 */ = arguments->slots[0];
-  // 446: ... source_position_of(self)
+  // 466: ... source_position_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
   result_count = 1;
   myself = get__source_position_of();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__simplify_expression_9;
+  frame->cont = cont__compiler__function_call___simplify_expression_9;
 }
-static void cont__compiler__function_call__simplify_expression_9(void) {
+static void cont__compiler__function_call___simplify_expression_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[8] /* temp__7 */ = arguments->slots[0];
-  // 447: ... end_position_of(self)
+  // 467: ... end_position_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
   result_count = 1;
   myself = get__end_position_of();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__simplify_expression_10;
+  frame->cont = cont__compiler__function_call___simplify_expression_10;
 }
-static void cont__compiler__function_call__simplify_expression_10(void) {
+static void cont__compiler__function_call___simplify_expression_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10333,27 +11002,27 @@ static void cont__compiler__function_call__simplify_expression_10(void) {
     frame->slots[2] /* temp__1 */ = temp;
 
   }
-  // 441: simplify_statement
-  // 442:   procedure_call
-  // 443:     .functor_of functor_of(self)
-  // 444:     .arguments_of push(arguments_of(self) temp(.is_a_destination true))
-  // 445:     .fragment_of fragment_of(self)
-  // 446:     .source_position_of source_position_of(self)
-  // 447:     .end_position_of end_position_of(self)
+  // 461: simplify_statement
+  // 462:   procedure_call
+  // 463:     .functor_of functor_of(self)
+  // 464:     .arguments_of push(arguments_of(self) temp(.is_a_destination true))
+  // 465:     .fragment_of fragment_of(self)
+  // 466:     .source_position_of source_position_of(self)
+  // 467:     .end_position_of end_position_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   result_count = 0;
   myself = get__simplify_statement();
   func = myself->type;
-  frame->cont = cont__compiler__function_call__simplify_expression_11;
+  frame->cont = cont__compiler__function_call___simplify_expression_11;
 }
-static void cont__compiler__function_call__simplify_expression_11(void) {
+static void cont__compiler__function_call___simplify_expression_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 448: -> temp
+  // 468: -> temp
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp */;
@@ -10361,7 +11030,7 @@ static void cont__compiler__function_call__simplify_expression_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__attribute_value_pair__simplify_expression_1(void) {
+static void entry__compiler__attribute_value_pair___simplify_expression(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -10370,52 +11039,52 @@ static void entry__compiler__attribute_value_pair__simplify_expression_1(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 454: show_compiler_debug_info "simplify attribute-value pair"
+  // 474: show_compiler_debug_info "simplify attribute-value pair"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__cced2f4d969d3d03;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__attribute_value_pair__simplify_expression_3;
+  frame->cont = cont__compiler__attribute_value_pair___simplify_expression_3;
 }
-static void cont__compiler__attribute_value_pair__simplify_expression_3(void) {
+static void cont__compiler__attribute_value_pair___simplify_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 455: ... self.arguments_of
+  // 475: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__compiler__attribute_value_pair__simplify_expression_4;
+  frame->cont = cont__compiler__attribute_value_pair___simplify_expression_4;
 }
-static void cont__compiler__attribute_value_pair__simplify_expression_4(void) {
+static void cont__compiler__attribute_value_pair___simplify_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 455: simplify_input_arguments &self.arguments_of
-  // 456:   # There must not be any output arguments!!!
+  // 475: simplify_input_arguments &self.arguments_of
+  // 476:   # There must not be any output arguments!!!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   result_count = 1;
-  myself = var._simplify_input_arguments;
+  myself = func__simplify_input_arguments;
   func = myself->type;
-  frame->cont = cont__compiler__attribute_value_pair__simplify_expression_5;
+  frame->cont = cont__compiler__attribute_value_pair___simplify_expression_5;
 }
-static void cont__compiler__attribute_value_pair__simplify_expression_5(void) {
+static void cont__compiler__attribute_value_pair___simplify_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 455: ... &self.arguments_of
+  // 475: ... &self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -10430,7 +11099,7 @@ static void cont__compiler__attribute_value_pair__simplify_expression_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__attribute_function_pair__simplify_expression_1(void) {
+static void entry__compiler__attribute_function_pair___simplify_expression(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -10439,52 +11108,52 @@ static void entry__compiler__attribute_function_pair__simplify_expression_1(void
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 462: show_compiler_debug_info "simplify attribute-function pair"
+  // 482: show_compiler_debug_info "simplify attribute-function pair"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__83e573190949a328;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__attribute_function_pair__simplify_expression_3;
+  frame->cont = cont__compiler__attribute_function_pair___simplify_expression_3;
 }
-static void cont__compiler__attribute_function_pair__simplify_expression_3(void) {
+static void cont__compiler__attribute_function_pair___simplify_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 463: ... self.arguments_of
+  // 483: ... self.arguments_of
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* self */;
   result_count = 1;
   myself = get__arguments_of();
   func = myself->type;
-  frame->cont = cont__compiler__attribute_function_pair__simplify_expression_4;
+  frame->cont = cont__compiler__attribute_function_pair___simplify_expression_4;
 }
-static void cont__compiler__attribute_function_pair__simplify_expression_4(void) {
+static void cont__compiler__attribute_function_pair___simplify_expression_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 463: simplify_input_arguments &self.arguments_of
-  // 464:   # There must not be any output arguments!!!
+  // 483: simplify_input_arguments &self.arguments_of
+  // 484:   # There must not be any output arguments!!!
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   result_count = 1;
-  myself = var._simplify_input_arguments;
+  myself = func__simplify_input_arguments;
   func = myself->type;
-  frame->cont = cont__compiler__attribute_function_pair__simplify_expression_5;
+  frame->cont = cont__compiler__attribute_function_pair___simplify_expression_5;
 }
-static void cont__compiler__attribute_function_pair__simplify_expression_5(void) {
+static void cont__compiler__attribute_function_pair___simplify_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 463: ... &self.arguments_of
+  // 483: ... &self.arguments_of
   {
     NODE *temp = clone_object_and_attributes(((CELL *)frame->slots[0])->contents /* self */);
     update_start_p = node_p;
@@ -10499,7 +11168,7 @@ static void cont__compiler__attribute_function_pair__simplify_expression_5(void)
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__c_code__simplify_statement_1(void) {
+static void entry__compiler__c_code___simplify_statement(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -10507,21 +11176,21 @@ static void entry__compiler__c_code__simplify_statement_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 470: show_compiler_debug_info "simplify C-code"
+  // 490: show_compiler_debug_info "simplify C-code"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__1095e9f11fb0974b;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__c_code__simplify_statement_3;
+  frame->cont = cont__compiler__c_code___simplify_statement_3;
 }
-static void cont__compiler__c_code__simplify_statement_3(void) {
+static void cont__compiler__c_code___simplify_statement_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 471: push &actions: !use_inline_c true
+  // 491: push &actions: !use_inline_c true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10529,7 +11198,7 @@ static void cont__compiler__c_code__simplify_statement_3(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__c_code__simplify_statement_5;
+  frame->cont = cont__compiler__c_code___simplify_statement_5;
 }
 static void entry__compiler__c_code__simplify_statement_4(void) {
   allocate_initialized_frame_gc(0, 0);
@@ -10538,7 +11207,7 @@ static void entry__compiler__c_code__simplify_statement_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 471: ... !use_inline_c true
+  // 491: ... !use_inline_c true
   set__use_inline_c(get__true());
   argument_count = 0;
   arguments = node_p;
@@ -10546,49 +11215,49 @@ static void entry__compiler__c_code__simplify_statement_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__c_code__simplify_statement_5(void) {
+static void cont__compiler__c_code___simplify_statement_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   set__actions(arguments->slots[0]);
-  // 472: ... kind_of(self)
+  // 492: ... kind_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
   result_count = 1;
   myself = get__kind_of();
   func = myself->type;
-  frame->cont = cont__compiler__c_code__simplify_statement_6;
+  frame->cont = cont__compiler__c_code___simplify_statement_6;
 }
-static void cont__compiler__c_code__simplify_statement_6(void) {
+static void cont__compiler__c_code___simplify_statement_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 473: ... :
-  // 474:   $name name_of(identifier_of(self))
-  // 475:   push &actions: !defined_structs(name) true
+  // 493: ... :
+  // 494:   $name name_of(identifier_of(self))
+  // 495:   push &actions: !defined_structs(name) true
   frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__c_code__simplify_statement_7, 0);
-  // 476: ... :
-  // 477:   $name name_of(identifier_of(self))
-  // 478:   push &actions: !defined_nodes(name) self
+  // 496: ... :
+  // 497:   $name name_of(identifier_of(self))
+  // 498:   push &actions: !defined_nodes(name) self
   frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__c_code__simplify_statement_13, 0);
-  // 479: ... :
-  // 480:   $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
-  // 481:   push &actions: !defined_functions(name) true
+  // 499: ... :
+  // 500:   $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
+  // 501:   push &actions: !defined_functions(name) true
   frame->slots[4] /* temp__4 */ = create_closure(entry__compiler__c_code__simplify_statement_19, 0);
-  // 472: case kind_of(self)
-  // 473:   "struct":
-  // 474:     $name name_of(identifier_of(self))
-  // 475:     push &actions: !defined_structs(name) true
-  // 476:   "node":
-  // 477:     $name name_of(identifier_of(self))
-  // 478:     push &actions: !defined_nodes(name) self
-  // 479:   "function":
-  // 480:     $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
-  // 481:     push &actions: !defined_functions(name) true
+  // 492: case kind_of(self)
+  // 493:   "struct":
+  // 494:     $name name_of(identifier_of(self))
+  // 495:     push &actions: !defined_structs(name) true
+  // 496:   "node":
+  // 497:     $name name_of(identifier_of(self))
+  // 498:     push &actions: !defined_nodes(name) self
+  // 499:   "function":
+  // 500:     $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
+  // 501:     push &actions: !defined_functions(name) true
   argument_count = 7;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -10601,7 +11270,7 @@ static void cont__compiler__c_code__simplify_statement_6(void) {
   result_count = 0;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__compiler__c_code__simplify_statement_31;
+  frame->cont = cont__compiler__c_code___simplify_statement_31;
 }
 static void entry__compiler__c_code__simplify_statement_7(void) {
   allocate_initialized_frame_gc(1, 3);
@@ -10614,7 +11283,7 @@ static void entry__compiler__c_code__simplify_statement_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 474: ... identifier_of(self)
+  // 494: ... identifier_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -10629,7 +11298,7 @@ static void cont__compiler__c_code__simplify_statement_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 474: $name name_of(identifier_of(self))
+  // 494: $name name_of(identifier_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10644,9 +11313,9 @@ static void cont__compiler__c_code__simplify_statement_9(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  // 475: ... : !defined_structs(name) true
+  // 495: ... : !defined_structs(name) true
   frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__c_code__simplify_statement_10, 0);
-  // 475: push &actions: !defined_structs(name) true
+  // 495: push &actions: !defined_structs(name) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10665,7 +11334,7 @@ static void entry__compiler__c_code__simplify_statement_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 475: ... !defined_structs(name)
+  // 495: ... !defined_structs(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -10710,7 +11379,7 @@ static void entry__compiler__c_code__simplify_statement_13(void) {
     invalid_arguments_error();
     return;
   }
-  // 477: ... identifier_of(self)
+  // 497: ... identifier_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -10725,7 +11394,7 @@ static void cont__compiler__c_code__simplify_statement_14(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 477: $name name_of(identifier_of(self))
+  // 497: $name name_of(identifier_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10740,9 +11409,9 @@ static void cont__compiler__c_code__simplify_statement_15(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  // 478: ... : !defined_nodes(name) self
+  // 498: ... : !defined_nodes(name) self
   frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__c_code__simplify_statement_16, 0);
-  // 478: push &actions: !defined_nodes(name) self
+  // 498: push &actions: !defined_nodes(name) self
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10763,7 +11432,7 @@ static void entry__compiler__c_code__simplify_statement_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 478: ... !defined_nodes(name)
+  // 498: ... !defined_nodes(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -10808,7 +11477,7 @@ static void entry__compiler__c_code__simplify_statement_19(void) {
     invalid_arguments_error();
     return;
   }
-  // 480: ... source_of(self)
+  // 500: ... source_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -10823,7 +11492,7 @@ static void cont__compiler__c_code__simplify_statement_20(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 480: ... source_of(self) .before. '('
+  // 500: ... source_of(self) .before. '('
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -10839,7 +11508,7 @@ static void cont__compiler__c_code__simplify_statement_21(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 480: ... alt(' ' '*')
+  // 500: ... alt(' ' '*')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__32;
@@ -10855,7 +11524,7 @@ static void cont__compiler__c_code__simplify_statement_22(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 480: ... 1
+  // 500: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -10870,7 +11539,7 @@ static void cont__compiler__c_code__simplify_statement_23(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 480: $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
+  // 500: $name behind(source_of(self) .before. '(' alt(' ' '*') -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -10887,9 +11556,9 @@ static void cont__compiler__c_code__simplify_statement_24(void) {
     return;
   }
   initialize_future(frame->slots[1] /* name */, arguments->slots[0]);
-  // 481: ... : !defined_functions(name) true
+  // 501: ... : !defined_functions(name) true
   frame->slots[2] /* temp__1 */ = create_closure(entry__compiler__c_code__simplify_statement_25, 0);
-  // 481: push &actions: !defined_functions(name) true
+  // 501: push &actions: !defined_functions(name) true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -10908,7 +11577,7 @@ static void entry__compiler__c_code__simplify_statement_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 481: ... !defined_functions(name)
+  // 501: ... !defined_functions(name)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* name */;
@@ -10942,12 +11611,12 @@ static void cont__compiler__c_code__simplify_statement_27(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__c_code__simplify_statement_31(void) {
+static void cont__compiler__c_code___simplify_statement_31(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 482: push &definitions self
+  // 502: push &definitions self
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__definitions();
@@ -10955,9 +11624,9 @@ static void cont__compiler__c_code__simplify_statement_31(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__c_code__simplify_statement_32;
+  frame->cont = cont__compiler__c_code___simplify_statement_32;
 }
-static void cont__compiler__c_code__simplify_statement_32(void) {
+static void cont__compiler__c_code___simplify_statement_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10969,7 +11638,7 @@ static void cont__compiler__c_code__simplify_statement_32(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__c_body__simplify_expression_1(void) {
+static void entry__compiler__c_body___simplify_expression(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -10978,21 +11647,21 @@ static void entry__compiler__c_body__simplify_expression_1(void) {
     return;
   }
   frame->slots[0] /* self */ = create_cell_with_contents(arguments->slots[0]);
-  // 488: show_compiler_debug_info "simplify C-body"
+  // 508: show_compiler_debug_info "simplify C-body"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__1295e9f11fb09757;
   result_count = 0;
   myself = get__show_compiler_debug_info();
   func = myself->type;
-  frame->cont = cont__compiler__c_body__simplify_expression_3;
+  frame->cont = cont__compiler__c_body___simplify_expression_3;
 }
-static void cont__compiler__c_body__simplify_expression_3(void) {
+static void cont__compiler__c_body___simplify_expression_3(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
-  // 489: push &actions: !use_inline_c true
+  // 509: push &actions: !use_inline_c true
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__actions();
@@ -11000,7 +11669,7 @@ static void cont__compiler__c_body__simplify_expression_3(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__compiler__c_body__simplify_expression_5;
+  frame->cont = cont__compiler__c_body___simplify_expression_5;
 }
 static void entry__compiler__c_body__simplify_expression_4(void) {
   allocate_initialized_frame_gc(0, 0);
@@ -11009,7 +11678,7 @@ static void entry__compiler__c_body__simplify_expression_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 489: ... !use_inline_c true
+  // 509: ... !use_inline_c true
   set__use_inline_c(get__true());
   argument_count = 0;
   arguments = node_p;
@@ -11017,7 +11686,7 @@ static void entry__compiler__c_body__simplify_expression_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__c_body__simplify_expression_5(void) {
+static void cont__compiler__c_body___simplify_expression_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11033,12 +11702,7 @@ static void cont__compiler__c_body__simplify_expression_5(void) {
 EXPORT void collect__simplifier(void) {
   var.compiler__simplify_statement = collect_node(var.compiler__simplify_statement);
   var.compiler__simplify_expression = collect_node(var.compiler__simplify_expression);
-  var._temporary_identifier = collect_node(var._temporary_identifier);
-  var._simplify_input_arguments = collect_node(var._simplify_input_arguments);
-  var._simplify_output_arguments = collect_node(var._simplify_output_arguments);
   var.compiler__check_usage = collect_node(var.compiler__check_usage);
-  var._do_store = collect_node(var._do_store);
-  var._store_result = collect_node(var._store_result);
 }
 
 static int already_run_phase_1 = false;
@@ -11064,49 +11728,51 @@ EXPORT void phase_2__simplifier(void) {
   define_polymorphic_function("compiler", "simplify_statement", get__compiler__simplify_statement, &poly_idx__compiler__simplify_statement, &var.compiler__simplify_statement);
   define_polymorphic_function("compiler", "simplify_expression", get__compiler__simplify_expression, &poly_idx__compiler__simplify_expression, &var.compiler__simplify_expression);
   string__421f524a80420288 = from_latin_1_string("temp__", 6);
-  func__temporary_identifier_1 = create_function(entry__temporary_identifier_1, 0);
+  func__temporary_identifier = create_function(entry__temporary_identifier, 0);
   func__simplify_input_arguments_2 = create_function(entry__simplify_input_arguments_2, 1);
-  func__simplify_input_arguments_1 = create_function(entry__simplify_input_arguments_1, 1);
-  func__simplify_output_arguments_1 = create_function(entry__simplify_output_arguments_1, 1);
+  func__simplify_input_arguments = create_function(entry__simplify_input_arguments, 1);
+  func__simplify_output_arguments = create_function(entry__simplify_output_arguments, 1);
   string__9ee981055a49a5fe = from_latin_1_string("Invalid access to polymorphic function \042", 40);
   string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
   string__6b008858b3a1b4b2 = from_latin_1_string("Invalid access to read-only variable \042", 38);
   string__2ddd7194c0185268 = from_latin_1_string("Invalid access to static read-write variable \042", 46);
   string__e971e37f901b36b = from_latin_1_string("Invalid access to dynamic read-only variable \042", 46);
   string__611f619f08c2e7ef = from_latin_1_string("Invalid access to dynamic read-write variable \042", 47);
-  func__compiler__check_usage_1 = create_function(entry__compiler__check_usage_1, 3);
+  func__compiler__check_usage = create_function(entry__compiler__check_usage, 3);
   string__4a1f5794bff5c237 = from_latin_1_string("simplify statement (default)", 28);
-  func__types__grammar_node__simplify_statement_1 = create_function(entry__types__grammar_node__simplify_statement_1, 1);
+  func__types__grammar_node___simplify_statement = create_function(entry__types__grammar_node___simplify_statement, 1);
   string__5af95dddc656868 = from_latin_1_string("simplify expression (default)", 29);
-  func__types__grammar_node__simplify_expression_1 = create_function(entry__types__grammar_node__simplify_expression_1, 1);
+  func__types__grammar_node___simplify_expression = create_function(entry__types__grammar_node___simplify_expression, 1);
+  string__929a5bb3435c71bb = from_latin_1_string("simplify identifier", 19);
+  func__compiler__identifier___simplify_expression = create_function(entry__compiler__identifier___simplify_expression, 1);
   string__867252dcb87a57b1 = from_latin_1_string("simplify body", 13);
   string__b18861f6a8c886ba = from_latin_1_string("An identifier named \042", 21);
   string__ff65db3940410371 = from_latin_1_string("\042 was already defined in an outer scope or in a used namespace", 62);
-  func__compiler__body__simplify_expression_1 = create_function(entry__compiler__body__simplify_expression_1, 1);
+  func__compiler__body___simplify_expression = create_function(entry__compiler__body___simplify_expression, 1);
   func__do_store_5 = create_function(entry__do_store_5, 1);
   func__do_store_44 = create_function(entry__do_store_44, 0);
   func__do_store_45 = create_function(entry__do_store_45, 0);
-  func__do_store_1 = create_function(entry__do_store_1, 5);
-  func__store_result_1 = create_function(entry__store_result_1, -1);
+  func__do_store = create_function(entry__do_store, 5);
+  func__store_result = create_function(entry__store_result, -1);
   string__8629329e514f7a7a = from_latin_1_string("simplify statement", 18);
   func__compiler__call__simplify_statement_41 = create_function(entry__compiler__call__simplify_statement_41, 0);
   func__compiler__call__simplify_statement_108 = create_function(entry__compiler__call__simplify_statement_108, 1);
-  func__compiler__call__simplify_statement_1 = create_function(entry__compiler__call__simplify_statement_1, 1);
+  func__compiler__call___simplify_statement = create_function(entry__compiler__call___simplify_statement, 1);
   string__95014404e5c0e88d = from_latin_1_string("simplify function call", 22);
-  func__compiler__function_call__simplify_expression_1 = create_function(entry__compiler__function_call__simplify_expression_1, 1);
+  func__compiler__function_call___simplify_expression = create_function(entry__compiler__function_call___simplify_expression, 1);
   string__cced2f4d969d3d03 = from_latin_1_string("simplify attribute-value pair", 29);
-  func__compiler__attribute_value_pair__simplify_expression_1 = create_function(entry__compiler__attribute_value_pair__simplify_expression_1, 1);
+  func__compiler__attribute_value_pair___simplify_expression = create_function(entry__compiler__attribute_value_pair___simplify_expression, 1);
   string__83e573190949a328 = from_latin_1_string("simplify attribute-function pair", 32);
-  func__compiler__attribute_function_pair__simplify_expression_1 = create_function(entry__compiler__attribute_function_pair__simplify_expression_1, 1);
+  func__compiler__attribute_function_pair___simplify_expression = create_function(entry__compiler__attribute_function_pair___simplify_expression, 1);
   string__1095e9f11fb0974b = from_latin_1_string("simplify C-code", 15);
   func__compiler__c_code__simplify_statement_4 = create_function(entry__compiler__c_code__simplify_statement_4, 0);
   string__7c1f530901a312a3 = from_latin_1_string("struct", 6);
   string__1e0aea8b5d407d5c = from_latin_1_string("node", 4);
   string__46c0af9104ada08e = from_latin_1_string("function", 8);
-  func__compiler__c_code__simplify_statement_1 = create_function(entry__compiler__c_code__simplify_statement_1, 1);
+  func__compiler__c_code___simplify_statement = create_function(entry__compiler__c_code___simplify_statement, 1);
   string__1295e9f11fb09757 = from_latin_1_string("simplify C-body", 15);
   func__compiler__c_body__simplify_expression_4 = create_function(entry__compiler__c_body__simplify_expression_4, 0);
-  func__compiler__c_body__simplify_expression_1 = create_function(entry__compiler__c_body__simplify_expression_1, 1);
+  func__compiler__c_body___simplify_expression = create_function(entry__compiler__c_body___simplify_expression, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -11158,6 +11824,7 @@ EXPORT void phase_4__simplifier(void) {
   use_read_only("compiler", "c_code", &get__compiler__c_code, &get_value_or_future__compiler__c_code);
   use_read_only("compiler", "call", &get__compiler__call, &get_value_or_future__compiler__call);
   use_read_only("compiler", "function_call", &get__compiler__function_call, &get_value_or_future__compiler__function_call);
+  use_read_only("compiler", "identifier", &get__compiler__identifier, &get_value_or_future__compiler__identifier);
   use_multi_assign_dynamic("compiler", "temp_idx", &get__compiler__temp_idx, &set__compiler__temp_idx, &define__compiler__temp_idx);
   use_read_only(NULL, "cond", &get__cond, &get_value_or_future__cond);
   use_polymorphic_function(NULL, "continuation_of", &get__continuation_of, &poly_idx__continuation_of);
@@ -11203,11 +11870,14 @@ EXPORT void phase_4__simplifier(void) {
   use_read_only(NULL, "is_defined", &get__is_defined, &get_value_or_future__is_defined);
   use_read_only(NULL, "is_empty", &get__is_empty, &get_value_or_future__is_empty);
   use_read_only(NULL, "is_single_assign", &get__is_single_assign, &get_value_or_future__is_single_assign);
+  use_read_only(NULL, "is_undefined", &get__is_undefined, &get_value_or_future__is_undefined);
   use_read_only(NULL, "kind_of", &get__kind_of, &get_value_or_future__kind_of);
   use_read_only(NULL, "length_of", &get__length_of, &get_value_or_future__length_of);
   use_read_only(NULL, "list", &get__list, &get_value_or_future__list);
   use_read_only(NULL, "might_be_constant", &get__might_be_constant, &get_value_or_future__might_be_constant);
   use_polymorphic_function(NULL, "name_of", &get__name_of, &poly_idx__name_of);
+  use_read_only(NULL, "named_constants", &get__named_constants, &get_value_or_future__named_constants);
+  use_read_only(NULL, "namespace_of", &get__namespace_of, &get_value_or_future__namespace_of);
   use_read_only(NULL, "not", &get__not, &get_value_or_future__not);
   use_polymorphic_function(NULL, "parameters_of", &get__parameters_of, &poly_idx__parameters_of);
   use_read_only(NULL, "peek", &get__peek, &get_value_or_future__peek);
@@ -11244,15 +11914,16 @@ EXPORT void phase_4__simplifier(void) {
   use_read_write(NULL, "use_inline_c", &get__use_inline_c, &set__use_inline_c);
   use_read_only(NULL, "used_names_of", &get__used_names_of, &get_value_or_future__used_names_of);
   use_read_only(NULL, "variable_kind_of", &get__variable_kind_of, &get_value_or_future__variable_kind_of);
-  define_method("types", "grammar_node", poly_idx__simplify_statement, func__types__grammar_node__simplify_statement_1);
-  define_method("types", "grammar_node", poly_idx__simplify_expression, func__types__grammar_node__simplify_expression_1);
-  define_method("compiler", "body", poly_idx__simplify_expression, func__compiler__body__simplify_expression_1);
-  define_method("compiler", "call", poly_idx__simplify_statement, func__compiler__call__simplify_statement_1);
-  define_method("compiler", "function_call", poly_idx__simplify_expression, func__compiler__function_call__simplify_expression_1);
-  define_method("compiler", "attribute_value_pair", poly_idx__simplify_expression, func__compiler__attribute_value_pair__simplify_expression_1);
-  define_method("compiler", "attribute_function_pair", poly_idx__simplify_expression, func__compiler__attribute_function_pair__simplify_expression_1);
-  define_method("compiler", "c_code", poly_idx__simplify_statement, func__compiler__c_code__simplify_statement_1);
-  define_method("compiler", "c_body", poly_idx__simplify_expression, func__compiler__c_body__simplify_expression_1);
+  define_method("types", "grammar_node", poly_idx__simplify_statement, func__types__grammar_node___simplify_statement);
+  define_method("types", "grammar_node", poly_idx__simplify_expression, func__types__grammar_node___simplify_expression);
+  define_method("compiler", "identifier", poly_idx__simplify_expression, func__compiler__identifier___simplify_expression);
+  define_method("compiler", "body", poly_idx__simplify_expression, func__compiler__body___simplify_expression);
+  define_method("compiler", "call", poly_idx__simplify_statement, func__compiler__call___simplify_statement);
+  define_method("compiler", "function_call", poly_idx__simplify_expression, func__compiler__function_call___simplify_expression);
+  define_method("compiler", "attribute_value_pair", poly_idx__simplify_expression, func__compiler__attribute_value_pair___simplify_expression);
+  define_method("compiler", "attribute_function_pair", poly_idx__simplify_expression, func__compiler__attribute_function_pair___simplify_expression);
+  define_method("compiler", "c_code", poly_idx__simplify_statement, func__compiler__c_code___simplify_statement);
+  define_method("compiler", "c_body", poly_idx__simplify_expression, func__compiler__c_body___simplify_expression);
 }
 
 static int already_run_phase_5 = false;
@@ -11264,12 +11935,7 @@ EXPORT void phase_5__simplifier(void) {
   assign_value(&var.compiler__simplify_expression, create_function(type__compiler__simplify_expression, -1));
   maybe_initialize_future(get__defined_names(), get__empty_table());
   maybe_initialize_future(get__inherited_names(), get__empty_table());
-  assign_variable(&var._temporary_identifier, &func__temporary_identifier_1);
-  assign_variable(&var._simplify_input_arguments, &func__simplify_input_arguments_1);
-  assign_variable(&var._simplify_output_arguments, &func__simplify_output_arguments_1);
-  initialize_future(var.compiler__check_usage, func__compiler__check_usage_1);
-  assign_variable(&var._do_store, &func__do_store_1);
-  assign_variable(&var._store_result, &func__store_result_1);
+  initialize_future(var.compiler__check_usage, func__compiler__check_usage);
 }
 
 static int already_run_phase_6 = false;

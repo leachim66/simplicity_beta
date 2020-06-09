@@ -214,12 +214,11 @@ IMPORT void define_polymorphic_function(
   const char *namespace, const char *name, NODE_GETTER getter, int *id_p,
   NODE **var_p
 );
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT void register_polymorphic_function_with_setter(const char *name, int *id_p);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
@@ -240,7 +239,7 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -357,9 +356,6 @@ static NODE_GETTER get__update_each_from_to;
 static NODE_GETTER get__while;
 static NODE_GETTER get_value_or_future__while;
 static struct {
-  NODE *_NONE;
-  NODE *_INSERT;
-  NODE *_UPDATE;
   NODE *_tree_of;
   NODE *_first_of;
   NODE *_last_of;
@@ -369,23 +365,13 @@ static struct {
   NODE *_right_of;
   NODE *_next_of;
   NODE *_previous_of;
-  NODE *_remove_leftmost;
-  NODE *_remove_rightmost;
   NODE *_empty_node;
-  NODE *_fetch_first;
-  NODE *_retrieve_item;
-  NODE *_add_item;
-  NODE *_update_item;
-  NODE *_remove_item;
   NODE *std__is_an_insert_order_table;
   NODE *types__insert_order_table;
   NODE *std__empty_insert_order_table;
   NODE *std__insert_order_table;
 } var;
 static const char *var_names[] = {
-  "NONE",
-  "INSERT",
-  "UPDATE",
   "tree_of",
   "first_of",
   "last_of",
@@ -395,23 +381,13 @@ static const char *var_names[] = {
   "right_of",
   "next_of",
   "previous_of",
-  "remove_leftmost",
-  "remove_rightmost",
-  "empty_node",
-  "fetch_first",
-  "retrieve_item",
-  "add_item",
-  "update_item",
-  "remove_item"
+  "empty_node"
 };
 static int poly_idx__std__is_an_insert_order_table;
 static void type__std__is_an_insert_order_table(void);
 static NODE *get__std__is_an_insert_order_table(void) {
   return var.std__is_an_insert_order_table;
 }
-static NODE *unique__NONE;
-static NODE *unique__INSERT;
-static NODE *unique__UPDATE;
 static int poly_idx__tree_of;
 static void type__tree_of(void);
 static int poly_idx__first_of;
@@ -430,9 +406,9 @@ static int poly_idx__next_of;
 static void type__next_of(void);
 static int poly_idx__previous_of;
 static void type__previous_of(void);
-static NODE *func__remove_leftmost_1;
-static void entry__remove_leftmost_1(void);
-static FRAME_INFO frame__remove_leftmost_1 = {4, {"node", "key", "value", "left"}};
+static NODE *func__remove_leftmost;
+static void entry__remove_leftmost(void);
+static FRAME_INFO frame__remove_leftmost = {4, {"node", "key", "value", "left"}};
 static void cont__remove_leftmost_2(void);
 static void cont__remove_leftmost_3(void);
 static NODE *func__remove_leftmost_4;
@@ -446,9 +422,9 @@ static void cont__remove_leftmost_7(void);
 static void cont__remove_leftmost_8(void);
 static void cont__remove_leftmost_9(void);
 static void cont__remove_leftmost_10(void);
-static NODE *func__remove_rightmost_1;
-static void entry__remove_rightmost_1(void);
-static FRAME_INFO frame__remove_rightmost_1 = {4, {"node", "key", "value", "right"}};
+static NODE *func__remove_rightmost;
+static void entry__remove_rightmost(void);
+static FRAME_INFO frame__remove_rightmost = {4, {"node", "key", "value", "right"}};
 static void cont__remove_rightmost_2(void);
 static void cont__remove_rightmost_3(void);
 static NODE *func__remove_rightmost_4;
@@ -465,9 +441,9 @@ static void cont__remove_rightmost_10(void);
 static NODE *get__types__insert_order_table(void) {
   return var.types__insert_order_table;
 }
-static NODE *func__fetch_first_1;
-static void entry__fetch_first_1(void);
-static FRAME_INFO frame__fetch_first_1 = {2, {"myself", "left"}};
+static NODE *func__fetch_first;
+static void entry__fetch_first(void);
+static FRAME_INFO frame__fetch_first = {2, {"myself", "left"}};
 static void cont__fetch_first_2(void);
 static void cont__fetch_first_3(void);
 static NODE *func__fetch_first_4;
@@ -479,9 +455,9 @@ static void entry__fetch_first_6(void);
 static FRAME_INFO frame__fetch_first_6 = {2, {"myself", "head"}};
 static void cont__fetch_first_7(void);
 static void cont__fetch_first_8(void);
-static NODE *func__retrieve_item_1;
-static void entry__retrieve_item_1(void);
-static FRAME_INFO frame__retrieve_item_1 = {4, {"myself", "key", "return", "my_key"}};
+static NODE *func__retrieve_item;
+static void entry__retrieve_item(void);
+static FRAME_INFO frame__retrieve_item = {4, {"myself", "key", "return", "my_key"}};
 static void cont__retrieve_item_2(void);
 static NODE *func__retrieve_item_3;
 static void entry__retrieve_item_3(void);
@@ -514,13 +490,14 @@ static FRAME_INFO frame__retrieve_item_16 = {3, {"return", "myself", "key"}};
 static void cont__retrieve_item_17(void);
 static void cont__retrieve_item_18(void);
 static void cont__retrieve_item_19(void);
-static NODE *func__add_item_1;
-static void entry__add_item_1(void);
-static FRAME_INFO frame__add_item_1 = {7, {"myself", "previous", "next", "key", "value", "return", "my_key"}};
+static NODE *func__add_item;
+static void entry__add_item(void);
+static FRAME_INFO frame__add_item = {7, {"myself", "previous", "next", "key", "value", "return", "my_key"}};
 static void cont__add_item_2(void);
 static NODE *func__add_item_3;
 static void entry__add_item_3(void);
 static FRAME_INFO frame__add_item_3 = {5, {"return", "previous", "next", "key", "value"}};
+static NODE *unique__INSERT;
 static void cont__add_item_4(void);
 static void cont__add_item_5(void);
 static NODE *func__add_item_6;
@@ -530,6 +507,7 @@ static void cont__add_item_7(void);
 static NODE *func__add_item_8;
 static void entry__add_item_8(void);
 static FRAME_INFO frame__add_item_8 = {3, {"return", "myself", "value"}};
+static NODE *unique__UPDATE;
 static NODE *func__add_item_9;
 static void entry__add_item_9(void);
 static FRAME_INFO frame__add_item_9 = {7, {"key", "my_key", "myself", "previous", "next", "value", "return"}};
@@ -549,9 +527,9 @@ static FRAME_INFO frame__add_item_16 = {8, {"myself", "previous", "next", "key",
 static void cont__add_item_17(void);
 static void cont__add_item_18(void);
 static void cont__add_item_19(void);
-static NODE *func__update_item_1;
-static void entry__update_item_1(void);
-static FRAME_INFO frame__update_item_1 = {4, {"myself", "key", "updater", "my_key"}};
+static NODE *func__update_item;
+static void entry__update_item(void);
+static FRAME_INFO frame__update_item = {4, {"myself", "key", "updater", "my_key"}};
 static void cont__update_item_2(void);
 static NODE *func__update_item_3;
 static void entry__update_item_3(void);
@@ -580,13 +558,14 @@ static FRAME_INFO frame__update_item_14 = {3, {"myself", "key", "updater"}};
 static void cont__update_item_15(void);
 static void cont__update_item_16(void);
 static void cont__update_item_17(void);
-static NODE *func__remove_item_1;
-static void entry__remove_item_1(void);
-static FRAME_INFO frame__remove_item_1 = {4, {"myself", "key", "return", "my_key"}};
+static NODE *func__remove_item;
+static void entry__remove_item(void);
+static FRAME_INFO frame__remove_item = {4, {"myself", "key", "return", "my_key"}};
 static void cont__remove_item_2(void);
 static NODE *func__remove_item_3;
 static void entry__remove_item_3(void);
 static FRAME_INFO frame__remove_item_3 = {1, {"return"}};
+static NODE *unique__NONE;
 static void cont__remove_item_4(void);
 static void cont__remove_item_5(void);
 static NODE *func__remove_item_6;
@@ -642,10 +621,10 @@ static void entry__remove_item_32(void);
 static FRAME_INFO frame__remove_item_32 = {1, {"return"}};
 static void cont__remove_item_33(void);
 static void cont__remove_item_34(void);
-static NODE *func__types__insert_order_table__private__set_item_1;
-static void entry__types__insert_order_table__private__set_item_1(void);
-static FRAME_INFO frame__types__insert_order_table__private__set_item_1 = {3, {"self", "key", "value"}};
-static void cont__types__insert_order_table__private__set_item_2(void);
+static NODE *func__types__insert_order_table___private__set_item;
+static void entry__types__insert_order_table___private__set_item(void);
+static FRAME_INFO frame__types__insert_order_table___private__set_item = {3, {"self", "key", "value"}};
+static void cont__types__insert_order_table___private__set_item_2(void);
 static NODE *func__types__insert_order_table__private__set_item_3;
 static void entry__types__insert_order_table__private__set_item_3(void);
 static FRAME_INFO frame__types__insert_order_table__private__set_item_3 = {4, {"self", "key", "new_tree", "removed_item"}};
@@ -711,13 +690,13 @@ static void cont__types__insert_order_table__private__set_item_38(void);
 static void cont__types__insert_order_table__private__set_item_39(void);
 static void cont__types__insert_order_table__private__set_item_40(void);
 static void cont__types__insert_order_table__private__set_item_41(void);
-static void cont__types__insert_order_table__private__set_item_42(void);
-static NODE *func__types__insert_order_table__private__get_item_1;
-static void entry__types__insert_order_table__private__get_item_1(void);
-static FRAME_INFO frame__types__insert_order_table__private__get_item_1 = {3, {"self", "key", "item"}};
-static void cont__types__insert_order_table__private__get_item_2(void);
-static void cont__types__insert_order_table__private__get_item_3(void);
-static void cont__types__insert_order_table__private__get_item_4(void);
+static void cont__types__insert_order_table___private__set_item_42(void);
+static NODE *func__types__insert_order_table___private__get_item;
+static void entry__types__insert_order_table___private__get_item(void);
+static FRAME_INFO frame__types__insert_order_table___private__get_item = {3, {"self", "key", "item"}};
+static void cont__types__insert_order_table___private__get_item_2(void);
+static void cont__types__insert_order_table___private__get_item_3(void);
+static void cont__types__insert_order_table___private__get_item_4(void);
 static NODE *func__types__insert_order_table__private__get_item_5;
 static void entry__types__insert_order_table__private__get_item_5(void);
 static FRAME_INFO frame__types__insert_order_table__private__get_item_5 = {1, {"item"}};
@@ -726,15 +705,15 @@ static NODE *func__types__insert_order_table__private__get_item_7;
 static void entry__types__insert_order_table__private__get_item_7(void);
 static FRAME_INFO frame__types__insert_order_table__private__get_item_7 = {0, {}};
 static NODE *string__1160a298062c3c9e;
-static NODE *func__types__insert_order_table__new_empty_collection_1;
-static void entry__types__insert_order_table__new_empty_collection_1(void);
-static FRAME_INFO frame__types__insert_order_table__new_empty_collection_1 = {1, {"self"}};
+static NODE *func__types__insert_order_table___new_empty_collection;
+static void entry__types__insert_order_table___new_empty_collection(void);
+static FRAME_INFO frame__types__insert_order_table___new_empty_collection = {1, {"self"}};
 static NODE *get__std__empty_insert_order_table(void) {
   return var.std__empty_insert_order_table;
 }
-static NODE *func__std__insert_order_table_1;
-static void entry__std__insert_order_table_1(void);
-static FRAME_INFO frame__std__insert_order_table_1 = {2, {"initializers", "tab"}};
+static NODE *func__std__insert_order_table;
+static void entry__std__insert_order_table(void);
+static FRAME_INFO frame__std__insert_order_table = {2, {"initializers", "tab"}};
 static NODE *func__std__insert_order_table_2;
 static void entry__std__insert_order_table_2(void);
 static FRAME_INFO frame__std__insert_order_table_2 = {2, {"initializer", "tab"}};
@@ -745,11 +724,11 @@ static void cont__std__insert_order_table_6(void);
 static NODE *get__std__insert_order_table(void) {
   return var.std__insert_order_table;
 }
-static NODE *func__types__insert_order_table__for_each_1;
-static void entry__types__insert_order_table__for_each_1(void);
-static FRAME_INFO frame__types__insert_order_table__for_each_1 = {3, {"self", "body", "tree"}};
-static void cont__types__insert_order_table__for_each_2(void);
-static void cont__types__insert_order_table__for_each_3(void);
+static NODE *func__types__insert_order_table___for_each;
+static void entry__types__insert_order_table___for_each(void);
+static FRAME_INFO frame__types__insert_order_table___for_each = {3, {"self", "body", "tree"}};
+static void cont__types__insert_order_table___for_each_2(void);
+static void cont__types__insert_order_table___for_each_3(void);
 static NODE *func__types__insert_order_table__for_each_4;
 static void entry__types__insert_order_table__for_each_4(void);
 static FRAME_INFO frame__types__insert_order_table__for_each_4 = {4, {"self", "tree", "body", "key"}};
@@ -774,11 +753,11 @@ static FRAME_INFO frame__types__insert_order_table__for_each_14 = {2, {"body", "
 static void cont__types__insert_order_table__for_each_15(void);
 static void cont__types__insert_order_table__for_each_16(void);
 static void cont__types__insert_order_table__for_each_17(void);
-static NODE *func__types__insert_order_table__for_each_from_to_1;
-static void entry__types__insert_order_table__for_each_from_to_1(void);
-static FRAME_INFO frame__types__insert_order_table__for_each_from_to_1 = {6, {"self", "first", "last", "body", "return", "tree"}};
-static void cont__types__insert_order_table__for_each_from_to_2(void);
-static void cont__types__insert_order_table__for_each_from_to_3(void);
+static NODE *func__types__insert_order_table___for_each_from_to;
+static void entry__types__insert_order_table___for_each_from_to(void);
+static FRAME_INFO frame__types__insert_order_table___for_each_from_to = {6, {"self", "first", "last", "body", "return", "tree"}};
+static void cont__types__insert_order_table___for_each_from_to_2(void);
+static void cont__types__insert_order_table___for_each_from_to_3(void);
 static NODE *func__types__insert_order_table__for_each_from_to_4;
 static void entry__types__insert_order_table__for_each_from_to_4(void);
 static FRAME_INFO frame__types__insert_order_table__for_each_from_to_4 = {7, {"first", "self", "tree", "body", "last", "return", "key"}};
@@ -813,12 +792,12 @@ static void cont__types__insert_order_table__for_each_from_to_20(void);
 static void cont__types__insert_order_table__for_each_from_to_21(void);
 static void cont__types__insert_order_table__for_each_from_to_22(void);
 static void cont__types__insert_order_table__for_each_from_to_23(void);
-static void cont__types__insert_order_table__for_each_from_to_24(void);
-static NODE *func__types__insert_order_table__for_each_from_down_to_1;
-static void entry__types__insert_order_table__for_each_from_down_to_1(void);
-static FRAME_INFO frame__types__insert_order_table__for_each_from_down_to_1 = {6, {"self", "last", "first", "body", "return", "tree"}};
-static void cont__types__insert_order_table__for_each_from_down_to_2(void);
-static void cont__types__insert_order_table__for_each_from_down_to_3(void);
+static void cont__types__insert_order_table___for_each_from_to_24(void);
+static NODE *func__types__insert_order_table___for_each_from_down_to;
+static void entry__types__insert_order_table___for_each_from_down_to(void);
+static FRAME_INFO frame__types__insert_order_table___for_each_from_down_to = {6, {"self", "last", "first", "body", "return", "tree"}};
+static void cont__types__insert_order_table___for_each_from_down_to_2(void);
+static void cont__types__insert_order_table___for_each_from_down_to_3(void);
 static NODE *func__types__insert_order_table__for_each_from_down_to_4;
 static void entry__types__insert_order_table__for_each_from_down_to_4(void);
 static FRAME_INFO frame__types__insert_order_table__for_each_from_down_to_4 = {7, {"last", "self", "tree", "body", "first", "return", "key"}};
@@ -853,12 +832,12 @@ static void cont__types__insert_order_table__for_each_from_down_to_20(void);
 static void cont__types__insert_order_table__for_each_from_down_to_21(void);
 static void cont__types__insert_order_table__for_each_from_down_to_22(void);
 static void cont__types__insert_order_table__for_each_from_down_to_23(void);
-static void cont__types__insert_order_table__for_each_from_down_to_24(void);
-static NODE *func__types__insert_order_table__update_each_1;
-static void entry__types__insert_order_table__update_each_1(void);
-static FRAME_INFO frame__types__insert_order_table__update_each_1 = {3, {"self", "body", "tree"}};
-static void cont__types__insert_order_table__update_each_2(void);
-static void cont__types__insert_order_table__update_each_3(void);
+static void cont__types__insert_order_table___for_each_from_down_to_24(void);
+static NODE *func__types__insert_order_table___update_each;
+static void entry__types__insert_order_table___update_each(void);
+static FRAME_INFO frame__types__insert_order_table___update_each = {3, {"self", "body", "tree"}};
+static void cont__types__insert_order_table___update_each_2(void);
+static void cont__types__insert_order_table___update_each_3(void);
 static NODE *func__types__insert_order_table__update_each_4;
 static void entry__types__insert_order_table__update_each_4(void);
 static FRAME_INFO frame__types__insert_order_table__update_each_4 = {4, {"self", "tree", "body", "key"}};
@@ -878,12 +857,12 @@ static void cont__types__insert_order_table__update_each_11(void);
 static void cont__types__insert_order_table__update_each_12(void);
 static void cont__types__insert_order_table__update_each_13(void);
 static void cont__types__insert_order_table__update_each_14(void);
-static void cont__types__insert_order_table__update_each_15(void);
-static NODE *func__types__insert_order_table__update_each_from_to_1;
-static void entry__types__insert_order_table__update_each_from_to_1(void);
-static FRAME_INFO frame__types__insert_order_table__update_each_from_to_1 = {5, {"self", "first", "last", "body", "tree"}};
-static void cont__types__insert_order_table__update_each_from_to_2(void);
-static void cont__types__insert_order_table__update_each_from_to_3(void);
+static void cont__types__insert_order_table___update_each_15(void);
+static NODE *func__types__insert_order_table___update_each_from_to;
+static void entry__types__insert_order_table___update_each_from_to(void);
+static FRAME_INFO frame__types__insert_order_table___update_each_from_to = {5, {"self", "first", "last", "body", "tree"}};
+static void cont__types__insert_order_table___update_each_from_to_2(void);
+static void cont__types__insert_order_table___update_each_from_to_3(void);
 static NODE *func__types__insert_order_table__update_each_from_to_4;
 static void entry__types__insert_order_table__update_each_from_to_4(void);
 static FRAME_INFO frame__types__insert_order_table__update_each_from_to_4 = {6, {"first", "self", "tree", "body", "last", "key"}};
@@ -917,12 +896,12 @@ static void cont__types__insert_order_table__update_each_from_to_19(void);
 static void cont__types__insert_order_table__update_each_from_to_20(void);
 static void cont__types__insert_order_table__update_each_from_to_21(void);
 static void cont__types__insert_order_table__update_each_from_to_22(void);
-static void cont__types__insert_order_table__update_each_from_to_23(void);
-static NODE *func__types__insert_order_table__update_each_from_down_to_1;
-static void entry__types__insert_order_table__update_each_from_down_to_1(void);
-static FRAME_INFO frame__types__insert_order_table__update_each_from_down_to_1 = {5, {"self", "last", "first", "body", "tree"}};
-static void cont__types__insert_order_table__update_each_from_down_to_2(void);
-static void cont__types__insert_order_table__update_each_from_down_to_3(void);
+static void cont__types__insert_order_table___update_each_from_to_23(void);
+static NODE *func__types__insert_order_table___update_each_from_down_to;
+static void entry__types__insert_order_table___update_each_from_down_to(void);
+static FRAME_INFO frame__types__insert_order_table___update_each_from_down_to = {5, {"self", "last", "first", "body", "tree"}};
+static void cont__types__insert_order_table___update_each_from_down_to_2(void);
+static void cont__types__insert_order_table___update_each_from_down_to_3(void);
 static NODE *func__types__insert_order_table__update_each_from_down_to_4;
 static void entry__types__insert_order_table__update_each_from_down_to_4(void);
 static FRAME_INFO frame__types__insert_order_table__update_each_from_down_to_4 = {6, {"last", "self", "tree", "body", "first", "key"}};
@@ -956,17 +935,17 @@ static void cont__types__insert_order_table__update_each_from_down_to_19(void);
 static void cont__types__insert_order_table__update_each_from_down_to_20(void);
 static void cont__types__insert_order_table__update_each_from_down_to_21(void);
 static void cont__types__insert_order_table__update_each_from_down_to_22(void);
-static void cont__types__insert_order_table__update_each_from_down_to_23(void);
-static NODE *func__types__insert_order_table__insert_before_1;
-static void entry__types__insert_order_table__insert_before_1(void);
-static FRAME_INFO frame__types__insert_order_table__insert_before_1 = {7, {"self", "key", "new_key", "new_value", "tree", "before_key", "mode"}};
-static void cont__types__insert_order_table__insert_before_2(void);
+static void cont__types__insert_order_table___update_each_from_down_to_23(void);
+static NODE *func__types__insert_order_table___insert_before;
+static void entry__types__insert_order_table___insert_before(void);
+static FRAME_INFO frame__types__insert_order_table___insert_before = {7, {"self", "key", "new_key", "new_value", "tree", "before_key", "mode"}};
+static void cont__types__insert_order_table___insert_before_2(void);
 static NODE *func__types__insert_order_table__insert_before_3;
 static void entry__types__insert_order_table__insert_before_3(void);
 static FRAME_INFO frame__types__insert_order_table__insert_before_3 = {3, {"item", "before_key", "new_key"}};
 static void cont__types__insert_order_table__insert_before_4(void);
-static void cont__types__insert_order_table__insert_before_5(void);
-static void cont__types__insert_order_table__insert_before_6(void);
+static void cont__types__insert_order_table___insert_before_5(void);
+static void cont__types__insert_order_table___insert_before_6(void);
 static NODE *func__types__insert_order_table__insert_before_7;
 static void entry__types__insert_order_table__insert_before_7(void);
 static FRAME_INFO frame__types__insert_order_table__insert_before_7 = {3, {"tree", "before_key", "new_key"}};
@@ -977,25 +956,25 @@ static void cont__types__insert_order_table__insert_before_9(void);
 static NODE *func__types__insert_order_table__insert_before_10;
 static void entry__types__insert_order_table__insert_before_10(void);
 static FRAME_INFO frame__types__insert_order_table__insert_before_10 = {2, {"self", "new_key"}};
-static void cont__types__insert_order_table__insert_before_11(void);
-static void cont__types__insert_order_table__insert_before_12(void);
-static void cont__types__insert_order_table__insert_before_13(void);
-static void cont__types__insert_order_table__insert_before_14(void);
+static void cont__types__insert_order_table___insert_before_11(void);
+static void cont__types__insert_order_table___insert_before_12(void);
+static void cont__types__insert_order_table___insert_before_13(void);
+static void cont__types__insert_order_table___insert_before_14(void);
 static NODE *func__types__insert_order_table__insert_before_15;
 static void entry__types__insert_order_table__insert_before_15(void);
 static FRAME_INFO frame__types__insert_order_table__insert_before_15 = {0, {}};
 static NODE *string__d2f4ba5cf0563ffa;
-static void cont__types__insert_order_table__insert_before_17(void);
-static NODE *func__types__insert_order_table__insert_behind_1;
-static void entry__types__insert_order_table__insert_behind_1(void);
-static FRAME_INFO frame__types__insert_order_table__insert_behind_1 = {7, {"self", "key", "new_key", "new_value", "tree", "behind_key", "mode"}};
-static void cont__types__insert_order_table__insert_behind_2(void);
+static void cont__types__insert_order_table___insert_before_17(void);
+static NODE *func__types__insert_order_table___insert_behind;
+static void entry__types__insert_order_table___insert_behind(void);
+static FRAME_INFO frame__types__insert_order_table___insert_behind = {7, {"self", "key", "new_key", "new_value", "tree", "behind_key", "mode"}};
+static void cont__types__insert_order_table___insert_behind_2(void);
 static NODE *func__types__insert_order_table__insert_behind_3;
 static void entry__types__insert_order_table__insert_behind_3(void);
 static FRAME_INFO frame__types__insert_order_table__insert_behind_3 = {3, {"item", "behind_key", "new_key"}};
 static void cont__types__insert_order_table__insert_behind_4(void);
-static void cont__types__insert_order_table__insert_behind_5(void);
-static void cont__types__insert_order_table__insert_behind_6(void);
+static void cont__types__insert_order_table___insert_behind_5(void);
+static void cont__types__insert_order_table___insert_behind_6(void);
 static NODE *func__types__insert_order_table__insert_behind_7;
 static void entry__types__insert_order_table__insert_behind_7(void);
 static FRAME_INFO frame__types__insert_order_table__insert_behind_7 = {3, {"tree", "behind_key", "new_key"}};
@@ -1006,14 +985,14 @@ static void cont__types__insert_order_table__insert_behind_9(void);
 static NODE *func__types__insert_order_table__insert_behind_10;
 static void entry__types__insert_order_table__insert_behind_10(void);
 static FRAME_INFO frame__types__insert_order_table__insert_behind_10 = {2, {"self", "new_key"}};
-static void cont__types__insert_order_table__insert_behind_11(void);
-static void cont__types__insert_order_table__insert_behind_12(void);
-static void cont__types__insert_order_table__insert_behind_13(void);
-static void cont__types__insert_order_table__insert_behind_14(void);
+static void cont__types__insert_order_table___insert_behind_11(void);
+static void cont__types__insert_order_table___insert_behind_12(void);
+static void cont__types__insert_order_table___insert_behind_13(void);
+static void cont__types__insert_order_table___insert_behind_14(void);
 static NODE *func__types__insert_order_table__insert_behind_15;
 static void entry__types__insert_order_table__insert_behind_15(void);
 static FRAME_INFO frame__types__insert_order_table__insert_behind_15 = {0, {}};
-static void cont__types__insert_order_table__insert_behind_16(void);
+static void cont__types__insert_order_table___insert_behind_16(void);
 static void cont__94_1(void);
 void run__basic__types__insert_order_table(void);
 
@@ -1036,28 +1015,28 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__remove_leftmost_7, &frame__remove_leftmost_6, 55, 55, 7, 27},
   {cont__remove_leftmost_8, &frame__remove_leftmost_6, 56, 56, 7, 26},
   {cont__remove_leftmost_9, &frame__remove_leftmost_6, 56, 56, 26, 26},
-  {entry__remove_leftmost_1, NULL, 48, 48, 3, 22},
-  {cont__remove_leftmost_2, &frame__remove_leftmost_1, 50, 50, 5, 19},
-  {cont__remove_leftmost_3, &frame__remove_leftmost_1, 49, 56, 3, 27},
-  {cont__remove_leftmost_10, &frame__remove_leftmost_1, },
+  {entry__remove_leftmost, NULL, 48, 48, 3, 22},
+  {cont__remove_leftmost_2, &frame__remove_leftmost, 50, 50, 5, 19},
+  {cont__remove_leftmost_3, &frame__remove_leftmost, 49, 56, 3, 27},
+  {cont__remove_leftmost_10, &frame__remove_leftmost, },
   {entry__remove_rightmost_4, NULL, 67, 67, 7, 41},
   {cont__remove_rightmost_5, &frame__remove_rightmost_4, 68, 68, 26, 26},
   {entry__remove_rightmost_6, NULL, 70, 70, 7, 23},
   {cont__remove_rightmost_7, &frame__remove_rightmost_6, 71, 71, 7, 27},
   {cont__remove_rightmost_8, &frame__remove_rightmost_6, 72, 72, 7, 25},
   {cont__remove_rightmost_9, &frame__remove_rightmost_6, 72, 72, 25, 25},
-  {entry__remove_rightmost_1, NULL, 64, 64, 3, 24},
-  {cont__remove_rightmost_2, &frame__remove_rightmost_1, 66, 66, 5, 20},
-  {cont__remove_rightmost_3, &frame__remove_rightmost_1, 65, 72, 3, 26},
-  {cont__remove_rightmost_10, &frame__remove_rightmost_1, },
+  {entry__remove_rightmost, NULL, 64, 64, 3, 24},
+  {cont__remove_rightmost_2, &frame__remove_rightmost, 66, 66, 5, 20},
+  {cont__remove_rightmost_3, &frame__remove_rightmost, 65, 72, 3, 26},
+  {cont__remove_rightmost_10, &frame__remove_rightmost, },
   {entry__fetch_first_4, NULL, 92, 92, 7, 29},
   {cont__fetch_first_5, &frame__fetch_first_4, 94, 94, 7, 13},
   {entry__fetch_first_6, NULL, 97, 97, 7, 30},
   {cont__fetch_first_7, &frame__fetch_first_6, 98, 98, 7, 13},
-  {entry__fetch_first_1, NULL, 89, 89, 3, 24},
-  {cont__fetch_first_2, &frame__fetch_first_1, 91, 91, 5, 19},
-  {cont__fetch_first_3, &frame__fetch_first_1, 90, 98, 3, 14},
-  {cont__fetch_first_8, &frame__fetch_first_1, },
+  {entry__fetch_first, NULL, 89, 89, 3, 24},
+  {cont__fetch_first_2, &frame__fetch_first, 91, 91, 5, 19},
+  {cont__fetch_first_3, &frame__fetch_first, 90, 98, 3, 14},
+  {cont__fetch_first_8, &frame__fetch_first, },
   {entry__retrieve_item_3, NULL, 106, 106, 27, 42},
   {entry__retrieve_item_8, NULL, 109, 109, 23, 35},
   {entry__retrieve_item_6, NULL, 109, 109, 8, 20},
@@ -1072,11 +1051,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__retrieve_item_18, &frame__retrieve_item_16, 111, 111, 22, 63},
   {entry__retrieve_item_14, NULL, 111, 111, 8, 19},
   {cont__retrieve_item_15, &frame__retrieve_item_14, 111, 111, 5, 63},
-  {entry__retrieve_item_1, NULL, 106, 106, 6, 24},
-  {cont__retrieve_item_2, &frame__retrieve_item_1, 106, 106, 3, 42},
-  {cont__retrieve_item_4, &frame__retrieve_item_1, 107, 107, 3, 24},
-  {cont__retrieve_item_5, &frame__retrieve_item_1, 108, 111, 3, 63},
-  {cont__retrieve_item_19, &frame__retrieve_item_1, 111, 111, 63, 63},
+  {entry__retrieve_item, NULL, 106, 106, 6, 24},
+  {cont__retrieve_item_2, &frame__retrieve_item, 106, 106, 3, 42},
+  {cont__retrieve_item_4, &frame__retrieve_item, 107, 107, 3, 24},
+  {cont__retrieve_item_5, &frame__retrieve_item, 108, 111, 3, 63},
+  {cont__retrieve_item_19, &frame__retrieve_item, 111, 111, 63, 63},
   {entry__add_item_3, NULL, 123, 129, 5, 12},
   {entry__add_item_8, NULL, 132, 132, 23, 59},
   {entry__add_item_6, NULL, 132, 132, 8, 20},
@@ -1091,11 +1070,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__add_item_18, &frame__add_item_16, 138, 138, 7, 41},
   {entry__add_item_14, NULL, 136, 136, 8, 19},
   {cont__add_item_15, &frame__add_item_14, 136, 138, 5, 41},
-  {entry__add_item_1, NULL, 122, 122, 6, 24},
-  {cont__add_item_2, &frame__add_item_1, 122, 129, 3, 13},
-  {cont__add_item_4, &frame__add_item_1, 130, 130, 3, 24},
-  {cont__add_item_5, &frame__add_item_1, 131, 138, 3, 42},
-  {cont__add_item_19, &frame__add_item_1, 138, 138, 42, 42},
+  {entry__add_item, NULL, 122, 122, 6, 24},
+  {cont__add_item_2, &frame__add_item, 122, 129, 3, 13},
+  {cont__add_item_4, &frame__add_item, 130, 130, 3, 24},
+  {cont__add_item_5, &frame__add_item, 131, 138, 3, 42},
+  {cont__add_item_19, &frame__add_item, 138, 138, 42, 42},
   {entry__update_item_5, NULL, 148, 148, 23, 37},
   {cont__update_item_6, &frame__update_item_5, 148, 148, 37, 37},
   {entry__update_item_3, NULL, 148, 148, 8, 20},
@@ -1110,9 +1089,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__update_item_16, &frame__update_item_14, 150, 150, 61, 61},
   {entry__update_item_12, NULL, 150, 150, 8, 19},
   {cont__update_item_13, &frame__update_item_12, 150, 150, 5, 61},
-  {entry__update_item_1, NULL, 146, 146, 3, 24},
-  {cont__update_item_2, &frame__update_item_1, 147, 150, 3, 61},
-  {cont__update_item_17, &frame__update_item_1, },
+  {entry__update_item, NULL, 146, 146, 3, 24},
+  {cont__update_item_2, &frame__update_item, 147, 150, 3, 61},
+  {cont__update_item_17, &frame__update_item, },
   {entry__remove_item_3, NULL, 162, 162, 27, 65},
   {entry__remove_item_14, NULL, 172, 172, 15, 38},
   {cont__remove_item_15, &frame__remove_item_14, 173, 173, 15, 63},
@@ -1142,11 +1121,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__remove_item_33, &frame__remove_item_28, 187, 187, 7, 32},
   {entry__remove_item_26, NULL, 183, 183, 8, 19},
   {cont__remove_item_27, &frame__remove_item_26, 183, 187, 5, 32},
-  {entry__remove_item_1, NULL, 162, 162, 6, 24},
-  {cont__remove_item_2, &frame__remove_item_1, 162, 162, 3, 65},
-  {cont__remove_item_4, &frame__remove_item_1, 163, 163, 3, 24},
-  {cont__remove_item_5, &frame__remove_item_1, 164, 187, 3, 33},
-  {cont__remove_item_34, &frame__remove_item_1, 187, 187, 33, 33},
+  {entry__remove_item, NULL, 162, 162, 6, 24},
+  {cont__remove_item_2, &frame__remove_item, 162, 162, 3, 65},
+  {cont__remove_item_4, &frame__remove_item, 163, 163, 3, 24},
+  {cont__remove_item_5, &frame__remove_item, 164, 187, 3, 33},
+  {cont__remove_item_34, &frame__remove_item, 187, 187, 33, 33},
   {entry__types__insert_order_table__private__set_item_13, NULL, 205, 205, 70, 70},
   {entry__types__insert_order_table__private__set_item_12, NULL, 205, 205, 13, 70},
   {cont__types__insert_order_table__private__set_item_14, &frame__types__insert_order_table__private__set_item_12, 205, 205, 70, 70},
@@ -1186,23 +1165,23 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__insert_order_table__private__set_item_28, &frame__types__insert_order_table__private__set_item_25, 217, 217, 10, 23},
   {cont__types__insert_order_table__private__set_item_29, &frame__types__insert_order_table__private__set_item_25, 217, 224, 7, 27},
   {cont__types__insert_order_table__private__set_item_41, &frame__types__insert_order_table__private__set_item_25, 225, 225, 28, 28},
-  {entry__types__insert_order_table__private__set_item_1, NULL, 198, 198, 5, 22},
-  {cont__types__insert_order_table__private__set_item_2, &frame__types__insert_order_table__private__set_item_1, 197, 225, 3, 29},
-  {cont__types__insert_order_table__private__set_item_42, &frame__types__insert_order_table__private__set_item_1, },
+  {entry__types__insert_order_table___private__set_item, NULL, 198, 198, 5, 22},
+  {cont__types__insert_order_table___private__set_item_2, &frame__types__insert_order_table___private__set_item, 197, 225, 3, 29},
+  {cont__types__insert_order_table___private__set_item_42, &frame__types__insert_order_table___private__set_item, },
   {entry__types__insert_order_table__private__get_item_5, NULL, 237, 237, 8, 21},
   {cont__types__insert_order_table__private__get_item_6, &frame__types__insert_order_table__private__get_item_5, 237, 237, 5, 21},
   {entry__types__insert_order_table__private__get_item_7, NULL, 238, 238, 5, 16},
-  {entry__types__insert_order_table__private__get_item_1, NULL, 234, 234, 23, 35},
-  {cont__types__insert_order_table__private__get_item_2, &frame__types__insert_order_table__private__get_item_1, 234, 234, 3, 40},
-  {cont__types__insert_order_table__private__get_item_3, &frame__types__insert_order_table__private__get_item_1, 236, 236, 5, 19},
-  {cont__types__insert_order_table__private__get_item_4, &frame__types__insert_order_table__private__get_item_1, 235, 238, 3, 16},
-  {entry__types__insert_order_table__new_empty_collection_1, NULL, 258, 258, 3, 30},
+  {entry__types__insert_order_table___private__get_item, NULL, 234, 234, 23, 35},
+  {cont__types__insert_order_table___private__get_item_2, &frame__types__insert_order_table___private__get_item, 234, 234, 3, 40},
+  {cont__types__insert_order_table___private__get_item_3, &frame__types__insert_order_table___private__get_item, 236, 236, 5, 19},
+  {cont__types__insert_order_table___private__get_item_4, &frame__types__insert_order_table___private__get_item, 235, 238, 3, 16},
+  {entry__types__insert_order_table___new_empty_collection, NULL, 258, 258, 3, 30},
   {entry__std__insert_order_table_2, NULL, 279, 279, 5, 61},
   {cont__std__insert_order_table_3, &frame__std__insert_order_table_2, 279, 279, 10, 33},
   {cont__std__insert_order_table_4, &frame__std__insert_order_table_2, 279, 279, 5, 34},
   {cont__std__insert_order_table_5, &frame__std__insert_order_table_2, 279, 279, 61, 61},
-  {entry__std__insert_order_table_1, NULL, 278, 279, 3, 61},
-  {cont__std__insert_order_table_6, &frame__std__insert_order_table_1, 280, 280, 3, 8},
+  {entry__std__insert_order_table, NULL, 278, 279, 3, 61},
+  {cont__std__insert_order_table_6, &frame__std__insert_order_table, 280, 280, 3, 8},
   {entry__types__insert_order_table__for_each_12, NULL, 296, 296, 20, 33},
   {cont__types__insert_order_table__for_each_13, &frame__types__insert_order_table__for_each_12, 296, 296, 11, 33},
   {entry__types__insert_order_table__for_each_14, NULL, 298, 298, 16, 29},
@@ -1217,9 +1196,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__insert_order_table__for_each_7, &frame__types__insert_order_table__for_each_6, 292, 299, 11, 24},
   {entry__types__insert_order_table__for_each_4, NULL, 291, 291, 5, 24},
   {cont__types__insert_order_table__for_each_5, &frame__types__insert_order_table__for_each_4, 292, 299, 5, 24},
-  {entry__types__insert_order_table__for_each_1, NULL, 289, 289, 3, 21},
-  {cont__types__insert_order_table__for_each_2, &frame__types__insert_order_table__for_each_1, 290, 290, 6, 20},
-  {cont__types__insert_order_table__for_each_3, &frame__types__insert_order_table__for_each_1, 290, 299, 3, 25},
+  {entry__types__insert_order_table___for_each, NULL, 289, 289, 3, 21},
+  {cont__types__insert_order_table___for_each_2, &frame__types__insert_order_table___for_each, 290, 290, 6, 20},
+  {cont__types__insert_order_table___for_each_3, &frame__types__insert_order_table___for_each, 290, 299, 3, 25},
   {entry__types__insert_order_table__for_each_from_to_6, NULL, 316, 316, 9, 16},
   {entry__types__insert_order_table__for_each_from_to_7, NULL, 317, 317, 12, 25},
   {cont__types__insert_order_table__for_each_from_to_8, &frame__types__insert_order_table__for_each_from_to_7, 317, 317, 9, 25},
@@ -1240,10 +1219,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__types__insert_order_table__for_each_from_to_4, NULL, 315, 315, 9, 24},
   {cont__types__insert_order_table__for_each_from_to_5, &frame__types__insert_order_table__for_each_from_to_4, 313, 317, 5, 26},
   {cont__types__insert_order_table__for_each_from_to_9, &frame__types__insert_order_table__for_each_from_to_4, 319, 327, 5, 24},
-  {entry__types__insert_order_table__for_each_from_to_1, NULL, 311, 311, 3, 21},
-  {cont__types__insert_order_table__for_each_from_to_2, &frame__types__insert_order_table__for_each_from_to_1, 312, 312, 6, 20},
-  {cont__types__insert_order_table__for_each_from_to_3, &frame__types__insert_order_table__for_each_from_to_1, 312, 327, 3, 25},
-  {cont__types__insert_order_table__for_each_from_to_24, &frame__types__insert_order_table__for_each_from_to_1, 327, 327, 25, 25},
+  {entry__types__insert_order_table___for_each_from_to, NULL, 311, 311, 3, 21},
+  {cont__types__insert_order_table___for_each_from_to_2, &frame__types__insert_order_table___for_each_from_to, 312, 312, 6, 20},
+  {cont__types__insert_order_table___for_each_from_to_3, &frame__types__insert_order_table___for_each_from_to, 312, 327, 3, 25},
+  {cont__types__insert_order_table___for_each_from_to_24, &frame__types__insert_order_table___for_each_from_to, 327, 327, 25, 25},
   {entry__types__insert_order_table__for_each_from_down_to_6, NULL, 344, 344, 9, 15},
   {entry__types__insert_order_table__for_each_from_down_to_7, NULL, 345, 345, 12, 24},
   {cont__types__insert_order_table__for_each_from_down_to_8, &frame__types__insert_order_table__for_each_from_down_to_7, 345, 345, 9, 24},
@@ -1264,10 +1243,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__types__insert_order_table__for_each_from_down_to_4, NULL, 343, 343, 9, 23},
   {cont__types__insert_order_table__for_each_from_down_to_5, &frame__types__insert_order_table__for_each_from_down_to_4, 341, 345, 5, 25},
   {cont__types__insert_order_table__for_each_from_down_to_9, &frame__types__insert_order_table__for_each_from_down_to_4, 347, 355, 5, 28},
-  {entry__types__insert_order_table__for_each_from_down_to_1, NULL, 339, 339, 3, 21},
-  {cont__types__insert_order_table__for_each_from_down_to_2, &frame__types__insert_order_table__for_each_from_down_to_1, 340, 340, 6, 20},
-  {cont__types__insert_order_table__for_each_from_down_to_3, &frame__types__insert_order_table__for_each_from_down_to_1, 340, 355, 3, 29},
-  {cont__types__insert_order_table__for_each_from_down_to_24, &frame__types__insert_order_table__for_each_from_down_to_1, 355, 355, 29, 29},
+  {entry__types__insert_order_table___for_each_from_down_to, NULL, 339, 339, 3, 21},
+  {cont__types__insert_order_table___for_each_from_down_to_2, &frame__types__insert_order_table___for_each_from_down_to, 340, 340, 6, 20},
+  {cont__types__insert_order_table___for_each_from_down_to_3, &frame__types__insert_order_table___for_each_from_down_to, 340, 355, 3, 29},
+  {cont__types__insert_order_table___for_each_from_down_to_24, &frame__types__insert_order_table___for_each_from_down_to, 355, 355, 29, 29},
   {entry__types__insert_order_table__update_each_9, NULL, 369, 369, 19, 31},
   {cont__types__insert_order_table__update_each_10, &frame__types__insert_order_table__update_each_9, 369, 369, 9, 31},
   {cont__types__insert_order_table__update_each_11, &frame__types__insert_order_table__update_each_9, 370, 370, 9, 26},
@@ -1279,10 +1258,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__types__insert_order_table__update_each_4, NULL, 366, 366, 5, 24},
   {cont__types__insert_order_table__update_each_5, &frame__types__insert_order_table__update_each_4, 367, 370, 5, 27},
   {cont__types__insert_order_table__update_each_14, &frame__types__insert_order_table__update_each_4, 371, 371, 22, 22},
-  {entry__types__insert_order_table__update_each_1, NULL, 364, 364, 3, 22},
-  {cont__types__insert_order_table__update_each_2, &frame__types__insert_order_table__update_each_1, 365, 365, 6, 20},
-  {cont__types__insert_order_table__update_each_3, &frame__types__insert_order_table__update_each_1, 365, 371, 3, 22},
-  {cont__types__insert_order_table__update_each_15, &frame__types__insert_order_table__update_each_1, },
+  {entry__types__insert_order_table___update_each, NULL, 364, 364, 3, 22},
+  {cont__types__insert_order_table___update_each_2, &frame__types__insert_order_table___update_each, 365, 365, 6, 20},
+  {cont__types__insert_order_table___update_each_3, &frame__types__insert_order_table___update_each, 365, 371, 3, 22},
+  {cont__types__insert_order_table___update_each_15, &frame__types__insert_order_table___update_each, },
   {entry__types__insert_order_table__update_each_from_to_6, NULL, 387, 387, 9, 16},
   {entry__types__insert_order_table__update_each_from_to_7, NULL, 388, 388, 12, 25},
   {cont__types__insert_order_table__update_each_from_to_8, &frame__types__insert_order_table__update_each_from_to_7, 388, 388, 9, 25},
@@ -1302,10 +1281,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__insert_order_table__update_each_from_to_5, &frame__types__insert_order_table__update_each_from_to_4, 384, 388, 5, 26},
   {cont__types__insert_order_table__update_each_from_to_9, &frame__types__insert_order_table__update_each_from_to_4, 390, 395, 5, 30},
   {cont__types__insert_order_table__update_each_from_to_22, &frame__types__insert_order_table__update_each_from_to_4, 396, 396, 22, 22},
-  {entry__types__insert_order_table__update_each_from_to_1, NULL, 382, 382, 3, 22},
-  {cont__types__insert_order_table__update_each_from_to_2, &frame__types__insert_order_table__update_each_from_to_1, 383, 383, 6, 20},
-  {cont__types__insert_order_table__update_each_from_to_3, &frame__types__insert_order_table__update_each_from_to_1, 383, 396, 3, 22},
-  {cont__types__insert_order_table__update_each_from_to_23, &frame__types__insert_order_table__update_each_from_to_1, },
+  {entry__types__insert_order_table___update_each_from_to, NULL, 382, 382, 3, 22},
+  {cont__types__insert_order_table___update_each_from_to_2, &frame__types__insert_order_table___update_each_from_to, 383, 383, 6, 20},
+  {cont__types__insert_order_table___update_each_from_to_3, &frame__types__insert_order_table___update_each_from_to, 383, 396, 3, 22},
+  {cont__types__insert_order_table___update_each_from_to_23, &frame__types__insert_order_table___update_each_from_to, },
   {entry__types__insert_order_table__update_each_from_down_to_6, NULL, 412, 412, 9, 15},
   {entry__types__insert_order_table__update_each_from_down_to_7, NULL, 413, 413, 12, 24},
   {cont__types__insert_order_table__update_each_from_down_to_8, &frame__types__insert_order_table__update_each_from_down_to_7, 413, 413, 9, 24},
@@ -1325,10 +1304,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__insert_order_table__update_each_from_down_to_5, &frame__types__insert_order_table__update_each_from_down_to_4, 409, 413, 5, 25},
   {cont__types__insert_order_table__update_each_from_down_to_9, &frame__types__insert_order_table__update_each_from_down_to_4, 415, 420, 5, 34},
   {cont__types__insert_order_table__update_each_from_down_to_22, &frame__types__insert_order_table__update_each_from_down_to_4, 421, 421, 22, 22},
-  {entry__types__insert_order_table__update_each_from_down_to_1, NULL, 407, 407, 3, 22},
-  {cont__types__insert_order_table__update_each_from_down_to_2, &frame__types__insert_order_table__update_each_from_down_to_1, 408, 408, 6, 20},
-  {cont__types__insert_order_table__update_each_from_down_to_3, &frame__types__insert_order_table__update_each_from_down_to_1, 408, 421, 3, 22},
-  {cont__types__insert_order_table__update_each_from_down_to_23, &frame__types__insert_order_table__update_each_from_down_to_1, },
+  {entry__types__insert_order_table___update_each_from_down_to, NULL, 407, 407, 3, 22},
+  {cont__types__insert_order_table___update_each_from_down_to_2, &frame__types__insert_order_table___update_each_from_down_to, 408, 408, 6, 20},
+  {cont__types__insert_order_table___update_each_from_down_to_3, &frame__types__insert_order_table___update_each_from_down_to, 408, 421, 3, 22},
+  {cont__types__insert_order_table___update_each_from_down_to_23, &frame__types__insert_order_table___update_each_from_down_to, },
   {entry__types__insert_order_table__insert_before_3, NULL, 435, 435, 5, 33},
   {cont__types__insert_order_table__insert_before_4, &frame__types__insert_order_table__insert_before_3, 436, 436, 29, 29},
   {entry__types__insert_order_table__insert_before_8, NULL, 439, 439, 65, 65},
@@ -1336,15 +1315,15 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__insert_order_table__insert_before_9, &frame__types__insert_order_table__insert_before_7, 439, 439, 65, 65},
   {entry__types__insert_order_table__insert_before_10, NULL, 441, 441, 28, 28},
   {entry__types__insert_order_table__insert_before_15, NULL, 444, 444, 22, 59},
-  {entry__types__insert_order_table__insert_before_1, NULL, 432, 432, 3, 22},
-  {cont__types__insert_order_table__insert_before_2, &frame__types__insert_order_table__insert_before_1, 434, 436, 3, 29},
-  {cont__types__insert_order_table__insert_before_5, &frame__types__insert_order_table__insert_before_1, 438, 438, 5, 25},
-  {cont__types__insert_order_table__insert_before_6, &frame__types__insert_order_table__insert_before_1, 437, 441, 3, 29},
-  {cont__types__insert_order_table__insert_before_11, &frame__types__insert_order_table__insert_before_1, 442, 442, 3, 55},
-  {cont__types__insert_order_table__insert_before_12, &frame__types__insert_order_table__insert_before_1, 444, 444, 6, 19},
-  {cont__types__insert_order_table__insert_before_13, &frame__types__insert_order_table__insert_before_1, 444, 444, 6, 19},
-  {cont__types__insert_order_table__insert_before_14, &frame__types__insert_order_table__insert_before_1, 444, 444, 3, 59},
-  {cont__types__insert_order_table__insert_before_17, &frame__types__insert_order_table__insert_before_1, },
+  {entry__types__insert_order_table___insert_before, NULL, 432, 432, 3, 22},
+  {cont__types__insert_order_table___insert_before_2, &frame__types__insert_order_table___insert_before, 434, 436, 3, 29},
+  {cont__types__insert_order_table___insert_before_5, &frame__types__insert_order_table___insert_before, 438, 438, 5, 25},
+  {cont__types__insert_order_table___insert_before_6, &frame__types__insert_order_table___insert_before, 437, 441, 3, 29},
+  {cont__types__insert_order_table___insert_before_11, &frame__types__insert_order_table___insert_before, 442, 442, 3, 55},
+  {cont__types__insert_order_table___insert_before_12, &frame__types__insert_order_table___insert_before, 444, 444, 6, 19},
+  {cont__types__insert_order_table___insert_before_13, &frame__types__insert_order_table___insert_before, 444, 444, 6, 19},
+  {cont__types__insert_order_table___insert_before_14, &frame__types__insert_order_table___insert_before, 444, 444, 3, 59},
+  {cont__types__insert_order_table___insert_before_17, &frame__types__insert_order_table___insert_before, },
   {entry__types__insert_order_table__insert_behind_3, NULL, 458, 458, 5, 29},
   {cont__types__insert_order_table__insert_behind_4, &frame__types__insert_order_table__insert_behind_3, 459, 459, 25, 25},
   {entry__types__insert_order_table__insert_behind_8, NULL, 462, 462, 69, 69},
@@ -1352,15 +1331,15 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__insert_order_table__insert_behind_9, &frame__types__insert_order_table__insert_behind_7, 462, 462, 69, 69},
   {entry__types__insert_order_table__insert_behind_10, NULL, 464, 464, 27, 27},
   {entry__types__insert_order_table__insert_behind_15, NULL, 467, 467, 22, 59},
-  {entry__types__insert_order_table__insert_behind_1, NULL, 455, 455, 3, 22},
-  {cont__types__insert_order_table__insert_behind_2, &frame__types__insert_order_table__insert_behind_1, 457, 459, 3, 25},
-  {cont__types__insert_order_table__insert_behind_5, &frame__types__insert_order_table__insert_behind_1, 461, 461, 5, 25},
-  {cont__types__insert_order_table__insert_behind_6, &frame__types__insert_order_table__insert_behind_1, 460, 464, 3, 28},
-  {cont__types__insert_order_table__insert_behind_11, &frame__types__insert_order_table__insert_behind_1, 465, 465, 3, 55},
-  {cont__types__insert_order_table__insert_behind_12, &frame__types__insert_order_table__insert_behind_1, 467, 467, 6, 19},
-  {cont__types__insert_order_table__insert_behind_13, &frame__types__insert_order_table__insert_behind_1, 467, 467, 6, 19},
-  {cont__types__insert_order_table__insert_behind_14, &frame__types__insert_order_table__insert_behind_1, 467, 467, 3, 59},
-  {cont__types__insert_order_table__insert_behind_16, &frame__types__insert_order_table__insert_behind_1, }
+  {entry__types__insert_order_table___insert_behind, NULL, 455, 455, 3, 22},
+  {cont__types__insert_order_table___insert_behind_2, &frame__types__insert_order_table___insert_behind, 457, 459, 3, 25},
+  {cont__types__insert_order_table___insert_behind_5, &frame__types__insert_order_table___insert_behind, 461, 461, 5, 25},
+  {cont__types__insert_order_table___insert_behind_6, &frame__types__insert_order_table___insert_behind, 460, 464, 3, 28},
+  {cont__types__insert_order_table___insert_behind_11, &frame__types__insert_order_table___insert_behind, 465, 465, 3, 55},
+  {cont__types__insert_order_table___insert_behind_12, &frame__types__insert_order_table___insert_behind, 467, 467, 6, 19},
+  {cont__types__insert_order_table___insert_behind_13, &frame__types__insert_order_table___insert_behind, 467, 467, 6, 19},
+  {cont__types__insert_order_table___insert_behind_14, &frame__types__insert_order_table___insert_behind, 467, 467, 3, 59},
+  {cont__types__insert_order_table___insert_behind_16, &frame__types__insert_order_table___insert_behind, }
 };
 
 union NODE {
@@ -1690,7 +1669,7 @@ static void cont__94_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__remove_leftmost_1(void) {
+static void entry__remove_leftmost(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // node: 0
@@ -1784,7 +1763,7 @@ static void entry__remove_leftmost_4(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* left */;
   result_count = 3;
-  myself = var._remove_leftmost;
+  myself = func__remove_leftmost;
   func = myself->type;
   frame->cont = cont__remove_leftmost_5;
 }
@@ -1887,7 +1866,7 @@ static void cont__remove_leftmost_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__remove_rightmost_1(void) {
+static void entry__remove_rightmost(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // node: 0
@@ -1981,7 +1960,7 @@ static void entry__remove_rightmost_4(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* right */;
   result_count = 3;
-  myself = var._remove_rightmost;
+  myself = func__remove_rightmost;
   func = myself->type;
   frame->cont = cont__remove_rightmost_5;
 }
@@ -2084,7 +2063,7 @@ static void cont__remove_rightmost_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__fetch_first_1(void) {
+static void entry__fetch_first(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // myself: 0
@@ -2174,7 +2153,7 @@ static void entry__fetch_first_4(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* left */;
   result_count = 2;
-  myself = var._fetch_first;
+  myself = func__fetch_first;
   func = myself->type;
   frame->cont = cont__fetch_first_5;
 }
@@ -2249,7 +2228,7 @@ static void cont__fetch_first_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__retrieve_item_1(void) {
+static void entry__retrieve_item(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -2381,7 +2360,7 @@ static void cont__retrieve_item_17(void) {
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
   arguments->slots[1] = frame->slots[2] /* key */;
   result_count = 1;
-  myself = var._retrieve_item;
+  myself = func__retrieve_item;
   func = myself->type;
   frame->cont = cont__retrieve_item_18;
 }
@@ -2434,7 +2413,7 @@ static void cont__retrieve_item_12(void) {
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
   arguments->slots[1] = frame->slots[2] /* key */;
   result_count = 1;
-  myself = var._retrieve_item;
+  myself = func__retrieve_item;
   func = myself->type;
   frame->cont = cont__retrieve_item_13;
 }
@@ -2604,7 +2583,7 @@ static void cont__retrieve_item_19(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__add_item_1(void) {
+static void entry__add_item(void) {
   allocate_initialized_frame_gc(6, 10);
   // slot allocations:
   // myself: 0
@@ -2698,7 +2677,7 @@ static void entry__add_item_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
-  arguments->slots[1] = var._INSERT;
+  arguments->slots[1] = unique__INSERT;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* return */;
   func = myself->type;
@@ -2799,7 +2778,7 @@ static void cont__add_item_17(void) {
   arguments->slots[3] = frame->slots[3] /* key */;
   arguments->slots[4] = frame->slots[4] /* value */;
   result_count = 2;
-  myself = var._add_item;
+  myself = func__add_item;
   func = myself->type;
   frame->cont = cont__add_item_18;
 }
@@ -2875,7 +2854,7 @@ static void cont__add_item_12(void) {
   arguments->slots[3] = frame->slots[3] /* key */;
   arguments->slots[4] = frame->slots[4] /* value */;
   result_count = 2;
-  myself = var._add_item;
+  myself = func__add_item;
   func = myself->type;
   frame->cont = cont__add_item_13;
 }
@@ -2929,7 +2908,7 @@ static void entry__add_item_8(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
-  arguments->slots[1] = var._UPDATE;
+  arguments->slots[1] = unique__UPDATE;
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* return */;
   func = myself->type;
@@ -3088,7 +3067,7 @@ static void cont__add_item_19(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__update_item_1(void) {
+static void entry__update_item(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -3173,7 +3152,7 @@ static void cont__update_item_15(void) {
   arguments->slots[1] = frame->slots[1] /* key */;
   arguments->slots[2] = frame->slots[2] /* updater */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
   frame->cont = cont__update_item_16;
 }
@@ -3232,7 +3211,7 @@ static void cont__update_item_10(void) {
   arguments->slots[1] = frame->slots[1] /* key */;
   arguments->slots[2] = frame->slots[2] /* updater */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
   frame->cont = cont__update_item_11;
 }
@@ -3425,7 +3404,7 @@ static void cont__update_item_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__remove_item_1(void) {
+static void entry__remove_item(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // myself: 0
@@ -3478,7 +3457,7 @@ static void entry__remove_item_3(void) {
   // 162: ... return NONE undefined # nothing removed
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._NONE;
+  arguments->slots[0] = unique__NONE;
   arguments->slots[1] = get__undefined();
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* return */;
@@ -3588,7 +3567,7 @@ static void cont__remove_item_29(void) {
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
   arguments->slots[1] = frame->slots[1] /* key */;
   result_count = 2;
-  myself = var._remove_item;
+  myself = func__remove_item;
   func = myself->type;
   frame->cont = cont__remove_item_30;
 }
@@ -3602,7 +3581,7 @@ static void cont__remove_item_30(void) {
   // 185: ... NONE == right
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._NONE;
+  arguments->slots[0] = unique__NONE;
   arguments->slots[1] = frame->slots[3] /* right */;
   result_count = 1;
   myself = get__std__equal();
@@ -3639,7 +3618,7 @@ static void entry__remove_item_32(void) {
   // 185: ... return NONE undefined # nothing removed
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._NONE;
+  arguments->slots[0] = unique__NONE;
   arguments->slots[1] = get__undefined();
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* return */;
@@ -3707,7 +3686,7 @@ static void cont__remove_item_21(void) {
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
   arguments->slots[1] = frame->slots[1] /* key */;
   result_count = 2;
-  myself = var._remove_item;
+  myself = func__remove_item;
   func = myself->type;
   frame->cont = cont__remove_item_22;
 }
@@ -3721,7 +3700,7 @@ static void cont__remove_item_22(void) {
   // 180: ... NONE == left
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._NONE;
+  arguments->slots[0] = unique__NONE;
   arguments->slots[1] = frame->slots[3] /* left */;
   result_count = 1;
   myself = get__std__equal();
@@ -3758,7 +3737,7 @@ static void entry__remove_item_24(void) {
   // 180: ... return NONE undefined # nothing removed
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._NONE;
+  arguments->slots[0] = unique__NONE;
   arguments->slots[1] = get__undefined();
   result_count = frame->caller_result_count;
   myself = frame->slots[0] /* return */;
@@ -3810,7 +3789,7 @@ static void entry__remove_item_14(void) {
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* right */;
   result_count = 2;
-  myself = var._fetch_first;
+  myself = func__fetch_first;
   func = myself->type;
   frame->cont = cont__remove_item_15;
 }
@@ -4197,7 +4176,7 @@ static void cont__remove_item_34(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__insert_order_table__private__set_item_1(void) {
+static void entry__types__insert_order_table___private__set_item(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -4215,9 +4194,9 @@ static void entry__types__insert_order_table__private__set_item_1(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__private__set_item_2;
+  frame->cont = cont__types__insert_order_table___private__set_item_2;
 }
-static void cont__types__insert_order_table__private__set_item_2(void) {
+static void cont__types__insert_order_table___private__set_item_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4268,7 +4247,7 @@ static void cont__types__insert_order_table__private__set_item_2(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__private__set_item_42;
+  frame->cont = cont__types__insert_order_table___private__set_item_42;
 }
 static void entry__types__insert_order_table__private__set_item_8(void) {
   allocate_initialized_frame_gc(3, 8);
@@ -4375,7 +4354,7 @@ static void entry__types__insert_order_table__private__set_item_12(void) {
   arguments->slots[1] = frame->slots[1] /* previous */;
   arguments->slots[2] = frame->slots[3] /* temp__1 */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__private__set_item_14;
 }
@@ -4505,7 +4484,7 @@ static void entry__types__insert_order_table__private__set_item_18(void) {
   arguments->slots[1] = frame->slots[1] /* next */;
   arguments->slots[2] = frame->slots[3] /* temp__1 */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__private__set_item_20;
 }
@@ -4665,7 +4644,7 @@ static void cont__types__insert_order_table__private__set_item_4(void) {
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   arguments->slots[1] = frame->slots[1] /* key */;
   result_count = 2;
-  myself = var._remove_item;
+  myself = func__remove_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__private__set_item_5;
 }
@@ -4679,7 +4658,7 @@ static void cont__types__insert_order_table__private__set_item_5(void) {
   // 200: ... NONE != new_tree
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._NONE;
+  arguments->slots[0] = unique__NONE;
   arguments->slots[1] = ((CELL *)frame->slots[2])->contents /* new_tree */;
   result_count = 1;
   myself = get__std__equal();
@@ -4795,7 +4774,7 @@ static void cont__types__insert_order_table__private__set_item_27(void) {
   arguments->slots[3] = frame->slots[1] /* key */;
   arguments->slots[4] = frame->slots[2] /* value */;
   result_count = 2;
-  myself = var._add_item;
+  myself = func__add_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__private__set_item_28;
 }
@@ -4810,7 +4789,7 @@ static void cont__types__insert_order_table__private__set_item_28(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* mode */;
-  arguments->slots[1] = var._INSERT;
+  arguments->slots[1] = unique__INSERT;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -4949,7 +4928,7 @@ static void cont__types__insert_order_table__private__set_item_34(void) {
   arguments->slots[1] = frame->slots[3] /* temp__1 */;
   arguments->slots[2] = frame->slots[4] /* temp__2 */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__private__set_item_36;
 }
@@ -5092,7 +5071,7 @@ static void cont__types__insert_order_table__private__set_item_41(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__insert_order_table__private__set_item_42(void) {
+static void cont__types__insert_order_table___private__set_item_42(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -5150,7 +5129,7 @@ static void entry__types__insert_order_table__private__get_item_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__insert_order_table__private__get_item_1(void) {
+static void entry__types__insert_order_table___private__get_item(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -5168,9 +5147,9 @@ static void entry__types__insert_order_table__private__get_item_1(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__private__get_item_2;
+  frame->cont = cont__types__insert_order_table___private__get_item_2;
 }
-static void cont__types__insert_order_table__private__get_item_2(void) {
+static void cont__types__insert_order_table___private__get_item_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5182,11 +5161,11 @@ static void cont__types__insert_order_table__private__get_item_2(void) {
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   arguments->slots[1] = frame->slots[1] /* key */;
   result_count = 1;
-  myself = var._retrieve_item;
+  myself = func__retrieve_item;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__private__get_item_3;
+  frame->cont = cont__types__insert_order_table___private__get_item_3;
 }
-static void cont__types__insert_order_table__private__get_item_3(void) {
+static void cont__types__insert_order_table___private__get_item_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5199,9 +5178,9 @@ static void cont__types__insert_order_table__private__get_item_3(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__private__get_item_4;
+  frame->cont = cont__types__insert_order_table___private__get_item_4;
 }
-static void cont__types__insert_order_table__private__get_item_4(void) {
+static void cont__types__insert_order_table___private__get_item_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5223,7 +5202,7 @@ static void cont__types__insert_order_table__private__get_item_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__insert_order_table__new_empty_collection_1(void) {
+static void entry__types__insert_order_table___new_empty_collection(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -5239,7 +5218,7 @@ static void entry__types__insert_order_table__new_empty_collection_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__insert_order_table_1(void) {
+static void entry__std__insert_order_table(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -5359,7 +5338,7 @@ static void entry__types__insert_order_table__for_each_8(void) {
   arguments->slots[0] = frame->slots[0] /* tree */;
   arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 1;
-  myself = var._retrieve_item;
+  myself = func__retrieve_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__for_each_9;
 }
@@ -5628,7 +5607,7 @@ static void cont__types__insert_order_table__for_each_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__insert_order_table__for_each_1(void) {
+static void entry__types__insert_order_table___for_each(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -5646,9 +5625,9 @@ static void entry__types__insert_order_table__for_each_1(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__for_each_2;
+  frame->cont = cont__types__insert_order_table___for_each_2;
 }
-static void cont__types__insert_order_table__for_each_2(void) {
+static void cont__types__insert_order_table___for_each_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5661,9 +5640,9 @@ static void cont__types__insert_order_table__for_each_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__for_each_3;
+  frame->cont = cont__types__insert_order_table___for_each_3;
 }
-static void cont__types__insert_order_table__for_each_3(void) {
+static void cont__types__insert_order_table___for_each_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5699,7 +5678,7 @@ static void cont__types__insert_order_table__for_each_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__insert_order_table__for_each_from_to_1(void) {
+static void entry__types__insert_order_table___for_each_from_to(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // self: 0
@@ -5721,9 +5700,9 @@ static void entry__types__insert_order_table__for_each_from_to_1(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__for_each_from_to_2;
+  frame->cont = cont__types__insert_order_table___for_each_from_to_2;
 }
-static void cont__types__insert_order_table__for_each_from_to_2(void) {
+static void cont__types__insert_order_table___for_each_from_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5736,9 +5715,9 @@ static void cont__types__insert_order_table__for_each_from_to_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__for_each_from_to_3;
+  frame->cont = cont__types__insert_order_table___for_each_from_to_3;
 }
-static void cont__types__insert_order_table__for_each_from_to_3(void) {
+static void cont__types__insert_order_table___for_each_from_to_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5774,7 +5753,7 @@ static void cont__types__insert_order_table__for_each_from_to_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__for_each_from_to_24;
+  frame->cont = cont__types__insert_order_table___for_each_from_to_24;
 }
 static void entry__types__insert_order_table__for_each_from_to_12(void) {
   allocate_initialized_frame_gc(5, 10);
@@ -5801,7 +5780,7 @@ static void entry__types__insert_order_table__for_each_from_to_12(void) {
   arguments->slots[0] = frame->slots[0] /* tree */;
   arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 1;
-  myself = var._retrieve_item;
+  myself = func__retrieve_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__for_each_from_to_13;
 }
@@ -6189,12 +6168,12 @@ static void cont__types__insert_order_table__for_each_from_to_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__insert_order_table__for_each_from_to_24(void) {
+static void cont__types__insert_order_table___for_each_from_to_24(void) {
   myself = frame->slots[4] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__insert_order_table__for_each_from_down_to_1(void) {
+static void entry__types__insert_order_table___for_each_from_down_to(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // self: 0
@@ -6216,9 +6195,9 @@ static void entry__types__insert_order_table__for_each_from_down_to_1(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__for_each_from_down_to_2;
+  frame->cont = cont__types__insert_order_table___for_each_from_down_to_2;
 }
-static void cont__types__insert_order_table__for_each_from_down_to_2(void) {
+static void cont__types__insert_order_table___for_each_from_down_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6231,9 +6210,9 @@ static void cont__types__insert_order_table__for_each_from_down_to_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__for_each_from_down_to_3;
+  frame->cont = cont__types__insert_order_table___for_each_from_down_to_3;
 }
-static void cont__types__insert_order_table__for_each_from_down_to_3(void) {
+static void cont__types__insert_order_table___for_each_from_down_to_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6269,7 +6248,7 @@ static void cont__types__insert_order_table__for_each_from_down_to_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__for_each_from_down_to_24;
+  frame->cont = cont__types__insert_order_table___for_each_from_down_to_24;
 }
 static void entry__types__insert_order_table__for_each_from_down_to_12(void) {
   allocate_initialized_frame_gc(5, 10);
@@ -6296,7 +6275,7 @@ static void entry__types__insert_order_table__for_each_from_down_to_12(void) {
   arguments->slots[0] = frame->slots[0] /* tree */;
   arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* key */;
   result_count = 1;
-  myself = var._retrieve_item;
+  myself = func__retrieve_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__for_each_from_down_to_13;
 }
@@ -6684,12 +6663,12 @@ static void cont__types__insert_order_table__for_each_from_down_to_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__insert_order_table__for_each_from_down_to_24(void) {
+static void cont__types__insert_order_table___for_each_from_down_to_24(void) {
   myself = frame->slots[4] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__insert_order_table__update_each_1(void) {
+static void entry__types__insert_order_table___update_each(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // self: 0
@@ -6708,9 +6687,9 @@ static void entry__types__insert_order_table__update_each_1(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__update_each_2;
+  frame->cont = cont__types__insert_order_table___update_each_2;
 }
-static void cont__types__insert_order_table__update_each_2(void) {
+static void cont__types__insert_order_table___update_each_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6723,9 +6702,9 @@ static void cont__types__insert_order_table__update_each_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__update_each_3;
+  frame->cont = cont__types__insert_order_table___update_each_3;
 }
-static void cont__types__insert_order_table__update_each_3(void) {
+static void cont__types__insert_order_table___update_each_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6755,7 +6734,7 @@ static void cont__types__insert_order_table__update_each_3(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__update_each_15;
+  frame->cont = cont__types__insert_order_table___update_each_15;
 }
 static void entry__types__insert_order_table__update_each_4(void) {
   allocate_initialized_frame_gc(3, 5);
@@ -6830,7 +6809,7 @@ static void entry__types__insert_order_table__update_each_8(void) {
   arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[2] = frame->slots[3] /* temp__1 */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__update_each_13;
 }
@@ -6984,7 +6963,7 @@ static void cont__types__insert_order_table__update_each_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__insert_order_table__update_each_15(void) {
+static void cont__types__insert_order_table___update_each_15(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -6995,7 +6974,7 @@ static void cont__types__insert_order_table__update_each_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__insert_order_table__update_each_from_to_1(void) {
+static void entry__types__insert_order_table___update_each_from_to(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // self: 0
@@ -7016,9 +6995,9 @@ static void entry__types__insert_order_table__update_each_from_to_1(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__update_each_from_to_2;
+  frame->cont = cont__types__insert_order_table___update_each_from_to_2;
 }
-static void cont__types__insert_order_table__update_each_from_to_2(void) {
+static void cont__types__insert_order_table___update_each_from_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7031,9 +7010,9 @@ static void cont__types__insert_order_table__update_each_from_to_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__update_each_from_to_3;
+  frame->cont = cont__types__insert_order_table___update_each_from_to_3;
 }
-static void cont__types__insert_order_table__update_each_from_to_3(void) {
+static void cont__types__insert_order_table___update_each_from_to_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7071,7 +7050,7 @@ static void cont__types__insert_order_table__update_each_from_to_3(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__update_each_from_to_23;
+  frame->cont = cont__types__insert_order_table___update_each_from_to_23;
 }
 static void entry__types__insert_order_table__update_each_from_to_4(void) {
   allocate_initialized_frame_gc(5, 9);
@@ -7270,7 +7249,7 @@ static void entry__types__insert_order_table__update_each_from_to_13(void) {
   arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[2] = frame->slots[5] /* temp__1 */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__update_each_from_to_20;
 }
@@ -7470,7 +7449,7 @@ static void cont__types__insert_order_table__update_each_from_to_22(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__insert_order_table__update_each_from_to_23(void) {
+static void cont__types__insert_order_table___update_each_from_to_23(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -7481,7 +7460,7 @@ static void cont__types__insert_order_table__update_each_from_to_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__insert_order_table__update_each_from_down_to_1(void) {
+static void entry__types__insert_order_table___update_each_from_down_to(void) {
   allocate_initialized_frame_gc(4, 7);
   // slot allocations:
   // self: 0
@@ -7502,9 +7481,9 @@ static void entry__types__insert_order_table__update_each_from_down_to_1(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__update_each_from_down_to_2;
+  frame->cont = cont__types__insert_order_table___update_each_from_down_to_2;
 }
-static void cont__types__insert_order_table__update_each_from_down_to_2(void) {
+static void cont__types__insert_order_table___update_each_from_down_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7517,9 +7496,9 @@ static void cont__types__insert_order_table__update_each_from_down_to_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__update_each_from_down_to_3;
+  frame->cont = cont__types__insert_order_table___update_each_from_down_to_3;
 }
-static void cont__types__insert_order_table__update_each_from_down_to_3(void) {
+static void cont__types__insert_order_table___update_each_from_down_to_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -7557,7 +7536,7 @@ static void cont__types__insert_order_table__update_each_from_down_to_3(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__update_each_from_down_to_23;
+  frame->cont = cont__types__insert_order_table___update_each_from_down_to_23;
 }
 static void entry__types__insert_order_table__update_each_from_down_to_4(void) {
   allocate_initialized_frame_gc(5, 9);
@@ -7756,7 +7735,7 @@ static void entry__types__insert_order_table__update_each_from_down_to_13(void) 
   arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* key */;
   arguments->slots[2] = frame->slots[5] /* temp__1 */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__update_each_from_down_to_20;
 }
@@ -7956,7 +7935,7 @@ static void cont__types__insert_order_table__update_each_from_down_to_22(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__insert_order_table__update_each_from_down_to_23(void) {
+static void cont__types__insert_order_table___update_each_from_down_to_23(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -7967,7 +7946,7 @@ static void cont__types__insert_order_table__update_each_from_down_to_23(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__insert_order_table__insert_before_1(void) {
+static void entry__types__insert_order_table___insert_before(void) {
   allocate_initialized_frame_gc(4, 10);
   // slot allocations:
   // self: 0
@@ -7992,9 +7971,9 @@ static void entry__types__insert_order_table__insert_before_1(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_before_2;
+  frame->cont = cont__types__insert_order_table___insert_before_2;
 }
-static void cont__types__insert_order_table__insert_before_2(void) {
+static void cont__types__insert_order_table___insert_before_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8015,9 +7994,9 @@ static void cont__types__insert_order_table__insert_before_2(void) {
   arguments->slots[1] = frame->slots[1] /* key */;
   arguments->slots[2] = frame->slots[7] /* temp__1 */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_before_5;
+  frame->cont = cont__types__insert_order_table___insert_before_5;
 }
 static void entry__types__insert_order_table__insert_before_3(void) {
   allocate_initialized_frame_gc(3, 3);
@@ -8062,7 +8041,7 @@ static void cont__types__insert_order_table__insert_before_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__insert_order_table__insert_before_5(void) {
+static void cont__types__insert_order_table___insert_before_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8075,9 +8054,9 @@ static void cont__types__insert_order_table__insert_before_5(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_before_6;
+  frame->cont = cont__types__insert_order_table___insert_before_6;
 }
-static void cont__types__insert_order_table__insert_before_6(void) {
+static void cont__types__insert_order_table___insert_before_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8102,7 +8081,7 @@ static void cont__types__insert_order_table__insert_before_6(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_before_11;
+  frame->cont = cont__types__insert_order_table___insert_before_11;
 }
 static void entry__types__insert_order_table__insert_before_7(void) {
   allocate_initialized_frame_gc(3, 4);
@@ -8126,7 +8105,7 @@ static void entry__types__insert_order_table__insert_before_7(void) {
   arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* before_key */;
   arguments->slots[2] = frame->slots[3] /* temp__1 */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__insert_before_9;
 }
@@ -8193,7 +8172,7 @@ static void entry__types__insert_order_table__insert_before_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__insert_order_table__insert_before_11(void) {
+static void cont__types__insert_order_table___insert_before_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8207,11 +8186,11 @@ static void cont__types__insert_order_table__insert_before_11(void) {
   arguments->slots[3] = frame->slots[2] /* new_key */;
   arguments->slots[4] = frame->slots[3] /* new_value */;
   result_count = 2;
-  myself = var._add_item;
+  myself = func__add_item;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_before_12;
+  frame->cont = cont__types__insert_order_table___insert_before_12;
 }
-static void cont__types__insert_order_table__insert_before_12(void) {
+static void cont__types__insert_order_table___insert_before_12(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -8230,13 +8209,13 @@ static void cont__types__insert_order_table__insert_before_12(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* mode */;
-  arguments->slots[1] = var._INSERT;
+  arguments->slots[1] = unique__INSERT;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_before_13;
+  frame->cont = cont__types__insert_order_table___insert_before_13;
 }
-static void cont__types__insert_order_table__insert_before_13(void) {
+static void cont__types__insert_order_table___insert_before_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8249,9 +8228,9 @@ static void cont__types__insert_order_table__insert_before_13(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_before_14;
+  frame->cont = cont__types__insert_order_table___insert_before_14;
 }
-static void cont__types__insert_order_table__insert_before_14(void) {
+static void cont__types__insert_order_table___insert_before_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8267,7 +8246,7 @@ static void cont__types__insert_order_table__insert_before_14(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_before_17;
+  frame->cont = cont__types__insert_order_table___insert_before_17;
 }
 static void entry__types__insert_order_table__insert_before_15(void) {
   allocate_initialized_frame_gc(0, 0);
@@ -8285,7 +8264,7 @@ static void entry__types__insert_order_table__insert_before_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__insert_order_table__insert_before_17(void) {
+static void cont__types__insert_order_table___insert_before_17(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -8296,7 +8275,7 @@ static void cont__types__insert_order_table__insert_before_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__insert_order_table__insert_behind_1(void) {
+static void entry__types__insert_order_table___insert_behind(void) {
   allocate_initialized_frame_gc(4, 10);
   // slot allocations:
   // self: 0
@@ -8321,9 +8300,9 @@ static void entry__types__insert_order_table__insert_behind_1(void) {
   result_count = 1;
   myself = var._tree_of;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_behind_2;
+  frame->cont = cont__types__insert_order_table___insert_behind_2;
 }
-static void cont__types__insert_order_table__insert_behind_2(void) {
+static void cont__types__insert_order_table___insert_behind_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8344,9 +8323,9 @@ static void cont__types__insert_order_table__insert_behind_2(void) {
   arguments->slots[1] = frame->slots[1] /* key */;
   arguments->slots[2] = frame->slots[7] /* temp__1 */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_behind_5;
+  frame->cont = cont__types__insert_order_table___insert_behind_5;
 }
 static void entry__types__insert_order_table__insert_behind_3(void) {
   allocate_initialized_frame_gc(3, 3);
@@ -8391,7 +8370,7 @@ static void cont__types__insert_order_table__insert_behind_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__insert_order_table__insert_behind_5(void) {
+static void cont__types__insert_order_table___insert_behind_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8404,9 +8383,9 @@ static void cont__types__insert_order_table__insert_behind_5(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_behind_6;
+  frame->cont = cont__types__insert_order_table___insert_behind_6;
 }
-static void cont__types__insert_order_table__insert_behind_6(void) {
+static void cont__types__insert_order_table___insert_behind_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8431,7 +8410,7 @@ static void cont__types__insert_order_table__insert_behind_6(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_behind_11;
+  frame->cont = cont__types__insert_order_table___insert_behind_11;
 }
 static void entry__types__insert_order_table__insert_behind_7(void) {
   allocate_initialized_frame_gc(3, 4);
@@ -8455,7 +8434,7 @@ static void entry__types__insert_order_table__insert_behind_7(void) {
   arguments->slots[1] = ((CELL *)frame->slots[1])->contents /* behind_key */;
   arguments->slots[2] = frame->slots[3] /* temp__1 */;
   result_count = 1;
-  myself = var._update_item;
+  myself = func__update_item;
   func = myself->type;
   frame->cont = cont__types__insert_order_table__insert_behind_9;
 }
@@ -8522,7 +8501,7 @@ static void entry__types__insert_order_table__insert_behind_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__insert_order_table__insert_behind_11(void) {
+static void cont__types__insert_order_table___insert_behind_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8536,11 +8515,11 @@ static void cont__types__insert_order_table__insert_behind_11(void) {
   arguments->slots[3] = frame->slots[2] /* new_key */;
   arguments->slots[4] = frame->slots[3] /* new_value */;
   result_count = 2;
-  myself = var._add_item;
+  myself = func__add_item;
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_behind_12;
+  frame->cont = cont__types__insert_order_table___insert_behind_12;
 }
-static void cont__types__insert_order_table__insert_behind_12(void) {
+static void cont__types__insert_order_table___insert_behind_12(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -8559,13 +8538,13 @@ static void cont__types__insert_order_table__insert_behind_12(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* mode */;
-  arguments->slots[1] = var._INSERT;
+  arguments->slots[1] = unique__INSERT;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_behind_13;
+  frame->cont = cont__types__insert_order_table___insert_behind_13;
 }
-static void cont__types__insert_order_table__insert_behind_13(void) {
+static void cont__types__insert_order_table___insert_behind_13(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8578,9 +8557,9 @@ static void cont__types__insert_order_table__insert_behind_13(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_behind_14;
+  frame->cont = cont__types__insert_order_table___insert_behind_14;
 }
-static void cont__types__insert_order_table__insert_behind_14(void) {
+static void cont__types__insert_order_table___insert_behind_14(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8596,7 +8575,7 @@ static void cont__types__insert_order_table__insert_behind_14(void) {
     frame->caller_result_count-1 : -1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__insert_order_table__insert_behind_16;
+  frame->cont = cont__types__insert_order_table___insert_behind_16;
 }
 static void entry__types__insert_order_table__insert_behind_15(void) {
   allocate_initialized_frame_gc(0, 0);
@@ -8614,7 +8593,7 @@ static void entry__types__insert_order_table__insert_behind_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__insert_order_table__insert_behind_16(void) {
+static void cont__types__insert_order_table___insert_behind_16(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -8627,9 +8606,6 @@ static void cont__types__insert_order_table__insert_behind_16(void) {
 }
 EXPORT void collect__basic__types__insert_order_table(void) {
   var.std__is_an_insert_order_table = collect_node(var.std__is_an_insert_order_table);
-  var._NONE = collect_node(var._NONE);
-  var._INSERT = collect_node(var._INSERT);
-  var._UPDATE = collect_node(var._UPDATE);
   var._tree_of = collect_node(var._tree_of);
   var._first_of = collect_node(var._first_of);
   var._last_of = collect_node(var._last_of);
@@ -8639,15 +8615,8 @@ EXPORT void collect__basic__types__insert_order_table(void) {
   var._right_of = collect_node(var._right_of);
   var._next_of = collect_node(var._next_of);
   var._previous_of = collect_node(var._previous_of);
-  var._remove_leftmost = collect_node(var._remove_leftmost);
-  var._remove_rightmost = collect_node(var._remove_rightmost);
   var.types__insert_order_table = collect_node(var.types__insert_order_table);
   var._empty_node = collect_node(var._empty_node);
-  var._fetch_first = collect_node(var._fetch_first);
-  var._retrieve_item = collect_node(var._retrieve_item);
-  var._add_item = collect_node(var._add_item);
-  var._update_item = collect_node(var._update_item);
-  var._remove_item = collect_node(var._remove_item);
   var.std__empty_insert_order_table = collect_node(var.std__empty_insert_order_table);
   var.std__insert_order_table = collect_node(var.std__insert_order_table);
 }
@@ -8669,9 +8638,6 @@ EXPORT void phase_2__basic__types__insert_order_table(void) {
   number__0 = from_uint32(0U);
   number__2 = from_uint32(2U);
   define_polymorphic_function("std", "is_an_insert_order_table", get__std__is_an_insert_order_table, &poly_idx__std__is_an_insert_order_table, &var.std__is_an_insert_order_table);
-  unique__NONE = register_unique_item("NONE");
-  unique__INSERT = register_unique_item("INSERT");
-  unique__UPDATE = register_unique_item("UPDATE");
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::tree_of", &poly_idx__tree_of);
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::first_of", &poly_idx__first_of);
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::last_of", &poly_idx__last_of);
@@ -8681,30 +8647,33 @@ EXPORT void phase_2__basic__types__insert_order_table(void) {
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::right_of", &poly_idx__right_of);
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::next_of", &poly_idx__next_of);
   register_polymorphic_function_with_setter("_basic__types__insert_order_table::previous_of", &poly_idx__previous_of);
-  func__remove_leftmost_1 = create_function(entry__remove_leftmost_1, 1);
-  func__remove_rightmost_1 = create_function(entry__remove_rightmost_1, 1);
-  func__fetch_first_1 = create_function(entry__fetch_first_1, 1);
-  func__retrieve_item_1 = create_function(entry__retrieve_item_1, 2);
-  func__add_item_1 = create_function(entry__add_item_1, 5);
-  func__update_item_1 = create_function(entry__update_item_1, 3);
-  func__remove_item_1 = create_function(entry__remove_item_1, 2);
-  func__types__insert_order_table__private__set_item_1 = create_function(entry__types__insert_order_table__private__set_item_1, 3);
+  func__remove_leftmost = create_function(entry__remove_leftmost, 1);
+  func__remove_rightmost = create_function(entry__remove_rightmost, 1);
+  func__fetch_first = create_function(entry__fetch_first, 1);
+  func__retrieve_item = create_function(entry__retrieve_item, 2);
+  unique__INSERT = register_unique_item("INSERT");
+  unique__UPDATE = register_unique_item("UPDATE");
+  func__add_item = create_function(entry__add_item, 5);
+  func__update_item = create_function(entry__update_item, 3);
+  unique__NONE = register_unique_item("NONE");
+  func__remove_item = create_function(entry__remove_item, 2);
+  func__types__insert_order_table___private__set_item = create_function(entry__types__insert_order_table___private__set_item, 3);
   func__types__insert_order_table__private__get_item_7 = create_function(entry__types__insert_order_table__private__get_item_7, 0);
-  func__types__insert_order_table__private__get_item_1 = create_function(entry__types__insert_order_table__private__get_item_1, 2);
+  func__types__insert_order_table___private__get_item = create_function(entry__types__insert_order_table___private__get_item, 2);
   string__1160a298062c3c9e = from_latin_1_string("insert_order_table", 18);
-  func__types__insert_order_table__new_empty_collection_1 = create_function(entry__types__insert_order_table__new_empty_collection_1, 1);
-  func__std__insert_order_table_1 = create_function(entry__std__insert_order_table_1, -1);
-  func__types__insert_order_table__for_each_1 = create_function(entry__types__insert_order_table__for_each_1, 2);
-  func__types__insert_order_table__for_each_from_to_1 = create_function(entry__types__insert_order_table__for_each_from_to_1, 4);
-  func__types__insert_order_table__for_each_from_down_to_1 = create_function(entry__types__insert_order_table__for_each_from_down_to_1, 4);
-  func__types__insert_order_table__update_each_1 = create_function(entry__types__insert_order_table__update_each_1, 2);
-  func__types__insert_order_table__update_each_from_to_1 = create_function(entry__types__insert_order_table__update_each_from_to_1, 4);
-  func__types__insert_order_table__update_each_from_down_to_1 = create_function(entry__types__insert_order_table__update_each_from_down_to_1, 4);
+  func__types__insert_order_table___new_empty_collection = create_function(entry__types__insert_order_table___new_empty_collection, 1);
+  func__std__insert_order_table = create_function(entry__std__insert_order_table, -1);
+  func__types__insert_order_table___for_each = create_function(entry__types__insert_order_table___for_each, 2);
+  func__types__insert_order_table___for_each_from_to = create_function(entry__types__insert_order_table___for_each_from_to, 4);
+  func__types__insert_order_table___for_each_from_down_to = create_function(entry__types__insert_order_table___for_each_from_down_to, 4);
+  func__types__insert_order_table___update_each = create_function(entry__types__insert_order_table___update_each, 2);
+  func__types__insert_order_table___update_each_from_to = create_function(entry__types__insert_order_table___update_each_from_to, 4);
+  func__types__insert_order_table___update_each_from_down_to = create_function(entry__types__insert_order_table___update_each_from_down_to, 4);
   string__d2f4ba5cf0563ffa = from_latin_1_string("Invalid tree insert operation!", 30);
   func__types__insert_order_table__insert_before_15 = create_function(entry__types__insert_order_table__insert_before_15, 0);
-  func__types__insert_order_table__insert_before_1 = create_function(entry__types__insert_order_table__insert_before_1, 4);
+  func__types__insert_order_table___insert_before = create_function(entry__types__insert_order_table___insert_before, 4);
   func__types__insert_order_table__insert_behind_15 = create_function(entry__types__insert_order_table__insert_behind_15, 0);
-  func__types__insert_order_table__insert_behind_1 = create_function(entry__types__insert_order_table__insert_behind_1, 4);
+  func__types__insert_order_table___insert_behind = create_function(entry__types__insert_order_table___insert_behind, 4);
 }
 
 static int already_run_phase_3 = false;
@@ -8714,9 +8683,6 @@ EXPORT void phase_3__basic__types__insert_order_table(void) {
   already_run_phase_3 = true;
   set_module("basic__types__insert_order_table");
   set_used_namespaces(used_namespaces);
-  assign_value(&var._NONE, unique__NONE);
-  assign_value(&var._INSERT, unique__INSERT);
-  assign_value(&var._UPDATE, unique__UPDATE);
   var.types__insert_order_table = create_future();
   define_single_assign_static("types", "insert_order_table", get__types__insert_order_table, &var.types__insert_order_table);
   var._empty_node = create_future();
@@ -8779,22 +8745,22 @@ EXPORT void phase_4__basic__types__insert_order_table(void) {
   def_attribute(&var._empty_node, poly_idx__next_of, MAKE_ATTRIBUTE_VALUE(get__undefined()));
   update_start_p = node_p;
   def_attribute(&var._empty_node, poly_idx__previous_of, MAKE_ATTRIBUTE_VALUE(get__undefined()));
-  define_method("types", "insert_order_table", poly_idx__private__set_item, func__types__insert_order_table__private__set_item_1);
-  define_method("types", "insert_order_table", poly_idx__private__get_item, func__types__insert_order_table__private__get_item_1);
+  define_method("types", "insert_order_table", poly_idx__private__set_item, func__types__insert_order_table___private__set_item);
+  define_method("types", "insert_order_table", poly_idx__private__get_item, func__types__insert_order_table___private__get_item);
   define_attribute("types", "insert_order_table", poly_idx__tree_of, get__undefined());
   define_attribute("types", "insert_order_table", poly_idx__first_of, get__undefined());
   define_attribute("types", "insert_order_table", poly_idx__last_of, get__undefined());
   define_attribute("types", "insert_order_table", poly_idx__length_of, number__0);
   define_attribute("types", "insert_order_table", poly_idx__serialization_tag_of, string__1160a298062c3c9e);
-  define_method("types", "insert_order_table", poly_idx__new_empty_collection, func__types__insert_order_table__new_empty_collection_1);
-  define_method("types", "insert_order_table", poly_idx__for_each, func__types__insert_order_table__for_each_1);
-  define_method("types", "insert_order_table", poly_idx__for_each_from_to, func__types__insert_order_table__for_each_from_to_1);
-  define_method("types", "insert_order_table", poly_idx__for_each_from_down_to, func__types__insert_order_table__for_each_from_down_to_1);
-  define_method("types", "insert_order_table", poly_idx__update_each, func__types__insert_order_table__update_each_1);
-  define_method("types", "insert_order_table", poly_idx__update_each_from_to, func__types__insert_order_table__update_each_from_to_1);
-  define_method("types", "insert_order_table", poly_idx__update_each_from_down_to, func__types__insert_order_table__update_each_from_down_to_1);
-  define_method("types", "insert_order_table", poly_idx__insert_before, func__types__insert_order_table__insert_before_1);
-  define_method("types", "insert_order_table", poly_idx__insert_behind, func__types__insert_order_table__insert_behind_1);
+  define_method("types", "insert_order_table", poly_idx__new_empty_collection, func__types__insert_order_table___new_empty_collection);
+  define_method("types", "insert_order_table", poly_idx__for_each, func__types__insert_order_table___for_each);
+  define_method("types", "insert_order_table", poly_idx__for_each_from_to, func__types__insert_order_table___for_each_from_to);
+  define_method("types", "insert_order_table", poly_idx__for_each_from_down_to, func__types__insert_order_table___for_each_from_down_to);
+  define_method("types", "insert_order_table", poly_idx__update_each, func__types__insert_order_table___update_each);
+  define_method("types", "insert_order_table", poly_idx__update_each_from_to, func__types__insert_order_table___update_each_from_to);
+  define_method("types", "insert_order_table", poly_idx__update_each_from_down_to, func__types__insert_order_table___update_each_from_down_to);
+  define_method("types", "insert_order_table", poly_idx__insert_before, func__types__insert_order_table___insert_before);
+  define_method("types", "insert_order_table", poly_idx__insert_behind, func__types__insert_order_table___insert_behind);
 }
 
 static int already_run_phase_5 = false;
@@ -8812,17 +8778,10 @@ EXPORT void phase_5__basic__types__insert_order_table(void) {
   assign_value(&var._right_of, create_function(type__right_of, -1));
   assign_value(&var._next_of, create_function(type__next_of, -1));
   assign_value(&var._previous_of, create_function(type__previous_of, -1));
-  assign_variable(&var._remove_leftmost, &func__remove_leftmost_1);
-  assign_variable(&var._remove_rightmost, &func__remove_rightmost_1);
   initialize_future(var.types__insert_order_table, get__types__generic_table());
   initialize_future(var._empty_node, get__types__object());
-  assign_variable(&var._fetch_first, &func__fetch_first_1);
-  assign_variable(&var._retrieve_item, &func__retrieve_item_1);
-  assign_variable(&var._add_item, &func__add_item_1);
-  assign_variable(&var._update_item, &func__update_item_1);
-  assign_variable(&var._remove_item, &func__remove_item_1);
   initialize_future(var.std__empty_insert_order_table, var.types__insert_order_table);
-  initialize_future(var.std__insert_order_table, func__std__insert_order_table_1);
+  initialize_future(var.std__insert_order_table, func__std__insert_order_table);
 }
 
 static int already_run_phase_6 = false;

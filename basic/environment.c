@@ -191,7 +191,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT void assign_value(NODE **dest, NODE *val);
 typedef void (*NODE_SETTER)(NODE *);
 IMPORT void define_multi_assign_static(
   const char *namespace, const char *name,
@@ -281,7 +280,6 @@ static struct {
   NODE *_arguments;
   NODE *_env_1;
   NODE *_putenv;
-  NODE *_NONE;
   NODE *_env_2;
   NODE *std__program_name;
   NODE *std__command_line_arguments;
@@ -295,7 +293,6 @@ static const char *var_names[] = {
   "arguments",
   "env_1",
   "putenv",
-  "NONE",
   "env_2"
 };
 static void entry__argv_1(void);
@@ -317,11 +314,11 @@ static NODE *get__std__command_line_arguments(void) {
 }
 static void entry__putenv_1(void);
 static NODE *func__putenv_1;
+static NODE *func__env_2____type;
+static void entry__env_2____type(void);
+static FRAME_INFO frame__env_2____type = {3, {"key", "value", "myself"}};
 static NODE *unique__NONE;
-static NODE *func__env_2_1;
-static void entry__env_2_1(void);
-static FRAME_INFO frame__env_2_1 = {3, {"key", "value", "myself"}};
-static void cont__env_2_2(void);
+static void cont__env_2____type_2(void);
 static NODE *func__env_2_3;
 static void entry__env_2_3(void);
 static FRAME_INFO frame__env_2_3 = {2, {"myself", "key"}};
@@ -375,8 +372,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__env_2_4, NULL, 116, 116, 14, 30},
   {cont__env_2_6, &frame__env_2_4, 116, 116, 7, 30},
   {cont__env_2_7, &frame__env_2_4, 117, 117, 7, 40},
-  {entry__env_2_1, NULL, 111, 111, 5, 17},
-  {cont__env_2_2, &frame__env_2_1, 110, 117, 3, 41},
+  {entry__env_2____type, NULL, 111, 111, 5, 17},
+  {cont__env_2____type_2, &frame__env_2____type, 110, 117, 3, 41},
   {entry__24_3, NULL, 76, 76, 41, 47},
   {cont__24_4, &frame__24_3, 76, 76, 25, 47},
   {cont__24_5, &frame__24_3, 76, 76, 47, 47},
@@ -878,7 +875,7 @@ static void cont__env_2_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__env_2_1(void) {
+static void entry__env_2____type(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // key: 0
@@ -897,20 +894,20 @@ static void entry__env_2_1(void) {
     case 1:;
   }
   switch(argument_count) {
-    case 1: frame->slots[1] /* value */ = var._NONE;
+    case 1: frame->slots[1] /* value */ = unique__NONE;
   }
   frame->slots[2] /* myself */ = myself;
   // 111: NONE == value
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._NONE;
+  arguments->slots[0] = unique__NONE;
   arguments->slots[1] = frame->slots[1] /* value */;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__env_2_2;
+  frame->cont = cont__env_2____type_2;
 }
-static void cont__env_2_2(void) {
+static void cont__env_2____type_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -953,7 +950,6 @@ EXPORT void collect__basic__environment(void) {
   var.std__command_line_arguments = collect_node(var.std__command_line_arguments);
   var._env_1 = collect_node(var._env_1);
   var._putenv = collect_node(var._putenv);
-  var._NONE = collect_node(var._NONE);
   var._env_2 = collect_node(var._env_2);
   var.std__environment = collect_node(var.std__environment);
 }
@@ -995,7 +991,6 @@ EXPORT void phase_3__basic__environment(void) {
   set_used_namespaces(used_namespaces);
   define_single_assign_static("std", "program_name", get__std__program_name, &var.std__program_name);
   define_single_assign_static("std", "command_line_arguments", get__std__command_line_arguments, &var.std__command_line_arguments);
-  assign_value(&var._NONE, unique__NONE);
   var._env_2 = create_future();
   define_multi_assign_static("std", "environment", get__std__environment, set__std__environment);
 }
@@ -1021,7 +1016,7 @@ EXPORT void phase_4__basic__environment(void) {
   use_read_only("std", "minus", &get__std__minus, &get_value_or_future__std__minus);
   use_read_only("std", "string", &get__std__string, &get_value_or_future__std__string);
   update_start_p = node_p;
-  def_attribute(&var._env_2, -1, entry__env_2_1);
+  def_attribute(&var._env_2, -1, entry__env_2____type);
 }
 
 static int already_run_phase_5 = false;

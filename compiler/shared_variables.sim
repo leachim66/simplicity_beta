@@ -91,6 +91,7 @@ $compiler::indents_of (!)
   # the no. of the current submodule; starting with 0
 
 %%compiler::index undefined # used for enumerating expanded source code items
+%%compiler::named_constants undefined # a table of top-level symbolic constants
 %%compiler::definitions undefined # a list of key-value pairs
 %%compiler::statements undefined # a list of statements
 %%compiler::actions undefined # a list of deferred actions (closures)
@@ -103,8 +104,11 @@ $compiler::indents_of (!)
 %compiler::already_defined_names undefined
   # names that must not be redefined as local symbols
 
-%%compiler::defined_names undefined # used for collecting defined symbols
-%%compiler::used_names undefined # used for collecting usages of symbols
+%%compiler::defined_names undefined
+  # an insert-order set used for collecting defined symbols
+
+%%compiler::used_names undefined
+  # an insert-order table used for collecting usages of symbols
 
 %%compiler::assigned_names undefined
   #
@@ -124,6 +128,10 @@ $compiler::indents_of (!)
 %%compiler::unique_item_index undefined
   #
     the index no. of the next anonymous unique item
+
+%%compiler::used_unique_items undefined
+  #
+    a set containing all unique item names
 
 # vtable contents
 

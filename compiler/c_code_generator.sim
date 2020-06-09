@@ -33,6 +33,7 @@ $compiler::to_c ()
 
 %compiler::suffix undefined
 %level 1
+%cont_suffix undefined
 %current_locals empty_table
 %current_frame undefined
 %is_a_shared_local empty_set
@@ -540,8 +541,23 @@ $compiler::body/to_c:
   $outer_level level
   $parent_locals current_locals
   $is_an_inherited_shared_local is_a_shared_local
+  $body_name name_of(self)
+
+  $body_suffix
+    if
+      body_name.is_defined
+      -> string("__" body_name)
+      -> string(suffix '_' index+1)
+
+  if self.is_a_reference: return "func@(body_suffix)"
   inc &index
-  $body_suffix string(suffix '_' index)
+
+  %cont_suffix
+    if
+      body_name.is_defined
+      -> body_suffix
+      -> suffix
+
   $$par_count undefined
   delayed:
     %level outer_level+1
@@ -859,9 +875,9 @@ $compiler::body/to_c:
 		  cond
 		    -> continuation_parameter.is_defined:
 		      inc &index
-		      get_func_and_myself functor "cont@(suffix)_@(index)"
+		      get_func_and_myself functor "cont@(cont_suffix)_@(index)"
 		      write "}@nl;"
-		      next_continuation "cont@(suffix)_@(index)"
+		      next_continuation "cont@(cont_suffix)_@(index)"
 		      compute_source_text_info
 			statement
 			false
@@ -874,9 +890,9 @@ $compiler::body/to_c:
 			  frame->cont = invalid_continuation;
 		    -> not(output_parameters.is_empty):
 		      inc &index
-		      get_func_and_myself functor "cont@(suffix)_@(index)"
+		      get_func_and_myself functor "cont@(cont_suffix)_@(index)"
 		      write "}@nl;"
-		      next_continuation "cont@(suffix)_@(index)"
+		      next_continuation "cont@(cont_suffix)_@(index)"
 		      $n count_arguments(output_parameters)
 		      if
 			n.is_defined:
@@ -1120,9 +1136,9 @@ $compiler::unique_item/to_c: (self)
       if
 	name_of(self).is_defined
 	-> name_of(self)
-	-> unique_item_index
-
-  inc &unique_item_index
+	:
+	  inc &unique_item_index
+	  -> unique_item_index
 
   $reg_name
     if
@@ -1130,10 +1146,12 @@ $compiler::unique_item/to_c: (self)
       -> name_of(self)
       -> name
 
-  write_to_declarations "static NODE *@(name);@nl;"
-  write_to_phase_2 "
-    @
-      @(name) = register_unique_item("@(reg_name)");
+  unless used_unique_items(name):
+    !used_unique_items(name) true
+    write_to_declarations "static NODE *@(name);@nl;"
+    write_to_phase_2 "
+      @
+        @(name) = register_unique_item("@(reg_name)");
   -> name
 
 ###
@@ -1946,9 +1964,16 @@ $compiler::generate_statement: (statement)
 		:
 		  writeln "  result_count = @(result_count);"
 	  inc &index
-	  get_func_and_myself functor "cont@(suffix)_@(index)"
+
+	  $sfx
+	    if
+	      cont_suffix.is_defined
+	      -> cont_suffix
+	      -> suffix
+
+	  get_func_and_myself functor "cont@(sfx)_@(index)"
 	  write "}@nl;"
-	  next_continuation "cont@(suffix)_@(index)"
+	  next_continuation "cont@(sfx)_@(index)"
 	  extract "results" output_arguments
 	:
 	  $destination output_arguments(1)

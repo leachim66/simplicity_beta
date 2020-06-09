@@ -224,7 +224,6 @@ IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE **var_p
 );
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
@@ -243,6 +242,7 @@ IMPORT void define_attribute(
   const char *namespace, const char *name,
   int id, NODE *attribute
 );
+IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -367,7 +367,6 @@ static NODE_GETTER get_value_or_future__while;
 static NODE_GETTER get__write_to;
 static NODE_GETTER get_value_or_future__write_to;
 static struct {
-  NODE *_NONE;
   NODE *private__set_item;
   NODE *private__get_item;
   NODE *types__generic_table;
@@ -378,7 +377,6 @@ static struct {
   NODE *std__register_collection_serializer;
 } var;
 static const char *var_names[] = {
-  "NONE"
 };
 static int poly_idx__private__set_item;
 static void type__private__set_item(void);
@@ -393,46 +391,46 @@ static NODE *get__private__get_item(void) {
 static NODE *get__types__generic_table(void) {
   return var.types__generic_table;
 }
+static NODE *func__types__generic_table____type;
+static void entry__types__generic_table____type(void);
+static FRAME_INFO frame__types__generic_table____type = {3, {"key", "value", "myself"}};
 static NODE *unique__NONE;
-static NODE *func__types__generic_table_1;
-static void entry__types__generic_table_1(void);
-static FRAME_INFO frame__types__generic_table_1 = {3, {"key", "value", "myself"}};
-static void cont__types__generic_table_2(void);
+static void cont__types__generic_table____type_2(void);
 static NODE *func__types__generic_table_3;
 static void entry__types__generic_table_3(void);
 static FRAME_INFO frame__types__generic_table_3 = {2, {"myself", "key"}};
 static NODE *func__types__generic_table_4;
 static void entry__types__generic_table_4(void);
 static FRAME_INFO frame__types__generic_table_4 = {3, {"myself", "key", "value"}};
-static NODE *func__types__generic_table__union_1;
-static void entry__types__generic_table__union_1(void);
-static FRAME_INFO frame__types__generic_table__union_1 = {2, {"left", "right"}};
+static NODE *func__types__generic_table___union;
+static void entry__types__generic_table___union(void);
+static FRAME_INFO frame__types__generic_table___union = {2, {"left", "right"}};
 static NODE *func__types__generic_table__union_2;
 static void entry__types__generic_table__union_2(void);
 static FRAME_INFO frame__types__generic_table__union_2 = {3, {"key", "value", "left"}};
 static void cont__types__generic_table__union_3(void);
-static void cont__types__generic_table__union_4(void);
-static NODE *func__types__generic_table__map_1;
-static void entry__types__generic_table__map_1(void);
-static FRAME_INFO frame__types__generic_table__map_1 = {3, {"self", "func", "new_table"}};
-static void cont__types__generic_table__map_2(void);
+static void cont__types__generic_table___union_4(void);
+static NODE *func__types__generic_table___map;
+static void entry__types__generic_table___map(void);
+static FRAME_INFO frame__types__generic_table___map = {3, {"self", "func", "new_table"}};
+static void cont__types__generic_table___map_2(void);
 static NODE *func__types__generic_table__map_3;
 static void entry__types__generic_table__map_3(void);
 static FRAME_INFO frame__types__generic_table__map_3 = {4, {"key", "value", "new_table", "func"}};
 static void cont__types__generic_table__map_4(void);
 static void cont__types__generic_table__map_5(void);
-static void cont__types__generic_table__map_6(void);
-static NODE *func__types__generic_table__serialize_1;
-static void entry__types__generic_table__serialize_1(void);
-static FRAME_INFO frame__types__generic_table__serialize_1 = {5, {"self", "indent", "return", "tag", "buf"}};
-static void cont__types__generic_table__serialize_2(void);
-static void cont__types__generic_table__serialize_3(void);
+static void cont__types__generic_table___map_6(void);
+static NODE *func__types__generic_table___serialize;
+static void entry__types__generic_table___serialize(void);
+static FRAME_INFO frame__types__generic_table___serialize = {5, {"self", "indent", "return", "tag", "buf"}};
+static void cont__types__generic_table___serialize_2(void);
+static void cont__types__generic_table___serialize_3(void);
 static NODE *func__types__generic_table__serialize_4;
 static void entry__types__generic_table__serialize_4(void);
 static FRAME_INFO frame__types__generic_table__serialize_4 = {2, {"return", "tag"}};
 static NODE *string__2d7981f4e6482bec;
 static void cont__types__generic_table__serialize_6(void);
-static void cont__types__generic_table__serialize_7(void);
+static void cont__types__generic_table___serialize_7(void);
 static NODE *func__types__generic_table__serialize_8;
 static void entry__types__generic_table__serialize_8(void);
 static FRAME_INFO frame__types__generic_table__serialize_8 = {4, {"key", "value", "buf", "indent"}};
@@ -444,28 +442,28 @@ static void cont__types__generic_table__serialize_13(void);
 static void cont__types__generic_table__serialize_14(void);
 static NODE *string__fa730415fc16bec;
 static void cont__types__generic_table__serialize_16(void);
-static void cont__types__generic_table__serialize_17(void);
-static NODE *func__types__generic_table__keys_of_1;
-static void entry__types__generic_table__keys_of_1(void);
-static FRAME_INFO frame__types__generic_table__keys_of_1 = {2, {"self", "keys"}};
+static void cont__types__generic_table___serialize_17(void);
+static NODE *func__types__generic_table___keys_of;
+static void entry__types__generic_table___keys_of(void);
+static FRAME_INFO frame__types__generic_table___keys_of = {2, {"self", "keys"}};
 static NODE *func__types__generic_table__keys_of_2;
 static void entry__types__generic_table__keys_of_2(void);
 static FRAME_INFO frame__types__generic_table__keys_of_2 = {3, {"key", "value", "keys"}};
 static void cont__types__generic_table__keys_of_3(void);
-static void cont__types__generic_table__keys_of_4(void);
-static NODE *func__types__generic_table__values_of_1;
-static void entry__types__generic_table__values_of_1(void);
-static FRAME_INFO frame__types__generic_table__values_of_1 = {2, {"self", "values"}};
+static void cont__types__generic_table___keys_of_4(void);
+static NODE *func__types__generic_table___values_of;
+static void entry__types__generic_table___values_of(void);
+static FRAME_INFO frame__types__generic_table___values_of = {2, {"self", "values"}};
 static NODE *func__types__generic_table__values_of_2;
 static void entry__types__generic_table__values_of_2(void);
 static FRAME_INFO frame__types__generic_table__values_of_2 = {3, {"key", "value", "values"}};
 static void cont__types__generic_table__values_of_3(void);
-static void cont__types__generic_table__values_of_4(void);
-static NODE *func__types__generic_table__is_empty_1;
-static void entry__types__generic_table__is_empty_1(void);
-static FRAME_INFO frame__types__generic_table__is_empty_1 = {1, {"self"}};
-static void cont__types__generic_table__is_empty_2(void);
-static void cont__types__generic_table__is_empty_3(void);
+static void cont__types__generic_table___values_of_4(void);
+static NODE *func__types__generic_table___is_empty;
+static void entry__types__generic_table___is_empty(void);
+static FRAME_INFO frame__types__generic_table___is_empty = {1, {"self"}};
+static void cont__types__generic_table___is_empty_2(void);
+static void cont__types__generic_table___is_empty_3(void);
 static int poly_idx__std__is_a_table;
 static void type__std__is_a_table(void);
 static NODE *get__std__is_a_table(void) {
@@ -478,9 +476,9 @@ static NODE *string__485aeb83eaa95032;
 static NODE *get__std__empty_table(void) {
   return var.std__empty_table;
 }
-static NODE *func__std__table_1;
-static void entry__std__table_1(void);
-static FRAME_INFO frame__std__table_1 = {2, {"args", "tab"}};
+static NODE *func__std__table;
+static void entry__std__table(void);
+static FRAME_INFO frame__std__table = {2, {"args", "tab"}};
 static NODE *func__std__table_2;
 static void entry__std__table_2(void);
 static FRAME_INFO frame__std__table_2 = {2, {"arg", "tab"}};
@@ -491,9 +489,9 @@ static void cont__std__table_6(void);
 static NODE *get__std__table(void) {
   return var.std__table;
 }
-static NODE *func__std__register_collection_serializer_1;
-static void entry__std__register_collection_serializer_1(void);
-static FRAME_INFO frame__std__register_collection_serializer_1 = {2, {"name", "empty_collection"}};
+static NODE *func__std__register_collection_serializer;
+static void entry__std__register_collection_serializer(void);
+static FRAME_INFO frame__std__register_collection_serializer = {2, {"name", "empty_collection"}};
 static NODE *func__std__register_collection_serializer_2;
 static void entry__std__register_collection_serializer_2(void);
 static FRAME_INFO frame__std__register_collection_serializer_2 = {7, {"text", "base_indent", "return", "name", "empty_collection", "invalid_table_error", "obj"}};
@@ -585,18 +583,18 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__40_1, NULL, },
   {entry__types__generic_table_3, NULL, 57, 57, 7, 34},
   {entry__types__generic_table_4, NULL, 59, 59, 7, 40},
-  {entry__types__generic_table_1, NULL, 56, 56, 5, 17},
-  {cont__types__generic_table_2, &frame__types__generic_table_1, 55, 59, 3, 41},
+  {entry__types__generic_table____type, NULL, 56, 56, 5, 17},
+  {cont__types__generic_table____type_2, &frame__types__generic_table____type, 55, 59, 3, 41},
   {entry__types__generic_table__union_2, NULL, 68, 68, 31, 40},
   {cont__types__generic_table__union_3, &frame__types__generic_table__union_2, 68, 68, 46, 46},
-  {entry__types__generic_table__union_1, NULL, 68, 68, 3, 46},
-  {cont__types__generic_table__union_4, &frame__types__generic_table__union_1, },
+  {entry__types__generic_table___union, NULL, 68, 68, 3, 46},
+  {cont__types__generic_table___union_4, &frame__types__generic_table___union, },
   {entry__types__generic_table__map_3, NULL, 78, 78, 30, 56},
   {cont__types__generic_table__map_4, &frame__types__generic_table__map_3, 78, 78, 30, 44},
   {cont__types__generic_table__map_5, &frame__types__generic_table__map_3, 78, 78, 56, 56},
-  {entry__types__generic_table__map_1, NULL, 77, 77, 3, 40},
-  {cont__types__generic_table__map_2, &frame__types__generic_table__map_1, 78, 78, 3, 56},
-  {cont__types__generic_table__map_6, &frame__types__generic_table__map_1, 79, 79, 3, 14},
+  {entry__types__generic_table___map, NULL, 77, 77, 3, 40},
+  {cont__types__generic_table___map_2, &frame__types__generic_table___map, 78, 78, 3, 56},
+  {cont__types__generic_table___map_6, &frame__types__generic_table___map, 79, 79, 3, 14},
   {entry__types__generic_table__serialize_4, NULL, 90, 90, 28, 37},
   {cont__types__generic_table__serialize_6, &frame__types__generic_table__serialize_4, 90, 90, 21, 37},
   {entry__types__generic_table__serialize_8, NULL, 96, 96, 14, 21},
@@ -607,28 +605,28 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__generic_table__serialize_13, &frame__types__generic_table__serialize_8, 99, 99, 7, 31},
   {cont__types__generic_table__serialize_14, &frame__types__generic_table__serialize_8, 93, 99, 5, 31},
   {cont__types__generic_table__serialize_16, &frame__types__generic_table__serialize_8, 99, 99, 32, 32},
-  {entry__types__generic_table__serialize_1, NULL, 89, 89, 3, 33},
-  {cont__types__generic_table__serialize_2, &frame__types__generic_table__serialize_1, 90, 90, 6, 18},
-  {cont__types__generic_table__serialize_3, &frame__types__generic_table__serialize_1, 90, 90, 3, 37},
-  {cont__types__generic_table__serialize_7, &frame__types__generic_table__serialize_1, 92, 99, 3, 32},
-  {cont__types__generic_table__serialize_17, &frame__types__generic_table__serialize_1, 100, 100, 3, 8},
+  {entry__types__generic_table___serialize, NULL, 89, 89, 3, 33},
+  {cont__types__generic_table___serialize_2, &frame__types__generic_table___serialize, 90, 90, 6, 18},
+  {cont__types__generic_table___serialize_3, &frame__types__generic_table___serialize, 90, 90, 3, 37},
+  {cont__types__generic_table___serialize_7, &frame__types__generic_table___serialize, 92, 99, 3, 32},
+  {cont__types__generic_table___serialize_17, &frame__types__generic_table___serialize, 100, 100, 3, 8},
   {entry__types__generic_table__keys_of_2, NULL, 109, 109, 31, 44},
   {cont__types__generic_table__keys_of_3, &frame__types__generic_table__keys_of_2, 109, 109, 44, 44},
-  {entry__types__generic_table__keys_of_1, NULL, 109, 109, 3, 44},
-  {cont__types__generic_table__keys_of_4, &frame__types__generic_table__keys_of_1, 110, 110, 3, 9},
+  {entry__types__generic_table___keys_of, NULL, 109, 109, 3, 44},
+  {cont__types__generic_table___keys_of_4, &frame__types__generic_table___keys_of, 110, 110, 3, 9},
   {entry__types__generic_table__values_of_2, NULL, 119, 119, 31, 48},
   {cont__types__generic_table__values_of_3, &frame__types__generic_table__values_of_2, 119, 119, 48, 48},
-  {entry__types__generic_table__values_of_1, NULL, 119, 119, 3, 48},
-  {cont__types__generic_table__values_of_4, &frame__types__generic_table__values_of_1, 120, 120, 3, 11},
-  {entry__types__generic_table__is_empty_1, NULL, 128, 128, 6, 20},
-  {cont__types__generic_table__is_empty_2, &frame__types__generic_table__is_empty_1, 128, 128, 6, 25},
-  {cont__types__generic_table__is_empty_3, &frame__types__generic_table__is_empty_1, 128, 128, 3, 25},
+  {entry__types__generic_table___values_of, NULL, 119, 119, 3, 48},
+  {cont__types__generic_table___values_of_4, &frame__types__generic_table___values_of, 120, 120, 3, 11},
+  {entry__types__generic_table___is_empty, NULL, 128, 128, 6, 20},
+  {cont__types__generic_table___is_empty_2, &frame__types__generic_table___is_empty, 128, 128, 6, 25},
+  {cont__types__generic_table___is_empty_3, &frame__types__generic_table___is_empty, 128, 128, 3, 25},
   {entry__std__table_2, NULL, 161, 161, 24, 64},
   {cont__std__table_3, &frame__std__table_2, 161, 161, 29, 44},
   {cont__std__table_4, &frame__std__table_2, 161, 161, 24, 45},
   {cont__std__table_5, &frame__std__table_2, 161, 161, 64, 64},
-  {entry__std__table_1, NULL, 161, 161, 3, 64},
-  {cont__std__table_6, &frame__std__table_1, 162, 162, 3, 8},
+  {entry__std__table, NULL, 161, 161, 3, 64},
+  {cont__std__table_6, &frame__std__table, 162, 162, 3, 8},
   {entry__std__register_collection_serializer_3, NULL, 178, 178, 13, 72},
   {cont__std__register_collection_serializer_6, &frame__std__register_collection_serializer_3, 178, 178, 7, 72},
   {entry__std__register_collection_serializer_8, NULL, 180, 180, 53, 53},
@@ -682,7 +680,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__register_collection_serializer_14, &frame__std__register_collection_serializer_2, 181, 181, 5, 44},
   {cont__std__register_collection_serializer_15, &frame__std__register_collection_serializer_2, 183, 193, 5, 21},
   {cont__std__register_collection_serializer_56, &frame__std__register_collection_serializer_2, 193, 193, 21, 21},
-  {entry__std__register_collection_serializer_1, NULL, 171, 193, 3, 22}
+  {entry__std__register_collection_serializer, NULL, 171, 193, 3, 22}
 };
 
 union NODE {
@@ -883,7 +881,7 @@ static void entry__types__generic_table_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__generic_table_1(void) {
+static void entry__types__generic_table____type(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // key: 0
@@ -902,20 +900,20 @@ static void entry__types__generic_table_1(void) {
     case 1:;
   }
   switch(argument_count) {
-    case 1: frame->slots[1] /* value */ = var._NONE;
+    case 1: frame->slots[1] /* value */ = unique__NONE;
   }
   frame->slots[2] /* myself */ = myself;
   // 56: NONE == value
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._NONE;
+  arguments->slots[0] = unique__NONE;
   arguments->slots[1] = frame->slots[1] /* value */;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__generic_table_2;
+  frame->cont = cont__types__generic_table____type_2;
 }
-static void cont__types__generic_table_2(void) {
+static void cont__types__generic_table____type_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -942,7 +940,7 @@ static void cont__types__generic_table_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__generic_table__union_1(void) {
+static void entry__types__generic_table___union(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // left: 0
@@ -964,7 +962,7 @@ static void entry__types__generic_table__union_1(void) {
     frame->caller_result_count-1 : -1;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__types__generic_table__union_4;
+  frame->cont = cont__types__generic_table___union_4;
 }
 static void entry__types__generic_table__union_2(void) {
   allocate_initialized_frame_gc(3, 3);
@@ -999,7 +997,7 @@ static void cont__types__generic_table__union_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__generic_table__union_4(void) {
+static void cont__types__generic_table___union_4(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -1010,7 +1008,7 @@ static void cont__types__generic_table__union_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__generic_table__map_1(void) {
+static void entry__types__generic_table___map(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -1028,9 +1026,9 @@ static void entry__types__generic_table__map_1(void) {
   result_count = 1;
   myself = get__new_empty_collection();
   func = myself->type;
-  frame->cont = cont__types__generic_table__map_2;
+  frame->cont = cont__types__generic_table___map_2;
 }
-static void cont__types__generic_table__map_2(void) {
+static void cont__types__generic_table___map_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1046,7 +1044,7 @@ static void cont__types__generic_table__map_2(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__types__generic_table__map_6;
+  frame->cont = cont__types__generic_table___map_6;
 }
 static void entry__types__generic_table__map_3(void) {
   allocate_initialized_frame_gc(4, 5);
@@ -1098,7 +1096,7 @@ static void cont__types__generic_table__map_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__generic_table__map_6(void) {
+static void cont__types__generic_table___map_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1111,7 +1109,7 @@ static void cont__types__generic_table__map_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__generic_table__serialize_1(void) {
+static void entry__types__generic_table___serialize(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // self: 0
@@ -1144,9 +1142,9 @@ static void entry__types__generic_table__serialize_1(void) {
   result_count = 1;
   myself = get__serialization_tag_of();
   func = myself->type;
-  frame->cont = cont__types__generic_table__serialize_2;
+  frame->cont = cont__types__generic_table___serialize_2;
 }
-static void cont__types__generic_table__serialize_2(void) {
+static void cont__types__generic_table___serialize_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1159,9 +1157,9 @@ static void cont__types__generic_table__serialize_2(void) {
   result_count = 1;
   myself = get__is_empty();
   func = myself->type;
-  frame->cont = cont__types__generic_table__serialize_3;
+  frame->cont = cont__types__generic_table___serialize_3;
 }
-static void cont__types__generic_table__serialize_3(void) {
+static void cont__types__generic_table___serialize_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1177,7 +1175,7 @@ static void cont__types__generic_table__serialize_3(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__generic_table__serialize_7;
+  frame->cont = cont__types__generic_table___serialize_7;
 }
 static void entry__types__generic_table__serialize_4(void) {
   allocate_initialized_frame_gc(2, 3);
@@ -1215,7 +1213,7 @@ static void cont__types__generic_table__serialize_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__generic_table__serialize_7(void) {
+static void cont__types__generic_table___serialize_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1246,7 +1244,7 @@ static void cont__types__generic_table__serialize_7(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__types__generic_table__serialize_17;
+  frame->cont = cont__types__generic_table___serialize_17;
 }
 static void entry__types__generic_table__serialize_8(void) {
   allocate_initialized_frame_gc(4, 10);
@@ -1388,7 +1386,7 @@ static void cont__types__generic_table__serialize_16(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__generic_table__serialize_17(void) {
+static void cont__types__generic_table___serialize_17(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1401,7 +1399,7 @@ static void cont__types__generic_table__serialize_17(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__generic_table__keys_of_1(void) {
+static void entry__types__generic_table___keys_of(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1423,7 +1421,7 @@ static void entry__types__generic_table__keys_of_1(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__types__generic_table__keys_of_4;
+  frame->cont = cont__types__generic_table___keys_of_4;
 }
 static void entry__types__generic_table__keys_of_2(void) {
   allocate_initialized_frame_gc(3, 3);
@@ -1458,7 +1456,7 @@ static void cont__types__generic_table__keys_of_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__generic_table__keys_of_4(void) {
+static void cont__types__generic_table___keys_of_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1471,7 +1469,7 @@ static void cont__types__generic_table__keys_of_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__generic_table__values_of_1(void) {
+static void entry__types__generic_table___values_of(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1493,7 +1491,7 @@ static void entry__types__generic_table__values_of_1(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__types__generic_table__values_of_4;
+  frame->cont = cont__types__generic_table___values_of_4;
 }
 static void entry__types__generic_table__values_of_2(void) {
   allocate_initialized_frame_gc(3, 3);
@@ -1528,7 +1526,7 @@ static void cont__types__generic_table__values_of_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__generic_table__values_of_4(void) {
+static void cont__types__generic_table___values_of_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1541,7 +1539,7 @@ static void cont__types__generic_table__values_of_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__generic_table__is_empty_1(void) {
+static void entry__types__generic_table___is_empty(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -1556,9 +1554,9 @@ static void entry__types__generic_table__is_empty_1(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__types__generic_table__is_empty_2;
+  frame->cont = cont__types__generic_table___is_empty_2;
 }
-static void cont__types__generic_table__is_empty_2(void) {
+static void cont__types__generic_table___is_empty_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1572,9 +1570,9 @@ static void cont__types__generic_table__is_empty_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__generic_table__is_empty_3;
+  frame->cont = cont__types__generic_table___is_empty_3;
 }
-static void cont__types__generic_table__is_empty_3(void) {
+static void cont__types__generic_table___is_empty_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1588,7 +1586,7 @@ static void cont__types__generic_table__is_empty_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__table_1(void) {
+static void entry__std__table(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -2607,7 +2605,7 @@ static void cont__std__register_collection_serializer_56(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__register_collection_serializer_1(void) {
+static void entry__std__register_collection_serializer(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // name: 0
@@ -2652,7 +2650,6 @@ EXPORT void collect__basic__types__table(void) {
   var.private__set_item = collect_node(var.private__set_item);
   var.private__get_item = collect_node(var.private__get_item);
   var.types__generic_table = collect_node(var.types__generic_table);
-  var._NONE = collect_node(var._NONE);
   var.std__is_a_table = collect_node(var.std__is_a_table);
   var.types__table = collect_node(var.types__table);
   var.std__empty_table = collect_node(var.std__empty_table);
@@ -2686,20 +2683,20 @@ EXPORT void phase_2__basic__types__table(void) {
   define_polymorphic_function("private", "set_item", get__private__set_item, &poly_idx__private__set_item, &var.private__set_item);
   define_polymorphic_function("private", "get_item", get__private__get_item, &poly_idx__private__get_item, &var.private__get_item);
   unique__NONE = register_unique_item("NONE");
-  func__types__generic_table__union_1 = create_function(entry__types__generic_table__union_1, 2);
-  func__types__generic_table__map_1 = create_function(entry__types__generic_table__map_1, 2);
+  func__types__generic_table___union = create_function(entry__types__generic_table___union, 2);
+  func__types__generic_table___map = create_function(entry__types__generic_table___map, 2);
   string__2d7981f4e6482bec = from_latin_1_string("()", 2);
   string__fa730415fc16bec = from_latin_1_string(" = ", 3);
-  func__types__generic_table__serialize_1 = create_function(entry__types__generic_table__serialize_1, -1);
-  func__types__generic_table__keys_of_1 = create_function(entry__types__generic_table__keys_of_1, 1);
-  func__types__generic_table__values_of_1 = create_function(entry__types__generic_table__values_of_1, 1);
-  func__types__generic_table__is_empty_1 = create_function(entry__types__generic_table__is_empty_1, 1);
+  func__types__generic_table___serialize = create_function(entry__types__generic_table___serialize, -1);
+  func__types__generic_table___keys_of = create_function(entry__types__generic_table___keys_of, 1);
+  func__types__generic_table___values_of = create_function(entry__types__generic_table___values_of, 1);
+  func__types__generic_table___is_empty = create_function(entry__types__generic_table___is_empty, 1);
   define_polymorphic_function("std", "is_a_table", get__std__is_a_table, &poly_idx__std__is_a_table, &var.std__is_a_table);
   string__485aeb83eaa95032 = from_latin_1_string("table", 5);
-  func__std__table_1 = create_function(entry__std__table_1, -1);
+  func__std__table = create_function(entry__std__table, -1);
   string__76acaf9d04f58520 = from_latin_1_string("Invalid ", 8);
   string__770b9b2c5bac96f5 = from_latin_1_string(" object encountered during deserialisation!", 43);
-  func__std__register_collection_serializer_1 = create_function(entry__std__register_collection_serializer_1, 2);
+  func__std__register_collection_serializer = create_function(entry__std__register_collection_serializer, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -2711,7 +2708,6 @@ EXPORT void phase_3__basic__types__table(void) {
   set_used_namespaces(used_namespaces);
   var.types__generic_table = create_future();
   define_single_assign_static("types", "generic_table", get__types__generic_table, &var.types__generic_table);
-  assign_value(&var._NONE, unique__NONE);
   var.types__table = create_future();
   define_single_assign_static("types", "table", get__types__table, &var.types__table);
   var.std__empty_table = create_future();
@@ -2769,13 +2765,13 @@ EXPORT void phase_4__basic__types__table(void) {
   use_polymorphic_function(NULL, "values_of", &get__values_of, &poly_idx__values_of);
   use_read_only(NULL, "while", &get__while, &get_value_or_future__while);
   use_read_only(NULL, "write_to", &get__write_to, &get_value_or_future__write_to);
-  define_type_function("types", "generic_table", entry__types__generic_table_1, -1);
-  define_method("types", "generic_table", poly_idx__union, func__types__generic_table__union_1);
-  define_method("types", "generic_table", poly_idx__map, func__types__generic_table__map_1);
-  define_method("types", "generic_table", poly_idx__serialize, func__types__generic_table__serialize_1);
-  define_method("types", "generic_table", poly_idx__keys_of, func__types__generic_table__keys_of_1);
-  define_method("types", "generic_table", poly_idx__values_of, func__types__generic_table__values_of_1);
-  define_method("types", "generic_table", poly_idx__is_empty, func__types__generic_table__is_empty_1);
+  define_type_function("types", "generic_table", entry__types__generic_table____type, -1);
+  define_method("types", "generic_table", poly_idx__union, func__types__generic_table___union);
+  define_method("types", "generic_table", poly_idx__map, func__types__generic_table___map);
+  define_method("types", "generic_table", poly_idx__serialize, func__types__generic_table___serialize);
+  define_method("types", "generic_table", poly_idx__keys_of, func__types__generic_table___keys_of);
+  define_method("types", "generic_table", poly_idx__values_of, func__types__generic_table___values_of);
+  define_method("types", "generic_table", poly_idx__is_empty, func__types__generic_table___is_empty);
   define_attribute("types", "object", poly_idx__is_a_table, get__false());
   define_attribute("types", "generic_table", poly_idx__is_a_table, get__true());
   define_attribute("types", "table", poly_idx__serialization_tag_of, string__485aeb83eaa95032);
@@ -2792,8 +2788,8 @@ EXPORT void phase_5__basic__types__table(void) {
   assign_value(&var.std__is_a_table, create_function(type__std__is_a_table, -1));
   initialize_future(var.types__table, get__types__unordered_table());
   initialize_future(var.std__empty_table, var.types__table);
-  initialize_future(var.std__table, func__std__table_1);
-  initialize_future(var.std__register_collection_serializer, func__std__register_collection_serializer_1);
+  initialize_future(var.std__table, func__std__table);
+  initialize_future(var.std__register_collection_serializer, func__std__register_collection_serializer);
 }
 
 static int already_run_phase_6 = false;

@@ -135,98 +135,118 @@ $types::grammar_node/simplify_expression: (&_self)
   show_compiler_debug_info "simplify expression (default)"
 
 ###
+# IDENTIFIER
+
+$compiler::identifier/simplify_expression: (&self)
+  show_compiler_debug_info "simplify identifier"
+  if namespace_of(self).is_undefined:
+    $constant named_constants(name_of(self))
+    if constant.is_defined: !self constant
+
+###
 # BODY
 
 $compiler::body/simplify_expression: (&self)
   show_compiler_debug_info "simplify body"
-  $$all_defined_names already_defined_names
-  for_each defined_names_of(self): (name info)
-    $outer_info already_defined_names(name)
-    if
-      outer_info.is_defined:
-	SyntaxError identifier_of(info) "
-	  An identifier named "@(name)" was already defined in an outer scope @
-	  or in a used namespace@
-      :
-	!all_defined_names(name) info
-  for_each used_names_of(self): (name info)
-    $definition all_defined_names(name)
-    if definition.is_defined:
-      check_usage name definition info
-      if defined_names(name).is_defined || inherited_names(name).is_defined:
-	!self.inherited_names_of(name) info
-  do:
-    %defined_names defined_names_of(self)
-    %inherited_names inherited_names_of(self)
-    %already_defined_names all_defined_names
-    %%definitions empty_list
-    %%statements empty_list
-    $$max_temp_idx 0
-    update_each &self.parameters_of: (&parameter)
-      $$default_value default_value_of(parameter)
-      if default_value.is_defined:
+  if
+    &&
+      parameters_of(self).is_empty
+      length_of(statements_of(self)) == 1
+      arguments_of(statements_of(self)(1)).is_empty
+      functor_of(statements_of(self)(1)).is_an_identifier
+    :
+      # trivial body
+
+      !self simplify_expression(functor_of(statements_of(self)(1)))
+    :
+      $$all_defined_names already_defined_names
+      for_each defined_names_of(self): (name info)
+	$outer_info already_defined_names(name)
 	if
-	  default_value.is_a_function_call:
-	    %%statements empty_list
-	    %%compiler::temp_idx 0
-	    $identifier identifier_of(parameter)
-	    simplify_statement
-	      assignment
-		.arguments_of
-		  list(parameter(.is_an_optional_item false) default_value)
-		.fragment_of fragment_of(identifier)
-		.source_position_of source_position_of(identifier)
-		.end_position_of end_position_of(identifier)
-	    extend_to &max_temp_idx temp_idx
-	    !parameter.statements_of statements
+	  outer_info.is_defined:
+	    SyntaxError identifier_of(info) "
+	      An identifier named "@(name)" was already defined in an outer @
+	      scope or in a used namespace@
 	  :
-	    simplify_expression &default_value
-	    !parameter.default_value_of default_value
+	    !all_defined_names(name) info
+      for_each used_names_of(self): (name info)
+	$definition all_defined_names(name)
+	if definition.is_defined:
+	  check_usage name definition info
+	  if defined_names(name).is_defined || inherited_names(name).is_defined:
+	    !self.inherited_names_of(name) info
+      do:
+	%defined_names defined_names_of(self)
+	%inherited_names inherited_names_of(self)
+	%already_defined_names all_defined_names
+	%%definitions empty_list
+	%%statements empty_list
+	$$max_temp_idx 0
+	update_each &self.parameters_of: (&parameter)
+	  $$default_value default_value_of(parameter)
+	  if default_value.is_defined:
+	    if
+	      default_value.is_a_function_call:
+		%%statements empty_list
+		%%compiler::temp_idx 0
+		$identifier identifier_of(parameter)
+		simplify_statement
+		  assignment
+		    .arguments_of
+		      list(parameter(.is_an_optional_item false) default_value)
+		    .fragment_of fragment_of(identifier)
+		    .source_position_of source_position_of(identifier)
+		    .end_position_of end_position_of(identifier)
+		extend_to &max_temp_idx temp_idx
+		!parameter.statements_of statements
+	      :
+		simplify_expression &default_value
+		!parameter.default_value_of default_value
 
-    # first add all constant definitions
+	# first add all constant definitions
 
-    for_each statements_of(self): (statement)
-      unless statement.is_a_remark:
-	if
-	  &&
-	    statement.is_an_assignment
-	    arguments_of(statement)(1).is_a_static_single_definition
-	    arguments_of(statement)(2).is_a_constant
-	  :
-	    %%compiler::temp_idx 0
-	    simplify_statement statement
-	    extend_to &max_temp_idx temp_idx
+	for_each statements_of(self): (statement)
+	  unless statement.is_a_remark:
+	    if
+	      &&
+		statement.is_an_assignment
+		arguments_of(statement)(1).is_a_static_single_definition
+		arguments_of(statement)(2).is_a_constant
+	      :
+		%%compiler::temp_idx 0
+		simplify_statement statement
+		extend_to &max_temp_idx temp_idx
 
-    # then add all other statements
+	# then add all other statements
 
-    for_each statements_of(self): (statement)
-      unless statement.is_a_remark:
-	unless
-	  &&
-	    statement.is_an_assignment
-	    arguments_of(statement)(1).is_a_static_single_definition
-	    arguments_of(statement)(2).is_a_constant
-	  :
-	    %%compiler::temp_idx 0
-	    simplify_statement statement
-	    extend_to &max_temp_idx temp_idx
-    !self.definitions_of definitions
-    !self.statements_of statements
-    !self.temporary_count_of max_temp_idx
-  unless inherited_names_of(self).is_empty:
-    #
-      a closure must be created in a separate step because it is not really
-      a constant
+	for_each statements_of(self): (statement)
+	  unless statement.is_a_remark:
+	    unless
+	      &&
+		statement.is_an_assignment
+		arguments_of(statement)(1).is_a_static_single_definition
+		arguments_of(statement)(2).is_a_constant
+	      :
+		%%compiler::temp_idx 0
+		simplify_statement statement
+		extend_to &max_temp_idx temp_idx
+	!self.definitions_of definitions
+	!self.statements_of statements
+	!self.temporary_count_of max_temp_idx
+      unless inherited_names_of(self).is_empty:
+	#
+	  a closure must be created in a separate step because it is not really
+	  a constant
 
-    $temp temporary_identifier()
-    push
-      &statements
-      assignment
-	.arguments_of list(temp(.is_a_destination true) self)
-	.fragment_of fragment_of(self)
-	.source_position_of source_position_of(self)
-	.end_position_of end_position_of(self)
-    !self temp
+	$temp temporary_identifier()
+	push
+	  &statements
+	  assignment
+	    .arguments_of list(temp(.is_a_destination true) self)
+	    .fragment_of fragment_of(self)
+	    .source_position_of source_position_of(self)
+	    .end_position_of end_position_of(self)
+	!self temp
 
 ###
 # CALL

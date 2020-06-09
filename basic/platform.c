@@ -271,9 +271,9 @@ static NODE *func__std__PACKAGE_VERSION_1;
 static NODE *get__std__PACKAGE_VERSION(void) {
   return var.std__PACKAGE_VERSION;
 }
-static NODE *func__std__current_directory_separator_1;
-static void entry__std__current_directory_separator_1(void);
-static FRAME_INFO frame__std__current_directory_separator_1 = {0, {}};
+static NODE *func__std__current_directory_separator;
+static void entry__std__current_directory_separator(void);
+static FRAME_INFO frame__std__current_directory_separator = {0, {}};
 static void cont__std__current_directory_separator_2(void);
 static NODE *string__fa725815d616ba2;
 static void cont__std__current_directory_separator_4(void);
@@ -286,9 +286,9 @@ static FRAME_INFO frame__std__current_directory_separator_6 = {0, {}};
 static NODE *get__std__current_directory_separator(void) {
   return var.std__current_directory_separator;
 }
-static NODE *func__std__current_path_separator_1;
-static void entry__std__current_path_separator_1(void);
-static FRAME_INFO frame__std__current_path_separator_1 = {0, {}};
+static NODE *func__std__current_path_separator;
+static void entry__std__current_path_separator(void);
+static FRAME_INFO frame__std__current_path_separator = {0, {}};
 static void cont__std__current_path_separator_2(void);
 static void cont__std__current_path_separator_3(void);
 static NODE *func__std__current_path_separator_4;
@@ -313,14 +313,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__PACKAGE_VERSION_1, NULL, 156, 159, 3, 2},
   {entry__std__current_directory_separator_5, NULL, 179, 179, 7, 12},
   {entry__std__current_directory_separator_6, NULL, 180, 180, 7, 12},
-  {entry__std__current_directory_separator_1, NULL, 178, 178, 7, 24},
-  {cont__std__current_directory_separator_2, &frame__std__current_directory_separator_1, 178, 178, 7, 33},
-  {cont__std__current_directory_separator_4, &frame__std__current_directory_separator_1, 177, 180, 5, 12},
+  {entry__std__current_directory_separator, NULL, 178, 178, 7, 24},
+  {cont__std__current_directory_separator_2, &frame__std__current_directory_separator, 178, 178, 7, 33},
+  {cont__std__current_directory_separator_4, &frame__std__current_directory_separator, 177, 180, 5, 12},
   {entry__std__current_path_separator_4, NULL, 200, 200, 7, 12},
   {entry__std__current_path_separator_5, NULL, 201, 201, 7, 12},
-  {entry__std__current_path_separator_1, NULL, 199, 199, 7, 24},
-  {cont__std__current_path_separator_2, &frame__std__current_path_separator_1, 199, 199, 7, 33},
-  {cont__std__current_path_separator_3, &frame__std__current_path_separator_1, 198, 201, 5, 12}
+  {entry__std__current_path_separator, NULL, 199, 199, 7, 24},
+  {cont__std__current_path_separator_2, &frame__std__current_path_separator, 199, 199, 7, 33},
+  {cont__std__current_path_separator_3, &frame__std__current_path_separator, 198, 201, 5, 12}
 };
 
 union NODE {
@@ -507,7 +507,7 @@ static void entry__std__current_directory_separator_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__current_directory_separator_1(void) {
+static void entry__std__current_directory_separator(void) {
   allocate_initialized_frame_gc(0, 2);
   // slot allocations:
   if (argument_count != 0) {
@@ -588,7 +588,7 @@ static void entry__std__current_path_separator_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__current_path_separator_1(void) {
+static void entry__std__current_path_separator(void) {
   allocate_initialized_frame_gc(0, 2);
   // slot allocations:
   if (argument_count != 0) {
@@ -679,10 +679,10 @@ EXPORT void phase_2__basic__platform(void) {
   string__fa725815d616ba2 = from_latin_1_string("win", 3);
   func__std__current_directory_separator_5 = create_function(entry__std__current_directory_separator_5, 0);
   func__std__current_directory_separator_6 = create_function(entry__std__current_directory_separator_6, 0);
-  func__std__current_directory_separator_1 = create_function(entry__std__current_directory_separator_1, 0);
+  func__std__current_directory_separator = create_function(entry__std__current_directory_separator, 0);
   func__std__current_path_separator_4 = create_function(entry__std__current_path_separator_4, 0);
   func__std__current_path_separator_5 = create_function(entry__std__current_path_separator_5, 0);
-  func__std__current_path_separator_1 = create_function(entry__std__current_path_separator_1, 0);
+  func__std__current_path_separator = create_function(entry__std__current_path_separator, 0);
 }
 
 static int already_run_phase_3 = false;
@@ -736,8 +736,8 @@ EXPORT void phase_5__basic__platform(void) {
   initialize_future(var.std__LDFLAGS, func__std__LDFLAGS_1);
   initialize_future(var.std__PREFIX, func__std__PREFIX_1);
   initialize_future(var.std__PACKAGE_VERSION, func__std__PACKAGE_VERSION_1);
-  initialize_future(var.std__current_directory_separator, func__std__current_directory_separator_1);
-  initialize_future(var.std__current_path_separator, func__std__current_path_separator_1);
+  initialize_future(var.std__current_directory_separator, func__std__current_directory_separator);
+  initialize_future(var.std__current_path_separator, func__std__current_path_separator);
 }
 
 static int already_run_phase_6 = false;

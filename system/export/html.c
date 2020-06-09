@@ -239,7 +239,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -411,7 +410,6 @@ static NODE_GETTER get__writeln;
 static NODE_GETTER get_value_or_future__writeln;
 static struct {
   NODE *_convert_from_percent_encoding;
-  NODE *_hex_digit_value;
   NODE *_hex_digit;
   NODE *html__SIMPLE;
   NODE *html__SINGLE_LINE;
@@ -479,7 +477,6 @@ static struct {
 } var;
 static const char *var_names[] = {
   "convert_from_percent_encoding",
-  "hex_digit_value",
   "hex_digit"
 };
 static int poly_idx__convert_from_percent_encoding;
@@ -519,9 +516,9 @@ static NODE *get__html__emit(void) {
 static void define__html__emit(NODE *node) {
   define_dynamic_slot(dyna_idx__html__emit, node);
 }
-static NODE *func__html__emit_1;
-static void entry__html__emit_1(void);
-static FRAME_INFO frame__html__emit_1 = {1, {"args"}};
+static NODE *func__html__emit;
+static void entry__html__emit(void);
+static FRAME_INFO frame__html__emit = {1, {"args"}};
 static NODE *func__html__emit_2;
 static void entry__html__emit_2(void);
 static FRAME_INFO frame__html__emit_2 = {1, {"arg"}};
@@ -532,19 +529,19 @@ static NODE *get__html__encode(void) {
 static void define__html__encode(NODE *node) {
   define_dynamic_slot(dyna_idx__html__encode, node);
 }
-static NODE *func__html__encode_1;
-static void entry__html__encode_1(void);
-static FRAME_INFO frame__html__encode_1 = {3, {"txt", "tag", "arg_str"}};
-static NODE *func__html__TEXT_1;
-static void entry__html__TEXT_1(void);
-static FRAME_INFO frame__html__TEXT_1 = {1, {"args"}};
+static NODE *func__html__encode;
+static void entry__html__encode(void);
+static FRAME_INFO frame__html__encode = {3, {"txt", "tag", "arg_str"}};
+static NODE *func__html__TEXT;
+static void entry__html__TEXT(void);
+static FRAME_INFO frame__html__TEXT = {1, {"args"}};
 static void cont__html__TEXT_2(void);
 static NODE *get__html__TEXT(void) {
   return var.html__TEXT;
 }
-static NODE *func__hex_digit_value_1;
-static void entry__hex_digit_value_1(void);
-static FRAME_INFO frame__hex_digit_value_1 = {2, {"chr", "return"}};
+static NODE *func__hex_digit_value;
+static void entry__hex_digit_value(void);
+static FRAME_INFO frame__hex_digit_value = {2, {"chr", "return"}};
 static NODE *func__hex_digit_value_2;
 static void entry__hex_digit_value_2(void);
 static FRAME_INFO frame__hex_digit_value_2 = {2, {"chr", "return"}};
@@ -597,15 +594,15 @@ static void entry__hex_digit_value_31(void);
 static FRAME_INFO frame__hex_digit_value_31 = {0, {}};
 static NODE *string__7fe91a650e32a4f3;
 static void cont__hex_digit_value_33(void);
-static NODE *func__types__string__convert_from_percent_encoding_1;
-static void entry__types__string__convert_from_percent_encoding_1(void);
-static FRAME_INFO frame__types__string__convert_from_percent_encoding_1 = {1, {"self"}};
+static NODE *func__types__string___convert_from_percent_encoding;
+static void entry__types__string___convert_from_percent_encoding(void);
+static FRAME_INFO frame__types__string___convert_from_percent_encoding = {1, {"self"}};
 static NODE *string__578a5af303e9cca;
 static NODE *string__578a5af303e9cc1;
-static void cont__types__string__convert_from_percent_encoding_4(void);
-static void cont__types__string__convert_from_percent_encoding_5(void);
+static void cont__types__string___convert_from_percent_encoding_4(void);
+static void cont__types__string___convert_from_percent_encoding_5(void);
 static NODE *string__578a5af303e9cc4;
-static void cont__types__string__convert_from_percent_encoding_7(void);
+static void cont__types__string___convert_from_percent_encoding_7(void);
 static NODE *func__types__string__convert_from_percent_encoding_8;
 static void entry__types__string__convert_from_percent_encoding_8(void);
 static FRAME_INFO frame__types__string__convert_from_percent_encoding_8 = {1, {"capture"}};
@@ -616,11 +613,11 @@ static void cont__types__string__convert_from_percent_encoding_12(void);
 static void cont__types__string__convert_from_percent_encoding_13(void);
 static void cont__types__string__convert_from_percent_encoding_14(void);
 static void cont__types__string__convert_from_percent_encoding_15(void);
-static void cont__types__string__convert_from_percent_encoding_16(void);
-static void cont__types__string__convert_from_percent_encoding_17(void);
-static NODE *func__html__define_tag_1;
-static void entry__html__define_tag_1(void);
-static FRAME_INFO frame__html__define_tag_1 = {3, {"name", "mode", "tag_mode"}};
+static void cont__types__string___convert_from_percent_encoding_16(void);
+static void cont__types__string___convert_from_percent_encoding_17(void);
+static NODE *func__html__define_tag;
+static void entry__html__define_tag(void);
+static FRAME_INFO frame__html__define_tag = {3, {"name", "mode", "tag_mode"}};
 static NODE *func__html__define_tag_2;
 static void entry__html__define_tag_2(void);
 static FRAME_INFO frame__html__define_tag_2 = {9, {"args", "name", "mode", "tag_mode", "i", "n", "arg_str", "contents", "emit_tag"}};
@@ -643,140 +640,138 @@ static void cont__html__define_tag_12(void);
 static void cont__html__define_tag_13(void);
 static NODE *func__html__define_tag_14;
 static void entry__html__define_tag_14(void);
-static FRAME_INFO frame__html__define_tag_14 = {1, {"cts"}};
-static NODE *func__html__define_tag_15;
-static void entry__html__define_tag_15(void);
-static FRAME_INFO frame__html__define_tag_15 = {3, {"cts", "name", "arg_str"}};
+static FRAME_INFO frame__html__define_tag_14 = {3, {"cts", "name", "arg_str"}};
+static void cont__html__define_tag_15(void);
 static void cont__html__define_tag_16(void);
-static void cont__html__define_tag_17(void);
 static NODE *string__2d7981f4e6e82bea;
+static NODE *func__html__define_tag_18;
+static void entry__html__define_tag_18(void);
+static FRAME_INFO frame__html__define_tag_18 = {2, {"tag_mode", "name"}};
 static NODE *func__html__define_tag_19;
 static void entry__html__define_tag_19(void);
-static FRAME_INFO frame__html__define_tag_19 = {2, {"tag_mode", "name"}};
-static NODE *func__html__define_tag_20;
-static void entry__html__define_tag_20(void);
-static FRAME_INFO frame__html__define_tag_20 = {1, {"name"}};
+static FRAME_INFO frame__html__define_tag_19 = {1, {"name"}};
 static NODE *string__fa737c15fc96be3;
+static NODE *func__html__define_tag_21;
+static void entry__html__define_tag_21(void);
+static FRAME_INFO frame__html__define_tag_21 = {0, {}};
 static NODE *func__html__define_tag_22;
 static void entry__html__define_tag_22(void);
 static FRAME_INFO frame__html__define_tag_22 = {0, {}};
-static NODE *func__html__define_tag_23;
-static void entry__html__define_tag_23(void);
-static FRAME_INFO frame__html__define_tag_23 = {0, {}};
 static NODE *string__2d7981f4e6702bfb;
+static void cont__html__define_tag_24(void);
 static void cont__html__define_tag_25(void);
-static void cont__html__define_tag_26(void);
-static NODE *func__html__define_tag_27;
-static void entry__html__define_tag_27(void);
-static FRAME_INFO frame__html__define_tag_27 = {0, {}};
-static void cont__html__define_tag_28(void);
+static NODE *func__html__define_tag_26;
+static void entry__html__define_tag_26(void);
+static FRAME_INFO frame__html__define_tag_26 = {0, {}};
+static void cont__html__define_tag_27(void);
+static NODE *func__html__define_tag_28;
+static void entry__html__define_tag_28(void);
+static FRAME_INFO frame__html__define_tag_28 = {5, {"break", "n", "i", "args", "arg_str"}};
 static NODE *func__html__define_tag_29;
 static void entry__html__define_tag_29(void);
-static FRAME_INFO frame__html__define_tag_29 = {5, {"break", "n", "i", "args", "arg_str"}};
-static NODE *func__html__define_tag_30;
-static void entry__html__define_tag_30(void);
-static FRAME_INFO frame__html__define_tag_30 = {6, {"n", "i", "break", "args", "arg_str", "arg"}};
+static FRAME_INFO frame__html__define_tag_29 = {6, {"n", "i", "break", "args", "arg_str", "arg"}};
+static void cont__html__define_tag_30(void);
 static void cont__html__define_tag_31(void);
 static void cont__html__define_tag_32(void);
 static void cont__html__define_tag_33(void);
 static void cont__html__define_tag_34(void);
 static void cont__html__define_tag_35(void);
 static void cont__html__define_tag_36(void);
-static void cont__html__define_tag_37(void);
 static NODE *string__578a5af303e9ccc;
+static void cont__html__define_tag_38(void);
 static void cont__html__define_tag_39(void);
 static void cont__html__define_tag_40(void);
 static void cont__html__define_tag_41(void);
-static void cont__html__define_tag_42(void);
 static NODE *string__721f55a3811b42ec;
+static void cont__html__define_tag_43(void);
 static void cont__html__define_tag_44(void);
-static void cont__html__define_tag_45(void);
 static NODE *string__2d7981f4e6e02be7;
+static void cont__html__define_tag_46(void);
 static void cont__html__define_tag_47(void);
 static void cont__html__define_tag_48(void);
 static void cont__html__define_tag_49(void);
 static void cont__html__define_tag_50(void);
-static void cont__html__define_tag_51(void);
-static NODE *func__html__define_tag_52;
-static void entry__html__define_tag_52(void);
-static FRAME_INFO frame__html__define_tag_52 = {4, {"i", "n", "contents", "args"}};
-static void cont__html__define_tag_53(void);
-static NODE *func__html__define_tag_54;
-static void entry__html__define_tag_54(void);
-static FRAME_INFO frame__html__define_tag_54 = {4, {"contents", "args", "i", "n"}};
+static NODE *func__html__define_tag_51;
+static void entry__html__define_tag_51(void);
+static FRAME_INFO frame__html__define_tag_51 = {4, {"i", "n", "contents", "args"}};
+static void cont__html__define_tag_52(void);
+static NODE *func__html__define_tag_53;
+static void entry__html__define_tag_53(void);
+static FRAME_INFO frame__html__define_tag_53 = {4, {"contents", "args", "i", "n"}};
+static void cont__html__define_tag_54(void);
 static void cont__html__define_tag_55(void);
-static void cont__html__define_tag_56(void);
-static NODE *func__html__define_tag_57;
-static void entry__html__define_tag_57(void);
-static FRAME_INFO frame__html__define_tag_57 = {4, {"i", "n", "contents", "args"}};
-static void cont__html__define_tag_58(void);
-static NODE *func__html__define_tag_59;
-static void entry__html__define_tag_59(void);
-static FRAME_INFO frame__html__define_tag_59 = {3, {"contents", "args", "i"}};
+static NODE *func__html__define_tag_56;
+static void entry__html__define_tag_56(void);
+static FRAME_INFO frame__html__define_tag_56 = {4, {"i", "n", "contents", "args"}};
+static void cont__html__define_tag_57(void);
+static NODE *func__html__define_tag_58;
+static void entry__html__define_tag_58(void);
+static FRAME_INFO frame__html__define_tag_58 = {3, {"contents", "args", "i"}};
+static void cont__html__define_tag_59(void);
 static void cont__html__define_tag_60(void);
 static void cont__html__define_tag_61(void);
-static void cont__html__define_tag_62(void);
-static NODE *func__html__define_tag_63;
-static void entry__html__define_tag_63(void);
-static FRAME_INFO frame__html__define_tag_63 = {2, {"contents", "name"}};
-static void cont__html__define_tag_64(void);
-static NODE *func__html__define_tag_65;
-static void entry__html__define_tag_65(void);
-static FRAME_INFO frame__html__define_tag_65 = {1, {"name"}};
+static NODE *func__html__define_tag_62;
+static void entry__html__define_tag_62(void);
+static FRAME_INFO frame__html__define_tag_62 = {2, {"contents", "name"}};
+static void cont__html__define_tag_63(void);
+static NODE *func__html__define_tag_64;
+static void entry__html__define_tag_64(void);
+static FRAME_INFO frame__html__define_tag_64 = {1, {"name"}};
 static NODE *string__7c1f5409013a62a3;
+static void cont__html__define_tag_66(void);
 static void cont__html__define_tag_67(void);
 static void cont__html__define_tag_68(void);
 static void cont__html__define_tag_69(void);
-static void cont__html__define_tag_70(void);
-static NODE *func__html__define_tag_71;
-static void entry__html__define_tag_71(void);
-static FRAME_INFO frame__html__define_tag_71 = {2, {"contents", "emit_tag"}};
+static NODE *func__html__define_tag_70;
+static void entry__html__define_tag_70(void);
+static FRAME_INFO frame__html__define_tag_70 = {2, {"contents", "emit_tag"}};
 static NODE *string__2d7981f4e7582bcf;
-static void cont__html__define_tag_73(void);
+static void cont__html__define_tag_72(void);
+static NODE *func__html__define_tag_73;
+static void entry__html__define_tag_73(void);
+static FRAME_INFO frame__html__define_tag_73 = {3, {"field", "emit_tag", "convert"}};
 static NODE *func__html__define_tag_74;
 static void entry__html__define_tag_74(void);
-static FRAME_INFO frame__html__define_tag_74 = {3, {"field", "emit_tag", "convert"}};
-static NODE *func__html__define_tag_75;
-static void entry__html__define_tag_75(void);
-static FRAME_INFO frame__html__define_tag_75 = {1, {"line"}};
+static FRAME_INFO frame__html__define_tag_74 = {1, {"line"}};
 static NODE *string__fa737415dc96bf2;
 static NODE *string__ba0ae9cb5df07d07;
-static void cont__html__define_tag_78(void);
+static void cont__html__define_tag_77(void);
 static NODE *string__8e0aea4b5dc07d02;
-static void cont__html__define_tag_80(void);
+static void cont__html__define_tag_79(void);
 static NODE *string__2d7981f4e5e82bef;
 static NODE *string__578a5af303e9ccb;
-static void cont__html__define_tag_83(void);
+static void cont__html__define_tag_82(void);
 static NODE *string__2d7981f4e5e82bf9;
-static void cont__html__define_tag_85(void);
+static void cont__html__define_tag_84(void);
 static NODE *string__2d7981f4e5e82b9e;
 static NODE *string__578a5af303e9cba;
+static void cont__html__define_tag_87(void);
 static void cont__html__define_tag_88(void);
 static void cont__html__define_tag_89(void);
 static void cont__html__define_tag_90(void);
 static void cont__html__define_tag_91(void);
-static void cont__html__define_tag_92(void);
-static NODE *func__html__define_tag_93;
-static void entry__html__define_tag_93(void);
-static FRAME_INFO frame__html__define_tag_93 = {1, {"text"}};
+static NODE *func__html__define_tag_92;
+static void entry__html__define_tag_92(void);
+static FRAME_INFO frame__html__define_tag_92 = {1, {"text"}};
+static void cont__html__define_tag_93(void);
 static void cont__html__define_tag_94(void);
-static void cont__html__define_tag_95(void);
 static NODE *string__fa737415d616bf2;
 static NODE *string__ba0afa8b5d287d07;
+static void cont__html__define_tag_97(void);
 static void cont__html__define_tag_98(void);
-static void cont__html__define_tag_99(void);
 static NODE *string__2d7981f4e6582bef;
+static void cont__html__define_tag_100(void);
 static void cont__html__define_tag_101(void);
 static void cont__html__define_tag_102(void);
 static void cont__html__define_tag_103(void);
-static void cont__html__define_tag_104(void);
-static NODE *func__html__define_tag_105;
-static void entry__html__define_tag_105(void);
-static FRAME_INFO frame__html__define_tag_105 = {1, {"text"}};
+static NODE *func__html__define_tag_104;
+static void entry__html__define_tag_104(void);
+static FRAME_INFO frame__html__define_tag_104 = {1, {"text"}};
+static void cont__html__define_tag_105(void);
 static void cont__html__define_tag_106(void);
-static void cont__html__define_tag_107(void);
 static NODE *string__fa737415d396bf2;
 static NODE *string__ba0afa8b5d707d07;
+static void cont__html__define_tag_109(void);
 static void cont__html__define_tag_110(void);
 static void cont__html__define_tag_111(void);
 static void cont__html__define_tag_112(void);
@@ -785,37 +780,36 @@ static void cont__html__define_tag_114(void);
 static void cont__html__define_tag_115(void);
 static void cont__html__define_tag_116(void);
 static void cont__html__define_tag_117(void);
-static void cont__html__define_tag_118(void);
-static NODE *func__html__define_tag_119;
-static void entry__html__define_tag_119(void);
-static FRAME_INFO frame__html__define_tag_119 = {3, {"reference", "link", "text"}};
+static NODE *func__html__define_tag_118;
+static void entry__html__define_tag_118(void);
+static FRAME_INFO frame__html__define_tag_118 = {3, {"reference", "link", "text"}};
+static void cont__html__define_tag_119(void);
 static void cont__html__define_tag_120(void);
-static void cont__html__define_tag_121(void);
 static NODE *string__65b02728dcea54a7;
 static NODE *string__2d7981f4e6182bfb;
 static NODE *string__ba0afa8b5d687d07;
+static void cont__html__define_tag_124(void);
 static void cont__html__define_tag_125(void);
 static void cont__html__define_tag_126(void);
-static void cont__html__define_tag_127(void);
 static NODE *string__2d7981f4e6582be5;
-static void cont__html__define_tag_129(void);
-static NODE *func__html__define_tag_130;
-static void entry__html__define_tag_130(void);
-static FRAME_INFO frame__html__define_tag_130 = {2, {"field", "convert"}};
+static void cont__html__define_tag_128(void);
+static NODE *func__html__define_tag_129;
+static void entry__html__define_tag_129(void);
+static FRAME_INFO frame__html__define_tag_129 = {2, {"field", "convert"}};
+static void cont__html__define_tag_130(void);
 static void cont__html__define_tag_131(void);
 static void cont__html__define_tag_132(void);
-static void cont__html__define_tag_133(void);
 static NODE *string__d6c0aed004987b9e;
 static NODE *string__d45aee43eaadd069;
-static void cont__html__define_tag_136(void);
-static NODE *func__html__define_tag_137;
-static void entry__html__define_tag_137(void);
-static FRAME_INFO frame__html__define_tag_137 = {2, {"convert", "field"}};
+static void cont__html__define_tag_135(void);
+static NODE *func__html__define_tag_136;
+static void entry__html__define_tag_136(void);
+static FRAME_INFO frame__html__define_tag_136 = {2, {"convert", "field"}};
+static void cont__html__define_tag_137(void);
 static void cont__html__define_tag_138(void);
-static void cont__html__define_tag_139(void);
-static NODE *func__html__define_tag_140;
-static void entry__html__define_tag_140(void);
-static FRAME_INFO frame__html__define_tag_140 = {2, {"emit_tag", "contents"}};
+static NODE *func__html__define_tag_139;
+static void entry__html__define_tag_139(void);
+static FRAME_INFO frame__html__define_tag_139 = {2, {"emit_tag", "contents"}};
 static NODE *get__html__define_tag(void) {
   return var.html__define_tag;
 }
@@ -969,23 +963,23 @@ static NODE *get__html__SOURCE(void) {
 static NODE *get__html__CANVAS(void) {
   return var.html__CANVAS;
 }
-static NODE *func__html__HTTP_HEADER_1;
-static void entry__html__HTTP_HEADER_1(void);
-static FRAME_INFO frame__html__HTTP_HEADER_1 = {0, {}};
+static NODE *func__html__HTTP_HEADER;
+static void entry__html__HTTP_HEADER(void);
+static FRAME_INFO frame__html__HTTP_HEADER = {0, {}};
 static NODE *string__c0902590ad1223f4;
 static NODE *get__html__HTTP_HEADER(void) {
   return var.html__HTTP_HEADER;
 }
-static NODE *func__html__HTML_HEADER_1;
-static void entry__html__HTML_HEADER_1(void);
-static FRAME_INFO frame__html__HTML_HEADER_1 = {0, {}};
+static NODE *func__html__HTML_HEADER;
+static void entry__html__HTML_HEADER(void);
+static FRAME_INFO frame__html__HTML_HEADER = {0, {}};
 static NODE *string__db8101d080cbfa33;
 static NODE *get__html__HTML_HEADER(void) {
   return var.html__HTML_HEADER;
 }
-static NODE *func__html__ERROR_PAGE_1;
-static void entry__html__ERROR_PAGE_1(void);
-static FRAME_INFO frame__html__ERROR_PAGE_1 = {2, {"msg", "details"}};
+static NODE *func__html__ERROR_PAGE;
+static void entry__html__ERROR_PAGE(void);
+static FRAME_INFO frame__html__ERROR_PAGE = {2, {"msg", "details"}};
 static void cont__html__ERROR_PAGE_2(void);
 static void cont__html__ERROR_PAGE_3(void);
 static NODE *func__html__ERROR_PAGE_4;
@@ -1006,9 +1000,9 @@ static FRAME_INFO frame__html__ERROR_PAGE_10 = {1, {"details"}};
 static NODE *get__html__ERROR_PAGE(void) {
   return var.html__ERROR_PAGE;
 }
-static NODE *func__html__DUMP_PAGE_1;
-static void entry__html__DUMP_PAGE_1(void);
-static FRAME_INFO frame__html__DUMP_PAGE_1 = {1, {"msg"}};
+static NODE *func__html__DUMP_PAGE;
+static void entry__html__DUMP_PAGE(void);
+static FRAME_INFO frame__html__DUMP_PAGE = {1, {"msg"}};
 static void cont__html__DUMP_PAGE_2(void);
 static void cont__html__DUMP_PAGE_3(void);
 static NODE *func__html__DUMP_PAGE_4;
@@ -1189,10 +1183,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__133_2, NULL, 235, 235, 1, 49},
   {cont__134_2, NULL, },
   {entry__html__emit_2, NULL, 42, 42, 43, 51},
-  {entry__html__emit_1, NULL, 42, 42, 22, 51},
-  {entry__html__encode_1, NULL, 44, 44, 36, 43},
-  {entry__html__TEXT_1, NULL, 46, 46, 35, 47},
-  {cont__html__TEXT_2, &frame__html__TEXT_1, 46, 46, 22, 67},
+  {entry__html__emit, NULL, 42, 42, 22, 51},
+  {entry__html__encode, NULL, 44, 44, 36, 43},
+  {entry__html__TEXT, NULL, 46, 46, 35, 47},
+  {cont__html__TEXT_2, &frame__html__TEXT, 46, 46, 22, 67},
   {entry__hex_digit_value_5, NULL, 54, 54, 22, 31},
   {cont__hex_digit_value_6, &frame__hex_digit_value_5, 54, 54, 22, 31},
   {cont__hex_digit_value_7, &frame__hex_digit_value_5, 54, 54, 22, 31},
@@ -1223,8 +1217,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__hex_digit_value_23, &frame__hex_digit_value_21, 56, 56, 8, 31},
   {cont__hex_digit_value_27, &frame__hex_digit_value_21, 56, 56, 5, 50},
   {entry__hex_digit_value_31, NULL, 58, 58, 7, 31},
-  {entry__hex_digit_value_1, NULL, 53, 58, 3, 32},
-  {cont__hex_digit_value_33, &frame__hex_digit_value_1, 58, 58, 32, 32},
+  {entry__hex_digit_value, NULL, 53, 58, 3, 32},
+  {cont__hex_digit_value_33, &frame__hex_digit_value, 58, 58, 32, 32},
   {entry__types__string__convert_from_percent_encoding_8, NULL, 73, 73, 41, 50},
   {cont__types__string__convert_from_percent_encoding_9, &frame__types__string__convert_from_percent_encoding_8, 73, 73, 25, 51},
   {cont__types__string__convert_from_percent_encoding_10, &frame__types__string__convert_from_percent_encoding_8, 73, 73, 22, 51},
@@ -1233,125 +1227,124 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__string__convert_from_percent_encoding_13, &frame__types__string__convert_from_percent_encoding_8, 73, 73, 22, 79},
   {cont__types__string__convert_from_percent_encoding_14, &frame__types__string__convert_from_percent_encoding_8, 73, 73, 12, 80},
   {cont__types__string__convert_from_percent_encoding_15, &frame__types__string__convert_from_percent_encoding_8, 73, 73, 9, 80},
-  {entry__types__string__convert_from_percent_encoding_1, NULL, 67, 67, 21, 29},
-  {cont__types__string__convert_from_percent_encoding_4, &frame__types__string__convert_from_percent_encoding_1, 67, 67, 3, 29},
-  {cont__types__string__convert_from_percent_encoding_5, &frame__types__string__convert_from_percent_encoding_1, 71, 71, 7, 31},
-  {cont__types__string__convert_from_percent_encoding_7, &frame__types__string__convert_from_percent_encoding_1, 70, 73, 5, 81},
-  {cont__types__string__convert_from_percent_encoding_16, &frame__types__string__convert_from_percent_encoding_1, 68, 73, 3, 82},
-  {cont__types__string__convert_from_percent_encoding_17, &frame__types__string__convert_from_percent_encoding_1, 73, 73, 83, 83},
+  {entry__types__string___convert_from_percent_encoding, NULL, 67, 67, 21, 29},
+  {cont__types__string___convert_from_percent_encoding_4, &frame__types__string___convert_from_percent_encoding, 67, 67, 3, 29},
+  {cont__types__string___convert_from_percent_encoding_5, &frame__types__string___convert_from_percent_encoding, 71, 71, 7, 31},
+  {cont__types__string___convert_from_percent_encoding_7, &frame__types__string___convert_from_percent_encoding, 70, 73, 5, 81},
+  {cont__types__string___convert_from_percent_encoding_16, &frame__types__string___convert_from_percent_encoding, 68, 73, 3, 82},
+  {cont__types__string___convert_from_percent_encoding_17, &frame__types__string___convert_from_percent_encoding, 73, 73, 83, 83},
   {entry__html__define_tag_11, NULL, 127, 127, 34, 44},
-  {entry__html__define_tag_14, NULL, 130, 130, 15, 17},
-  {entry__html__define_tag_15, NULL, 132, 132, 22, 34},
-  {cont__html__define_tag_16, &frame__html__define_tag_15, 132, 132, 15, 47},
+  {entry__html__define_tag_14, NULL, 132, 132, 22, 34},
+  {cont__html__define_tag_15, &frame__html__define_tag_14, 132, 132, 15, 47},
   {entry__html__define_tag_7, NULL, 126, 126, 11, 18},
   {cont__html__define_tag_9, &frame__html__define_tag_7, 127, 127, 14, 31},
   {cont__html__define_tag_10, &frame__html__define_tag_7, 127, 127, 11, 44},
   {cont__html__define_tag_12, &frame__html__define_tag_7, 129, 129, 13, 29},
   {cont__html__define_tag_13, &frame__html__define_tag_7, 128, 132, 11, 48},
-  {cont__html__define_tag_17, &frame__html__define_tag_7, 133, 133, 11, 28},
-  {entry__html__define_tag_20, NULL, 137, 137, 15, 33},
-  {entry__html__define_tag_22, NULL, 139, 139, 15, 22},
-  {entry__html__define_tag_23, NULL, 141, 141, 15, 23},
-  {entry__html__define_tag_19, NULL, 135, 141, 11, 24},
-  {entry__html__define_tag_27, NULL, 142, 142, 30, 40},
+  {cont__html__define_tag_16, &frame__html__define_tag_7, 133, 133, 11, 28},
+  {entry__html__define_tag_19, NULL, 137, 137, 15, 33},
+  {entry__html__define_tag_21, NULL, 139, 139, 15, 22},
+  {entry__html__define_tag_22, NULL, 141, 141, 15, 23},
+  {entry__html__define_tag_18, NULL, 135, 141, 11, 24},
+  {entry__html__define_tag_26, NULL, 142, 142, 30, 40},
   {entry__html__define_tag_3, NULL, 123, 123, 7, 27},
   {cont__html__define_tag_5, &frame__html__define_tag_3, 125, 125, 9, 22},
   {cont__html__define_tag_6, &frame__html__define_tag_3, 124, 141, 7, 26},
-  {cont__html__define_tag_25, &frame__html__define_tag_3, 142, 142, 14, 27},
-  {cont__html__define_tag_26, &frame__html__define_tag_3, 142, 142, 7, 40},
-  {entry__html__define_tag_30, NULL, 105, 105, 12, 16},
-  {cont__html__define_tag_31, &frame__html__define_tag_30, 105, 105, 9, 22},
-  {cont__html__define_tag_32, &frame__html__define_tag_30, 106, 106, 9, 20},
-  {cont__html__define_tag_33, &frame__html__define_tag_30, 107, 107, 16, 38},
-  {cont__html__define_tag_34, &frame__html__define_tag_30, 107, 107, 9, 44},
-  {cont__html__define_tag_35, &frame__html__define_tag_30, 112, 112, 25, 35},
-  {cont__html__define_tag_36, &frame__html__define_tag_30, 112, 112, 25, 45},
-  {cont__html__define_tag_37, &frame__html__define_tag_30, 112, 112, 47, 55},
-  {cont__html__define_tag_39, &frame__html__define_tag_30, 112, 112, 13, 56},
-  {cont__html__define_tag_40, &frame__html__define_tag_30, 114, 114, 25, 37},
-  {cont__html__define_tag_41, &frame__html__define_tag_30, 114, 114, 25, 47},
-  {cont__html__define_tag_42, &frame__html__define_tag_30, 114, 114, 49, 67},
-  {cont__html__define_tag_44, &frame__html__define_tag_30, 114, 114, 13, 68},
-  {cont__html__define_tag_45, &frame__html__define_tag_30, },
-  {cont__html__define_tag_47, &frame__html__define_tag_30, 108, 115, 9, 21},
-  {cont__html__define_tag_48, &frame__html__define_tag_30, 116, 116, 9, 14},
-  {cont__html__define_tag_49, &frame__html__define_tag_30, 116, 116, 14, 14},
-  {entry__html__define_tag_29, NULL, 104, 116, 7, 14},
-  {cont__html__define_tag_50, &frame__html__define_tag_29, 116, 116, 14, 14},
-  {entry__html__define_tag_54, NULL, 119, 119, 34, 48},
-  {cont__html__define_tag_55, &frame__html__define_tag_54, 119, 119, 17, 50},
-  {cont__html__define_tag_56, &frame__html__define_tag_54, 119, 119, 50, 50},
-  {entry__html__define_tag_52, NULL, 119, 119, 10, 14},
-  {cont__html__define_tag_53, &frame__html__define_tag_52, 119, 119, 7, 50},
-  {entry__html__define_tag_59, NULL, 120, 120, 18, 34},
-  {cont__html__define_tag_60, &frame__html__define_tag_59, 120, 120, 34, 34},
-  {entry__html__define_tag_57, NULL, 120, 120, 10, 15},
-  {cont__html__define_tag_58, &frame__html__define_tag_57, 120, 120, 7, 34},
-  {entry__html__define_tag_65, NULL, 145, 145, 54, 69},
-  {cont__html__define_tag_67, &frame__html__define_tag_65, 145, 145, 54, 69},
-  {cont__html__define_tag_68, &frame__html__define_tag_65, 145, 145, 54, 69},
-  {entry__html__define_tag_63, NULL, 145, 145, 30, 49},
-  {cont__html__define_tag_64, &frame__html__define_tag_63, 145, 145, 30, 69},
-  {cont__html__define_tag_69, &frame__html__define_tag_63, 145, 145, 30, 69},
-  {entry__html__define_tag_93, NULL, 158, 158, 49, 49},
-  {cont__html__define_tag_94, &frame__html__define_tag_93, 158, 158, 35, 50},
-  {cont__html__define_tag_95, &frame__html__define_tag_93, 158, 158, 22, 58},
-  {cont__html__define_tag_98, &frame__html__define_tag_93, 158, 158, 19, 58},
-  {entry__html__define_tag_105, NULL, 162, 162, 49, 49},
-  {cont__html__define_tag_106, &frame__html__define_tag_105, 162, 162, 35, 50},
-  {cont__html__define_tag_107, &frame__html__define_tag_105, 162, 162, 22, 58},
-  {cont__html__define_tag_110, &frame__html__define_tag_105, 162, 162, 19, 58},
-  {entry__html__define_tag_119, NULL, 172, 172, 19, 50},
-  {cont__html__define_tag_120, &frame__html__define_tag_119, 173, 173, 19, 50},
-  {cont__html__define_tag_121, &frame__html__define_tag_119, 174, 175, 22, 55},
-  {cont__html__define_tag_125, &frame__html__define_tag_119, 174, 175, 19, 55},
-  {entry__html__define_tag_75, NULL, 150, 150, 15, 28},
-  {cont__html__define_tag_78, &frame__html__define_tag_75, 151, 151, 15, 26},
-  {cont__html__define_tag_80, &frame__html__define_tag_75, 152, 152, 15, 24},
-  {cont__html__define_tag_83, &frame__html__define_tag_75, 153, 153, 15, 24},
-  {cont__html__define_tag_85, &frame__html__define_tag_75, 154, 154, 15, 24},
-  {cont__html__define_tag_88, &frame__html__define_tag_75, 156, 156, 27, 46},
-  {cont__html__define_tag_89, &frame__html__define_tag_75, 156, 156, 27, 61},
-  {cont__html__define_tag_90, &frame__html__define_tag_75, 156, 156, 22, 62},
-  {cont__html__define_tag_91, &frame__html__define_tag_75, 156, 156, 17, 67},
-  {cont__html__define_tag_92, &frame__html__define_tag_75, 155, 158, 15, 59},
-  {cont__html__define_tag_99, &frame__html__define_tag_75, 160, 160, 28, 48},
-  {cont__html__define_tag_101, &frame__html__define_tag_75, 160, 160, 28, 63},
-  {cont__html__define_tag_102, &frame__html__define_tag_75, 160, 160, 23, 64},
-  {cont__html__define_tag_103, &frame__html__define_tag_75, 160, 160, 17, 70},
-  {cont__html__define_tag_104, &frame__html__define_tag_75, 159, 162, 15, 59},
-  {cont__html__define_tag_111, &frame__html__define_tag_75, 166, 166, 24, 43},
-  {cont__html__define_tag_112, &frame__html__define_tag_75, 166, 166, 24, 58},
-  {cont__html__define_tag_113, &frame__html__define_tag_75, 166, 166, 19, 59},
-  {cont__html__define_tag_114, &frame__html__define_tag_75, 169, 169, 24, 43},
-  {cont__html__define_tag_115, &frame__html__define_tag_75, 169, 169, 24, 58},
-  {cont__html__define_tag_116, &frame__html__define_tag_75, 169, 169, 19, 59},
-  {cont__html__define_tag_117, &frame__html__define_tag_75, },
-  {cont__html__define_tag_118, &frame__html__define_tag_75, 163, 175, 15, 57},
-  {cont__html__define_tag_126, &frame__html__define_tag_75, 148, 175, 13, 58},
-  {cont__html__define_tag_127, &frame__html__define_tag_75, 175, 175, 59, 59},
-  {entry__html__define_tag_130, NULL, 179, 179, 63, 63},
-  {cont__html__define_tag_131, &frame__html__define_tag_130, 179, 179, 48, 64},
-  {cont__html__define_tag_132, &frame__html__define_tag_130, 179, 179, 40, 65},
-  {cont__html__define_tag_133, &frame__html__define_tag_130, 179, 179, 15, 74},
-  {cont__html__define_tag_136, &frame__html__define_tag_130, 179, 179, 74, 74},
-  {entry__html__define_tag_137, NULL, 181, 181, 15, 28},
-  {cont__html__define_tag_138, &frame__html__define_tag_137, 181, 181, 28, 28},
-  {entry__html__define_tag_74, NULL, 178, 178, 13, 35},
-  {cont__html__define_tag_129, &frame__html__define_tag_74, 177, 181, 11, 29},
-  {cont__html__define_tag_139, &frame__html__define_tag_74, 182, 182, 11, 24},
-  {entry__html__define_tag_71, NULL, 146, 146, 18, 43},
-  {cont__html__define_tag_73, &frame__html__define_tag_71, 146, 182, 9, 24},
-  {entry__html__define_tag_140, NULL, 184, 184, 9, 25},
+  {cont__html__define_tag_24, &frame__html__define_tag_3, 142, 142, 14, 27},
+  {cont__html__define_tag_25, &frame__html__define_tag_3, 142, 142, 7, 40},
+  {entry__html__define_tag_29, NULL, 105, 105, 12, 16},
+  {cont__html__define_tag_30, &frame__html__define_tag_29, 105, 105, 9, 22},
+  {cont__html__define_tag_31, &frame__html__define_tag_29, 106, 106, 9, 20},
+  {cont__html__define_tag_32, &frame__html__define_tag_29, 107, 107, 16, 38},
+  {cont__html__define_tag_33, &frame__html__define_tag_29, 107, 107, 9, 44},
+  {cont__html__define_tag_34, &frame__html__define_tag_29, 112, 112, 25, 35},
+  {cont__html__define_tag_35, &frame__html__define_tag_29, 112, 112, 25, 45},
+  {cont__html__define_tag_36, &frame__html__define_tag_29, 112, 112, 47, 55},
+  {cont__html__define_tag_38, &frame__html__define_tag_29, 112, 112, 13, 56},
+  {cont__html__define_tag_39, &frame__html__define_tag_29, 114, 114, 25, 37},
+  {cont__html__define_tag_40, &frame__html__define_tag_29, 114, 114, 25, 47},
+  {cont__html__define_tag_41, &frame__html__define_tag_29, 114, 114, 49, 67},
+  {cont__html__define_tag_43, &frame__html__define_tag_29, 114, 114, 13, 68},
+  {cont__html__define_tag_44, &frame__html__define_tag_29, },
+  {cont__html__define_tag_46, &frame__html__define_tag_29, 108, 115, 9, 21},
+  {cont__html__define_tag_47, &frame__html__define_tag_29, 116, 116, 9, 14},
+  {cont__html__define_tag_48, &frame__html__define_tag_29, 116, 116, 14, 14},
+  {entry__html__define_tag_28, NULL, 104, 116, 7, 14},
+  {cont__html__define_tag_49, &frame__html__define_tag_28, 116, 116, 14, 14},
+  {entry__html__define_tag_53, NULL, 119, 119, 34, 48},
+  {cont__html__define_tag_54, &frame__html__define_tag_53, 119, 119, 17, 50},
+  {cont__html__define_tag_55, &frame__html__define_tag_53, 119, 119, 50, 50},
+  {entry__html__define_tag_51, NULL, 119, 119, 10, 14},
+  {cont__html__define_tag_52, &frame__html__define_tag_51, 119, 119, 7, 50},
+  {entry__html__define_tag_58, NULL, 120, 120, 18, 34},
+  {cont__html__define_tag_59, &frame__html__define_tag_58, 120, 120, 34, 34},
+  {entry__html__define_tag_56, NULL, 120, 120, 10, 15},
+  {cont__html__define_tag_57, &frame__html__define_tag_56, 120, 120, 7, 34},
+  {entry__html__define_tag_64, NULL, 145, 145, 54, 69},
+  {cont__html__define_tag_66, &frame__html__define_tag_64, 145, 145, 54, 69},
+  {cont__html__define_tag_67, &frame__html__define_tag_64, 145, 145, 54, 69},
+  {entry__html__define_tag_62, NULL, 145, 145, 30, 49},
+  {cont__html__define_tag_63, &frame__html__define_tag_62, 145, 145, 30, 69},
+  {cont__html__define_tag_68, &frame__html__define_tag_62, 145, 145, 30, 69},
+  {entry__html__define_tag_92, NULL, 158, 158, 49, 49},
+  {cont__html__define_tag_93, &frame__html__define_tag_92, 158, 158, 35, 50},
+  {cont__html__define_tag_94, &frame__html__define_tag_92, 158, 158, 22, 58},
+  {cont__html__define_tag_97, &frame__html__define_tag_92, 158, 158, 19, 58},
+  {entry__html__define_tag_104, NULL, 162, 162, 49, 49},
+  {cont__html__define_tag_105, &frame__html__define_tag_104, 162, 162, 35, 50},
+  {cont__html__define_tag_106, &frame__html__define_tag_104, 162, 162, 22, 58},
+  {cont__html__define_tag_109, &frame__html__define_tag_104, 162, 162, 19, 58},
+  {entry__html__define_tag_118, NULL, 172, 172, 19, 50},
+  {cont__html__define_tag_119, &frame__html__define_tag_118, 173, 173, 19, 50},
+  {cont__html__define_tag_120, &frame__html__define_tag_118, 174, 175, 22, 55},
+  {cont__html__define_tag_124, &frame__html__define_tag_118, 174, 175, 19, 55},
+  {entry__html__define_tag_74, NULL, 150, 150, 15, 28},
+  {cont__html__define_tag_77, &frame__html__define_tag_74, 151, 151, 15, 26},
+  {cont__html__define_tag_79, &frame__html__define_tag_74, 152, 152, 15, 24},
+  {cont__html__define_tag_82, &frame__html__define_tag_74, 153, 153, 15, 24},
+  {cont__html__define_tag_84, &frame__html__define_tag_74, 154, 154, 15, 24},
+  {cont__html__define_tag_87, &frame__html__define_tag_74, 156, 156, 27, 46},
+  {cont__html__define_tag_88, &frame__html__define_tag_74, 156, 156, 27, 61},
+  {cont__html__define_tag_89, &frame__html__define_tag_74, 156, 156, 22, 62},
+  {cont__html__define_tag_90, &frame__html__define_tag_74, 156, 156, 17, 67},
+  {cont__html__define_tag_91, &frame__html__define_tag_74, 155, 158, 15, 59},
+  {cont__html__define_tag_98, &frame__html__define_tag_74, 160, 160, 28, 48},
+  {cont__html__define_tag_100, &frame__html__define_tag_74, 160, 160, 28, 63},
+  {cont__html__define_tag_101, &frame__html__define_tag_74, 160, 160, 23, 64},
+  {cont__html__define_tag_102, &frame__html__define_tag_74, 160, 160, 17, 70},
+  {cont__html__define_tag_103, &frame__html__define_tag_74, 159, 162, 15, 59},
+  {cont__html__define_tag_110, &frame__html__define_tag_74, 166, 166, 24, 43},
+  {cont__html__define_tag_111, &frame__html__define_tag_74, 166, 166, 24, 58},
+  {cont__html__define_tag_112, &frame__html__define_tag_74, 166, 166, 19, 59},
+  {cont__html__define_tag_113, &frame__html__define_tag_74, 169, 169, 24, 43},
+  {cont__html__define_tag_114, &frame__html__define_tag_74, 169, 169, 24, 58},
+  {cont__html__define_tag_115, &frame__html__define_tag_74, 169, 169, 19, 59},
+  {cont__html__define_tag_116, &frame__html__define_tag_74, },
+  {cont__html__define_tag_117, &frame__html__define_tag_74, 163, 175, 15, 57},
+  {cont__html__define_tag_125, &frame__html__define_tag_74, 148, 175, 13, 58},
+  {cont__html__define_tag_126, &frame__html__define_tag_74, 175, 175, 59, 59},
+  {entry__html__define_tag_129, NULL, 179, 179, 63, 63},
+  {cont__html__define_tag_130, &frame__html__define_tag_129, 179, 179, 48, 64},
+  {cont__html__define_tag_131, &frame__html__define_tag_129, 179, 179, 40, 65},
+  {cont__html__define_tag_132, &frame__html__define_tag_129, 179, 179, 15, 74},
+  {cont__html__define_tag_135, &frame__html__define_tag_129, 179, 179, 74, 74},
+  {entry__html__define_tag_136, NULL, 181, 181, 15, 28},
+  {cont__html__define_tag_137, &frame__html__define_tag_136, 181, 181, 28, 28},
+  {entry__html__define_tag_73, NULL, 178, 178, 13, 35},
+  {cont__html__define_tag_128, &frame__html__define_tag_73, 177, 181, 11, 29},
+  {cont__html__define_tag_138, &frame__html__define_tag_73, 182, 182, 11, 24},
+  {entry__html__define_tag_70, NULL, 146, 146, 18, 43},
+  {cont__html__define_tag_72, &frame__html__define_tag_70, 146, 182, 9, 24},
+  {entry__html__define_tag_139, NULL, 184, 184, 9, 25},
   {entry__html__define_tag_2, NULL, 101, 101, 5, 22},
-  {cont__html__define_tag_28, &frame__html__define_tag_2, 103, 116, 5, 15},
-  {cont__html__define_tag_51, &frame__html__define_tag_2, 118, 120, 5, 34},
-  {cont__html__define_tag_61, &frame__html__define_tag_2, 145, 145, 7, 25},
-  {cont__html__define_tag_62, &frame__html__define_tag_2, 145, 145, 7, 69},
-  {cont__html__define_tag_70, &frame__html__define_tag_2, 144, 184, 5, 26},
-  {entry__html__define_tag_1, NULL, 99, 184, 3, 27},
-  {entry__html__HTTP_HEADER_1, NULL, 238, 240, 3, 6},
-  {entry__html__HTML_HEADER_1, NULL, 242, 242, 21, 45},
+  {cont__html__define_tag_27, &frame__html__define_tag_2, 103, 116, 5, 15},
+  {cont__html__define_tag_50, &frame__html__define_tag_2, 118, 120, 5, 34},
+  {cont__html__define_tag_60, &frame__html__define_tag_2, 145, 145, 7, 25},
+  {cont__html__define_tag_61, &frame__html__define_tag_2, 145, 145, 7, 69},
+  {cont__html__define_tag_69, &frame__html__define_tag_2, 144, 184, 5, 26},
+  {entry__html__define_tag, NULL, 99, 184, 3, 27},
+  {entry__html__HTTP_HEADER, NULL, 238, 240, 3, 6},
+  {entry__html__HTML_HEADER, NULL, 242, 242, 21, 45},
   {entry__html__ERROR_PAGE_5, NULL, 248, 248, 11, 19},
   {entry__html__ERROR_PAGE_10, NULL, 251, 251, 30, 38},
   {entry__html__ERROR_PAGE_7, NULL, 250, 250, 7, 12},
@@ -1359,17 +1352,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__html__ERROR_PAGE_9, &frame__html__ERROR_PAGE_7, 251, 251, 7, 38},
   {entry__html__ERROR_PAGE_4, NULL, 248, 248, 5, 19},
   {cont__html__ERROR_PAGE_6, &frame__html__ERROR_PAGE_4, 249, 251, 5, 38},
-  {entry__html__ERROR_PAGE_1, NULL, 245, 245, 3, 13},
-  {cont__html__ERROR_PAGE_2, &frame__html__ERROR_PAGE_1, 246, 246, 3, 13},
-  {cont__html__ERROR_PAGE_3, &frame__html__ERROR_PAGE_1, 247, 251, 3, 39},
+  {entry__html__ERROR_PAGE, NULL, 245, 245, 3, 13},
+  {cont__html__ERROR_PAGE_2, &frame__html__ERROR_PAGE, 246, 246, 3, 13},
+  {cont__html__ERROR_PAGE_3, &frame__html__ERROR_PAGE, 247, 251, 3, 39},
   {entry__html__DUMP_PAGE_5, NULL, 264, 264, 11, 22},
   {entry__html__DUMP_PAGE_8, NULL, 266, 266, 7, 15},
   {cont__html__DUMP_PAGE_9, &frame__html__DUMP_PAGE_8, 267, 267, 7, 13},
   {entry__html__DUMP_PAGE_4, NULL, 264, 264, 5, 22},
   {cont__html__DUMP_PAGE_7, &frame__html__DUMP_PAGE_4, 265, 267, 5, 13},
-  {entry__html__DUMP_PAGE_1, NULL, 261, 261, 3, 13},
-  {cont__html__DUMP_PAGE_2, &frame__html__DUMP_PAGE_1, 262, 262, 3, 13},
-  {cont__html__DUMP_PAGE_3, &frame__html__DUMP_PAGE_1, 263, 267, 3, 14}
+  {entry__html__DUMP_PAGE, NULL, 261, 261, 3, 13},
+  {cont__html__DUMP_PAGE_2, &frame__html__DUMP_PAGE, 262, 262, 3, 13},
+  {cont__html__DUMP_PAGE_3, &frame__html__DUMP_PAGE, 263, 267, 3, 14}
 };
 
 union NODE {
@@ -2351,7 +2344,7 @@ static void entry__html__emit_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__emit_1(void) {
+static void entry__html__emit(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -2367,7 +2360,7 @@ static void entry__html__emit_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__encode_1(void) {
+static void entry__html__encode(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // txt: 0
@@ -2386,7 +2379,7 @@ static void entry__html__encode_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__TEXT_1(void) {
+static void entry__html__TEXT(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
@@ -2418,7 +2411,7 @@ static void cont__html__TEXT_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__hex_digit_value_1(void) {
+static void entry__hex_digit_value(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // chr: 0
@@ -2969,7 +2962,7 @@ static void cont__hex_digit_value_33(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__convert_from_percent_encoding_1(void) {
+static void entry__types__string___convert_from_percent_encoding(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -2986,9 +2979,9 @@ static void entry__types__string__convert_from_percent_encoding_1(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__types__string__convert_from_percent_encoding_4;
+  frame->cont = cont__types__string___convert_from_percent_encoding_4;
 }
-static void cont__types__string__convert_from_percent_encoding_4(void) {
+static void cont__types__string___convert_from_percent_encoding_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3002,9 +2995,9 @@ static void cont__types__string__convert_from_percent_encoding_4(void) {
   result_count = 1;
   myself = get__replace_all();
   func = myself->type;
-  frame->cont = cont__types__string__convert_from_percent_encoding_5;
+  frame->cont = cont__types__string___convert_from_percent_encoding_5;
 }
-static void cont__types__string__convert_from_percent_encoding_5(void) {
+static void cont__types__string___convert_from_percent_encoding_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3019,9 +3012,9 @@ static void cont__types__string__convert_from_percent_encoding_5(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__types__string__convert_from_percent_encoding_7;
+  frame->cont = cont__types__string___convert_from_percent_encoding_7;
 }
-static void cont__types__string__convert_from_percent_encoding_7(void) {
+static void cont__types__string___convert_from_percent_encoding_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3038,7 +3031,7 @@ static void cont__types__string__convert_from_percent_encoding_7(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__types__string__convert_from_percent_encoding_16;
+  frame->cont = cont__types__string___convert_from_percent_encoding_16;
 }
 static void entry__types__string__convert_from_percent_encoding_8(void) {
   allocate_initialized_frame_gc(1, 8);
@@ -3068,7 +3061,7 @@ static void cont__types__string__convert_from_percent_encoding_9(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__5 */;
   result_count = 1;
-  myself = var._hex_digit_value;
+  myself = func__hex_digit_value;
   func = myself->type;
   frame->cont = cont__types__string__convert_from_percent_encoding_10;
 }
@@ -3114,7 +3107,7 @@ static void cont__types__string__convert_from_percent_encoding_12(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__7 */;
   result_count = 1;
-  myself = var._hex_digit_value;
+  myself = func__hex_digit_value;
   func = myself->type;
   frame->cont = cont__types__string__convert_from_percent_encoding_13;
 }
@@ -3163,7 +3156,7 @@ static void cont__types__string__convert_from_percent_encoding_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__string__convert_from_percent_encoding_16(void) {
+static void cont__types__string___convert_from_percent_encoding_16(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3182,9 +3175,9 @@ static void cont__types__string__convert_from_percent_encoding_16(void) {
   result_count = 1;
   myself = get__replace_all();
   func = myself->type;
-  frame->cont = cont__types__string__convert_from_percent_encoding_17;
+  frame->cont = cont__types__string___convert_from_percent_encoding_17;
 }
-static void cont__types__string__convert_from_percent_encoding_17(void) {
+static void cont__types__string___convert_from_percent_encoding_17(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3197,7 +3190,7 @@ static void cont__types__string__convert_from_percent_encoding_17(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__html__define_tag_74(void) {
+static void entry__html__define_tag_73(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // field: 0
@@ -3258,7 +3251,7 @@ static void entry__html__define_tag_74(void) {
   //     temp__6
   //     temp__11
   //     temp__16
-  frame->slots[2] /* convert */ = func__html__define_tag_75;
+  frame->slots[2] /* convert */ = func__html__define_tag_74;
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
@@ -3272,9 +3265,9 @@ static void entry__html__define_tag_74(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__html__define_tag_129;
+  frame->cont = cont__html__define_tag_128;
 }
-static void entry__html__define_tag_75(void) {
+static void entry__html__define_tag_74(void) {
   allocate_initialized_frame_gc(1, 24);
   // slot allocations:
   // line: 0
@@ -3291,9 +3284,9 @@ static void entry__html__define_tag_75(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__html__define_tag_78;
+  frame->cont = cont__html__define_tag_77;
 }
-static void cont__html__define_tag_78(void) {
+static void cont__html__define_tag_77(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3307,9 +3300,9 @@ static void cont__html__define_tag_78(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__html__define_tag_80;
+  frame->cont = cont__html__define_tag_79;
 }
-static void cont__html__define_tag_80(void) {
+static void cont__html__define_tag_79(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3323,9 +3316,9 @@ static void cont__html__define_tag_80(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__html__define_tag_83;
+  frame->cont = cont__html__define_tag_82;
 }
-static void cont__html__define_tag_83(void) {
+static void cont__html__define_tag_82(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3339,9 +3332,9 @@ static void cont__html__define_tag_83(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__html__define_tag_85;
+  frame->cont = cont__html__define_tag_84;
 }
-static void cont__html__define_tag_85(void) {
+static void cont__html__define_tag_84(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3355,9 +3348,9 @@ static void cont__html__define_tag_85(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__html__define_tag_88;
+  frame->cont = cont__html__define_tag_87;
 }
-static void cont__html__define_tag_88(void) {
+static void cont__html__define_tag_87(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3370,9 +3363,9 @@ static void cont__html__define_tag_88(void) {
   result_count = 1;
   myself = get__not_followed_by();
   func = myself->type;
-  frame->cont = cont__html__define_tag_89;
+  frame->cont = cont__html__define_tag_88;
 }
-static void cont__html__define_tag_89(void) {
+static void cont__html__define_tag_88(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3386,9 +3379,9 @@ static void cont__html__define_tag_89(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__html__define_tag_90;
+  frame->cont = cont__html__define_tag_89;
 }
-static void cont__html__define_tag_90(void) {
+static void cont__html__define_tag_89(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3401,9 +3394,9 @@ static void cont__html__define_tag_90(void) {
   result_count = 1;
   myself = get__many();
   func = myself->type;
-  frame->cont = cont__html__define_tag_91;
+  frame->cont = cont__html__define_tag_90;
 }
-static void cont__html__define_tag_91(void) {
+static void cont__html__define_tag_90(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3418,9 +3411,9 @@ static void cont__html__define_tag_91(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__html__define_tag_92;
+  frame->cont = cont__html__define_tag_91;
 }
-static void cont__html__define_tag_92(void) {
+static void cont__html__define_tag_91(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3433,13 +3426,13 @@ static void cont__html__define_tag_92(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__7 */;
-  arguments->slots[1] = func__html__define_tag_93;
+  arguments->slots[1] = func__html__define_tag_92;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__html__define_tag_99;
+  frame->cont = cont__html__define_tag_98;
 }
-static void entry__html__define_tag_93(void) {
+static void entry__html__define_tag_92(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // text: 0
@@ -3454,9 +3447,9 @@ static void entry__html__define_tag_93(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__html__define_tag_94;
+  frame->cont = cont__html__define_tag_93;
 }
-static void cont__html__define_tag_94(void) {
+static void cont__html__define_tag_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3471,9 +3464,9 @@ static void cont__html__define_tag_94(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__html__define_tag_95;
+  frame->cont = cont__html__define_tag_94;
 }
-static void cont__html__define_tag_95(void) {
+static void cont__html__define_tag_94(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3488,9 +3481,9 @@ static void cont__html__define_tag_95(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__html__define_tag_98;
+  frame->cont = cont__html__define_tag_97;
 }
-static void cont__html__define_tag_98(void) {
+static void cont__html__define_tag_97(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3504,7 +3497,7 @@ static void cont__html__define_tag_98(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__html__define_tag_99(void) {
+static void cont__html__define_tag_98(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3517,9 +3510,9 @@ static void cont__html__define_tag_99(void) {
   result_count = 1;
   myself = get__not_followed_by();
   func = myself->type;
-  frame->cont = cont__html__define_tag_101;
+  frame->cont = cont__html__define_tag_100;
 }
-static void cont__html__define_tag_101(void) {
+static void cont__html__define_tag_100(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3533,9 +3526,9 @@ static void cont__html__define_tag_101(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__html__define_tag_102;
+  frame->cont = cont__html__define_tag_101;
 }
-static void cont__html__define_tag_102(void) {
+static void cont__html__define_tag_101(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3548,9 +3541,9 @@ static void cont__html__define_tag_102(void) {
   result_count = 1;
   myself = get__many();
   func = myself->type;
-  frame->cont = cont__html__define_tag_103;
+  frame->cont = cont__html__define_tag_102;
 }
-static void cont__html__define_tag_103(void) {
+static void cont__html__define_tag_102(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3565,9 +3558,9 @@ static void cont__html__define_tag_103(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__html__define_tag_104;
+  frame->cont = cont__html__define_tag_103;
 }
-static void cont__html__define_tag_104(void) {
+static void cont__html__define_tag_103(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3580,13 +3573,13 @@ static void cont__html__define_tag_104(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[12] /* temp__12 */;
-  arguments->slots[1] = func__html__define_tag_105;
+  arguments->slots[1] = func__html__define_tag_104;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__html__define_tag_111;
+  frame->cont = cont__html__define_tag_110;
 }
-static void entry__html__define_tag_105(void) {
+static void entry__html__define_tag_104(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // text: 0
@@ -3601,9 +3594,9 @@ static void entry__html__define_tag_105(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__html__define_tag_106;
+  frame->cont = cont__html__define_tag_105;
 }
-static void cont__html__define_tag_106(void) {
+static void cont__html__define_tag_105(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3618,9 +3611,9 @@ static void cont__html__define_tag_106(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__html__define_tag_107;
+  frame->cont = cont__html__define_tag_106;
 }
-static void cont__html__define_tag_107(void) {
+static void cont__html__define_tag_106(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3635,9 +3628,9 @@ static void cont__html__define_tag_107(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__html__define_tag_110;
+  frame->cont = cont__html__define_tag_109;
 }
-static void cont__html__define_tag_110(void) {
+static void cont__html__define_tag_109(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3651,7 +3644,7 @@ static void cont__html__define_tag_110(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__html__define_tag_111(void) {
+static void cont__html__define_tag_110(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3664,9 +3657,9 @@ static void cont__html__define_tag_111(void) {
   result_count = 1;
   myself = get__not_followed_by();
   func = myself->type;
-  frame->cont = cont__html__define_tag_112;
+  frame->cont = cont__html__define_tag_111;
 }
-static void cont__html__define_tag_112(void) {
+static void cont__html__define_tag_111(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3680,9 +3673,9 @@ static void cont__html__define_tag_112(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__html__define_tag_113;
+  frame->cont = cont__html__define_tag_112;
 }
-static void cont__html__define_tag_113(void) {
+static void cont__html__define_tag_112(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3695,9 +3688,9 @@ static void cont__html__define_tag_113(void) {
   result_count = 1;
   myself = get__many();
   func = myself->type;
-  frame->cont = cont__html__define_tag_114;
+  frame->cont = cont__html__define_tag_113;
 }
-static void cont__html__define_tag_114(void) {
+static void cont__html__define_tag_113(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3710,9 +3703,9 @@ static void cont__html__define_tag_114(void) {
   result_count = 1;
   myself = get__not_followed_by();
   func = myself->type;
-  frame->cont = cont__html__define_tag_115;
+  frame->cont = cont__html__define_tag_114;
 }
-static void cont__html__define_tag_115(void) {
+static void cont__html__define_tag_114(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3726,9 +3719,9 @@ static void cont__html__define_tag_115(void) {
   result_count = 1;
   myself = get__std__sequence();
   func = myself->type;
-  frame->cont = cont__html__define_tag_116;
+  frame->cont = cont__html__define_tag_115;
 }
-static void cont__html__define_tag_116(void) {
+static void cont__html__define_tag_115(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3741,9 +3734,9 @@ static void cont__html__define_tag_116(void) {
   result_count = 1;
   myself = get__many();
   func = myself->type;
-  frame->cont = cont__html__define_tag_117;
+  frame->cont = cont__html__define_tag_116;
 }
-static void cont__html__define_tag_117(void) {
+static void cont__html__define_tag_116(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3760,9 +3753,9 @@ static void cont__html__define_tag_117(void) {
   result_count = 1;
   myself = get__sequence();
   func = myself->type;
-  frame->cont = cont__html__define_tag_118;
+  frame->cont = cont__html__define_tag_117;
 }
-static void cont__html__define_tag_118(void) {
+static void cont__html__define_tag_117(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3782,13 +3775,13 @@ static void cont__html__define_tag_118(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[17] /* temp__17 */;
-  arguments->slots[1] = func__html__define_tag_119;
+  arguments->slots[1] = func__html__define_tag_118;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__html__define_tag_126;
+  frame->cont = cont__html__define_tag_125;
 }
-static void entry__html__define_tag_119(void) {
+static void entry__html__define_tag_118(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // reference: 0
@@ -3809,9 +3802,9 @@ static void entry__html__define_tag_119(void) {
   result_count = 1;
   myself = get__between();
   func = myself->type;
-  frame->cont = cont__html__define_tag_120;
+  frame->cont = cont__html__define_tag_119;
 }
-static void cont__html__define_tag_120(void) {
+static void cont__html__define_tag_119(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3826,9 +3819,9 @@ static void cont__html__define_tag_120(void) {
   result_count = 1;
   myself = get__between();
   func = myself->type;
-  frame->cont = cont__html__define_tag_121;
+  frame->cont = cont__html__define_tag_120;
 }
-static void cont__html__define_tag_121(void) {
+static void cont__html__define_tag_120(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3846,9 +3839,9 @@ static void cont__html__define_tag_121(void) {
   result_count = 1;
   myself = get__std__string();
   func = myself->type;
-  frame->cont = cont__html__define_tag_125;
+  frame->cont = cont__html__define_tag_124;
 }
-static void cont__html__define_tag_125(void) {
+static void cont__html__define_tag_124(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3863,7 +3856,7 @@ static void cont__html__define_tag_125(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__html__define_tag_126(void) {
+static void cont__html__define_tag_125(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3894,9 +3887,9 @@ static void cont__html__define_tag_126(void) {
   result_count = 1;
   myself = get__replace_all();
   func = myself->type;
-  frame->cont = cont__html__define_tag_127;
+  frame->cont = cont__html__define_tag_126;
 }
-static void cont__html__define_tag_127(void) {
+static void cont__html__define_tag_126(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3909,7 +3902,7 @@ static void cont__html__define_tag_127(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__html__define_tag_129(void) {
+static void cont__html__define_tag_128(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3917,10 +3910,10 @@ static void cont__html__define_tag_129(void) {
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
   // 178: ... :
   // 179:   !field string("<ul><li>" convert(range(field 3 -1)) "</ul>")
-  frame->slots[4] /* temp__2 */ = create_closure(entry__html__define_tag_130, 0);
+  frame->slots[4] /* temp__2 */ = create_closure(entry__html__define_tag_129, 0);
   // 180: :
   // 181:   convert &field
-  frame->slots[5] /* temp__3 */ = create_closure(entry__html__define_tag_137, 0);
+  frame->slots[5] /* temp__3 */ = create_closure(entry__html__define_tag_136, 0);
   // 177: if
   // 178:   field .has_prefix. "* ":
   // 179:     !field string("<ul><li>" convert(range(field 3 -1)) "</ul>")
@@ -3934,9 +3927,9 @@ static void cont__html__define_tag_129(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__html__define_tag_139;
+  frame->cont = cont__html__define_tag_138;
 }
-static void entry__html__define_tag_130(void) {
+static void entry__html__define_tag_129(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // field: 0
@@ -3954,9 +3947,9 @@ static void entry__html__define_tag_130(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__html__define_tag_131;
+  frame->cont = cont__html__define_tag_130;
 }
-static void cont__html__define_tag_131(void) {
+static void cont__html__define_tag_130(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3971,9 +3964,9 @@ static void cont__html__define_tag_131(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__html__define_tag_132;
+  frame->cont = cont__html__define_tag_131;
 }
-static void cont__html__define_tag_132(void) {
+static void cont__html__define_tag_131(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -3986,9 +3979,9 @@ static void cont__html__define_tag_132(void) {
   result_count = 1;
   myself = frame->slots[1] /* convert */;
   func = myself->type;
-  frame->cont = cont__html__define_tag_133;
+  frame->cont = cont__html__define_tag_132;
 }
-static void cont__html__define_tag_133(void) {
+static void cont__html__define_tag_132(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4003,9 +3996,9 @@ static void cont__html__define_tag_133(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__html__define_tag_136;
+  frame->cont = cont__html__define_tag_135;
 }
-static void cont__html__define_tag_136(void) {
+static void cont__html__define_tag_135(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4017,7 +4010,7 @@ static void cont__html__define_tag_136(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__html__define_tag_137(void) {
+static void entry__html__define_tag_136(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // convert: 0
@@ -4035,9 +4028,9 @@ static void entry__html__define_tag_137(void) {
   result_count = 1;
   myself = frame->slots[0] /* convert */;
   func = myself->type;
-  frame->cont = cont__html__define_tag_138;
+  frame->cont = cont__html__define_tag_137;
 }
-static void cont__html__define_tag_138(void) {
+static void cont__html__define_tag_137(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4049,7 +4042,7 @@ static void cont__html__define_tag_138(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__html__define_tag_139(void) {
+static void cont__html__define_tag_138(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4063,7 +4056,7 @@ static void cont__html__define_tag_139(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__define_tag_71(void) {
+static void entry__html__define_tag_70(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // contents: 0
@@ -4082,9 +4075,9 @@ static void entry__html__define_tag_71(void) {
   result_count = 1;
   myself = get__split();
   func = myself->type;
-  frame->cont = cont__html__define_tag_73;
+  frame->cont = cont__html__define_tag_72;
 }
-static void cont__html__define_tag_73(void) {
+static void cont__html__define_tag_72(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4101,7 +4094,7 @@ static void cont__html__define_tag_73(void) {
   // 154:       "\[" = "["
   // 155:       =
   // ...
-  frame->slots[3] /* temp__2 */ = create_closure(entry__html__define_tag_74, 1);
+  frame->slots[3] /* temp__2 */ = create_closure(entry__html__define_tag_73, 1);
   // 146: for_each split(contents "@nl;@nl;"): ($field)
   // 147:   $convert: (&line)
   // 148:     replace_all
@@ -4122,7 +4115,7 @@ static void cont__html__define_tag_73(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__define_tag_140(void) {
+static void entry__html__define_tag_139(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // emit_tag: 0
@@ -4197,9 +4190,9 @@ static void entry__html__define_tag_2(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__html__define_tag_28;
+  frame->cont = cont__html__define_tag_27;
 }
-static void entry__html__define_tag_27(void) {
+static void entry__html__define_tag_26(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -4280,7 +4273,7 @@ static void cont__html__define_tag_6(void) {
   // 139:       emit ">"
   // 140:     FOREIGN:
   // 141:       emit "/>"
-  frame->slots[7] /* temp__3 */ = create_closure(entry__html__define_tag_19, 0);
+  frame->slots[7] /* temp__3 */ = create_closure(entry__html__define_tag_18, 0);
   // 124: if
   // 125:   cts.is_defined:
   // 126:     emit ">"
@@ -4300,9 +4293,9 @@ static void cont__html__define_tag_6(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__html__define_tag_25;
+  frame->cont = cont__html__define_tag_24;
 }
-static void entry__html__define_tag_20(void) {
+static void entry__html__define_tag_19(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // name: 0
@@ -4322,7 +4315,7 @@ static void entry__html__define_tag_20(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__define_tag_22(void) {
+static void entry__html__define_tag_21(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -4338,7 +4331,7 @@ static void entry__html__define_tag_22(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__define_tag_23(void) {
+static void entry__html__define_tag_22(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -4355,7 +4348,7 @@ static void entry__html__define_tag_23(void) {
   frame = frame->caller_frame;
 }
 static void entry__html__define_tag_7(void) {
-  allocate_initialized_frame_gc(4, 7);
+  allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // mode: 0
   // cts: 1
@@ -4445,12 +4438,9 @@ static void cont__html__define_tag_13(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 129: ... :
-  // 130:   cts
-  frame->slots[5] /* temp__2 */ = create_closure(entry__html__define_tag_14, 0);
   // 131: :
   // 132:   encode cts.to_string name arg_str
-  frame->slots[6] /* temp__3 */ = create_closure(entry__html__define_tag_15, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__html__define_tag_14, 0);
   // 128: if
   // 129:   cts.is_a_function:
   // 130:     cts
@@ -4459,31 +4449,14 @@ static void cont__html__define_tag_13(void) {
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
-  arguments->slots[1] = frame->slots[5] /* temp__2 */;
-  arguments->slots[2] = frame->slots[6] /* temp__3 */;
+  arguments->slots[1] = frame->slots[1] /* cts */;
+  arguments->slots[2] = frame->slots[5] /* temp__2 */;
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__html__define_tag_17;
+  frame->cont = cont__html__define_tag_16;
 }
 static void entry__html__define_tag_14(void) {
-  allocate_initialized_frame_gc(1, 1);
-  // slot allocations:
-  // cts: 0
-  frame->slots[0] = myself->closure.frame->slots[1]; /* cts */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 130: cts
-  argument_count = 0;
-  arguments = node_p;
-  result_count = frame->caller_result_count;
-  myself = frame->slots[0] /* cts */;
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void entry__html__define_tag_15(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // cts: 0
@@ -4503,9 +4476,9 @@ static void entry__html__define_tag_15(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__html__define_tag_16;
+  frame->cont = cont__html__define_tag_15;
 }
-static void cont__html__define_tag_16(void) {
+static void cont__html__define_tag_15(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4522,7 +4495,7 @@ static void cont__html__define_tag_16(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__html__define_tag_17(void) {
+static void cont__html__define_tag_16(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4538,7 +4511,7 @@ static void cont__html__define_tag_17(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__define_tag_19(void) {
+static void entry__html__define_tag_18(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // tag_mode: 0
@@ -4551,7 +4524,7 @@ static void entry__html__define_tag_19(void) {
   }
   // 136: ... :
   // 137:   emit "></" name ">"
-  frame->slots[2] /* temp__1 */ = create_closure(entry__html__define_tag_20, 0);
+  frame->slots[2] /* temp__1 */ = create_closure(entry__html__define_tag_19, 0);
   // 135: case tag_mode
   // 136:   html::NORMAL:
   // 137:     emit "></" name ">"
@@ -4565,15 +4538,15 @@ static void entry__html__define_tag_19(void) {
   arguments->slots[1] = var.html__NORMAL;
   arguments->slots[2] = frame->slots[2] /* temp__1 */;
   arguments->slots[3] = get__VOID();
-  arguments->slots[4] = func__html__define_tag_22;
+  arguments->slots[4] = func__html__define_tag_21;
   arguments->slots[5] = get__FOREIGN();
-  arguments->slots[6] = func__html__define_tag_23;
+  arguments->slots[6] = func__html__define_tag_22;
   result_count = frame->caller_result_count;
   myself = get__case();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__html__define_tag_25(void) {
+static void cont__html__define_tag_24(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4586,9 +4559,9 @@ static void cont__html__define_tag_25(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__html__define_tag_26;
+  frame->cont = cont__html__define_tag_25;
 }
-static void cont__html__define_tag_26(void) {
+static void cont__html__define_tag_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4598,13 +4571,13 @@ static void cont__html__define_tag_26(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
-  arguments->slots[1] = func__html__define_tag_27;
+  arguments->slots[1] = func__html__define_tag_26;
   result_count = frame->caller_result_count;
   myself = get__unless();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__html__define_tag_28(void) {
+static void cont__html__define_tag_27(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4623,7 +4596,7 @@ static void cont__html__define_tag_28(void) {
   // 111:         " "
   // 112:         replace_all(key_of(arg).to_string '_' = "-")
   // ...
-  frame->slots[9] /* temp__1 */ = create_closure(entry__html__define_tag_29, 0);
+  frame->slots[9] /* temp__1 */ = create_closure(entry__html__define_tag_28, 0);
   // 103: do: (-> break)
   // 104:   forever:
   // 105:     if i > n break
@@ -4641,9 +4614,9 @@ static void cont__html__define_tag_28(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__html__define_tag_51;
+  frame->cont = cont__html__define_tag_50;
 }
-static void entry__html__define_tag_29(void) {
+static void entry__html__define_tag_28(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // break: 0
@@ -4671,7 +4644,7 @@ static void entry__html__define_tag_29(void) {
   // 112:       replace_all(key_of(arg).to_string '_' = "-")
   // 113:       "=@quot;"
   // ...
-  frame->slots[5] /* temp__1 */ = create_closure(entry__html__define_tag_30, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__html__define_tag_29, 0);
   // 104: forever:
   // 105:   if i > n break
   // 106:   $arg args(i)
@@ -4689,9 +4662,9 @@ static void entry__html__define_tag_29(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__html__define_tag_50;
+  frame->cont = cont__html__define_tag_49;
 }
-static void entry__html__define_tag_30(void) {
+static void entry__html__define_tag_29(void) {
   allocate_initialized_frame_gc(5, 15);
   // slot allocations:
   // n: 0
@@ -4718,9 +4691,9 @@ static void entry__html__define_tag_30(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__html__define_tag_31;
+  frame->cont = cont__html__define_tag_30;
 }
-static void cont__html__define_tag_31(void) {
+static void cont__html__define_tag_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4734,9 +4707,9 @@ static void cont__html__define_tag_31(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__html__define_tag_32;
+  frame->cont = cont__html__define_tag_31;
 }
-static void cont__html__define_tag_32(void) {
+static void cont__html__define_tag_31(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4748,9 +4721,9 @@ static void cont__html__define_tag_32(void) {
   result_count = 1;
   myself = frame->slots[3] /* args */;
   func = myself->type;
-  frame->cont = cont__html__define_tag_33;
+  frame->cont = cont__html__define_tag_32;
 }
-static void cont__html__define_tag_33(void) {
+static void cont__html__define_tag_32(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4763,9 +4736,9 @@ static void cont__html__define_tag_33(void) {
   result_count = 1;
   myself = get__is_a_key_value_pair();
   func = myself->type;
-  frame->cont = cont__html__define_tag_34;
+  frame->cont = cont__html__define_tag_33;
 }
-static void cont__html__define_tag_34(void) {
+static void cont__html__define_tag_33(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4779,9 +4752,9 @@ static void cont__html__define_tag_34(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__html__define_tag_35;
+  frame->cont = cont__html__define_tag_34;
 }
-static void cont__html__define_tag_35(void) {
+static void cont__html__define_tag_34(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4793,9 +4766,9 @@ static void cont__html__define_tag_35(void) {
   result_count = 1;
   myself = get__key_of();
   func = myself->type;
-  frame->cont = cont__html__define_tag_36;
+  frame->cont = cont__html__define_tag_35;
 }
-static void cont__html__define_tag_36(void) {
+static void cont__html__define_tag_35(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4808,9 +4781,9 @@ static void cont__html__define_tag_36(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__html__define_tag_37;
+  frame->cont = cont__html__define_tag_36;
 }
-static void cont__html__define_tag_37(void) {
+static void cont__html__define_tag_36(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4824,9 +4797,9 @@ static void cont__html__define_tag_37(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__html__define_tag_39;
+  frame->cont = cont__html__define_tag_38;
 }
-static void cont__html__define_tag_39(void) {
+static void cont__html__define_tag_38(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4840,9 +4813,9 @@ static void cont__html__define_tag_39(void) {
   result_count = 1;
   myself = get__replace_all();
   func = myself->type;
-  frame->cont = cont__html__define_tag_40;
+  frame->cont = cont__html__define_tag_39;
 }
-static void cont__html__define_tag_40(void) {
+static void cont__html__define_tag_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4855,9 +4828,9 @@ static void cont__html__define_tag_40(void) {
   result_count = 1;
   myself = get__value_of();
   func = myself->type;
-  frame->cont = cont__html__define_tag_41;
+  frame->cont = cont__html__define_tag_40;
 }
-static void cont__html__define_tag_41(void) {
+static void cont__html__define_tag_40(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4870,9 +4843,9 @@ static void cont__html__define_tag_41(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__html__define_tag_42;
+  frame->cont = cont__html__define_tag_41;
 }
-static void cont__html__define_tag_42(void) {
+static void cont__html__define_tag_41(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4886,9 +4859,9 @@ static void cont__html__define_tag_42(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__html__define_tag_44;
+  frame->cont = cont__html__define_tag_43;
 }
-static void cont__html__define_tag_44(void) {
+static void cont__html__define_tag_43(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4902,9 +4875,9 @@ static void cont__html__define_tag_44(void) {
   result_count = 1;
   myself = get__replace_all();
   func = myself->type;
-  frame->cont = cont__html__define_tag_45;
+  frame->cont = cont__html__define_tag_44;
 }
-static void cont__html__define_tag_45(void) {
+static void cont__html__define_tag_44(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4920,9 +4893,9 @@ static void cont__html__define_tag_45(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__html__define_tag_47;
+  frame->cont = cont__html__define_tag_46;
 }
-static void cont__html__define_tag_47(void) {
+static void cont__html__define_tag_46(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4943,9 +4916,9 @@ static void cont__html__define_tag_47(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__html__define_tag_48;
+  frame->cont = cont__html__define_tag_47;
 }
-static void cont__html__define_tag_48(void) {
+static void cont__html__define_tag_47(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4958,9 +4931,9 @@ static void cont__html__define_tag_48(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__html__define_tag_49;
+  frame->cont = cont__html__define_tag_48;
 }
-static void cont__html__define_tag_49(void) {
+static void cont__html__define_tag_48(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4972,12 +4945,12 @@ static void cont__html__define_tag_49(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__html__define_tag_50(void) {
+static void cont__html__define_tag_49(void) {
   myself = frame->slots[0] /* break */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__html__define_tag_51(void) {
+static void cont__html__define_tag_50(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4985,9 +4958,9 @@ static void cont__html__define_tag_51(void) {
   // 117: $$contents undefined
   ((CELL *)frame->slots[7])->contents /* contents */ = get__undefined();
   // 119: -> i < n: !contents string(range(args i n)*)
-  frame->slots[9] /* temp__1 */ = create_closure(entry__html__define_tag_52, 0);
+  frame->slots[9] /* temp__1 */ = create_closure(entry__html__define_tag_51, 0);
   // 120: -> i == n: !contents args(i)
-  frame->slots[10] /* temp__2 */ = create_closure(entry__html__define_tag_57, 0);
+  frame->slots[10] /* temp__2 */ = create_closure(entry__html__define_tag_56, 0);
   // 118: cond
   // 119:   -> i < n: !contents string(range(args i n)*)
   // 120:   -> i == n: !contents args(i)
@@ -4998,9 +4971,9 @@ static void cont__html__define_tag_51(void) {
   result_count = 0;
   myself = get__cond();
   func = myself->type;
-  frame->cont = cont__html__define_tag_61;
+  frame->cont = cont__html__define_tag_60;
 }
-static void entry__html__define_tag_59(void) {
+static void entry__html__define_tag_58(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // contents: 0
@@ -5020,9 +4993,9 @@ static void entry__html__define_tag_59(void) {
   result_count = 1;
   myself = frame->slots[1] /* args */;
   func = myself->type;
-  frame->cont = cont__html__define_tag_60;
+  frame->cont = cont__html__define_tag_59;
 }
-static void cont__html__define_tag_60(void) {
+static void cont__html__define_tag_59(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5034,7 +5007,7 @@ static void cont__html__define_tag_60(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__html__define_tag_54(void) {
+static void entry__html__define_tag_53(void) {
   allocate_initialized_frame_gc(4, 5);
   // slot allocations:
   // contents: 0
@@ -5058,9 +5031,9 @@ static void entry__html__define_tag_54(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__html__define_tag_55;
+  frame->cont = cont__html__define_tag_54;
 }
-static void cont__html__define_tag_55(void) {
+static void cont__html__define_tag_54(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5073,9 +5046,9 @@ static void cont__html__define_tag_55(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__html__define_tag_56;
+  frame->cont = cont__html__define_tag_55;
 }
-static void cont__html__define_tag_56(void) {
+static void cont__html__define_tag_55(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5087,7 +5060,7 @@ static void cont__html__define_tag_56(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__html__define_tag_52(void) {
+static void entry__html__define_tag_51(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // i: 0
@@ -5110,16 +5083,16 @@ static void entry__html__define_tag_52(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__html__define_tag_53;
+  frame->cont = cont__html__define_tag_52;
 }
-static void cont__html__define_tag_53(void) {
+static void cont__html__define_tag_52(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 119: ... : !contents string(range(args i n)*)
-  frame->slots[5] /* temp__2 */ = create_closure(entry__html__define_tag_54, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__html__define_tag_53, 0);
   // 119: -> i < n: !contents string(range(args i n)*)
   argument_count = 2;
   arguments = node_p;
@@ -5129,7 +5102,7 @@ static void cont__html__define_tag_53(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__html__define_tag_57(void) {
+static void entry__html__define_tag_56(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // i: 0
@@ -5152,16 +5125,16 @@ static void entry__html__define_tag_57(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__html__define_tag_58;
+  frame->cont = cont__html__define_tag_57;
 }
-static void cont__html__define_tag_58(void) {
+static void cont__html__define_tag_57(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
   // 120: ... : !contents args(i)
-  frame->slots[5] /* temp__2 */ = create_closure(entry__html__define_tag_59, 0);
+  frame->slots[5] /* temp__2 */ = create_closure(entry__html__define_tag_58, 0);
   // 120: -> i == n: !contents args(i)
   argument_count = 2;
   arguments = node_p;
@@ -5171,7 +5144,7 @@ static void cont__html__define_tag_58(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__html__define_tag_61(void) {
+static void cont__html__define_tag_60(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5183,16 +5156,16 @@ static void cont__html__define_tag_61(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__html__define_tag_62;
+  frame->cont = cont__html__define_tag_61;
 }
-static void cont__html__define_tag_62(void) {
+static void cont__html__define_tag_61(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
   // 145: ... contents.is_a_string && name != "script"
-  frame->slots[11] /* temp__3 */ = create_closure(entry__html__define_tag_63, 0);
+  frame->slots[11] /* temp__3 */ = create_closure(entry__html__define_tag_62, 0);
   // 145: contents.is_defined && contents.is_a_string && name != "script"
   argument_count = 2;
   arguments = node_p;
@@ -5201,9 +5174,9 @@ static void cont__html__define_tag_62(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__html__define_tag_70;
+  frame->cont = cont__html__define_tag_69;
 }
-static void entry__html__define_tag_63(void) {
+static void entry__html__define_tag_62(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // contents: 0
@@ -5221,16 +5194,16 @@ static void entry__html__define_tag_63(void) {
   result_count = 1;
   myself = get__is_a_string();
   func = myself->type;
-  frame->cont = cont__html__define_tag_64;
+  frame->cont = cont__html__define_tag_63;
 }
-static void cont__html__define_tag_64(void) {
+static void cont__html__define_tag_63(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
   // 145: ... name != "script"
-  frame->slots[4] /* temp__3 */ = create_closure(entry__html__define_tag_65, 0);
+  frame->slots[4] /* temp__3 */ = create_closure(entry__html__define_tag_64, 0);
   // 145: ... contents.is_a_string && name != "script"
   argument_count = 2;
   arguments = node_p;
@@ -5239,9 +5212,9 @@ static void cont__html__define_tag_64(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__html__define_tag_69;
+  frame->cont = cont__html__define_tag_68;
 }
-static void entry__html__define_tag_65(void) {
+static void entry__html__define_tag_64(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // name: 0
@@ -5258,9 +5231,9 @@ static void entry__html__define_tag_65(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__html__define_tag_67;
+  frame->cont = cont__html__define_tag_66;
 }
-static void cont__html__define_tag_67(void) {
+static void cont__html__define_tag_66(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5273,9 +5246,9 @@ static void cont__html__define_tag_67(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__html__define_tag_68;
+  frame->cont = cont__html__define_tag_67;
 }
-static void cont__html__define_tag_68(void) {
+static void cont__html__define_tag_67(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5289,7 +5262,7 @@ static void cont__html__define_tag_68(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__html__define_tag_69(void) {
+static void cont__html__define_tag_68(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5303,7 +5276,7 @@ static void cont__html__define_tag_69(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__html__define_tag_70(void) {
+static void cont__html__define_tag_69(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5320,10 +5293,10 @@ static void cont__html__define_tag_70(void) {
   // 153:         "\<" = "<"
   // 154:         "\[" = "["
   // ...
-  frame->slots[12] /* temp__4 */ = create_closure(entry__html__define_tag_71, 0);
+  frame->slots[12] /* temp__4 */ = create_closure(entry__html__define_tag_70, 0);
   // 183: :
   // 184:   emit_tag contents
-  frame->slots[13] /* temp__5 */ = create_closure(entry__html__define_tag_140, 0);
+  frame->slots[13] /* temp__5 */ = create_closure(entry__html__define_tag_139, 0);
   // 144: if
   // 145:   contents.is_defined && contents.is_a_string && name != "script":
   // 146:     for_each split(contents "@nl;@nl;"): ($field)
@@ -5345,7 +5318,7 @@ static void cont__html__define_tag_70(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__define_tag_1(void) {
+static void entry__html__define_tag(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // name: 0
@@ -5396,7 +5369,7 @@ static void entry__html__define_tag_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__html__HTTP_HEADER_1(void) {
+static void entry__html__HTTP_HEADER(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -5414,7 +5387,7 @@ static void entry__html__HTTP_HEADER_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__HTML_HEADER_1(void) {
+static void entry__html__HTML_HEADER(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -5560,7 +5533,7 @@ static void cont__html__ERROR_PAGE_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__ERROR_PAGE_1(void) {
+static void entry__html__ERROR_PAGE(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // msg: 0
@@ -5711,7 +5684,7 @@ static void cont__html__DUMP_PAGE_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__html__DUMP_PAGE_1(void) {
+static void entry__html__DUMP_PAGE(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // msg: 0
@@ -5774,7 +5747,6 @@ EXPORT void collect__system__export__html(void) {
   var.html__VOID = collect_node(var.html__VOID);
   var.html__FOREIGN = collect_node(var.html__FOREIGN);
   var.html__TEXT = collect_node(var.html__TEXT);
-  var._hex_digit_value = collect_node(var._hex_digit_value);
   var._hex_digit = collect_node(var._hex_digit);
   var.html__define_tag = collect_node(var.html__define_tag);
   var.html__HTML = collect_node(var.html__HTML);
@@ -5878,26 +5850,26 @@ EXPORT void phase_2__system__export__html(void) {
   unique__html__VOID = register_unique_item("html__VOID");
   unique__html__FOREIGN = register_unique_item("html__FOREIGN");
   func__html__emit_2 = create_function(entry__html__emit_2, 1);
-  func__html__emit_1 = create_function(entry__html__emit_1, -1);
-  func__html__encode_1 = create_function(entry__html__encode_1, 3);
-  func__html__TEXT_1 = create_function(entry__html__TEXT_1, -1);
+  func__html__emit = create_function(entry__html__emit, -1);
+  func__html__encode = create_function(entry__html__encode, 3);
+  func__html__TEXT = create_function(entry__html__TEXT, -1);
   string__7fe91a650e32a4f3 = from_latin_1_string("invalid hex digit", 17);
   func__hex_digit_value_31 = create_function(entry__hex_digit_value_31, 0);
-  func__hex_digit_value_1 = create_function(entry__hex_digit_value_1, 1);
+  func__hex_digit_value = create_function(entry__hex_digit_value, 1);
   string__578a5af303e9cca = from_latin_1_string("+", 1);
   string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
   string__578a5af303e9cc4 = from_latin_1_string("%", 1);
   func__types__string__convert_from_percent_encoding_8 = create_function(entry__types__string__convert_from_percent_encoding_8, 1);
-  func__types__string__convert_from_percent_encoding_1 = create_function(entry__types__string__convert_from_percent_encoding_1, 1);
+  func__types__string___convert_from_percent_encoding = create_function(entry__types__string___convert_from_percent_encoding, 1);
   string__578a5af303e9cdd = from_latin_1_string("<", 1);
   string__578a5af303e9cdf = from_latin_1_string(">", 1);
   func__html__define_tag_11 = create_function(entry__html__define_tag_11, 0);
   string__2d7981f4e6e82bea = from_latin_1_string("</", 2);
   string__fa737c15fc96be3 = from_latin_1_string("></", 3);
-  func__html__define_tag_22 = create_function(entry__html__define_tag_22, 0);
+  func__html__define_tag_21 = create_function(entry__html__define_tag_21, 0);
   string__2d7981f4e6702bfb = from_latin_1_string("/>", 2);
-  func__html__define_tag_23 = create_function(entry__html__define_tag_23, 0);
-  func__html__define_tag_27 = create_function(entry__html__define_tag_27, 0);
+  func__html__define_tag_22 = create_function(entry__html__define_tag_22, 0);
+  func__html__define_tag_26 = create_function(entry__html__define_tag_26, 0);
   string__578a5af303e9ccc = from_latin_1_string("-", 1);
   string__721f55a3811b42ec = from_latin_1_string("&quot;", 6);
   string__2d7981f4e6e02be7 = from_latin_1_string("=\042", 2);
@@ -5916,31 +5888,31 @@ EXPORT void phase_2__system__export__html(void) {
   string__578a5af303e9cba = from_latin_1_string("[", 1);
   string__fa737415d616bf2 = from_latin_1_string("<i>", 3);
   string__ba0afa8b5d287d07 = from_latin_1_string("</i>", 4);
-  func__html__define_tag_93 = create_function(entry__html__define_tag_93, 1);
+  func__html__define_tag_92 = create_function(entry__html__define_tag_92, 1);
   string__2d7981f4e6582bef = from_latin_1_string("**", 2);
   string__fa737415d396bf2 = from_latin_1_string("<b>", 3);
   string__ba0afa8b5d707d07 = from_latin_1_string("</b>", 4);
-  func__html__define_tag_105 = create_function(entry__html__define_tag_105, 1);
+  func__html__define_tag_104 = create_function(entry__html__define_tag_104, 1);
   string__65b02728dcea54a7 = from_latin_1_string("<a href=\042", 9);
   string__2d7981f4e6182bfb = from_latin_1_string("\042>", 2);
   string__ba0afa8b5d687d07 = from_latin_1_string("</a>", 4);
-  func__html__define_tag_119 = create_function(entry__html__define_tag_119, 1);
-  func__html__define_tag_75 = create_function(entry__html__define_tag_75, 1);
+  func__html__define_tag_118 = create_function(entry__html__define_tag_118, 1);
+  func__html__define_tag_74 = create_function(entry__html__define_tag_74, 1);
   string__2d7981f4e6582be5 = from_latin_1_string("* ", 2);
   string__d6c0aed004987b9e = from_latin_1_string("<ul><li>", 8);
   string__d45aee43eaadd069 = from_latin_1_string("</ul>", 5);
-  func__html__define_tag_1 = create_function(entry__html__define_tag_1, -1);
+  func__html__define_tag = create_function(entry__html__define_tag, -1);
   string__c0902590ad1223f4 = from_latin_1_string(
     "Content-type: text/html; charset=utf-8\n"
     "\n",
     40);
-  func__html__HTTP_HEADER_1 = create_function(entry__html__HTTP_HEADER_1, 0);
+  func__html__HTTP_HEADER = create_function(entry__html__HTTP_HEADER, 0);
   string__db8101d080cbfa33 = from_latin_1_string("<!doctype html>", 15);
-  func__html__HTML_HEADER_1 = create_function(entry__html__HTML_HEADER_1, 0);
-  func__html__ERROR_PAGE_1 = create_function(entry__html__ERROR_PAGE_1, -1);
+  func__html__HTML_HEADER = create_function(entry__html__HTML_HEADER, 0);
+  func__html__ERROR_PAGE = create_function(entry__html__ERROR_PAGE, -1);
   string__a0aec0b5d087d49 = from_latin_1_string("dump", 4);
   func__html__DUMP_PAGE_5 = create_function(entry__html__DUMP_PAGE_5, 0);
-  func__html__DUMP_PAGE_1 = create_function(entry__html__DUMP_PAGE_1, 1);
+  func__html__DUMP_PAGE = create_function(entry__html__DUMP_PAGE, 1);
   string__120aec4b5d087d55 = from_latin_1_string("html", 4);
   string__120ae80b5d687d5d = from_latin_1_string("head", 4);
   string__180ae80b5dc07d58 = from_latin_1_string("meta", 4);
@@ -6150,7 +6122,7 @@ EXPORT void phase_4__system__export__html(void) {
   use_read_only(NULL, "value_of", &get__value_of, &get_value_or_future__value_of);
   use_read_only(NULL, "write", &get__write, &get_value_or_future__write);
   use_read_only(NULL, "writeln", &get__writeln, &get_value_or_future__writeln);
-  define_method("types", "string", poly_idx__convert_from_percent_encoding, func__types__string__convert_from_percent_encoding_1);
+  define_method("types", "string", poly_idx__convert_from_percent_encoding, func__types__string___convert_from_percent_encoding);
 }
 
 static int already_run_phase_5 = false;
@@ -6166,15 +6138,14 @@ EXPORT void phase_5__system__export__html(void) {
   initialize_future(var.html__NORMAL, unique__html__NORMAL);
   initialize_future(var.html__VOID, unique__html__VOID);
   initialize_future(var.html__FOREIGN, unique__html__FOREIGN);
-  define__html__emit(func__html__emit_1);
-  define__html__encode(func__html__encode_1);
-  initialize_future(var.html__TEXT, func__html__TEXT_1);
-  assign_variable(&var._hex_digit_value, &func__hex_digit_value_1);
-  initialize_future(var.html__define_tag, func__html__define_tag_1);
-  initialize_future(var.html__HTTP_HEADER, func__html__HTTP_HEADER_1);
-  initialize_future(var.html__HTML_HEADER, func__html__HTML_HEADER_1);
-  initialize_future(var.html__ERROR_PAGE, func__html__ERROR_PAGE_1);
-  initialize_future(var.html__DUMP_PAGE, func__html__DUMP_PAGE_1);
+  define__html__emit(func__html__emit);
+  define__html__encode(func__html__encode);
+  initialize_future(var.html__TEXT, func__html__TEXT);
+  initialize_future(var.html__define_tag, func__html__define_tag);
+  initialize_future(var.html__HTTP_HEADER, func__html__HTTP_HEADER);
+  initialize_future(var.html__HTML_HEADER, func__html__HTML_HEADER);
+  initialize_future(var.html__ERROR_PAGE, func__html__ERROR_PAGE);
+  initialize_future(var.html__DUMP_PAGE, func__html__DUMP_PAGE);
 }
 
 static int already_run_phase_6 = false;

@@ -552,8 +552,6 @@ static NODE_GETTER get__write_to;
 static struct {
   NODE *_wget;
   NODE *_posix_open;
-  NODE *_file_description;
-  NODE *_WriteError;
   NODE *_ioctl_value;
   NODE *_posix_unlink;
   NODE *_wait_for_io_ready;
@@ -682,8 +680,6 @@ static struct {
 static const char *var_names[] = {
   "wget",
   "posix_open",
-  "file_description",
-  "WriteError",
   "ioctl_value",
   "posix_unlink",
   "wait_for_io_ready",
@@ -977,9 +973,9 @@ static NODE *get__std__EDOM(void) {
 static NODE *get__std__ERANGE(void) {
   return var.std__ERANGE;
 }
-static NODE *func__std__raise_error_1;
-static void entry__std__raise_error_1(void);
-static FRAME_INFO frame__std__raise_error_1 = {3, {"cmd", "args", "info"}};
+static NODE *func__std__raise_error;
+static void entry__std__raise_error(void);
+static FRAME_INFO frame__std__raise_error = {3, {"cmd", "args", "info"}};
 static NODE *func__std__raise_error_2;
 static void entry__std__raise_error_2(void);
 static FRAME_INFO frame__std__raise_error_2 = {2, {"arg", "info"}};
@@ -998,9 +994,9 @@ static void cont__std__raise_error_14(void);
 static NODE *get__std__raise_error(void) {
   return var.std__raise_error;
 }
-static NODE *func__std__check_error_1;
-static void entry__std__check_error_1(void);
-static FRAME_INFO frame__std__check_error_1 = {2, {"err", "args"}};
+static NODE *func__std__check_error;
+static void entry__std__check_error(void);
+static FRAME_INFO frame__std__check_error = {2, {"err", "args"}};
 static void cont__std__check_error_2(void);
 static NODE *get__std__check_error(void) {
   return var.std__check_error;
@@ -1119,9 +1115,9 @@ static void entry__types__file_descriptor__hash_1(void);
 static NODE *func__types__file_descriptor__hash_1;
 static void entry__posix_open_1(void);
 static NODE *func__posix_open_1;
-static NODE *func__std__open_file_1;
-static void entry__std__open_file_1(void);
-static FRAME_INFO frame__std__open_file_1 = {3, {"filename", "mode", "fd"}};
+static NODE *func__std__open_file;
+static void entry__std__open_file(void);
+static FRAME_INFO frame__std__open_file = {3, {"filename", "mode", "fd"}};
 static void cont__std__open_file_2(void);
 static void cont__std__open_file_3(void);
 static NODE *func__std__open_file_4;
@@ -1132,27 +1128,27 @@ static void cont__std__open_file_6(void);
 static NODE *get__std__open_file(void) {
   return var.std__open_file;
 }
-static NODE *func__std__open_file_for_reading_1;
-static void entry__std__open_file_for_reading_1(void);
-static FRAME_INFO frame__std__open_file_for_reading_1 = {1, {"filename"}};
+static NODE *func__std__open_file_for_reading;
+static void entry__std__open_file_for_reading(void);
+static FRAME_INFO frame__std__open_file_for_reading = {1, {"filename"}};
 static NODE *get__std__open_file_for_reading(void) {
   return var.std__open_file_for_reading;
 }
-static NODE *func__std__open_file_for_writing_1;
-static void entry__std__open_file_for_writing_1(void);
-static FRAME_INFO frame__std__open_file_for_writing_1 = {1, {"filename"}};
+static NODE *func__std__open_file_for_writing;
+static void entry__std__open_file_for_writing(void);
+static FRAME_INFO frame__std__open_file_for_writing = {1, {"filename"}};
 static NODE *get__std__open_file_for_writing(void) {
   return var.std__open_file_for_writing;
 }
-static NODE *func__std__open_file_for_reading_and_writing_1;
-static void entry__std__open_file_for_reading_and_writing_1(void);
-static FRAME_INFO frame__std__open_file_for_reading_and_writing_1 = {1, {"filename"}};
+static NODE *func__std__open_file_for_reading_and_writing;
+static void entry__std__open_file_for_reading_and_writing(void);
+static FRAME_INFO frame__std__open_file_for_reading_and_writing = {1, {"filename"}};
 static NODE *get__std__open_file_for_reading_and_writing(void) {
   return var.std__open_file_for_reading_and_writing;
 }
-static NODE *func__std__create_file_1;
-static void entry__std__create_file_1(void);
-static FRAME_INFO frame__std__create_file_1 = {1, {"filename"}};
+static NODE *func__std__create_file;
+static void entry__std__create_file(void);
+static FRAME_INFO frame__std__create_file = {1, {"filename"}};
 static void cont__std__create_file_2(void);
 static void cont__std__create_file_3(void);
 static NODE *get__std__create_file(void) {
@@ -1162,10 +1158,10 @@ static void entry__types__file_descriptor__close_1(void);
 static NODE *func__types__file_descriptor__close_1;
 static void entry__types__file_descriptor__read_some_bytes_from_1(void);
 static NODE *func__types__file_descriptor__read_some_bytes_from_1;
-static NODE *func__types__file_descriptor__read_from_1;
-static void entry__types__file_descriptor__read_from_1(void);
-static FRAME_INFO frame__types__file_descriptor__read_from_1 = {3, {"fd", "amount", "return"}};
-static void cont__types__file_descriptor__read_from_2(void);
+static NODE *func__types__file_descriptor___read_from;
+static void entry__types__file_descriptor___read_from(void);
+static FRAME_INFO frame__types__file_descriptor___read_from = {3, {"fd", "amount", "return"}};
+static void cont__types__file_descriptor___read_from_2(void);
 static NODE *func__types__file_descriptor__read_from_3;
 static void entry__types__file_descriptor__read_from_3(void);
 static FRAME_INFO frame__types__file_descriptor__read_from_3 = {4, {"amount", "fd", "return", "buf"}};
@@ -1187,14 +1183,14 @@ static void cont__types__file_descriptor__read_from_12(void);
 static void cont__types__file_descriptor__read_from_13(void);
 static void cont__types__file_descriptor__read_from_14(void);
 static void cont__types__file_descriptor__read_from_15(void);
-static void cont__types__file_descriptor__read_from_16(void);
-static void cont__types__file_descriptor__read_from_17(void);
-static void cont__types__file_descriptor__read_from_18(void);
+static void cont__types__file_descriptor___read_from_16(void);
+static void cont__types__file_descriptor___read_from_17(void);
+static void cont__types__file_descriptor___read_from_18(void);
 static void entry__types__file_descriptor__write_some_bytes_to_1(void);
 static NODE *func__types__file_descriptor__write_some_bytes_to_1;
-static NODE *func__file_description_1;
-static void entry__file_description_1(void);
-static FRAME_INFO frame__file_description_1 = {2, {"fd", "filename"}};
+static NODE *func__file_description;
+static void entry__file_description(void);
+static FRAME_INFO frame__file_description = {2, {"fd", "filename"}};
 static void cont__file_description_2(void);
 static void cont__file_description_3(void);
 static NODE *func__file_description_4;
@@ -1224,16 +1220,16 @@ static NODE *func__file_description_17;
 static void entry__file_description_17(void);
 static FRAME_INFO frame__file_description_17 = {0, {}};
 static NODE *string__64d8a95c0445db9e;
-static NODE *func__WriteError_1;
-static void entry__WriteError_1(void);
-static FRAME_INFO frame__WriteError_1 = {1, {"fd"}};
+static NODE *func__WriteError;
+static void entry__WriteError(void);
+static FRAME_INFO frame__WriteError = {1, {"fd"}};
 static void cont__WriteError_2(void);
 static NODE *string__8138f7c6e352b20e;
 static void cont__WriteError_4(void);
-static NODE *func__types__file_descriptor__write_to_1;
-static void entry__types__file_descriptor__write_to_1(void);
-static FRAME_INFO frame__types__file_descriptor__write_to_1 = {4, {"fd", "args", "return", "data"}};
-static void cont__types__file_descriptor__write_to_2(void);
+static NODE *func__types__file_descriptor___write_to;
+static void entry__types__file_descriptor___write_to(void);
+static FRAME_INFO frame__types__file_descriptor___write_to = {4, {"fd", "args", "return", "data"}};
+static void cont__types__file_descriptor___write_to_2(void);
 static NODE *func__types__file_descriptor__write_to_3;
 static void entry__types__file_descriptor__write_to_3(void);
 static FRAME_INFO frame__types__file_descriptor__write_to_3 = {3, {"data", "fd", "return"}};
@@ -1258,16 +1254,16 @@ static void cont__types__file_descriptor__write_to_15(void);
 static void cont__types__file_descriptor__write_to_16(void);
 static void cont__types__file_descriptor__write_to_17(void);
 static void cont__types__file_descriptor__write_to_18(void);
-static void cont__types__file_descriptor__write_to_19(void);
-static void cont__types__file_descriptor__write_to_20(void);
-static void cont__types__file_descriptor__write_to_21(void);
+static void cont__types__file_descriptor___write_to_19(void);
+static void cont__types__file_descriptor___write_to_20(void);
+static void cont__types__file_descriptor___write_to_21(void);
 static NODE *func__types__file_descriptor__write_to_22;
 static void entry__types__file_descriptor__write_to_22(void);
 static FRAME_INFO frame__types__file_descriptor__write_to_22 = {1, {"return"}};
-static void cont__types__file_descriptor__write_to_23(void);
-static NODE *func__std__atomic_write_to_1;
-static void entry__std__atomic_write_to_1(void);
-static FRAME_INFO frame__std__atomic_write_to_1 = {4, {"fd", "args", "return", "data"}};
+static void cont__types__file_descriptor___write_to_23(void);
+static NODE *func__std__atomic_write_to;
+static void entry__std__atomic_write_to(void);
+static FRAME_INFO frame__std__atomic_write_to = {4, {"fd", "args", "return", "data"}};
 static void cont__std__atomic_write_to_2(void);
 static NODE *func__std__atomic_write_to_3;
 static void entry__std__atomic_write_to_3(void);
@@ -1302,9 +1298,9 @@ static void cont__std__atomic_write_to_22(void);
 static NODE *get__std__atomic_write_to(void) {
   return var.std__atomic_write_to;
 }
-static NODE *func__std__load_file_1;
-static void entry__std__load_file_1(void);
-static FRAME_INFO frame__std__load_file_1 = {2, {"filename", "fd"}};
+static NODE *func__std__load_file;
+static void entry__std__load_file(void);
+static FRAME_INFO frame__std__load_file = {2, {"filename", "fd"}};
 static void cont__std__load_file_2(void);
 static void cont__std__load_file_3(void);
 static NODE *func__std__load_file_4;
@@ -1330,9 +1326,9 @@ static FRAME_INFO frame__std__load_file_15 = {0, {}};
 static NODE *get__std__load_file(void) {
   return var.std__load_file;
 }
-static NODE *func__std__save_file_1;
-static void entry__std__save_file_1(void);
-static FRAME_INFO frame__std__save_file_1 = {4, {"filename", "data", "return", "fd"}};
+static NODE *func__std__save_file;
+static void entry__std__save_file(void);
+static FRAME_INFO frame__std__save_file = {4, {"filename", "data", "return", "fd"}};
 static void cont__std__save_file_2(void);
 static void cont__std__save_file_3(void);
 static NODE *func__std__save_file_4;
@@ -1372,11 +1368,11 @@ static void entry__types__file_descriptor__flush_1(void);
 static NODE *func__types__file_descriptor__flush_1;
 static void entry__ioctl_value_1(void);
 static NODE *func__ioctl_value_1;
-static NODE *func__types__file_descriptor__std__ioctl_1;
-static void entry__types__file_descriptor__std__ioctl_1(void);
-static FRAME_INFO frame__types__file_descriptor__std__ioctl_1 = {4, {"fd", "request", "value", "return"}};
-static void cont__types__file_descriptor__std__ioctl_2(void);
-static void cont__types__file_descriptor__std__ioctl_3(void);
+static NODE *func__types__file_descriptor___std__ioctl;
+static void entry__types__file_descriptor___std__ioctl(void);
+static FRAME_INFO frame__types__file_descriptor___std__ioctl = {4, {"fd", "request", "value", "return"}};
+static void cont__types__file_descriptor___std__ioctl_2(void);
+static void cont__types__file_descriptor___std__ioctl_3(void);
 static NODE *func__types__file_descriptor__std__ioctl_4;
 static void entry__types__file_descriptor__std__ioctl_4(void);
 static FRAME_INFO frame__types__file_descriptor__std__ioctl_4 = {3, {"fd", "request", "value"}};
@@ -1391,14 +1387,14 @@ static NODE *func__types__file_descriptor__std__ioctl_10;
 static void entry__types__file_descriptor__std__ioctl_10(void);
 static FRAME_INFO frame__types__file_descriptor__std__ioctl_10 = {4, {"return", "fd", "request", "value"}};
 static void cont__types__file_descriptor__std__ioctl_11(void);
-static void cont__types__file_descriptor__std__ioctl_12(void);
+static void cont__types__file_descriptor___std__ioctl_12(void);
 static void entry__types__file_descriptor__std__get_terminal_size_1(void);
 static NODE *func__types__file_descriptor__std__get_terminal_size_1;
 static void entry__posix_unlink_1(void);
 static NODE *func__posix_unlink_1;
-static NODE *func__std__delete_file_1;
-static void entry__std__delete_file_1(void);
-static FRAME_INFO frame__std__delete_file_1 = {2, {"filename", "return"}};
+static NODE *func__std__delete_file;
+static void entry__std__delete_file(void);
+static FRAME_INFO frame__std__delete_file = {2, {"filename", "return"}};
 static void cont__std__delete_file_2(void);
 static void cont__std__delete_file_3(void);
 static NODE *func__std__delete_file_4;
@@ -1434,9 +1430,9 @@ static NODE *func__std__wait_pid_1;
 static NODE *get__std__wait_pid(void) {
   return var.std__wait_pid;
 }
-static NODE *func__std__wait_for_io_1;
-static void entry__std__wait_for_io_1(void);
-static FRAME_INFO frame__std__wait_for_io_1 = {11, {"read_descriptors", "write_descriptors", "except_descriptors", "timeout", "success", "child_changed_state", "window_changed_size", "input_count", "output_count", "exception_count", "descriptors"}};
+static NODE *func__std__wait_for_io;
+static void entry__std__wait_for_io(void);
+static FRAME_INFO frame__std__wait_for_io = {11, {"read_descriptors", "write_descriptors", "except_descriptors", "timeout", "success", "child_changed_state", "window_changed_size", "input_count", "output_count", "exception_count", "descriptors"}};
 static void cont__std__wait_for_io_2(void);
 static void cont__std__wait_for_io_3(void);
 static void cont__std__wait_for_io_4(void);
@@ -1459,9 +1455,9 @@ static NODE *func__std__chdir_1;
 static NODE *get__std__chdir(void) {
   return var.std__chdir;
 }
-static NODE *func__std__change_directory_1;
-static void entry__std__change_directory_1(void);
-static FRAME_INFO frame__std__change_directory_1 = {1, {"path"}};
+static NODE *func__std__change_directory;
+static void entry__std__change_directory(void);
+static FRAME_INFO frame__std__change_directory = {1, {"path"}};
 static void cont__std__change_directory_2(void);
 static void cont__std__change_directory_3(void);
 static void cont__std__change_directory_4(void);
@@ -1476,9 +1472,9 @@ static NODE *get__std__change_directory(void) {
 }
 static void entry__clib_mkdir_1(void);
 static NODE *func__clib_mkdir_1;
-static NODE *func__std__mkdir_1;
-static void entry__std__mkdir_1(void);
-static FRAME_INFO frame__std__mkdir_1 = {6, {"options", "path", "mode", "do_create_parent_folders", "fail", "create_parent_folders"}};
+static NODE *func__std__mkdir;
+static void entry__std__mkdir(void);
+static FRAME_INFO frame__std__mkdir = {6, {"options", "path", "mode", "do_create_parent_folders", "fail", "create_parent_folders"}};
 static NODE *func__std__mkdir_2;
 static void entry__std__mkdir_2(void);
 static FRAME_INFO frame__std__mkdir_2 = {3, {"mode", "do_create_parent_folders", "path"}};
@@ -1534,9 +1530,9 @@ static void cont__std__mkdir_39(void);
 static NODE *get__std__mkdir(void) {
   return var.std__mkdir;
 }
-static NODE *func__std__create_directory_1;
-static void entry__std__create_directory_1(void);
-static FRAME_INFO frame__std__create_directory_1 = {2, {"path", "mode"}};
+static NODE *func__std__create_directory;
+static void entry__std__create_directory(void);
+static FRAME_INFO frame__std__create_directory = {2, {"path", "mode"}};
 static void cont__std__create_directory_2(void);
 static void cont__std__create_directory_3(void);
 static void cont__std__create_directory_4(void);
@@ -1548,9 +1544,9 @@ static void cont__std__create_directory_7(void);
 static NODE *get__std__create_directory(void) {
   return var.std__create_directory;
 }
-static NODE *func__std__fullname_1;
-static void entry__std__fullname_1(void);
-static FRAME_INFO frame__std__fullname_1 = {1, {"pathname"}};
+static NODE *func__std__fullname;
+static void entry__std__fullname(void);
+static FRAME_INFO frame__std__fullname = {1, {"pathname"}};
 static void cont__std__fullname_2(void);
 static NODE *func__std__fullname_3;
 static void entry__std__fullname_3(void);
@@ -1647,30 +1643,30 @@ static void entry__types__dirent__inode_of_1(void);
 static NODE *func__types__dirent__inode_of_1;
 static void entry__types__dirent__file_type_of_1(void);
 static NODE *func__types__dirent__file_type_of_1;
-static NODE *func__types__dirent__fullname_of_1;
-static void entry__types__dirent__fullname_of_1(void);
-static FRAME_INFO frame__types__dirent__fullname_of_1 = {1, {"self"}};
-static void cont__types__dirent__fullname_of_2(void);
-static void cont__types__dirent__fullname_of_3(void);
-static void cont__types__dirent__fullname_of_4(void);
-static NODE *func__types__dirent__is_a_directory_1;
-static void entry__types__dirent__is_a_directory_1(void);
-static FRAME_INFO frame__types__dirent__is_a_directory_1 = {1, {"self"}};
-static void cont__types__dirent__is_a_directory_2(void);
-static void cont__types__dirent__is_a_directory_3(void);
-static NODE *func__types__dirent__is_a_regular_file_1;
-static void entry__types__dirent__is_a_regular_file_1(void);
-static FRAME_INFO frame__types__dirent__is_a_regular_file_1 = {1, {"self"}};
-static void cont__types__dirent__is_a_regular_file_2(void);
-static void cont__types__dirent__is_a_regular_file_3(void);
-static NODE *func__types__dirent__is_a_link_1;
-static void entry__types__dirent__is_a_link_1(void);
-static FRAME_INFO frame__types__dirent__is_a_link_1 = {1, {"self"}};
-static void cont__types__dirent__is_a_link_2(void);
-static void cont__types__dirent__is_a_link_3(void);
-static NODE *func__std__directory_1;
-static void entry__std__directory_1(void);
-static FRAME_INFO frame__std__directory_1 = {5, {"options", "pathname", "do_sort", "entries", "dir"}};
+static NODE *func__types__dirent___fullname_of;
+static void entry__types__dirent___fullname_of(void);
+static FRAME_INFO frame__types__dirent___fullname_of = {1, {"self"}};
+static void cont__types__dirent___fullname_of_2(void);
+static void cont__types__dirent___fullname_of_3(void);
+static void cont__types__dirent___fullname_of_4(void);
+static NODE *func__types__dirent___is_a_directory;
+static void entry__types__dirent___is_a_directory(void);
+static FRAME_INFO frame__types__dirent___is_a_directory = {1, {"self"}};
+static void cont__types__dirent___is_a_directory_2(void);
+static void cont__types__dirent___is_a_directory_3(void);
+static NODE *func__types__dirent___is_a_regular_file;
+static void entry__types__dirent___is_a_regular_file(void);
+static FRAME_INFO frame__types__dirent___is_a_regular_file = {1, {"self"}};
+static void cont__types__dirent___is_a_regular_file_2(void);
+static void cont__types__dirent___is_a_regular_file_3(void);
+static NODE *func__types__dirent___is_a_link;
+static void entry__types__dirent___is_a_link(void);
+static FRAME_INFO frame__types__dirent___is_a_link = {1, {"self"}};
+static void cont__types__dirent___is_a_link_2(void);
+static void cont__types__dirent___is_a_link_3(void);
+static NODE *func__std__directory;
+static void entry__std__directory(void);
+static FRAME_INFO frame__std__directory = {5, {"options", "pathname", "do_sort", "entries", "dir"}};
 static void cont__std__directory_2(void);
 static void cont__std__directory_3(void);
 static void cont__std__directory_4(void);
@@ -1693,23 +1689,20 @@ static NODE *func__std__directory_16;
 static void entry__std__directory_16(void);
 static FRAME_INFO frame__std__directory_16 = {2, {"entries", "entry"}};
 static void cont__std__directory_17(void);
-static NODE *func__std__directory_18;
-static void entry__std__directory_18(void);
-static FRAME_INFO frame__std__directory_18 = {0, {}};
+static void cont__std__directory_18(void);
 static void cont__std__directory_19(void);
 static void cont__std__directory_20(void);
-static void cont__std__directory_21(void);
+static NODE *func__std__directory_21;
+static void entry__std__directory_21(void);
+static FRAME_INFO frame__std__directory_21 = {1, {"entries"}};
 static NODE *func__std__directory_22;
 static void entry__std__directory_22(void);
-static FRAME_INFO frame__std__directory_22 = {1, {"entries"}};
-static NODE *func__std__directory_23;
-static void entry__std__directory_23(void);
-static FRAME_INFO frame__std__directory_23 = {2, {"left", "right"}};
+static FRAME_INFO frame__std__directory_22 = {2, {"left", "right"}};
+static void cont__std__directory_23(void);
 static void cont__std__directory_24(void);
 static void cont__std__directory_25(void);
 static void cont__std__directory_26(void);
 static void cont__std__directory_27(void);
-static void cont__std__directory_28(void);
 static NODE *get__std__directory(void) {
   return var.std__directory;
 }
@@ -1761,16 +1754,16 @@ static NODE *get__std__get_network_address(void) {
 }
 static void entry__types__addrinfo__connect_1(void);
 static NODE *func__types__addrinfo__connect_1;
-static NODE *func__types__string__connect_1;
-static void entry__types__string__connect_1(void);
-static FRAME_INFO frame__types__string__connect_1 = {2, {"uri", "port"}};
-static void cont__types__string__connect_2(void);
+static NODE *func__types__string___connect;
+static void entry__types__string___connect(void);
+static FRAME_INFO frame__types__string___connect = {2, {"uri", "port"}};
+static void cont__types__string___connect_2(void);
 static void entry__types__addrinfo__listen_1(void);
 static NODE *func__types__addrinfo__listen_1;
-static NODE *func__types__string__listen_1;
-static void entry__types__string__listen_1(void);
-static FRAME_INFO frame__types__string__listen_1 = {2, {"uri", "port"}};
-static void cont__types__string__listen_2(void);
+static NODE *func__types__string___listen;
+static void entry__types__string___listen(void);
+static FRAME_INFO frame__types__string___listen = {2, {"uri", "port"}};
+static void cont__types__string___listen_2(void);
 static void entry__types__file_descriptor__accept_1(void);
 static NODE *func__types__file_descriptor__accept_1;
 static int dyna_idx__std__write;
@@ -1780,14 +1773,14 @@ static NODE *get__std__write(void) {
 static void define__std__write(NODE *node) {
   define_dynamic_slot(dyna_idx__std__write, node);
 }
-static NODE *func__std__write_1;
-static void entry__std__write_1(void);
-static FRAME_INFO frame__std__write_1 = {1, {"args"}};
+static NODE *func__std__write;
+static void entry__std__write(void);
+static FRAME_INFO frame__std__write = {1, {"args"}};
 static void cont__std__write_2(void);
 static void cont__std__write_3(void);
-static NODE *func__std__writeln_1;
-static void entry__std__writeln_1(void);
-static FRAME_INFO frame__std__writeln_1 = {1, {"args"}};
+static NODE *func__std__writeln;
+static void entry__std__writeln(void);
+static FRAME_INFO frame__std__writeln = {1, {"args"}};
 static NODE *get__std__writeln(void) {
   return var.std__writeln;
 }
@@ -1798,14 +1791,14 @@ static NODE *get__std__ewrite(void) {
 static void define__std__ewrite(NODE *node) {
   define_dynamic_slot(dyna_idx__std__ewrite, node);
 }
-static NODE *func__std__ewrite_1;
-static void entry__std__ewrite_1(void);
-static FRAME_INFO frame__std__ewrite_1 = {1, {"args"}};
+static NODE *func__std__ewrite;
+static void entry__std__ewrite(void);
+static FRAME_INFO frame__std__ewrite = {1, {"args"}};
 static void cont__std__ewrite_2(void);
 static void cont__std__ewrite_3(void);
-static NODE *func__std__ewriteln_1;
-static void entry__std__ewriteln_1(void);
-static FRAME_INFO frame__std__ewriteln_1 = {1, {"args"}};
+static NODE *func__std__ewriteln;
+static void entry__std__ewriteln(void);
+static FRAME_INFO frame__std__ewriteln = {1, {"args"}};
 static NODE *get__std__ewriteln(void) {
   return var.std__ewriteln;
 }
@@ -1816,12 +1809,12 @@ static NODE *get__std__read(void) {
 static void define__std__read(NODE *node) {
   define_dynamic_slot(dyna_idx__std__read, node);
 }
-static NODE *func__std__read_1;
-static void entry__std__read_1(void);
-static FRAME_INFO frame__std__read_1 = {1, {"n"}};
-static NODE *func__std__readln_1;
-static void entry__std__readln_1(void);
-static FRAME_INFO frame__std__readln_1 = {2, {"return", "buf"}};
+static NODE *func__std__read;
+static void entry__std__read(void);
+static FRAME_INFO frame__std__read = {1, {"n"}};
+static NODE *func__std__readln;
+static void entry__std__readln(void);
+static FRAME_INFO frame__std__readln = {2, {"return", "buf"}};
 static NODE *func__std__readln_2;
 static void entry__std__readln_2(void);
 static FRAME_INFO frame__std__readln_2 = {3, {"return", "buf", "chr"}};
@@ -1841,9 +1834,9 @@ static void cont__std__readln_11(void);
 static NODE *get__std__readln(void) {
   return var.std__readln;
 }
-static NODE *func__std__load_1;
-static void entry__std__load_1(void);
-static FRAME_INFO frame__std__load_1 = {1, {"filename"}};
+static NODE *func__std__load;
+static void entry__std__load(void);
+static FRAME_INFO frame__std__load = {1, {"filename"}};
 static NODE *string__92241b5897c380d5;
 static void cont__std__load_3(void);
 static NODE *func__std__load_4;
@@ -1868,9 +1861,9 @@ static FRAME_INFO frame__std__load_14 = {1, {"filename"}};
 static NODE *get__std__load(void) {
   return var.std__load;
 }
-static NODE *func__std__save_1;
-static void entry__std__save_1(void);
-static FRAME_INFO frame__std__save_1 = {4, {"options", "filename", "data", "do_create_directory"}};
+static NODE *func__std__save;
+static void entry__std__save(void);
+static FRAME_INFO frame__std__save = {4, {"options", "filename", "data", "do_create_directory"}};
 static void cont__std__save_2(void);
 static void cont__std__save_3(void);
 static NODE *func__std__save_4;
@@ -1926,13 +1919,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__raise_error_4, &frame__std__raise_error_2, 903, 903, 39, 77},
   {cont__std__raise_error_7, &frame__std__raise_error_2, 903, 903, 24, 77},
   {cont__std__raise_error_8, &frame__std__raise_error_2, 903, 903, 77, 77},
-  {entry__std__raise_error_1, NULL, 903, 903, 3, 77},
-  {cont__std__raise_error_9, &frame__std__raise_error_1, 904, 904, 41, 52},
-  {cont__std__raise_error_10, &frame__std__raise_error_1, 904, 904, 27, 53},
-  {cont__std__raise_error_11, &frame__std__raise_error_1, 904, 904, 9, 67},
-  {cont__std__raise_error_14, &frame__std__raise_error_1, 904, 904, 3, 67},
-  {entry__std__check_error_1, NULL, 917, 917, 6, 12},
-  {cont__std__check_error_2, &frame__std__check_error_1, 917, 917, 3, 30},
+  {entry__std__raise_error, NULL, 903, 903, 3, 77},
+  {cont__std__raise_error_9, &frame__std__raise_error, 904, 904, 41, 52},
+  {cont__std__raise_error_10, &frame__std__raise_error, 904, 904, 27, 53},
+  {cont__std__raise_error_11, &frame__std__raise_error, 904, 904, 9, 67},
+  {cont__std__raise_error_14, &frame__std__raise_error, 904, 904, 3, 67},
+  {entry__std__check_error, NULL, 917, 917, 6, 12},
+  {cont__std__check_error_2, &frame__std__check_error, 917, 917, 3, 30},
   {entry__std__errno_1, NULL, 929, 932, 3, 2},
   {entry__std__strerror_1, NULL, 943, 946, 3, 2},
   {entry__std__stat_1, NULL, 1026, 1035, 3, 2},
@@ -1960,16 +1953,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__posix_open_1, NULL, 1337, 1360, 3, 2},
   {entry__std__open_file_4, NULL, 1373, 1373, 21, 54},
   {cont__std__open_file_5, &frame__std__open_file_4, 1373, 1373, 54, 54},
-  {entry__std__open_file_1, NULL, 1372, 1372, 3, 31},
-  {cont__std__open_file_2, &frame__std__open_file_1, 1373, 1373, 6, 18},
-  {cont__std__open_file_3, &frame__std__open_file_1, 1373, 1373, 3, 54},
-  {cont__std__open_file_6, &frame__std__open_file_1, 1374, 1374, 3, 7},
-  {entry__std__open_file_for_reading_1, NULL, 1398, 1398, 3, 34},
-  {entry__std__open_file_for_writing_1, NULL, 1422, 1422, 3, 34},
-  {entry__std__open_file_for_reading_and_writing_1, NULL, 1448, 1448, 3, 32},
-  {entry__std__create_file_1, NULL, 1468, 1468, 22, 48},
-  {cont__std__create_file_2, &frame__std__create_file_1, 1468, 1468, 22, 62},
-  {cont__std__create_file_3, &frame__std__create_file_1, 1468, 1468, 3, 62},
+  {entry__std__open_file, NULL, 1372, 1372, 3, 31},
+  {cont__std__open_file_2, &frame__std__open_file, 1373, 1373, 6, 18},
+  {cont__std__open_file_3, &frame__std__open_file, 1373, 1373, 3, 54},
+  {cont__std__open_file_6, &frame__std__open_file, 1374, 1374, 3, 7},
+  {entry__std__open_file_for_reading, NULL, 1398, 1398, 3, 34},
+  {entry__std__open_file_for_writing, NULL, 1422, 1422, 3, 34},
+  {entry__std__open_file_for_reading_and_writing, NULL, 1448, 1448, 3, 32},
+  {entry__std__create_file, NULL, 1468, 1468, 22, 48},
+  {cont__std__create_file_2, &frame__std__create_file, 1468, 1468, 22, 62},
+  {cont__std__create_file_3, &frame__std__create_file, 1468, 1468, 3, 62},
   {entry__types__file_descriptor__close_1, NULL, 1473, 1496, 3, 2},
   {entry__types__file_descriptor__read_some_bytes_from_1, NULL, 1506, 1523, 3, 2},
   {entry__types__file_descriptor__read_from_11, NULL, 1555, 1555, 20, 29},
@@ -1985,11 +1978,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__file_descriptor__read_from_5, &frame__types__file_descriptor__read_from_4, 1551, 1557, 11, 23},
   {entry__types__file_descriptor__read_from_3, NULL, 1551, 1557, 5, 23},
   {cont__types__file_descriptor__read_from_15, &frame__types__file_descriptor__read_from_3, 1558, 1558, 5, 14},
-  {entry__types__file_descriptor__read_from_1, NULL, 1549, 1549, 6, 22},
-  {cont__types__file_descriptor__read_from_2, &frame__types__file_descriptor__read_from_1, 1549, 1558, 3, 14},
-  {cont__types__file_descriptor__read_from_16, &frame__types__file_descriptor__read_from_1, 1559, 1559, 3, 22},
-  {cont__types__file_descriptor__read_from_17, &frame__types__file_descriptor__read_from_1, 1560, 1560, 3, 50},
-  {cont__types__file_descriptor__read_from_18, &frame__types__file_descriptor__read_from_1, 1560, 1560, 50, 50},
+  {entry__types__file_descriptor___read_from, NULL, 1549, 1549, 6, 22},
+  {cont__types__file_descriptor___read_from_2, &frame__types__file_descriptor___read_from, 1549, 1558, 3, 14},
+  {cont__types__file_descriptor___read_from_16, &frame__types__file_descriptor___read_from, 1559, 1559, 3, 22},
+  {cont__types__file_descriptor___read_from_17, &frame__types__file_descriptor___read_from, 1560, 1560, 3, 50},
+  {cont__types__file_descriptor___read_from_18, &frame__types__file_descriptor___read_from, 1560, 1560, 50, 50},
   {entry__types__file_descriptor__write_some_bytes_to_1, NULL, 1570, 1588, 3, 2},
   {entry__file_description_4, NULL, 1594, 1594, 8, 32},
   {cont__file_description_6, &frame__file_description_4, 1594, 1594, 5, 32},
@@ -2000,12 +1993,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__file_description_17, NULL, 1603, 1603, 9, 21},
   {entry__file_description_7, NULL, 1596, 1596, 7, 24},
   {cont__file_description_8, &frame__file_description_7, 1597, 1604, 7, 37},
-  {entry__file_description_1, NULL, 1591, 1591, 3, 27},
-  {cont__file_description_2, &frame__file_description_1, 1593, 1593, 5, 23},
-  {cont__file_description_3, &frame__file_description_1, 1592, 1604, 3, 39},
-  {entry__WriteError_1, NULL, 1606, 1606, 50, 69},
-  {cont__WriteError_2, &frame__WriteError_1, 1606, 1606, 31, 71},
-  {cont__WriteError_4, &frame__WriteError_1, 1606, 1606, 19, 71},
+  {entry__file_description, NULL, 1591, 1591, 3, 27},
+  {cont__file_description_2, &frame__file_description, 1593, 1593, 5, 23},
+  {cont__file_description_3, &frame__file_description, 1592, 1604, 3, 39},
+  {entry__WriteError, NULL, 1606, 1606, 50, 69},
+  {cont__WriteError_2, &frame__WriteError, 1606, 1606, 31, 71},
+  {cont__WriteError_4, &frame__WriteError, 1606, 1606, 19, 71},
   {entry__types__file_descriptor__write_to_13, NULL, 1626, 1626, 43, 55},
   {entry__types__file_descriptor__write_to_10, NULL, 1626, 1626, 10, 35},
   {cont__types__file_descriptor__write_to_11, &frame__types__file_descriptor__write_to_10, 1626, 1626, 10, 40},
@@ -2023,12 +2016,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__file_descriptor__write_to_4, &frame__types__file_descriptor__write_to_3, 1622, 1622, 12, 30},
   {cont__types__file_descriptor__write_to_5, &frame__types__file_descriptor__write_to_3, 1622, 1628, 9, 34},
   {entry__types__file_descriptor__write_to_22, NULL, 1629, 1629, 39, 49},
-  {entry__types__file_descriptor__write_to_1, NULL, 1621, 1621, 3, 22},
-  {cont__types__file_descriptor__write_to_2, &frame__types__file_descriptor__write_to_1, 1622, 1628, 3, 34},
-  {cont__types__file_descriptor__write_to_19, &frame__types__file_descriptor__write_to_1, 1629, 1629, 6, 31},
-  {cont__types__file_descriptor__write_to_20, &frame__types__file_descriptor__write_to_1, 1629, 1629, 6, 36},
-  {cont__types__file_descriptor__write_to_21, &frame__types__file_descriptor__write_to_1, 1629, 1629, 3, 49},
-  {cont__types__file_descriptor__write_to_23, &frame__types__file_descriptor__write_to_1, 1629, 1629, 49, 49},
+  {entry__types__file_descriptor___write_to, NULL, 1621, 1621, 3, 22},
+  {cont__types__file_descriptor___write_to_2, &frame__types__file_descriptor___write_to, 1622, 1628, 3, 34},
+  {cont__types__file_descriptor___write_to_19, &frame__types__file_descriptor___write_to, 1629, 1629, 6, 31},
+  {cont__types__file_descriptor___write_to_20, &frame__types__file_descriptor___write_to, 1629, 1629, 6, 36},
+  {cont__types__file_descriptor___write_to_21, &frame__types__file_descriptor___write_to, 1629, 1629, 3, 49},
+  {cont__types__file_descriptor___write_to_23, &frame__types__file_descriptor___write_to, 1629, 1629, 49, 49},
   {entry__std__atomic_write_to_12, NULL, 1650, 1650, 43, 55},
   {entry__std__atomic_write_to_9, NULL, 1650, 1650, 10, 35},
   {cont__std__atomic_write_to_10, &frame__std__atomic_write_to_9, 1650, 1650, 10, 40},
@@ -2045,12 +2038,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__atomic_write_to_4, &frame__std__atomic_write_to_3, 1647, 1647, 12, 30},
   {cont__std__atomic_write_to_5, &frame__std__atomic_write_to_3, 1647, 1652, 9, 34},
   {entry__std__atomic_write_to_21, NULL, 1653, 1653, 39, 49},
-  {entry__std__atomic_write_to_1, NULL, 1646, 1646, 3, 22},
-  {cont__std__atomic_write_to_2, &frame__std__atomic_write_to_1, 1647, 1652, 3, 34},
-  {cont__std__atomic_write_to_18, &frame__std__atomic_write_to_1, 1653, 1653, 6, 31},
-  {cont__std__atomic_write_to_19, &frame__std__atomic_write_to_1, 1653, 1653, 6, 36},
-  {cont__std__atomic_write_to_20, &frame__std__atomic_write_to_1, 1653, 1653, 3, 49},
-  {cont__std__atomic_write_to_22, &frame__std__atomic_write_to_1, 1653, 1653, 49, 49},
+  {entry__std__atomic_write_to, NULL, 1646, 1646, 3, 22},
+  {cont__std__atomic_write_to_2, &frame__std__atomic_write_to, 1647, 1652, 3, 34},
+  {cont__std__atomic_write_to_18, &frame__std__atomic_write_to, 1653, 1653, 6, 31},
+  {cont__std__atomic_write_to_19, &frame__std__atomic_write_to, 1653, 1653, 6, 36},
+  {cont__std__atomic_write_to_20, &frame__std__atomic_write_to, 1653, 1653, 3, 49},
+  {cont__std__atomic_write_to_22, &frame__std__atomic_write_to, 1653, 1653, 49, 49},
   {entry__std__load_file_6, NULL, 1678, 1678, 11, 34},
   {cont__std__load_file_7, &frame__std__load_file_6, 1679, 1679, 14, 34},
   {cont__std__load_file_8, &frame__std__load_file_6, 1679, 1679, 14, 39},
@@ -2063,9 +2056,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__load_file_13, &frame__std__load_file_4, 1681, 1681, 7, 14},
   {cont__std__load_file_14, &frame__std__load_file_4, 1682, 1682, 7, 12},
   {entry__std__load_file_15, NULL, 1683, 1683, 5, 16},
-  {entry__std__load_file_1, NULL, 1672, 1672, 3, 36},
-  {cont__std__load_file_2, &frame__std__load_file_1, 1674, 1674, 5, 17},
-  {cont__std__load_file_3, &frame__std__load_file_1, 1673, 1683, 3, 16},
+  {entry__std__load_file, NULL, 1672, 1672, 3, 36},
+  {cont__std__load_file_2, &frame__std__load_file, 1674, 1674, 5, 17},
+  {cont__std__load_file_3, &frame__std__load_file, 1673, 1683, 3, 16},
   {entry__std__save_file_7, NULL, 1712, 1712, 11, 26},
   {cont__std__save_file_8, &frame__std__save_file_7, 1713, 1713, 11, 18},
   {entry__std__save_file_11, NULL, 1715, 1715, 39, 47},
@@ -2082,10 +2075,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__save_file_15, &frame__std__save_file_14, 1717, 1717, 10, 40},
   {cont__std__save_file_16, &frame__std__save_file_14, 1717, 1719, 7, 50},
   {cont__std__save_file_20, &frame__std__save_file_14, 1720, 1720, 7, 18},
-  {entry__std__save_file_1, NULL, 1707, 1707, 3, 26},
-  {cont__std__save_file_2, &frame__std__save_file_1, 1709, 1709, 5, 17},
-  {cont__std__save_file_3, &frame__std__save_file_1, 1708, 1720, 3, 19},
-  {cont__std__save_file_21, &frame__std__save_file_1, 1720, 1720, 19, 19},
+  {entry__std__save_file, NULL, 1707, 1707, 3, 26},
+  {cont__std__save_file_2, &frame__std__save_file, 1709, 1709, 5, 17},
+  {cont__std__save_file_3, &frame__std__save_file, 1708, 1720, 3, 19},
+  {cont__std__save_file_21, &frame__std__save_file, 1720, 1720, 19, 19},
   {entry__types__file_descriptor__flush_1, NULL, 1725, 1740, 3, 2},
   {entry__ioctl_value_1, NULL, 1743, 1755, 3, 2},
   {entry__types__file_descriptor__std__ioctl_8, NULL, 1769, 1770, 9, 23},
@@ -2095,10 +2088,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__file_descriptor__std__ioctl_7, &frame__types__file_descriptor__std__ioctl_4, 1768, 1770, 7, 24},
   {entry__types__file_descriptor__std__ioctl_10, NULL, 1772, 1772, 14, 42},
   {cont__types__file_descriptor__std__ioctl_11, &frame__types__file_descriptor__std__ioctl_10, 1772, 1772, 7, 42},
-  {entry__types__file_descriptor__std__ioctl_1, NULL, 1767, 1767, 5, 30},
-  {cont__types__file_descriptor__std__ioctl_2, &frame__types__file_descriptor__std__ioctl_1, 1767, 1767, 5, 35},
-  {cont__types__file_descriptor__std__ioctl_3, &frame__types__file_descriptor__std__ioctl_1, 1766, 1772, 3, 43},
-  {cont__types__file_descriptor__std__ioctl_12, &frame__types__file_descriptor__std__ioctl_1, 1772, 1772, 43, 43},
+  {entry__types__file_descriptor___std__ioctl, NULL, 1767, 1767, 5, 30},
+  {cont__types__file_descriptor___std__ioctl_2, &frame__types__file_descriptor___std__ioctl, 1767, 1767, 5, 35},
+  {cont__types__file_descriptor___std__ioctl_3, &frame__types__file_descriptor___std__ioctl, 1766, 1772, 3, 43},
+  {cont__types__file_descriptor___std__ioctl_12, &frame__types__file_descriptor___std__ioctl, 1772, 1772, 43, 43},
   {entry__types__file_descriptor__std__get_terminal_size_1, NULL, 1780, 1801, 3, 2},
   {entry__posix_unlink_1, NULL, 1804, 1815, 3, 2},
   {entry__std__delete_file_8, NULL, 1827, 1828, 15, 51},
@@ -2110,31 +2103,31 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__delete_file_12, NULL, 1830, 1830, 14, 35},
   {cont__std__delete_file_13, &frame__std__delete_file_12, 1830, 1830, 14, 40},
   {cont__std__delete_file_14, &frame__std__delete_file_12, 1830, 1830, 7, 40},
-  {entry__std__delete_file_1, NULL, 1825, 1825, 5, 30},
-  {cont__std__delete_file_2, &frame__std__delete_file_1, 1825, 1825, 5, 35},
-  {cont__std__delete_file_3, &frame__std__delete_file_1, 1824, 1830, 3, 41},
-  {cont__std__delete_file_15, &frame__std__delete_file_1, 1830, 1830, 41, 41},
+  {entry__std__delete_file, NULL, 1825, 1825, 5, 30},
+  {cont__std__delete_file_2, &frame__std__delete_file, 1825, 1825, 5, 35},
+  {cont__std__delete_file_3, &frame__std__delete_file, 1824, 1830, 3, 41},
+  {cont__std__delete_file_15, &frame__std__delete_file, 1830, 1830, 41, 41},
   {entry__wait_for_io_ready_1, NULL, 1833, 1994, 3, 2},
   {entry__std__get_pid_1, NULL, 1999, 2002, 3, 2},
   {entry__std__wait_pid_1, NULL, 2011, 2023, 3, 2},
-  {entry__std__wait_for_io_1, NULL, 2034, 2045, 3, 17},
-  {cont__std__wait_for_io_2, &frame__std__wait_for_io_1, 2049, 2049, 5, 36},
-  {cont__std__wait_for_io_3, &frame__std__wait_for_io_1, 2050, 2050, 23, 35},
-  {cont__std__wait_for_io_4, &frame__std__wait_for_io_1, 2050, 2050, 37, 60},
-  {cont__std__wait_for_io_5, &frame__std__wait_for_io_1, 2050, 2050, 5, 61},
-  {cont__std__wait_for_io_6, &frame__std__wait_for_io_1, 2051, 2051, 23, 46},
-  {cont__std__wait_for_io_7, &frame__std__wait_for_io_1, 2051, 2051, 23, 48},
-  {cont__std__wait_for_io_8, &frame__std__wait_for_io_1, 2051, 2051, 51, 51},
-  {cont__std__wait_for_io_9, &frame__std__wait_for_io_1, 2051, 2051, 5, 52},
-  {cont__std__wait_for_io_10, &frame__std__wait_for_io_1, 2046, 2052, 3, 11},
+  {entry__std__wait_for_io, NULL, 2034, 2045, 3, 17},
+  {cont__std__wait_for_io_2, &frame__std__wait_for_io, 2049, 2049, 5, 36},
+  {cont__std__wait_for_io_3, &frame__std__wait_for_io, 2050, 2050, 23, 35},
+  {cont__std__wait_for_io_4, &frame__std__wait_for_io, 2050, 2050, 37, 60},
+  {cont__std__wait_for_io_5, &frame__std__wait_for_io, 2050, 2050, 5, 61},
+  {cont__std__wait_for_io_6, &frame__std__wait_for_io, 2051, 2051, 23, 46},
+  {cont__std__wait_for_io_7, &frame__std__wait_for_io, 2051, 2051, 23, 48},
+  {cont__std__wait_for_io_8, &frame__std__wait_for_io, 2051, 2051, 51, 51},
+  {cont__std__wait_for_io_9, &frame__std__wait_for_io, 2051, 2051, 5, 52},
+  {cont__std__wait_for_io_10, &frame__std__wait_for_io, 2046, 2052, 3, 11},
   {entry__std__current_path_1, NULL, 2057, 2075, 3, 2},
   {entry__std__chdir_1, NULL, 2082, 2093, 3, 2},
   {entry__std__change_directory_5, NULL, 2102, 2103, 11, 60},
   {cont__std__change_directory_8, &frame__std__change_directory_5, 2102, 2103, 5, 60},
-  {entry__std__change_directory_1, NULL, 2101, 2101, 6, 21},
-  {cont__std__change_directory_2, &frame__std__change_directory_1, 2101, 2101, 6, 26},
-  {cont__std__change_directory_3, &frame__std__change_directory_1, 2101, 2101, 6, 26},
-  {cont__std__change_directory_4, &frame__std__change_directory_1, 2101, 2103, 3, 61},
+  {entry__std__change_directory, NULL, 2101, 2101, 6, 21},
+  {cont__std__change_directory_2, &frame__std__change_directory, 2101, 2101, 6, 26},
+  {cont__std__change_directory_3, &frame__std__change_directory, 2101, 2101, 6, 26},
+  {cont__std__change_directory_4, &frame__std__change_directory, 2101, 2103, 3, 61},
   {entry__clib_mkdir_1, NULL, 2106, 2118, 3, 2},
   {entry__std__mkdir_2, NULL, 2138, 2138, 28, 36},
   {cont__std__mkdir_3, &frame__std__mkdir_2, 2138, 2138, 16, 37},
@@ -2162,20 +2155,20 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__mkdir_38, &frame__std__mkdir_36, 2151, 2151, 40, 56},
   {entry__std__mkdir_35, NULL, 2151, 2151, 12, 56},
   {cont__std__mkdir_39, &frame__std__mkdir_35, 2151, 2151, 5, 61},
-  {entry__std__mkdir_1, NULL, 2130, 2130, 5, 16},
-  {cont__std__mkdir_27, &frame__std__mkdir_1, 2132, 2132, 5, 19},
-  {cont__std__mkdir_28, &frame__std__mkdir_1, 2129, 2133, 3, 29},
-  {cont__std__mkdir_29, &frame__std__mkdir_1, 2148, 2148, 3, 26},
-  {cont__std__mkdir_30, &frame__std__mkdir_1, 2149, 2149, 3, 57},
-  {cont__std__mkdir_32, &frame__std__mkdir_1, 2150, 2150, 6, 26},
-  {cont__std__mkdir_33, &frame__std__mkdir_1, 2150, 2150, 6, 30},
-  {cont__std__mkdir_34, &frame__std__mkdir_1, 2150, 2151, 3, 61},
+  {entry__std__mkdir, NULL, 2130, 2130, 5, 16},
+  {cont__std__mkdir_27, &frame__std__mkdir, 2132, 2132, 5, 19},
+  {cont__std__mkdir_28, &frame__std__mkdir, 2129, 2133, 3, 29},
+  {cont__std__mkdir_29, &frame__std__mkdir, 2148, 2148, 3, 26},
+  {cont__std__mkdir_30, &frame__std__mkdir, 2149, 2149, 3, 57},
+  {cont__std__mkdir_32, &frame__std__mkdir, 2150, 2150, 6, 26},
+  {cont__std__mkdir_33, &frame__std__mkdir, 2150, 2150, 6, 30},
+  {cont__std__mkdir_34, &frame__std__mkdir, 2150, 2151, 3, 61},
   {entry__std__create_directory_5, NULL, 2161, 2162, 11, 49},
   {cont__std__create_directory_7, &frame__std__create_directory_5, 2161, 2162, 5, 49},
-  {entry__std__create_directory_1, NULL, 2160, 2160, 6, 26},
-  {cont__std__create_directory_2, &frame__std__create_directory_1, 2160, 2160, 6, 31},
-  {cont__std__create_directory_3, &frame__std__create_directory_1, 2160, 2160, 6, 31},
-  {cont__std__create_directory_4, &frame__std__create_directory_1, 2160, 2162, 3, 50},
+  {entry__std__create_directory, NULL, 2160, 2160, 6, 26},
+  {cont__std__create_directory_2, &frame__std__create_directory, 2160, 2160, 6, 31},
+  {cont__std__create_directory_3, &frame__std__create_directory, 2160, 2160, 6, 31},
+  {cont__std__create_directory_4, &frame__std__create_directory, 2160, 2162, 3, 50},
   {entry__std__fullname_3, NULL, 2171, 2171, 22, 35},
   {cont__std__fullname_4, &frame__std__fullname_3, 2171, 2171, 5, 49},
   {cont__std__fullname_6, &frame__std__fullname_3, 2171, 2171, 49, 49},
@@ -2194,41 +2187,40 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__fullname_32, NULL, 2182, 2182, 46, 46},
   {cont__std__fullname_33, &frame__std__fullname_32, 2182, 2182, 27, 46},
   {cont__std__fullname_34, &frame__std__fullname_32, 2182, 2182, 46, 46},
-  {entry__std__fullname_1, NULL, 2170, 2170, 10, 34},
-  {cont__std__fullname_2, &frame__std__fullname_1, 2170, 2171, 3, 49},
-  {cont__std__fullname_7, &frame__std__fullname_1, 2172, 2172, 10, 34},
-  {cont__std__fullname_8, &frame__std__fullname_1, 2172, 2172, 3, 54},
-  {cont__std__fullname_11, &frame__std__fullname_1, 2173, 2173, 25, 34},
-  {cont__std__fullname_13, &frame__std__fullname_1, 2173, 2173, 25, 40},
-  {cont__std__fullname_14, &frame__std__fullname_1, 2173, 2173, 3, 40},
-  {cont__std__fullname_15, &frame__std__fullname_1, 2174, 2174, 25, 35},
-  {cont__std__fullname_17, &frame__std__fullname_1, 2174, 2174, 3, 35},
-  {cont__std__fullname_18, &frame__std__fullname_1, 2175, 2181, 3, 41},
-  {cont__std__fullname_30, &frame__std__fullname_1, 2182, 2182, 10, 24},
-  {cont__std__fullname_31, &frame__std__fullname_1, 2182, 2182, 3, 46},
-  {cont__std__fullname_35, &frame__std__fullname_1, 2183, 2183, 3, 13},
+  {entry__std__fullname, NULL, 2170, 2170, 10, 34},
+  {cont__std__fullname_2, &frame__std__fullname, 2170, 2171, 3, 49},
+  {cont__std__fullname_7, &frame__std__fullname, 2172, 2172, 10, 34},
+  {cont__std__fullname_8, &frame__std__fullname, 2172, 2172, 3, 54},
+  {cont__std__fullname_11, &frame__std__fullname, 2173, 2173, 25, 34},
+  {cont__std__fullname_13, &frame__std__fullname, 2173, 2173, 25, 40},
+  {cont__std__fullname_14, &frame__std__fullname, 2173, 2173, 3, 40},
+  {cont__std__fullname_15, &frame__std__fullname, 2174, 2174, 25, 35},
+  {cont__std__fullname_17, &frame__std__fullname, 2174, 2174, 3, 35},
+  {cont__std__fullname_18, &frame__std__fullname, 2175, 2181, 3, 41},
+  {cont__std__fullname_30, &frame__std__fullname, 2182, 2182, 10, 24},
+  {cont__std__fullname_31, &frame__std__fullname, 2182, 2182, 3, 46},
+  {cont__std__fullname_35, &frame__std__fullname, 2183, 2183, 3, 13},
   {entry__std__opendir_1, NULL, 2270, 2282, 3, 2},
   {entry__types__DIR__close_1, NULL, 2287, 2298, 3, 2},
   {entry__types__DIR__get_1, NULL, 2303, 2322, 3, 2},
   {entry__types__dirent__filename_of_1, NULL, 2327, 2331, 3, 2},
   {entry__types__dirent__inode_of_1, NULL, 2336, 2340, 3, 2},
   {entry__types__dirent__file_type_of_1, NULL, 2345, 2349, 3, 2},
-  {entry__types__dirent__fullname_of_1, NULL, 2357, 2357, 13, 29},
-  {cont__types__dirent__fullname_of_2, &frame__types__dirent__fullname_of_1, 2357, 2357, 35, 51},
-  {cont__types__dirent__fullname_of_3, &frame__types__dirent__fullname_of_1, 2357, 2357, 6, 52},
-  {cont__types__dirent__fullname_of_4, &frame__types__dirent__fullname_of_1, 2357, 2357, 3, 52},
-  {entry__types__dirent__is_a_directory_1, NULL, 2365, 2365, 6, 23},
-  {cont__types__dirent__is_a_directory_2, &frame__types__dirent__is_a_directory_1, 2365, 2365, 6, 41},
-  {cont__types__dirent__is_a_directory_3, &frame__types__dirent__is_a_directory_1, 2365, 2365, 3, 41},
-  {entry__types__dirent__is_a_regular_file_1, NULL, 2373, 2373, 6, 23},
-  {cont__types__dirent__is_a_regular_file_2, &frame__types__dirent__is_a_regular_file_1, 2373, 2373, 6, 44},
-  {cont__types__dirent__is_a_regular_file_3, &frame__types__dirent__is_a_regular_file_1, 2373, 2373, 3, 44},
-  {entry__types__dirent__is_a_link_1, NULL, 2381, 2381, 6, 23},
-  {cont__types__dirent__is_a_link_2, &frame__types__dirent__is_a_link_1, 2381, 2381, 6, 36},
-  {cont__types__dirent__is_a_link_3, &frame__types__dirent__is_a_link_1, 2381, 2381, 3, 36},
+  {entry__types__dirent___fullname_of, NULL, 2357, 2357, 13, 29},
+  {cont__types__dirent___fullname_of_2, &frame__types__dirent___fullname_of, 2357, 2357, 35, 51},
+  {cont__types__dirent___fullname_of_3, &frame__types__dirent___fullname_of, 2357, 2357, 6, 52},
+  {cont__types__dirent___fullname_of_4, &frame__types__dirent___fullname_of, 2357, 2357, 3, 52},
+  {entry__types__dirent___is_a_directory, NULL, 2365, 2365, 6, 23},
+  {cont__types__dirent___is_a_directory_2, &frame__types__dirent___is_a_directory, 2365, 2365, 6, 41},
+  {cont__types__dirent___is_a_directory_3, &frame__types__dirent___is_a_directory, 2365, 2365, 3, 41},
+  {entry__types__dirent___is_a_regular_file, NULL, 2373, 2373, 6, 23},
+  {cont__types__dirent___is_a_regular_file_2, &frame__types__dirent___is_a_regular_file, 2373, 2373, 6, 44},
+  {cont__types__dirent___is_a_regular_file_3, &frame__types__dirent___is_a_regular_file, 2373, 2373, 3, 44},
+  {entry__types__dirent___is_a_link, NULL, 2381, 2381, 6, 23},
+  {cont__types__dirent___is_a_link_2, &frame__types__dirent___is_a_link, 2381, 2381, 6, 36},
+  {cont__types__dirent___is_a_link_3, &frame__types__dirent___is_a_link, 2381, 2381, 3, 36},
   {entry__std__directory_16, NULL, 2402, 2402, 11, 29},
   {cont__std__directory_17, &frame__std__directory_16, 2402, 2402, 29, 29},
-  {entry__std__directory_18, NULL, 2400, 2400, 11, 14},
   {entry__std__directory_8, NULL, 2395, 2395, 7, 21},
   {cont__std__directory_9, &frame__std__directory_8, 2396, 2396, 14, 29},
   {cont__std__directory_10, &frame__std__directory_8, 2396, 2396, 7, 35},
@@ -2236,40 +2228,40 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__directory_12, &frame__std__directory_8, 2399, 2399, 9, 17},
   {cont__std__directory_15, &frame__std__directory_8, 2397, 2402, 7, 30},
   {entry__std__directory_7, NULL, 2394, 2402, 5, 31},
-  {cont__std__directory_19, &frame__std__directory_7, 2402, 2402, 31, 31},
-  {entry__std__directory_23, NULL, 2405, 2405, 36, 52},
-  {cont__std__directory_24, &frame__std__directory_23, 2405, 2405, 56, 73},
-  {cont__std__directory_25, &frame__std__directory_23, 2405, 2405, 36, 73},
-  {cont__std__directory_26, &frame__std__directory_23, 2405, 2405, 33, 73},
-  {entry__std__directory_22, NULL, 2405, 2405, 5, 73},
-  {cont__std__directory_27, &frame__std__directory_22, 2405, 2405, 73, 73},
-  {entry__std__directory_1, NULL, 2390, 2390, 27, 38},
-  {cont__std__directory_2, &frame__std__directory_1, 2390, 2390, 3, 47},
-  {cont__std__directory_3, &frame__std__directory_1, 2391, 2391, 3, 18},
-  {cont__std__directory_4, &frame__std__directory_1, 2392, 2392, 21, 38},
-  {cont__std__directory_5, &frame__std__directory_1, 2392, 2392, 3, 39},
-  {cont__std__directory_6, &frame__std__directory_1, 2393, 2402, 3, 32},
-  {cont__std__directory_20, &frame__std__directory_1, 2403, 2403, 3, 11},
-  {cont__std__directory_21, &frame__std__directory_1, 2404, 2405, 3, 73},
-  {cont__std__directory_28, &frame__std__directory_1, 2406, 2406, 3, 12},
+  {cont__std__directory_18, &frame__std__directory_7, 2402, 2402, 31, 31},
+  {entry__std__directory_22, NULL, 2405, 2405, 36, 52},
+  {cont__std__directory_23, &frame__std__directory_22, 2405, 2405, 56, 73},
+  {cont__std__directory_24, &frame__std__directory_22, 2405, 2405, 36, 73},
+  {cont__std__directory_25, &frame__std__directory_22, 2405, 2405, 33, 73},
+  {entry__std__directory_21, NULL, 2405, 2405, 5, 73},
+  {cont__std__directory_26, &frame__std__directory_21, 2405, 2405, 73, 73},
+  {entry__std__directory, NULL, 2390, 2390, 27, 38},
+  {cont__std__directory_2, &frame__std__directory, 2390, 2390, 3, 47},
+  {cont__std__directory_3, &frame__std__directory, 2391, 2391, 3, 18},
+  {cont__std__directory_4, &frame__std__directory, 2392, 2392, 21, 38},
+  {cont__std__directory_5, &frame__std__directory, 2392, 2392, 3, 39},
+  {cont__std__directory_6, &frame__std__directory, 2393, 2402, 3, 32},
+  {cont__std__directory_19, &frame__std__directory, 2403, 2403, 3, 11},
+  {cont__std__directory_20, &frame__std__directory, 2404, 2405, 3, 73},
+  {cont__std__directory_27, &frame__std__directory, 2406, 2406, 3, 12},
   {entry__std__get_network_addresses_1, NULL, 2502, 2538, 3, 2},
   {entry__std__get_network_address_1, NULL, 2543, 2568, 3, 2},
   {entry__types__addrinfo__connect_1, NULL, 2573, 2586, 3, 2},
-  {entry__types__string__connect_1, NULL, 2595, 2595, 11, 34},
-  {cont__types__string__connect_2, &frame__types__string__connect_1, 2595, 2595, 3, 39},
+  {entry__types__string___connect, NULL, 2595, 2595, 11, 34},
+  {cont__types__string___connect_2, &frame__types__string___connect, 2595, 2595, 3, 39},
   {entry__types__addrinfo__listen_1, NULL, 2600, 2622, 3, 2},
-  {entry__types__string__listen_1, NULL, 2631, 2631, 10, 33},
-  {cont__types__string__listen_2, &frame__types__string__listen_1, 2631, 2631, 3, 38},
+  {entry__types__string___listen, NULL, 2631, 2631, 10, 33},
+  {cont__types__string___listen_2, &frame__types__string___listen, 2631, 2631, 3, 38},
   {entry__types__file_descriptor__accept_1, NULL, 2636, 2645, 3, 2},
-  {entry__std__write_1, NULL, 2655, 2655, 26, 38},
-  {cont__std__write_2, &frame__std__write_1, 2655, 2655, 26, 46},
-  {cont__std__write_3, &frame__std__write_1, 2655, 2655, 3, 46},
-  {entry__std__writeln_1, NULL, 2665, 2665, 3, 20},
-  {entry__std__ewrite_1, NULL, 2676, 2676, 33, 45},
-  {cont__std__ewrite_2, &frame__std__ewrite_1, 2676, 2676, 33, 53},
-  {cont__std__ewrite_3, &frame__std__ewrite_1, 2676, 2676, 3, 53},
-  {entry__std__ewriteln_1, NULL, 2685, 2685, 3, 21},
-  {entry__std__read_1, NULL, 2693, 2693, 3, 26},
+  {entry__std__write, NULL, 2655, 2655, 26, 38},
+  {cont__std__write_2, &frame__std__write, 2655, 2655, 26, 46},
+  {cont__std__write_3, &frame__std__write, 2655, 2655, 3, 46},
+  {entry__std__writeln, NULL, 2665, 2665, 3, 20},
+  {entry__std__ewrite, NULL, 2676, 2676, 33, 45},
+  {cont__std__ewrite_2, &frame__std__ewrite, 2676, 2676, 33, 53},
+  {cont__std__ewrite_3, &frame__std__ewrite, 2676, 2676, 3, 53},
+  {entry__std__ewriteln, NULL, 2685, 2685, 3, 21},
+  {entry__std__read, NULL, 2693, 2693, 3, 26},
   {entry__std__readln_5, NULL, 2704, 2704, 25, 33},
   {cont__std__readln_6, &frame__std__readln_5, 2704, 2704, 25, 33},
   {entry__std__readln_8, NULL, 2704, 2704, 36, 45},
@@ -2279,16 +2271,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__readln_7, &frame__std__readln_2, 2704, 2704, 5, 45},
   {cont__std__readln_9, &frame__std__readln_2, 2705, 2705, 5, 19},
   {cont__std__readln_10, &frame__std__readln_2, 2705, 2705, 19, 19},
-  {entry__std__readln_1, NULL, 2702, 2705, 3, 19},
-  {cont__std__readln_11, &frame__std__readln_1, 2705, 2705, 19, 19},
+  {entry__std__readln, NULL, 2702, 2705, 3, 19},
+  {cont__std__readln_11, &frame__std__readln, 2705, 2705, 19, 19},
   {entry__std__load_9, NULL, 2717, 2717, 9, 14},
   {entry__std__load_10, NULL, 2719, 2720, 17, 45},
   {cont__std__load_13, &frame__std__load_10, 2719, 2720, 11, 45},
   {entry__std__load_4, NULL, 2716, 2716, 9, 41},
   {cont__std__load_8, &frame__std__load_4, 2715, 2720, 7, 47},
   {entry__std__load_14, NULL, 2722, 2722, 7, 24},
-  {entry__std__load_1, NULL, 2714, 2714, 5, 35},
-  {cont__std__load_3, &frame__std__load_1, 2713, 2722, 3, 25},
+  {entry__std__load, NULL, 2714, 2714, 5, 35},
+  {cont__std__load_3, &frame__std__load, 2713, 2722, 3, 25},
   {entry__std__save_9, NULL, 2735, 2735, 26, 34},
   {cont__std__save_10, &frame__std__save_9, 2735, 2735, 20, 39},
   {entry__std__save_4, NULL, 2734, 2734, 32, 32},
@@ -2296,11 +2288,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__save_6, &frame__std__save_4, 2735, 2735, 8, 17},
   {cont__std__save_7, &frame__std__save_4, 2735, 2735, 8, 17},
   {cont__std__save_8, &frame__std__save_4, 2735, 2735, 5, 39},
-  {entry__std__save_1, NULL, 2732, 2732, 27, 41},
-  {cont__std__save_2, &frame__std__save_1, 2732, 2732, 3, 62},
-  {cont__std__save_3, &frame__std__save_1, 2733, 2735, 3, 39},
-  {cont__std__save_11, &frame__std__save_1, 2736, 2736, 22, 35},
-  {cont__std__save_12, &frame__std__save_1, 2736, 2736, 3, 35}
+  {entry__std__save, NULL, 2732, 2732, 27, 41},
+  {cont__std__save_2, &frame__std__save, 2732, 2732, 3, 62},
+  {cont__std__save_3, &frame__std__save, 2733, 2735, 3, 39},
+  {cont__std__save_11, &frame__std__save, 2736, 2736, 22, 35},
+  {cont__std__save_12, &frame__std__save, 2736, 2736, 3, 35}
 };
 
 union NODE {
@@ -3024,7 +3016,7 @@ static void cont__196_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__raise_error_1(void) {
+static void entry__std__raise_error(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
@@ -3194,7 +3186,7 @@ static void cont__std__raise_error_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__check_error_1(void) {
+static void entry__std__check_error(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
@@ -3830,7 +3822,7 @@ static void entry__posix_open_1(void) {
     return;
   }
 }
-static void entry__std__open_file_1(void) {
+static void entry__std__open_file(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // filename: 0
@@ -3937,7 +3929,7 @@ static void cont__std__open_file_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__open_file_for_reading_1(void) {
+static void entry__std__open_file_for_reading(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // filename: 0
@@ -3955,7 +3947,7 @@ static void entry__std__open_file_for_reading_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__open_file_for_writing_1(void) {
+static void entry__std__open_file_for_writing(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // filename: 0
@@ -3973,7 +3965,7 @@ static void entry__std__open_file_for_writing_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__open_file_for_reading_and_writing_1(void) {
+static void entry__std__open_file_for_reading_and_writing(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // filename: 0
@@ -3991,7 +3983,7 @@ static void entry__std__open_file_for_reading_and_writing_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__create_file_1(void) {
+static void entry__std__create_file(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // filename: 0
@@ -4131,7 +4123,7 @@ static void entry__types__file_descriptor__read_some_bytes_from_1(void) {
     return;
   }
 }
-static void entry__types__file_descriptor__read_from_1(void) {
+static void entry__types__file_descriptor___read_from(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // fd: 0
@@ -4160,9 +4152,9 @@ static void entry__types__file_descriptor__read_from_1(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__read_from_2;
+  frame->cont = cont__types__file_descriptor___read_from_2;
 }
-static void cont__types__file_descriptor__read_from_2(void) {
+static void cont__types__file_descriptor___read_from_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4196,7 +4188,7 @@ static void cont__types__file_descriptor__read_from_2(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__read_from_16;
+  frame->cont = cont__types__file_descriptor___read_from_16;
 }
 static void entry__types__file_descriptor__read_from_3(void) {
   allocate_initialized_frame_gc(3, 5);
@@ -4461,7 +4453,7 @@ static void cont__types__file_descriptor__read_from_15(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__file_descriptor__read_from_16(void) {
+static void cont__types__file_descriptor___read_from_16(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4473,9 +4465,9 @@ static void cont__types__file_descriptor__read_from_16(void) {
   result_count = 0;
   myself = get__wait_to_read_from();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__read_from_17;
+  frame->cont = cont__types__file_descriptor___read_from_17;
 }
-static void cont__types__file_descriptor__read_from_17(void) {
+static void cont__types__file_descriptor___read_from_17(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4488,9 +4480,9 @@ static void cont__types__file_descriptor__read_from_17(void) {
   result_count = frame->caller_result_count;
   myself = get__read_some_bytes_from();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__read_from_18;
+  frame->cont = cont__types__file_descriptor___read_from_18;
 }
-static void cont__types__file_descriptor__read_from_18(void) {
+static void cont__types__file_descriptor___read_from_18(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
@@ -4704,7 +4696,7 @@ static void cont__file_description_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__file_description_1(void) {
+static void entry__file_description(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // fd: 0
@@ -4778,7 +4770,7 @@ static void cont__file_description_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__WriteError_1(void) {
+static void entry__WriteError(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // fd: 0
@@ -4791,7 +4783,7 @@ static void entry__WriteError_1(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
   result_count = 1;
-  myself = var._file_description;
+  myself = func__file_description;
   func = myself->type;
   frame->cont = cont__WriteError_2;
 }
@@ -4826,7 +4818,7 @@ static void cont__WriteError_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__file_descriptor__write_to_1(void) {
+static void entry__types__file_descriptor___write_to(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
@@ -4849,9 +4841,9 @@ static void entry__types__file_descriptor__write_to_1(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__write_to_2;
+  frame->cont = cont__types__file_descriptor___write_to_2;
 }
-static void cont__types__file_descriptor__write_to_2(void) {
+static void cont__types__file_descriptor___write_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4878,7 +4870,7 @@ static void cont__types__file_descriptor__write_to_2(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__write_to_19;
+  frame->cont = cont__types__file_descriptor___write_to_19;
 }
 static void entry__types__file_descriptor__write_to_6(void) {
   allocate_initialized_frame_gc(3, 6);
@@ -5025,7 +5017,7 @@ static void entry__types__file_descriptor__write_to_13(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
   result_count = frame->caller_result_count;
-  myself = var._WriteError;
+  myself = func__WriteError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -5169,7 +5161,7 @@ static void cont__types__file_descriptor__write_to_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__file_descriptor__write_to_19(void) {
+static void cont__types__file_descriptor___write_to_19(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -5181,9 +5173,9 @@ static void cont__types__file_descriptor__write_to_19(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__write_to_20;
+  frame->cont = cont__types__file_descriptor___write_to_20;
 }
-static void cont__types__file_descriptor__write_to_20(void) {
+static void cont__types__file_descriptor___write_to_20(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5197,9 +5189,9 @@ static void cont__types__file_descriptor__write_to_20(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__write_to_21;
+  frame->cont = cont__types__file_descriptor___write_to_21;
 }
-static void cont__types__file_descriptor__write_to_21(void) {
+static void cont__types__file_descriptor___write_to_21(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5215,7 +5207,7 @@ static void cont__types__file_descriptor__write_to_21(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__write_to_23;
+  frame->cont = cont__types__file_descriptor___write_to_23;
 }
 static void entry__types__file_descriptor__write_to_22(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -5235,12 +5227,12 @@ static void entry__types__file_descriptor__write_to_22(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__file_descriptor__write_to_23(void) {
+static void cont__types__file_descriptor___write_to_23(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__atomic_write_to_1(void) {
+static void entry__std__atomic_write_to(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
@@ -5423,7 +5415,7 @@ static void entry__std__atomic_write_to_12(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* fd */;
   result_count = frame->caller_result_count;
-  myself = var._WriteError;
+  myself = func__WriteError;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -5843,7 +5835,7 @@ static void entry__std__load_file_15(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__load_file_1(void) {
+static void entry__std__load_file(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // filename: 0
@@ -5914,7 +5906,7 @@ static void cont__std__load_file_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__save_file_1(void) {
+static void entry__std__save_file(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // filename: 0
@@ -6376,7 +6368,7 @@ static void entry__ioctl_value_1(void) {
     return;
   }
 }
-static void entry__types__file_descriptor__std__ioctl_1(void) {
+static void entry__types__file_descriptor___std__ioctl(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // fd: 0
@@ -6406,9 +6398,9 @@ static void entry__types__file_descriptor__std__ioctl_1(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__std__ioctl_2;
+  frame->cont = cont__types__file_descriptor___std__ioctl_2;
 }
-static void cont__types__file_descriptor__std__ioctl_2(void) {
+static void cont__types__file_descriptor___std__ioctl_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6422,9 +6414,9 @@ static void cont__types__file_descriptor__std__ioctl_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__std__ioctl_3;
+  frame->cont = cont__types__file_descriptor___std__ioctl_3;
 }
-static void cont__types__file_descriptor__std__ioctl_3(void) {
+static void cont__types__file_descriptor___std__ioctl_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -6453,7 +6445,7 @@ static void cont__types__file_descriptor__std__ioctl_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__file_descriptor__std__ioctl_12;
+  frame->cont = cont__types__file_descriptor___std__ioctl_12;
 }
 static void entry__types__file_descriptor__std__ioctl_8(void) {
   allocate_initialized_frame_gc(0, 0);
@@ -6586,7 +6578,7 @@ static void cont__types__file_descriptor__std__ioctl_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__file_descriptor__std__ioctl_12(void) {
+static void cont__types__file_descriptor___std__ioctl_12(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
@@ -6662,7 +6654,7 @@ static void entry__posix_unlink_1(void) {
     return;
   }
 }
-static void entry__std__delete_file_1(void) {
+static void entry__std__delete_file(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // filename: 0
@@ -7127,7 +7119,7 @@ static void entry__std__wait_pid_1(void) {
     return;
   }
 }
-static void entry__std__wait_for_io_1(void) {
+static void entry__std__wait_for_io(void) {
   allocate_initialized_frame_gc(4, 19);
   // slot allocations:
   // read_descriptors: 0
@@ -7449,7 +7441,7 @@ static void cont__std__change_directory_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__change_directory_1(void) {
+static void entry__std__change_directory(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // path: 0
@@ -7637,7 +7629,7 @@ static void cont__std__mkdir_39(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__mkdir_1(void) {
+static void entry__std__mkdir(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 9);
   // slot allocations:
@@ -8222,7 +8214,7 @@ static void cont__std__create_directory_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__create_directory_1(void) {
+static void entry__std__create_directory(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // path: 0
@@ -8305,7 +8297,7 @@ static void cont__std__create_directory_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__fullname_1(void) {
+static void entry__std__fullname(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // pathname: 0
@@ -9104,7 +9096,7 @@ static void entry__types__dirent__file_type_of_1(void) {
     return;
   }
 }
-static void entry__types__dirent__fullname_of_1(void) {
+static void entry__types__dirent___fullname_of(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -9119,9 +9111,9 @@ static void entry__types__dirent__fullname_of_1(void) {
   result_count = 1;
   myself = get__pathname_of();
   func = myself->type;
-  frame->cont = cont__types__dirent__fullname_of_2;
+  frame->cont = cont__types__dirent___fullname_of_2;
 }
-static void cont__types__dirent__fullname_of_2(void) {
+static void cont__types__dirent___fullname_of_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9134,9 +9126,9 @@ static void cont__types__dirent__fullname_of_2(void) {
   result_count = 1;
   myself = get__filename_of();
   func = myself->type;
-  frame->cont = cont__types__dirent__fullname_of_3;
+  frame->cont = cont__types__dirent___fullname_of_3;
 }
-static void cont__types__dirent__fullname_of_3(void) {
+static void cont__types__dirent___fullname_of_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9151,9 +9143,9 @@ static void cont__types__dirent__fullname_of_3(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__types__dirent__fullname_of_4;
+  frame->cont = cont__types__dirent___fullname_of_4;
 }
-static void cont__types__dirent__fullname_of_4(void) {
+static void cont__types__dirent___fullname_of_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9167,7 +9159,7 @@ static void cont__types__dirent__fullname_of_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__dirent__is_a_directory_1(void) {
+static void entry__types__dirent___is_a_directory(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -9182,9 +9174,9 @@ static void entry__types__dirent__is_a_directory_1(void) {
   result_count = 1;
   myself = get__file_type_of();
   func = myself->type;
-  frame->cont = cont__types__dirent__is_a_directory_2;
+  frame->cont = cont__types__dirent___is_a_directory_2;
 }
-static void cont__types__dirent__is_a_directory_2(void) {
+static void cont__types__dirent___is_a_directory_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9198,9 +9190,9 @@ static void cont__types__dirent__is_a_directory_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__dirent__is_a_directory_3;
+  frame->cont = cont__types__dirent___is_a_directory_3;
 }
-static void cont__types__dirent__is_a_directory_3(void) {
+static void cont__types__dirent___is_a_directory_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9214,7 +9206,7 @@ static void cont__types__dirent__is_a_directory_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__dirent__is_a_regular_file_1(void) {
+static void entry__types__dirent___is_a_regular_file(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -9229,9 +9221,9 @@ static void entry__types__dirent__is_a_regular_file_1(void) {
   result_count = 1;
   myself = get__file_type_of();
   func = myself->type;
-  frame->cont = cont__types__dirent__is_a_regular_file_2;
+  frame->cont = cont__types__dirent___is_a_regular_file_2;
 }
-static void cont__types__dirent__is_a_regular_file_2(void) {
+static void cont__types__dirent___is_a_regular_file_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9245,9 +9237,9 @@ static void cont__types__dirent__is_a_regular_file_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__dirent__is_a_regular_file_3;
+  frame->cont = cont__types__dirent___is_a_regular_file_3;
 }
-static void cont__types__dirent__is_a_regular_file_3(void) {
+static void cont__types__dirent___is_a_regular_file_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9261,7 +9253,7 @@ static void cont__types__dirent__is_a_regular_file_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__dirent__is_a_link_1(void) {
+static void entry__types__dirent___is_a_link(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -9276,9 +9268,9 @@ static void entry__types__dirent__is_a_link_1(void) {
   result_count = 1;
   myself = get__file_type_of();
   func = myself->type;
-  frame->cont = cont__types__dirent__is_a_link_2;
+  frame->cont = cont__types__dirent___is_a_link_2;
 }
-static void cont__types__dirent__is_a_link_2(void) {
+static void cont__types__dirent___is_a_link_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9292,9 +9284,9 @@ static void cont__types__dirent__is_a_link_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__dirent__is_a_link_3;
+  frame->cont = cont__types__dirent___is_a_link_3;
 }
-static void cont__types__dirent__is_a_link_3(void) {
+static void cont__types__dirent___is_a_link_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9308,7 +9300,7 @@ static void cont__types__dirent__is_a_link_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__directory_1(void) {
+static void entry__std__directory(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
@@ -9429,7 +9421,7 @@ static void cont__std__directory_6(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__std__directory_20;
+  frame->cont = cont__std__directory_19;
 }
 static void entry__std__directory_7(void) {
   allocate_initialized_frame_gc(3, 4);
@@ -9469,7 +9461,7 @@ static void entry__std__directory_7(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__std__directory_19;
+  frame->cont = cont__std__directory_18;
 }
 static void entry__std__directory_16(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -9503,21 +9495,6 @@ static void cont__std__directory_17(void) {
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
-}
-static void entry__std__directory_18(void) {
-  allocate_initialized_frame_gc(0, 0);
-  // slot allocations:
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 2400: pass
-  argument_count = 0;
-  arguments = node_p;
-  result_count = frame->caller_result_count;
-  myself = get__pass();
-  func = myself->type;
-  frame = frame->caller_frame;
 }
 static void entry__std__directory_8(void) {
   allocate_initialized_frame_gc(3, 7);
@@ -9623,19 +9600,19 @@ static void cont__std__directory_15(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   arguments->slots[1] = frame->slots[5] /* temp__2 */;
-  arguments->slots[2] = func__std__directory_18;
+  arguments->slots[2] = get__pass();
   arguments->slots[3] = frame->slots[6] /* temp__3 */;
   result_count = frame->caller_result_count;
   myself = get__case();
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__std__directory_19(void) {
+static void cont__std__directory_18(void) {
   myself = frame->slots[0] /* break */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void cont__std__directory_20(void) {
+static void cont__std__directory_19(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -9647,16 +9624,16 @@ static void cont__std__directory_20(void) {
   result_count = 0;
   myself = get__close();
   func = myself->type;
-  frame->cont = cont__std__directory_21;
+  frame->cont = cont__std__directory_20;
 }
-static void cont__std__directory_21(void) {
+static void cont__std__directory_20(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
   }
   // 2404: ... :
   // 2405:   sort &entries: (left right) -> filename_of(left) < filename_of(right)
-  frame->slots[5] /* temp__1 */ = create_closure(entry__std__directory_22, 0);
+  frame->slots[5] /* temp__1 */ = create_closure(entry__std__directory_21, 0);
   // 2404: if do_sort:
   // 2405:   sort &entries: (left right) -> filename_of(left) < filename_of(right)
   argument_count = 2;
@@ -9666,9 +9643,9 @@ static void cont__std__directory_21(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__std__directory_28;
+  frame->cont = cont__std__directory_27;
 }
-static void entry__std__directory_22(void) {
+static void entry__std__directory_21(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // entries: 0
@@ -9681,13 +9658,13 @@ static void entry__std__directory_22(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* entries */;
-  arguments->slots[1] = func__std__directory_23;
+  arguments->slots[1] = func__std__directory_22;
   result_count = 1;
   myself = get__sort();
   func = myself->type;
-  frame->cont = cont__std__directory_27;
+  frame->cont = cont__std__directory_26;
 }
-static void entry__std__directory_23(void) {
+static void entry__std__directory_22(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // left: 0
@@ -9703,9 +9680,9 @@ static void entry__std__directory_23(void) {
   result_count = 1;
   myself = get__filename_of();
   func = myself->type;
-  frame->cont = cont__std__directory_24;
+  frame->cont = cont__std__directory_23;
 }
-static void cont__std__directory_24(void) {
+static void cont__std__directory_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9718,9 +9695,9 @@ static void cont__std__directory_24(void) {
   result_count = 1;
   myself = get__filename_of();
   func = myself->type;
-  frame->cont = cont__std__directory_25;
+  frame->cont = cont__std__directory_24;
 }
-static void cont__std__directory_25(void) {
+static void cont__std__directory_24(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9734,9 +9711,9 @@ static void cont__std__directory_25(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__std__directory_26;
+  frame->cont = cont__std__directory_25;
 }
-static void cont__std__directory_26(void) {
+static void cont__std__directory_25(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9750,7 +9727,7 @@ static void cont__std__directory_26(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__directory_27(void) {
+static void cont__std__directory_26(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9762,7 +9739,7 @@ static void cont__std__directory_27(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__std__directory_28(void) {
+static void cont__std__directory_27(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -9988,7 +9965,7 @@ static void entry__types__addrinfo__connect_1(void) {
   }
   }
 }
-static void entry__types__string__connect_1(void) {
+static void entry__types__string___connect(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // uri: 0
@@ -10004,9 +9981,9 @@ static void entry__types__string__connect_1(void) {
   result_count = 1;
   myself = get__get_network_address();
   func = myself->type;
-  frame->cont = cont__types__string__connect_2;
+  frame->cont = cont__types__string___connect_2;
 }
-static void cont__types__string__connect_2(void) {
+static void cont__types__string___connect_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10077,7 +10054,7 @@ static void entry__types__addrinfo__listen_1(void) {
     return;
   }
 }
-static void entry__types__string__listen_1(void) {
+static void entry__types__string___listen(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // uri: 0
@@ -10093,9 +10070,9 @@ static void entry__types__string__listen_1(void) {
   result_count = 1;
   myself = get__get_network_address();
   func = myself->type;
-  frame->cont = cont__types__string__listen_2;
+  frame->cont = cont__types__string___listen_2;
 }
-static void cont__types__string__listen_2(void) {
+static void cont__types__string___listen_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -10139,7 +10116,7 @@ static void entry__types__file_descriptor__accept_1(void) {
   }
   }
 }
-static void entry__std__write_1(void) {
+static void entry__std__write(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -10185,7 +10162,7 @@ static void cont__std__write_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__writeln_1(void) {
+static void entry__std__writeln(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -10201,7 +10178,7 @@ static void entry__std__writeln_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__ewrite_1(void) {
+static void entry__std__ewrite(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -10247,7 +10224,7 @@ static void cont__std__ewrite_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__ewriteln_1(void) {
+static void entry__std__ewriteln(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -10263,7 +10240,7 @@ static void entry__std__ewriteln_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__read_1(void) {
+static void entry__std__read(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // n: 0
@@ -10281,7 +10258,7 @@ static void entry__std__read_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__readln_1(void) {
+static void entry__std__readln(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // return: 0
@@ -10594,7 +10571,7 @@ static void entry__std__load_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__load_1(void) {
+static void entry__std__load(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // filename: 0
@@ -10649,7 +10626,7 @@ static void cont__std__load_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__save_1(void) {
+static void entry__std__save(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
@@ -10964,8 +10941,6 @@ EXPORT void collect__basic__io(void) {
   var.std__open_file_for_writing = collect_node(var.std__open_file_for_writing);
   var.std__open_file_for_reading_and_writing = collect_node(var.std__open_file_for_reading_and_writing);
   var.std__create_file = collect_node(var.std__create_file);
-  var._file_description = collect_node(var._file_description);
-  var._WriteError = collect_node(var._WriteError);
   var.std__atomic_write_to = collect_node(var.std__atomic_write_to);
   var.std__load_file = collect_node(var.std__load_file);
   var.std__save_file = collect_node(var.std__save_file);
@@ -11051,8 +11026,8 @@ EXPORT void phase_2__basic__io(void) {
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
   string__64b427a840d3b445 = from_latin_1_string(" failed: ", 9);
   string__2d7981f4e6002bcf = from_latin_1_string("!\012", 2);
-  func__std__raise_error_1 = create_function(entry__std__raise_error_1, -1);
-  func__std__check_error_1 = create_function(entry__std__check_error_1, -1);
+  func__std__raise_error = create_function(entry__std__raise_error, -1);
+  func__std__check_error = create_function(entry__std__check_error, -1);
   func__std__errno_1 = create_function(entry__std__errno_1, 0);
   func__std__strerror_1 = create_function(entry__std__strerror_1, 1);
   func__std__stat_1 = create_function(entry__std__stat_1, 1);
@@ -11078,14 +11053,14 @@ EXPORT void phase_2__basic__io(void) {
   func__types__file_descriptor__less_1 = create_function(entry__types__file_descriptor__less_1, 2);
   func__types__file_descriptor__hash_1 = create_function(entry__types__file_descriptor__hash_1, 1);
   func__posix_open_1 = create_function(entry__posix_open_1, -1);
-  func__std__open_file_1 = create_function(entry__std__open_file_1, 2);
-  func__std__open_file_for_reading_1 = create_function(entry__std__open_file_for_reading_1, 1);
-  func__std__open_file_for_writing_1 = create_function(entry__std__open_file_for_writing_1, 1);
-  func__std__open_file_for_reading_and_writing_1 = create_function(entry__std__open_file_for_reading_and_writing_1, 1);
-  func__std__create_file_1 = create_function(entry__std__create_file_1, 1);
+  func__std__open_file = create_function(entry__std__open_file, 2);
+  func__std__open_file_for_reading = create_function(entry__std__open_file_for_reading, 1);
+  func__std__open_file_for_writing = create_function(entry__std__open_file_for_writing, 1);
+  func__std__open_file_for_reading_and_writing = create_function(entry__std__open_file_for_reading_and_writing, 1);
+  func__std__create_file = create_function(entry__std__create_file, 1);
   func__types__file_descriptor__close_1 = create_function(entry__types__file_descriptor__close_1, 1);
   func__types__file_descriptor__read_some_bytes_from_1 = create_function(entry__types__file_descriptor__read_some_bytes_from_1, 2);
-  func__types__file_descriptor__read_from_1 = create_function(entry__types__file_descriptor__read_from_1, -1);
+  func__types__file_descriptor___read_from = create_function(entry__types__file_descriptor___read_from, -1);
   func__types__file_descriptor__write_some_bytes_to_1 = create_function(entry__types__file_descriptor__write_some_bytes_to_1, 2);
   string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
   string__431630d095799867 = from_latin_1_string("<file descriptor ", 17);
@@ -11096,34 +11071,34 @@ EXPORT void phase_2__basic__io(void) {
   func__file_description_15 = create_function(entry__file_description_15, 0);
   string__64d8a95c0445db9e = from_latin_1_string("<stderr>", 8);
   func__file_description_17 = create_function(entry__file_description_17, 0);
-  func__file_description_1 = create_function(entry__file_description_1, 1);
+  func__file_description = create_function(entry__file_description, 1);
   string__8138f7c6e352b20e = from_latin_1_string("Writing to file ", 16);
-  func__WriteError_1 = create_function(entry__WriteError_1, 1);
-  func__types__file_descriptor__write_to_1 = create_function(entry__types__file_descriptor__write_to_1, -1);
-  func__std__atomic_write_to_1 = create_function(entry__std__atomic_write_to_1, -1);
+  func__WriteError = create_function(entry__WriteError, 1);
+  func__types__file_descriptor___write_to = create_function(entry__types__file_descriptor___write_to, -1);
+  func__std__atomic_write_to = create_function(entry__std__atomic_write_to, -1);
   func__std__load_file_15 = create_function(entry__std__load_file_15, 0);
-  func__std__load_file_1 = create_function(entry__std__load_file_1, 1);
+  func__std__load_file = create_function(entry__std__load_file, 1);
   string__52b15fd51e05f634 = from_latin_1_string("Failed to save file \042", 21);
-  func__std__save_file_1 = create_function(entry__std__save_file_1, 2);
+  func__std__save_file = create_function(entry__std__save_file, 2);
   func__types__file_descriptor__flush_1 = create_function(entry__types__file_descriptor__flush_1, 1);
   func__ioctl_value_1 = create_function(entry__ioctl_value_1, 3);
   string__9f84c1967610d391 = from_latin_1_string("IOCTL failed!\012", 14);
   func__types__file_descriptor__std__ioctl_8 = create_function(entry__types__file_descriptor__std__ioctl_8, 0);
-  func__types__file_descriptor__std__ioctl_1 = create_function(entry__types__file_descriptor__std__ioctl_1, -1);
+  func__types__file_descriptor___std__ioctl = create_function(entry__types__file_descriptor___std__ioctl, -1);
   func__types__file_descriptor__std__get_terminal_size_1 = create_function(entry__types__file_descriptor__std__get_terminal_size_1, 1);
   func__posix_unlink_1 = create_function(entry__posix_unlink_1, 1);
   string__98599da1f95f3503 = from_latin_1_string("Failed to delete file \042", 23);
   string__fa730c15f216bc6 = from_latin_1_string("\042!\012", 3);
-  func__std__delete_file_1 = create_function(entry__std__delete_file_1, 1);
+  func__std__delete_file = create_function(entry__std__delete_file, 1);
   func__wait_for_io_ready_1 = create_function(entry__wait_for_io_ready_1, 4);
   func__std__get_pid_1 = create_function(entry__std__get_pid_1, 0);
   func__std__wait_pid_1 = create_function(entry__std__wait_pid_1, 2);
-  func__std__wait_for_io_1 = create_function(entry__std__wait_for_io_1, -1);
+  func__std__wait_for_io = create_function(entry__std__wait_for_io, -1);
   func__std__current_path_1 = create_function(entry__std__current_path_1, 0);
   func__std__chdir_1 = create_function(entry__std__chdir_1, 1);
   string__6e87e13bb5f5e5b7 = from_latin_1_string("Failed to change current directory to \042", 39);
   string__2d7981f4e6182be4 = from_latin_1_string("\042!", 2);
-  func__std__change_directory_1 = create_function(entry__std__change_directory_1, 1);
+  func__std__change_directory = create_function(entry__std__change_directory, 1);
   func__clib_mkdir_1 = create_function(entry__clib_mkdir_1, 2);
   string__2d7981f4e6882baa = from_latin_1_string("0o", 2);
   string__580ae28b5c407d7c = from_latin_1_string("MODE", 4);
@@ -11132,50 +11107,49 @@ EXPORT void phase_2__basic__io(void) {
   string__5c5aea03ea80c025 = from_latin_1_string("mkdir", 5);
   func__std__mkdir_22 = create_function(entry__std__mkdir_22, 0);
   func__std__mkdir_36 = create_function(entry__std__mkdir_36, 0);
-  func__std__mkdir_1 = create_function(entry__std__mkdir_1, -1);
+  func__std__mkdir = create_function(entry__std__mkdir, -1);
   string__99b484ebf32a2eca = from_latin_1_string("Failed to create directory \042", 28);
-  func__std__create_directory_1 = create_function(entry__std__create_directory_1, -1);
+  func__std__create_directory = create_function(entry__std__create_directory, -1);
   string__578a5af303e9cce = from_latin_1_string("/", 1);
   string__2d7981f4e6702bea = from_latin_1_string("//", 2);
   string__fa733815f596be3 = from_latin_1_string("/./", 3);
   string__9c0afacb5f107d16 = from_latin_1_string("/../", 4);
-  func__std__fullname_1 = create_function(entry__std__fullname_1, 1);
+  func__std__fullname = create_function(entry__std__fullname, 1);
   func__std__opendir_1 = create_function(entry__std__opendir_1, 1);
   func__types__DIR__close_1 = create_function(entry__types__DIR__close_1, 1);
   func__types__DIR__get_1 = create_function(entry__types__DIR__get_1, 1);
   func__types__dirent__filename_of_1 = create_function(entry__types__dirent__filename_of_1, 1);
   func__types__dirent__inode_of_1 = create_function(entry__types__dirent__inode_of_1, 1);
   func__types__dirent__file_type_of_1 = create_function(entry__types__dirent__file_type_of_1, 1);
-  func__types__dirent__fullname_of_1 = create_function(entry__types__dirent__fullname_of_1, 1);
-  func__types__dirent__is_a_directory_1 = create_function(entry__types__dirent__is_a_directory_1, 1);
-  func__types__dirent__is_a_regular_file_1 = create_function(entry__types__dirent__is_a_regular_file_1, 1);
-  func__types__dirent__is_a_link_1 = create_function(entry__types__dirent__is_a_link_1, 1);
+  func__types__dirent___fullname_of = create_function(entry__types__dirent___fullname_of, 1);
+  func__types__dirent___is_a_directory = create_function(entry__types__dirent___is_a_directory, 1);
+  func__types__dirent___is_a_regular_file = create_function(entry__types__dirent___is_a_regular_file, 1);
+  func__types__dirent___is_a_link = create_function(entry__types__dirent___is_a_link, 1);
   string__578a5af303e9ccf = from_latin_1_string(".", 1);
   string__2d7981f4e6782beb = from_latin_1_string("..", 2);
-  func__std__directory_18 = create_function(entry__std__directory_18, 0);
-  func__std__directory_23 = create_function(entry__std__directory_23, 2);
-  func__std__directory_1 = create_function(entry__std__directory_1, -1);
+  func__std__directory_22 = create_function(entry__std__directory_22, 2);
+  func__std__directory = create_function(entry__std__directory, -1);
   func__std__get_network_addresses_1 = create_function(entry__std__get_network_addresses_1, 1);
   func__std__get_network_address_1 = create_function(entry__std__get_network_address_1, 1);
   func__types__addrinfo__connect_1 = create_function(entry__types__addrinfo__connect_1, 2);
-  func__types__string__connect_1 = create_function(entry__types__string__connect_1, 2);
+  func__types__string___connect = create_function(entry__types__string___connect, 2);
   func__types__addrinfo__listen_1 = create_function(entry__types__addrinfo__listen_1, 2);
-  func__types__string__listen_1 = create_function(entry__types__string__listen_1, 2);
+  func__types__string___listen = create_function(entry__types__string___listen, 2);
   func__types__file_descriptor__accept_1 = create_function(entry__types__file_descriptor__accept_1, 1);
-  func__std__write_1 = create_function(entry__std__write_1, -1);
-  func__std__writeln_1 = create_function(entry__std__writeln_1, -1);
-  func__std__ewrite_1 = create_function(entry__std__ewrite_1, -1);
-  func__std__ewriteln_1 = create_function(entry__std__ewriteln_1, -1);
-  func__std__read_1 = create_function(entry__std__read_1, 1);
-  func__std__readln_1 = create_function(entry__std__readln_1, 0);
+  func__std__write = create_function(entry__std__write, -1);
+  func__std__writeln = create_function(entry__std__writeln, -1);
+  func__std__ewrite = create_function(entry__std__ewrite, -1);
+  func__std__ewriteln = create_function(entry__std__ewriteln, -1);
+  func__std__read = create_function(entry__std__read, 1);
+  func__std__readln = create_function(entry__std__readln, 0);
   string__92241b5897c380d5 = from_latin_1_string("http://", 7);
   string__2d7981f4e6602bb4 = from_latin_1_string("-q", 2);
   string__2d7981f4e6602b8a = from_latin_1_string("-O", 2);
   string__578a5af303e9ccc = from_latin_1_string("-", 1);
   string__a622e2e97612a669 = from_latin_1_string("Load error (\042", 13);
   string__fa730c15f616bed = from_latin_1_string("\042)!", 3);
-  func__std__load_1 = create_function(entry__std__load_1, 1);
-  func__std__save_1 = create_function(entry__std__save_1, -1);
+  func__std__load = create_function(entry__std__load, 1);
+  func__std__save = create_function(entry__std__save, -1);
   string__2c0ae88b5d487d4d = from_latin_1_string("wget", 4);
 }
 
@@ -11519,25 +11493,25 @@ EXPORT void phase_4__basic__io(void) {
   define_method("types", "file_descriptor", poly_idx__hash, func__types__file_descriptor__hash_1);
   define_method("types", "file_descriptor", poly_idx__close, func__types__file_descriptor__close_1);
   define_method("types", "file_descriptor", poly_idx__read_some_bytes_from, func__types__file_descriptor__read_some_bytes_from_1);
-  define_method("types", "file_descriptor", poly_idx__read_from, func__types__file_descriptor__read_from_1);
+  define_method("types", "file_descriptor", poly_idx__read_from, func__types__file_descriptor___read_from);
   define_method("types", "file_descriptor", poly_idx__write_some_bytes_to, func__types__file_descriptor__write_some_bytes_to_1);
-  define_method("types", "file_descriptor", poly_idx__write_to, func__types__file_descriptor__write_to_1);
+  define_method("types", "file_descriptor", poly_idx__write_to, func__types__file_descriptor___write_to);
   define_method("types", "file_descriptor", poly_idx__flush, func__types__file_descriptor__flush_1);
-  define_method("types", "file_descriptor", poly_idx__std__ioctl, func__types__file_descriptor__std__ioctl_1);
+  define_method("types", "file_descriptor", poly_idx__std__ioctl, func__types__file_descriptor___std__ioctl);
   define_method("types", "file_descriptor", poly_idx__std__get_terminal_size, func__types__file_descriptor__std__get_terminal_size_1);
   define_method("types", "DIR", poly_idx__close, func__types__DIR__close_1);
   define_method("types", "DIR", poly_idx__get, func__types__DIR__get_1);
   define_method("types", "dirent", poly_idx__filename_of, func__types__dirent__filename_of_1);
   define_method("types", "dirent", poly_idx__inode_of, func__types__dirent__inode_of_1);
   define_method("types", "dirent", poly_idx__file_type_of, func__types__dirent__file_type_of_1);
-  define_method("types", "dirent", poly_idx__fullname_of, func__types__dirent__fullname_of_1);
-  define_method("types", "dirent", poly_idx__is_a_directory, func__types__dirent__is_a_directory_1);
-  define_method("types", "dirent", poly_idx__is_a_regular_file, func__types__dirent__is_a_regular_file_1);
-  define_method("types", "dirent", poly_idx__is_a_link, func__types__dirent__is_a_link_1);
+  define_method("types", "dirent", poly_idx__fullname_of, func__types__dirent___fullname_of);
+  define_method("types", "dirent", poly_idx__is_a_directory, func__types__dirent___is_a_directory);
+  define_method("types", "dirent", poly_idx__is_a_regular_file, func__types__dirent___is_a_regular_file);
+  define_method("types", "dirent", poly_idx__is_a_link, func__types__dirent___is_a_link);
   define_method("types", "addrinfo", poly_idx__connect, func__types__addrinfo__connect_1);
-  define_method("types", "string", poly_idx__connect, func__types__string__connect_1);
+  define_method("types", "string", poly_idx__connect, func__types__string___connect);
   define_method("types", "addrinfo", poly_idx__listen, func__types__addrinfo__listen_1);
-  define_method("types", "string", poly_idx__listen, func__types__string__listen_1);
+  define_method("types", "string", poly_idx__listen, func__types__string___listen);
   define_method("types", "file_descriptor", poly_idx__accept, func__types__file_descriptor__accept_1);
 }
 
@@ -11573,8 +11547,8 @@ EXPORT void phase_5__basic__io(void) {
   assign_value(&var.std__listen, create_function(type__std__listen, -1));
   assign_value(&var.std__accept, create_function(type__std__accept, -1));
   assign_value(&var.std__connect, create_function(type__std__connect, -1));
-  initialize_future(var.std__raise_error, func__std__raise_error_1);
-  initialize_future(var.std__check_error, func__std__check_error_1);
+  initialize_future(var.std__raise_error, func__std__raise_error);
+  initialize_future(var.std__check_error, func__std__check_error);
   initialize_future(var.std__errno, func__std__errno_1);
   initialize_future(var.std__strerror, func__std__strerror_1);
   assign_value(&var.types__stat, get__types__object());
@@ -11583,45 +11557,43 @@ EXPORT void phase_5__basic__io(void) {
   assign_value(&var.types__file_descriptor, get__types__object());
   initialize_future(var.std__create_file_descriptor, func__std__create_file_descriptor_1);
   assign_variable(&var._posix_open, &func__posix_open_1);
-  initialize_future(var.std__open_file, func__std__open_file_1);
-  initialize_future(var.std__open_file_for_reading, func__std__open_file_for_reading_1);
-  initialize_future(var.std__open_file_for_writing, func__std__open_file_for_writing_1);
-  initialize_future(var.std__open_file_for_reading_and_writing, func__std__open_file_for_reading_and_writing_1);
-  initialize_future(var.std__create_file, func__std__create_file_1);
-  assign_variable(&var._file_description, &func__file_description_1);
-  assign_variable(&var._WriteError, &func__WriteError_1);
-  initialize_future(var.std__atomic_write_to, func__std__atomic_write_to_1);
-  initialize_future(var.std__load_file, func__std__load_file_1);
-  initialize_future(var.std__save_file, func__std__save_file_1);
+  initialize_future(var.std__open_file, func__std__open_file);
+  initialize_future(var.std__open_file_for_reading, func__std__open_file_for_reading);
+  initialize_future(var.std__open_file_for_writing, func__std__open_file_for_writing);
+  initialize_future(var.std__open_file_for_reading_and_writing, func__std__open_file_for_reading_and_writing);
+  initialize_future(var.std__create_file, func__std__create_file);
+  initialize_future(var.std__atomic_write_to, func__std__atomic_write_to);
+  initialize_future(var.std__load_file, func__std__load_file);
+  initialize_future(var.std__save_file, func__std__save_file);
   assign_variable(&var._ioctl_value, &func__ioctl_value_1);
   assign_variable(&var._posix_unlink, &func__posix_unlink_1);
-  initialize_future(var.std__delete_file, func__std__delete_file_1);
+  initialize_future(var.std__delete_file, func__std__delete_file);
   assign_variable(&var._wait_for_io_ready, &func__wait_for_io_ready_1);
   initialize_future(var.std__get_pid, func__std__get_pid_1);
   initialize_future(var.std__wait_pid, func__std__wait_pid_1);
-  initialize_future(var.std__wait_for_io, func__std__wait_for_io_1);
+  initialize_future(var.std__wait_for_io, func__std__wait_for_io);
   initialize_future(var.std__current_path, func__std__current_path_1);
   initialize_future(var.std__chdir, func__std__chdir_1);
-  initialize_future(var.std__change_directory, func__std__change_directory_1);
+  initialize_future(var.std__change_directory, func__std__change_directory);
   assign_variable(&var._clib_mkdir, &func__clib_mkdir_1);
-  initialize_future(var.std__mkdir, func__std__mkdir_1);
-  initialize_future(var.std__create_directory, func__std__create_directory_1);
-  initialize_future(var.std__fullname, func__std__fullname_1);
+  initialize_future(var.std__mkdir, func__std__mkdir);
+  initialize_future(var.std__create_directory, func__std__create_directory);
+  initialize_future(var.std__fullname, func__std__fullname);
   assign_value(&var.types__DIR, get__types__object());
   assign_value(&var.types__dirent, get__types__object());
   initialize_future(var.std__opendir, func__std__opendir_1);
-  initialize_future(var.std__directory, func__std__directory_1);
+  initialize_future(var.std__directory, func__std__directory);
   assign_value(&var.types__addrinfo, get__types__object());
   initialize_future(var.std__get_network_addresses, func__std__get_network_addresses_1);
   initialize_future(var.std__get_network_address, func__std__get_network_address_1);
-  define__std__write(func__std__write_1);
-  initialize_future(var.std__writeln, func__std__writeln_1);
-  define__std__ewrite(func__std__ewrite_1);
-  initialize_future(var.std__ewriteln, func__std__ewriteln_1);
-  define__std__read(func__std__read_1);
-  initialize_future(var.std__readln, func__std__readln_1);
-  initialize_future(var.std__load, func__std__load_1);
-  initialize_future(var.std__save, func__std__save_1);
+  define__std__write(func__std__write);
+  initialize_future(var.std__writeln, func__std__writeln);
+  define__std__ewrite(func__std__ewrite);
+  initialize_future(var.std__ewriteln, func__std__ewriteln);
+  define__std__read(func__std__read);
+  initialize_future(var.std__readln, func__std__readln);
+  initialize_future(var.std__load, func__std__load);
+  initialize_future(var.std__save, func__std__save);
 }
 
 static int already_run_phase_6 = false;

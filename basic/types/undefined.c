@@ -266,13 +266,13 @@ static NODE *create__types__undefined();
 static NODE *get__std__undefined(void) {
   return var.std__undefined;
 }
-static NODE *func__types__undefined__equal_1;
-static void entry__types__undefined__equal_1(void);
-static FRAME_INFO frame__types__undefined__equal_1 = {2, {"left", "right"}};
-static void cont__types__undefined__equal_2(void);
-static NODE *func__types__undefined__default_value_1;
-static void entry__types__undefined__default_value_1(void);
-static FRAME_INFO frame__types__undefined__default_value_1 = {2, {"self", "default"}};
+static NODE *func__types__undefined___equal;
+static void entry__types__undefined___equal(void);
+static FRAME_INFO frame__types__undefined___equal = {2, {"left", "right"}};
+static void cont__types__undefined___equal_2(void);
+static NODE *func__types__undefined___default_value;
+static void entry__types__undefined___default_value(void);
+static FRAME_INFO frame__types__undefined___default_value = {2, {"self", "default"}};
 
 static long func__types__undefined___debug_string(NODE *node, int indent, int max_depth, char *buf);
 static NODE *string__7ca0252e172b1501;
@@ -285,9 +285,9 @@ void run__basic__types__undefined(void);
 static CONTINUATION_INFO continuation_info[] = {
   {run__basic__types__undefined, NULL, 81, 81, 1, 72},
   {cont__16_3, NULL, },
-  {entry__types__undefined__equal_1, NULL, 62, 62, 6, 23},
-  {cont__types__undefined__equal_2, &frame__types__undefined__equal_1, 62, 62, 3, 23},
-  {entry__types__undefined__default_value_1, NULL, 71, 71, 3, 12},
+  {entry__types__undefined___equal, NULL, 62, 62, 6, 23},
+  {cont__types__undefined___equal_2, &frame__types__undefined___equal, 62, 62, 3, 23},
+  {entry__types__undefined___default_value, NULL, 71, 71, 3, 12},
   {entry__16_2, NULL, 81, 81, 56, 72}
 };
 
@@ -418,7 +418,7 @@ SIMPLE_NODE types__undefined__node =
 static NODE *create__types__undefined() {
   return (NODE *)&types__undefined__node;
 }
-static void entry__types__undefined__equal_1(void) {
+static void entry__types__undefined___equal(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // left: 0
@@ -434,9 +434,9 @@ static void entry__types__undefined__equal_1(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__types__undefined__equal_2;
+  frame->cont = cont__types__undefined___equal_2;
 }
-static void cont__types__undefined__equal_2(void) {
+static void cont__types__undefined___equal_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -450,7 +450,7 @@ static void cont__types__undefined__equal_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__undefined__default_value_1(void) {
+static void entry__types__undefined___default_value(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // self: 0
@@ -491,8 +491,8 @@ EXPORT void phase_2__basic__types__undefined(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   set_module("basic__types__undefined");
-  func__types__undefined__equal_1 = create_function(entry__types__undefined__equal_1, 2);
-  func__types__undefined__default_value_1 = create_function(entry__types__undefined__default_value_1, 2);
+  func__types__undefined___equal = create_function(entry__types__undefined___equal, 2);
+  func__types__undefined___default_value = create_function(entry__types__undefined___default_value, 2);
   string__7ca0252e172b1501 = from_latin_1_string("undefined", 9);
   func__16_2 = create_function(entry__16_2, 2);
 }
@@ -527,8 +527,8 @@ EXPORT void phase_4__basic__types__undefined(void) {
   use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
   define_attribute("types", "undefined", poly_idx__is_defined, get__false());
   define_attribute("types", "undefined", poly_idx__is_undefined, get__true());
-  define_method("types", "undefined", poly_idx__equal, func__types__undefined__equal_1);
-  define_method("types", "undefined", poly_idx__default_value, func__types__undefined__default_value_1);
+  define_method("types", "undefined", poly_idx__equal, func__types__undefined___equal);
+  define_method("types", "undefined", poly_idx__default_value, func__types__undefined___default_value);
 }
 
 static int already_run_phase_5 = false;

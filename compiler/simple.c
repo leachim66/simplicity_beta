@@ -284,13 +284,12 @@ IMPORT void define_namespace(const char *namespace);
 IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT void initialize_phase_3(void);
 IMPORT void resolve_symbols(void);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void define_multi_assign_static(
   const char *namespace, const char *name,
   NODE_GETTER getter, NODE_SETTER setter
@@ -315,7 +314,6 @@ IMPORT void use_read_write(
 );
 IMPORT void resolve_attributes(void);
 IMPORT void maybe_initialize_future(NODE *var, NODE *val);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void initialize_function_attributes(void);
 IMPORT void register_collector(FUNC collector);
 IMPORT __attribute__ ((noreturn)) void execute(FUNC entry);
@@ -647,7 +645,6 @@ static struct {
   NODE *_default_paths;
   NODE *_simlibpaths;
   NODE *_simdatapaths;
-  NODE *_NONE;
   NODE *_supported_platforms;
   NODE *_platform_priority;
   NODE *_platform_specific_priority;
@@ -665,8 +662,6 @@ static struct {
   NODE *_input_filename;
   NODE *_additional_libraries;
   NODE *_action;
-  NODE *_EXE;
-  NODE *_LIB;
   NODE *_WHITESPACE;
   NODE *_cc_options;
   NODE *_cpp_options;
@@ -674,28 +669,7 @@ static struct {
   NODE *_c_sources;
   NODE *_dependencies;
   NODE *_resolved_libraries;
-  NODE *_resolve_filename;
-  NODE *_add_module_infos;
-  NODE *_lookup;
-  NODE *_CC;
-  NODE *_compile_c;
-  NODE *_compile_meta_module;
-  NODE *_build_dependencies;
-  NODE *_compile_module;
-  NODE *_compile_modules;
-  NODE *_show_file_list;
-  NODE *_library_paths_and_file_list;
-  NODE *_create_imports;
-  NODE *_compile_exe;
-  NODE *_dump_source_or_check;
-  NODE *_print_c;
-  NODE *_list_dependencies;
-  NODE *_build_codeblocks_project;
-  NODE *_build_library;
-  NODE *_maybe_compile_c_file;
   NODE *_t;
-  NODE *_format_number;
-  NODE *_build_executable;
   NODE *compiler__do_dump_trees;
   NODE *compiler__do_pretty_print;
   NODE *compiler__do_print_simplified_source;
@@ -724,7 +698,6 @@ static const char *var_names[] = {
   "default_paths",
   "simlibpaths",
   "simdatapaths",
-  "NONE",
   "supported_platforms",
   "platform_priority",
   "platform_specific_priority",
@@ -742,8 +715,6 @@ static const char *var_names[] = {
   "input_filename",
   "additional_libraries",
   "action",
-  "EXE",
-  "LIB",
   "WHITESPACE",
   "cc_options",
   "cpp_options",
@@ -751,30 +722,8 @@ static const char *var_names[] = {
   "c_sources",
   "dependencies",
   "resolved_libraries",
-  "resolve_filename",
-  "add_module_infos",
-  "lookup",
-  "CC",
-  "compile_c",
-  "compile_meta_module",
-  "build_dependencies",
-  "compile_module",
-  "compile_modules",
-  "show_file_list",
-  "library_paths_and_file_list",
-  "create_imports",
-  "compile_exe",
-  "dump_source_or_check",
-  "print_c",
-  "list_dependencies",
-  "build_codeblocks_project",
-  "build_library",
-  "maybe_compile_c_file",
-  "t",
-  "format_number",
-  "build_executable"
+  "t"
 };
-static NODE *unique__NONE;
 static NODE *get__compiler__do_dump_trees(void) {
   return var.compiler__do_dump_trees;
 }
@@ -874,17 +823,15 @@ static NODE *get__do_build_static_executable(void) {
 static void define__do_build_static_executable(NODE *node) {
   define_dynamic_slot(dyna_idx__do_build_static_executable, node);
 }
-static NODE *func__compiler__show_compiler_debug_info_1;
-static void entry__compiler__show_compiler_debug_info_1(void);
-static FRAME_INFO frame__compiler__show_compiler_debug_info_1 = {1, {"args"}};
+static NODE *func__compiler__show_compiler_debug_info;
+static void entry__compiler__show_compiler_debug_info(void);
+static FRAME_INFO frame__compiler__show_compiler_debug_info = {1, {"args"}};
 static NODE *func__compiler__show_compiler_debug_info_2;
 static void entry__compiler__show_compiler_debug_info_2(void);
 static FRAME_INFO frame__compiler__show_compiler_debug_info_2 = {1, {"args"}};
 static NODE *get__compiler__show_compiler_debug_info(void) {
   return var.compiler__show_compiler_debug_info;
 }
-static NODE *unique__EXE;
-static NODE *unique__LIB;
 static int dyna_idx__mode;
 static NODE *get__mode(void) {
   return get_dynamic_slot(dyna_idx__mode);
@@ -939,9 +886,9 @@ static void set__last_modification_time(NODE *node) {
 static void define__last_modification_time(NODE *node) {
   define_dynamic_cell(dyna_idx__last_modification_time, node);
 }
-static NODE *func__resolve_filename_1;
-static void entry__resolve_filename_1(void);
-static FRAME_INFO frame__resolve_filename_1 = {3, {"filename", "libname", "libpath"}};
+static NODE *func__resolve_filename;
+static void entry__resolve_filename(void);
+static FRAME_INFO frame__resolve_filename = {3, {"filename", "libname", "libpath"}};
 static void cont__resolve_filename_2(void);
 static NODE *func__resolve_filename_3;
 static void entry__resolve_filename_3(void);
@@ -981,9 +928,9 @@ static void cont__resolve_filename_23(void);
 static void cont__resolve_filename_24(void);
 static void cont__resolve_filename_25(void);
 static void cont__resolve_filename_26(void);
-static NODE *func__add_module_infos_1;
-static void entry__add_module_infos_1(void);
-static FRAME_INFO frame__add_module_infos_1 = {7, {"path", "mod_path", "return", "entries", "filenames", "directories", "modules"}};
+static NODE *func__add_module_infos;
+static void entry__add_module_infos(void);
+static FRAME_INFO frame__add_module_infos = {7, {"path", "mod_path", "return", "entries", "filenames", "directories", "modules"}};
 static void cont__add_module_infos_2(void);
 static void cont__add_module_infos_3(void);
 static NODE *func__add_module_infos_4;
@@ -1077,6 +1024,7 @@ static void cont__add_module_infos_63(void);
 static NODE *func__add_module_infos_64;
 static void entry__add_module_infos_64(void);
 static FRAME_INFO frame__add_module_infos_64 = {2, {"parent", "maybe_push_common"}};
+static NODE *unique__NONE;
 static void cont__add_module_infos_65(void);
 static void cont__add_module_infos_66(void);
 static NODE *func__add_module_infos_67;
@@ -1095,9 +1043,9 @@ static NODE *func__add_module_infos_77;
 static void entry__add_module_infos_77(void);
 static FRAME_INFO frame__add_module_infos_77 = {3, {"return", "directories", "modules"}};
 static void cont__add_module_infos_78(void);
-static NODE *func__lookup_1;
-static void entry__lookup_1(void);
-static FRAME_INFO frame__lookup_1 = {3, {"mod_filename", "mod_name", "info"}};
+static NODE *func__lookup;
+static void entry__lookup(void);
+static FRAME_INFO frame__lookup = {3, {"mod_filename", "mod_name", "info"}};
 static void cont__lookup_2(void);
 static void cont__lookup_3(void);
 static NODE *func__lookup_4;
@@ -1112,18 +1060,18 @@ static void cont__lookup_8(void);
 static void cont__lookup_9(void);
 static void cont__lookup_10(void);
 static void cont__lookup_11(void);
-static NODE *func__CC_1;
-static void entry__CC_1(void);
-static FRAME_INFO frame__CC_1 = {1, {"args"}};
+static NODE *func__CC;
+static void entry__CC(void);
+static FRAME_INFO frame__CC = {1, {"args"}};
 static NODE *func__CC_2;
 static void entry__CC_2(void);
 static FRAME_INFO frame__CC_2 = {1, {"args"}};
 static void cont__CC_3(void);
 static void cont__CC_4(void);
 static void cont__CC_5(void);
-static NODE *func__compile_c_1;
-static void entry__compile_c_1(void);
-static FRAME_INFO frame__compile_c_1 = {2, {"c_filename", "o_filename"}};
+static NODE *func__compile_c;
+static void entry__compile_c(void);
+static FRAME_INFO frame__compile_c = {2, {"c_filename", "o_filename"}};
 static NODE *func__compile_c_2;
 static void entry__compile_c_2(void);
 static FRAME_INFO frame__compile_c_2 = {0, {}};
@@ -1142,9 +1090,9 @@ static NODE *string__ca9b4802029a5965;
 static NODE *string__578a5af303e9ceb;
 static void cont__compile_c_12(void);
 static void cont__compile_c_13(void);
-static NODE *func__compile_meta_module_1;
-static void entry__compile_meta_module_1(void);
-static FRAME_INFO frame__compile_meta_module_1 = {3, {"mod_filename", "mod_name", "meta_level"}};
+static NODE *func__compile_meta_module;
+static void entry__compile_meta_module(void);
+static FRAME_INFO frame__compile_meta_module = {3, {"mod_filename", "mod_name", "meta_level"}};
 static NODE *func__compile_meta_module_2;
 static void entry__compile_meta_module_2(void);
 static FRAME_INFO frame__compile_meta_module_2 = {11, {"mod_filename", "meta_level", "meta_path", "filename", "meta_filename", "meta_c_filename", "sim_filename", "meta_info", "sim_info", "meta_c_info", "force_rebuild"}};
@@ -1259,9 +1207,9 @@ static void cont__compile_meta_module_78(void);
 static void cont__compile_meta_module_79(void);
 static void cont__compile_meta_module_80(void);
 static void cont__compile_meta_module_81(void);
-static NODE *func__build_dependencies_1;
-static void entry__build_dependencies_1(void);
-static FRAME_INFO frame__build_dependencies_1 = {5, {"mod_filename", "mod_name", "c_buf", "do_compile_c", "return"}};
+static NODE *func__build_dependencies;
+static void entry__build_dependencies(void);
+static FRAME_INFO frame__build_dependencies = {5, {"mod_filename", "mod_name", "c_buf", "do_compile_c", "return"}};
 static NODE *func__build_dependencies_2;
 static void entry__build_dependencies_2(void);
 static FRAME_INFO frame__build_dependencies_2 = {7, {"line", "return", "mod_filename", "mod_name", "do_compile_c", "command", "argument"}};
@@ -1278,6 +1226,7 @@ static void cont__build_dependencies_10(void);
 static NODE *func__build_dependencies_11;
 static void entry__build_dependencies_11(void);
 static FRAME_INFO frame__build_dependencies_11 = {3, {"argument", "mod_filename", "mod_name"}};
+static NODE *unique__EXE;
 static void cont__build_dependencies_12(void);
 static NODE *func__build_dependencies_13;
 static void entry__build_dependencies_13(void);
@@ -1326,9 +1275,9 @@ static void cont__build_dependencies_38(void);
 static NODE *string__984c0f90152bd09f;
 static NODE *string__1a0aeb0b5d107d52;
 static void cont__build_dependencies_41(void);
-static NODE *func__compile_module_1;
-static void entry__compile_module_1(void);
-static FRAME_INFO frame__compile_module_1 = {6, {"mod_filename", "mod_name", "return", "compile_submodule", "mod_info", "o_filename"}};
+static NODE *func__compile_module;
+static void entry__compile_module(void);
+static FRAME_INFO frame__compile_module = {6, {"mod_filename", "mod_name", "return", "compile_submodule", "mod_info", "o_filename"}};
 static NODE *func__compile_module_2;
 static void entry__compile_module_2(void);
 static FRAME_INFO frame__compile_module_2 = {11, {"submodule_names", "do_compile_c", "suffix", "mod_filename", "mod_name", "o_filename", "modification_time", "sim_filenames", "c_filename", "c_info", "c_buf"}};
@@ -1548,9 +1497,9 @@ static void cont__compile_module_137(void);
 static void cont__compile_module_138(void);
 static void cont__compile_module_139(void);
 static void cont__compile_module_140(void);
-static NODE *func__compile_modules_1;
-static void entry__compile_modules_1(void);
-static FRAME_INFO frame__compile_modules_1 = {4, {"path", "mod_path", "directories", "modules"}};
+static NODE *func__compile_modules;
+static void entry__compile_modules(void);
+static FRAME_INFO frame__compile_modules = {4, {"path", "mod_path", "directories", "modules"}};
 static void cont__compile_modules_2(void);
 static void cont__compile_modules_3(void);
 static NODE *func__compile_modules_4;
@@ -1564,9 +1513,9 @@ static void entry__compile_modules_8(void);
 static FRAME_INFO frame__compile_modules_8 = {3, {"name", "path", "mod_path"}};
 static void cont__compile_modules_9(void);
 static void cont__compile_modules_10(void);
-static NODE *func__show_file_list_1;
-static void entry__show_file_list_1(void);
-static FRAME_INFO frame__show_file_list_1 = {0, {}};
+static NODE *func__show_file_list;
+static void entry__show_file_list(void);
+static FRAME_INFO frame__show_file_list = {0, {}};
 static NODE *func__show_file_list_2;
 static void entry__show_file_list_2(void);
 static FRAME_INFO frame__show_file_list_2 = {1, {"path"}};
@@ -1584,9 +1533,9 @@ static NODE *string__4c84a8f87d97d1a3;
 static void cont__show_file_list_12(void);
 static void cont__show_file_list_13(void);
 static NODE *string__d2a77fcc4263ea03;
-static NODE *func__library_paths_and_file_list_1;
-static void entry__library_paths_and_file_list_1(void);
-static FRAME_INFO frame__library_paths_and_file_list_1 = {4, {"library_paths", "object_files", "library_files", "paths"}};
+static NODE *func__library_paths_and_file_list;
+static void entry__library_paths_and_file_list(void);
+static FRAME_INFO frame__library_paths_and_file_list = {4, {"library_paths", "object_files", "library_files", "paths"}};
 static void cont__library_paths_and_file_list_2(void);
 static void cont__library_paths_and_file_list_3(void);
 static void cont__library_paths_and_file_list_4(void);
@@ -1654,9 +1603,9 @@ static void cont__library_paths_and_file_list_43(void);
 static void cont__library_paths_and_file_list_44(void);
 static void cont__library_paths_and_file_list_45(void);
 static void cont__library_paths_and_file_list_46(void);
-static NODE *func__create_imports_1;
-static void entry__create_imports_1(void);
-static FRAME_INFO frame__create_imports_1 = {5, {"source", "already_checked", "collect_declarations", "imports", "first_part"}};
+static NODE *func__create_imports;
+static void entry__create_imports(void);
+static FRAME_INFO frame__create_imports = {5, {"source", "already_checked", "collect_declarations", "imports", "first_part"}};
 static NODE *func__create_imports_2;
 static void entry__create_imports_2(void);
 static FRAME_INFO frame__create_imports_2 = {4, {"buf", "already_checked", "collect_declarations", "s"}};
@@ -1777,9 +1726,9 @@ static NODE *func__create_imports_74;
 static void entry__create_imports_74(void);
 static FRAME_INFO frame__create_imports_74 = {0, {}};
 static NODE *string__868d47f2e5ba5079;
-static NODE *func__compile_exe_1;
-static void entry__compile_exe_1(void);
-static FRAME_INFO frame__compile_exe_1 = {4, {"body", "return__1", "mod_filename", "mod_name"}};
+static NODE *func__compile_exe;
+static void entry__compile_exe(void);
+static FRAME_INFO frame__compile_exe = {4, {"body", "return__1", "mod_filename", "mod_name"}};
 static void cont__compile_exe_2(void);
 static NODE *func__compile_exe_3;
 static void entry__compile_exe_3(void);
@@ -1796,17 +1745,17 @@ static void cont__compile_exe_10(void);
 static void cont__compile_exe_11(void);
 static void cont__compile_exe_12(void);
 static void cont__compile_exe_13(void);
-static NODE *func__dump_source_or_check_1;
-static void entry__dump_source_or_check_1(void);
-static FRAME_INFO frame__dump_source_or_check_1 = {0, {}};
+static NODE *func__dump_source_or_check;
+static void entry__dump_source_or_check(void);
+static FRAME_INFO frame__dump_source_or_check = {0, {}};
 static NODE *func__dump_source_or_check_2;
 static void entry__dump_source_or_check_2(void);
 static FRAME_INFO frame__dump_source_or_check_2 = {3, {"mod_filename", "mod_name", "return__1"}};
 static void cont__dump_source_or_check_3(void);
 static void cont__dump_source_or_check_4(void);
-static NODE *func__print_c_1;
-static void entry__print_c_1(void);
-static FRAME_INFO frame__print_c_1 = {0, {}};
+static NODE *func__print_c;
+static void entry__print_c(void);
+static FRAME_INFO frame__print_c = {0, {}};
 static NODE *func__print_c_2;
 static void entry__print_c_2(void);
 static FRAME_INFO frame__print_c_2 = {4, {"mod_filename", "mod_name", "c_source", "c_buf"}};
@@ -1835,9 +1784,9 @@ static NODE *func__print_c_18;
 static void entry__print_c_18(void);
 static FRAME_INFO frame__print_c_18 = {0, {}};
 static NODE *string__b830f06b636224ab;
-static NODE *func__list_dependencies_1;
-static void entry__list_dependencies_1(void);
-static FRAME_INFO frame__list_dependencies_1 = {1, {"prefix_path"}};
+static NODE *func__list_dependencies;
+static void entry__list_dependencies(void);
+static FRAME_INFO frame__list_dependencies = {1, {"prefix_path"}};
 static void cont__list_dependencies_2(void);
 static NODE *func__list_dependencies_3;
 static void entry__list_dependencies_3(void);
@@ -1861,6 +1810,7 @@ static void cont__list_dependencies_15(void);
 static NODE *func__list_dependencies_16;
 static void entry__list_dependencies_16(void);
 static FRAME_INFO frame__list_dependencies_16 = {1, {"return__1"}};
+static NODE *unique__LIB;
 static NODE *func__list_dependencies_17;
 static void entry__list_dependencies_17(void);
 static FRAME_INFO frame__list_dependencies_17 = {0, {}};
@@ -1892,9 +1842,9 @@ static void entry__list_dependencies_35(void);
 static FRAME_INFO frame__list_dependencies_35 = {2, {"filename", "prefix_path"}};
 static void cont__list_dependencies_36(void);
 static void cont__list_dependencies_37(void);
-static NODE *func__build_codeblocks_project_1;
-static void entry__build_codeblocks_project_1(void);
-static FRAME_INFO frame__build_codeblocks_project_1 = {0, {}};
+static NODE *func__build_codeblocks_project;
+static void entry__build_codeblocks_project(void);
+static FRAME_INFO frame__build_codeblocks_project = {0, {}};
 static NODE *func__build_codeblocks_project_2;
 static void entry__build_codeblocks_project_2(void);
 static FRAME_INFO frame__build_codeblocks_project_2 = {10, {"mod_filename", "mod_name", "codeblocks_path", "info", "basename", "prefix_path", "depth", "path_prefix", "cbp_filename", "buf"}};
@@ -1965,9 +1915,9 @@ static void cont__build_codeblocks_project_58(void);
 static void cont__build_codeblocks_project_59(void);
 static NODE *string__1d1cedd7cdd611c4;
 static void cont__build_codeblocks_project_61(void);
-static NODE *func__build_library_1;
-static void entry__build_library_1(void);
-static FRAME_INFO frame__build_library_1 = {1, {"return__1"}};
+static NODE *func__build_library;
+static void entry__build_library(void);
+static FRAME_INFO frame__build_library = {1, {"return__1"}};
 static NODE *string__421f52c90112c2b9;
 static void cont__build_library_3(void);
 static NODE *func__build_library_4;
@@ -2124,9 +2074,9 @@ static void entry__build_library_101(void);
 static FRAME_INFO frame__build_library_101 = {1, {"err"}};
 static void cont__build_library_102(void);
 static void cont__build_library_103(void);
-static NODE *func__maybe_compile_c_file_1;
-static void entry__maybe_compile_c_file_1(void);
-static FRAME_INFO frame__maybe_compile_c_file_1 = {5, {"filename", "c_filename", "o_filename", "c_info", "o_info"}};
+static NODE *func__maybe_compile_c_file;
+static void entry__maybe_compile_c_file(void);
+static FRAME_INFO frame__maybe_compile_c_file = {5, {"filename", "c_filename", "o_filename", "c_info", "o_info"}};
 static void cont__maybe_compile_c_file_2(void);
 static void cont__maybe_compile_c_file_3(void);
 static void cont__maybe_compile_c_file_4(void);
@@ -2156,9 +2106,9 @@ static FRAME_INFO frame__maybe_compile_c_file_19 = {1, {"filename"}};
 static NODE *string__74150357c2230d49;
 static void cont__maybe_compile_c_file_21(void);
 static void cont__maybe_compile_c_file_22(void);
-static NODE *func__format_number_1;
-static void entry__format_number_1(void);
-static FRAME_INFO frame__format_number_1 = {4, {"val", "n", "m", "ac"}};
+static NODE *func__format_number;
+static void entry__format_number(void);
+static FRAME_INFO frame__format_number = {4, {"val", "n", "m", "ac"}};
 static void cont__format_number_2(void);
 static NODE *func__format_number_3;
 static void entry__format_number_3(void);
@@ -2205,9 +2155,9 @@ static void cont__format_number_30(void);
 static void cont__format_number_31(void);
 static void cont__format_number_32(void);
 static void cont__format_number_33(void);
-static NODE *func__compiler__write_timing_info_1;
-static void entry__compiler__write_timing_info_1(void);
-static FRAME_INFO frame__compiler__write_timing_info_1 = {3, {"description", "filename", "new_t"}};
+static NODE *func__compiler__write_timing_info;
+static void entry__compiler__write_timing_info(void);
+static FRAME_INFO frame__compiler__write_timing_info = {3, {"description", "filename", "new_t"}};
 static void cont__compiler__write_timing_info_2(void);
 static void cont__compiler__write_timing_info_3(void);
 static NODE *func__compiler__write_timing_info_4;
@@ -2232,9 +2182,9 @@ static void cont__compiler__write_timing_info_18(void);
 static NODE *get__compiler__write_timing_info(void) {
   return var.compiler__write_timing_info;
 }
-static NODE *func__build_executable_1;
-static void entry__build_executable_1(void);
-static FRAME_INFO frame__build_executable_1 = {0, {}};
+static NODE *func__build_executable;
+static void entry__build_executable(void);
+static FRAME_INFO frame__build_executable = {0, {}};
 static NODE *func__build_executable_2;
 static void entry__build_executable_2(void);
 static FRAME_INFO frame__build_executable_2 = {9, {"mod_filename", "mod_name", "exe_filename", "c_filename", "o_filename", "sim_info", "c_info", "c_buf", "zz"}};
@@ -2950,7 +2900,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__197_13, NULL, },
   {cont__198_1, NULL, },
   {entry__compiler__show_compiler_debug_info_2, NULL, 274, 274, 36, 49},
-  {entry__compiler__show_compiler_debug_info_1, NULL, 274, 274, 3, 49},
+  {entry__compiler__show_compiler_debug_info, NULL, 274, 274, 3, 49},
   {entry__resolve_filename_13, NULL, 321, 321, 37, 80},
   {cont__resolve_filename_14, &frame__resolve_filename_13, 321, 321, 37, 61},
   {cont__resolve_filename_15, &frame__resolve_filename_13, 321, 321, 80, 80},
@@ -2966,15 +2916,15 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__resolve_filename_3, NULL, 316, 321, 5, 83},
   {entry__resolve_filename_20, NULL, 325, 326, 11, 57},
   {cont__resolve_filename_23, &frame__resolve_filename_20, 325, 326, 5, 57},
-  {entry__resolve_filename_1, NULL, 314, 314, 6, 36},
-  {cont__resolve_filename_2, &frame__resolve_filename_1, 314, 321, 3, 84},
-  {cont__resolve_filename_16, &frame__resolve_filename_1, 322, 322, 3, 32},
-  {cont__resolve_filename_17, &frame__resolve_filename_1, 323, 323, 3, 38},
-  {cont__resolve_filename_18, &frame__resolve_filename_1, 324, 324, 6, 25},
-  {cont__resolve_filename_19, &frame__resolve_filename_1, 324, 326, 3, 58},
-  {cont__resolve_filename_24, &frame__resolve_filename_1, 327, 327, 21, 39},
-  {cont__resolve_filename_25, &frame__resolve_filename_1, 327, 327, 6, 40},
-  {cont__resolve_filename_26, &frame__resolve_filename_1, 327, 327, 3, 40},
+  {entry__resolve_filename, NULL, 314, 314, 6, 36},
+  {cont__resolve_filename_2, &frame__resolve_filename, 314, 321, 3, 84},
+  {cont__resolve_filename_16, &frame__resolve_filename, 322, 322, 3, 32},
+  {cont__resolve_filename_17, &frame__resolve_filename, 323, 323, 3, 38},
+  {cont__resolve_filename_18, &frame__resolve_filename, 324, 324, 6, 25},
+  {cont__resolve_filename_19, &frame__resolve_filename, 324, 326, 3, 58},
+  {cont__resolve_filename_24, &frame__resolve_filename, 327, 327, 21, 39},
+  {cont__resolve_filename_25, &frame__resolve_filename, 327, 327, 6, 40},
+  {cont__resolve_filename_26, &frame__resolve_filename, 327, 327, 3, 40},
   {entry__add_module_infos_10, NULL, 345, 345, 56, 77},
   {cont__add_module_infos_11, &frame__add_module_infos_10, 345, 345, 77, 77},
   {entry__add_module_infos_8, NULL, 345, 345, 35, 53},
@@ -3039,14 +2989,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__add_module_infos_39, NULL, 358, 358, 8, 30},
   {cont__add_module_infos_40, &frame__add_module_infos_39, 358, 376, 5, 47},
   {entry__add_module_infos_77, NULL, 377, 377, 39, 64},
-  {entry__add_module_infos_1, NULL, 338, 338, 22, 27},
-  {cont__add_module_infos_2, &frame__add_module_infos_1, 338, 338, 3, 33},
-  {cont__add_module_infos_3, &frame__add_module_infos_1, 342, 356, 3, 54},
-  {cont__add_module_infos_38, &frame__add_module_infos_1, 357, 376, 3, 48},
-  {cont__add_module_infos_74, &frame__add_module_infos_1, 377, 377, 6, 31},
-  {cont__add_module_infos_75, &frame__add_module_infos_1, 377, 377, 6, 36},
-  {cont__add_module_infos_76, &frame__add_module_infos_1, 377, 377, 3, 64},
-  {cont__add_module_infos_78, &frame__add_module_infos_1, 377, 377, 64, 64},
+  {entry__add_module_infos, NULL, 338, 338, 22, 27},
+  {cont__add_module_infos_2, &frame__add_module_infos, 338, 338, 3, 33},
+  {cont__add_module_infos_3, &frame__add_module_infos, 342, 356, 3, 54},
+  {cont__add_module_infos_38, &frame__add_module_infos, 357, 376, 3, 48},
+  {cont__add_module_infos_74, &frame__add_module_infos, 377, 377, 6, 31},
+  {cont__add_module_infos_75, &frame__add_module_infos, 377, 377, 6, 36},
+  {cont__add_module_infos_76, &frame__add_module_infos, 377, 377, 3, 64},
+  {cont__add_module_infos_78, &frame__add_module_infos, 377, 377, 64, 64},
   {entry__lookup_4, NULL, 390, 390, 5, 11},
   {entry__lookup_5, NULL, 392, 392, 49, 49},
   {cont__lookup_6, &frame__lookup_5, 392, 392, 24, 50},
@@ -3055,14 +3005,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__lookup_9, &frame__lookup_5, 392, 392, 7, 73},
   {cont__lookup_10, &frame__lookup_5, 393, 393, 10, 30},
   {cont__lookup_11, &frame__lookup_5, 393, 393, 7, 30},
-  {entry__lookup_1, NULL, 387, 387, 3, 29},
-  {cont__lookup_2, &frame__lookup_1, 389, 389, 5, 19},
-  {cont__lookup_3, &frame__lookup_1, 388, 393, 3, 31},
+  {entry__lookup, NULL, 387, 387, 3, 29},
+  {cont__lookup_2, &frame__lookup, 389, 389, 5, 19},
+  {cont__lookup_3, &frame__lookup, 388, 393, 3, 31},
   {entry__CC_2, NULL, 396, 396, 36, 47},
   {cont__CC_3, &frame__CC_2, 396, 396, 53, 62},
   {cont__CC_4, &frame__CC_2, 396, 396, 27, 62},
-  {entry__CC_1, NULL, 396, 396, 3, 62},
-  {cont__CC_5, &frame__CC_1, 397, 397, 3, 10},
+  {entry__CC, NULL, 396, 396, 3, 62},
+  {cont__CC_5, &frame__CC, 397, 397, 3, 10},
   {entry__compile_c_2, NULL, 400, 400, 41, 60},
   {entry__compile_c_8, NULL, 412, 412, 51, 63},
   {cont__compile_c_9, &frame__compile_c_8, 412, 412, 13, 69},
@@ -3070,8 +3020,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__compile_c_4, NULL, 401, 410, 5, 16},
   {cont__compile_c_7, &frame__compile_c_4, 411, 412, 5, 69},
   {cont__compile_c_13, &frame__compile_c_4, 413, 413, 17, 17},
-  {entry__compile_c_1, NULL, 400, 400, 10, 60},
-  {cont__compile_c_3, &frame__compile_c_1, 400, 413, 3, 17},
+  {entry__compile_c, NULL, 400, 400, 10, 60},
+  {cont__compile_c_3, &frame__compile_c, 400, 413, 3, 17},
   {entry__compile_meta_module_25, NULL, 440, 440, 45, 74},
   {cont__compile_meta_module_26, &frame__compile_meta_module_25, 440, 440, 9, 41},
   {cont__compile_meta_module_27, &frame__compile_meta_module_25, 440, 440, 9, 74},
@@ -3148,7 +3098,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compile_meta_module_79, &frame__compile_meta_module_2, 484, 484, 5, 19},
   {cont__compile_meta_module_80, &frame__compile_meta_module_2, 485, 485, 8, 21},
   {cont__compile_meta_module_81, &frame__compile_meta_module_2, 485, 485, 5, 21},
-  {entry__compile_meta_module_1, NULL, 424, 485, 3, 21},
+  {entry__compile_meta_module, NULL, 424, 485, 3, 21},
   {entry__build_dependencies_13, NULL, 509, 509, 43, 43},
   {cont__build_dependencies_14, &frame__build_dependencies_13, 509, 509, 15, 44},
   {cont__build_dependencies_15, &frame__build_dependencies_13, 511, 511, 48, 48},
@@ -3185,8 +3135,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__build_dependencies_6, &frame__build_dependencies_2, 502, 502, 5, 44},
   {cont__build_dependencies_7, &frame__build_dependencies_2, 503, 503, 5, 38},
   {cont__build_dependencies_8, &frame__build_dependencies_2, 504, 525, 5, 71},
-  {entry__build_dependencies_1, NULL, 498, 525, 3, 72},
-  {cont__build_dependencies_41, &frame__build_dependencies_1, 525, 525, 72, 72},
+  {entry__build_dependencies, NULL, 498, 525, 3, 72},
+  {cont__build_dependencies_41, &frame__build_dependencies, 525, 525, 72, 72},
   {entry__compile_module_9, NULL, 547, 547, 28, 44},
   {cont__compile_module_10, &frame__compile_module_9, 547, 547, 28, 44},
   {entry__compile_module_12, NULL, 548, 548, 9, 72},
@@ -3310,26 +3260,26 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compile_module_129, &frame__compile_module_113, 634, 639, 9, 39},
   {entry__compile_module_99, NULL, 607, 619, 7, 34},
   {cont__compile_module_112, &frame__compile_module_99, 620, 639, 7, 40},
-  {entry__compile_module_1, NULL, 595, 595, 3, 40},
-  {cont__compile_module_78, &frame__compile_module_1, 596, 596, 10, 28},
-  {cont__compile_module_79, &frame__compile_module_1, 596, 598, 3, 57},
-  {cont__compile_module_84, &frame__compile_module_1, 599, 599, 3, 39},
-  {cont__compile_module_86, &frame__compile_module_1, 600, 600, 6, 24},
-  {cont__compile_module_87, &frame__compile_module_1, 600, 600, 3, 31},
-  {cont__compile_module_88, &frame__compile_module_1, 601, 601, 3, 22},
-  {cont__compile_module_89, &frame__compile_module_1, 603, 603, 5, 21},
-  {cont__compile_module_90, &frame__compile_module_1, 602, 639, 3, 42},
-  {cont__compile_module_140, &frame__compile_module_1, 639, 639, 42, 42},
+  {entry__compile_module, NULL, 595, 595, 3, 40},
+  {cont__compile_module_78, &frame__compile_module, 596, 596, 10, 28},
+  {cont__compile_module_79, &frame__compile_module, 596, 598, 3, 57},
+  {cont__compile_module_84, &frame__compile_module, 599, 599, 3, 39},
+  {cont__compile_module_86, &frame__compile_module, 600, 600, 6, 24},
+  {cont__compile_module_87, &frame__compile_module, 600, 600, 3, 31},
+  {cont__compile_module_88, &frame__compile_module, 601, 601, 3, 22},
+  {cont__compile_module_89, &frame__compile_module, 603, 603, 5, 21},
+  {cont__compile_module_90, &frame__compile_module, 602, 639, 3, 42},
+  {cont__compile_module_140, &frame__compile_module, 639, 639, 42, 42},
   {entry__compile_modules_4, NULL, 648, 648, 21, 41},
   {cont__compile_modules_5, &frame__compile_modules_4, 648, 648, 43, 67},
   {cont__compile_modules_6, &frame__compile_modules_4, 648, 648, 5, 67},
   {entry__compile_modules_8, NULL, 650, 650, 20, 40},
   {cont__compile_modules_9, &frame__compile_modules_8, 650, 650, 42, 66},
   {cont__compile_modules_10, &frame__compile_modules_8, 650, 650, 5, 66},
-  {entry__compile_modules_1, NULL, 646, 646, 47, 66},
-  {cont__compile_modules_2, &frame__compile_modules_1, 646, 646, 3, 66},
-  {cont__compile_modules_3, &frame__compile_modules_1, 647, 648, 3, 67},
-  {cont__compile_modules_7, &frame__compile_modules_1, 649, 650, 3, 66},
+  {entry__compile_modules, NULL, 646, 646, 47, 66},
+  {cont__compile_modules_2, &frame__compile_modules, 646, 646, 3, 66},
+  {cont__compile_modules_3, &frame__compile_modules, 647, 648, 3, 67},
+  {cont__compile_modules_7, &frame__compile_modules, 649, 650, 3, 66},
   {entry__show_file_list_6, NULL, 659, 659, 34, 58},
   {cont__show_file_list_8, &frame__show_file_list_6, 659, 659, 25, 58},
   {entry__show_file_list_2, NULL, 658, 658, 5, 40},
@@ -3339,7 +3289,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__show_file_list_10, &frame__show_file_list_2, 660, 660, 5, 57},
   {cont__show_file_list_12, &frame__show_file_list_2, 661, 661, 35, 54},
   {cont__show_file_list_13, &frame__show_file_list_2, 661, 661, 5, 54},
-  {entry__show_file_list_1, NULL, 657, 661, 3, 54},
+  {entry__show_file_list, NULL, 657, 661, 3, 54},
   {entry__library_paths_and_file_list_7, NULL, 670, 670, 60, 70},
   {cont__library_paths_and_file_list_9, &frame__library_paths_and_file_list_7, 670, 670, 40, 70},
   {cont__library_paths_and_file_list_10, &frame__library_paths_and_file_list_7, 670, 670, 70, 70},
@@ -3370,15 +3320,15 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__library_paths_and_file_list_20, &frame__library_paths_and_file_list_19, 684, 689, 9, 30},
   {cont__library_paths_and_file_list_43, &frame__library_paths_and_file_list_19, 674, 689, 5, 32},
   {cont__library_paths_and_file_list_44, &frame__library_paths_and_file_list_19, 689, 689, 33, 33},
-  {entry__library_paths_and_file_list_1, NULL, 664, 664, 3, 16},
-  {cont__library_paths_and_file_list_2, &frame__library_paths_and_file_list_1, 668, 668, 3, 39},
-  {cont__library_paths_and_file_list_3, &frame__library_paths_and_file_list_1, 669, 669, 6, 21},
-  {cont__library_paths_and_file_list_4, &frame__library_paths_and_file_list_1, 669, 670, 3, 70},
-  {cont__library_paths_and_file_list_11, &frame__library_paths_and_file_list_1, 671, 671, 3, 77},
-  {cont__library_paths_and_file_list_15, &frame__library_paths_and_file_list_1, 672, 672, 3, 54},
-  {cont__library_paths_and_file_list_18, &frame__library_paths_and_file_list_1, 673, 689, 3, 33},
-  {cont__library_paths_and_file_list_45, &frame__library_paths_and_file_list_1, 690, 690, 24, 57},
-  {cont__library_paths_and_file_list_46, &frame__library_paths_and_file_list_1, 690, 690, 3, 57},
+  {entry__library_paths_and_file_list, NULL, 664, 664, 3, 16},
+  {cont__library_paths_and_file_list_2, &frame__library_paths_and_file_list, 668, 668, 3, 39},
+  {cont__library_paths_and_file_list_3, &frame__library_paths_and_file_list, 669, 669, 6, 21},
+  {cont__library_paths_and_file_list_4, &frame__library_paths_and_file_list, 669, 670, 3, 70},
+  {cont__library_paths_and_file_list_11, &frame__library_paths_and_file_list, 671, 671, 3, 77},
+  {cont__library_paths_and_file_list_15, &frame__library_paths_and_file_list, 672, 672, 3, 54},
+  {cont__library_paths_and_file_list_18, &frame__library_paths_and_file_list, 673, 689, 3, 33},
+  {cont__library_paths_and_file_list_45, &frame__library_paths_and_file_list, 690, 690, 24, 57},
+  {cont__library_paths_and_file_list_46, &frame__library_paths_and_file_list, 690, 690, 3, 57},
   {entry__create_imports_9, NULL, 700, 700, 51, 64},
   {cont__create_imports_10, &frame__create_imports_9, 700, 700, 51, 64},
   {entry__create_imports_7, NULL, 700, 700, 37, 46},
@@ -3438,31 +3388,31 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__create_imports_2, NULL, 697, 726, 5, 52},
   {entry__create_imports_63, NULL, 728, 728, 28, 54},
   {entry__create_imports_74, NULL, 733, 733, 22, 59},
-  {entry__create_imports_1, NULL, 728, 728, 3, 54},
-  {cont__create_imports_64, &frame__create_imports_1, 729, 729, 3, 49},
-  {cont__create_imports_66, &frame__create_imports_1, 730, 730, 3, 18},
-  {cont__create_imports_67, &frame__create_imports_1, 731, 731, 3, 15},
-  {cont__create_imports_68, &frame__create_imports_1, 732, 732, 22, 42},
-  {cont__create_imports_69, &frame__create_imports_1, 732, 732, 22, 45},
-  {cont__create_imports_70, &frame__create_imports_1, 732, 732, 48, 48},
-  {cont__create_imports_71, &frame__create_imports_1, 732, 732, 9, 49},
-  {cont__create_imports_72, &frame__create_imports_1, 732, 732, 3, 49},
-  {cont__create_imports_73, &frame__create_imports_1, 733, 733, 3, 59},
+  {entry__create_imports, NULL, 728, 728, 3, 54},
+  {cont__create_imports_64, &frame__create_imports, 729, 729, 3, 49},
+  {cont__create_imports_66, &frame__create_imports, 730, 730, 3, 18},
+  {cont__create_imports_67, &frame__create_imports, 731, 731, 3, 15},
+  {cont__create_imports_68, &frame__create_imports, 732, 732, 22, 42},
+  {cont__create_imports_69, &frame__create_imports, 732, 732, 22, 45},
+  {cont__create_imports_70, &frame__create_imports, 732, 732, 48, 48},
+  {cont__create_imports_71, &frame__create_imports, 732, 732, 9, 49},
+  {cont__create_imports_72, &frame__create_imports, 732, 732, 3, 49},
+  {cont__create_imports_73, &frame__create_imports, 733, 733, 3, 59},
   {entry__compile_exe_3, NULL, 736, 736, 32, 67},
   {entry__compile_exe_7, NULL, 738, 739, 5, 57},
-  {entry__compile_exe_1, NULL, 736, 736, 6, 29},
-  {cont__compile_exe_2, &frame__compile_exe_1, 736, 736, 3, 67},
-  {cont__compile_exe_5, &frame__compile_exe_1, 737, 737, 10, 42},
-  {cont__compile_exe_6, &frame__compile_exe_1, 737, 739, 3, 58},
-  {cont__compile_exe_9, &frame__compile_exe_1, 741, 741, 3, 53},
-  {cont__compile_exe_10, &frame__compile_exe_1, 742, 742, 46, 46},
-  {cont__compile_exe_11, &frame__compile_exe_1, 742, 742, 3, 47},
-  {cont__compile_exe_12, &frame__compile_exe_1, 743, 743, 3, 28},
-  {cont__compile_exe_13, &frame__compile_exe_1, 743, 743, 28, 28},
+  {entry__compile_exe, NULL, 736, 736, 6, 29},
+  {cont__compile_exe_2, &frame__compile_exe, 736, 736, 3, 67},
+  {cont__compile_exe_5, &frame__compile_exe, 737, 737, 10, 42},
+  {cont__compile_exe_6, &frame__compile_exe, 737, 739, 3, 58},
+  {cont__compile_exe_9, &frame__compile_exe, 741, 741, 3, 53},
+  {cont__compile_exe_10, &frame__compile_exe, 742, 742, 46, 46},
+  {cont__compile_exe_11, &frame__compile_exe, 742, 742, 3, 47},
+  {cont__compile_exe_12, &frame__compile_exe, 743, 743, 3, 28},
+  {cont__compile_exe_13, &frame__compile_exe, 743, 743, 28, 28},
   {entry__dump_source_or_check_2, NULL, 748, 748, 11, 29},
   {cont__dump_source_or_check_3, &frame__dump_source_or_check_2, 748, 748, 5, 29},
   {cont__dump_source_or_check_4, &frame__dump_source_or_check_2, 748, 748, 29, 29},
-  {entry__dump_source_or_check_1, NULL, 746, 748, 3, 29},
+  {entry__dump_source_or_check, NULL, 746, 748, 3, 29},
   {entry__print_c_4, NULL, 752, 752, 41, 65},
   {cont__print_c_5, &frame__print_c_4, 752, 752, 34, 75},
   {cont__print_c_6, &frame__print_c_4, 752, 752, 75, 75},
@@ -3480,7 +3430,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__print_c_14, &frame__print_c_2, 756, 756, 5, 50},
   {cont__print_c_16, &frame__print_c_2, 757, 757, 5, 15},
   {cont__print_c_17, &frame__print_c_2, 758, 758, 5, 59},
-  {entry__print_c_1, NULL, 751, 758, 3, 59},
+  {entry__print_c, NULL, 751, 758, 3, 59},
   {entry__list_dependencies_5, NULL, 767, 767, 9, 43},
   {cont__list_dependencies_6, &frame__list_dependencies_5, 768, 768, 12, 28},
   {cont__list_dependencies_7, &frame__list_dependencies_5, 768, 768, 9, 34},
@@ -3508,12 +3458,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__list_dependencies_35, NULL, 787, 787, 5, 40},
   {cont__list_dependencies_36, &frame__list_dependencies_35, 788, 788, 5, 32},
   {cont__list_dependencies_37, &frame__list_dependencies_35, 789, 789, 5, 20},
-  {entry__list_dependencies_1, NULL, 761, 761, 3, 80},
-  {cont__list_dependencies_2, &frame__list_dependencies_1, 762, 772, 3, 24},
-  {cont__list_dependencies_14, &frame__list_dependencies_1, 774, 774, 5, 28},
-  {cont__list_dependencies_15, &frame__list_dependencies_1, 773, 784, 3, 35},
-  {cont__list_dependencies_33, &frame__list_dependencies_1, 785, 785, 3, 29},
-  {cont__list_dependencies_34, &frame__list_dependencies_1, 786, 789, 3, 20},
+  {entry__list_dependencies, NULL, 761, 761, 3, 80},
+  {cont__list_dependencies_2, &frame__list_dependencies, 762, 772, 3, 24},
+  {cont__list_dependencies_14, &frame__list_dependencies, 774, 774, 5, 28},
+  {cont__list_dependencies_15, &frame__list_dependencies, 773, 784, 3, 35},
+  {cont__list_dependencies_33, &frame__list_dependencies, 785, 785, 3, 29},
+  {cont__list_dependencies_34, &frame__list_dependencies, 786, 789, 3, 20},
   {entry__build_codeblocks_project_7, NULL, 796, 797, 14, 58},
   {cont__build_codeblocks_project_10, &frame__build_codeblocks_project_7, 796, 797, 7, 58},
   {entry__build_codeblocks_project_12, NULL, 798, 798, 17, 73},
@@ -3551,7 +3501,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__build_codeblocks_project_51, &frame__build_codeblocks_project_2, 852, 860, 5, 24},
   {cont__build_codeblocks_project_59, &frame__build_codeblocks_project_2, 861, 867, 5, 32},
   {cont__build_codeblocks_project_61, &frame__build_codeblocks_project_2, 868, 868, 5, 25},
-  {entry__build_codeblocks_project_1, NULL, 792, 868, 3, 25},
+  {entry__build_codeblocks_project, NULL, 792, 868, 3, 25},
   {entry__build_library_4, NULL, 871, 871, 26, 56},
   {entry__build_library_10, NULL, 877, 877, 29, 45},
   {cont__build_library_11, &frame__build_library_10, 877, 877, 9, 45},
@@ -3636,10 +3586,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__build_library_57, &frame__build_library_21, 904, 904, 7, 64},
   {cont__build_library_58, &frame__build_library_21, 905, 912, 7, 27},
   {cont__build_library_67, &frame__build_library_21, 913, 964, 7, 49},
-  {entry__build_library_1, NULL, 871, 871, 6, 23},
-  {cont__build_library_3, &frame__build_library_1, 871, 871, 3, 56},
-  {cont__build_library_6, &frame__build_library_1, 873, 964, 3, 51},
-  {cont__build_library_103, &frame__build_library_1, 964, 964, 51, 51},
+  {entry__build_library, NULL, 871, 871, 6, 23},
+  {cont__build_library_3, &frame__build_library, 871, 871, 3, 56},
+  {cont__build_library_6, &frame__build_library, 873, 964, 3, 51},
+  {cont__build_library_103, &frame__build_library, 964, 964, 51, 51},
   {entry__maybe_compile_c_file_6, NULL, 971, 972, 11, 42},
   {cont__maybe_compile_c_file_9, &frame__maybe_compile_c_file_6, 971, 972, 5, 42},
   {entry__maybe_compile_c_file_13, NULL, 977, 977, 38, 65},
@@ -3650,15 +3600,15 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__maybe_compile_c_file_21, &frame__maybe_compile_c_file_19, 979, 979, 19, 65},
   {entry__maybe_compile_c_file_18, NULL, 979, 979, 7, 65},
   {cont__maybe_compile_c_file_22, &frame__maybe_compile_c_file_18, 980, 980, 7, 37},
-  {entry__maybe_compile_c_file_1, NULL, 967, 967, 3, 35},
-  {cont__maybe_compile_c_file_2, &frame__maybe_compile_c_file_1, 968, 968, 3, 35},
-  {cont__maybe_compile_c_file_3, &frame__maybe_compile_c_file_1, 969, 969, 3, 26},
-  {cont__maybe_compile_c_file_4, &frame__maybe_compile_c_file_1, 970, 970, 6, 24},
-  {cont__maybe_compile_c_file_5, &frame__maybe_compile_c_file_1, 970, 972, 3, 43},
-  {cont__maybe_compile_c_file_10, &frame__maybe_compile_c_file_1, 973, 973, 3, 26},
-  {cont__maybe_compile_c_file_11, &frame__maybe_compile_c_file_1, 976, 976, 7, 25},
-  {cont__maybe_compile_c_file_12, &frame__maybe_compile_c_file_1, 975, 977, 5, 65},
-  {cont__maybe_compile_c_file_17, &frame__maybe_compile_c_file_1, 974, 980, 3, 38},
+  {entry__maybe_compile_c_file, NULL, 967, 967, 3, 35},
+  {cont__maybe_compile_c_file_2, &frame__maybe_compile_c_file, 968, 968, 3, 35},
+  {cont__maybe_compile_c_file_3, &frame__maybe_compile_c_file, 969, 969, 3, 26},
+  {cont__maybe_compile_c_file_4, &frame__maybe_compile_c_file, 970, 970, 6, 24},
+  {cont__maybe_compile_c_file_5, &frame__maybe_compile_c_file, 970, 972, 3, 43},
+  {cont__maybe_compile_c_file_10, &frame__maybe_compile_c_file, 973, 973, 3, 26},
+  {cont__maybe_compile_c_file_11, &frame__maybe_compile_c_file, 976, 976, 7, 25},
+  {cont__maybe_compile_c_file_12, &frame__maybe_compile_c_file, 975, 977, 5, 65},
+  {cont__maybe_compile_c_file_17, &frame__maybe_compile_c_file, 974, 980, 3, 38},
   {entry__format_number_11, NULL, 996, 996, 39, 41},
   {cont__format_number_12, &frame__format_number_11, 996, 996, 36, 41},
   {cont__format_number_13, &frame__format_number_11, 996, 996, 28, 43},
@@ -3685,11 +3635,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__format_number_32, &frame__format_number_28, 1002, 1002, 39, 39},
   {entry__format_number_26, NULL, 1002, 1002, 10, 15},
   {cont__format_number_27, &frame__format_number_26, 1002, 1002, 7, 39},
-  {entry__format_number_1, NULL, 990, 990, 3, 16},
-  {cont__format_number_2, &frame__format_number_1, 992, 997, 3, 15},
-  {cont__format_number_19, &frame__format_number_1, 999, 999, 5, 10},
-  {cont__format_number_20, &frame__format_number_1, 998, 1002, 3, 40},
-  {cont__format_number_33, &frame__format_number_1, 1003, 1003, 3, 8},
+  {entry__format_number, NULL, 990, 990, 3, 16},
+  {cont__format_number_2, &frame__format_number, 992, 997, 3, 15},
+  {cont__format_number_19, &frame__format_number, 999, 999, 5, 10},
+  {cont__format_number_20, &frame__format_number, 998, 1002, 3, 40},
+  {cont__format_number_33, &frame__format_number, 1003, 1003, 3, 8},
   {entry__compiler__write_timing_info_4, NULL, 1009, 1009, 37, 37},
   {cont__compiler__write_timing_info_5, &frame__compiler__write_timing_info_4, 1009, 1009, 7, 37},
   {cont__compiler__write_timing_info_6, &frame__compiler__write_timing_info_4, 1015, 1015, 20, 41},
@@ -3701,11 +3651,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__compiler__write_timing_info_13, NULL, 1019, 1019, 47, 53},
   {cont__compiler__write_timing_info_14, &frame__compiler__write_timing_info_13, 1019, 1019, 33, 58},
   {cont__compiler__write_timing_info_15, &frame__compiler__write_timing_info_13, 1019, 1019, 7, 63},
-  {entry__compiler__write_timing_info_1, NULL, 1006, 1006, 3, 23},
-  {cont__compiler__write_timing_info_2, &frame__compiler__write_timing_info_1, 1008, 1008, 5, 23},
-  {cont__compiler__write_timing_info_3, &frame__compiler__write_timing_info_1, 1007, 1019, 3, 64},
-  {cont__compiler__write_timing_info_17, &frame__compiler__write_timing_info_1, 1020, 1020, 3, 19},
-  {cont__compiler__write_timing_info_18, &frame__compiler__write_timing_info_1, 1020, 1020, 19, 19},
+  {entry__compiler__write_timing_info, NULL, 1006, 1006, 3, 23},
+  {cont__compiler__write_timing_info_2, &frame__compiler__write_timing_info, 1008, 1008, 5, 23},
+  {cont__compiler__write_timing_info_3, &frame__compiler__write_timing_info, 1007, 1019, 3, 64},
+  {cont__compiler__write_timing_info_17, &frame__compiler__write_timing_info, 1020, 1020, 3, 19},
+  {cont__compiler__write_timing_info_18, &frame__compiler__write_timing_info, 1020, 1020, 19, 19},
   {entry__build_executable_5, NULL, 1036, 1036, 12, 38},
   {cont__build_executable_7, &frame__build_executable_5, 1036, 1036, 9, 38},
   {entry__build_executable_8, NULL, 1037, 1037, 9, 23},
@@ -3811,7 +3761,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__build_executable_111, &frame__build_executable_2, 1118, 1118, 5, 42},
   {cont__build_executable_112, &frame__build_executable_2, 1119, 1119, 8, 41},
   {cont__build_executable_115, &frame__build_executable_2, 1119, 1127, 5, 45},
-  {entry__build_executable_1, NULL, 1032, 1127, 3, 46},
+  {entry__build_executable, NULL, 1032, 1127, 3, 46},
   {entry__111_2, NULL, 108, 108, 30, 45},
   {cont__111_3, &frame__111_2, 108, 108, 30, 45},
   {cont__111_4, &frame__111_2, 108, 108, 30, 45},
@@ -5358,7 +5308,7 @@ static void cont__114_9(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__fa720015d496ba0;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
@@ -5551,7 +5501,7 @@ static void cont__116_9(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* plat */;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -7112,7 +7062,7 @@ static void cont__196_3(void) {
   arguments->slots[2] = func__197_9;
   arguments->slots[3] = func__197_10;
   arguments->slots[4] = func__197_11;
-  arguments->slots[5] = var._build_executable;
+  arguments->slots[5] = func__build_executable;
   result_count = 0;
   myself = get__cond();
   func = myself->type;
@@ -7223,7 +7173,7 @@ static void cont__197_7(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
-  arguments->slots[1] = var._dump_source_or_check;
+  arguments->slots[1] = func__dump_source_or_check;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -7239,7 +7189,7 @@ static void entry__197_8(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._do_print_c;
-  arguments->slots[1] = var._print_c;
+  arguments->slots[1] = func__print_c;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -7255,7 +7205,7 @@ static void entry__197_9(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._do_list_dependencies;
-  arguments->slots[1] = var._list_dependencies;
+  arguments->slots[1] = func__list_dependencies;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -7271,7 +7221,7 @@ static void entry__197_10(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = var._do_build_codeblocks_project;
-  arguments->slots[1] = var._build_codeblocks_project;
+  arguments->slots[1] = func__build_codeblocks_project;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -7302,7 +7252,7 @@ static void cont__197_12(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
-  arguments->slots[1] = var._build_library;
+  arguments->slots[1] = func__build_library;
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
@@ -7344,7 +7294,7 @@ static void entry__compiler__show_compiler_debug_info_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__show_compiler_debug_info_1(void) {
+static void entry__compiler__show_compiler_debug_info(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
@@ -7362,7 +7312,7 @@ static void entry__compiler__show_compiler_debug_info_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__resolve_filename_1(void) {
+static void entry__resolve_filename(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // filename: 0
@@ -7800,7 +7750,7 @@ static void cont__resolve_filename_26(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__add_module_infos_1(void) {
+static void entry__add_module_infos(void) {
   allocate_initialized_frame_gc(3, 10);
   // slot allocations:
   // path: 0
@@ -8921,7 +8871,7 @@ static void entry__add_module_infos_64(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* parent */;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -9316,7 +9266,7 @@ static void cont__lookup_9(void) {
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
   arguments->slots[1] = frame->slots[4] /* temp__3 */;
   result_count = 0;
-  myself = var._add_module_infos;
+  myself = func__add_module_infos;
   func = myself->type;
   frame->cont = cont__lookup_10;
 }
@@ -9348,7 +9298,7 @@ static void cont__lookup_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__lookup_1(void) {
+static void entry__lookup(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // mod_filename: 0
@@ -9411,7 +9361,7 @@ static void cont__lookup_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__CC_1(void) {
+static void entry__CC(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
@@ -9528,7 +9478,7 @@ static void entry__compile_c_4(void) {
   arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[1] /* o_filename */;
   result_count = 3;
-  myself = var._CC;
+  myself = func__CC;
   func = myself->type;
   frame->cont = cont__compile_c_7;
 }
@@ -9621,7 +9571,7 @@ static void cont__compile_c_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compile_c_1(void) {
+static void entry__compile_c(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // c_filename: 0
@@ -10987,7 +10937,7 @@ static void cont__compile_meta_module_68(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
-  myself = var._build_executable;
+  myself = func__build_executable;
   func = myself->type;
   frame->cont = cont__compile_meta_module_69;
 }
@@ -11179,7 +11129,7 @@ static void cont__compile_meta_module_81(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compile_meta_module_1(void) {
+static void entry__compile_meta_module(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // mod_filename: 0
@@ -11221,7 +11171,7 @@ static void entry__compile_meta_module_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__build_dependencies_1(void) {
+static void entry__build_dependencies(void) {
   allocate_initialized_frame_gc(5, 6);
   // slot allocations:
   // mod_filename: 0
@@ -11401,7 +11351,7 @@ static void entry__build_dependencies_27(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
   result_count = 1;
-  myself = var._resolve_filename;
+  myself = func__resolve_filename;
   func = myself->type;
   frame->cont = cont__build_dependencies_28;
 }
@@ -11417,7 +11367,7 @@ static void cont__build_dependencies_28(void) {
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
   arguments->slots[1] = frame->slots[0] /* argument */;
   result_count = frame->caller_result_count;
-  myself = var._compile_module;
+  myself = func__compile_module;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -11597,7 +11547,7 @@ static void cont__build_dependencies_21(void) {
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
   arguments->slots[1] = frame->slots[7] /* temp__4 */;
   result_count = frame->caller_result_count;
-  myself = var._compile_module;
+  myself = func__compile_module;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -11618,7 +11568,7 @@ static void entry__build_dependencies_11(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__mode();
-  arguments->slots[1] = var._EXE;
+  arguments->slots[1] = unique__EXE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -11999,7 +11949,7 @@ static void cont__build_dependencies_41(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__compile_module_1(void) {
+static void entry__compile_module(void) {
   allocate_initialized_frame_gc(3, 9);
   // slot allocations:
   // mod_filename: 0
@@ -12046,7 +11996,7 @@ static void entry__compile_module_1(void) {
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
   arguments->slots[1] = frame->slots[1] /* mod_name */;
   result_count = 1;
-  myself = var._lookup;
+  myself = func__lookup;
   func = myself->type;
   frame->cont = cont__compile_module_78;
 }
@@ -12338,7 +12288,7 @@ static void entry__compile_module_12(void) {
   arguments->slots[1] = frame->slots[1] /* submodule_name */;
   arguments->slots[2] = frame->slots[2] /* meta_level */;
   result_count = frame->caller_result_count;
-  myself = var._compile_meta_module;
+  myself = func__compile_meta_module;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -12861,7 +12811,7 @@ static void entry__compile_module_68(void) {
   arguments->slots[0] = frame->slots[0] /* c_filename */;
   arguments->slots[1] = frame->slots[1] /* o_filename */;
   result_count = frame->caller_result_count;
-  myself = var._compile_c;
+  myself = func__compile_c;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -13172,7 +13122,7 @@ static void entry__compile_module_52(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_source */;
   result_count = frame->caller_result_count;
-  myself = var._create_imports;
+  myself = func__create_imports;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -13241,7 +13191,7 @@ static void entry__compile_module_56(void) {
   arguments->slots[0] = frame->slots[0] /* c_filename */;
   arguments->slots[1] = frame->slots[1] /* o_filename */;
   result_count = frame->caller_result_count;
-  myself = var._compile_c;
+  myself = func__compile_c;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -13444,7 +13394,7 @@ static void cont__compile_module_77(void) {
   arguments->slots[2] = ((CELL *)frame->slots[10])->contents /* c_buf */;
   arguments->slots[3] = frame->slots[1] /* do_compile_c */;
   result_count = frame->caller_result_count;
-  myself = var._build_dependencies;
+  myself = func__build_dependencies;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -14715,11 +14665,11 @@ static void cont__compile_modules_10(void) {
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   result_count = frame->caller_result_count;
-  myself = var._compile_module;
+  myself = func__compile_module;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compile_modules_1(void) {
+static void entry__compile_modules(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // path: 0
@@ -14754,7 +14704,7 @@ static void cont__compile_modules_2(void) {
   arguments->slots[0] = frame->slots[0] /* path */;
   arguments->slots[1] = frame->slots[4] /* temp__1 */;
   result_count = 2;
-  myself = var._add_module_infos;
+  myself = func__add_module_infos;
   func = myself->type;
   frame->cont = cont__compile_modules_3;
 }
@@ -14831,7 +14781,7 @@ static void cont__compile_modules_6(void) {
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
   arguments->slots[1] = frame->slots[4] /* temp__2 */;
   result_count = frame->caller_result_count;
-  myself = var._compile_modules;
+  myself = func__compile_modules;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -14999,7 +14949,7 @@ static void cont__show_file_list_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__show_file_list_1(void) {
+static void entry__show_file_list(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -15020,7 +14970,7 @@ static void entry__show_file_list_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__library_paths_and_file_list_1(void) {
+static void entry__library_paths_and_file_list(void) {
   allocate_initialized_frame_gc(0, 6);
   // slot allocations:
   // library_paths: 0
@@ -15039,7 +14989,7 @@ static void entry__library_paths_and_file_list_1(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
-  myself = var._show_file_list;
+  myself = func__show_file_list;
   func = myself->type;
   frame->cont = cont__library_paths_and_file_list_2;
 }
@@ -15760,7 +15710,7 @@ static void entry__create_imports_74(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__create_imports_1(void) {
+static void entry__create_imports(void) {
   allocate_initialized_frame_gc(1, 9);
   // slot allocations:
   // source: 0
@@ -17140,7 +17090,7 @@ static void cont__create_imports_73(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compile_exe_1(void) {
+static void entry__compile_exe(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // body: 0
@@ -17148,8 +17098,8 @@ static void entry__compile_exe_1(void) {
   // mod_filename: 2
   // mod_name: 3
   frame->slots[1] /* return__1 */ = create_continuation();
-  // _define %mode EXE
-  define__mode(var._EXE);
+  // _define %mode .
+  define__mode(unique__EXE);
   frame->slots[2] /* mod_filename */ = create_future();
   frame->slots[3] /* mod_name */ = create_future();
   if (argument_count != 1) {
@@ -17359,7 +17309,7 @@ static void cont__dump_source_or_check_4(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__dump_source_or_check_1(void) {
+static void entry__dump_source_or_check(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -17373,7 +17323,7 @@ static void entry__dump_source_or_check_1(void) {
   arguments = node_p;
   arguments->slots[0] = func__dump_source_or_check_2;
   result_count = frame->caller_result_count;
-  myself = var._compile_exe;
+  myself = func__compile_exe;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -17622,7 +17572,7 @@ static void entry__print_c_15(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_source */;
   result_count = frame->caller_result_count;
-  myself = var._create_imports;
+  myself = func__create_imports;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -17656,7 +17606,7 @@ static void cont__print_c_17(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__print_c_1(void) {
+static void entry__print_c(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -17675,7 +17625,7 @@ static void entry__print_c_1(void) {
   arguments = node_p;
   arguments->slots[0] = func__print_c_2;
   result_count = frame->caller_result_count;
-  myself = var._compile_exe;
+  myself = func__compile_exe;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -17731,7 +17681,7 @@ static void cont__list_dependencies_37(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__list_dependencies_1(void) {
+static void entry__list_dependencies(void) {
   allocate_initialized_frame_gc(0, 2);
   // slot allocations:
   // prefix_path: 0
@@ -17912,7 +17862,7 @@ static void cont__list_dependencies_10(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* plat */;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -18040,8 +17990,8 @@ static void entry__list_dependencies_16(void) {
   // slot allocations:
   // return__1: 0
   frame->slots[0] /* return__1 */ = create_continuation();
-  // _define %mode LIB
-  define__mode(var._LIB);
+  // _define %mode .
+  define__mode(unique__LIB);
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -18116,7 +18066,7 @@ static void cont__list_dependencies_21(void) {
   arguments->slots[0] = get__main_filename();
   arguments->slots[1] = frame->slots[1] /* temp__1 */;
   result_count = frame->caller_result_count;
-  myself = var._compile_modules;
+  myself = func__compile_modules;
   func = myself->type;
   frame->cont = cont__list_dependencies_22;
 }
@@ -18139,7 +18089,7 @@ static void entry__list_dependencies_23(void) {
   arguments = node_p;
   arguments->slots[0] = func__list_dependencies_24;
   result_count = 0;
-  myself = var._compile_exe;
+  myself = func__compile_exe;
   func = myself->type;
   frame->cont = cont__list_dependencies_27;
 }
@@ -18194,7 +18144,7 @@ static void cont__list_dependencies_26(void) {
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
   arguments->slots[1] = frame->slots[1] /* mod_name */;
   result_count = frame->caller_result_count;
-  myself = var._compile_module;
+  myself = func__compile_module;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -18448,7 +18398,7 @@ static void cont__build_codeblocks_project_14(void) {
   arguments->slots[0] = frame->slots[0] /* mod_filename */;
   arguments->slots[1] = frame->slots[1] /* mod_name */;
   result_count = 0;
-  myself = var._compile_module;
+  myself = func__compile_module;
   func = myself->type;
   frame->cont = cont__build_codeblocks_project_15;
 }
@@ -18461,7 +18411,7 @@ static void cont__build_codeblocks_project_15(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
-  myself = var._show_file_list;
+  myself = func__show_file_list;
   func = myself->type;
   frame->cont = cont__build_codeblocks_project_16;
 }
@@ -19000,7 +18950,7 @@ static void cont__build_codeblocks_project_61(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__build_codeblocks_project_1(void) {
+static void entry__build_codeblocks_project(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -19022,17 +18972,17 @@ static void entry__build_codeblocks_project_1(void) {
   arguments = node_p;
   arguments->slots[0] = func__build_codeblocks_project_2;
   result_count = frame->caller_result_count;
-  myself = var._compile_exe;
+  myself = func__compile_exe;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__build_library_1(void) {
+static void entry__build_library(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // return__1: 0
   frame->slots[0] /* return__1 */ = create_continuation();
-  // _define %mode LIB
-  define__mode(var._LIB);
+  // _define %mode .
+  define__mode(unique__LIB);
   if (argument_count != 0) {
     invalid_arguments_error();
     return;
@@ -19279,7 +19229,7 @@ static void cont__build_library_76(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
-  myself = var._library_paths_and_file_list;
+  myself = func__library_paths_and_file_list;
   func = myself->type;
   frame->cont = cont__build_library_77;
 }
@@ -19308,7 +19258,7 @@ static void cont__build_library_77(void) {
   arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[2] /* lib_filename */;
   result_count = 3;
-  myself = var._CC;
+  myself = func__CC;
   func = myself->type;
   frame->cont = cont__build_library_79;
 }
@@ -19351,7 +19301,7 @@ static void entry__build_library_82(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
-  myself = var._library_paths_and_file_list;
+  myself = func__library_paths_and_file_list;
   func = myself->type;
   frame->cont = cont__build_library_83;
 }
@@ -19396,7 +19346,7 @@ static void cont__build_library_85(void) {
   arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[0] /* lib_filename */;
   result_count = 3;
-  myself = var._CC;
+  myself = func__CC;
   func = myself->type;
   frame->cont = cont__build_library_86;
 }
@@ -19465,7 +19415,7 @@ static void cont__build_library_91(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
-  myself = var._library_paths_and_file_list;
+  myself = func__library_paths_and_file_list;
   func = myself->type;
   frame->cont = cont__build_library_92;
 }
@@ -19512,7 +19462,7 @@ static void cont__build_library_93(void) {
   arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[2] /* lib_filename */;
   result_count = 3;
-  myself = var._CC;
+  myself = func__CC;
   func = myself->type;
   frame->cont = cont__build_library_95;
 }
@@ -19555,7 +19505,7 @@ static void entry__build_library_98(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
-  myself = var._library_paths_and_file_list;
+  myself = func__library_paths_and_file_list;
   func = myself->type;
   frame->cont = cont__build_library_99;
 }
@@ -19582,7 +19532,7 @@ static void cont__build_library_99(void) {
   arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[0] /* lib_filename */;
   result_count = 3;
-  myself = var._CC;
+  myself = func__CC;
   func = myself->type;
   frame->cont = cont__build_library_100;
 }
@@ -20529,7 +20479,7 @@ static void cont__build_library_57(void) {
   arguments->slots[0] = get__main_filename();
   arguments->slots[1] = frame->slots[5] /* temp__1 */;
   result_count = 0;
-  myself = var._compile_modules;
+  myself = func__compile_modules;
   func = myself->type;
   frame->cont = cont__build_library_58;
 }
@@ -20815,11 +20765,11 @@ static void cont__maybe_compile_c_file_22(void) {
   arguments->slots[0] = frame->slots[1] /* c_filename */;
   arguments->slots[1] = frame->slots[2] /* o_filename */;
   result_count = frame->caller_result_count;
-  myself = var._compile_c;
+  myself = func__compile_c;
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__maybe_compile_c_file_1(void) {
+static void entry__maybe_compile_c_file(void) {
   allocate_initialized_frame_gc(1, 9);
   // slot allocations:
   // filename: 0
@@ -21090,7 +21040,7 @@ static void cont__maybe_compile_c_file_17(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__format_number_1(void) {
+static void entry__format_number(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // val: 0
@@ -21677,7 +21627,7 @@ static void cont__format_number_33(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__write_timing_info_1(void) {
+static void entry__compiler__write_timing_info(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // description: 0
@@ -21878,7 +21828,7 @@ static void cont__compiler__write_timing_info_10(void) {
   arguments->slots[1] = number__2;
   arguments->slots[2] = number__3;
   result_count = 1;
-  myself = var._format_number;
+  myself = func__format_number;
   func = myself->type;
   frame->cont = cont__compiler__write_timing_info_11;
 }
@@ -21944,7 +21894,7 @@ static void cont__compiler__write_timing_info_14(void) {
   arguments->slots[1] = number__0;
   arguments->slots[2] = number__3;
   result_count = 1;
-  myself = var._format_number;
+  myself = func__format_number;
   func = myself->type;
   frame->cont = cont__compiler__write_timing_info_15;
 }
@@ -22540,7 +22490,7 @@ static void entry__build_executable_55(void) {
   arguments->slots[0] = frame->slots[0] /* c_filename */;
   arguments->slots[1] = frame->slots[1] /* o_filename */;
   result_count = frame->caller_result_count;
-  myself = var._compile_c;
+  myself = func__compile_c;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -22729,7 +22679,7 @@ static void entry__build_executable_35(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* c_source */;
   result_count = frame->caller_result_count;
-  myself = var._create_imports;
+  myself = func__create_imports;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -22811,7 +22761,7 @@ static void cont__build_executable_41(void) {
   arguments->slots[0] = frame->slots[3] /* c_filename */;
   arguments->slots[1] = frame->slots[4] /* o_filename */;
   result_count = 0;
-  myself = var._compile_c;
+  myself = func__compile_c;
   func = myself->type;
   frame->cont = cont__build_executable_42;
 }
@@ -23039,7 +22989,7 @@ static void cont__build_executable_58(void) {
   arguments->slots[1] = frame->slots[1] /* mod_name */;
   arguments->slots[2] = ((CELL *)frame->slots[7])->contents /* c_buf */;
   result_count = 0;
-  myself = var._build_dependencies;
+  myself = func__build_dependencies;
   func = myself->type;
   frame->cont = cont__build_executable_59;
 }
@@ -23074,7 +23024,7 @@ static void entry__build_executable_65(void) {
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* filename */;
   result_count = frame->caller_result_count;
-  myself = var._maybe_compile_c_file;
+  myself = func__maybe_compile_c_file;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -23518,7 +23468,7 @@ static void cont__build_executable_88(void) {
   arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[1] /* exe_filename */;
   result_count = 3;
-  myself = var._CC;
+  myself = func__CC;
   func = myself->type;
   frame->cont = cont__build_executable_92;
 }
@@ -23717,7 +23667,7 @@ static void cont__build_executable_106(void) {
   arguments->slots[argument_count++] = string__2d7981f4e6602baa;
   arguments->slots[argument_count++] = frame->slots[1] /* exe_filename */;
   result_count = 3;
-  myself = var._CC;
+  myself = func__CC;
   func = myself->type;
   frame->cont = cont__build_executable_107;
 }
@@ -23756,7 +23706,7 @@ static void entry__build_executable_79(void) {
   argument_count = 0;
   arguments = node_p;
   result_count = 1;
-  myself = var._library_paths_and_file_list;
+  myself = func__library_paths_and_file_list;
   func = myself->type;
   frame->cont = cont__build_executable_80;
 }
@@ -23971,7 +23921,7 @@ static void cont__build_executable_115(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__build_executable_1(void) {
+static void entry__build_executable(void) {
   allocate_initialized_frame_gc(0, 0);
   // slot allocations:
   if (argument_count != 0) {
@@ -23993,7 +23943,7 @@ static void entry__build_executable_1(void) {
   arguments = node_p;
   arguments->slots[0] = func__build_executable_2;
   result_count = frame->caller_result_count;
-  myself = var._compile_exe;
+  myself = func__compile_exe;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -24009,7 +23959,6 @@ EXPORT void collect__simple(void) {
   var._default_paths = collect_node(var._default_paths);
   var._simlibpaths = collect_node(var._simlibpaths);
   var._simdatapaths = collect_node(var._simdatapaths);
-  var._NONE = collect_node(var._NONE);
   var._supported_platforms = collect_node(var._supported_platforms);
   var._platform_priority = collect_node(var._platform_priority);
   var._platform_specific_priority = collect_node(var._platform_specific_priority);
@@ -24041,8 +23990,6 @@ EXPORT void collect__simple(void) {
   var._additional_libraries = collect_node(var._additional_libraries);
   var._action = collect_node(var._action);
   var.compiler__show_compiler_debug_info = collect_node(var.compiler__show_compiler_debug_info);
-  var._EXE = collect_node(var._EXE);
-  var._LIB = collect_node(var._LIB);
   var._WHITESPACE = collect_node(var._WHITESPACE);
   var._cc_options = collect_node(var._cc_options);
   var._cpp_options = collect_node(var._cpp_options);
@@ -24050,29 +23997,8 @@ EXPORT void collect__simple(void) {
   var._c_sources = collect_node(var._c_sources);
   var._dependencies = collect_node(var._dependencies);
   var._resolved_libraries = collect_node(var._resolved_libraries);
-  var._resolve_filename = collect_node(var._resolve_filename);
-  var._add_module_infos = collect_node(var._add_module_infos);
-  var._lookup = collect_node(var._lookup);
-  var._CC = collect_node(var._CC);
-  var._compile_c = collect_node(var._compile_c);
-  var._compile_meta_module = collect_node(var._compile_meta_module);
-  var._build_dependencies = collect_node(var._build_dependencies);
-  var._compile_module = collect_node(var._compile_module);
-  var._compile_modules = collect_node(var._compile_modules);
-  var._show_file_list = collect_node(var._show_file_list);
-  var._library_paths_and_file_list = collect_node(var._library_paths_and_file_list);
-  var._create_imports = collect_node(var._create_imports);
-  var._compile_exe = collect_node(var._compile_exe);
-  var._dump_source_or_check = collect_node(var._dump_source_or_check);
-  var._print_c = collect_node(var._print_c);
-  var._list_dependencies = collect_node(var._list_dependencies);
-  var._build_codeblocks_project = collect_node(var._build_codeblocks_project);
-  var._build_library = collect_node(var._build_library);
-  var._maybe_compile_c_file = collect_node(var._maybe_compile_c_file);
   var._t = collect_node(var._t);
-  var._format_number = collect_node(var._format_number);
   var.compiler__write_timing_info = collect_node(var.compiler__write_timing_info);
-  var._build_executable = collect_node(var._build_executable);
 }
 
 int main(int argc, char **argv) {
@@ -24225,42 +24151,41 @@ int main(int argc, char **argv) {
   character__46 = from_uchar32(46);
   number__2 = from_uint32(2U);
   number__999 = from_uint32(999U);
-  unique__NONE = register_unique_item("NONE");
-  func__compiler__show_compiler_debug_info_1 = create_function(entry__compiler__show_compiler_debug_info_1, -1);
-  unique__EXE = register_unique_item("EXE");
-  unique__LIB = register_unique_item("LIB");
+  func__compiler__show_compiler_debug_info = create_function(entry__compiler__show_compiler_debug_info, -1);
   func__resolve_filename_8 = create_function(entry__resolve_filename_8, 1);
   func__resolve_filename_4 = create_function(entry__resolve_filename_4, 1);
   func__resolve_filename_3 = create_function(entry__resolve_filename_3, 0);
   string__373a794ad67f2aca = from_latin_1_string("Cannot resolve required library \042", 33);
   string__2d7981f4e6182be4 = from_latin_1_string("\042!", 2);
-  func__resolve_filename_1 = create_function(entry__resolve_filename_1, 1);
+  func__resolve_filename = create_function(entry__resolve_filename, 1);
   string__9e0aed8b5d287d54 = from_latin_1_string(".sim", 4);
   string__505aea43ea6cf036 = from_latin_1_string(".meta", 5);
   string__a9300e9315c23094 = from_latin_1_string("-common", 7);
   string__578a5af303e9ccc = from_latin_1_string("-", 1);
   string__bf5121a1ba54e344 = from_latin_1_string("The platform \042", 14);
   string__b566882ea60ef100 = from_latin_1_string("\042 is not supported!", 19);
-  func__add_module_infos_1 = create_function(entry__add_module_infos_1, 2);
-  func__lookup_1 = create_function(entry__lookup_1, 2);
-  func__CC_1 = create_function(entry__CC_1, -1);
+  unique__NONE = register_unique_item("NONE");
+  func__add_module_infos = create_function(entry__add_module_infos, 2);
+  func__lookup = create_function(entry__lookup, 2);
+  func__CC = create_function(entry__CC, -1);
   func__compile_c_2 = create_function(entry__compile_c_2, 0);
   string__2d7981f4e6602ba6 = from_latin_1_string("-c", 2);
   string__2d7981f4e6602baa = from_latin_1_string("-o", 2);
   string__ca9b4802029a5965 = from_latin_1_string("Failed to compile ", 18);
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
-  func__compile_c_1 = create_function(entry__compile_c_1, 2);
+  func__compile_c = create_function(entry__compile_c, 2);
   string__2d7981f4e6782ba6 = from_latin_1_string(".c", 2);
   string__9c0afa8b5f187d19 = from_latin_1_string("/// ", 4);
   string__a0ae90b5dc07d58 = from_latin_1_string("data", 4);
   string__2d7981f4e6782bea = from_latin_1_string("./", 2);
-  func__compile_meta_module_1 = create_function(entry__compile_meta_module_1, 3);
+  func__compile_meta_module = create_function(entry__compile_meta_module, 3);
+  unique__EXE = register_unique_item("EXE");
   func__build_dependencies_24 = create_function(entry__build_dependencies_24, 0);
   func__build_dependencies_23 = create_function(entry__build_dependencies_23, 0);
   string__240aeb0b5d087d14 = from_latin_1_string("sim-", 4);
   string__984c0f90152bd09f = from_latin_1_string("require", 7);
   string__1a0aeb0b5d107d52 = from_latin_1_string("link", 4);
-  func__build_dependencies_1 = create_function(entry__build_dependencies_1, -1);
+  func__build_dependencies = create_function(entry__build_dependencies, -1);
   func__compile_module_9 = create_function(entry__compile_module_9, 0);
   string__52b1d7d50d05f753 = from_latin_1_string("Failed to open file \042", 21);
   string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
@@ -24269,14 +24194,14 @@ int main(int argc, char **argv) {
   string__4594ae5504f56841 = from_latin_1_string("\042 found!", 8);
   string__2d7981f4e6782baa = from_latin_1_string(".o", 2);
   string__2d7981f4e6082be6 = from_latin_1_string(" #", 2);
-  func__compile_module_1 = create_function(entry__compile_module_1, 2);
-  func__compile_modules_1 = create_function(entry__compile_modules_1, 2);
+  func__compile_module = create_function(entry__compile_module, 2);
+  func__compile_modules = create_function(entry__compile_modules, 2);
   string__21dcb95c2a4f4c6f = from_latin_1_string("LD_LIBRARY_PATH", 15);
   string__cae1527a63790ed8 = from_latin_1_string("LD_LIBRARY_PATH=", 16);
   string__4c84a8f87d97d1a3 = from_latin_1_string("included object files: ", 23);
   string__d2a77fcc4263ea03 = from_latin_1_string("needed libraries: ", 18);
   func__show_file_list_2 = create_function(entry__show_file_list_2, 0);
-  func__show_file_list_1 = create_function(entry__show_file_list_1, 0);
+  func__show_file_list = create_function(entry__show_file_list, 0);
   string__2d7981f4e6602b89 = from_latin_1_string("-L", 2);
   string__47d536100241702d = from_latin_1_string("library paths: ", 15);
   string__585ae883ea60d02f = from_latin_1_string("linux", 5);
@@ -24284,7 +24209,7 @@ int main(int argc, char **argv) {
   string__ec1f556601f292b5 = from_latin_1_string("-l:lib", 6);
   string__9e0aed8b5d187d17 = from_latin_1_string(".so.", 4);
   string__2d7981f4e6602ba9 = from_latin_1_string("-l", 2);
-  func__library_paths_and_file_list_1 = create_function(entry__library_paths_and_file_list_1, 0);
+  func__library_paths_and_file_list = create_function(entry__library_paths_and_file_list, 0);
   string__b8540cde1593c09c = from_latin_1_string("typedef", 7);
   string__800a0c585ff0632 = from_latin_1_string("REGISTER", 8);
   string__ee0186bb316753e3 = from_latin_1_string("typedef struct", 14);
@@ -24293,19 +24218,20 @@ int main(int argc, char **argv) {
   string__736c99bf90749400 = from_latin_1_string("// INSERT HERE //", 17);
   string__868d47f2e5ba5079 = from_latin_1_string("collecting imports", 18);
   func__create_imports_74 = create_function(entry__create_imports_74, 0);
-  func__create_imports_1 = create_function(entry__create_imports_1, 1);
+  func__create_imports = create_function(entry__create_imports, 1);
   string__ac6b0fa074ea65e7 = from_latin_1_string("Expected a source code file!", 28);
   func__compile_exe_3 = create_function(entry__compile_exe_3, 0);
   string__e365e96bee331e9c = from_latin_1_string("Expected \042.sim\042 file extension in source filename!", 50);
   func__compile_exe_7 = create_function(entry__compile_exe_7, 0);
-  func__compile_exe_1 = create_function(entry__compile_exe_1, 1);
+  func__compile_exe = create_function(entry__compile_exe, 1);
   func__dump_source_or_check_2 = create_function(entry__dump_source_or_check_2, 2);
-  func__dump_source_or_check_1 = create_function(entry__dump_source_or_check_1, 0);
+  func__dump_source_or_check = create_function(entry__dump_source_or_check, 0);
   string__b830f06b636224ab = from_latin_1_string("writing C-source", 16);
   func__print_c_18 = create_function(entry__print_c_18, 0);
   func__print_c_2 = create_function(entry__print_c_2, 2);
-  func__print_c_1 = create_function(entry__print_c_1, 0);
+  func__print_c = create_function(entry__print_c, 0);
   func__list_dependencies_3 = create_function(entry__list_dependencies_3, 2);
+  unique__LIB = register_unique_item("LIB");
   string__7da4130a131d4ea3 = from_latin_1_string("list dependencies for ", 22);
   func__list_dependencies_17 = create_function(entry__list_dependencies_17, 0);
   func__list_dependencies_16 = create_function(entry__list_dependencies_16, 0);
@@ -24314,7 +24240,7 @@ int main(int argc, char **argv) {
   string__7490e2a4ce0a3d6d = from_latin_1_string("runtime/memory.c", 16);
   string__14e71717a54948b0 = from_latin_1_string("runtime/debugger.c", 18);
   func__list_dependencies_23 = create_function(entry__list_dependencies_23, 0);
-  func__list_dependencies_1 = create_function(entry__list_dependencies_1, 0);
+  func__list_dependencies = create_function(entry__list_dependencies, 0);
   string__1ec9299aa0516bc0 = from_latin_1_string(".codeblocks", 11);
   string__3319ecea8934288e = from_latin_1_string("The directory \042", 15);
   string__fb06ffd100386aab = from_latin_1_string("\042 already exists!\012", 18);
@@ -24409,7 +24335,7 @@ int main(int argc, char **argv) {
     "</CodeBlocks_project_file>\n",
     120);
   func__build_codeblocks_project_2 = create_function(entry__build_codeblocks_project_2, 2);
-  func__build_codeblocks_project_1 = create_function(entry__build_codeblocks_project_1, 0);
+  func__build_codeblocks_project = create_function(entry__build_codeblocks_project, 0);
   string__421f52c90112c2b9 = from_latin_1_string("simrun", 6);
   string__c84d9037a41e8f73 = from_latin_1_string("Cannot run a directory!", 23);
   func__build_library_4 = create_function(entry__build_library_4, 0);
@@ -24433,17 +24359,17 @@ int main(int argc, char **argv) {
   string__33820b08e3b95a2a = from_latin_1_string("-Wl,-install_name,libsim-", 25);
   string__c6d9125d36413a91 = from_latin_1_string("-dynamiclib", 11);
   func__build_library_21 = create_function(entry__build_library_21, 0);
-  func__build_library_1 = create_function(entry__build_library_1, 0);
+  func__build_library = create_function(entry__build_library, 0);
   string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
   string__7ef24f7974bbce09 = from_latin_1_string("\042 does not exist!\012", 18);
   string__74150357c2230d49 = from_latin_1_string("compiling runtime module ", 25);
-  func__maybe_compile_c_file_1 = create_function(entry__maybe_compile_c_file_1, 1);
+  func__maybe_compile_c_file = create_function(entry__maybe_compile_c_file, 1);
   string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
   string__578a5af303e9cd1 = from_latin_1_string("0", 1);
-  func__format_number_1 = create_function(entry__format_number_1, -1);
+  func__format_number = create_function(entry__format_number, -1);
   string__2d7981f4e6082bb6 = from_latin_1_string(" s", 2);
   string__2d7981f4e6d82be5 = from_latin_1_string(": ", 2);
-  func__compiler__write_timing_info_1 = create_function(entry__compiler__write_timing_info_1, -1);
+  func__compiler__write_timing_info = create_function(entry__compiler__write_timing_info, -1);
   string__9e0ae80b5da07d5c = from_latin_1_string(".exe", 4);
   string__2f54d80c63c08867 = from_latin_1_string("build executable ", 17);
   string__b2077c434c011020 = from_latin_1_string("build main module ", 18);
@@ -24470,7 +24396,7 @@ int main(int argc, char **argv) {
   func__build_executable_104 = create_function(entry__build_executable_104, 0);
   func__build_executable_113 = create_function(entry__build_executable_113, 0);
   func__build_executable_2 = create_function(entry__build_executable_2, 2);
-  func__build_executable_1 = create_function(entry__build_executable_1, 0);
+  func__build_executable = create_function(entry__build_executable, 0);
   string__a5542a556fe6f2ee = from_latin_1_string(
     "Copyright (C) 2020 by\n"
     "Dipl.-Ing. Michael Niederle\n"
@@ -24703,7 +24629,6 @@ int main(int argc, char **argv) {
   var._default_paths = create_future();
   var._simlibpaths = create_future();
   var._simdatapaths = create_future();
-  assign_value(&var._NONE, unique__NONE);
   var._supported_platforms = create_future();
   define_multi_assign_static("compiler", "do_dump_trees", get__compiler__do_dump_trees, set__compiler__do_dump_trees);
   define_multi_assign_static("compiler", "do_pretty_print", get__compiler__do_pretty_print, set__compiler__do_pretty_print);
@@ -24727,8 +24652,6 @@ int main(int argc, char **argv) {
   define__do_build_static_executable(create_future());
   var.compiler__show_compiler_debug_info = create_future();
   define_single_assign_static("compiler", "show_compiler_debug_info", get__compiler__show_compiler_debug_info, &var.compiler__show_compiler_debug_info);
-  assign_value(&var._EXE, unique__EXE);
-  assign_value(&var._LIB, unique__LIB);
   register_dynamic(&dyna_idx__mode);
   define__mode(create_future());
   var._WHITESPACE = create_future();
@@ -25009,31 +24932,10 @@ int main(int argc, char **argv) {
   phase_5__sim2c();
   phase_5__extractor();
   phase_5__runtime_definitions();
-  initialize_future(var.compiler__show_compiler_debug_info, func__compiler__show_compiler_debug_info_1);
+  initialize_future(var.compiler__show_compiler_debug_info, func__compiler__show_compiler_debug_info);
   maybe_initialize_future(get__mode(), get__undefined());
   maybe_initialize_future(get__on_top_level(), get__true());
-  assign_variable(&var._resolve_filename, &func__resolve_filename_1);
-  assign_variable(&var._add_module_infos, &func__add_module_infos_1);
-  assign_variable(&var._lookup, &func__lookup_1);
-  assign_variable(&var._CC, &func__CC_1);
-  assign_variable(&var._compile_c, &func__compile_c_1);
-  assign_variable(&var._compile_meta_module, &func__compile_meta_module_1);
-  assign_variable(&var._build_dependencies, &func__build_dependencies_1);
-  assign_variable(&var._compile_module, &func__compile_module_1);
-  assign_variable(&var._compile_modules, &func__compile_modules_1);
-  assign_variable(&var._show_file_list, &func__show_file_list_1);
-  assign_variable(&var._library_paths_and_file_list, &func__library_paths_and_file_list_1);
-  assign_variable(&var._create_imports, &func__create_imports_1);
-  assign_variable(&var._compile_exe, &func__compile_exe_1);
-  assign_variable(&var._dump_source_or_check, &func__dump_source_or_check_1);
-  assign_variable(&var._print_c, &func__print_c_1);
-  assign_variable(&var._list_dependencies, &func__list_dependencies_1);
-  assign_variable(&var._build_codeblocks_project, &func__build_codeblocks_project_1);
-  assign_variable(&var._build_library, &func__build_library_1);
-  assign_variable(&var._maybe_compile_c_file, &func__maybe_compile_c_file_1);
-  assign_variable(&var._format_number, &func__format_number_1);
-  initialize_future(var.compiler__write_timing_info, func__compiler__write_timing_info_1);
-  assign_variable(&var._build_executable, &func__build_executable_1);
+  initialize_future(var.compiler__write_timing_info, func__compiler__write_timing_info);
   initialize_function_attributes();
 
   // initialization phase 6

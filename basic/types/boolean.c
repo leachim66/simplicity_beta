@@ -319,32 +319,32 @@ static void entry__types__true__equal_1(void);
 static NODE *func__types__true__equal_1;
 static void entry__types__false__equal_1(void);
 static NODE *func__types__false__equal_1;
-static NODE *func__types__true__and_1;
-static void entry__types__true__and_1(void);
-static FRAME_INFO frame__types__true__and_1 = {2, {"left", "right"}};
-static void cont__types__true__and_2(void);
-static NODE *func__types__false__and_1;
-static void entry__types__false__and_1(void);
-static FRAME_INFO frame__types__false__and_1 = {2, {"left", "right"}};
-static NODE *func__types__true__or_1;
-static void entry__types__true__or_1(void);
-static FRAME_INFO frame__types__true__or_1 = {2, {"left", "right"}};
-static NODE *func__types__false__or_1;
-static void entry__types__false__or_1(void);
-static FRAME_INFO frame__types__false__or_1 = {2, {"left", "right"}};
-static void cont__types__false__or_2(void);
-static NODE *func__types__true__if_1;
-static void entry__types__true__if_1(void);
-static FRAME_INFO frame__types__true__if_1 = {3, {"condition", "then", "else"}};
-static NODE *func__types__false__if_1;
-static void entry__types__false__if_1(void);
-static FRAME_INFO frame__types__false__if_1 = {3, {"condition", "then", "else"}};
-static NODE *func__types__true__unless_1;
-static void entry__types__true__unless_1(void);
-static FRAME_INFO frame__types__true__unless_1 = {2, {"condition", "body"}};
-static NODE *func__types__false__unless_1;
-static void entry__types__false__unless_1(void);
-static FRAME_INFO frame__types__false__unless_1 = {2, {"condition", "body"}};
+static NODE *func__types__true___and;
+static void entry__types__true___and(void);
+static FRAME_INFO frame__types__true___and = {2, {"left", "right"}};
+static void cont__types__true___and_2(void);
+static NODE *func__types__false___and;
+static void entry__types__false___and(void);
+static FRAME_INFO frame__types__false___and = {2, {"left", "right"}};
+static NODE *func__types__true___or;
+static void entry__types__true___or(void);
+static FRAME_INFO frame__types__true___or = {2, {"left", "right"}};
+static NODE *func__types__false___or;
+static void entry__types__false___or(void);
+static FRAME_INFO frame__types__false___or = {2, {"left", "right"}};
+static void cont__types__false___or_2(void);
+static NODE *func__types__true___if;
+static void entry__types__true___if(void);
+static FRAME_INFO frame__types__true___if = {3, {"condition", "then", "else"}};
+static NODE *func__types__false___if;
+static void entry__types__false___if(void);
+static FRAME_INFO frame__types__false___if = {3, {"condition", "then", "else"}};
+static NODE *func__types__true___unless;
+static void entry__types__true___unless(void);
+static FRAME_INFO frame__types__true___unless = {2, {"condition", "body"}};
+static NODE *func__types__false___unless;
+static void entry__types__false___unless(void);
+static FRAME_INFO frame__types__false___unless = {2, {"condition", "body"}};
 static NODE *func__57_1;
 static void entry__57_1(void);
 static FRAME_INFO frame__57_1 = {2, {"text", "base_indent"}};
@@ -362,16 +362,16 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__58_2, NULL, },
   {entry__types__true__equal_1, NULL, 141, 144, 3, 2},
   {entry__types__false__equal_1, NULL, 149, 152, 3, 2},
-  {entry__types__true__and_1, NULL, 167, 167, 6, 12},
-  {cont__types__true__and_2, &frame__types__true__and_1, 167, 167, 3, 12},
-  {entry__types__false__and_1, NULL, 178, 178, 3, 10},
-  {entry__types__true__or_1, NULL, 189, 189, 3, 9},
-  {entry__types__false__or_1, NULL, 201, 201, 6, 12},
-  {cont__types__false__or_2, &frame__types__false__or_1, 201, 201, 3, 12},
-  {entry__types__true__if_1, NULL, 211, 211, 3, 6},
-  {entry__types__false__if_1, NULL, 221, 221, 3, 6},
-  {entry__types__true__unless_1, NULL, 230, 230, 3, 6},
-  {entry__types__false__unless_1, NULL, 239, 239, 3, 6},
+  {entry__types__true___and, NULL, 167, 167, 6, 12},
+  {cont__types__true___and_2, &frame__types__true___and, 167, 167, 3, 12},
+  {entry__types__false___and, NULL, 178, 178, 3, 10},
+  {entry__types__true___or, NULL, 189, 189, 3, 9},
+  {entry__types__false___or, NULL, 201, 201, 6, 12},
+  {cont__types__false___or_2, &frame__types__false___or, 201, 201, 3, 12},
+  {entry__types__true___if, NULL, 211, 211, 3, 6},
+  {entry__types__false___if, NULL, 221, 221, 3, 6},
+  {entry__types__true___unless, NULL, 230, 230, 3, 6},
+  {entry__types__false___unless, NULL, 239, 239, 3, 6},
   {entry__57_1, NULL, 241, 241, 51, 62},
   {entry__58_1, NULL, 242, 242, 52, 64}
 };
@@ -664,7 +664,7 @@ static void entry__types__false__equal_1(void) {
     return;
   }
 }
-static void entry__types__true__and_1(void) {
+static void entry__types__true___and(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // left: 0
@@ -679,9 +679,9 @@ static void entry__types__true__and_1(void) {
   result_count = 1;
   myself = frame->slots[1] /* right */;
   func = myself->type;
-  frame->cont = cont__types__true__and_2;
+  frame->cont = cont__types__true___and_2;
 }
-static void cont__types__true__and_2(void) {
+static void cont__types__true___and_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -695,7 +695,7 @@ static void cont__types__true__and_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__false__and_1(void) {
+static void entry__types__false___and(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // left: 0
@@ -712,7 +712,7 @@ static void entry__types__false__and_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__true__or_1(void) {
+static void entry__types__true___or(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // left: 0
@@ -729,7 +729,7 @@ static void entry__types__true__or_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__false__or_1(void) {
+static void entry__types__false___or(void) {
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
   // left: 0
@@ -744,9 +744,9 @@ static void entry__types__false__or_1(void) {
   result_count = 1;
   myself = frame->slots[1] /* right */;
   func = myself->type;
-  frame->cont = cont__types__false__or_2;
+  frame->cont = cont__types__false___or_2;
 }
-static void cont__types__false__or_2(void) {
+static void cont__types__false___or_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -760,7 +760,7 @@ static void cont__types__false__or_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__true__if_1(void) {
+static void entry__types__true___if(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // condition: 0
@@ -789,7 +789,7 @@ static void entry__types__true__if_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__false__if_1(void) {
+static void entry__types__false___if(void) {
   allocate_initialized_frame_gc(3, 3);
   // slot allocations:
   // condition: 0
@@ -818,7 +818,7 @@ static void entry__types__false__if_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__true__unless_1(void) {
+static void entry__types__true___unless(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // condition: 0
@@ -835,7 +835,7 @@ static void entry__types__true__unless_1(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__false__unless_1(void) {
+static void entry__types__false___unless(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // condition: 0
@@ -882,14 +882,14 @@ EXPORT void phase_2__basic__types__boolean(void) {
   string__485ae803ea507032 = from_latin_1_string("false", 5);
   func__types__true__equal_1 = create_function(entry__types__true__equal_1, 2);
   func__types__false__equal_1 = create_function(entry__types__false__equal_1, 2);
-  func__types__true__and_1 = create_function(entry__types__true__and_1, 2);
-  func__types__false__and_1 = create_function(entry__types__false__and_1, 2);
-  func__types__true__or_1 = create_function(entry__types__true__or_1, 2);
-  func__types__false__or_1 = create_function(entry__types__false__or_1, 2);
-  func__types__true__if_1 = create_function(entry__types__true__if_1, -1);
-  func__types__false__if_1 = create_function(entry__types__false__if_1, -1);
-  func__types__true__unless_1 = create_function(entry__types__true__unless_1, 2);
-  func__types__false__unless_1 = create_function(entry__types__false__unless_1, 2);
+  func__types__true___and = create_function(entry__types__true___and, 2);
+  func__types__false___and = create_function(entry__types__false___and, 2);
+  func__types__true___or = create_function(entry__types__true___or, 2);
+  func__types__false___or = create_function(entry__types__false___or, 2);
+  func__types__true___if = create_function(entry__types__true___if, -1);
+  func__types__false___if = create_function(entry__types__false___if, -1);
+  func__types__true___unless = create_function(entry__types__true___unless, 2);
+  func__types__false___unless = create_function(entry__types__false___unless, 2);
   func__57_1 = create_function(entry__57_1, 2);
   func__58_1 = create_function(entry__58_1, 2);
 }
@@ -940,14 +940,14 @@ EXPORT void phase_4__basic__types__boolean(void) {
   define_method("types", "false", poly_idx__equal, func__types__false__equal_1);
   define_attribute("types", "true", poly_idx__not, get__false());
   define_attribute("types", "false", poly_idx__not, get__true());
-  define_method("types", "true", poly_idx__and, func__types__true__and_1);
-  define_method("types", "false", poly_idx__and, func__types__false__and_1);
-  define_method("types", "true", poly_idx__or, func__types__true__or_1);
-  define_method("types", "false", poly_idx__or, func__types__false__or_1);
-  define_method("types", "true", poly_idx__if, func__types__true__if_1);
-  define_method("types", "false", poly_idx__if, func__types__false__if_1);
-  define_method("types", "true", poly_idx__unless, func__types__true__unless_1);
-  define_method("types", "false", poly_idx__unless, func__types__false__unless_1);
+  define_method("types", "true", poly_idx__and, func__types__true___and);
+  define_method("types", "false", poly_idx__and, func__types__false___and);
+  define_method("types", "true", poly_idx__or, func__types__true___or);
+  define_method("types", "false", poly_idx__or, func__types__false___or);
+  define_method("types", "true", poly_idx__if, func__types__true___if);
+  define_method("types", "false", poly_idx__if, func__types__false___if);
+  define_method("types", "true", poly_idx__unless, func__types__true___unless);
+  define_method("types", "false", poly_idx__unless, func__types__false___unless);
 }
 
 static int already_run_phase_5 = false;

@@ -1,3 +1,28 @@
+2020-06-09
+
+  * Simplicity 2.2.3
+
+    removed unnecessary local variables
+
+    pretty printed all sources
+
+    functions names are replaced by their bodies
+
+    preparations for using function-body-literals
+
+    fixed internal naming of function bodies
+
+    "named uniques" are replaced by their values
+
+    "named literals" are replaced by their values
+
+    trivial bodies are now simplified
+
+  * runtime/compiler 2.0.5
+
+  * libsim-basic-1.2.2
+
+
 2020-05-30
 
   * Simplicity 2.2.2

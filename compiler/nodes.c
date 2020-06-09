@@ -344,6 +344,8 @@ static int poly_idx__is_a_polymorphic_function_constant;
 static NODE_GETTER get__is_a_polymorphic_function_constant;
 static int poly_idx__is_a_procedure_call;
 static NODE_GETTER get__is_a_procedure_call;
+static int poly_idx__is_a_reference;
+static NODE_GETTER get__is_a_reference;
 static int poly_idx__is_a_remark;
 static NODE_GETTER get__is_a_remark;
 static int poly_idx__is_a_return;
@@ -480,14 +482,15 @@ static struct {
   NODE *node__is_a_dynamic_definition;
   NODE *node__is_a_method_definition;
   NODE *node__is_a_multi_assign_definition;
-  NODE *node__is_an_expanded_item;
-  NODE *node__is_an_optional_item;
+  NODE *node__is_a_reference;
   NODE *node__is_a_setter;
   NODE *node__is_a_single_assign_definition;
   NODE *node__is_a_static_definition;
   NODE *node__is_a_string_template;
   NODE *node__is_an_attribute_access;
+  NODE *node__is_an_expanded_item;
   NODE *node__is_an_initialization;
+  NODE *node__is_an_optional_item;
   NODE *node__is_in_infix_notation;
   NODE *node__is_in_numeric_notation;
   NODE *node__is_mutable;
@@ -772,15 +775,10 @@ static void type__node__is_a_multi_assign_definition(void);
 static NODE *get__node__is_a_multi_assign_definition(void) {
   return var.node__is_a_multi_assign_definition;
 }
-static int poly_idx__node__is_an_expanded_item;
-static void type__node__is_an_expanded_item(void);
-static NODE *get__node__is_an_expanded_item(void) {
-  return var.node__is_an_expanded_item;
-}
-static int poly_idx__node__is_an_optional_item;
-static void type__node__is_an_optional_item(void);
-static NODE *get__node__is_an_optional_item(void) {
-  return var.node__is_an_optional_item;
+static int poly_idx__node__is_a_reference;
+static void type__node__is_a_reference(void);
+static NODE *get__node__is_a_reference(void) {
+  return var.node__is_a_reference;
 }
 static int poly_idx__node__is_a_setter;
 static void type__node__is_a_setter(void);
@@ -807,10 +805,20 @@ static void type__node__is_an_attribute_access(void);
 static NODE *get__node__is_an_attribute_access(void) {
   return var.node__is_an_attribute_access;
 }
+static int poly_idx__node__is_an_expanded_item;
+static void type__node__is_an_expanded_item(void);
+static NODE *get__node__is_an_expanded_item(void) {
+  return var.node__is_an_expanded_item;
+}
 static int poly_idx__node__is_an_initialization;
 static void type__node__is_an_initialization(void);
 static NODE *get__node__is_an_initialization(void) {
   return var.node__is_an_initialization;
+}
+static int poly_idx__node__is_an_optional_item;
+static void type__node__is_an_optional_item(void);
+static NODE *get__node__is_an_optional_item(void) {
+  return var.node__is_an_optional_item;
 }
 static int poly_idx__node__is_in_infix_notation;
 static void type__node__is_in_infix_notation(void);
@@ -1160,14 +1168,14 @@ static NODE *get__node__is_a_numeric_literal(void) {
 static NODE *get__compiler__numeric_literal(void) {
   return var.compiler__numeric_literal;
 }
-static NODE *func__compiler__numeric_literal__mangled_name_of_1;
-static void entry__compiler__numeric_literal__mangled_name_of_1(void);
-static FRAME_INFO frame__compiler__numeric_literal__mangled_name_of_1 = {1, {"self"}};
-static void cont__compiler__numeric_literal__mangled_name_of_2(void);
+static NODE *func__compiler__numeric_literal___mangled_name_of;
+static void entry__compiler__numeric_literal___mangled_name_of(void);
+static FRAME_INFO frame__compiler__numeric_literal___mangled_name_of = {1, {"self"}};
+static void cont__compiler__numeric_literal___mangled_name_of_2(void);
 static NODE *string__578a5af303e9cbe;
-static void cont__compiler__numeric_literal__mangled_name_of_4(void);
-static void cont__compiler__numeric_literal__mangled_name_of_5(void);
-static void cont__compiler__numeric_literal__mangled_name_of_6(void);
+static void cont__compiler__numeric_literal___mangled_name_of_4(void);
+static void cont__compiler__numeric_literal___mangled_name_of_5(void);
+static void cont__compiler__numeric_literal___mangled_name_of_6(void);
 static int poly_idx__node__is_a_character_literal;
 static void type__node__is_a_character_literal(void);
 static NODE *get__node__is_a_character_literal(void) {
@@ -1225,11 +1233,11 @@ static NODE *get__node__is_used_as_a_destination(void) {
 static NODE *get__compiler__identifier(void) {
   return var.compiler__identifier;
 }
-static NODE *func__compiler__identifier__full_name_of_1;
-static void entry__compiler__identifier__full_name_of_1(void);
-static FRAME_INFO frame__compiler__identifier__full_name_of_1 = {1, {"self"}};
-static void cont__compiler__identifier__full_name_of_2(void);
-static void cont__compiler__identifier__full_name_of_3(void);
+static NODE *func__compiler__identifier___full_name_of;
+static void entry__compiler__identifier___full_name_of(void);
+static FRAME_INFO frame__compiler__identifier___full_name_of = {1, {"self"}};
+static void cont__compiler__identifier___full_name_of_2(void);
+static void cont__compiler__identifier___full_name_of_3(void);
 static NODE *func__compiler__identifier__full_name_of_4;
 static void entry__compiler__identifier__full_name_of_4(void);
 static FRAME_INFO frame__compiler__identifier__full_name_of_4 = {1, {"self"}};
@@ -1239,14 +1247,14 @@ static void cont__compiler__identifier__full_name_of_7(void);
 static NODE *func__compiler__identifier__full_name_of_8;
 static void entry__compiler__identifier__full_name_of_8(void);
 static FRAME_INFO frame__compiler__identifier__full_name_of_8 = {0, {}};
-static void cont__compiler__identifier__full_name_of_9(void);
-static void cont__compiler__identifier__full_name_of_10(void);
-static void cont__compiler__identifier__full_name_of_11(void);
-static NODE *func__compiler__identifier__mangled_name_of_1;
-static void entry__compiler__identifier__mangled_name_of_1(void);
-static FRAME_INFO frame__compiler__identifier__mangled_name_of_1 = {1, {"self"}};
-static void cont__compiler__identifier__mangled_name_of_2(void);
-static void cont__compiler__identifier__mangled_name_of_3(void);
+static void cont__compiler__identifier___full_name_of_9(void);
+static void cont__compiler__identifier___full_name_of_10(void);
+static void cont__compiler__identifier___full_name_of_11(void);
+static NODE *func__compiler__identifier___mangled_name_of;
+static void entry__compiler__identifier___mangled_name_of(void);
+static FRAME_INFO frame__compiler__identifier___mangled_name_of = {1, {"self"}};
+static void cont__compiler__identifier___mangled_name_of_2(void);
+static void cont__compiler__identifier___mangled_name_of_3(void);
 static NODE *func__compiler__identifier__mangled_name_of_4;
 static void entry__compiler__identifier__mangled_name_of_4(void);
 static FRAME_INFO frame__compiler__identifier__mangled_name_of_4 = {1, {"self"}};
@@ -1256,9 +1264,9 @@ static void cont__compiler__identifier__mangled_name_of_7(void);
 static NODE *func__compiler__identifier__mangled_name_of_8;
 static void entry__compiler__identifier__mangled_name_of_8(void);
 static FRAME_INFO frame__compiler__identifier__mangled_name_of_8 = {0, {}};
-static void cont__compiler__identifier__mangled_name_of_9(void);
-static void cont__compiler__identifier__mangled_name_of_10(void);
-static void cont__compiler__identifier__mangled_name_of_11(void);
+static void cont__compiler__identifier___mangled_name_of_9(void);
+static void cont__compiler__identifier___mangled_name_of_10(void);
+static void cont__compiler__identifier___mangled_name_of_11(void);
 static int poly_idx__node__is_a_temporary;
 static void type__node__is_a_temporary(void);
 static NODE *get__node__is_a_temporary(void) {
@@ -1292,9 +1300,9 @@ static NODE *get__node__is_a_c_body(void) {
 static NODE *get__compiler__c_body(void) {
   return var.compiler__c_body;
 }
-static NODE *func__compiler__is_a_parameter_1;
-static void entry__compiler__is_a_parameter_1(void);
-static FRAME_INFO frame__compiler__is_a_parameter_1 = {1, {"self"}};
+static NODE *func__compiler__is_a_parameter;
+static void entry__compiler__is_a_parameter(void);
+static FRAME_INFO frame__compiler__is_a_parameter = {1, {"self"}};
 static void cont__compiler__is_a_parameter_2(void);
 static void cont__compiler__is_a_parameter_3(void);
 static void cont__compiler__is_a_parameter_4(void);
@@ -1326,109 +1334,110 @@ static CONTINUATION_INFO continuation_info[] = {
   {type__node__is_a_dynamic_definition, NULL, 77, 77, 2, 30},
   {type__node__is_a_method_definition, NULL, 78, 78, 2, 29},
   {type__node__is_a_multi_assign_definition, NULL, 79, 79, 2, 35},
-  {type__node__is_an_expanded_item, NULL, 80, 80, 2, 26},
-  {type__node__is_an_optional_item, NULL, 81, 81, 2, 26},
-  {type__node__is_a_setter, NULL, 82, 82, 2, 18},
-  {type__node__is_a_single_assign_definition, NULL, 83, 83, 2, 36},
-  {type__node__is_a_static_definition, NULL, 84, 84, 2, 29},
-  {type__node__is_a_string_template, NULL, 85, 85, 2, 27},
-  {type__node__is_an_attribute_access, NULL, 86, 86, 2, 29},
+  {type__node__is_a_reference, NULL, 80, 80, 2, 21},
+  {type__node__is_a_setter, NULL, 81, 81, 2, 18},
+  {type__node__is_a_single_assign_definition, NULL, 82, 82, 2, 36},
+  {type__node__is_a_static_definition, NULL, 83, 83, 2, 29},
+  {type__node__is_a_string_template, NULL, 84, 84, 2, 27},
+  {type__node__is_an_attribute_access, NULL, 85, 85, 2, 29},
+  {type__node__is_an_expanded_item, NULL, 86, 86, 2, 26},
   {type__node__is_an_initialization, NULL, 87, 87, 2, 27},
-  {type__node__is_in_infix_notation, NULL, 88, 88, 2, 27},
-  {type__node__is_in_numeric_notation, NULL, 89, 89, 2, 29},
-  {type__node__is_mutable, NULL, 90, 90, 2, 17},
-  {type__node__is_not_used, NULL, 91, 91, 2, 18},
-  {type__node__kind_of, NULL, 92, 92, 2, 14},
-  {type__node__last_line_end_specifier_of, NULL, 93, 93, 2, 33},
-  {type__node__line_end_specifier_of, NULL, 94, 94, 2, 28},
-  {type__node__lowest_precedence_of, NULL, 95, 95, 2, 27},
-  {type__node__mangled_name_of, NULL, 96, 96, 2, 22},
-  {type__node__max_length_of, NULL, 97, 97, 2, 20},
-  {type__node__message_of, NULL, 98, 98, 2, 17},
-  {type__node__name_of, NULL, 99, 99, 2, 14},
-  {type__node__namespace_of, NULL, 100, 100, 2, 19},
-  {type__node__namespace_alias_of, NULL, 101, 101, 2, 25},
-  {type__node__node_of, NULL, 102, 102, 2, 14},
-  {type__node__operators_of, NULL, 103, 103, 2, 19},
-  {type__node__parameter_kind_of, NULL, 104, 104, 2, 24},
-  {type__node__parameters_of, NULL, 105, 105, 2, 20},
-  {type__node__parent_of, NULL, 106, 106, 2, 16},
-  {type__node__result_count_of, NULL, 107, 107, 2, 22},
-  {type__node__continuation_of, NULL, 108, 108, 2, 22},
-  {type__node__source_position_of, NULL, 109, 109, 2, 25},
-  {type__node__temporary_count_of, NULL, 110, 110, 2, 25},
-  {type__node__remark_lines_of, NULL, 111, 111, 2, 22},
-  {type__node__scope_of, NULL, 112, 112, 2, 15},
-  {type__node__section_of, NULL, 113, 113, 2, 17},
-  {type__node__statements_of, NULL, 114, 114, 2, 20},
-  {type__node__submodule_no_of, NULL, 115, 115, 2, 22},
-  {type__node__text_of, NULL, 116, 116, 2, 14},
-  {type__node__type_of, NULL, 117, 117, 2, 14},
-  {type__node__used_names_of, NULL, 118, 118, 2, 20},
-  {type__node__value_of, NULL, 119, 119, 2, 15},
-  {type__node__variable_kind_of, NULL, 120, 120, 2, 23},
-  {type__node__is_a_meta_instruction, NULL, 141, 141, 2, 28},
-  {type__node__is_a_remark, NULL, 180, 180, 2, 18},
-  {type__node__is_a_body, NULL, 189, 189, 2, 16},
-  {type__node__defines_a_dynamic, NULL, 194, 194, 2, 24},
-  {type__node__is_a_call, NULL, 215, 215, 2, 16},
-  {type__node__is_a_procedure_call, NULL, 225, 225, 2, 26},
-  {type__node__is_a_return, NULL, 234, 234, 2, 18},
-  {type__node__is_an_assignment, NULL, 243, 243, 2, 23},
-  {type__node__is_a_definition, NULL, 252, 252, 2, 22},
-  {type__node__is_a_destination, NULL, 253, 253, 2, 23},
-  {type__node__is_an_input_output_argument, NULL, 254, 254, 2, 34},
-  {type__node__is_a_static_single_definition, NULL, 268, 268, 2, 36},
-  {type__node__is_a_static_multi_definition, NULL, 280, 280, 2, 35},
-  {type__node__is_a_dynamic_single_definition, NULL, 292, 292, 2, 37},
-  {type__node__is_a_dynamic_multi_definition, NULL, 304, 304, 2, 36},
-  {type__node__is_a_function_call, NULL, 316, 316, 2, 25},
-  {type__node__is_an_expression, NULL, 331, 331, 2, 23},
-  {type__node__is_a_backquoted_expression, NULL, 348, 348, 2, 33},
-  {type__node__is_an_attribute_value_pair, NULL, 357, 357, 2, 33},
-  {type__node__is_an_attribute_function_pair, NULL, 367, 367, 2, 36},
-  {type__node__is_a_numeric_literal, NULL, 376, 376, 2, 27},
-  {type__node__is_a_character_literal, NULL, 389, 389, 2, 29},
-  {type__node__is_a_string_literal, NULL, 400, 400, 2, 26},
-  {type__node__is_a_unique_item_constant, NULL, 419, 419, 2, 32},
-  {type__node__is_a_polymorphic_function_constant, NULL, 429, 429, 2, 41},
-  {type__node__is_an_identifier, NULL, 446, 446, 2, 23},
-  {type__node__is_used_as_a_polymorphic_function, NULL, 451, 451, 2, 40},
-  {type__node__is_used_as_a_destination, NULL, 452, 452, 2, 31},
-  {type__node__is_a_temporary, NULL, 480, 480, 2, 21},
-  {type__node__is_an_operator_symbol, NULL, 489, 489, 2, 28},
-  {type__node__is_c_code, NULL, 498, 498, 2, 16},
-  {type__node__is_a_c_body, NULL, 509, 509, 2, 18},
-  {run__nodes, NULL, 502, 502, 1, 37},
-  {entry__compiler__numeric_literal__mangled_name_of_1, NULL, 384, 384, 18, 37},
-  {cont__compiler__numeric_literal__mangled_name_of_2, &frame__compiler__numeric_literal__mangled_name_of_1, 384, 384, 39, 47},
-  {cont__compiler__numeric_literal__mangled_name_of_4, &frame__compiler__numeric_literal__mangled_name_of_1, 384, 384, 49, 61},
-  {cont__compiler__numeric_literal__mangled_name_of_5, &frame__compiler__numeric_literal__mangled_name_of_1, 384, 384, 6, 62},
-  {cont__compiler__numeric_literal__mangled_name_of_6, &frame__compiler__numeric_literal__mangled_name_of_1, 384, 384, 3, 62},
-  {entry__compiler__identifier__full_name_of_4, NULL, 464, 464, 19, 36},
-  {cont__compiler__identifier__full_name_of_5, &frame__compiler__identifier__full_name_of_4, 464, 464, 12, 42},
-  {cont__compiler__identifier__full_name_of_7, &frame__compiler__identifier__full_name_of_4, 464, 464, 9, 42},
-  {entry__compiler__identifier__full_name_of_8, NULL, 465, 465, 9, 13},
-  {entry__compiler__identifier__full_name_of_1, NULL, 463, 463, 9, 26},
-  {cont__compiler__identifier__full_name_of_2, &frame__compiler__identifier__full_name_of_1, 463, 463, 9, 37},
-  {cont__compiler__identifier__full_name_of_3, &frame__compiler__identifier__full_name_of_1, 464, 464, 9, 42},
-  {cont__compiler__identifier__full_name_of_9, &frame__compiler__identifier__full_name_of_1, 466, 466, 7, 19},
-  {cont__compiler__identifier__full_name_of_10, &frame__compiler__identifier__full_name_of_1, },
-  {cont__compiler__identifier__full_name_of_11, &frame__compiler__identifier__full_name_of_1, 460, 466, 3, 20},
-  {entry__compiler__identifier__mangled_name_of_4, NULL, 473, 473, 19, 36},
-  {cont__compiler__identifier__mangled_name_of_5, &frame__compiler__identifier__mangled_name_of_4, 473, 473, 12, 42},
-  {cont__compiler__identifier__mangled_name_of_7, &frame__compiler__identifier__mangled_name_of_4, 473, 473, 9, 42},
-  {entry__compiler__identifier__mangled_name_of_8, NULL, 474, 474, 9, 13},
-  {entry__compiler__identifier__mangled_name_of_1, NULL, 472, 472, 9, 26},
-  {cont__compiler__identifier__mangled_name_of_2, &frame__compiler__identifier__mangled_name_of_1, 472, 472, 9, 37},
-  {cont__compiler__identifier__mangled_name_of_3, &frame__compiler__identifier__mangled_name_of_1, 473, 473, 9, 42},
-  {cont__compiler__identifier__mangled_name_of_9, &frame__compiler__identifier__mangled_name_of_1, 475, 475, 7, 19},
-  {cont__compiler__identifier__mangled_name_of_10, &frame__compiler__identifier__mangled_name_of_1, },
-  {cont__compiler__identifier__mangled_name_of_11, &frame__compiler__identifier__mangled_name_of_1, 469, 475, 3, 20},
-  {entry__compiler__is_a_parameter_1, NULL, 519, 519, 38, 60},
-  {cont__compiler__is_a_parameter_2, &frame__compiler__is_a_parameter_1, 519, 519, 38, 76},
-  {cont__compiler__is_a_parameter_3, &frame__compiler__is_a_parameter_1, 519, 519, 38, 76},
-  {cont__compiler__is_a_parameter_4, &frame__compiler__is_a_parameter_1, 519, 519, 35, 76}
+  {type__node__is_an_optional_item, NULL, 88, 88, 2, 26},
+  {type__node__is_in_infix_notation, NULL, 89, 89, 2, 27},
+  {type__node__is_in_numeric_notation, NULL, 90, 90, 2, 29},
+  {type__node__is_mutable, NULL, 91, 91, 2, 17},
+  {type__node__is_not_used, NULL, 92, 92, 2, 18},
+  {type__node__kind_of, NULL, 93, 93, 2, 14},
+  {type__node__last_line_end_specifier_of, NULL, 94, 94, 2, 33},
+  {type__node__line_end_specifier_of, NULL, 95, 95, 2, 28},
+  {type__node__lowest_precedence_of, NULL, 96, 96, 2, 27},
+  {type__node__mangled_name_of, NULL, 97, 97, 2, 22},
+  {type__node__max_length_of, NULL, 98, 98, 2, 20},
+  {type__node__message_of, NULL, 99, 99, 2, 17},
+  {type__node__name_of, NULL, 100, 100, 2, 14},
+  {type__node__namespace_of, NULL, 101, 101, 2, 19},
+  {type__node__namespace_alias_of, NULL, 102, 102, 2, 25},
+  {type__node__node_of, NULL, 103, 103, 2, 14},
+  {type__node__operators_of, NULL, 104, 104, 2, 19},
+  {type__node__parameter_kind_of, NULL, 105, 105, 2, 24},
+  {type__node__parameters_of, NULL, 106, 106, 2, 20},
+  {type__node__parent_of, NULL, 107, 107, 2, 16},
+  {type__node__result_count_of, NULL, 108, 108, 2, 22},
+  {type__node__continuation_of, NULL, 109, 109, 2, 22},
+  {type__node__source_position_of, NULL, 110, 110, 2, 25},
+  {type__node__temporary_count_of, NULL, 111, 111, 2, 25},
+  {type__node__remark_lines_of, NULL, 112, 112, 2, 22},
+  {type__node__scope_of, NULL, 113, 113, 2, 15},
+  {type__node__section_of, NULL, 114, 114, 2, 17},
+  {type__node__statements_of, NULL, 115, 115, 2, 20},
+  {type__node__submodule_no_of, NULL, 116, 116, 2, 22},
+  {type__node__text_of, NULL, 117, 117, 2, 14},
+  {type__node__type_of, NULL, 118, 118, 2, 14},
+  {type__node__used_names_of, NULL, 119, 119, 2, 20},
+  {type__node__value_of, NULL, 120, 120, 2, 15},
+  {type__node__variable_kind_of, NULL, 121, 121, 2, 23},
+  {type__node__is_a_meta_instruction, NULL, 143, 143, 2, 28},
+  {type__node__is_a_remark, NULL, 182, 182, 2, 18},
+  {type__node__is_a_body, NULL, 191, 191, 2, 16},
+  {type__node__defines_a_dynamic, NULL, 196, 196, 2, 24},
+  {type__node__is_a_call, NULL, 217, 217, 2, 16},
+  {type__node__is_a_procedure_call, NULL, 227, 227, 2, 26},
+  {type__node__is_a_return, NULL, 236, 236, 2, 18},
+  {type__node__is_an_assignment, NULL, 245, 245, 2, 23},
+  {type__node__is_a_definition, NULL, 254, 254, 2, 22},
+  {type__node__is_a_destination, NULL, 255, 255, 2, 23},
+  {type__node__is_an_input_output_argument, NULL, 256, 256, 2, 34},
+  {type__node__is_a_static_single_definition, NULL, 270, 270, 2, 36},
+  {type__node__is_a_static_multi_definition, NULL, 282, 282, 2, 35},
+  {type__node__is_a_dynamic_single_definition, NULL, 294, 294, 2, 37},
+  {type__node__is_a_dynamic_multi_definition, NULL, 306, 306, 2, 36},
+  {type__node__is_a_function_call, NULL, 318, 318, 2, 25},
+  {type__node__is_an_expression, NULL, 333, 333, 2, 23},
+  {type__node__is_a_backquoted_expression, NULL, 350, 350, 2, 33},
+  {type__node__is_an_attribute_value_pair, NULL, 359, 359, 2, 33},
+  {type__node__is_an_attribute_function_pair, NULL, 369, 369, 2, 36},
+  {type__node__is_a_numeric_literal, NULL, 378, 378, 2, 27},
+  {type__node__is_a_character_literal, NULL, 391, 391, 2, 29},
+  {type__node__is_a_string_literal, NULL, 402, 402, 2, 26},
+  {type__node__is_a_unique_item_constant, NULL, 421, 421, 2, 32},
+  {type__node__is_a_polymorphic_function_constant, NULL, 431, 431, 2, 41},
+  {type__node__is_an_identifier, NULL, 448, 448, 2, 23},
+  {type__node__is_used_as_a_polymorphic_function, NULL, 453, 453, 2, 40},
+  {type__node__is_used_as_a_destination, NULL, 454, 454, 2, 31},
+  {type__node__is_a_temporary, NULL, 482, 482, 2, 21},
+  {type__node__is_an_operator_symbol, NULL, 491, 491, 2, 28},
+  {type__node__is_c_code, NULL, 500, 500, 2, 16},
+  {type__node__is_a_c_body, NULL, 511, 511, 2, 18},
+  {run__nodes, NULL, 504, 504, 1, 37},
+  {entry__compiler__numeric_literal___mangled_name_of, NULL, 386, 386, 18, 37},
+  {cont__compiler__numeric_literal___mangled_name_of_2, &frame__compiler__numeric_literal___mangled_name_of, 386, 386, 39, 47},
+  {cont__compiler__numeric_literal___mangled_name_of_4, &frame__compiler__numeric_literal___mangled_name_of, 386, 386, 49, 61},
+  {cont__compiler__numeric_literal___mangled_name_of_5, &frame__compiler__numeric_literal___mangled_name_of, 386, 386, 6, 62},
+  {cont__compiler__numeric_literal___mangled_name_of_6, &frame__compiler__numeric_literal___mangled_name_of, 386, 386, 3, 62},
+  {entry__compiler__identifier__full_name_of_4, NULL, 466, 466, 19, 36},
+  {cont__compiler__identifier__full_name_of_5, &frame__compiler__identifier__full_name_of_4, 466, 466, 12, 42},
+  {cont__compiler__identifier__full_name_of_7, &frame__compiler__identifier__full_name_of_4, 466, 466, 9, 42},
+  {entry__compiler__identifier__full_name_of_8, NULL, 467, 467, 9, 13},
+  {entry__compiler__identifier___full_name_of, NULL, 465, 465, 9, 26},
+  {cont__compiler__identifier___full_name_of_2, &frame__compiler__identifier___full_name_of, 465, 465, 9, 37},
+  {cont__compiler__identifier___full_name_of_3, &frame__compiler__identifier___full_name_of, 466, 466, 9, 42},
+  {cont__compiler__identifier___full_name_of_9, &frame__compiler__identifier___full_name_of, 468, 468, 7, 19},
+  {cont__compiler__identifier___full_name_of_10, &frame__compiler__identifier___full_name_of, },
+  {cont__compiler__identifier___full_name_of_11, &frame__compiler__identifier___full_name_of, 462, 468, 3, 20},
+  {entry__compiler__identifier__mangled_name_of_4, NULL, 475, 475, 19, 36},
+  {cont__compiler__identifier__mangled_name_of_5, &frame__compiler__identifier__mangled_name_of_4, 475, 475, 12, 42},
+  {cont__compiler__identifier__mangled_name_of_7, &frame__compiler__identifier__mangled_name_of_4, 475, 475, 9, 42},
+  {entry__compiler__identifier__mangled_name_of_8, NULL, 476, 476, 9, 13},
+  {entry__compiler__identifier___mangled_name_of, NULL, 474, 474, 9, 26},
+  {cont__compiler__identifier___mangled_name_of_2, &frame__compiler__identifier___mangled_name_of, 474, 474, 9, 37},
+  {cont__compiler__identifier___mangled_name_of_3, &frame__compiler__identifier___mangled_name_of, 475, 475, 9, 42},
+  {cont__compiler__identifier___mangled_name_of_9, &frame__compiler__identifier___mangled_name_of, 477, 477, 7, 19},
+  {cont__compiler__identifier___mangled_name_of_10, &frame__compiler__identifier___mangled_name_of, },
+  {cont__compiler__identifier___mangled_name_of_11, &frame__compiler__identifier___mangled_name_of, 471, 477, 3, 20},
+  {entry__compiler__is_a_parameter, NULL, 521, 521, 38, 60},
+  {cont__compiler__is_a_parameter_2, &frame__compiler__is_a_parameter, 521, 521, 38, 76},
+  {cont__compiler__is_a_parameter_3, &frame__compiler__is_a_parameter, 521, 521, 38, 76},
+  {cont__compiler__is_a_parameter_4, &frame__compiler__is_a_parameter, 521, 521, 35, 76}
 };
 
 union NODE {
@@ -2011,45 +2020,19 @@ static void type__node__is_a_multi_assign_definition(void) {
     func = myself->type;
   }
 }
-static void type__node__is_an_expanded_item(void) {
+static void type__node__is_a_reference(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
     return;
   }
-  myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_expanded_item);
+  myself = get_attribute(arguments->slots[0], poly_idx__node__is_a_reference);
   if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
     if (argument_count != 1) {
       if (argument_count != 2) invalid_arguments_error();
       NODE *attr = arguments->slots[1];
       NODE *temp = clone_object_and_attributes(arguments->slots[0]);
       update_start_p = node_p;
-      set_attribute_value(temp->attributes, poly_idx__node__is_an_expanded_item, attr);
-      arguments = node_p;
-      argument_count = 1;
-      arguments->slots[0] = temp;
-    } else {
-      arguments = node_p;
-      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
-    }
-    func = frame->cont;
-    frame->cont = invalid_continuation;
-  } else {
-    func = myself->type;
-  }
-}
-static void type__node__is_an_optional_item(void) {
-  if (argument_count < 1) {
-    too_few_arguments_error();
-    return;
-  }
-  myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_optional_item);
-  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
-    if (argument_count != 1) {
-      if (argument_count != 2) invalid_arguments_error();
-      NODE *attr = arguments->slots[1];
-      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
-      update_start_p = node_p;
-      set_attribute_value(temp->attributes, poly_idx__node__is_an_optional_item, attr);
+      set_attribute_value(temp->attributes, poly_idx__node__is_a_reference, attr);
       arguments = node_p;
       argument_count = 1;
       arguments->slots[0] = temp;
@@ -2193,6 +2176,32 @@ static void type__node__is_an_attribute_access(void) {
     func = myself->type;
   }
 }
+static void type__node__is_an_expanded_item(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
+  myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_expanded_item);
+  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
+    if (argument_count != 1) {
+      if (argument_count != 2) invalid_arguments_error();
+      NODE *attr = arguments->slots[1];
+      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
+      update_start_p = node_p;
+      set_attribute_value(temp->attributes, poly_idx__node__is_an_expanded_item, attr);
+      arguments = node_p;
+      argument_count = 1;
+      arguments->slots[0] = temp;
+    } else {
+      arguments = node_p;
+      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
+    }
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+  } else {
+    func = myself->type;
+  }
+}
 static void type__node__is_an_initialization(void) {
   if (argument_count < 1) {
     too_few_arguments_error();
@@ -2206,6 +2215,32 @@ static void type__node__is_an_initialization(void) {
       NODE *temp = clone_object_and_attributes(arguments->slots[0]);
       update_start_p = node_p;
       set_attribute_value(temp->attributes, poly_idx__node__is_an_initialization, attr);
+      arguments = node_p;
+      argument_count = 1;
+      arguments->slots[0] = temp;
+    } else {
+      arguments = node_p;
+      arguments->slots[0] = RETRIEVE_ATTRIBUTE_VALUE(myself);
+    }
+    func = frame->cont;
+    frame->cont = invalid_continuation;
+  } else {
+    func = myself->type;
+  }
+}
+static void type__node__is_an_optional_item(void) {
+  if (argument_count < 1) {
+    too_few_arguments_error();
+    return;
+  }
+  myself = get_attribute(arguments->slots[0], poly_idx__node__is_an_optional_item);
+  if (CONTAINS_AN_ATTRIBUTE_VALUE(myself)) {
+    if (argument_count != 1) {
+      if (argument_count != 2) invalid_arguments_error();
+      NODE *attr = arguments->slots[1];
+      NODE *temp = clone_object_and_attributes(arguments->slots[0]);
+      update_start_p = node_p;
+      set_attribute_value(temp->attributes, poly_idx__node__is_an_optional_item, attr);
       arguments = node_p;
       argument_count = 1;
       arguments->slots[0] = temp;
@@ -3945,43 +3980,43 @@ EXPORT void run__nodes(void) {
   }
   already_run = true;
   allocate_initialized_frame_gc(0, 0);
-  // 145: $compiler::meta_instruction types::grammar_node
+  // 147: $compiler::meta_instruction types::grammar_node
   initialize_maybe_future(var.compiler__meta_instruction, get__types__grammar_node());
-  // 196: $compiler::body types::grammar_node
+  // 198: $compiler::body types::grammar_node
   initialize_maybe_future(var.compiler__body, get__types__grammar_node());
-  // 210: $compiler::statement types::grammar_node
+  // 212: $compiler::statement types::grammar_node
   initialize_maybe_future(var.compiler__statement, get__types__grammar_node());
-  // 259: $compiler::definition types::grammar_node
+  // 261: $compiler::definition types::grammar_node
   initialize_maybe_future(var.compiler__definition, get__types__grammar_node());
-  // 320: $compiler::function_call types::grammar_node
+  // 322: $compiler::function_call types::grammar_node
   initialize_maybe_future(var.compiler__function_call, get__types__grammar_node());
-  // 335: $compiler::expression types::grammar_node
+  // 337: $compiler::expression types::grammar_node
   initialize_maybe_future(var.compiler__expression, get__types__grammar_node());
-  // 343: $compiler::remark_argument types::grammar_node
+  // 345: $compiler::remark_argument types::grammar_node
   initialize_maybe_future(var.compiler__remark_argument, get__types__grammar_node());
-  // 352: $compiler::backquoted types::grammar_node
+  // 354: $compiler::backquoted types::grammar_node
   initialize_maybe_future(var.compiler__backquoted, get__types__grammar_node());
-  // 361: $compiler::attribute_value_pair types::grammar_node
+  // 363: $compiler::attribute_value_pair types::grammar_node
   initialize_maybe_future(var.compiler__attribute_value_pair, get__types__grammar_node());
-  // 380: $compiler::numeric_literal types::grammar_node
+  // 382: $compiler::numeric_literal types::grammar_node
   initialize_maybe_future(var.compiler__numeric_literal, get__types__grammar_node());
-  // 393: $compiler::character_literal types::grammar_node
+  // 395: $compiler::character_literal types::grammar_node
   initialize_maybe_future(var.compiler__character_literal, get__types__grammar_node());
-  // 404: $compiler::string_literal types::grammar_node
+  // 406: $compiler::string_literal types::grammar_node
   initialize_maybe_future(var.compiler__string_literal, get__types__grammar_node());
-  // 423: $compiler::unique_item types::grammar_node
+  // 425: $compiler::unique_item types::grammar_node
   initialize_maybe_future(var.compiler__unique_item, get__types__grammar_node());
-  // 433: $compiler::polymorphic_function types::grammar_node
+  // 435: $compiler::polymorphic_function types::grammar_node
   initialize_maybe_future(var.compiler__polymorphic_function, get__types__grammar_node());
-  // 457: $compiler::identifier types::grammar_node
+  // 459: $compiler::identifier types::grammar_node
   initialize_maybe_future(var.compiler__identifier, get__types__grammar_node());
-  // 502: $compiler::c_code types::grammar_node
+  // 504: $compiler::c_code types::grammar_node
   initialize_maybe_future(var.compiler__c_code, get__types__grammar_node());
   frame = frame->caller_frame;
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__numeric_literal__mangled_name_of_1(void) {
+static void entry__compiler__numeric_literal___mangled_name_of(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
@@ -3989,22 +4024,22 @@ static void entry__compiler__numeric_literal__mangled_name_of_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 384: ... node::value_of(self)
+  // 386: ... node::value_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
   result_count = 1;
   myself = var.node__value_of;
   func = myself->type;
-  frame->cont = cont__compiler__numeric_literal__mangled_name_of_2;
+  frame->cont = cont__compiler__numeric_literal___mangled_name_of_2;
 }
-static void cont__compiler__numeric_literal__mangled_name_of_2(void) {
+static void cont__compiler__numeric_literal___mangled_name_of_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 384: ... '.' = "_"
+  // 386: ... '.' = "_"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__46;
@@ -4012,15 +4047,15 @@ static void cont__compiler__numeric_literal__mangled_name_of_2(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__compiler__numeric_literal__mangled_name_of_4;
+  frame->cont = cont__compiler__numeric_literal___mangled_name_of_4;
 }
-static void cont__compiler__numeric_literal__mangled_name_of_4(void) {
+static void cont__compiler__numeric_literal___mangled_name_of_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 384: ... '@apos;' = ""
+  // 386: ... '@apos;' = ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__39;
@@ -4028,15 +4063,15 @@ static void cont__compiler__numeric_literal__mangled_name_of_4(void) {
   result_count = 1;
   myself = get__std__key_value_pair();
   func = myself->type;
-  frame->cont = cont__compiler__numeric_literal__mangled_name_of_5;
+  frame->cont = cont__compiler__numeric_literal___mangled_name_of_5;
 }
-static void cont__compiler__numeric_literal__mangled_name_of_5(void) {
+static void cont__compiler__numeric_literal___mangled_name_of_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 384: ... replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
+  // 386: ... replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4045,15 +4080,15 @@ static void cont__compiler__numeric_literal__mangled_name_of_5(void) {
   result_count = 1;
   myself = get__replace_all();
   func = myself->type;
-  frame->cont = cont__compiler__numeric_literal__mangled_name_of_6;
+  frame->cont = cont__compiler__numeric_literal___mangled_name_of_6;
 }
-static void cont__compiler__numeric_literal__mangled_name_of_6(void) {
+static void cont__compiler__numeric_literal___mangled_name_of_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 384: -> replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
+  // 386: -> replace_all(node::value_of(self) '.' = "_" '@apos;' = "")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4061,7 +4096,7 @@ static void cont__compiler__numeric_literal__mangled_name_of_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__identifier__full_name_of_1(void) {
+static void entry__compiler__identifier___full_name_of(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // self: 0
@@ -4069,37 +4104,37 @@ static void entry__compiler__identifier__full_name_of_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 463: namespace_of(self)
+  // 465: namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__compiler__identifier__full_name_of_2;
+  frame->cont = cont__compiler__identifier___full_name_of_2;
 }
-static void cont__compiler__identifier__full_name_of_2(void) {
+static void cont__compiler__identifier___full_name_of_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 463: namespace_of(self).is_defined
+  // 465: namespace_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__4 */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__compiler__identifier__full_name_of_3;
+  frame->cont = cont__compiler__identifier___full_name_of_3;
 }
-static void cont__compiler__identifier__full_name_of_3(void) {
+static void cont__compiler__identifier___full_name_of_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 464: -> string(namespace_of(self) "::")
+  // 466: -> string(namespace_of(self) "::")
   frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__identifier__full_name_of_4, 0);
   argument_count = 3;
   arguments = node_p;
@@ -4109,7 +4144,7 @@ static void cont__compiler__identifier__full_name_of_3(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__identifier__full_name_of_9;
+  frame->cont = cont__compiler__identifier___full_name_of_9;
 }
 static void entry__compiler__identifier__full_name_of_4(void) {
   allocate_initialized_frame_gc(1, 3);
@@ -4120,7 +4155,7 @@ static void entry__compiler__identifier__full_name_of_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 464: ... namespace_of(self)
+  // 466: ... namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -4135,7 +4170,7 @@ static void cont__compiler__identifier__full_name_of_5(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 464: ... string(namespace_of(self) "::")
+  // 466: ... string(namespace_of(self) "::")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4151,7 +4186,7 @@ static void cont__compiler__identifier__full_name_of_7(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 464: -> string(namespace_of(self) "::")
+  // 466: -> string(namespace_of(self) "::")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4166,7 +4201,7 @@ static void entry__compiler__identifier__full_name_of_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 465: -> ""
+  // 467: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -4174,22 +4209,22 @@ static void entry__compiler__identifier__full_name_of_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__identifier__full_name_of_9(void) {
+static void cont__compiler__identifier___full_name_of_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 466: name_of(self)
+  // 468: name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__compiler__identifier__full_name_of_10;
+  frame->cont = cont__compiler__identifier___full_name_of_10;
 }
-static void cont__compiler__identifier__full_name_of_10(void) {
+static void cont__compiler__identifier___full_name_of_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4202,21 +4237,21 @@ static void cont__compiler__identifier__full_name_of_10(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__identifier__full_name_of_11;
+  frame->cont = cont__compiler__identifier___full_name_of_11;
 }
-static void cont__compiler__identifier__full_name_of_11(void) {
+static void cont__compiler__identifier___full_name_of_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 460: ->
-  // 461:   string
-  // 462:     if
-  // 463:       namespace_of(self).is_defined
-  // 464:       -> string(namespace_of(self) "::")
-  // 465:       -> ""
-  // 466:     name_of(self)
+  // 462: ->
+  // 463:   string
+  // 464:     if
+  // 465:       namespace_of(self).is_defined
+  // 466:       -> string(namespace_of(self) "::")
+  // 467:       -> ""
+  // 468:     name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4224,7 +4259,7 @@ static void cont__compiler__identifier__full_name_of_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__identifier__mangled_name_of_1(void) {
+static void entry__compiler__identifier___mangled_name_of(void) {
   allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // self: 0
@@ -4232,37 +4267,37 @@ static void entry__compiler__identifier__mangled_name_of_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 472: namespace_of(self)
+  // 474: namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
   result_count = 1;
   myself = get__namespace_of();
   func = myself->type;
-  frame->cont = cont__compiler__identifier__mangled_name_of_2;
+  frame->cont = cont__compiler__identifier___mangled_name_of_2;
 }
-static void cont__compiler__identifier__mangled_name_of_2(void) {
+static void cont__compiler__identifier___mangled_name_of_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 472: namespace_of(self).is_defined
+  // 474: namespace_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__4 */;
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__compiler__identifier__mangled_name_of_3;
+  frame->cont = cont__compiler__identifier___mangled_name_of_3;
 }
-static void cont__compiler__identifier__mangled_name_of_3(void) {
+static void cont__compiler__identifier___mangled_name_of_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 473: -> string(namespace_of(self) "__")
+  // 475: -> string(namespace_of(self) "__")
   frame->slots[5] /* temp__5 */ = create_closure(entry__compiler__identifier__mangled_name_of_4, 0);
   argument_count = 3;
   arguments = node_p;
@@ -4272,7 +4307,7 @@ static void cont__compiler__identifier__mangled_name_of_3(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__identifier__mangled_name_of_9;
+  frame->cont = cont__compiler__identifier___mangled_name_of_9;
 }
 static void entry__compiler__identifier__mangled_name_of_4(void) {
   allocate_initialized_frame_gc(1, 3);
@@ -4283,7 +4318,7 @@ static void entry__compiler__identifier__mangled_name_of_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 473: ... namespace_of(self)
+  // 475: ... namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -4298,7 +4333,7 @@ static void cont__compiler__identifier__mangled_name_of_5(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 473: ... string(namespace_of(self) "__")
+  // 475: ... string(namespace_of(self) "__")
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4314,7 +4349,7 @@ static void cont__compiler__identifier__mangled_name_of_7(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 473: -> string(namespace_of(self) "__")
+  // 475: -> string(namespace_of(self) "__")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4329,7 +4364,7 @@ static void entry__compiler__identifier__mangled_name_of_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 474: -> ""
+  // 476: -> ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -4337,22 +4372,22 @@ static void entry__compiler__identifier__mangled_name_of_8(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__identifier__mangled_name_of_9(void) {
+static void cont__compiler__identifier___mangled_name_of_9(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 475: name_of(self)
+  // 477: name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
   result_count = 1;
   myself = get__name_of();
   func = myself->type;
-  frame->cont = cont__compiler__identifier__mangled_name_of_10;
+  frame->cont = cont__compiler__identifier___mangled_name_of_10;
 }
-static void cont__compiler__identifier__mangled_name_of_10(void) {
+static void cont__compiler__identifier___mangled_name_of_10(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -4365,21 +4400,21 @@ static void cont__compiler__identifier__mangled_name_of_10(void) {
   result_count = 1;
   myself = get__string();
   func = myself->type;
-  frame->cont = cont__compiler__identifier__mangled_name_of_11;
+  frame->cont = cont__compiler__identifier___mangled_name_of_11;
 }
-static void cont__compiler__identifier__mangled_name_of_11(void) {
+static void cont__compiler__identifier___mangled_name_of_11(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 469: ->
-  // 470:   string
-  // 471:     if
-  // 472:       namespace_of(self).is_defined
-  // 473:       -> string(namespace_of(self) "__")
-  // 474:       -> ""
-  // 475:     name_of(self)
+  // 471: ->
+  // 472:   string
+  // 473:     if
+  // 474:       namespace_of(self).is_defined
+  // 475:       -> string(namespace_of(self) "__")
+  // 476:       -> ""
+  // 477:     name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4387,7 +4422,7 @@ static void cont__compiler__identifier__mangled_name_of_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__is_a_parameter_1(void) {
+static void entry__compiler__is_a_parameter(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // self: 0
@@ -4395,7 +4430,7 @@ static void entry__compiler__is_a_parameter_1(void) {
     invalid_arguments_error();
     return;
   }
-  // 519: ... parameter_kind_of(self)
+  // 521: ... parameter_kind_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -4410,7 +4445,7 @@ static void cont__compiler__is_a_parameter_2(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 519: ... parameter_kind_of(self) != NO_PARAMETER
+  // 521: ... parameter_kind_of(self) != NO_PARAMETER
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -4426,7 +4461,7 @@ static void cont__compiler__is_a_parameter_3(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 519: ... parameter_kind_of(self) != NO_PARAMETER
+  // 521: ... parameter_kind_of(self) != NO_PARAMETER
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -4441,7 +4476,7 @@ static void cont__compiler__is_a_parameter_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 519: ... -> parameter_kind_of(self) != NO_PARAMETER
+  // 521: ... -> parameter_kind_of(self) != NO_PARAMETER
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -4489,14 +4524,15 @@ EXPORT void collect__nodes(void) {
   var.node__is_a_dynamic_definition = collect_node(var.node__is_a_dynamic_definition);
   var.node__is_a_method_definition = collect_node(var.node__is_a_method_definition);
   var.node__is_a_multi_assign_definition = collect_node(var.node__is_a_multi_assign_definition);
-  var.node__is_an_expanded_item = collect_node(var.node__is_an_expanded_item);
-  var.node__is_an_optional_item = collect_node(var.node__is_an_optional_item);
+  var.node__is_a_reference = collect_node(var.node__is_a_reference);
   var.node__is_a_setter = collect_node(var.node__is_a_setter);
   var.node__is_a_single_assign_definition = collect_node(var.node__is_a_single_assign_definition);
   var.node__is_a_static_definition = collect_node(var.node__is_a_static_definition);
   var.node__is_a_string_template = collect_node(var.node__is_a_string_template);
   var.node__is_an_attribute_access = collect_node(var.node__is_an_attribute_access);
+  var.node__is_an_expanded_item = collect_node(var.node__is_an_expanded_item);
   var.node__is_an_initialization = collect_node(var.node__is_an_initialization);
+  var.node__is_an_optional_item = collect_node(var.node__is_an_optional_item);
   var.node__is_in_infix_notation = collect_node(var.node__is_in_infix_notation);
   var.node__is_in_numeric_notation = collect_node(var.node__is_in_numeric_notation);
   var.node__is_mutable = collect_node(var.node__is_mutable);
@@ -4658,14 +4694,15 @@ EXPORT void phase_2__nodes(void) {
   define_polymorphic_function("node", "is_a_dynamic_definition", get__node__is_a_dynamic_definition, &poly_idx__node__is_a_dynamic_definition, &var.node__is_a_dynamic_definition);
   define_polymorphic_function("node", "is_a_method_definition", get__node__is_a_method_definition, &poly_idx__node__is_a_method_definition, &var.node__is_a_method_definition);
   define_polymorphic_function("node", "is_a_multi_assign_definition", get__node__is_a_multi_assign_definition, &poly_idx__node__is_a_multi_assign_definition, &var.node__is_a_multi_assign_definition);
-  define_polymorphic_function("node", "is_an_expanded_item", get__node__is_an_expanded_item, &poly_idx__node__is_an_expanded_item, &var.node__is_an_expanded_item);
-  define_polymorphic_function("node", "is_an_optional_item", get__node__is_an_optional_item, &poly_idx__node__is_an_optional_item, &var.node__is_an_optional_item);
+  define_polymorphic_function("node", "is_a_reference", get__node__is_a_reference, &poly_idx__node__is_a_reference, &var.node__is_a_reference);
   define_polymorphic_function("node", "is_a_setter", get__node__is_a_setter, &poly_idx__node__is_a_setter, &var.node__is_a_setter);
   define_polymorphic_function("node", "is_a_single_assign_definition", get__node__is_a_single_assign_definition, &poly_idx__node__is_a_single_assign_definition, &var.node__is_a_single_assign_definition);
   define_polymorphic_function("node", "is_a_static_definition", get__node__is_a_static_definition, &poly_idx__node__is_a_static_definition, &var.node__is_a_static_definition);
   define_polymorphic_function("node", "is_a_string_template", get__node__is_a_string_template, &poly_idx__node__is_a_string_template, &var.node__is_a_string_template);
   define_polymorphic_function("node", "is_an_attribute_access", get__node__is_an_attribute_access, &poly_idx__node__is_an_attribute_access, &var.node__is_an_attribute_access);
+  define_polymorphic_function("node", "is_an_expanded_item", get__node__is_an_expanded_item, &poly_idx__node__is_an_expanded_item, &var.node__is_an_expanded_item);
   define_polymorphic_function("node", "is_an_initialization", get__node__is_an_initialization, &poly_idx__node__is_an_initialization, &var.node__is_an_initialization);
+  define_polymorphic_function("node", "is_an_optional_item", get__node__is_an_optional_item, &poly_idx__node__is_an_optional_item, &var.node__is_an_optional_item);
   define_polymorphic_function("node", "is_in_infix_notation", get__node__is_in_infix_notation, &poly_idx__node__is_in_infix_notation, &var.node__is_in_infix_notation);
   define_polymorphic_function("node", "is_in_numeric_notation", get__node__is_in_numeric_notation, &poly_idx__node__is_in_numeric_notation, &var.node__is_in_numeric_notation);
   define_polymorphic_function("node", "is_mutable", get__node__is_mutable, &poly_idx__node__is_mutable, &var.node__is_mutable);
@@ -4721,7 +4758,7 @@ EXPORT void phase_2__nodes(void) {
   define_polymorphic_function("node", "is_an_attribute_function_pair", get__node__is_an_attribute_function_pair, &poly_idx__node__is_an_attribute_function_pair, &var.node__is_an_attribute_function_pair);
   define_polymorphic_function("node", "is_a_numeric_literal", get__node__is_a_numeric_literal, &poly_idx__node__is_a_numeric_literal, &var.node__is_a_numeric_literal);
   string__578a5af303e9cbe = from_latin_1_string("_", 1);
-  func__compiler__numeric_literal__mangled_name_of_1 = create_function(entry__compiler__numeric_literal__mangled_name_of_1, 1);
+  func__compiler__numeric_literal___mangled_name_of = create_function(entry__compiler__numeric_literal___mangled_name_of, 1);
   define_polymorphic_function("node", "is_a_character_literal", get__node__is_a_character_literal, &poly_idx__node__is_a_character_literal, &var.node__is_a_character_literal);
   define_polymorphic_function("node", "is_a_string_literal", get__node__is_a_string_literal, &poly_idx__node__is_a_string_literal, &var.node__is_a_string_literal);
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
@@ -4732,16 +4769,16 @@ EXPORT void phase_2__nodes(void) {
   define_polymorphic_function("node", "is_used_as_a_destination", get__node__is_used_as_a_destination, &poly_idx__node__is_used_as_a_destination, &var.node__is_used_as_a_destination);
   string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
   func__compiler__identifier__full_name_of_8 = create_function(entry__compiler__identifier__full_name_of_8, 0);
-  func__compiler__identifier__full_name_of_1 = create_function(entry__compiler__identifier__full_name_of_1, 1);
+  func__compiler__identifier___full_name_of = create_function(entry__compiler__identifier___full_name_of, 1);
   string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
   func__compiler__identifier__mangled_name_of_8 = create_function(entry__compiler__identifier__mangled_name_of_8, 0);
-  func__compiler__identifier__mangled_name_of_1 = create_function(entry__compiler__identifier__mangled_name_of_1, 1);
+  func__compiler__identifier___mangled_name_of = create_function(entry__compiler__identifier___mangled_name_of, 1);
   define_polymorphic_function("node", "is_a_temporary", get__node__is_a_temporary, &poly_idx__node__is_a_temporary, &var.node__is_a_temporary);
   define_polymorphic_function("node", "is_an_operator_symbol", get__node__is_an_operator_symbol, &poly_idx__node__is_an_operator_symbol, &var.node__is_an_operator_symbol);
   define_polymorphic_function("node", "is_c_code", get__node__is_c_code, &poly_idx__node__is_c_code, &var.node__is_c_code);
   string__545aebc3eac0d03b = from_latin_1_string("local", 5);
   define_polymorphic_function("node", "is_a_c_body", get__node__is_a_c_body, &poly_idx__node__is_a_c_body, &var.node__is_a_c_body);
-  func__compiler__is_a_parameter_1 = create_function(entry__compiler__is_a_parameter_1, 1);
+  func__compiler__is_a_parameter = create_function(entry__compiler__is_a_parameter, 1);
 }
 
 static int already_run_phase_3 = false;
@@ -4904,6 +4941,7 @@ EXPORT void phase_4__nodes(void) {
   use_polymorphic_function(NULL, "is_a_numeric_literal", &get__is_a_numeric_literal, &poly_idx__is_a_numeric_literal);
   use_polymorphic_function(NULL, "is_a_polymorphic_function_constant", &get__is_a_polymorphic_function_constant, &poly_idx__is_a_polymorphic_function_constant);
   use_polymorphic_function(NULL, "is_a_procedure_call", &get__is_a_procedure_call, &poly_idx__is_a_procedure_call);
+  use_polymorphic_function(NULL, "is_a_reference", &get__is_a_reference, &poly_idx__is_a_reference);
   use_polymorphic_function(NULL, "is_a_remark", &get__is_a_remark, &poly_idx__is_a_remark);
   use_polymorphic_function(NULL, "is_a_return", &get__is_a_return, &poly_idx__is_a_return);
   use_polymorphic_function(NULL, "is_a_setter", &get__is_a_setter, &poly_idx__is_a_setter);
@@ -4961,6 +4999,7 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("types", "grammar_node", poly_idx__is_an_initialization, get__false());
   define_attribute("types", "grammar_node", poly_idx__is_an_expanded_item, get__false());
   define_attribute("types", "grammar_node", poly_idx__is_an_optional_item, get__false());
+  define_attribute("types", "grammar_node", poly_idx__is_a_reference, get__false());
   define_attribute("types", "grammar_node", poly_idx__is_a_meta_instruction, get__false());
   define_attribute("compiler", "meta_instruction", poly_idx__is_a_meta_instruction, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_remark, get__false());
@@ -4983,7 +5022,7 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("compiler", "procedure_call", poly_idx__is_a_procedure_call, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_return, get__false());
   define_attribute("compiler", "return_statement", poly_idx__is_a_return, get__true());
-  define_attribute("compiler", "call", poly_idx__is_an_assignment, get__false());
+  define_attribute("types", "grammar_node", poly_idx__is_an_assignment, get__false());
   define_attribute("compiler", "assignment", poly_idx__is_an_assignment, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_a_definition, get__false());
   define_attribute("types", "grammar_node", poly_idx__is_a_destination, get__false());
@@ -5034,7 +5073,7 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("types", "grammar_node", poly_idx__is_a_numeric_literal, get__false());
   define_attribute("compiler", "numeric_literal", poly_idx__is_a_numeric_literal, get__true());
   define_attribute("compiler", "numeric_literal", poly_idx__is_a_constant, get__true());
-  define_method("compiler", "numeric_literal", poly_idx__mangled_name_of, func__compiler__numeric_literal__mangled_name_of_1);
+  define_method("compiler", "numeric_literal", poly_idx__mangled_name_of, func__compiler__numeric_literal___mangled_name_of);
   define_attribute("types", "grammar_node", poly_idx__is_a_character_literal, get__false());
   define_attribute("compiler", "character_literal", poly_idx__is_a_character_literal, get__true());
   define_attribute("compiler", "character_literal", poly_idx__is_a_constant, get__true());
@@ -5059,8 +5098,8 @@ EXPORT void phase_4__nodes(void) {
   define_attribute("compiler", "identifier", poly_idx__is_used_as_a_polymorphic_function, get__false());
   define_attribute("compiler", "identifier", poly_idx__is_used_as_a_destination, get__false());
   define_attribute("compiler", "identifier", poly_idx__is_not_used, get__false());
-  define_method("compiler", "identifier", poly_idx__full_name_of, func__compiler__identifier__full_name_of_1);
-  define_method("compiler", "identifier", poly_idx__mangled_name_of, func__compiler__identifier__mangled_name_of_1);
+  define_method("compiler", "identifier", poly_idx__full_name_of, func__compiler__identifier___full_name_of);
+  define_method("compiler", "identifier", poly_idx__mangled_name_of, func__compiler__identifier___mangled_name_of);
   define_attribute("types", "grammar_node", poly_idx__is_a_temporary, get__false());
   define_attribute("compiler", "temporary", poly_idx__is_a_temporary, get__true());
   define_attribute("types", "grammar_node", poly_idx__is_an_operator_symbol, get__false());
@@ -5118,14 +5157,15 @@ EXPORT void phase_5__nodes(void) {
   assign_value(&var.node__is_a_dynamic_definition, create_function(type__node__is_a_dynamic_definition, -1));
   assign_value(&var.node__is_a_method_definition, create_function(type__node__is_a_method_definition, -1));
   assign_value(&var.node__is_a_multi_assign_definition, create_function(type__node__is_a_multi_assign_definition, -1));
-  assign_value(&var.node__is_an_expanded_item, create_function(type__node__is_an_expanded_item, -1));
-  assign_value(&var.node__is_an_optional_item, create_function(type__node__is_an_optional_item, -1));
+  assign_value(&var.node__is_a_reference, create_function(type__node__is_a_reference, -1));
   assign_value(&var.node__is_a_setter, create_function(type__node__is_a_setter, -1));
   assign_value(&var.node__is_a_single_assign_definition, create_function(type__node__is_a_single_assign_definition, -1));
   assign_value(&var.node__is_a_static_definition, create_function(type__node__is_a_static_definition, -1));
   assign_value(&var.node__is_a_string_template, create_function(type__node__is_a_string_template, -1));
   assign_value(&var.node__is_an_attribute_access, create_function(type__node__is_an_attribute_access, -1));
+  assign_value(&var.node__is_an_expanded_item, create_function(type__node__is_an_expanded_item, -1));
   assign_value(&var.node__is_an_initialization, create_function(type__node__is_an_initialization, -1));
+  assign_value(&var.node__is_an_optional_item, create_function(type__node__is_an_optional_item, -1));
   assign_value(&var.node__is_in_infix_notation, create_function(type__node__is_in_infix_notation, -1));
   assign_value(&var.node__is_in_numeric_notation, create_function(type__node__is_in_numeric_notation, -1));
   assign_value(&var.node__is_mutable, create_function(type__node__is_mutable, -1));
@@ -5228,7 +5268,7 @@ EXPORT void phase_5__nodes(void) {
   initialize_future(var.compiler__c_code, get__types__grammar_node());
   assign_value(&var.node__is_a_c_body, create_function(type__node__is_a_c_body, -1));
   initialize_future(var.compiler__c_body, var.compiler__c_code);
-  initialize_future(var.compiler__is_a_parameter, func__compiler__is_a_parameter_1);
+  initialize_future(var.compiler__is_a_parameter, func__compiler__is_a_parameter);
 }
 
 static int already_run_phase_6 = false;

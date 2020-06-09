@@ -478,12 +478,12 @@ static void entry__types__quad_octet_string__hash_1(void);
 static NODE *func__types__quad_octet_string__hash_1;
 static void entry__types__quad_octet_string__hash2_1(void);
 static NODE *func__types__quad_octet_string__hash2_1;
-static NODE *func__types__string__to_string_1;
-static void entry__types__string__to_string_1(void);
-static FRAME_INFO frame__types__string__to_string_1 = {1, {"self"}};
-static NODE *func__types__string__serialize_1;
-static void entry__types__string__serialize_1(void);
-static FRAME_INFO frame__types__string__serialize_1 = {4, {"self", "indent", "buf", "s"}};
+static NODE *func__types__string___to_string;
+static void entry__types__string___to_string(void);
+static FRAME_INFO frame__types__string___to_string = {1, {"self"}};
+static NODE *func__types__string___serialize;
+static void entry__types__string___serialize(void);
+static FRAME_INFO frame__types__string___serialize = {4, {"self", "indent", "buf", "s"}};
 static NODE *string__578a5af303e9cc3;
 static NODE *func__types__string__serialize_3;
 static void entry__types__string__serialize_3(void);
@@ -521,21 +521,21 @@ static NODE *string__fa728415fa96bb4;
 static void cont__types__string__serialize_24(void);
 static void cont__types__string__serialize_25(void);
 static void cont__types__string__serialize_26(void);
-static void cont__types__string__serialize_27(void);
-static void cont__types__string__serialize_28(void);
-static void cont__types__string__serialize_29(void);
-static void cont__types__string__serialize_30(void);
-static void cont__types__string__serialize_31(void);
-static NODE *func__types__string__parse_integer_1;
-static void entry__types__string__parse_integer_1(void);
-static FRAME_INFO frame__types__string__parse_integer_1 = {4, {"self", "return", "val", "negate"}};
-static void cont__types__string__parse_integer_2(void);
+static void cont__types__string___serialize_27(void);
+static void cont__types__string___serialize_28(void);
+static void cont__types__string___serialize_29(void);
+static void cont__types__string___serialize_30(void);
+static void cont__types__string___serialize_31(void);
+static NODE *func__types__string___parse_integer;
+static void entry__types__string___parse_integer(void);
+static FRAME_INFO frame__types__string___parse_integer = {4, {"self", "return", "val", "negate"}};
+static void cont__types__string___parse_integer_2(void);
 static NODE *func__types__string__parse_integer_3;
 static void entry__types__string__parse_integer_3(void);
 static FRAME_INFO frame__types__string__parse_integer_3 = {2, {"self", "negate"}};
 static void cont__types__string__parse_integer_4(void);
 static void cont__types__string__parse_integer_5(void);
-static void cont__types__string__parse_integer_6(void);
+static void cont__types__string___parse_integer_6(void);
 static NODE *func__types__string__parse_integer_7;
 static void entry__types__string__parse_integer_7(void);
 static FRAME_INFO frame__types__string__parse_integer_7 = {4, {"break", "self", "val", "return"}};
@@ -670,7 +670,7 @@ static void cont__types__string__parse_integer_85(void);
 static void cont__types__string__parse_integer_86(void);
 static void cont__types__string__parse_integer_87(void);
 static void cont__types__string__parse_integer_88(void);
-static void cont__types__string__parse_integer_89(void);
+static void cont__types__string___parse_integer_89(void);
 static NODE *func__types__string__parse_integer_90;
 static void entry__types__string__parse_integer_90(void);
 static FRAME_INFO frame__types__string__parse_integer_90 = {1, {"val"}};
@@ -678,7 +678,7 @@ static void cont__types__string__parse_integer_91(void);
 static NODE *func__types__string__parse_integer_92;
 static void entry__types__string__parse_integer_92(void);
 static FRAME_INFO frame__types__string__parse_integer_92 = {1, {"val"}};
-static void cont__types__string__parse_integer_93(void);
+static void cont__types__string___parse_integer_93(void);
 
 static long func__types__octet_string___debug_string(NODE *node, int indent, int max_depth, char *buf);
 
@@ -735,7 +735,7 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__types__octet_string__hash2_1, NULL, 592, 604, 3, 2},
   {entry__types__quad_octet_string__hash_1, NULL, 609, 630, 3, 2},
   {entry__types__quad_octet_string__hash2_1, NULL, 635, 647, 3, 2},
-  {entry__types__string__to_string_1, NULL, 655, 655, 3, 9},
+  {entry__types__string___to_string, NULL, 655, 655, 3, 9},
   {entry__types__string__serialize_11, NULL, 673, 673, 9, 23},
   {cont__types__string__serialize_12, &frame__types__string__serialize_11, 673, 673, 9, 23},
   {entry__types__string__serialize_9, NULL, 672, 672, 9, 23},
@@ -759,12 +759,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__types__string__serialize_3, NULL, 669, 669, 9, 17},
   {cont__types__string__serialize_4, &frame__types__string__serialize_3, },
   {cont__types__string__serialize_16, &frame__types__string__serialize_3, 667, 677, 5, 17},
-  {entry__types__string__serialize_1, NULL, 666, 677, 3, 18},
-  {cont__types__string__serialize_27, &frame__types__string__serialize_1, 678, 678, 29, 29},
-  {cont__types__string__serialize_28, &frame__types__string__serialize_1, 678, 678, 15, 30},
-  {cont__types__string__serialize_29, &frame__types__string__serialize_1, 678, 678, 3, 30},
-  {cont__types__string__serialize_30, &frame__types__string__serialize_1, 679, 679, 6, 23},
-  {cont__types__string__serialize_31, &frame__types__string__serialize_1, 679, 679, 3, 23},
+  {entry__types__string___serialize, NULL, 666, 677, 3, 18},
+  {cont__types__string___serialize_27, &frame__types__string___serialize, 678, 678, 29, 29},
+  {cont__types__string___serialize_28, &frame__types__string___serialize, 678, 678, 15, 30},
+  {cont__types__string___serialize_29, &frame__types__string___serialize, 678, 678, 3, 30},
+  {cont__types__string___serialize_30, &frame__types__string___serialize, 679, 679, 6, 23},
+  {cont__types__string___serialize_31, &frame__types__string___serialize, 679, 679, 3, 23},
   {entry__types__string__parse_integer_3, NULL, 691, 691, 20, 20},
   {cont__types__string__parse_integer_4, &frame__types__string__parse_integer_3, 691, 691, 5, 20},
   {cont__types__string__parse_integer_5, &frame__types__string__parse_integer_3, 692, 692, 16, 16},
@@ -850,11 +850,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__types__string__parse_integer_90, NULL, 743, 743, 11, 13},
   {cont__types__string__parse_integer_91, &frame__types__string__parse_integer_90, 743, 743, 7, 13},
   {entry__types__string__parse_integer_92, NULL, 744, 744, 7, 12},
-  {entry__types__string__parse_integer_1, NULL, 690, 690, 6, 26},
-  {cont__types__string__parse_integer_2, &frame__types__string__parse_integer_1, 690, 692, 3, 16},
-  {cont__types__string__parse_integer_6, &frame__types__string__parse_integer_1, 693, 738, 3, 12},
-  {cont__types__string__parse_integer_89, &frame__types__string__parse_integer_1, 744, 744, 7, 12},
-  {cont__types__string__parse_integer_93, &frame__types__string__parse_integer_1, 739, 744, 3, 13},
+  {entry__types__string___parse_integer, NULL, 690, 690, 6, 26},
+  {cont__types__string___parse_integer_2, &frame__types__string___parse_integer, 690, 692, 3, 16},
+  {cont__types__string___parse_integer_6, &frame__types__string___parse_integer, 693, 738, 3, 12},
+  {cont__types__string___parse_integer_89, &frame__types__string___parse_integer, 744, 744, 7, 12},
+  {cont__types__string___parse_integer_93, &frame__types__string___parse_integer, 739, 744, 3, 13},
   {entry__types__octet_string__push_1, NULL, 817, 858, 3, 2},
   {entry__types__quad_octet_string__push_1, NULL, 863, 889, 3, 2},
   {entry__types__octet_string__append_1, NULL, 894, 938, 3, 2},
@@ -1981,7 +1981,7 @@ static void entry__types__quad_octet_string__hash2_1(void) {
     return;
   }
 }
-static void entry__types__string__to_string_1(void) {
+static void entry__types__string___to_string(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -1997,7 +1997,7 @@ static void entry__types__string__to_string_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__serialize_1(void) {
+static void entry__types__string___serialize(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -2055,7 +2055,7 @@ static void entry__types__string__serialize_1(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__types__string__serialize_27;
+  frame->cont = cont__types__string___serialize_27;
 }
 static void entry__types__string__serialize_17(void) {
   allocate_initialized_frame_gc(5, 8);
@@ -2458,7 +2458,7 @@ static void cont__types__string__serialize_16(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__serialize_27(void) {
+static void cont__types__string___serialize_27(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2470,9 +2470,9 @@ static void cont__types__string__serialize_27(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__types__string__serialize_28;
+  frame->cont = cont__types__string___serialize_28;
 }
-static void cont__types__string__serialize_28(void) {
+static void cont__types__string___serialize_28(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2487,9 +2487,9 @@ static void cont__types__string__serialize_28(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__types__string__serialize_29;
+  frame->cont = cont__types__string___serialize_29;
 }
-static void cont__types__string__serialize_29(void) {
+static void cont__types__string___serialize_29(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2503,9 +2503,9 @@ static void cont__types__string__serialize_29(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__types__string__serialize_30;
+  frame->cont = cont__types__string___serialize_30;
 }
-static void cont__types__string__serialize_30(void) {
+static void cont__types__string___serialize_30(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2519,9 +2519,9 @@ static void cont__types__string__serialize_30(void) {
   result_count = 1;
   myself = get__push();
   func = myself->type;
-  frame->cont = cont__types__string__serialize_31;
+  frame->cont = cont__types__string___serialize_31;
 }
-static void cont__types__string__serialize_31(void) {
+static void cont__types__string___serialize_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2535,7 +2535,7 @@ static void cont__types__string__serialize_31(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__parse_integer_1(void) {
+static void entry__types__string___parse_integer(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // self: 0
@@ -2562,9 +2562,9 @@ static void entry__types__string__parse_integer_1(void) {
   result_count = 1;
   myself = get__has_prefix();
   func = myself->type;
-  frame->cont = cont__types__string__parse_integer_2;
+  frame->cont = cont__types__string___parse_integer_2;
 }
-static void cont__types__string__parse_integer_2(void) {
+static void cont__types__string___parse_integer_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2584,7 +2584,7 @@ static void cont__types__string__parse_integer_2(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__parse_integer_6;
+  frame->cont = cont__types__string___parse_integer_6;
 }
 static void entry__types__string__parse_integer_3(void) {
   allocate_initialized_frame_gc(2, 3);
@@ -2637,7 +2637,7 @@ static void cont__types__string__parse_integer_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__string__parse_integer_6(void) {
+static void cont__types__string___parse_integer_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2671,7 +2671,7 @@ static void cont__types__string__parse_integer_6(void) {
   result_count = 0;
   myself = get__do();
   func = myself->type;
-  frame->cont = cont__types__string__parse_integer_89;
+  frame->cont = cont__types__string___parse_integer_89;
 }
 static void entry__types__string__parse_integer_7(void) {
   allocate_initialized_frame_gc(4, 8);
@@ -4380,7 +4380,7 @@ static void cont__types__string__parse_integer_88(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__string__parse_integer_89(void) {
+static void cont__types__string___parse_integer_89(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -4397,7 +4397,7 @@ static void cont__types__string__parse_integer_89(void) {
   result_count = 1;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__parse_integer_93;
+  frame->cont = cont__types__string___parse_integer_93;
 }
 static void entry__types__string__parse_integer_90(void) {
   allocate_initialized_frame_gc(1, 2);
@@ -4448,7 +4448,7 @@ static void entry__types__string__parse_integer_92(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__string__parse_integer_93(void) {
+static void cont__types__string___parse_integer_93(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -5315,14 +5315,14 @@ EXPORT void phase_2__basic__types__string_primitives(void) {
   func__types__octet_string__hash2_1 = create_function(entry__types__octet_string__hash2_1, 1);
   func__types__quad_octet_string__hash_1 = create_function(entry__types__quad_octet_string__hash_1, 1);
   func__types__quad_octet_string__hash2_1 = create_function(entry__types__quad_octet_string__hash2_1, 1);
-  func__types__string__to_string_1 = create_function(entry__types__string__to_string_1, 1);
+  func__types__string___to_string = create_function(entry__types__string___to_string, 1);
   string__578a5af303e9cc3 = from_latin_1_string("\042", 1);
   string__fa728415fa96bb4 = from_latin_1_string("@0x", 3);
-  func__types__string__serialize_1 = create_function(entry__types__string__serialize_1, -1);
+  func__types__string___serialize = create_function(entry__types__string___serialize, -1);
   string__2d7981f4e6882ba7 = from_latin_1_string("0b", 2);
   string__2d7981f4e6882baa = from_latin_1_string("0o", 2);
   string__2d7981f4e6882bbd = from_latin_1_string("0x", 2);
-  func__types__string__parse_integer_1 = create_function(entry__types__string__parse_integer_1, 1);
+  func__types__string___parse_integer = create_function(entry__types__string___parse_integer, 1);
   func__types__octet_string__push_1 = create_function(entry__types__octet_string__push_1, 2);
   func__types__quad_octet_string__push_1 = create_function(entry__types__quad_octet_string__push_1, 2);
   func__types__octet_string__append_1 = create_function(entry__types__octet_string__append_1, 2);
@@ -5421,9 +5421,9 @@ EXPORT void phase_4__basic__types__string_primitives(void) {
   define_method("types", "octet_string", poly_idx__hash2, func__types__octet_string__hash2_1);
   define_method("types", "quad_octet_string", poly_idx__hash, func__types__quad_octet_string__hash_1);
   define_method("types", "quad_octet_string", poly_idx__hash2, func__types__quad_octet_string__hash2_1);
-  define_method("types", "string", poly_idx__to_string, func__types__string__to_string_1);
-  define_method("types", "string", poly_idx__serialize, func__types__string__serialize_1);
-  define_method("types", "string", poly_idx__parse_integer, func__types__string__parse_integer_1);
+  define_method("types", "string", poly_idx__to_string, func__types__string___to_string);
+  define_method("types", "string", poly_idx__serialize, func__types__string___serialize);
+  define_method("types", "string", poly_idx__parse_integer, func__types__string___parse_integer);
   define_method("types", "octet_string", poly_idx__push, func__types__octet_string__push_1);
   define_method("types", "quad_octet_string", poly_idx__push, func__types__quad_octet_string__push_1);
   define_method("types", "octet_string", poly_idx__append, func__types__octet_string__append_1);

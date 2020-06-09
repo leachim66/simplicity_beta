@@ -199,11 +199,10 @@ IMPORT int debug_print(int indent, char *buf, const char *format, ...);
 IMPORT void collect_static_attributes(ATTRIBUTES *attributes);
 IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void set_module(const char *name);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT NODE *create_future_with_prototype(NODE *prototype);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -228,6 +227,7 @@ IMPORT void define_attribute(
   int id, NODE *attribute
 );
 IMPORT void assign_variable(NODE **dest, NODE **var_p);
+IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -320,7 +320,6 @@ static NODE_GETTER get_value_or_future__types__generic_set;
 static NODE_GETTER get__undefined;
 static NODE_GETTER get_value_or_future__undefined;
 static struct {
-  NODE *_NONE;
   NODE *_insert_item;
   NODE *_retrieve_item;
   NODE *_next_key;
@@ -330,13 +329,11 @@ static struct {
   NODE *std__unordered_set;
 } var;
 static const char *var_names[] = {
-  "NONE",
   "insert_item",
   "retrieve_item",
   "next_key",
   "previous_key"
 };
-static NODE *unique__NONE;
 
 typedef struct REFERRED_REVISION REFERRED_REVISION;
 struct REFERRED_REVISION {
@@ -408,15 +405,16 @@ static void entry__next_key_1(void);
 static NODE *func__next_key_1;
 static void entry__previous_key_1(void);
 static NODE *func__previous_key_1;
-static NODE *func__types__unordered_set__private__set_item_1;
-static void entry__types__unordered_set__private__set_item_1(void);
-static FRAME_INFO frame__types__unordered_set__private__set_item_1 = {6, {"self", "key", "value", "return", "h", "cmp_key"}};
-static void cont__types__unordered_set__private__set_item_2(void);
+static NODE *func__types__unordered_set___private__set_item;
+static void entry__types__unordered_set___private__set_item(void);
+static FRAME_INFO frame__types__unordered_set___private__set_item = {6, {"self", "key", "value", "return", "h", "cmp_key"}};
+static void cont__types__unordered_set___private__set_item_2(void);
 static NODE *func__types__unordered_set__private__set_item_3;
 static void entry__types__unordered_set__private__set_item_3(void);
 static FRAME_INFO frame__types__unordered_set__private__set_item_3 = {1, {"key"}};
-static void cont__types__unordered_set__private__set_item_4(void);
-static void cont__types__unordered_set__private__set_item_5(void);
+static void cont__types__unordered_set___private__set_item_4(void);
+static void cont__types__unordered_set___private__set_item_5(void);
+static NODE *unique__NONE;
 static NODE *func__types__unordered_set__private__set_item_6;
 static void entry__types__unordered_set__private__set_item_6(void);
 static FRAME_INFO frame__types__unordered_set__private__set_item_6 = {6, {"self", "h", "cmp_key", "key", "value", "return"}};
@@ -430,11 +428,11 @@ static void cont__types__unordered_set__private__set_item_11(void);
 static NODE *func__types__unordered_set__private__set_item_12;
 static void entry__types__unordered_set__private__set_item_12(void);
 static FRAME_INFO frame__types__unordered_set__private__set_item_12 = {2, {"key", "cmp_key"}};
-static void cont__types__unordered_set__private__set_item_13(void);
-static NODE *func__types__unordered_set__private__get_item_1;
-static void entry__types__unordered_set__private__get_item_1(void);
-static FRAME_INFO frame__types__unordered_set__private__get_item_1 = {5, {"self", "key", "return", "h", "cmp_key"}};
-static void cont__types__unordered_set__private__get_item_2(void);
+static void cont__types__unordered_set___private__set_item_13(void);
+static NODE *func__types__unordered_set___private__get_item;
+static void entry__types__unordered_set___private__get_item(void);
+static FRAME_INFO frame__types__unordered_set___private__get_item = {5, {"self", "key", "return", "h", "cmp_key"}};
+static void cont__types__unordered_set___private__get_item_2(void);
 static NODE *func__types__unordered_set__private__get_item_3;
 static void entry__types__unordered_set__private__get_item_3(void);
 static FRAME_INFO frame__types__unordered_set__private__get_item_3 = {5, {"self", "h", "cmp_key", "return", "key"}};
@@ -448,11 +446,11 @@ static void cont__types__unordered_set__private__get_item_8(void);
 static NODE *func__types__unordered_set__private__get_item_9;
 static void entry__types__unordered_set__private__get_item_9(void);
 static FRAME_INFO frame__types__unordered_set__private__get_item_9 = {1, {"return"}};
-static void cont__types__unordered_set__private__get_item_10(void);
-static NODE *func__types__unordered_set_1;
-static void entry__types__unordered_set_1(void);
-static FRAME_INFO frame__types__unordered_set_1 = {3, {"key", "value", "myself"}};
-static void cont__types__unordered_set_2(void);
+static void cont__types__unordered_set___private__get_item_10(void);
+static NODE *func__types__unordered_set____type;
+static void entry__types__unordered_set____type(void);
+static FRAME_INFO frame__types__unordered_set____type = {3, {"key", "value", "myself"}};
+static void cont__types__unordered_set____type_2(void);
 static NODE *func__types__unordered_set_3;
 static void entry__types__unordered_set_3(void);
 static FRAME_INFO frame__types__unordered_set_3 = {2, {"myself", "key"}};
@@ -460,15 +458,15 @@ static NODE *func__types__unordered_set_4;
 static void entry__types__unordered_set_4(void);
 static FRAME_INFO frame__types__unordered_set_4 = {3, {"myself", "key", "value"}};
 static NODE *string__7c2245b2b078163c;
-static NODE *func__types__unordered_set__new_empty_collection_1;
-static void entry__types__unordered_set__new_empty_collection_1(void);
-static FRAME_INFO frame__types__unordered_set__new_empty_collection_1 = {1, {"self"}};
+static NODE *func__types__unordered_set___new_empty_collection;
+static void entry__types__unordered_set___new_empty_collection(void);
+static FRAME_INFO frame__types__unordered_set___new_empty_collection = {1, {"self"}};
 static NODE *get__std__empty_unordered_set(void) {
   return var.std__empty_unordered_set;
 }
-static NODE *func__std__unordered_set_1;
-static void entry__std__unordered_set_1(void);
-static FRAME_INFO frame__std__unordered_set_1 = {2, {"initializers", "tab"}};
+static NODE *func__std__unordered_set;
+static void entry__std__unordered_set(void);
+static FRAME_INFO frame__std__unordered_set = {2, {"initializers", "tab"}};
 static NODE *func__std__unordered_set_2;
 static void entry__std__unordered_set_2(void);
 static FRAME_INFO frame__std__unordered_set_2 = {2, {"initializer", "tab"}};
@@ -479,9 +477,9 @@ static void cont__std__unordered_set_6(void);
 static NODE *get__std__unordered_set(void) {
   return var.std__unordered_set;
 }
-static NODE *func__types__unordered_set__for_each_1;
-static void entry__types__unordered_set__for_each_1(void);
-static FRAME_INFO frame__types__unordered_set__for_each_1 = {4, {"self", "body", "return", "key"}};
+static NODE *func__types__unordered_set___for_each;
+static void entry__types__unordered_set___for_each(void);
+static FRAME_INFO frame__types__unordered_set___for_each = {4, {"self", "body", "return", "key"}};
 static NODE *func__types__unordered_set__for_each_2;
 static void entry__types__unordered_set__for_each_2(void);
 static FRAME_INFO frame__types__unordered_set__for_each_2 = {4, {"self", "key", "return", "body"}};
@@ -489,18 +487,18 @@ static void cont__types__unordered_set__for_each_3(void);
 static void cont__types__unordered_set__for_each_4(void);
 static void cont__types__unordered_set__for_each_5(void);
 static void cont__types__unordered_set__for_each_6(void);
-static void cont__types__unordered_set__for_each_7(void);
-static NODE *func__types__unordered_set__for_each_from_to_1;
-static void entry__types__unordered_set__for_each_from_to_1(void);
-static FRAME_INFO frame__types__unordered_set__for_each_from_to_1 = {7, {"self", "first", "last", "body", "return", "key", "h"}};
-static void cont__types__unordered_set__for_each_from_to_2(void);
-static void cont__types__unordered_set__for_each_from_to_3(void);
-static void cont__types__unordered_set__for_each_from_to_4(void);
+static void cont__types__unordered_set___for_each_7(void);
+static NODE *func__types__unordered_set___for_each_from_to;
+static void entry__types__unordered_set___for_each_from_to(void);
+static FRAME_INFO frame__types__unordered_set___for_each_from_to = {7, {"self", "first", "last", "body", "return", "key", "h"}};
+static void cont__types__unordered_set___for_each_from_to_2(void);
+static void cont__types__unordered_set___for_each_from_to_3(void);
+static void cont__types__unordered_set___for_each_from_to_4(void);
 static NODE *func__types__unordered_set__for_each_from_to_5;
 static void entry__types__unordered_set__for_each_from_to_5(void);
 static FRAME_INFO frame__types__unordered_set__for_each_from_to_5 = {0, {}};
 static NODE *string__2bdb69f58c8fd6ea;
-static void cont__types__unordered_set__for_each_from_to_7(void);
+static void cont__types__unordered_set___for_each_from_to_7(void);
 static NODE *func__types__unordered_set__for_each_from_to_8;
 static void entry__types__unordered_set__for_each_from_to_8(void);
 static FRAME_INFO frame__types__unordered_set__for_each_from_to_8 = {5, {"body", "key", "last", "return", "self"}};
@@ -510,10 +508,10 @@ static void cont__types__unordered_set__for_each_from_to_11(void);
 static void cont__types__unordered_set__for_each_from_to_12(void);
 static void cont__types__unordered_set__for_each_from_to_13(void);
 static void cont__types__unordered_set__for_each_from_to_14(void);
-static void cont__types__unordered_set__for_each_from_to_15(void);
-static NODE *func__types__unordered_set__for_each_downwards_1;
-static void entry__types__unordered_set__for_each_downwards_1(void);
-static FRAME_INFO frame__types__unordered_set__for_each_downwards_1 = {4, {"self", "body", "return", "key"}};
+static void cont__types__unordered_set___for_each_from_to_15(void);
+static NODE *func__types__unordered_set___for_each_downwards;
+static void entry__types__unordered_set___for_each_downwards(void);
+static FRAME_INFO frame__types__unordered_set___for_each_downwards = {4, {"self", "body", "return", "key"}};
 static NODE *func__types__unordered_set__for_each_downwards_2;
 static void entry__types__unordered_set__for_each_downwards_2(void);
 static FRAME_INFO frame__types__unordered_set__for_each_downwards_2 = {4, {"self", "key", "return", "body"}};
@@ -521,17 +519,17 @@ static void cont__types__unordered_set__for_each_downwards_3(void);
 static void cont__types__unordered_set__for_each_downwards_4(void);
 static void cont__types__unordered_set__for_each_downwards_5(void);
 static void cont__types__unordered_set__for_each_downwards_6(void);
-static void cont__types__unordered_set__for_each_downwards_7(void);
-static NODE *func__types__unordered_set__for_each_from_down_to_1;
-static void entry__types__unordered_set__for_each_from_down_to_1(void);
-static FRAME_INFO frame__types__unordered_set__for_each_from_down_to_1 = {7, {"self", "last", "first", "body", "return", "key", "h"}};
-static void cont__types__unordered_set__for_each_from_down_to_2(void);
-static void cont__types__unordered_set__for_each_from_down_to_3(void);
-static void cont__types__unordered_set__for_each_from_down_to_4(void);
+static void cont__types__unordered_set___for_each_downwards_7(void);
+static NODE *func__types__unordered_set___for_each_from_down_to;
+static void entry__types__unordered_set___for_each_from_down_to(void);
+static FRAME_INFO frame__types__unordered_set___for_each_from_down_to = {7, {"self", "last", "first", "body", "return", "key", "h"}};
+static void cont__types__unordered_set___for_each_from_down_to_2(void);
+static void cont__types__unordered_set___for_each_from_down_to_3(void);
+static void cont__types__unordered_set___for_each_from_down_to_4(void);
 static NODE *func__types__unordered_set__for_each_from_down_to_5;
 static void entry__types__unordered_set__for_each_from_down_to_5(void);
 static FRAME_INFO frame__types__unordered_set__for_each_from_down_to_5 = {0, {}};
-static void cont__types__unordered_set__for_each_from_down_to_6(void);
+static void cont__types__unordered_set___for_each_from_down_to_6(void);
 static NODE *func__types__unordered_set__for_each_from_down_to_7;
 static void entry__types__unordered_set__for_each_from_down_to_7(void);
 static FRAME_INFO frame__types__unordered_set__for_each_from_down_to_7 = {5, {"body", "key", "first", "return", "self"}};
@@ -541,7 +539,7 @@ static void cont__types__unordered_set__for_each_from_down_to_10(void);
 static void cont__types__unordered_set__for_each_from_down_to_11(void);
 static void cont__types__unordered_set__for_each_from_down_to_12(void);
 static void cont__types__unordered_set__for_each_from_down_to_13(void);
-static void cont__types__unordered_set__for_each_from_down_to_14(void);
+static void cont__types__unordered_set___for_each_from_down_to_14(void);
 
 static long func__types__unordered_set___debug_string(NODE *node, int indent, int max_depth, char *buf);
 static void cont__58_1(void);
@@ -563,11 +561,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__unordered_set__private__set_item_8, &frame__types__unordered_set__private__set_item_6, 818, 818, 5, 35},
   {cont__types__unordered_set__private__set_item_10, &frame__types__unordered_set__private__set_item_6, 819, 819, 8, 41},
   {cont__types__unordered_set__private__set_item_11, &frame__types__unordered_set__private__set_item_6, 819, 820, 5, 72},
-  {entry__types__unordered_set__private__set_item_1, NULL, 803, 803, 6, 21},
-  {cont__types__unordered_set__private__set_item_2, &frame__types__unordered_set__private__set_item_1, 803, 803, 3, 37},
-  {cont__types__unordered_set__private__set_item_4, &frame__types__unordered_set__private__set_item_1, 804, 804, 3, 14},
-  {cont__types__unordered_set__private__set_item_5, &frame__types__unordered_set__private__set_item_1, 816, 820, 3, 73},
-  {cont__types__unordered_set__private__set_item_13, &frame__types__unordered_set__private__set_item_1, 820, 820, 73, 73},
+  {entry__types__unordered_set___private__set_item, NULL, 803, 803, 6, 21},
+  {cont__types__unordered_set___private__set_item_2, &frame__types__unordered_set___private__set_item, 803, 803, 3, 37},
+  {cont__types__unordered_set___private__set_item_4, &frame__types__unordered_set___private__set_item, 804, 804, 3, 14},
+  {cont__types__unordered_set___private__set_item_5, &frame__types__unordered_set___private__set_item, 816, 820, 3, 73},
+  {cont__types__unordered_set___private__set_item_13, &frame__types__unordered_set___private__set_item, 820, 820, 73, 73},
   {entry__types__unordered_set__private__get_item_6, NULL, 847, 847, 25, 36},
   {entry__types__unordered_set__private__get_item_9, NULL, 848, 848, 44, 54},
   {entry__types__unordered_set__private__get_item_3, NULL, 842, 842, 5, 33},
@@ -575,27 +573,27 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__unordered_set__private__get_item_5, &frame__types__unordered_set__private__get_item_3, 847, 847, 5, 36},
   {cont__types__unordered_set__private__get_item_7, &frame__types__unordered_set__private__get_item_3, 848, 848, 8, 41},
   {cont__types__unordered_set__private__get_item_8, &frame__types__unordered_set__private__get_item_3, 848, 848, 5, 54},
-  {entry__types__unordered_set__private__get_item_1, NULL, 830, 830, 3, 14},
-  {cont__types__unordered_set__private__get_item_2, &frame__types__unordered_set__private__get_item_1, 841, 854, 3, 52},
-  {cont__types__unordered_set__private__get_item_10, &frame__types__unordered_set__private__get_item_1, 854, 854, 52, 52},
+  {entry__types__unordered_set___private__get_item, NULL, 830, 830, 3, 14},
+  {cont__types__unordered_set___private__get_item_2, &frame__types__unordered_set___private__get_item, 841, 854, 3, 52},
+  {cont__types__unordered_set___private__get_item_10, &frame__types__unordered_set___private__get_item, 854, 854, 52, 52},
   {entry__types__unordered_set_3, NULL, 872, 872, 7, 34},
   {entry__types__unordered_set_4, NULL, 874, 874, 7, 40},
-  {entry__types__unordered_set_1, NULL, 871, 871, 5, 17},
-  {cont__types__unordered_set_2, &frame__types__unordered_set_1, 870, 874, 3, 41},
-  {entry__types__unordered_set__new_empty_collection_1, NULL, 886, 886, 3, 25},
+  {entry__types__unordered_set____type, NULL, 871, 871, 5, 17},
+  {cont__types__unordered_set____type_2, &frame__types__unordered_set____type, 870, 874, 3, 41},
+  {entry__types__unordered_set___new_empty_collection, NULL, 886, 886, 3, 25},
   {entry__std__unordered_set_2, NULL, 900, 900, 5, 61},
   {cont__std__unordered_set_3, &frame__std__unordered_set_2, 900, 900, 10, 33},
   {cont__std__unordered_set_4, &frame__std__unordered_set_2, 900, 900, 5, 34},
   {cont__std__unordered_set_5, &frame__std__unordered_set_2, 900, 900, 61, 61},
-  {entry__std__unordered_set_1, NULL, 899, 900, 3, 61},
-  {cont__std__unordered_set_6, &frame__std__unordered_set_1, 901, 901, 3, 8},
+  {entry__std__unordered_set, NULL, 899, 900, 3, 61},
+  {cont__std__unordered_set_6, &frame__std__unordered_set, 901, 901, 3, 8},
   {entry__types__unordered_set__for_each_2, NULL, 918, 918, 19, 27},
   {cont__types__unordered_set__for_each_3, &frame__types__unordered_set__for_each_2, 918, 918, 5, 32},
   {cont__types__unordered_set__for_each_4, &frame__types__unordered_set__for_each_2, 919, 919, 8, 18},
   {cont__types__unordered_set__for_each_5, &frame__types__unordered_set__for_each_2, 919, 919, 5, 25},
   {cont__types__unordered_set__for_each_6, &frame__types__unordered_set__for_each_2, 920, 920, 5, 12},
-  {entry__types__unordered_set__for_each_1, NULL, 917, 920, 3, 12},
-  {cont__types__unordered_set__for_each_7, &frame__types__unordered_set__for_each_1, 920, 920, 12, 12},
+  {entry__types__unordered_set___for_each, NULL, 917, 920, 3, 12},
+  {cont__types__unordered_set___for_each_7, &frame__types__unordered_set___for_each, 920, 920, 12, 12},
   {entry__types__unordered_set__for_each_from_to_5, NULL, 939, 939, 19, 46},
   {entry__types__unordered_set__for_each_from_to_8, NULL, 941, 941, 5, 12},
   {cont__types__unordered_set__for_each_from_to_9, &frame__types__unordered_set__for_each_from_to_8, 942, 942, 8, 18},
@@ -604,19 +602,19 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__unordered_set__for_each_from_to_12, &frame__types__unordered_set__for_each_from_to_8, 943, 943, 5, 32},
   {cont__types__unordered_set__for_each_from_to_13, &frame__types__unordered_set__for_each_from_to_8, 944, 944, 8, 18},
   {cont__types__unordered_set__for_each_from_to_14, &frame__types__unordered_set__for_each_from_to_8, 944, 944, 5, 25},
-  {entry__types__unordered_set__for_each_from_to_1, NULL, 937, 937, 3, 14},
-  {cont__types__unordered_set__for_each_from_to_2, &frame__types__unordered_set__for_each_from_to_1, 938, 938, 3, 27},
-  {cont__types__unordered_set__for_each_from_to_3, &frame__types__unordered_set__for_each_from_to_1, 939, 939, 6, 16},
-  {cont__types__unordered_set__for_each_from_to_4, &frame__types__unordered_set__for_each_from_to_1, 939, 939, 3, 46},
-  {cont__types__unordered_set__for_each_from_to_7, &frame__types__unordered_set__for_each_from_to_1, 940, 944, 3, 25},
-  {cont__types__unordered_set__for_each_from_to_15, &frame__types__unordered_set__for_each_from_to_1, 944, 944, 25, 25},
+  {entry__types__unordered_set___for_each_from_to, NULL, 937, 937, 3, 14},
+  {cont__types__unordered_set___for_each_from_to_2, &frame__types__unordered_set___for_each_from_to, 938, 938, 3, 27},
+  {cont__types__unordered_set___for_each_from_to_3, &frame__types__unordered_set___for_each_from_to, 939, 939, 6, 16},
+  {cont__types__unordered_set___for_each_from_to_4, &frame__types__unordered_set___for_each_from_to, 939, 939, 3, 46},
+  {cont__types__unordered_set___for_each_from_to_7, &frame__types__unordered_set___for_each_from_to, 940, 944, 3, 25},
+  {cont__types__unordered_set___for_each_from_to_15, &frame__types__unordered_set___for_each_from_to, 944, 944, 25, 25},
   {entry__types__unordered_set__for_each_downwards_2, NULL, 961, 961, 23, 31},
   {cont__types__unordered_set__for_each_downwards_3, &frame__types__unordered_set__for_each_downwards_2, 961, 961, 5, 36},
   {cont__types__unordered_set__for_each_downwards_4, &frame__types__unordered_set__for_each_downwards_2, 962, 962, 8, 18},
   {cont__types__unordered_set__for_each_downwards_5, &frame__types__unordered_set__for_each_downwards_2, 962, 962, 5, 25},
   {cont__types__unordered_set__for_each_downwards_6, &frame__types__unordered_set__for_each_downwards_2, 963, 963, 5, 12},
-  {entry__types__unordered_set__for_each_downwards_1, NULL, 960, 963, 3, 12},
-  {cont__types__unordered_set__for_each_downwards_7, &frame__types__unordered_set__for_each_downwards_1, 963, 963, 12, 12},
+  {entry__types__unordered_set___for_each_downwards, NULL, 960, 963, 3, 12},
+  {cont__types__unordered_set___for_each_downwards_7, &frame__types__unordered_set___for_each_downwards, 963, 963, 12, 12},
   {entry__types__unordered_set__for_each_from_down_to_5, NULL, 982, 982, 19, 46},
   {entry__types__unordered_set__for_each_from_down_to_7, NULL, 984, 984, 5, 12},
   {cont__types__unordered_set__for_each_from_down_to_8, &frame__types__unordered_set__for_each_from_down_to_7, 985, 985, 8, 19},
@@ -625,12 +623,12 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__unordered_set__for_each_from_down_to_11, &frame__types__unordered_set__for_each_from_down_to_7, 986, 986, 5, 36},
   {cont__types__unordered_set__for_each_from_down_to_12, &frame__types__unordered_set__for_each_from_down_to_7, 987, 987, 8, 18},
   {cont__types__unordered_set__for_each_from_down_to_13, &frame__types__unordered_set__for_each_from_down_to_7, 987, 987, 5, 25},
-  {entry__types__unordered_set__for_each_from_down_to_1, NULL, 980, 980, 3, 14},
-  {cont__types__unordered_set__for_each_from_down_to_2, &frame__types__unordered_set__for_each_from_down_to_1, 981, 981, 3, 27},
-  {cont__types__unordered_set__for_each_from_down_to_3, &frame__types__unordered_set__for_each_from_down_to_1, 982, 982, 6, 16},
-  {cont__types__unordered_set__for_each_from_down_to_4, &frame__types__unordered_set__for_each_from_down_to_1, 982, 982, 3, 46},
-  {cont__types__unordered_set__for_each_from_down_to_6, &frame__types__unordered_set__for_each_from_down_to_1, 983, 987, 3, 25},
-  {cont__types__unordered_set__for_each_from_down_to_14, &frame__types__unordered_set__for_each_from_down_to_1, 987, 987, 25, 25}
+  {entry__types__unordered_set___for_each_from_down_to, NULL, 980, 980, 3, 14},
+  {cont__types__unordered_set___for_each_from_down_to_2, &frame__types__unordered_set___for_each_from_down_to, 981, 981, 3, 27},
+  {cont__types__unordered_set___for_each_from_down_to_3, &frame__types__unordered_set___for_each_from_down_to, 982, 982, 6, 16},
+  {cont__types__unordered_set___for_each_from_down_to_4, &frame__types__unordered_set___for_each_from_down_to, 982, 982, 3, 46},
+  {cont__types__unordered_set___for_each_from_down_to_6, &frame__types__unordered_set___for_each_from_down_to, 983, 987, 3, 25},
+  {cont__types__unordered_set___for_each_from_down_to_14, &frame__types__unordered_set___for_each_from_down_to, 987, 987, 25, 25}
 };
 
 union NODE {
@@ -993,7 +991,7 @@ static void entry__insert_item_1(void) {
     entries = new_data->entries;
   }
 
-  NODE *key_node = var._NONE; // default: item has been inserted
+  NODE *key_node = unique__NONE; // default: item has been inserted
 
   long idx = hash % size;
   //fprintf(stderr, "insert into slot %ld\n", idx);
@@ -1029,7 +1027,7 @@ static void entry__insert_item_1(void) {
     // fall through
     // the key is no longer present - must be removed by a garbage collection
     // so insert a new key collision entry
-  } else if (cmp_key == var._NONE) {
+  } else if (cmp_key == unique__NONE) {
     // first call to attempt to insert the new key and value
 
     while (key_collision) {
@@ -1040,7 +1038,7 @@ static void entry__insert_item_1(void) {
       // another object for the same key-value
       // we delegate the decision to the caller unless we find an identical key
 
-      if (cmp_key == var._NONE) {
+      if (cmp_key == unique__NONE) {
         // let's store this key for later check by the caller
 
         cmp_key = key_collision->key;
@@ -1049,7 +1047,7 @@ static void entry__insert_item_1(void) {
       key_collision = key_collision->link;
     }
 
-    if (cmp_key != var._NONE) {
+    if (cmp_key != unique__NONE) {
       // let the caller check this key
 
       //fprintf(stderr, "let the caller check this key\n");
@@ -1151,7 +1149,7 @@ static void entry__retrieve_item_1(void) {
   long rev_no = myself->rev_no;
   UNORDERED_SET_DATA *data = myself->data;
 
-  NODE *key_node = var._NONE;
+  NODE *key_node = unique__NONE;
   int value = false;
   if (!data) goto leave;
 
@@ -1173,7 +1171,7 @@ static void entry__retrieve_item_1(void) {
   //fprintf(stderr, "found identical hash\n");
   UNORDERED_SET_KEY_COLLISION *key_collision = hash_collision->key_collisions;
 
-  if (cmp_key == var._NONE) {
+  if (cmp_key == unique__NONE) {
     if (key_collision) goto found_matching_key;
     goto leave;
   }
@@ -1211,7 +1209,7 @@ static void entry__retrieve_item_1(void) {
 
   leave:;
   if (!value) {
-    key_node = var._NONE;
+    key_node = unique__NONE;
   }
   {
     NODE *result__node = (NODE *)(key_node);
@@ -1338,7 +1336,7 @@ static void entry__next_key_1(void) {
   uint32_t hash = to_uint32(arguments->slots[1]);
   NODE *cmp_key = arguments->slots[2];
 
-  NODE *key_node = var._NONE; // default: no more key and value found
+  NODE *key_node = unique__NONE; // default: no more key and value found
 
   UNORDERED_SET_DATA *data = myself->data;
   if (data) {
@@ -1349,7 +1347,7 @@ static void entry__next_key_1(void) {
     UNORDERED_SET_HASH_COLLISION *hash_collision;
     UNORDERED_SET_KEY_COLLISION *key_collision;
     UNORDERED_SET_REVISION *revision;
-    if (cmp_key == var._NONE) {
+    if (cmp_key == unique__NONE) {
       // find first key
       for (idx = 0; idx < size; ++idx) {
         hash_collision = entries[idx];
@@ -1414,7 +1412,7 @@ static void entry__previous_key_1(void) {
   uint32_t hash = to_uint32(arguments->slots[1]);
   NODE *cmp_key = arguments->slots[2];
 
-  NODE *key_node = var._NONE; // default: no more key and value found
+  NODE *key_node = unique__NONE; // default: no more key and value found
 
   UNORDERED_SET_DATA *data = myself->data;
   if (data) {
@@ -1425,7 +1423,7 @@ static void entry__previous_key_1(void) {
     UNORDERED_SET_HASH_COLLISION *hash_collision;
     UNORDERED_SET_KEY_COLLISION *key_collision;
     UNORDERED_SET_REVISION *revision;
-    if (cmp_key == var._NONE) {
+    if (cmp_key == unique__NONE) {
       // find last key
       idx = size-1;
     } else {
@@ -1442,8 +1440,8 @@ static void entry__previous_key_1(void) {
             if (revision->rev_no <= rev_no) {
               if (!revision->value) goto skip;
               if (key_collision->key == cmp_key) {
-                if (key_node != var._NONE) goto leave;
-                cmp_key = var._NONE;
+                if (key_node != unique__NONE) goto leave;
+                cmp_key = unique__NONE;
                 goto find_previous;
               }
               key_node = key_collision->key;
@@ -1456,7 +1454,7 @@ static void entry__previous_key_1(void) {
         }
         hash_collision = hash_collision->link;
       }
-      if (key_node != var._NONE) goto leave;
+      if (key_node != unique__NONE) goto leave;
       find_previous:
       --idx;
     }
@@ -1473,7 +1471,7 @@ static void entry__previous_key_1(void) {
     return;
   }
 }
-static void entry__types__unordered_set__private__set_item_1(void) {
+static void entry__types__unordered_set___private__set_item(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // self: 0
@@ -1498,9 +1496,9 @@ static void entry__types__unordered_set__private__set_item_1(void) {
   result_count = 1;
   myself = get__is_undefined();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__private__set_item_2;
+  frame->cont = cont__types__unordered_set___private__set_item_2;
 }
-static void cont__types__unordered_set__private__set_item_2(void) {
+static void cont__types__unordered_set___private__set_item_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1516,7 +1514,7 @@ static void cont__types__unordered_set__private__set_item_2(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__private__set_item_4;
+  frame->cont = cont__types__unordered_set___private__set_item_4;
 }
 static void entry__types__unordered_set__private__set_item_3(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -1535,7 +1533,7 @@ static void entry__types__unordered_set__private__set_item_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__unordered_set__private__set_item_4(void) {
+static void cont__types__unordered_set___private__set_item_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -1547,9 +1545,9 @@ static void cont__types__unordered_set__private__set_item_4(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__private__set_item_5;
+  frame->cont = cont__types__unordered_set___private__set_item_5;
 }
-static void cont__types__unordered_set__private__set_item_5(void) {
+static void cont__types__unordered_set___private__set_item_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1559,7 +1557,7 @@ static void cont__types__unordered_set__private__set_item_5(void) {
   // 812:   #
   // 813:     start looking for possibly matching keys at the first key with
   // 814:     identical hash
-  ((CELL *)frame->slots[5])->contents /* cmp_key */ = var._NONE;
+  ((CELL *)frame->slots[5])->contents /* cmp_key */ = unique__NONE;
   // 816: ... :
   // 817:   insert_item &self h &cmp_key key value
   // 818:   if cmp_key == NONE: return self
@@ -1577,7 +1575,7 @@ static void cont__types__unordered_set__private__set_item_5(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__private__set_item_13;
+  frame->cont = cont__types__unordered_set___private__set_item_13;
 }
 static void entry__types__unordered_set__private__set_item_12(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -1641,7 +1639,7 @@ static void cont__types__unordered_set__private__set_item_7(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* cmp_key */;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -1720,12 +1718,12 @@ static void cont__types__unordered_set__private__set_item_11(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__unordered_set__private__set_item_13(void) {
+static void cont__types__unordered_set___private__set_item_13(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__unordered_set__private__get_item_1(void) {
+static void entry__types__unordered_set___private__get_item(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -1747,9 +1745,9 @@ static void entry__types__unordered_set__private__get_item_1(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__private__get_item_2;
+  frame->cont = cont__types__unordered_set___private__get_item_2;
 }
-static void cont__types__unordered_set__private__get_item_2(void) {
+static void cont__types__unordered_set___private__get_item_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1758,7 +1756,7 @@ static void cont__types__unordered_set__private__get_item_2(void) {
   // 837: $$cmp_key NONE
   // 838:   #
   // 839:     start the search with the first key with a matching hash value
-  ((CELL *)frame->slots[4])->contents /* cmp_key */ = var._NONE;
+  ((CELL *)frame->slots[4])->contents /* cmp_key */ = unique__NONE;
   // 841: ... :
   // 842:   retrieve_item self h &cmp_key
   // 843:   
@@ -1788,7 +1786,7 @@ static void cont__types__unordered_set__private__get_item_2(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__private__get_item_10;
+  frame->cont = cont__types__unordered_set___private__get_item_10;
 }
 static void entry__types__unordered_set__private__get_item_9(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -1846,7 +1844,7 @@ static void cont__types__unordered_set__private__get_item_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* cmp_key */;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -1921,7 +1919,7 @@ static void cont__types__unordered_set__private__get_item_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__unordered_set__private__get_item_10(void) {
+static void cont__types__unordered_set___private__get_item_10(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
@@ -1971,7 +1969,7 @@ static void entry__types__unordered_set_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__unordered_set_1(void) {
+static void entry__types__unordered_set____type(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // key: 0
@@ -1990,20 +1988,20 @@ static void entry__types__unordered_set_1(void) {
     case 1:;
   }
   switch(argument_count) {
-    case 1: frame->slots[1] /* value */ = var._NONE;
+    case 1: frame->slots[1] /* value */ = unique__NONE;
   }
   frame->slots[2] /* myself */ = myself;
   // 871: NONE == value
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = var._NONE;
+  arguments->slots[0] = unique__NONE;
   arguments->slots[1] = frame->slots[1] /* value */;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__unordered_set_2;
+  frame->cont = cont__types__unordered_set____type_2;
 }
-static void cont__types__unordered_set_2(void) {
+static void cont__types__unordered_set____type_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2030,7 +2028,7 @@ static void cont__types__unordered_set_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__unordered_set__new_empty_collection_1(void) {
+static void entry__types__unordered_set___new_empty_collection(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -2046,7 +2044,7 @@ static void entry__types__unordered_set__new_empty_collection_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__unordered_set_1(void) {
+static void entry__std__unordered_set(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
@@ -2145,7 +2143,7 @@ static void cont__std__unordered_set_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__unordered_set__for_each_1(void) {
+static void entry__types__unordered_set___for_each(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -2159,7 +2157,7 @@ static void entry__types__unordered_set__for_each_1(void) {
     return;
   }
   // 916: $$key NONE
-  ((CELL *)frame->slots[3])->contents /* key */ = var._NONE;
+  ((CELL *)frame->slots[3])->contents /* key */ = unique__NONE;
   // 917: ... :
   // 918:   next_key self hash(key) &key
   // 919:   if key == NONE return
@@ -2175,7 +2173,7 @@ static void entry__types__unordered_set__for_each_1(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_7;
+  frame->cont = cont__types__unordered_set___for_each_7;
 }
 static void entry__types__unordered_set__for_each_2(void) {
   allocate_initialized_frame_gc(4, 5);
@@ -2228,7 +2226,7 @@ static void cont__types__unordered_set__for_each_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -2264,12 +2262,12 @@ static void cont__types__unordered_set__for_each_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__unordered_set__for_each_7(void) {
+static void cont__types__unordered_set___for_each_7(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__unordered_set__for_each_from_to_1(void) {
+static void entry__types__unordered_set___for_each_from_to(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // self: 0
@@ -2295,9 +2293,9 @@ static void entry__types__unordered_set__for_each_from_to_1(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_from_to_2;
+  frame->cont = cont__types__unordered_set___for_each_from_to_2;
 }
-static void cont__types__unordered_set__for_each_from_to_2(void) {
+static void cont__types__unordered_set___for_each_from_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2312,9 +2310,9 @@ static void cont__types__unordered_set__for_each_from_to_2(void) {
   result_count = 1;
   myself = var._retrieve_item;
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_from_to_3;
+  frame->cont = cont__types__unordered_set___for_each_from_to_3;
 }
-static void cont__types__unordered_set__for_each_from_to_3(void) {
+static void cont__types__unordered_set___for_each_from_to_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2324,13 +2322,13 @@ static void cont__types__unordered_set__for_each_from_to_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_from_to_4;
+  frame->cont = cont__types__unordered_set___for_each_from_to_4;
 }
-static void cont__types__unordered_set__for_each_from_to_4(void) {
+static void cont__types__unordered_set___for_each_from_to_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2344,7 +2342,7 @@ static void cont__types__unordered_set__for_each_from_to_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_from_to_7;
+  frame->cont = cont__types__unordered_set___for_each_from_to_7;
 }
 static void entry__types__unordered_set__for_each_from_to_5(void) {
   allocate_initialized_frame_gc(0, 0);
@@ -2362,7 +2360,7 @@ static void entry__types__unordered_set__for_each_from_to_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__unordered_set__for_each_from_to_7(void) {
+static void cont__types__unordered_set___for_each_from_to_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2384,7 +2382,7 @@ static void cont__types__unordered_set__for_each_from_to_7(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_from_to_15;
+  frame->cont = cont__types__unordered_set___for_each_from_to_15;
 }
 static void entry__types__unordered_set__for_each_from_to_8(void) {
   allocate_initialized_frame_gc(5, 6);
@@ -2484,7 +2482,7 @@ static void cont__types__unordered_set__for_each_from_to_13(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -2506,12 +2504,12 @@ static void cont__types__unordered_set__for_each_from_to_14(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__unordered_set__for_each_from_to_15(void) {
+static void cont__types__unordered_set___for_each_from_to_15(void) {
   myself = frame->slots[4] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__unordered_set__for_each_downwards_1(void) {
+static void entry__types__unordered_set___for_each_downwards(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -2525,7 +2523,7 @@ static void entry__types__unordered_set__for_each_downwards_1(void) {
     return;
   }
   // 959: $$key NONE
-  ((CELL *)frame->slots[3])->contents /* key */ = var._NONE;
+  ((CELL *)frame->slots[3])->contents /* key */ = unique__NONE;
   // 960: ... :
   // 961:   previous_key self hash(key) &key
   // 962:   if key == NONE return
@@ -2541,7 +2539,7 @@ static void entry__types__unordered_set__for_each_downwards_1(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_downwards_7;
+  frame->cont = cont__types__unordered_set___for_each_downwards_7;
 }
 static void entry__types__unordered_set__for_each_downwards_2(void) {
   allocate_initialized_frame_gc(4, 5);
@@ -2594,7 +2592,7 @@ static void cont__types__unordered_set__for_each_downwards_4(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -2630,12 +2628,12 @@ static void cont__types__unordered_set__for_each_downwards_6(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__unordered_set__for_each_downwards_7(void) {
+static void cont__types__unordered_set___for_each_downwards_7(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__unordered_set__for_each_from_down_to_1(void) {
+static void entry__types__unordered_set___for_each_from_down_to(void) {
   allocate_initialized_frame_gc(5, 8);
   // slot allocations:
   // self: 0
@@ -2661,9 +2659,9 @@ static void entry__types__unordered_set__for_each_from_down_to_1(void) {
   result_count = 1;
   myself = get__hash();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_from_down_to_2;
+  frame->cont = cont__types__unordered_set___for_each_from_down_to_2;
 }
-static void cont__types__unordered_set__for_each_from_down_to_2(void) {
+static void cont__types__unordered_set___for_each_from_down_to_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2678,9 +2676,9 @@ static void cont__types__unordered_set__for_each_from_down_to_2(void) {
   result_count = 1;
   myself = var._retrieve_item;
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_from_down_to_3;
+  frame->cont = cont__types__unordered_set___for_each_from_down_to_3;
 }
-static void cont__types__unordered_set__for_each_from_down_to_3(void) {
+static void cont__types__unordered_set___for_each_from_down_to_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2690,13 +2688,13 @@ static void cont__types__unordered_set__for_each_from_down_to_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* key */;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_from_down_to_4;
+  frame->cont = cont__types__unordered_set___for_each_from_down_to_4;
 }
-static void cont__types__unordered_set__for_each_from_down_to_4(void) {
+static void cont__types__unordered_set___for_each_from_down_to_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -2710,7 +2708,7 @@ static void cont__types__unordered_set__for_each_from_down_to_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_from_down_to_6;
+  frame->cont = cont__types__unordered_set___for_each_from_down_to_6;
 }
 static void entry__types__unordered_set__for_each_from_down_to_5(void) {
   allocate_initialized_frame_gc(0, 0);
@@ -2728,7 +2726,7 @@ static void entry__types__unordered_set__for_each_from_down_to_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__unordered_set__for_each_from_down_to_6(void) {
+static void cont__types__unordered_set___for_each_from_down_to_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -2750,7 +2748,7 @@ static void cont__types__unordered_set__for_each_from_down_to_6(void) {
   result_count = frame->caller_result_count;
   myself = get__forever();
   func = myself->type;
-  frame->cont = cont__types__unordered_set__for_each_from_down_to_14;
+  frame->cont = cont__types__unordered_set___for_each_from_down_to_14;
 }
 static void entry__types__unordered_set__for_each_from_down_to_7(void) {
   allocate_initialized_frame_gc(5, 6);
@@ -2850,7 +2848,7 @@ static void cont__types__unordered_set__for_each_from_down_to_12(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* key */;
-  arguments->slots[1] = var._NONE;
+  arguments->slots[1] = unique__NONE;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -2872,7 +2870,7 @@ static void cont__types__unordered_set__for_each_from_down_to_13(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__unordered_set__for_each_from_down_to_14(void) {
+static void cont__types__unordered_set___for_each_from_down_to_14(void) {
   myself = frame->slots[4] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
@@ -2937,7 +2935,6 @@ static long func__types__unordered_set___debug_string(NODE *node, int indent, in
   }
 }
 EXPORT void collect__basic__types__unordered_set(void) {
-  var._NONE = collect_node(var._NONE);
   var._insert_item = collect_node(var._insert_item);
   var._retrieve_item = collect_node(var._retrieve_item);
   var.types__unordered_set = collect_node(var.types__unordered_set);
@@ -2962,24 +2959,24 @@ EXPORT void phase_2__basic__types__unordered_set(void) {
   if (already_run_phase_2) return;
   already_run_phase_2 = true;
   set_module("basic__types__unordered_set");
-  unique__NONE = register_unique_item("NONE");
   func__insert_item_1 = create_function(entry__insert_item_1, 5);
   func__retrieve_item_1 = create_function(entry__retrieve_item_1, 3);
   func__types__unordered_set__length_of_1 = create_function(entry__types__unordered_set__length_of_1, 1);
   func__next_key_1 = create_function(entry__next_key_1, 3);
   func__previous_key_1 = create_function(entry__previous_key_1, 3);
-  func__types__unordered_set__private__set_item_1 = create_function(entry__types__unordered_set__private__set_item_1, 3);
-  func__types__unordered_set__private__get_item_1 = create_function(entry__types__unordered_set__private__get_item_1, 2);
+  unique__NONE = register_unique_item("NONE");
+  func__types__unordered_set___private__set_item = create_function(entry__types__unordered_set___private__set_item, 3);
+  func__types__unordered_set___private__get_item = create_function(entry__types__unordered_set___private__get_item, 2);
   string__7c2245b2b078163c = from_latin_1_string("unordered_set", 13);
-  func__types__unordered_set__new_empty_collection_1 = create_function(entry__types__unordered_set__new_empty_collection_1, 1);
-  func__std__unordered_set_1 = create_function(entry__std__unordered_set_1, -1);
-  func__types__unordered_set__for_each_1 = create_function(entry__types__unordered_set__for_each_1, 2);
+  func__types__unordered_set___new_empty_collection = create_function(entry__types__unordered_set___new_empty_collection, 1);
+  func__std__unordered_set = create_function(entry__std__unordered_set, -1);
+  func__types__unordered_set___for_each = create_function(entry__types__unordered_set___for_each, 2);
   string__2bdb69f58c8fd6ea = from_latin_1_string("Invalid index error!", 20);
   func__types__unordered_set__for_each_from_to_5 = create_function(entry__types__unordered_set__for_each_from_to_5, 0);
-  func__types__unordered_set__for_each_from_to_1 = create_function(entry__types__unordered_set__for_each_from_to_1, 4);
-  func__types__unordered_set__for_each_downwards_1 = create_function(entry__types__unordered_set__for_each_downwards_1, 2);
+  func__types__unordered_set___for_each_from_to = create_function(entry__types__unordered_set___for_each_from_to, 4);
+  func__types__unordered_set___for_each_downwards = create_function(entry__types__unordered_set___for_each_downwards, 2);
   func__types__unordered_set__for_each_from_down_to_5 = create_function(entry__types__unordered_set__for_each_from_down_to_5, 0);
-  func__types__unordered_set__for_each_from_down_to_1 = create_function(entry__types__unordered_set__for_each_from_down_to_1, 4);
+  func__types__unordered_set___for_each_from_down_to = create_function(entry__types__unordered_set___for_each_from_down_to, 4);
 }
 
 static int already_run_phase_3 = false;
@@ -2989,7 +2986,6 @@ EXPORT void phase_3__basic__types__unordered_set(void) {
   already_run_phase_3 = true;
   set_module("basic__types__unordered_set");
   set_used_namespaces(used_namespaces);
-  assign_value(&var._NONE, unique__NONE);
   var.types__unordered_set = create_future_with_prototype(create__types__unordered_set(0, NULL));
   define_single_assign_static("types", "unordered_set", get__types__unordered_set, &var.types__unordered_set);
   var.std__empty_unordered_set = create_future();
@@ -3030,15 +3026,15 @@ EXPORT void phase_4__basic__types__unordered_set(void) {
   use_read_only("types", "generic_set", &get__types__generic_set, &get_value_or_future__types__generic_set);
   use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
   define_method("types", "unordered_set", poly_idx__length_of, func__types__unordered_set__length_of_1);
-  define_method("types", "unordered_set", poly_idx__private__set_item, func__types__unordered_set__private__set_item_1);
-  define_method("types", "unordered_set", poly_idx__private__get_item, func__types__unordered_set__private__get_item_1);
-  define_type_function("types", "unordered_set", entry__types__unordered_set_1, -1);
+  define_method("types", "unordered_set", poly_idx__private__set_item, func__types__unordered_set___private__set_item);
+  define_method("types", "unordered_set", poly_idx__private__get_item, func__types__unordered_set___private__get_item);
+  define_type_function("types", "unordered_set", entry__types__unordered_set____type, -1);
   define_attribute("types", "unordered_set", poly_idx__serialization_tag_of, string__7c2245b2b078163c);
-  define_method("types", "unordered_set", poly_idx__new_empty_collection, func__types__unordered_set__new_empty_collection_1);
-  define_method("types", "unordered_set", poly_idx__for_each, func__types__unordered_set__for_each_1);
-  define_method("types", "unordered_set", poly_idx__for_each_from_to, func__types__unordered_set__for_each_from_to_1);
-  define_method("types", "unordered_set", poly_idx__for_each_downwards, func__types__unordered_set__for_each_downwards_1);
-  define_method("types", "unordered_set", poly_idx__for_each_from_down_to, func__types__unordered_set__for_each_from_down_to_1);
+  define_method("types", "unordered_set", poly_idx__new_empty_collection, func__types__unordered_set___new_empty_collection);
+  define_method("types", "unordered_set", poly_idx__for_each, func__types__unordered_set___for_each);
+  define_method("types", "unordered_set", poly_idx__for_each_from_to, func__types__unordered_set___for_each_from_to);
+  define_method("types", "unordered_set", poly_idx__for_each_downwards, func__types__unordered_set___for_each_downwards);
+  define_method("types", "unordered_set", poly_idx__for_each_from_down_to, func__types__unordered_set___for_each_from_down_to);
 }
 
 static int already_run_phase_5 = false;
@@ -3052,7 +3048,7 @@ EXPORT void phase_5__basic__types__unordered_set(void) {
   assign_variable(&var._next_key, &func__next_key_1);
   assign_variable(&var._previous_key, &func__previous_key_1);
   initialize_future(var.std__empty_unordered_set, var.types__unordered_set);
-  initialize_future(var.std__unordered_set, func__std__unordered_set_1);
+  initialize_future(var.std__unordered_set, func__std__unordered_set);
 }
 
 static int already_run_phase_6 = false;

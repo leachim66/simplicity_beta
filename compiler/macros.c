@@ -252,11 +252,10 @@ IMPORT void register_module_info(MODULE_INFO *info);
 IMPORT void set_module(const char *name);
 IMPORT NODE *from_uchar32(unsigned int chr);
 IMPORT NODE *from_uint32(uint32_t val);
-IMPORT NODE *register_unique_item(const char *name);
 IMPORT NODE *create_function(FUNC func, int par_count);
 IMPORT NODE *from_latin_1_string(const char *str, long len);
+IMPORT NODE *register_unique_item(const char *name);
 IMPORT void set_used_namespaces(const char **namespaces);
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_dynamic(int *id_p);
 IMPORT void define_single_assign_static(
   const char *namespace, const char *name,
@@ -266,7 +265,6 @@ IMPORT void use_read_only(
   const char *namespace, const char *name,
   NODE_GETTER *getter, NODE_GETTER *get_value_or_future
 );
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -399,26 +397,12 @@ static NODE_GETTER get_value_or_future__write_to;
 static NODE_GETTER get__writeln_to;
 static NODE_GETTER get_value_or_future__writeln_to;
 static struct {
-  NODE *_EVENT;
-  NODE *_ACTION;
-  NODE *_INFO;
-  NODE *_DATA;
   NODE *_macro_replacements;
-  NODE *_define_macro;
   NODE *compiler__converted;
 } var;
 static const char *var_names[] = {
-  "EVENT",
-  "ACTION",
-  "INFO",
-  "DATA",
-  "macro_replacements",
-  "define_macro"
+  "macro_replacements"
 };
-static NODE *unique__EVENT;
-static NODE *unique__ACTION;
-static NODE *unique__INFO;
-static NODE *unique__DATA;
 static int dyna_idx__event_name;
 static NODE *get__event_name(void) {
   return get_dynamic_cell(dyna_idx__event_name);
@@ -469,13 +453,13 @@ static void set__info_variables(NODE *node) {
 static void define__info_variables(NODE *node) {
   define_dynamic_cell(dyna_idx__info_variables, node);
 }
-static NODE *func__define_macro_1;
-static void entry__define_macro_1(void);
-static FRAME_INFO frame__define_macro_1 = {2, {"name", "replacement"}};
+static NODE *func__define_macro;
+static void entry__define_macro(void);
+static FRAME_INFO frame__define_macro = {2, {"name", "replacement"}};
 static void cont__define_macro_2(void);
-static NODE *func__compiler__converted_1;
-static void entry__compiler__converted_1(void);
-static FRAME_INFO frame__compiler__converted_1 = {8, {"code", "return__1", "new_code", "start", "within_string", "s", "i", "len"}};
+static NODE *func__compiler__converted;
+static void entry__compiler__converted(void);
+static FRAME_INFO frame__compiler__converted = {8, {"code", "return__1", "new_code", "start", "within_string", "s", "i", "len"}};
 static void cont__compiler__converted_2(void);
 static void cont__compiler__converted_3(void);
 static NODE *func__compiler__converted_4;
@@ -687,26 +671,23 @@ static void cont__compiler__converted_137(void);
 static void cont__compiler__converted_138(void);
 static void cont__compiler__converted_139(void);
 static void cont__compiler__converted_140(void);
-static NODE *func__compiler__converted_141;
-static void entry__compiler__converted_141(void);
-static FRAME_INFO frame__compiler__converted_141 = {0, {}};
+static void cont__compiler__converted_141(void);
 static void cont__compiler__converted_142(void);
 static void cont__compiler__converted_143(void);
 static void cont__compiler__converted_144(void);
 static void cont__compiler__converted_145(void);
-static void cont__compiler__converted_146(void);
-static NODE *func__compiler__converted_147;
-static void entry__compiler__converted_147(void);
-static FRAME_INFO frame__compiler__converted_147 = {3, {"new_code", "code", "start"}};
+static NODE *func__compiler__converted_146;
+static void entry__compiler__converted_146(void);
+static FRAME_INFO frame__compiler__converted_146 = {3, {"new_code", "code", "start"}};
+static void cont__compiler__converted_147(void);
 static void cont__compiler__converted_148(void);
 static void cont__compiler__converted_149(void);
-static void cont__compiler__converted_150(void);
-static NODE *func__compiler__converted_151;
-static void entry__compiler__converted_151(void);
-static FRAME_INFO frame__compiler__converted_151 = {1, {"code"}};
+static NODE *func__compiler__converted_150;
+static void entry__compiler__converted_150(void);
+static FRAME_INFO frame__compiler__converted_150 = {1, {"code"}};
+static void cont__compiler__converted_151(void);
 static void cont__compiler__converted_152(void);
 static void cont__compiler__converted_153(void);
-static void cont__compiler__converted_154(void);
 static NODE *get__compiler__converted(void) {
   return var.compiler__converted;
 }
@@ -783,6 +764,7 @@ static NODE *func__97_2;
 static void entry__97_2(void);
 static FRAME_INFO frame__97_2 = {1, {"arguments"}};
 static void cont__97_3(void);
+static NODE *unique__EVENT;
 static NODE *string__314a5f4a93a00186;
 static void cont__97_5(void);
 static NODE *string__301f5c1000c06299;
@@ -790,16 +772,19 @@ static NODE *func__98_2;
 static void entry__98_2(void);
 static FRAME_INFO frame__98_2 = {1, {"arguments"}};
 static void cont__98_3(void);
+static NODE *unique__ACTION;
 static void cont__98_4(void);
 static NODE *string__500ae2cb5c507d76;
 static NODE *func__99_2;
 static void entry__99_2(void);
 static FRAME_INFO frame__99_2 = {0, {}};
+static NODE *unique__INFO;
 static void cont__99_3(void);
 static NODE *string__4a0ae10b5cc07d78;
 static NODE *func__100_2;
 static void entry__100_2(void);
 static FRAME_INFO frame__100_2 = {0, {}};
+static NODE *unique__DATA;
 static void cont__100_3(void);
 static NODE *func__100_4;
 static void entry__100_4(void);
@@ -1287,8 +1272,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__139_3, NULL, 406, 409, 1, 4},
   {cont__140_3, NULL, 410, 413, 1, 4},
   {cont__141_3, NULL, },
-  {entry__define_macro_1, NULL, 41, 41, 35, 59},
-  {cont__define_macro_2, &frame__define_macro_1, 41, 41, 71, 71},
+  {entry__define_macro, NULL, 41, 41, 35, 59},
+  {cont__define_macro_2, &frame__define_macro, 41, 41, 71, 71},
   {entry__compiler__converted_15, NULL, 430, 430, 72, 72},
   {entry__compiler__converted_10, NULL, 430, 430, 40, 42},
   {cont__compiler__converted_11, &frame__compiler__converted_10, 430, 430, 35, 43},
@@ -1413,33 +1398,32 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__compiler__converted_41, &frame__compiler__converted_35, 444, 514, 15, 31},
   {entry__compiler__converted_33, NULL, 443, 443, 16, 27},
   {cont__compiler__converted_34, &frame__compiler__converted_33, 443, 514, 13, 32},
-  {entry__compiler__converted_141, NULL, 438, 438, 13, 16},
   {entry__compiler__converted_18, NULL, 433, 433, 9, 20},
   {cont__compiler__converted_19, &frame__compiler__converted_18, 435, 435, 16, 25},
   {cont__compiler__converted_20, &frame__compiler__converted_18, 435, 435, 28, 37},
   {cont__compiler__converted_21, &frame__compiler__converted_18, 435, 435, 11, 37},
   {cont__compiler__converted_22, &frame__compiler__converted_18, 437, 437, 11, 20},
   {cont__compiler__converted_26, &frame__compiler__converted_18, 434, 514, 9, 34},
-  {cont__compiler__converted_142, &frame__compiler__converted_18, 515, 515, 9, 14},
-  {cont__compiler__converted_143, &frame__compiler__converted_18, 515, 515, 14, 14},
+  {cont__compiler__converted_141, &frame__compiler__converted_18, 515, 515, 9, 14},
+  {cont__compiler__converted_142, &frame__compiler__converted_18, 515, 515, 14, 14},
   {entry__compiler__converted_7, NULL, 428, 515, 5, 15},
   {entry__compiler__converted_4, NULL, 427, 427, 12, 19},
   {cont__compiler__converted_5, &frame__compiler__converted_4, 427, 427, 12, 19},
   {cont__compiler__converted_6, &frame__compiler__converted_4, 427, 515, 9, 16},
-  {entry__compiler__converted_147, NULL, 518, 518, 42, 42},
-  {cont__compiler__converted_148, &frame__compiler__converted_147, 518, 518, 24, 43},
-  {cont__compiler__converted_149, &frame__compiler__converted_147, 518, 518, 8, 44},
-  {cont__compiler__converted_150, &frame__compiler__converted_147, 518, 518, 5, 44},
-  {entry__compiler__converted_151, NULL, 519, 519, 22, 22},
-  {cont__compiler__converted_152, &frame__compiler__converted_151, 519, 519, 8, 23},
-  {cont__compiler__converted_153, &frame__compiler__converted_151, 519, 519, 5, 23},
-  {entry__compiler__converted_1, NULL, 420, 420, 3, 34},
-  {cont__compiler__converted_2, &frame__compiler__converted_1, 426, 426, 3, 22},
-  {cont__compiler__converted_3, &frame__compiler__converted_1, 427, 515, 3, 16},
-  {cont__compiler__converted_144, &frame__compiler__converted_1, 517, 517, 5, 18},
-  {cont__compiler__converted_145, &frame__compiler__converted_1, 517, 517, 5, 18},
-  {cont__compiler__converted_146, &frame__compiler__converted_1, 516, 519, 3, 23},
-  {cont__compiler__converted_154, &frame__compiler__converted_1, 519, 519, 23, 23},
+  {entry__compiler__converted_146, NULL, 518, 518, 42, 42},
+  {cont__compiler__converted_147, &frame__compiler__converted_146, 518, 518, 24, 43},
+  {cont__compiler__converted_148, &frame__compiler__converted_146, 518, 518, 8, 44},
+  {cont__compiler__converted_149, &frame__compiler__converted_146, 518, 518, 5, 44},
+  {entry__compiler__converted_150, NULL, 519, 519, 22, 22},
+  {cont__compiler__converted_151, &frame__compiler__converted_150, 519, 519, 8, 23},
+  {cont__compiler__converted_152, &frame__compiler__converted_150, 519, 519, 5, 23},
+  {entry__compiler__converted, NULL, 420, 420, 3, 34},
+  {cont__compiler__converted_2, &frame__compiler__converted, 426, 426, 3, 22},
+  {cont__compiler__converted_3, &frame__compiler__converted, 427, 515, 3, 16},
+  {cont__compiler__converted_143, &frame__compiler__converted, 517, 517, 5, 18},
+  {cont__compiler__converted_144, &frame__compiler__converted, 517, 517, 5, 18},
+  {cont__compiler__converted_145, &frame__compiler__converted, 516, 519, 3, 23},
+  {cont__compiler__converted_153, &frame__compiler__converted, 519, 519, 23, 23},
   {entry__96_8, NULL, 75, 75, 12, 24},
   {cont__96_10, &frame__96_8, 75, 75, 9, 24},
   {entry__96_11, NULL, 76, 76, 12, 25},
@@ -1697,7 +1681,7 @@ EXPORT void run__macros(void) {
   arguments->slots[0] = string__400ae5cb5c587d7a;
   arguments->slots[1] = string__6c94222b8f3884e6;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__83_3;
 }
@@ -1712,7 +1696,7 @@ static void cont__83_3(void) {
   arguments->slots[0] = string__400ae5cb5c587d6f;
   arguments->slots[1] = string__6c94222b8f3884f3;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__84_3;
 }
@@ -1727,7 +1711,7 @@ static void cont__84_3(void) {
   arguments->slots[0] = string__1028a78005f60678;
   arguments->slots[1] = string__34f9178f4105813b;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__85_3;
 }
@@ -1742,7 +1726,7 @@ static void cont__85_3(void) {
   arguments->slots[0] = string__6b819d4408594055;
   arguments->slots[1] = string__a8d3ab331eb668e7;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__86_3;
 }
@@ -1757,7 +1741,7 @@ static void cont__86_3(void) {
   arguments->slots[0] = string__59cab089aecbe8a5;
   arguments->slots[1] = string__77b931a5baaa8bfc;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__87_3;
 }
@@ -1772,7 +1756,7 @@ static void cont__87_3(void) {
   arguments->slots[0] = string__77819b4408019052;
   arguments->slots[1] = string__b4d3ad331eeeb8e0;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__88_3;
 }
@@ -1787,7 +1771,7 @@ static void cont__88_3(void) {
   arguments->slots[0] = string__48483b12ea44e011;
   arguments->slots[1] = string__a7a3514a924a78fa;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__89_3;
 }
@@ -1802,7 +1786,7 @@ static void cont__89_3(void) {
   arguments->slots[0] = string__8f50c41d106226cf;
   arguments->slots[1] = string__dfd1ce1d312022e7;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__90_3;
 }
@@ -1817,7 +1801,7 @@ static void cont__90_3(void) {
   arguments->slots[0] = string__440ae28b5c107d6d;
   arguments->slots[1] = string__6c9a2bd2e7c4af5;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__91_3;
 }
@@ -1836,7 +1820,7 @@ static void cont__91_3(void) {
   arguments->slots[0] = string__8d88533a39505214;
   arguments->slots[1] = string__1bb6ef61f3edfaf2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__92_3;
 }
@@ -1855,7 +1839,7 @@ static void cont__92_3(void) {
   arguments->slots[0] = string__8f7216a94bc80f3;
   arguments->slots[1] = string__fbe40d362af5bff1;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__93_3;
 }
@@ -1874,7 +1858,7 @@ static void cont__93_3(void) {
   arguments->slots[0] = string__88f7216a94ac80f6;
   arguments->slots[1] = string__91ccef706a22d072;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__94_3;
 }
@@ -1889,7 +1873,7 @@ static void cont__94_3(void) {
   arguments->slots[0] = string__940ced12ee123334;
   arguments->slots[1] = string__d48de512cf50371c;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__95_3;
 }
@@ -1913,7 +1897,7 @@ static void cont__95_3(void) {
   arguments->slots[0] = string__fa72dc15c216b9e;
   arguments->slots[1] = func__96_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__96_19;
 }
@@ -2169,7 +2153,7 @@ static void cont__96_19(void) {
   arguments->slots[0] = string__265ae243ebba4003;
   arguments->slots[1] = func__97_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__97_5;
 }
@@ -2197,7 +2181,7 @@ static void cont__97_3(void) {
   }
   set__event_name(arguments->slots[0]);
   // 80: !event_kind EVENT
-  set__event_kind(var._EVENT);
+  set__event_kind(unique__EVENT);
   // 81: -> "if (event__mode != EM__REPLAY) {"
   argument_count = 1;
   arguments = node_p;
@@ -2220,7 +2204,7 @@ static void cont__97_5(void) {
   arguments->slots[0] = string__301f5c1000c06299;
   arguments->slots[1] = func__98_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__98_4;
 }
@@ -2248,7 +2232,7 @@ static void cont__98_3(void) {
   }
   set__event_name(arguments->slots[0]);
   // 84: !event_kind ACTION
-  set__event_kind(var._ACTION);
+  set__event_kind(unique__ACTION);
   // 85: -> "if (event__mode != EM__REPLAY) {"
   argument_count = 1;
   arguments = node_p;
@@ -2270,7 +2254,7 @@ static void cont__98_4(void) {
   arguments->slots[0] = string__500ae2cb5c507d76;
   arguments->slots[1] = func__99_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__99_3;
 }
@@ -2282,7 +2266,7 @@ static void entry__99_2(void) {
     return;
   }
   // 87: !event_phase INFO
-  set__event_phase(var._INFO);
+  set__event_phase(unique__INFO);
   // 88: -> ""
   argument_count = 1;
   arguments = node_p;
@@ -2310,7 +2294,7 @@ static void cont__99_3(void) {
   arguments->slots[0] = string__4a0ae10b5cc07d78;
   arguments->slots[1] = func__100_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__100_10;
 }
@@ -2375,12 +2359,12 @@ static void entry__100_2(void) {
     return;
   }
   // 90: !event_phase DATA
-  set__event_phase(var._DATA);
+  set__event_phase(unique__DATA);
   // 92: event_kind == EVENT
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
-  arguments->slots[1] = var._EVENT;
+  arguments->slots[1] = unique__EVENT;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -2430,7 +2414,7 @@ static void cont__100_10(void) {
   arguments->slots[0] = string__fa72a015c596b98;
   arguments->slots[1] = func__101_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__101_25;
 }
@@ -2588,7 +2572,7 @@ static void cont__101_7(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
-  arguments->slots[1] = var._EVENT;
+  arguments->slots[1] = unique__EVENT;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -2736,9 +2720,9 @@ static void cont__101_3(void) {
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = get__event_phase();
-  arguments->slots[1] = var._DATA;
+  arguments->slots[1] = unique__DATA;
   arguments->slots[2] = frame->slots[2] /* temp__1 */;
-  arguments->slots[3] = var._INFO;
+  arguments->slots[3] = unique__INFO;
   arguments->slots[4] = frame->slots[3] /* temp__2 */;
   result_count = frame->caller_result_count;
   myself = get__case();
@@ -2766,7 +2750,7 @@ static void cont__101_25(void) {
   arguments->slots[0] = string__5a0ae28b5c107d7e;
   arguments->slots[1] = func__102_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__102_19;
 }
@@ -2924,7 +2908,7 @@ static void cont__102_7(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
-  arguments->slots[1] = var._EVENT;
+  arguments->slots[1] = unique__EVENT;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -3072,9 +3056,9 @@ static void cont__102_3(void) {
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = get__event_phase();
-  arguments->slots[1] = var._DATA;
+  arguments->slots[1] = unique__DATA;
   arguments->slots[2] = frame->slots[2] /* temp__1 */;
-  arguments->slots[3] = var._INFO;
+  arguments->slots[3] = unique__INFO;
   arguments->slots[4] = frame->slots[3] /* temp__2 */;
   result_count = frame->caller_result_count;
   myself = get__case();
@@ -3102,7 +3086,7 @@ static void cont__102_19(void) {
   arguments->slots[0] = string__eec400c5149050a8;
   arguments->slots[1] = func__103_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__103_20;
 }
@@ -3243,7 +3227,7 @@ static void cont__103_7(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
-  arguments->slots[1] = var._EVENT;
+  arguments->slots[1] = unique__EVENT;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -3391,9 +3375,9 @@ static void cont__103_3(void) {
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = get__event_phase();
-  arguments->slots[1] = var._DATA;
+  arguments->slots[1] = unique__DATA;
   arguments->slots[2] = frame->slots[2] /* temp__1 */;
-  arguments->slots[3] = var._INFO;
+  arguments->slots[3] = unique__INFO;
   arguments->slots[4] = frame->slots[3] /* temp__2 */;
   result_count = frame->caller_result_count;
   myself = get__case();
@@ -3420,7 +3404,7 @@ static void cont__103_20(void) {
   arguments->slots[0] = string__a602a332a09613c;
   arguments->slots[1] = func__104_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__104_14;
 }
@@ -3605,9 +3589,9 @@ static void cont__104_4(void) {
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = get__event_phase();
-  arguments->slots[1] = var._DATA;
+  arguments->slots[1] = unique__DATA;
   arguments->slots[2] = frame->slots[3] /* temp__1 */;
-  arguments->slots[3] = var._INFO;
+  arguments->slots[3] = unique__INFO;
   arguments->slots[4] = frame->slots[4] /* temp__2 */;
   result_count = frame->caller_result_count;
   myself = get__case();
@@ -3634,7 +3618,7 @@ static void cont__104_14(void) {
   arguments->slots[0] = string__21f5d960028028e;
   arguments->slots[1] = func__105_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__105_14;
 }
@@ -3819,9 +3803,9 @@ static void cont__105_4(void) {
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = get__event_phase();
-  arguments->slots[1] = var._DATA;
+  arguments->slots[1] = unique__DATA;
   arguments->slots[2] = frame->slots[3] /* temp__1 */;
-  arguments->slots[3] = var._INFO;
+  arguments->slots[3] = unique__INFO;
   arguments->slots[4] = frame->slots[4] /* temp__2 */;
   result_count = frame->caller_result_count;
   myself = get__case();
@@ -3847,7 +3831,7 @@ static void cont__105_14(void) {
   arguments->slots[0] = string__a68a78f85a6d407;
   arguments->slots[1] = func__106_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__106_13;
 }
@@ -4011,9 +3995,9 @@ static void cont__106_3(void) {
   argument_count = 5;
   arguments = node_p;
   arguments->slots[0] = get__event_phase();
-  arguments->slots[1] = var._DATA;
+  arguments->slots[1] = unique__DATA;
   arguments->slots[2] = frame->slots[2] /* temp__1 */;
-  arguments->slots[3] = var._INFO;
+  arguments->slots[3] = unique__INFO;
   arguments->slots[4] = frame->slots[3] /* temp__2 */;
   result_count = frame->caller_result_count;
   myself = get__case();
@@ -4041,7 +4025,7 @@ static void cont__106_13(void) {
   arguments->slots[0] = string__fa729015c596b88;
   arguments->slots[1] = func__107_2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__107_107;
 }
@@ -5392,7 +5376,7 @@ static void entry__107_3(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
-  arguments->slots[1] = var._ACTION;
+  arguments->slots[1] = unique__ACTION;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -5502,7 +5486,7 @@ static void entry__107_32(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
-  arguments->slots[1] = var._ACTION;
+  arguments->slots[1] = unique__ACTION;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -5614,7 +5598,7 @@ static void entry__107_59(void) {
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__event_kind();
-  arguments->slots[1] = var._EVENT;
+  arguments->slots[1] = unique__EVENT;
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
@@ -5772,7 +5756,7 @@ static void cont__107_107(void) {
   arguments->slots[0] = string__3c202d3e36291121;
   arguments->slots[1] = string__7ca0252e172b1501;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__108_3;
 }
@@ -5787,7 +5771,7 @@ static void cont__108_3(void) {
   arguments->slots[0] = string__760ae00b5cf07d76;
   arguments->slots[1] = string__360ae80b5df07d56;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__109_3;
 }
@@ -5802,7 +5786,7 @@ static void cont__109_3(void) {
   arguments->slots[0] = string__6a0ae5cb5cc87d7c;
   arguments->slots[1] = string__62d904ca56abf62f;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__110_3;
 }
@@ -5817,7 +5801,7 @@ static void cont__110_3(void) {
   arguments->slots[0] = string__85ae003eb527012;
   arguments->slots[1] = string__52b31fb1ca36ad;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__111_3;
 }
@@ -5832,7 +5816,7 @@ static void cont__111_3(void) {
   arguments->slots[0] = string__ae20f214ef3d4185;
   arguments->slots[1] = string__ee21fa04ce7f45ad;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__112_3;
 }
@@ -5847,7 +5831,7 @@ static void cont__112_3(void) {
   arguments->slots[0] = string__242c2d3622a1a2b6;
   arguments->slots[1] = string__bdf1fe7d3fa3f48e;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__113_3;
 }
@@ -5862,7 +5846,7 @@ static void cont__113_3(void) {
   arguments->slots[0] = string__6a0ae70b5ce07d7c;
   arguments->slots[1] = string__10f0a21e06f5c291;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__114_3;
 }
@@ -5877,7 +5861,7 @@ static void cont__114_3(void) {
   arguments->slots[0] = string__381f5f1a80c1c291;
   arguments->slots[1] = string__1c42567d62ae9fc4;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__115_3;
 }
@@ -5892,7 +5876,7 @@ static void cont__115_3(void) {
   arguments->slots[0] = string__2c1f5f1900c0c291;
   arguments->slots[1] = string__c207e6e98f96cbad;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__116_3;
 }
@@ -5913,7 +5897,7 @@ static void cont__116_3(void) {
   arguments->slots[0] = string__88b83a651b4554fc;
   arguments->slots[1] = string__e713ee46cfe40ca0;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__117_3;
 }
@@ -5937,7 +5921,7 @@ static void cont__117_3(void) {
   arguments->slots[0] = string__75924e59eefc3c27;
   arguments->slots[1] = string__c9e5fa593f26b652;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__118_3;
 }
@@ -5952,7 +5936,7 @@ static void cont__118_3(void) {
   arguments->slots[0] = string__808839651b3ce4f5;
   arguments->slots[1] = string__76174d28d266419;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__119_3;
 }
@@ -5975,7 +5959,7 @@ static void cont__119_3(void) {
   arguments->slots[0] = string__df153d64b7266922;
   arguments->slots[1] = string__a89eeef2e6ec47d6;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__120_3;
 }
@@ -5998,7 +5982,7 @@ static void cont__120_3(void) {
   arguments->slots[0] = string__681415cc9aa25dc9;
   arguments->slots[1] = string__62013454820fcbb4;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__121_3;
 }
@@ -6021,7 +6005,7 @@ static void cont__121_3(void) {
   arguments->slots[0] = string__8864d352eefa60e5;
   arguments->slots[1] = string__e7e98d9fbc185a2b;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__122_3;
 }
@@ -6044,7 +6028,7 @@ static void cont__122_3(void) {
   arguments->slots[0] = string__7414100c9a9a5dc3;
   arguments->slots[1] = string__d0d6524fe2f4619c;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__123_3;
 }
@@ -6061,7 +6045,7 @@ static void cont__123_3(void) {
   arguments->slots[0] = string__4388537a39721213;
   arguments->slots[1] = string__85e7f27c75b002fc;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__124_3;
 }
@@ -6081,7 +6065,7 @@ static void cont__124_3(void) {
   arguments->slots[0] = string__301f5b1980280299;
   arguments->slots[1] = string__f4e01cf5f7a8d221;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__125_3;
 }
@@ -6100,7 +6084,7 @@ static void cont__125_3(void) {
   arguments->slots[0] = string__1a5ae343eb822019;
   arguments->slots[1] = string__ab6aca91eb0633a9;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__126_3;
 }
@@ -6115,7 +6099,7 @@ static void cont__126_3(void) {
   arguments->slots[0] = string__690816604df6099f;
   arguments->slots[1] = string__7a5a4cdb9d9e0e09;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__127_3;
 }
@@ -6130,7 +6114,7 @@ static void cont__127_3(void) {
   arguments->slots[0] = string__adfe76f306663a82;
   arguments->slots[1] = string__55fab4fde7164944;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__128_3;
 }
@@ -6148,7 +6132,7 @@ static void cont__128_3(void) {
   arguments->slots[0] = string__26ff7f9f9c5c0312;
   arguments->slots[1] = string__7317d013e72f1e80;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__129_3;
 }
@@ -6166,7 +6150,7 @@ static void cont__129_3(void) {
   arguments->slots[0] = string__fce3f40028924a51;
   arguments->slots[1] = string__64a4d424679d8650;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__130_3;
 }
@@ -6184,7 +6168,7 @@ static void cont__130_3(void) {
   arguments->slots[0] = string__aab70cfc8956db67;
   arguments->slots[1] = string__e8cfae9434301166;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__131_3;
 }
@@ -6202,7 +6186,7 @@ static void cont__131_3(void) {
   arguments->slots[0] = string__6cf0c8742a12ca30;
   arguments->slots[1] = string__65e49414af94386a;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__132_3;
 }
@@ -6220,7 +6204,7 @@ static void cont__132_3(void) {
   arguments->slots[0] = string__1adfaddd8e34edf5;
   arguments->slots[1] = string__e77c83ca19b4e164;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__133_3;
 }
@@ -6238,7 +6222,7 @@ static void cont__133_3(void) {
   arguments->slots[0] = string__e858bf99576dbe16;
   arguments->slots[1] = string__26323596c3854c8e;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__134_3;
 }
@@ -6256,7 +6240,7 @@ static void cont__134_3(void) {
   arguments->slots[0] = string__cad5afdc0874a104;
   arguments->slots[1] = string__245ca532f1b1e064;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__135_3;
 }
@@ -6274,7 +6258,7 @@ static void cont__135_3(void) {
   arguments->slots[0] = string__aa786f40ccc234b9;
   arguments->slots[1] = string__b633324328a52c38;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__136_3;
 }
@@ -6292,7 +6276,7 @@ static void cont__136_3(void) {
   arguments->slots[0] = string__37ce8a8da4c412d5;
   arguments->slots[1] = string__b69de9e24cd9d6a2;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__137_3;
 }
@@ -6310,7 +6294,7 @@ static void cont__137_3(void) {
   arguments->slots[0] = string__221e44965d54351b;
   arguments->slots[1] = string__13951d152a225118;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__138_3;
 }
@@ -6328,7 +6312,7 @@ static void cont__138_3(void) {
   arguments->slots[0] = string__e4ae97e99176a5b2;
   arguments->slots[1] = string__413ff844cdfe78b6;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__139_3;
 }
@@ -6346,7 +6330,7 @@ static void cont__139_3(void) {
   arguments->slots[0] = string__3c9404ad0742476f;
   arguments->slots[1] = string__6a3612ac9bfecfbc;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__140_3;
 }
@@ -6364,7 +6348,7 @@ static void cont__140_3(void) {
   arguments->slots[0] = string__a28a14985afc552;
   arguments->slots[1] = string__1f25251097233e14;
   result_count = 0;
-  myself = var._define_macro;
+  myself = func__define_macro;
   func = myself->type;
   frame->cont = cont__141_3;
 }
@@ -6377,7 +6361,7 @@ static void cont__141_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__define_macro_1(void) {
+static void entry__define_macro(void) {
   allocate_initialized_frame_gc(2, 2);
   // slot allocations:
   // name: 0
@@ -6408,7 +6392,7 @@ static void cont__define_macro_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__converted_1(void) {
+static void entry__compiler__converted(void) {
   allocate_initialized_frame_gc(2, 12);
   // slot allocations:
   // code: 0
@@ -6513,7 +6497,7 @@ static void cont__compiler__converted_3(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__compiler__converted_144;
+  frame->cont = cont__compiler__converted_143;
 }
 static void entry__compiler__converted_8(void) {
   allocate_initialized_frame_gc(3, 5);
@@ -6882,14 +6866,14 @@ static void cont__compiler__converted_26(void) {
   arguments->slots[1] = frame->slots[8] /* temp__1 */;
   arguments->slots[2] = frame->slots[11] /* temp__4 */;
   arguments->slots[3] = frame->slots[12] /* temp__5 */;
-  arguments->slots[4] = func__compiler__converted_141;
+  arguments->slots[4] = get__pass();
   arguments->slots[5] = character__34;
   arguments->slots[6] = frame->slots[13] /* temp__6 */;
   arguments->slots[7] = frame->slots[14] /* temp__7 */;
   result_count = 0;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__compiler__converted_142;
+  frame->cont = cont__compiler__converted_141;
 }
 static void entry__compiler__converted_42(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -9208,22 +9192,7 @@ static void cont__compiler__converted_34(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__compiler__converted_141(void) {
-  allocate_initialized_frame_gc(0, 0);
-  // slot allocations:
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 438: pass
-  argument_count = 0;
-  arguments = node_p;
-  result_count = frame->caller_result_count;
-  myself = get__pass();
-  func = myself->type;
-  frame = frame->caller_frame;
-}
-static void cont__compiler__converted_142(void) {
+static void cont__compiler__converted_141(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -9235,9 +9204,9 @@ static void cont__compiler__converted_142(void) {
   result_count = 1;
   myself = get__inc();
   func = myself->type;
-  frame->cont = cont__compiler__converted_143;
+  frame->cont = cont__compiler__converted_142;
 }
-static void cont__compiler__converted_143(void) {
+static void cont__compiler__converted_142(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9390,7 +9359,7 @@ static void cont__compiler__converted_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__converted_144(void) {
+static void cont__compiler__converted_143(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -9403,9 +9372,9 @@ static void cont__compiler__converted_144(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__compiler__converted_145;
+  frame->cont = cont__compiler__converted_144;
 }
-static void cont__compiler__converted_145(void) {
+static void cont__compiler__converted_144(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9418,18 +9387,18 @@ static void cont__compiler__converted_145(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__compiler__converted_146;
+  frame->cont = cont__compiler__converted_145;
 }
-static void cont__compiler__converted_146(void) {
+static void cont__compiler__converted_145(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[8] /* temp__1 */ = arguments->slots[0];
   // 518: -> append(new_code range(code start -2))
-  frame->slots[10] /* temp__3 */ = create_closure(entry__compiler__converted_147, 0);
+  frame->slots[10] /* temp__3 */ = create_closure(entry__compiler__converted_146, 0);
   // 519: -> range(code 1 -2)
-  frame->slots[11] /* temp__4 */ = create_closure(entry__compiler__converted_151, 0);
+  frame->slots[11] /* temp__4 */ = create_closure(entry__compiler__converted_150, 0);
   // 516: if
   // 517:   new_code != ""
   // 518:   -> append(new_code range(code start -2))
@@ -9442,9 +9411,9 @@ static void cont__compiler__converted_146(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__compiler__converted_154;
+  frame->cont = cont__compiler__converted_153;
 }
-static void entry__compiler__converted_147(void) {
+static void entry__compiler__converted_146(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // new_code: 0
@@ -9464,9 +9433,9 @@ static void entry__compiler__converted_147(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__compiler__converted_148;
+  frame->cont = cont__compiler__converted_147;
 }
-static void cont__compiler__converted_148(void) {
+static void cont__compiler__converted_147(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9481,9 +9450,9 @@ static void cont__compiler__converted_148(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__compiler__converted_149;
+  frame->cont = cont__compiler__converted_148;
 }
-static void cont__compiler__converted_149(void) {
+static void cont__compiler__converted_148(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9497,9 +9466,9 @@ static void cont__compiler__converted_149(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__compiler__converted_150;
+  frame->cont = cont__compiler__converted_149;
 }
-static void cont__compiler__converted_150(void) {
+static void cont__compiler__converted_149(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9513,7 +9482,7 @@ static void cont__compiler__converted_150(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__compiler__converted_151(void) {
+static void entry__compiler__converted_150(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // code: 0
@@ -9529,9 +9498,9 @@ static void entry__compiler__converted_151(void) {
   result_count = 1;
   myself = get__std__negate();
   func = myself->type;
-  frame->cont = cont__compiler__converted_152;
+  frame->cont = cont__compiler__converted_151;
 }
-static void cont__compiler__converted_152(void) {
+static void cont__compiler__converted_151(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9546,9 +9515,9 @@ static void cont__compiler__converted_152(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__compiler__converted_153;
+  frame->cont = cont__compiler__converted_152;
 }
-static void cont__compiler__converted_153(void) {
+static void cont__compiler__converted_152(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9562,18 +9531,13 @@ static void cont__compiler__converted_153(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__compiler__converted_154(void) {
+static void cont__compiler__converted_153(void) {
   myself = frame->slots[1] /* return__1 */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
 EXPORT void collect__macros(void) {
-  var._EVENT = collect_node(var._EVENT);
-  var._ACTION = collect_node(var._ACTION);
-  var._INFO = collect_node(var._INFO);
-  var._DATA = collect_node(var._DATA);
   var._macro_replacements = collect_node(var._macro_replacements);
-  var._define_macro = collect_node(var._define_macro);
   var.compiler__converted = collect_node(var.compiler__converted);
 }
 
@@ -9612,16 +9576,11 @@ EXPORT void phase_2__macros(void) {
   number__1 = from_uint32(1U);
   number__2 = from_uint32(2U);
   character__42 = from_uchar32(42);
-  unique__EVENT = register_unique_item("EVENT");
-  unique__ACTION = register_unique_item("ACTION");
-  unique__INFO = register_unique_item("INFO");
-  unique__DATA = register_unique_item("DATA");
-  func__define_macro_1 = create_function(entry__define_macro_1, 2);
+  func__define_macro = create_function(entry__define_macro, 2);
   string__2d7981f4e6682be5 = from_latin_1_string(", ", 2);
   string__2d7981f4e6d82bff = from_latin_1_string("::", 2);
   string__2d7981f4e5f02b9a = from_latin_1_string("__", 2);
-  func__compiler__converted_141 = create_function(entry__compiler__converted_141, 0);
-  func__compiler__converted_1 = create_function(entry__compiler__converted_1, 1);
+  func__compiler__converted = create_function(entry__compiler__converted, 1);
   string__400ae5cb5c587d7a = from_latin_1_string("ARGC", 4);
   string__6c94222b8f3884e6 = from_latin_1_string("main_argc", 9);
   string__400ae5cb5c587d6f = from_latin_1_string("ARGV", 4);
@@ -9670,13 +9629,17 @@ EXPORT void phase_2__macros(void) {
   string__2d7981f4e6482bec = from_latin_1_string("()", 2);
   func__96_2 = create_function(entry__96_2, 1);
   string__265ae243ebba4003 = from_latin_1_string("EVENT", 5);
+  unique__EVENT = register_unique_item("EVENT");
   string__314a5f4a93a00186 = from_latin_1_string("if (event__mode != EM__REPLAY) {", 32);
   func__97_2 = create_function(entry__97_2, 1);
   string__301f5c1000c06299 = from_latin_1_string("ACTION", 6);
+  unique__ACTION = register_unique_item("ACTION");
   func__98_2 = create_function(entry__98_2, 1);
   string__500ae2cb5c507d76 = from_latin_1_string("INFO", 4);
+  unique__INFO = register_unique_item("INFO");
   func__99_2 = create_function(entry__99_2, 0);
   string__4a0ae10b5cc07d78 = from_latin_1_string("DATA", 4);
+  unique__DATA = register_unique_item("DATA");
   string__b0ac9625f04ddbd3 = from_latin_1_string(
     "  if (event__mode == EM__RECORD) {\n"
     "    record__event(\042",
@@ -9979,10 +9942,6 @@ EXPORT void phase_3__macros(void) {
   already_run_phase_3 = true;
   set_module("macros");
   set_used_namespaces(used_namespaces);
-  assign_value(&var._EVENT, unique__EVENT);
-  assign_value(&var._ACTION, unique__ACTION);
-  assign_value(&var._INFO, unique__INFO);
-  assign_value(&var._DATA, unique__DATA);
   register_dynamic(&dyna_idx__event_name);
   define__event_name(undefined);
   register_dynamic(&dyna_idx__event_kind);
@@ -10055,8 +10014,7 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__macros(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  assign_variable(&var._define_macro, &func__define_macro_1);
-  initialize_future(var.compiler__converted, func__compiler__converted_1);
+  initialize_future(var.compiler__converted, func__compiler__converted);
 }
 
 static int already_run_phase_6 = false;

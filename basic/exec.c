@@ -347,9 +347,9 @@ static void entry__posix_exec_1(void);
 static NODE *func__posix_exec_1;
 static void entry__posix_launch_1(void);
 static NODE *func__posix_launch_1;
-static NODE *func__std__launch_1;
-static void entry__std__launch_1(void);
-static FRAME_INFO frame__std__launch_1 = {2, {"args", "return"}};
+static NODE *func__std__launch;
+static void entry__std__launch(void);
+static FRAME_INFO frame__std__launch = {2, {"args", "return"}};
 static void cont__std__launch_2(void);
 static void cont__std__launch_3(void);
 static NODE *func__std__launch_4;
@@ -390,23 +390,23 @@ static NODE *get__std__kill(void) {
 }
 static void entry__posix_pipe_1(void);
 static NODE *func__posix_pipe_1;
-static NODE *func__std__exec_1;
-static void entry__std__exec_1(void);
-static FRAME_INFO frame__std__exec_1 = {1, {"args"}};
+static NODE *func__std__exec;
+static void entry__std__exec(void);
+static FRAME_INFO frame__std__exec = {1, {"args"}};
 static void cont__std__exec_2(void);
 static NODE *get__std__exec(void) {
   return var.std__exec;
 }
-static NODE *func__std__call_1;
-static void entry__std__call_1(void);
-static FRAME_INFO frame__std__call_1 = {1, {"args"}};
+static NODE *func__std__call;
+static void entry__std__call(void);
+static FRAME_INFO frame__std__call = {1, {"args"}};
 static void cont__std__call_2(void);
 static NODE *get__std__call(void) {
   return var.std__call;
 }
-static NODE *func__std__pipe_1;
-static void entry__std__pipe_1(void);
-static FRAME_INFO frame__std__pipe_1 = {2, {"input", "cmds"}};
+static NODE *func__std__pipe;
+static void entry__std__pipe(void);
+static FRAME_INFO frame__std__pipe = {2, {"input", "cmds"}};
 static void cont__std__pipe_2(void);
 static NODE *func__std__pipe_3;
 static void entry__std__pipe_3(void);
@@ -427,9 +427,9 @@ static void cont__std__pipe_12(void);
 static NODE *get__std__pipe(void) {
   return var.std__pipe;
 }
-static NODE *func__std__extern_1;
-static void entry__std__extern_1(void);
-static FRAME_INFO frame__std__extern_1 = {3, {"options", "command", "do_trim"}};
+static NODE *func__std__extern;
+static void entry__std__extern(void);
+static FRAME_INFO frame__std__extern = {3, {"options", "command", "do_trim"}};
 static void cont__std__extern_2(void);
 static void cont__std__extern_3(void);
 static NODE *func__std__extern_4;
@@ -475,28 +475,28 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__launch_16, &frame__std__launch_14, 237, 237, 9, 34},
   {cont__std__launch_17, &frame__std__launch_14, 238, 238, 9, 35},
   {cont__std__launch_18, &frame__std__launch_14, 234, 238, 7, 35},
-  {entry__std__launch_1, NULL, 220, 220, 3, 29},
-  {cont__std__launch_2, &frame__std__launch_1, 221, 221, 8, 33},
-  {cont__std__launch_3, &frame__std__launch_1, 221, 238, 3, 37},
-  {cont__std__launch_19, &frame__std__launch_1, 238, 238, 37, 37},
+  {entry__std__launch, NULL, 220, 220, 3, 29},
+  {cont__std__launch_2, &frame__std__launch, 221, 221, 8, 33},
+  {cont__std__launch_3, &frame__std__launch, 221, 238, 3, 37},
+  {cont__std__launch_19, &frame__std__launch, 238, 238, 37, 37},
   {entry__posix_call_1, NULL, 241, 427, 3, 2},
   {entry__std__kill_1, NULL, 432, 437, 3, 2},
   {entry__posix_pipe_1, NULL, 440, 754, 3, 2},
-  {entry__std__exec_1, NULL, 762, 762, 3, 29},
-  {cont__std__exec_2, &frame__std__exec_1, 763, 763, 3, 18},
-  {entry__std__call_1, NULL, 771, 771, 3, 29},
-  {cont__std__call_2, &frame__std__call_1, 772, 772, 3, 18},
+  {entry__std__exec, NULL, 762, 762, 3, 29},
+  {cont__std__exec_2, &frame__std__exec, 763, 763, 3, 18},
+  {entry__std__call, NULL, 771, 771, 3, 29},
+  {cont__std__call_2, &frame__std__call, 772, 772, 3, 18},
   {entry__std__pipe_3, NULL, 781, 781, 24, 39},
   {cont__std__pipe_4, &frame__std__pipe_3, 781, 781, 39, 39},
   {entry__std__pipe_7, NULL, 782, 782, 21, 46},
   {entry__std__pipe_10, NULL, 783, 783, 29, 37},
   {cont__std__pipe_11, &frame__std__pipe_10, 783, 783, 37, 37},
-  {entry__std__pipe_1, NULL, 781, 781, 6, 21},
-  {cont__std__pipe_2, &frame__std__pipe_1, 781, 781, 3, 39},
-  {cont__std__pipe_5, &frame__std__pipe_1, 782, 782, 6, 18},
-  {cont__std__pipe_6, &frame__std__pipe_1, 782, 782, 3, 46},
-  {cont__std__pipe_9, &frame__std__pipe_1, 783, 783, 3, 37},
-  {cont__std__pipe_12, &frame__std__pipe_1, 784, 784, 3, 24},
+  {entry__std__pipe, NULL, 781, 781, 6, 21},
+  {cont__std__pipe_2, &frame__std__pipe, 781, 781, 3, 39},
+  {cont__std__pipe_5, &frame__std__pipe, 782, 782, 6, 18},
+  {cont__std__pipe_6, &frame__std__pipe, 782, 782, 3, 46},
+  {cont__std__pipe_9, &frame__std__pipe, 783, 783, 3, 37},
+  {cont__std__pipe_12, &frame__std__pipe, 784, 784, 3, 24},
   {entry__std__extern_8, NULL, 798, 798, 26, 34},
   {cont__std__extern_9, &frame__std__extern_8, 798, 798, 34, 34},
   {entry__std__extern_5, NULL, 797, 797, 7, 31},
@@ -506,9 +506,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__extern_4, NULL, 796, 799, 5, 12},
   {entry__std__extern_12, NULL, 800, 800, 17, 34},
   {entry__std__extern_11, NULL, 800, 800, 5, 34},
-  {entry__std__extern_1, NULL, 793, 793, 27, 38},
-  {cont__std__extern_2, &frame__std__extern_1, 793, 793, 3, 47},
-  {cont__std__extern_3, &frame__std__extern_1, 794, 800, 3, 34}
+  {entry__std__extern, NULL, 793, 793, 27, 38},
+  {cont__std__extern_2, &frame__std__extern, 793, 793, 3, 47},
+  {cont__std__extern_3, &frame__std__extern, 794, 800, 3, 34}
 };
 
 union NODE {
@@ -752,7 +752,7 @@ static void entry__posix_launch_1(void) {
     return;
   }
 }
-static void entry__std__launch_1(void) {
+static void entry__std__launch(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
@@ -1679,7 +1679,7 @@ static void entry__posix_pipe_1(void) {
     return;
   }
 }
-static void entry__std__exec_1(void) {
+static void entry__std__exec(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -1710,7 +1710,7 @@ static void cont__std__exec_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__call_1(void) {
+static void entry__std__call(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
@@ -1741,7 +1741,7 @@ static void cont__std__call_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__pipe_1(void) {
+static void entry__std__pipe(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -2072,7 +2072,7 @@ static void entry__std__extern_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__extern_1(void) {
+static void entry__std__extern(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
@@ -2193,17 +2193,17 @@ EXPORT void phase_2__basic__exec(void) {
   number__14 = from_uint32(14U);
   func__posix_exec_1 = create_function(entry__posix_exec_1, -1);
   func__posix_launch_1 = create_function(entry__posix_launch_1, -1);
-  func__std__launch_1 = create_function(entry__std__launch_1, -1);
+  func__std__launch = create_function(entry__std__launch, -1);
   func__posix_call_1 = create_function(entry__posix_call_1, -1);
   func__std__kill_1 = create_function(entry__std__kill_1, -1);
   func__posix_pipe_1 = create_function(entry__posix_pipe_1, -1);
-  func__std__exec_1 = create_function(entry__std__exec_1, -1);
-  func__std__call_1 = create_function(entry__std__call_1, -1);
+  func__std__exec = create_function(entry__std__exec, -1);
+  func__std__call = create_function(entry__std__call, -1);
   string__c07c3ed1b0a33d89 = from_latin_1_string("Invalid arguments!", 18);
   func__std__pipe_7 = create_function(entry__std__pipe_7, 0);
   func__std__pipe_10 = create_function(entry__std__pipe_10, 1);
-  func__std__pipe_1 = create_function(entry__std__pipe_1, -1);
-  func__std__extern_1 = create_function(entry__std__extern_1, -1);
+  func__std__pipe = create_function(entry__std__pipe, -1);
+  func__std__extern = create_function(entry__std__extern, -1);
 }
 
 static int already_run_phase_3 = false;
@@ -2290,14 +2290,14 @@ EXPORT void phase_5__basic__exec(void) {
   initialize_future(var.std__SIGTERM, number__15);
   assign_variable(&var._posix_exec, &func__posix_exec_1);
   assign_variable(&var._posix_launch, &func__posix_launch_1);
-  initialize_future(var.std__launch, func__std__launch_1);
+  initialize_future(var.std__launch, func__std__launch);
   assign_variable(&var._posix_call, &func__posix_call_1);
   initialize_future(var.std__kill, func__std__kill_1);
   assign_variable(&var._posix_pipe, &func__posix_pipe_1);
-  initialize_future(var.std__exec, func__std__exec_1);
-  initialize_future(var.std__call, func__std__call_1);
-  initialize_future(var.std__pipe, func__std__pipe_1);
-  initialize_future(var.std__extern, func__std__extern_1);
+  initialize_future(var.std__exec, func__std__exec);
+  initialize_future(var.std__call, func__std__call);
+  initialize_future(var.std__pipe, func__std__pipe);
+  initialize_future(var.std__extern, func__std__extern);
 }
 
 static int already_run_phase_6 = false;

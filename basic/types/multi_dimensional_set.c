@@ -232,7 +232,6 @@ IMPORT void define_method(
   int id, NODE *method
 );
 IMPORT void assign_value(NODE **dest, NODE *val);
-IMPORT void assign_variable(NODE **dest, NODE **var_p);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -307,26 +306,20 @@ static NODE_GETTER get_value_or_future__unless;
 static struct {
   NODE *_dimensions_of;
   NODE *_table_of;
-  NODE *_insert_into;
-  NODE *_get_item;
-  NODE *_for_each_dimension;
   NODE *types__multi_dimensional_set;
   NODE *std__multi_dimensional_set;
 } var;
 static const char *var_names[] = {
   "dimensions_of",
-  "table_of",
-  "insert_into",
-  "get_item",
-  "for_each_dimension"
+  "table_of"
 };
 static int poly_idx__dimensions_of;
 static void type__dimensions_of(void);
 static int poly_idx__table_of;
 static void type__table_of(void);
-static NODE *func__insert_into_1;
-static void entry__insert_into_1(void);
-static FRAME_INFO frame__insert_into_1 = {4, {"table", "dimensions", "args", "idx"}};
+static NODE *func__insert_into;
+static void entry__insert_into(void);
+static FRAME_INFO frame__insert_into = {4, {"table", "dimensions", "args", "idx"}};
 static void cont__insert_into_2(void);
 static NODE *func__insert_into_3;
 static void entry__insert_into_3(void);
@@ -352,9 +345,9 @@ static FRAME_INFO frame__insert_into_17 = {3, {"table", "idx", "args"}};
 static void cont__insert_into_18(void);
 static void cont__insert_into_19(void);
 static void cont__insert_into_20(void);
-static NODE *func__get_item_1;
-static void entry__get_item_1(void);
-static FRAME_INFO frame__get_item_1 = {3, {"table", "indices", "return"}};
+static NODE *func__get_item;
+static void entry__get_item(void);
+static FRAME_INFO frame__get_item = {3, {"table", "indices", "return"}};
 static void cont__get_item_2(void);
 static NODE *func__get_item_3;
 static void entry__get_item_3(void);
@@ -374,9 +367,9 @@ static NODE *func__get_item_13;
 static void entry__get_item_13(void);
 static FRAME_INFO frame__get_item_13 = {1, {"table"}};
 static void cont__get_item_14(void);
-static NODE *func__types__multi_dimensional_set_1;
-static void entry__types__multi_dimensional_set_1(void);
-static FRAME_INFO frame__types__multi_dimensional_set_1 = {4, {"args", "myself", "dimensions", "n"}};
+static NODE *func__types__multi_dimensional_set;
+static void entry__types__multi_dimensional_set(void);
+static FRAME_INFO frame__types__multi_dimensional_set = {4, {"args", "myself", "dimensions", "n"}};
 static void cont__types__multi_dimensional_set_2(void);
 static void cont__types__multi_dimensional_set_3(void);
 static void cont__types__multi_dimensional_set_4(void);
@@ -394,15 +387,15 @@ static void cont__types__multi_dimensional_set_11(void);
 static NODE *get__types__multi_dimensional_set(void) {
   return var.types__multi_dimensional_set;
 }
-static NODE *func__std__multi_dimensional_set_1;
-static void entry__std__multi_dimensional_set_1(void);
-static FRAME_INFO frame__std__multi_dimensional_set_1 = {1, {"dimensions"}};
+static NODE *func__std__multi_dimensional_set;
+static void entry__std__multi_dimensional_set(void);
+static FRAME_INFO frame__std__multi_dimensional_set = {1, {"dimensions"}};
 static NODE *get__std__multi_dimensional_set(void) {
   return var.std__multi_dimensional_set;
 }
-static NODE *func__for_each_dimension_1;
-static void entry__for_each_dimension_1(void);
-static FRAME_INFO frame__for_each_dimension_1 = {4, {"table", "depth", "indices", "body"}};
+static NODE *func__for_each_dimension;
+static void entry__for_each_dimension(void);
+static FRAME_INFO frame__for_each_dimension = {4, {"table", "depth", "indices", "body"}};
 static void cont__for_each_dimension_2(void);
 static NODE *func__for_each_dimension_3;
 static void entry__for_each_dimension_3(void);
@@ -419,13 +412,13 @@ static void cont__for_each_dimension_8(void);
 static NODE *func__for_each_dimension_9;
 static void entry__for_each_dimension_9(void);
 static FRAME_INFO frame__for_each_dimension_9 = {3, {"body", "indices", "idx"}};
-static NODE *func__types__multi_dimensional_set__for_each_1;
-static void entry__types__multi_dimensional_set__for_each_1(void);
-static FRAME_INFO frame__types__multi_dimensional_set__for_each_1 = {2, {"self", "body"}};
-static void cont__types__multi_dimensional_set__for_each_2(void);
-static void cont__types__multi_dimensional_set__for_each_3(void);
-static void cont__types__multi_dimensional_set__for_each_4(void);
-static void cont__types__multi_dimensional_set__for_each_5(void);
+static NODE *func__types__multi_dimensional_set___for_each;
+static void entry__types__multi_dimensional_set___for_each(void);
+static FRAME_INFO frame__types__multi_dimensional_set___for_each = {2, {"self", "body"}};
+static void cont__types__multi_dimensional_set___for_each_2(void);
+static void cont__types__multi_dimensional_set___for_each_3(void);
+static void cont__types__multi_dimensional_set___for_each_4(void);
+static void cont__types__multi_dimensional_set___for_each_5(void);
 void run__basic__types__multi_dimensional_set(void);
 
 static CONTINUATION_INFO continuation_info[] = {
@@ -445,13 +438,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__insert_into_17, NULL, 34, 34, 7, 25},
   {cont__insert_into_18, &frame__insert_into_17, 34, 34, 7, 17},
   {cont__insert_into_19, &frame__insert_into_17, 34, 34, 25, 25},
-  {entry__insert_into_1, NULL, 27, 27, 10, 25},
-  {cont__insert_into_2, &frame__insert_into_1, 27, 27, 3, 47},
-  {cont__insert_into_5, &frame__insert_into_1, 28, 28, 3, 14},
-  {cont__insert_into_6, &frame__insert_into_1, 30, 30, 5, 25},
-  {cont__insert_into_7, &frame__insert_into_1, 30, 30, 5, 29},
-  {cont__insert_into_8, &frame__insert_into_1, 29, 34, 3, 26},
-  {cont__insert_into_20, &frame__insert_into_1, 35, 35, 3, 10},
+  {entry__insert_into, NULL, 27, 27, 10, 25},
+  {cont__insert_into_2, &frame__insert_into, 27, 27, 3, 47},
+  {cont__insert_into_5, &frame__insert_into, 28, 28, 3, 14},
+  {cont__insert_into_6, &frame__insert_into, 30, 30, 5, 25},
+  {cont__insert_into_7, &frame__insert_into, 30, 30, 5, 29},
+  {cont__insert_into_8, &frame__insert_into, 29, 34, 3, 26},
+  {cont__insert_into_20, &frame__insert_into, 35, 35, 3, 10},
   {entry__get_item_3, NULL, 43, 43, 26, 37},
   {entry__get_item_7, NULL, 46, 46, 23, 32},
   {cont__get_item_8, &frame__get_item_7, 46, 46, 17, 33},
@@ -460,24 +453,24 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__get_item_11, &frame__get_item_7, 46, 46, 8, 54},
   {cont__get_item_12, &frame__get_item_7, 46, 46, 5, 54},
   {entry__get_item_13, NULL, 47, 47, 5, 12},
-  {entry__get_item_1, NULL, 43, 43, 6, 23},
-  {cont__get_item_2, &frame__get_item_1, 43, 43, 3, 37},
-  {cont__get_item_4, &frame__get_item_1, 45, 45, 5, 22},
-  {cont__get_item_5, &frame__get_item_1, 45, 45, 5, 26},
-  {cont__get_item_6, &frame__get_item_1, 44, 47, 3, 12},
-  {cont__get_item_14, &frame__get_item_1, 47, 47, 12, 12},
+  {entry__get_item, NULL, 43, 43, 6, 23},
+  {cont__get_item_2, &frame__get_item, 43, 43, 3, 37},
+  {cont__get_item_4, &frame__get_item, 45, 45, 5, 22},
+  {cont__get_item_5, &frame__get_item, 45, 45, 5, 26},
+  {cont__get_item_6, &frame__get_item, 44, 47, 3, 12},
+  {cont__get_item_14, &frame__get_item, 47, 47, 12, 12},
   {entry__types__multi_dimensional_set_6, NULL, 60, 60, 36, 51},
   {cont__types__multi_dimensional_set_7, &frame__types__multi_dimensional_set_6, 60, 60, 7, 68},
   {cont__types__multi_dimensional_set_8, &frame__types__multi_dimensional_set_6, 61, 61, 7, 15},
   {entry__types__multi_dimensional_set_9, NULL, 62, 62, 17, 32},
   {cont__types__multi_dimensional_set_10, &frame__types__multi_dimensional_set_9, 62, 62, 8, 38},
   {cont__types__multi_dimensional_set_11, &frame__types__multi_dimensional_set_9, 62, 62, 5, 38},
-  {entry__types__multi_dimensional_set_1, NULL, 56, 56, 3, 35},
-  {cont__types__multi_dimensional_set_2, &frame__types__multi_dimensional_set_1, 57, 57, 3, 26},
-  {cont__types__multi_dimensional_set_3, &frame__types__multi_dimensional_set_1, 59, 59, 5, 19},
-  {cont__types__multi_dimensional_set_4, &frame__types__multi_dimensional_set_1, 59, 59, 5, 23},
-  {cont__types__multi_dimensional_set_5, &frame__types__multi_dimensional_set_1, 58, 62, 3, 38},
-  {entry__std__multi_dimensional_set_1, NULL, 72, 72, 3, 60},
+  {entry__types__multi_dimensional_set, NULL, 56, 56, 3, 35},
+  {cont__types__multi_dimensional_set_2, &frame__types__multi_dimensional_set, 57, 57, 3, 26},
+  {cont__types__multi_dimensional_set_3, &frame__types__multi_dimensional_set, 59, 59, 5, 19},
+  {cont__types__multi_dimensional_set_4, &frame__types__multi_dimensional_set, 59, 59, 5, 23},
+  {cont__types__multi_dimensional_set_5, &frame__types__multi_dimensional_set, 58, 62, 3, 38},
+  {entry__std__multi_dimensional_set, NULL, 72, 72, 3, 60},
   {entry__for_each_dimension_6, NULL, 79, 79, 36, 42},
   {cont__for_each_dimension_7, &frame__for_each_dimension_6, 79, 79, 44, 60},
   {cont__for_each_dimension_8, &frame__for_each_dimension_6, 79, 79, 11, 65},
@@ -485,13 +478,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__for_each_dimension_4, NULL, 78, 78, 9, 17},
   {cont__for_each_dimension_5, &frame__for_each_dimension_4, 77, 81, 7, 28},
   {entry__for_each_dimension_3, NULL, 76, 81, 5, 29},
-  {entry__for_each_dimension_1, NULL, 75, 75, 6, 21},
-  {cont__for_each_dimension_2, &frame__for_each_dimension_1, 75, 81, 3, 30},
-  {entry__types__multi_dimensional_set__for_each_1, NULL, 90, 90, 22, 35},
-  {cont__types__multi_dimensional_set__for_each_2, &frame__types__multi_dimensional_set__for_each_1, 90, 90, 47, 65},
-  {cont__types__multi_dimensional_set__for_each_3, &frame__types__multi_dimensional_set__for_each_1, 90, 90, 37, 66},
-  {cont__types__multi_dimensional_set__for_each_4, &frame__types__multi_dimensional_set__for_each_1, 90, 90, 68, 73},
-  {cont__types__multi_dimensional_set__for_each_5, &frame__types__multi_dimensional_set__for_each_1, 90, 90, 3, 78}
+  {entry__for_each_dimension, NULL, 75, 75, 6, 21},
+  {cont__for_each_dimension_2, &frame__for_each_dimension, 75, 81, 3, 30},
+  {entry__types__multi_dimensional_set___for_each, NULL, 90, 90, 22, 35},
+  {cont__types__multi_dimensional_set___for_each_2, &frame__types__multi_dimensional_set___for_each, 90, 90, 47, 65},
+  {cont__types__multi_dimensional_set___for_each_3, &frame__types__multi_dimensional_set___for_each, 90, 90, 37, 66},
+  {cont__types__multi_dimensional_set___for_each_4, &frame__types__multi_dimensional_set___for_each, 90, 90, 68, 73},
+  {cont__types__multi_dimensional_set___for_each_5, &frame__types__multi_dimensional_set___for_each, 90, 90, 3, 78}
 };
 
 union NODE {
@@ -593,7 +586,7 @@ EXPORT void run__basic__types__multi_dimensional_set(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__insert_into_1(void) {
+static void entry__insert_into(void) {
   allocate_initialized_frame_gc(3, 8);
   // slot allocations:
   // table: 0
@@ -841,7 +834,7 @@ static void cont__insert_into_14(void) {
   arguments->slots[1] = frame->slots[5] /* temp__2 */;
   arguments->slots[2] = frame->slots[7] /* temp__4 */;
   result_count = 1;
-  myself = var._insert_into;
+  myself = func__insert_into;
   func = myself->type;
   frame->cont = cont__insert_into_15;
 }
@@ -936,7 +929,7 @@ static void cont__insert_into_20(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__get_item_1(void) {
+static void entry__get_item(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // table: 0
@@ -1125,7 +1118,7 @@ static void cont__get_item_11(void) {
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
   arguments->slots[1] = frame->slots[5] /* temp__4 */;
   result_count = 1;
-  myself = var._get_item;
+  myself = func__get_item;
   func = myself->type;
   frame->cont = cont__get_item_12;
 }
@@ -1200,7 +1193,7 @@ static void cont__types__multi_dimensional_set_7(void) {
   arguments->slots[1] = frame->slots[1] /* dimensions */;
   arguments->slots[2] = frame->slots[2] /* args */;
   result_count = 1;
-  myself = var._insert_into;
+  myself = func__insert_into;
   func = myself->type;
   frame->cont = cont__types__multi_dimensional_set_8;
 }
@@ -1258,7 +1251,7 @@ static void cont__types__multi_dimensional_set_10(void) {
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
   arguments->slots[1] = frame->slots[1] /* args */;
   result_count = 1;
-  myself = var._get_item;
+  myself = func__get_item;
   func = myself->type;
   frame->cont = cont__types__multi_dimensional_set_11;
 }
@@ -1276,7 +1269,7 @@ static void cont__types__multi_dimensional_set_11(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__multi_dimensional_set_1(void) {
+static void entry__types__multi_dimensional_set(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 8);
   // slot allocations:
@@ -1370,7 +1363,7 @@ static void cont__types__multi_dimensional_set_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__multi_dimensional_set_1(void) {
+static void entry__std__multi_dimensional_set(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
@@ -1449,7 +1442,7 @@ static void cont__for_each_dimension_8(void) {
   arguments->slots[2] = frame->slots[6] /* temp__2 */;
   arguments->slots[3] = frame->slots[4] /* body */;
   result_count = frame->caller_result_count;
-  myself = var._for_each_dimension;
+  myself = func__for_each_dimension;
   func = myself->type;
   frame = frame->caller_frame;
 }
@@ -1576,7 +1569,7 @@ static void entry__for_each_dimension_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__for_each_dimension_1(void) {
+static void entry__for_each_dimension(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // table: 0
@@ -1626,7 +1619,7 @@ static void cont__for_each_dimension_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__multi_dimensional_set__for_each_1(void) {
+static void entry__types__multi_dimensional_set___for_each(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -1642,9 +1635,9 @@ static void entry__types__multi_dimensional_set__for_each_1(void) {
   result_count = 1;
   myself = var._table_of;
   func = myself->type;
-  frame->cont = cont__types__multi_dimensional_set__for_each_2;
+  frame->cont = cont__types__multi_dimensional_set___for_each_2;
 }
-static void cont__types__multi_dimensional_set__for_each_2(void) {
+static void cont__types__multi_dimensional_set___for_each_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1657,9 +1650,9 @@ static void cont__types__multi_dimensional_set__for_each_2(void) {
   result_count = 1;
   myself = var._dimensions_of;
   func = myself->type;
-  frame->cont = cont__types__multi_dimensional_set__for_each_3;
+  frame->cont = cont__types__multi_dimensional_set___for_each_3;
 }
-static void cont__types__multi_dimensional_set__for_each_3(void) {
+static void cont__types__multi_dimensional_set___for_each_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1672,9 +1665,9 @@ static void cont__types__multi_dimensional_set__for_each_3(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__types__multi_dimensional_set__for_each_4;
+  frame->cont = cont__types__multi_dimensional_set___for_each_4;
 }
-static void cont__types__multi_dimensional_set__for_each_4(void) {
+static void cont__types__multi_dimensional_set___for_each_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1686,9 +1679,9 @@ static void cont__types__multi_dimensional_set__for_each_4(void) {
   result_count = 1;
   myself = get__list();
   func = myself->type;
-  frame->cont = cont__types__multi_dimensional_set__for_each_5;
+  frame->cont = cont__types__multi_dimensional_set___for_each_5;
 }
-static void cont__types__multi_dimensional_set__for_each_5(void) {
+static void cont__types__multi_dimensional_set___for_each_5(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -1702,18 +1695,15 @@ static void cont__types__multi_dimensional_set__for_each_5(void) {
   arguments->slots[2] = frame->slots[5] /* temp__4 */;
   arguments->slots[3] = frame->slots[1] /* body */;
   result_count = frame->caller_result_count;
-  myself = var._for_each_dimension;
+  myself = func__for_each_dimension;
   func = myself->type;
   frame = frame->caller_frame;
 }
 EXPORT void collect__basic__types__multi_dimensional_set(void) {
   var._dimensions_of = collect_node(var._dimensions_of);
   var._table_of = collect_node(var._table_of);
-  var._insert_into = collect_node(var._insert_into);
-  var._get_item = collect_node(var._get_item);
   var.types__multi_dimensional_set = collect_node(var.types__multi_dimensional_set);
   var.std__multi_dimensional_set = collect_node(var.std__multi_dimensional_set);
-  var._for_each_dimension = collect_node(var._for_each_dimension);
 }
 
 static int already_run_phase_1 = false;
@@ -1735,12 +1725,12 @@ EXPORT void phase_2__basic__types__multi_dimensional_set(void) {
   number__2 = from_uint32(2U);
   register_polymorphic_function_with_setter("_basic__types__multi_dimensional_set::dimensions_of", &poly_idx__dimensions_of);
   register_polymorphic_function_with_setter("_basic__types__multi_dimensional_set::table_of", &poly_idx__table_of);
-  func__insert_into_1 = create_function(entry__insert_into_1, 3);
-  func__get_item_1 = create_function(entry__get_item_1, 2);
-  func__types__multi_dimensional_set_1 = create_function(entry__types__multi_dimensional_set_1, -1);
-  func__std__multi_dimensional_set_1 = create_function(entry__std__multi_dimensional_set_1, -1);
-  func__for_each_dimension_1 = create_function(entry__for_each_dimension_1, 4);
-  func__types__multi_dimensional_set__for_each_1 = create_function(entry__types__multi_dimensional_set__for_each_1, 2);
+  func__insert_into = create_function(entry__insert_into, 3);
+  func__get_item = create_function(entry__get_item, 2);
+  func__types__multi_dimensional_set = create_function(entry__types__multi_dimensional_set, -1);
+  func__std__multi_dimensional_set = create_function(entry__std__multi_dimensional_set, -1);
+  func__for_each_dimension = create_function(entry__for_each_dimension, 4);
+  func__types__multi_dimensional_set___for_each = create_function(entry__types__multi_dimensional_set___for_each, 2);
 }
 
 static int already_run_phase_3 = false;
@@ -1778,7 +1768,7 @@ EXPORT void phase_4__basic__types__multi_dimensional_set(void) {
   use_read_only(NULL, "undefined", &get__undefined, &get_value_or_future__undefined);
   use_read_only(NULL, "unless", &get__unless, &get_value_or_future__unless);
   define_attribute("types", "multi_dimensional_set", poly_idx__table_of, get__undefined());
-  define_method("types", "multi_dimensional_set", poly_idx__for_each, func__types__multi_dimensional_set__for_each_1);
+  define_method("types", "multi_dimensional_set", poly_idx__for_each, func__types__multi_dimensional_set___for_each);
 }
 
 static int already_run_phase_5 = false;
@@ -1788,11 +1778,8 @@ EXPORT void phase_5__basic__types__multi_dimensional_set(void) {
   already_run_phase_5 = true;
   assign_value(&var._dimensions_of, create_function(type__dimensions_of, -1));
   assign_value(&var._table_of, create_function(type__table_of, -1));
-  assign_variable(&var._insert_into, &func__insert_into_1);
-  assign_variable(&var._get_item, &func__get_item_1);
-  initialize_future(var.types__multi_dimensional_set, func__types__multi_dimensional_set_1);
-  initialize_future(var.std__multi_dimensional_set, func__std__multi_dimensional_set_1);
-  assign_variable(&var._for_each_dimension, &func__for_each_dimension_1);
+  initialize_future(var.types__multi_dimensional_set, func__types__multi_dimensional_set);
+  initialize_future(var.std__multi_dimensional_set, func__std__multi_dimensional_set);
 }
 
 static int already_run_phase_6 = false;

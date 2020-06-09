@@ -359,9 +359,14 @@ $compiler::remark_statement/to_string: (self)
 ###
 # BODY
 
-$compiler::body/to_string: (self)
+$compiler::body/to_string:
+  (
+    self
+    -> return
+  )
   # the <expression_indent> specfies the body's statements indentation level
 
+  if self.is_a_reference: return name_of(self)
   $$indent expression_indent
   $remark_lines remark_lines_of(self)
   $parameters parameters_of(self)

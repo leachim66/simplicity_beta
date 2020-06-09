@@ -239,7 +239,6 @@ IMPORT void define_method(
   const char *namespace, const char *name,
   int id, NODE *method
 );
-IMPORT void assign_value(NODE **dest, NODE *val);
 IMPORT void register_collector(FUNC collector);
 
 
@@ -480,7 +479,6 @@ static int poly_idx__write_to;
 static NODE_GETTER get__write_to;
 static struct {
   NODE *_umlaut_conversions;
-  NODE *_eighty_spaces;
   NODE *std__string;
   NODE *std__pad_left;
   NODE *std__pad_right;
@@ -500,40 +498,39 @@ static struct {
   NODE *std__collect_output;
 } var;
 static const char *var_names[] = {
-  "umlaut_conversions",
-  "eighty_spaces"
+  "umlaut_conversions"
 };
-static NODE *func__types__string__to_integer_1;
-static void entry__types__string__to_integer_1(void);
-static FRAME_INFO frame__types__string__to_integer_1 = {3, {"self", "return", "value"}};
-static void cont__types__string__to_integer_2(void);
-static void cont__types__string__to_integer_3(void);
-static void cont__types__string__to_integer_4(void);
+static NODE *func__types__string___to_integer;
+static void entry__types__string___to_integer(void);
+static FRAME_INFO frame__types__string___to_integer = {3, {"self", "return", "value"}};
+static void cont__types__string___to_integer_2(void);
+static void cont__types__string___to_integer_3(void);
+static void cont__types__string___to_integer_4(void);
 static NODE *func__types__string__to_integer_5;
 static void entry__types__string__to_integer_5(void);
 static FRAME_INFO frame__types__string__to_integer_5 = {1, {"return"}};
-static void cont__types__string__to_integer_6(void);
-static NODE *func__types__string__to_real_1;
-static void entry__types__string__to_real_1(void);
-static FRAME_INFO frame__types__string__to_real_1 = {3, {"self", "return", "value"}};
-static void cont__types__string__to_real_2(void);
-static void cont__types__string__to_real_3(void);
-static void cont__types__string__to_real_4(void);
+static void cont__types__string___to_integer_6(void);
+static NODE *func__types__string___to_real;
+static void entry__types__string___to_real(void);
+static FRAME_INFO frame__types__string___to_real = {3, {"self", "return", "value"}};
+static void cont__types__string___to_real_2(void);
+static void cont__types__string___to_real_3(void);
+static void cont__types__string___to_real_4(void);
 static NODE *func__types__string__to_real_5;
 static void entry__types__string__to_real_5(void);
 static FRAME_INFO frame__types__string__to_real_5 = {1, {"return"}};
-static void cont__types__string__to_real_6(void);
-static NODE *func__types__string__parse_number_1;
-static void entry__types__string__parse_number_1(void);
-static FRAME_INFO frame__types__string__parse_number_1 = {3, {"self", "i", "n"}};
-static void cont__types__string__parse_number_2(void);
-static void cont__types__string__parse_number_3(void);
-static void cont__types__string__parse_number_4(void);
+static void cont__types__string___to_real_6(void);
+static NODE *func__types__string___parse_number;
+static void entry__types__string___parse_number(void);
+static FRAME_INFO frame__types__string___parse_number = {3, {"self", "i", "n"}};
+static void cont__types__string___parse_number_2(void);
+static void cont__types__string___parse_number_3(void);
+static void cont__types__string___parse_number_4(void);
 static NODE *func__types__string__parse_number_5;
 static void entry__types__string__parse_number_5(void);
 static FRAME_INFO frame__types__string__parse_number_5 = {1, {"i"}};
 static void cont__types__string__parse_number_6(void);
-static void cont__types__string__parse_number_7(void);
+static void cont__types__string___parse_number_7(void);
 static NODE *func__types__string__parse_number_8;
 static void entry__types__string__parse_number_8(void);
 static FRAME_INFO frame__types__string__parse_number_8 = {3, {"n", "i", "self"}};
@@ -549,51 +546,51 @@ static NODE *func__types__string__parse_number_15;
 static void entry__types__string__parse_number_15(void);
 static FRAME_INFO frame__types__string__parse_number_15 = {1, {"i"}};
 static void cont__types__string__parse_number_16(void);
-static void cont__types__string__parse_number_17(void);
-static void cont__types__string__parse_number_18(void);
-static void cont__types__string__parse_number_19(void);
+static void cont__types__string___parse_number_17(void);
+static void cont__types__string___parse_number_18(void);
+static void cont__types__string___parse_number_19(void);
 static NODE *func__types__string__parse_number_20;
 static void entry__types__string__parse_number_20(void);
 static FRAME_INFO frame__types__string__parse_number_20 = {2, {"self", "i"}};
 static void cont__types__string__parse_number_21(void);
 static void cont__types__string__parse_number_22(void);
-static void cont__types__string__parse_number_23(void);
+static void cont__types__string___parse_number_23(void);
 static NODE *func__types__string__parse_number_24;
 static void entry__types__string__parse_number_24(void);
 static FRAME_INFO frame__types__string__parse_number_24 = {1, {"self"}};
 static NODE *func__types__string__parse_number_25;
 static void entry__types__string__parse_number_25(void);
 static FRAME_INFO frame__types__string__parse_number_25 = {1, {"self"}};
-static NODE *func__types__string__to_number_1;
-static void entry__types__string__to_number_1(void);
-static FRAME_INFO frame__types__string__to_number_1 = {3, {"self", "return", "value"}};
-static void cont__types__string__to_number_2(void);
-static void cont__types__string__to_number_3(void);
-static void cont__types__string__to_number_4(void);
+static NODE *func__types__string___to_number;
+static void entry__types__string___to_number(void);
+static FRAME_INFO frame__types__string___to_number = {3, {"self", "return", "value"}};
+static void cont__types__string___to_number_2(void);
+static void cont__types__string___to_number_3(void);
+static void cont__types__string___to_number_4(void);
 static NODE *func__types__string__to_number_5;
 static void entry__types__string__to_number_5(void);
 static FRAME_INFO frame__types__string__to_number_5 = {1, {"return"}};
-static void cont__types__string__to_number_6(void);
-static NODE *func__types__string__put_1;
-static void entry__types__string__put_1(void);
-static FRAME_INFO frame__types__string__put_1 = {2, {"self", "chr"}};
-static void cont__types__string__put_2(void);
-static void cont__types__string__put_3(void);
-static NODE *func__types__string__write_to_1;
-static void entry__types__string__write_to_1(void);
-static FRAME_INFO frame__types__string__write_to_1 = {2, {"self", "args"}};
+static void cont__types__string___to_number_6(void);
+static NODE *func__types__string___put;
+static void entry__types__string___put(void);
+static FRAME_INFO frame__types__string___put = {2, {"self", "chr"}};
+static void cont__types__string___put_2(void);
+static void cont__types__string___put_3(void);
+static NODE *func__types__string___write_to;
+static void entry__types__string___write_to(void);
+static FRAME_INFO frame__types__string___write_to = {2, {"self", "args"}};
 static NODE *func__types__string__write_to_2;
 static void entry__types__string__write_to_2(void);
 static FRAME_INFO frame__types__string__write_to_2 = {2, {"arg", "self"}};
 static void cont__types__string__write_to_3(void);
 static void cont__types__string__write_to_4(void);
-static void cont__types__string__write_to_5(void);
-static NODE *func__types__string__numerically_less_1;
-static void entry__types__string__numerically_less_1(void);
-static FRAME_INFO frame__types__string__numerically_less_1 = {5, {"left", "right", "return", "left_len", "right_len"}};
-static void cont__types__string__numerically_less_2(void);
-static void cont__types__string__numerically_less_3(void);
-static void cont__types__string__numerically_less_4(void);
+static void cont__types__string___write_to_5(void);
+static NODE *func__types__string___numerically_less;
+static void entry__types__string___numerically_less(void);
+static FRAME_INFO frame__types__string___numerically_less = {5, {"left", "right", "return", "left_len", "right_len"}};
+static void cont__types__string___numerically_less_2(void);
+static void cont__types__string___numerically_less_3(void);
+static void cont__types__string___numerically_less_4(void);
 static NODE *func__types__string__numerically_less_5;
 static void entry__types__string__numerically_less_5(void);
 static FRAME_INFO frame__types__string__numerically_less_5 = {8, {"i", "left", "right", "left_len", "right_len", "return", "left_chr", "right_chr"}};
@@ -681,18 +678,18 @@ static FRAME_INFO frame__types__string__numerically_less_54 = {3, {"return", "le
 static void cont__types__string__numerically_less_55(void);
 static void cont__types__string__numerically_less_56(void);
 static void cont__types__string__numerically_less_57(void);
-static void cont__types__string__numerically_less_58(void);
-static NODE *func__types__string__to_list_1;
-static void entry__types__string__to_list_1(void);
-static FRAME_INFO frame__types__string__to_list_1 = {2, {"self", "items"}};
+static void cont__types__string___numerically_less_58(void);
+static NODE *func__types__string___to_list;
+static void entry__types__string___to_list(void);
+static FRAME_INFO frame__types__string___to_list = {2, {"self", "items"}};
 static NODE *func__types__string__to_list_2;
 static void entry__types__string__to_list_2(void);
 static FRAME_INFO frame__types__string__to_list_2 = {2, {"item", "items"}};
 static void cont__types__string__to_list_3(void);
-static void cont__types__string__to_list_4(void);
-static NODE *func__std__string_1;
-static void entry__std__string_1(void);
-static FRAME_INFO frame__std__string_1 = {3, {"args", "buf", "n"}};
+static void cont__types__string___to_list_4(void);
+static NODE *func__std__string;
+static void entry__std__string(void);
+static FRAME_INFO frame__std__string = {3, {"args", "buf", "n"}};
 static void cont__std__string_2(void);
 static NODE *func__std__string_3;
 static void entry__std__string_3(void);
@@ -704,9 +701,9 @@ static void cont__std__string_7(void);
 static NODE *get__std__string(void) {
   return var.std__string;
 }
-static NODE *func__types__string__dup_1;
-static void entry__types__string__dup_1(void);
-static FRAME_INFO frame__types__string__dup_1 = {3, {"self", "n", "return"}};
+static NODE *func__types__string___dup;
+static void entry__types__string___dup(void);
+static FRAME_INFO frame__types__string___dup = {3, {"self", "n", "return"}};
 static NODE *func__types__string__dup_2;
 static void entry__types__string__dup_2(void);
 static FRAME_INFO frame__types__string__dup_2 = {1, {"return"}};
@@ -734,10 +731,10 @@ static NODE *func__types__string__dup_15;
 static void entry__types__string__dup_15(void);
 static FRAME_INFO frame__types__string__dup_15 = {3, {"return", "str", "self"}};
 static void cont__types__string__dup_16(void);
-static void cont__types__string__dup_17(void);
-static NODE *func__std__pad_left_1;
-static void entry__std__pad_left_1(void);
-static FRAME_INFO frame__std__pad_left_1 = {6, {"expr", "n", "pad", "return", "text", "len"}};
+static void cont__types__string___dup_17(void);
+static NODE *func__std__pad_left;
+static void entry__std__pad_left(void);
+static FRAME_INFO frame__std__pad_left = {6, {"expr", "n", "pad", "return", "text", "len"}};
 static NODE *string__578a5af303e9cc1;
 static void cont__std__pad_left_3(void);
 static void cont__std__pad_left_4(void);
@@ -758,9 +755,9 @@ static void cont__std__pad_left_16(void);
 static NODE *get__std__pad_left(void) {
   return var.std__pad_left;
 }
-static NODE *func__std__pad_right_1;
-static void entry__std__pad_right_1(void);
-static FRAME_INFO frame__std__pad_right_1 = {6, {"expr", "n", "pad", "return", "text", "len"}};
+static NODE *func__std__pad_right;
+static void entry__std__pad_right(void);
+static FRAME_INFO frame__std__pad_right = {6, {"expr", "n", "pad", "return", "text", "len"}};
 static void cont__std__pad_right_2(void);
 static void cont__std__pad_right_3(void);
 static void cont__std__pad_right_4(void);
@@ -780,9 +777,9 @@ static void cont__std__pad_right_15(void);
 static NODE *get__std__pad_right(void) {
   return var.std__pad_right;
 }
-static NODE *func__std__truncate_1;
-static void entry__std__truncate_1(void);
-static FRAME_INFO frame__std__truncate_1 = {4, {"expr", "n", "text", "len"}};
+static NODE *func__std__truncate;
+static void entry__std__truncate(void);
+static FRAME_INFO frame__std__truncate = {4, {"expr", "n", "text", "len"}};
 static void cont__std__truncate_2(void);
 static void cont__std__truncate_3(void);
 static void cont__std__truncate_4(void);
@@ -796,9 +793,9 @@ static void cont__std__truncate_7(void);
 static NODE *get__std__truncate(void) {
   return var.std__truncate;
 }
-static NODE *func__std__pad_or_truncate_1;
-static void entry__std__pad_or_truncate_1(void);
-static FRAME_INFO frame__std__pad_or_truncate_1 = {4, {"expr", "n", "text", "len"}};
+static NODE *func__std__pad_or_truncate;
+static void entry__std__pad_or_truncate(void);
+static FRAME_INFO frame__std__pad_or_truncate = {4, {"expr", "n", "text", "len"}};
 static void cont__std__pad_or_truncate_2(void);
 static void cont__std__pad_or_truncate_3(void);
 static void cont__std__pad_or_truncate_4(void);
@@ -815,52 +812,52 @@ static void cont__std__pad_or_truncate_10(void);
 static NODE *get__std__pad_or_truncate(void) {
   return var.std__pad_or_truncate;
 }
-static NODE *func__types__string__match_character_1;
-static void entry__types__string__match_character_1(void);
-static FRAME_INFO frame__types__string__match_character_1 = {2, {"self", "chr"}};
-static void cont__types__string__match_character_2(void);
-static void cont__types__string__match_character_3(void);
+static NODE *func__types__string___match_character;
+static void entry__types__string___match_character(void);
+static FRAME_INFO frame__types__string___match_character = {2, {"self", "chr"}};
+static void cont__types__string___match_character_2(void);
+static void cont__types__string___match_character_3(void);
 static NODE *func__types__string__match_character_4;
 static void entry__types__string__match_character_4(void);
 static FRAME_INFO frame__types__string__match_character_4 = {2, {"self", "chr"}};
 static void cont__types__string__match_character_5(void);
 static void cont__types__string__match_character_6(void);
-static void cont__types__string__match_character_7(void);
+static void cont__types__string___match_character_7(void);
 static NODE *func__types__string__match_character_8;
 static void entry__types__string__match_character_8(void);
 static FRAME_INFO frame__types__string__match_character_8 = {0, {}};
 static NODE *func__types__string__match_character_9;
 static void entry__types__string__match_character_9(void);
 static FRAME_INFO frame__types__string__match_character_9 = {0, {}};
-static NODE *func__types__string__grammar__match_1;
-static void entry__types__string__grammar__match_1(void);
-static FRAME_INFO frame__types__string__grammar__match_1 = {4, {"expr", "stream", "return", "len"}};
-static void cont__types__string__grammar__match_2(void);
-static void cont__types__string__grammar__match_3(void);
+static NODE *func__types__string___grammar__match;
+static void entry__types__string___grammar__match(void);
+static FRAME_INFO frame__types__string___grammar__match = {4, {"expr", "stream", "return", "len"}};
+static void cont__types__string___grammar__match_2(void);
+static void cont__types__string___grammar__match_3(void);
 static NODE *func__types__string__grammar__match_4;
 static void entry__types__string__grammar__match_4(void);
 static FRAME_INFO frame__types__string__grammar__match_4 = {1, {"return"}};
-static void cont__types__string__grammar__match_5(void);
-static void cont__types__string__grammar__match_6(void);
-static void cont__types__string__grammar__match_7(void);
+static void cont__types__string___grammar__match_5(void);
+static void cont__types__string___grammar__match_6(void);
+static void cont__types__string___grammar__match_7(void);
 static NODE *func__types__string__grammar__match_8;
 static void entry__types__string__grammar__match_8(void);
 static FRAME_INFO frame__types__string__grammar__match_8 = {2, {"return", "len"}};
-static void cont__types__string__grammar__match_9(void);
-static NODE *func__types__string__match_1;
-static void entry__types__string__match_1(void);
-static FRAME_INFO frame__types__string__match_1 = {4, {"stream", "expr", "return", "n"}};
-static void cont__types__string__match_2(void);
-static void cont__types__string__match_3(void);
-static void cont__types__string__match_4(void);
+static void cont__types__string___grammar__match_9(void);
+static NODE *func__types__string___match;
+static void entry__types__string___match(void);
+static FRAME_INFO frame__types__string___match = {4, {"stream", "expr", "return", "n"}};
+static void cont__types__string___match_2(void);
+static void cont__types__string___match_3(void);
+static void cont__types__string___match_4(void);
 static NODE *func__types__string__match_5;
 static void entry__types__string__match_5(void);
 static FRAME_INFO frame__types__string__match_5 = {2, {"return", "n"}};
-static void cont__types__string__match_6(void);
-static NODE *func__types__string__search_character_1;
-static void entry__types__string__search_character_1(void);
-static FRAME_INFO frame__types__string__search_character_1 = {3, {"self", "chr", "sum"}};
-static void cont__types__string__search_character_2(void);
+static void cont__types__string___match_6(void);
+static NODE *func__types__string___search_character;
+static void entry__types__string___search_character(void);
+static FRAME_INFO frame__types__string___search_character = {3, {"self", "chr", "sum"}};
+static void cont__types__string___search_character_2(void);
 static NODE *func__types__string__search_character_3;
 static void entry__types__string__search_character_3(void);
 static FRAME_INFO frame__types__string__search_character_3 = {3, {"self", "chr", "sum"}};
@@ -880,15 +877,15 @@ static void cont__types__string__search_character_12(void);
 static NODE *func__types__string__search_character_13;
 static void entry__types__string__search_character_13(void);
 static FRAME_INFO frame__types__string__search_character_13 = {0, {}};
-static NODE *func__types__string__search_1;
-static void entry__types__string__search_1(void);
-static FRAME_INFO frame__types__string__search_1 = {5, {"stream", "expr", "return__1", "pos", "len"}};
-static void cont__types__string__search_2(void);
-static NODE *func__types__string__before_1;
-static void entry__types__string__before_1(void);
-static FRAME_INFO frame__types__string__before_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
-static void cont__types__string__before_2(void);
-static void cont__types__string__before_3(void);
+static NODE *func__types__string___search;
+static void entry__types__string___search(void);
+static FRAME_INFO frame__types__string___search = {5, {"stream", "expr", "return__1", "pos", "len"}};
+static void cont__types__string___search_2(void);
+static NODE *func__types__string___before;
+static void entry__types__string___before(void);
+static FRAME_INFO frame__types__string___before = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static void cont__types__string___before_2(void);
+static void cont__types__string___before_3(void);
 static NODE *func__types__string__before_4;
 static void entry__types__string__before_4(void);
 static FRAME_INFO frame__types__string__before_4 = {3, {"return", "str", "pos"}};
@@ -897,12 +894,12 @@ static void cont__types__string__before_6(void);
 static NODE *func__types__string__before_7;
 static void entry__types__string__before_7(void);
 static FRAME_INFO frame__types__string__before_7 = {1, {"return"}};
-static void cont__types__string__before_8(void);
-static NODE *func__types__string__truncate_from_1;
-static void entry__types__string__truncate_from_1(void);
-static FRAME_INFO frame__types__string__truncate_from_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
-static void cont__types__string__truncate_from_2(void);
-static void cont__types__string__truncate_from_3(void);
+static void cont__types__string___before_8(void);
+static NODE *func__types__string___truncate_from;
+static void entry__types__string___truncate_from(void);
+static FRAME_INFO frame__types__string___truncate_from = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static void cont__types__string___truncate_from_2(void);
+static void cont__types__string___truncate_from_3(void);
 static NODE *func__types__string__truncate_from_4;
 static void entry__types__string__truncate_from_4(void);
 static FRAME_INFO frame__types__string__truncate_from_4 = {3, {"return", "str", "pos"}};
@@ -911,12 +908,12 @@ static void cont__types__string__truncate_from_6(void);
 static NODE *func__types__string__truncate_from_7;
 static void entry__types__string__truncate_from_7(void);
 static FRAME_INFO frame__types__string__truncate_from_7 = {2, {"return", "str"}};
-static void cont__types__string__truncate_from_8(void);
-static NODE *func__types__string__behind_1;
-static void entry__types__string__behind_1(void);
-static FRAME_INFO frame__types__string__behind_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
-static void cont__types__string__behind_2(void);
-static void cont__types__string__behind_3(void);
+static void cont__types__string___truncate_from_8(void);
+static NODE *func__types__string___behind;
+static void entry__types__string___behind(void);
+static FRAME_INFO frame__types__string___behind = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static void cont__types__string___behind_2(void);
+static void cont__types__string___behind_3(void);
 static NODE *func__types__string__behind_4;
 static void entry__types__string__behind_4(void);
 static FRAME_INFO frame__types__string__behind_4 = {4, {"return", "str", "pos", "len"}};
@@ -926,12 +923,12 @@ static void cont__types__string__behind_7(void);
 static NODE *func__types__string__behind_8;
 static void entry__types__string__behind_8(void);
 static FRAME_INFO frame__types__string__behind_8 = {1, {"return"}};
-static void cont__types__string__behind_9(void);
-static NODE *func__types__string__truncate_until_1;
-static void entry__types__string__truncate_until_1(void);
-static FRAME_INFO frame__types__string__truncate_until_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
-static void cont__types__string__truncate_until_2(void);
-static void cont__types__string__truncate_until_3(void);
+static void cont__types__string___behind_9(void);
+static NODE *func__types__string___truncate_until;
+static void entry__types__string___truncate_until(void);
+static FRAME_INFO frame__types__string___truncate_until = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static void cont__types__string___truncate_until_2(void);
+static void cont__types__string___truncate_until_3(void);
 static NODE *func__types__string__truncate_until_4;
 static void entry__types__string__truncate_until_4(void);
 static FRAME_INFO frame__types__string__truncate_until_4 = {4, {"return", "str", "pos", "len"}};
@@ -941,12 +938,12 @@ static void cont__types__string__truncate_until_7(void);
 static NODE *func__types__string__truncate_until_8;
 static void entry__types__string__truncate_until_8(void);
 static FRAME_INFO frame__types__string__truncate_until_8 = {2, {"return", "str"}};
-static void cont__types__string__truncate_until_9(void);
-static NODE *func__types__string__from_1;
-static void entry__types__string__from_1(void);
-static FRAME_INFO frame__types__string__from_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
-static void cont__types__string__from_2(void);
-static void cont__types__string__from_3(void);
+static void cont__types__string___truncate_until_9(void);
+static NODE *func__types__string___from;
+static void entry__types__string___from(void);
+static FRAME_INFO frame__types__string___from = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static void cont__types__string___from_2(void);
+static void cont__types__string___from_3(void);
 static NODE *func__types__string__from_4;
 static void entry__types__string__from_4(void);
 static FRAME_INFO frame__types__string__from_4 = {3, {"return", "str", "pos"}};
@@ -955,12 +952,12 @@ static void cont__types__string__from_6(void);
 static NODE *func__types__string__from_7;
 static void entry__types__string__from_7(void);
 static FRAME_INFO frame__types__string__from_7 = {1, {"return"}};
-static void cont__types__string__from_8(void);
-static NODE *func__types__string__truncate_before_1;
-static void entry__types__string__truncate_before_1(void);
-static FRAME_INFO frame__types__string__truncate_before_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
-static void cont__types__string__truncate_before_2(void);
-static void cont__types__string__truncate_before_3(void);
+static void cont__types__string___from_8(void);
+static NODE *func__types__string___truncate_before;
+static void entry__types__string___truncate_before(void);
+static FRAME_INFO frame__types__string___truncate_before = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static void cont__types__string___truncate_before_2(void);
+static void cont__types__string___truncate_before_3(void);
 static NODE *func__types__string__truncate_before_4;
 static void entry__types__string__truncate_before_4(void);
 static FRAME_INFO frame__types__string__truncate_before_4 = {3, {"return", "str", "pos"}};
@@ -969,12 +966,12 @@ static void cont__types__string__truncate_before_6(void);
 static NODE *func__types__string__truncate_before_7;
 static void entry__types__string__truncate_before_7(void);
 static FRAME_INFO frame__types__string__truncate_before_7 = {2, {"return", "str"}};
-static void cont__types__string__truncate_before_8(void);
-static NODE *func__types__string__until_1;
-static void entry__types__string__until_1(void);
-static FRAME_INFO frame__types__string__until_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
-static void cont__types__string__until_2(void);
-static void cont__types__string__until_3(void);
+static void cont__types__string___truncate_before_8(void);
+static NODE *func__types__string___until;
+static void entry__types__string___until(void);
+static FRAME_INFO frame__types__string___until = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static void cont__types__string___until_2(void);
+static void cont__types__string___until_3(void);
 static NODE *func__types__string__until_4;
 static void entry__types__string__until_4(void);
 static FRAME_INFO frame__types__string__until_4 = {4, {"return", "str", "pos", "len"}};
@@ -984,12 +981,12 @@ static void cont__types__string__until_7(void);
 static NODE *func__types__string__until_8;
 static void entry__types__string__until_8(void);
 static FRAME_INFO frame__types__string__until_8 = {1, {"return"}};
-static void cont__types__string__until_9(void);
-static NODE *func__types__string__truncate_behind_1;
-static void entry__types__string__truncate_behind_1(void);
-static FRAME_INFO frame__types__string__truncate_behind_1 = {6, {"str", "expr", "nth", "return", "pos", "len"}};
-static void cont__types__string__truncate_behind_2(void);
-static void cont__types__string__truncate_behind_3(void);
+static void cont__types__string___until_9(void);
+static NODE *func__types__string___truncate_behind;
+static void entry__types__string___truncate_behind(void);
+static FRAME_INFO frame__types__string___truncate_behind = {6, {"str", "expr", "nth", "return", "pos", "len"}};
+static void cont__types__string___truncate_behind_2(void);
+static void cont__types__string___truncate_behind_3(void);
 static NODE *func__types__string__truncate_behind_4;
 static void entry__types__string__truncate_behind_4(void);
 static FRAME_INFO frame__types__string__truncate_behind_4 = {4, {"return", "str", "pos", "len"}};
@@ -999,21 +996,21 @@ static void cont__types__string__truncate_behind_7(void);
 static NODE *func__types__string__truncate_behind_8;
 static void entry__types__string__truncate_behind_8(void);
 static FRAME_INFO frame__types__string__truncate_behind_8 = {2, {"return", "str"}};
-static void cont__types__string__truncate_behind_9(void);
-static NODE *func__types__string__between_1;
-static void entry__types__string__between_1(void);
-static FRAME_INFO frame__types__string__between_1 = {4, {"str", "expr_1", "expr_2", "nth"}};
-static void cont__types__string__between_2(void);
-static void cont__types__string__between_3(void);
-static NODE *func__types__string__has_prefix_1;
-static void entry__types__string__has_prefix_1(void);
-static FRAME_INFO frame__types__string__has_prefix_1 = {2, {"self", "prefix"}};
-static void cont__types__string__has_prefix_2(void);
-static void cont__types__string__has_prefix_3(void);
-static NODE *func__types__string__has_suffix_1;
-static void entry__types__string__has_suffix_1(void);
-static FRAME_INFO frame__types__string__has_suffix_1 = {4, {"self", "suffix", "return", "len"}};
-static void cont__types__string__has_suffix_2(void);
+static void cont__types__string___truncate_behind_9(void);
+static NODE *func__types__string___between;
+static void entry__types__string___between(void);
+static FRAME_INFO frame__types__string___between = {4, {"str", "expr_1", "expr_2", "nth"}};
+static void cont__types__string___between_2(void);
+static void cont__types__string___between_3(void);
+static NODE *func__types__string___has_prefix;
+static void entry__types__string___has_prefix(void);
+static FRAME_INFO frame__types__string___has_prefix = {2, {"self", "prefix"}};
+static void cont__types__string___has_prefix_2(void);
+static void cont__types__string___has_prefix_3(void);
+static NODE *func__types__string___has_suffix;
+static void entry__types__string___has_suffix(void);
+static FRAME_INFO frame__types__string___has_suffix = {4, {"self", "suffix", "return", "len"}};
+static void cont__types__string___has_suffix_2(void);
 static NODE *func__types__string__has_suffix_3;
 static void entry__types__string__has_suffix_3(void);
 static FRAME_INFO frame__types__string__has_suffix_3 = {5, {"i", "self", "suffix", "len", "return"}};
@@ -1026,23 +1023,23 @@ static void cont__types__string__has_suffix_9(void);
 static NODE *func__types__string__has_suffix_10;
 static void entry__types__string__has_suffix_10(void);
 static FRAME_INFO frame__types__string__has_suffix_10 = {1, {"return"}};
-static void cont__types__string__has_suffix_11(void);
-static NODE *func__types__string__without_prefix_1;
-static void entry__types__string__without_prefix_1(void);
-static FRAME_INFO frame__types__string__without_prefix_1 = {4, {"self", "prefix", "return", "n"}};
-static void cont__types__string__without_prefix_2(void);
-static void cont__types__string__without_prefix_3(void);
+static void cont__types__string___has_suffix_11(void);
+static NODE *func__types__string___without_prefix;
+static void entry__types__string___without_prefix(void);
+static FRAME_INFO frame__types__string___without_prefix = {4, {"self", "prefix", "return", "n"}};
+static void cont__types__string___without_prefix_2(void);
+static void cont__types__string___without_prefix_3(void);
 static NODE *func__types__string__without_prefix_4;
 static void entry__types__string__without_prefix_4(void);
 static FRAME_INFO frame__types__string__without_prefix_4 = {3, {"return", "self", "n"}};
 static void cont__types__string__without_prefix_5(void);
 static void cont__types__string__without_prefix_6(void);
 static void cont__types__string__without_prefix_7(void);
-static void cont__types__string__without_prefix_8(void);
-static NODE *func__types__string__without_suffix_1;
-static void entry__types__string__without_suffix_1(void);
-static FRAME_INFO frame__types__string__without_suffix_1 = {4, {"self", "suffix", "return", "len"}};
-static void cont__types__string__without_suffix_2(void);
+static void cont__types__string___without_prefix_8(void);
+static NODE *func__types__string___without_suffix;
+static void entry__types__string___without_suffix(void);
+static FRAME_INFO frame__types__string___without_suffix = {4, {"self", "suffix", "return", "len"}};
+static void cont__types__string___without_suffix_2(void);
 static NODE *func__types__string__without_suffix_3;
 static void entry__types__string__without_suffix_3(void);
 static FRAME_INFO frame__types__string__without_suffix_3 = {5, {"i", "self", "suffix", "len", "return"}};
@@ -1057,10 +1054,10 @@ static void entry__types__string__without_suffix_10(void);
 static FRAME_INFO frame__types__string__without_suffix_10 = {3, {"return", "self", "i"}};
 static void cont__types__string__without_suffix_11(void);
 static void cont__types__string__without_suffix_12(void);
-static void cont__types__string__without_suffix_13(void);
-static NODE *func__std__trim_1;
-static void entry__std__trim_1(void);
-static FRAME_INFO frame__std__trim_1 = {3, {"str", "s", "e"}};
+static void cont__types__string___without_suffix_13(void);
+static NODE *func__std__trim;
+static void entry__std__trim(void);
+static FRAME_INFO frame__std__trim = {3, {"str", "s", "e"}};
 static void cont__std__trim_2(void);
 static NODE *func__std__trim_3;
 static void entry__std__trim_3(void);
@@ -1100,9 +1097,9 @@ static void cont__std__trim_25(void);
 static NODE *get__std__trim(void) {
   return var.std__trim;
 }
-static NODE *func__std__normalize_1;
-static void entry__std__normalize_1(void);
-static FRAME_INFO frame__std__normalize_1 = {1, {"str"}};
+static NODE *func__std__normalize;
+static void entry__std__normalize(void);
+static FRAME_INFO frame__std__normalize = {1, {"str"}};
 static void cont__std__normalize_2(void);
 static void cont__std__normalize_3(void);
 static void cont__std__normalize_4(void);
@@ -1111,9 +1108,9 @@ static void cont__std__normalize_6(void);
 static NODE *get__std__normalize(void) {
   return var.std__normalize;
 }
-static NODE *func__std__split_1;
-static void entry__std__split_1(void);
-static FRAME_INFO frame__std__split_1 = {3, {"text", "separator", "items"}};
+static NODE *func__std__split;
+static void entry__std__split(void);
+static FRAME_INFO frame__std__split = {3, {"text", "separator", "items"}};
 static void cont__std__split_3(void);
 static void cont__std__split_2(void);
 static NODE *func__std__split_4;
@@ -1143,9 +1140,9 @@ static void cont__std__split_21(void);
 static NODE *get__std__split(void) {
   return var.std__split;
 }
-static NODE *func__std__join_1;
-static void entry__std__join_1(void);
-static FRAME_INFO frame__std__join_1 = {3, {"words", "separator", "text"}};
+static NODE *func__std__join;
+static void entry__std__join(void);
+static FRAME_INFO frame__std__join = {3, {"words", "separator", "text"}};
 static NODE *func__std__join_2;
 static void entry__std__join_2(void);
 static FRAME_INFO frame__std__join_2 = {2, {"word", "text"}};
@@ -1158,9 +1155,9 @@ static void cont__std__join_6(void);
 static NODE *get__std__join(void) {
   return var.std__join;
 }
-static NODE *func__std__count_occurrences_1;
-static void entry__std__count_occurrences_1(void);
-static FRAME_INFO frame__std__count_occurrences_1 = {3, {"text", "expr", "n"}};
+static NODE *func__std__count_occurrences;
+static void entry__std__count_occurrences(void);
+static FRAME_INFO frame__std__count_occurrences = {3, {"text", "expr", "n"}};
 static NODE *func__std__count_occurrences_2;
 static void entry__std__count_occurrences_2(void);
 static FRAME_INFO frame__std__count_occurrences_2 = {5, {"expr", "text", "n", "pos", "len"}};
@@ -1179,20 +1176,20 @@ static void cont__std__count_occurrences_12(void);
 static NODE *get__std__count_occurrences(void) {
   return var.std__count_occurrences;
 }
-static NODE *func__types__string__matches_1;
-static void entry__types__string__matches_1(void);
-static FRAME_INFO frame__types__string__matches_1 = {2, {"text", "expr"}};
-static void cont__types__string__matches_2(void);
-static void cont__types__string__matches_3(void);
-static void cont__types__string__matches_4(void);
-static NODE *func__types__string__contains_1;
-static void entry__types__string__contains_1(void);
-static FRAME_INFO frame__types__string__contains_1 = {4, {"text", "expr", "pos", "len"}};
-static void cont__types__string__contains_2(void);
-static void cont__types__string__contains_3(void);
-static NODE *func__std__replace_umlauts_1;
-static void entry__std__replace_umlauts_1(void);
-static FRAME_INFO frame__std__replace_umlauts_1 = {4, {"text", "s", "result", "copy"}};
+static NODE *func__types__string___matches;
+static void entry__types__string___matches(void);
+static FRAME_INFO frame__types__string___matches = {2, {"text", "expr"}};
+static void cont__types__string___matches_2(void);
+static void cont__types__string___matches_3(void);
+static void cont__types__string___matches_4(void);
+static NODE *func__types__string___contains;
+static void entry__types__string___contains(void);
+static FRAME_INFO frame__types__string___contains = {4, {"text", "expr", "pos", "len"}};
+static void cont__types__string___contains_2(void);
+static void cont__types__string___contains_3(void);
+static NODE *func__std__replace_umlauts;
+static void entry__std__replace_umlauts(void);
+static FRAME_INFO frame__std__replace_umlauts = {4, {"text", "s", "result", "copy"}};
 static NODE *func__std__replace_umlauts_2;
 static void entry__std__replace_umlauts_2(void);
 static FRAME_INFO frame__std__replace_umlauts_2 = {4, {"idx", "result", "text", "s"}};
@@ -1237,9 +1234,9 @@ static void cont__std__replace_umlauts_28(void);
 static NODE *get__std__replace_umlauts(void) {
   return var.std__replace_umlauts;
 }
-static NODE *func__std__replace_all_1;
-static void entry__std__replace_all_1(void);
-static FRAME_INFO frame__std__replace_all_1 = {3, {"text", "args", "new_text"}};
+static NODE *func__std__replace_all;
+static void entry__std__replace_all(void);
+static FRAME_INFO frame__std__replace_all = {3, {"text", "args", "new_text"}};
 static NODE *func__std__replace_all_2;
 static void entry__std__replace_all_2(void);
 static FRAME_INFO frame__std__replace_all_2 = {3, {"text", "args", "new_text"}};
@@ -1285,9 +1282,9 @@ static void cont__std__replace_all_29(void);
 static NODE *get__std__replace_all(void) {
   return var.std__replace_all;
 }
-static NODE *func__std__delete_all_1;
-static void entry__std__delete_all_1(void);
-static FRAME_INFO frame__std__delete_all_1 = {3, {"text", "expressions", "new_text"}};
+static NODE *func__std__delete_all;
+static void entry__std__delete_all(void);
+static FRAME_INFO frame__std__delete_all = {3, {"text", "expressions", "new_text"}};
 static NODE *func__std__delete_all_2;
 static void entry__std__delete_all_2(void);
 static FRAME_INFO frame__std__delete_all_2 = {3, {"text", "expressions", "new_text"}};
@@ -1319,10 +1316,9 @@ static void cont__std__delete_all_19(void);
 static NODE *get__std__delete_all(void) {
   return var.std__delete_all;
 }
-static NODE *string__49792677fe126f62;
-static NODE *func__std__spaces_1;
-static void entry__std__spaces_1(void);
-static FRAME_INFO frame__std__spaces_1 = {1, {"n"}};
+static NODE *func__std__spaces;
+static void entry__std__spaces(void);
+static FRAME_INFO frame__std__spaces = {1, {"n"}};
 static void cont__std__spaces_2(void);
 static NODE *func__std__spaces_3;
 static void entry__std__spaces_3(void);
@@ -1331,13 +1327,14 @@ static void cont__std__spaces_4(void);
 static NODE *func__std__spaces_5;
 static void entry__std__spaces_5(void);
 static FRAME_INFO frame__std__spaces_5 = {1, {"n"}};
-static void cont__std__spaces_6(void);
+static NODE *string__49792677fe126f62;
+static void cont__std__spaces_7(void);
 static NODE *get__std__spaces(void) {
   return var.std__spaces;
 }
-static NODE *func__std__indented_1;
-static void entry__std__indented_1(void);
-static FRAME_INFO frame__std__indented_1 = {2, {"indent", "text"}};
+static NODE *func__std__indented;
+static void entry__std__indented(void);
+static FRAME_INFO frame__std__indented = {2, {"indent", "text"}};
 static void cont__std__indented_2(void);
 static NODE *func__std__indented_3;
 static void entry__std__indented_3(void);
@@ -1366,9 +1363,9 @@ static void cont__std__indented_20(void);
 static NODE *get__std__indented(void) {
   return var.std__indented;
 }
-static NODE *func__std__for_each_line_1;
-static void entry__std__for_each_line_1(void);
-static FRAME_INFO frame__std__for_each_line_1 = {6, {"text", "body", "body2", "no", "pos", "len"}};
+static NODE *func__std__for_each_line;
+static void entry__std__for_each_line(void);
+static FRAME_INFO frame__std__for_each_line = {6, {"text", "body", "body2", "no", "pos", "len"}};
 static void cont__std__for_each_line_2(void);
 static void cont__std__for_each_line_3(void);
 static NODE *func__std__for_each_line_4;
@@ -1417,17 +1414,17 @@ static FRAME_INFO frame__std__for_each_line_30 = {2, {"body", "text"}};
 static NODE *get__std__for_each_line(void) {
   return var.std__for_each_line;
 }
-static NODE *func__types__string__to_lower_case_1;
-static void entry__types__string__to_lower_case_1(void);
-static FRAME_INFO frame__types__string__to_lower_case_1 = {1, {"text"}};
-static void cont__types__string__to_lower_case_2(void);
-static NODE *func__types__string__to_upper_case_1;
-static void entry__types__string__to_upper_case_1(void);
-static FRAME_INFO frame__types__string__to_upper_case_1 = {1, {"text"}};
-static void cont__types__string__to_upper_case_2(void);
-static NODE *func__types__string__to_title_case_1;
-static void entry__types__string__to_title_case_1(void);
-static FRAME_INFO frame__types__string__to_title_case_1 = {3, {"text", "out", "to_upper"}};
+static NODE *func__types__string___to_lower_case;
+static void entry__types__string___to_lower_case(void);
+static FRAME_INFO frame__types__string___to_lower_case = {1, {"text"}};
+static void cont__types__string___to_lower_case_2(void);
+static NODE *func__types__string___to_upper_case;
+static void entry__types__string___to_upper_case(void);
+static FRAME_INFO frame__types__string___to_upper_case = {1, {"text"}};
+static void cont__types__string___to_upper_case_2(void);
+static NODE *func__types__string___to_title_case;
+static void entry__types__string___to_title_case(void);
+static FRAME_INFO frame__types__string___to_title_case = {3, {"text", "out", "to_upper"}};
 static NODE *func__types__string__to_title_case_2;
 static void entry__types__string__to_title_case_2(void);
 static FRAME_INFO frame__types__string__to_title_case_2 = {3, {"chr", "to_upper", "out"}};
@@ -1449,17 +1446,17 @@ static NODE *func__types__string__to_title_case_11;
 static void entry__types__string__to_title_case_11(void);
 static FRAME_INFO frame__types__string__to_title_case_11 = {3, {"out", "chr", "to_upper"}};
 static void cont__types__string__to_title_case_12(void);
-static void cont__types__string__to_title_case_13(void);
-static NODE *func__types__octet_string__new_empty_collection_1;
-static void entry__types__octet_string__new_empty_collection_1(void);
-static FRAME_INFO frame__types__octet_string__new_empty_collection_1 = {1, {"self"}};
-static NODE *func__types__quad_octet_string__new_empty_collection_1;
-static void entry__types__quad_octet_string__new_empty_collection_1(void);
-static FRAME_INFO frame__types__quad_octet_string__new_empty_collection_1 = {1, {"self"}};
-static NODE *func__std__collect_output_1;
-static void entry__std__collect_output_1(void);
-static FRAME_INFO frame__std__collect_output_1 = {3, {"self", "body", "return__1"}};
-static void exit__std__collect_output_1(void);
+static void cont__types__string___to_title_case_13(void);
+static NODE *func__types__octet_string___new_empty_collection;
+static void entry__types__octet_string___new_empty_collection(void);
+static FRAME_INFO frame__types__octet_string___new_empty_collection = {1, {"self"}};
+static NODE *func__types__quad_octet_string___new_empty_collection;
+static void entry__types__quad_octet_string___new_empty_collection(void);
+static FRAME_INFO frame__types__quad_octet_string___new_empty_collection = {1, {"self"}};
+static NODE *func__std__collect_output;
+static void entry__std__collect_output(void);
+static FRAME_INFO frame__std__collect_output = {3, {"self", "body", "return__1"}};
+static void exit__std__collect_output(void);
 static NODE *func__std__collect_output_2;
 static void entry__std__collect_output_2(void);
 static FRAME_INFO frame__std__collect_output_2 = {2, {"args", "self"}};
@@ -2159,17 +2156,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__93_389, NULL, 753, 1049, 1, 14},
   {cont__93_390, NULL, },
   {entry__types__string__to_integer_5, NULL, 45, 45, 18, 33},
-  {entry__types__string__to_integer_1, NULL, 44, 44, 3, 28},
-  {cont__types__string__to_integer_2, &frame__types__string__to_integer_1, 45, 45, 6, 15},
-  {cont__types__string__to_integer_3, &frame__types__string__to_integer_1, 45, 45, 6, 15},
-  {cont__types__string__to_integer_4, &frame__types__string__to_integer_1, 45, 45, 3, 33},
-  {cont__types__string__to_integer_6, &frame__types__string__to_integer_1, 46, 46, 3, 10},
+  {entry__types__string___to_integer, NULL, 44, 44, 3, 28},
+  {cont__types__string___to_integer_2, &frame__types__string___to_integer, 45, 45, 6, 15},
+  {cont__types__string___to_integer_3, &frame__types__string___to_integer, 45, 45, 6, 15},
+  {cont__types__string___to_integer_4, &frame__types__string___to_integer, 45, 45, 3, 33},
+  {cont__types__string___to_integer_6, &frame__types__string___to_integer, 46, 46, 3, 10},
   {entry__types__string__to_real_5, NULL, 56, 56, 18, 33},
-  {entry__types__string__to_real_1, NULL, 55, 55, 3, 25},
-  {cont__types__string__to_real_2, &frame__types__string__to_real_1, 56, 56, 6, 15},
-  {cont__types__string__to_real_3, &frame__types__string__to_real_1, 56, 56, 6, 15},
-  {cont__types__string__to_real_4, &frame__types__string__to_real_1, 56, 56, 3, 33},
-  {cont__types__string__to_real_6, &frame__types__string__to_real_1, 57, 57, 3, 10},
+  {entry__types__string___to_real, NULL, 55, 55, 3, 25},
+  {cont__types__string___to_real_2, &frame__types__string___to_real, 56, 56, 6, 15},
+  {cont__types__string___to_real_3, &frame__types__string___to_real, 56, 56, 6, 15},
+  {cont__types__string___to_real_4, &frame__types__string___to_real, 56, 56, 3, 33},
+  {cont__types__string___to_real_6, &frame__types__string___to_real, 57, 57, 3, 10},
   {entry__types__string__parse_number_5, NULL, 67, 67, 22, 27},
   {cont__types__string__parse_number_6, &frame__types__string__parse_number_5, 67, 67, 27, 27},
   {entry__types__string__parse_number_11, NULL, 68, 68, 22, 28},
@@ -2186,29 +2183,29 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__string__parse_number_22, &frame__types__string__parse_number_20, 70, 70, 15, 28},
   {entry__types__string__parse_number_24, NULL, 71, 71, 7, 21},
   {entry__types__string__parse_number_25, NULL, 73, 73, 7, 24},
-  {entry__types__string__parse_number_1, NULL, 66, 66, 3, 20},
-  {cont__types__string__parse_number_2, &frame__types__string__parse_number_1, 67, 67, 6, 12},
-  {cont__types__string__parse_number_3, &frame__types__string__parse_number_1, 67, 67, 6, 19},
-  {cont__types__string__parse_number_4, &frame__types__string__parse_number_1, 67, 67, 3, 27},
-  {cont__types__string__parse_number_7, &frame__types__string__parse_number_1, 68, 68, 3, 47},
-  {cont__types__string__parse_number_17, &frame__types__string__parse_number_1, 70, 70, 5, 10},
-  {cont__types__string__parse_number_18, &frame__types__string__parse_number_1, 70, 70, 5, 10},
-  {cont__types__string__parse_number_19, &frame__types__string__parse_number_1, 70, 70, 5, 28},
-  {cont__types__string__parse_number_23, &frame__types__string__parse_number_1, 69, 73, 3, 25},
+  {entry__types__string___parse_number, NULL, 66, 66, 3, 20},
+  {cont__types__string___parse_number_2, &frame__types__string___parse_number, 67, 67, 6, 12},
+  {cont__types__string___parse_number_3, &frame__types__string___parse_number, 67, 67, 6, 19},
+  {cont__types__string___parse_number_4, &frame__types__string___parse_number, 67, 67, 3, 27},
+  {cont__types__string___parse_number_7, &frame__types__string___parse_number, 68, 68, 3, 47},
+  {cont__types__string___parse_number_17, &frame__types__string___parse_number, 70, 70, 5, 10},
+  {cont__types__string___parse_number_18, &frame__types__string___parse_number, 70, 70, 5, 10},
+  {cont__types__string___parse_number_19, &frame__types__string___parse_number, 70, 70, 5, 28},
+  {cont__types__string___parse_number_23, &frame__types__string___parse_number, 69, 73, 3, 25},
   {entry__types__string__to_number_5, NULL, 83, 83, 18, 33},
-  {entry__types__string__to_number_1, NULL, 82, 82, 3, 27},
-  {cont__types__string__to_number_2, &frame__types__string__to_number_1, 83, 83, 6, 15},
-  {cont__types__string__to_number_3, &frame__types__string__to_number_1, 83, 83, 6, 15},
-  {cont__types__string__to_number_4, &frame__types__string__to_number_1, 83, 83, 3, 33},
-  {cont__types__string__to_number_6, &frame__types__string__to_number_1, 84, 84, 3, 10},
-  {entry__types__string__put_1, NULL, 93, 93, 13, 25},
-  {cont__types__string__put_2, &frame__types__string__put_1, 93, 93, 6, 31},
-  {cont__types__string__put_3, &frame__types__string__put_1, 93, 93, 3, 31},
+  {entry__types__string___to_number, NULL, 82, 82, 3, 27},
+  {cont__types__string___to_number_2, &frame__types__string___to_number, 83, 83, 6, 15},
+  {cont__types__string___to_number_3, &frame__types__string___to_number, 83, 83, 6, 15},
+  {cont__types__string___to_number_4, &frame__types__string___to_number, 83, 83, 3, 33},
+  {cont__types__string___to_number_6, &frame__types__string___to_number, 84, 84, 3, 10},
+  {entry__types__string___put, NULL, 93, 93, 13, 25},
+  {cont__types__string___put_2, &frame__types__string___put, 93, 93, 6, 31},
+  {cont__types__string___put_3, &frame__types__string___put, 93, 93, 3, 31},
   {entry__types__string__write_to_2, NULL, 102, 102, 37, 49},
   {cont__types__string__write_to_3, &frame__types__string__write_to_2, 102, 102, 24, 49},
   {cont__types__string__write_to_4, &frame__types__string__write_to_2, 102, 102, 49, 49},
-  {entry__types__string__write_to_1, NULL, 102, 102, 3, 49},
-  {cont__types__string__write_to_5, &frame__types__string__write_to_1, },
+  {entry__types__string___write_to, NULL, 102, 102, 3, 49},
+  {cont__types__string___write_to_5, &frame__types__string___write_to, },
   {entry__types__string__numerically_less_19, NULL, 123, 123, 11, 26},
   {cont__types__string__numerically_less_20, &frame__types__string__numerically_less_19, 123, 123, 11, 26},
   {cont__types__string__numerically_less_21, &frame__types__string__numerically_less_19, 123, 123, 11, 26},
@@ -2262,22 +2259,22 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__string__numerically_less_7, &frame__types__string__numerically_less_5, 117, 117, 8, 28},
   {cont__types__string__numerically_less_8, &frame__types__string__numerically_less_5, 117, 117, 8, 28},
   {cont__types__string__numerically_less_9, &frame__types__string__numerically_less_5, 117, 142, 5, 33},
-  {entry__types__string__numerically_less_1, NULL, 112, 112, 3, 27},
-  {cont__types__string__numerically_less_2, &frame__types__string__numerically_less_1, 113, 113, 3, 29},
-  {cont__types__string__numerically_less_3, &frame__types__string__numerically_less_1, 114, 114, 13, 35},
-  {cont__types__string__numerically_less_4, &frame__types__string__numerically_less_1, 114, 142, 3, 34},
-  {cont__types__string__numerically_less_58, &frame__types__string__numerically_less_1, 142, 142, 34, 34},
+  {entry__types__string___numerically_less, NULL, 112, 112, 3, 27},
+  {cont__types__string___numerically_less_2, &frame__types__string___numerically_less, 113, 113, 3, 29},
+  {cont__types__string___numerically_less_3, &frame__types__string___numerically_less, 114, 114, 13, 35},
+  {cont__types__string___numerically_less_4, &frame__types__string___numerically_less, 114, 142, 3, 34},
+  {cont__types__string___numerically_less_58, &frame__types__string___numerically_less, 142, 142, 34, 34},
   {entry__types__string__to_list_2, NULL, 151, 151, 25, 40},
   {cont__types__string__to_list_3, &frame__types__string__to_list_2, 151, 151, 40, 40},
-  {entry__types__string__to_list_1, NULL, 151, 151, 3, 40},
-  {cont__types__string__to_list_4, &frame__types__string__to_list_1, 152, 152, 3, 10},
+  {entry__types__string___to_list, NULL, 151, 151, 3, 40},
+  {cont__types__string___to_list_4, &frame__types__string___to_list, 152, 152, 3, 10},
   {entry__std__string_3, NULL, 162, 162, 42, 48},
   {cont__std__string_4, &frame__std__string_3, 162, 162, 32, 49},
   {cont__std__string_5, &frame__std__string_3, 162, 162, 20, 49},
   {cont__std__string_6, &frame__std__string_3, 162, 162, 49, 49},
-  {entry__std__string_1, NULL, 161, 161, 3, 20},
-  {cont__std__string_2, &frame__std__string_1, 162, 162, 3, 49},
-  {cont__std__string_7, &frame__std__string_1, 163, 163, 3, 8},
+  {entry__std__string, NULL, 161, 161, 3, 20},
+  {cont__std__string_2, &frame__std__string, 162, 162, 3, 49},
+  {cont__std__string_7, &frame__std__string, 163, 163, 3, 8},
   {entry__types__string__dup_2, NULL, 175, 175, 7, 15},
   {entry__types__string__dup_3, NULL, 177, 177, 7, 17},
   {entry__types__string__dup_6, NULL, 179, 179, 17, 50},
@@ -2292,8 +2289,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__string__dup_10, &frame__types__string__dup_4, 183, 183, 9, 11},
   {cont__types__string__dup_11, &frame__types__string__dup_4, 183, 183, 9, 16},
   {cont__types__string__dup_12, &frame__types__string__dup_4, 182, 186, 7, 38},
-  {entry__types__string__dup_1, NULL, 173, 186, 3, 40},
-  {cont__types__string__dup_17, &frame__types__string__dup_1, 186, 186, 40, 40},
+  {entry__types__string___dup, NULL, 173, 186, 3, 40},
+  {cont__types__string___dup_17, &frame__types__string___dup, 186, 186, 40, 40},
   {entry__std__pad_left_6, NULL, 206, 206, 5, 27},
   {cont__std__pad_left_7, &frame__std__pad_left_6, 207, 207, 33, 37},
   {cont__std__pad_left_8, &frame__std__pad_left_6, 207, 207, 33, 45},
@@ -2304,11 +2301,11 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__pad_left_13, &frame__std__pad_left_6, 207, 207, 19, 71},
   {cont__std__pad_left_14, &frame__std__pad_left_6, 207, 207, 12, 77},
   {cont__std__pad_left_15, &frame__std__pad_left_6, 207, 207, 5, 77},
-  {entry__std__pad_left_1, NULL, 203, 203, 3, 22},
-  {cont__std__pad_left_3, &frame__std__pad_left_1, 204, 204, 3, 22},
-  {cont__std__pad_left_4, &frame__std__pad_left_1, 205, 205, 6, 12},
-  {cont__std__pad_left_5, &frame__std__pad_left_1, 205, 207, 3, 77},
-  {cont__std__pad_left_16, &frame__std__pad_left_1, 208, 208, 3, 9},
+  {entry__std__pad_left, NULL, 203, 203, 3, 22},
+  {cont__std__pad_left_3, &frame__std__pad_left, 204, 204, 3, 22},
+  {cont__std__pad_left_4, &frame__std__pad_left, 205, 205, 6, 12},
+  {cont__std__pad_left_5, &frame__std__pad_left, 205, 207, 3, 77},
+  {cont__std__pad_left_16, &frame__std__pad_left, 208, 208, 3, 9},
   {entry__std__pad_right_5, NULL, 228, 228, 5, 27},
   {cont__std__pad_right_6, &frame__std__pad_right_5, 229, 229, 38, 42},
   {cont__std__pad_right_7, &frame__std__pad_right_5, 229, 229, 38, 50},
@@ -2319,52 +2316,52 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__pad_right_12, &frame__std__pad_right_5, 229, 229, 24, 76},
   {cont__std__pad_right_13, &frame__std__pad_right_5, 229, 229, 12, 77},
   {cont__std__pad_right_14, &frame__std__pad_right_5, 229, 229, 5, 77},
-  {entry__std__pad_right_1, NULL, 225, 225, 3, 22},
-  {cont__std__pad_right_2, &frame__std__pad_right_1, 226, 226, 3, 22},
-  {cont__std__pad_right_3, &frame__std__pad_right_1, 227, 227, 6, 12},
-  {cont__std__pad_right_4, &frame__std__pad_right_1, 227, 229, 3, 77},
-  {cont__std__pad_right_15, &frame__std__pad_right_1, 230, 230, 3, 9},
+  {entry__std__pad_right, NULL, 225, 225, 3, 22},
+  {cont__std__pad_right_2, &frame__std__pad_right, 226, 226, 3, 22},
+  {cont__std__pad_right_3, &frame__std__pad_right, 227, 227, 6, 12},
+  {cont__std__pad_right_4, &frame__std__pad_right, 227, 229, 3, 77},
+  {cont__std__pad_right_15, &frame__std__pad_right, 230, 230, 3, 9},
   {entry__std__truncate_5, NULL, 248, 248, 5, 11},
   {entry__std__truncate_6, NULL, 249, 249, 8, 22},
   {cont__std__truncate_7, &frame__std__truncate_6, 249, 249, 5, 22},
-  {entry__std__truncate_1, NULL, 244, 244, 3, 22},
-  {cont__std__truncate_2, &frame__std__truncate_1, 245, 245, 3, 22},
-  {cont__std__truncate_3, &frame__std__truncate_1, 247, 247, 5, 11},
-  {cont__std__truncate_4, &frame__std__truncate_1, 246, 249, 3, 22},
+  {entry__std__truncate, NULL, 244, 244, 3, 22},
+  {cont__std__truncate_2, &frame__std__truncate, 245, 245, 3, 22},
+  {cont__std__truncate_3, &frame__std__truncate, 247, 247, 5, 11},
+  {cont__std__truncate_4, &frame__std__truncate, 246, 249, 3, 22},
   {entry__std__pad_or_truncate_5, NULL, 268, 268, 28, 32},
   {cont__std__pad_or_truncate_6, &frame__std__pad_or_truncate_5, 268, 268, 20, 33},
   {cont__std__pad_or_truncate_7, &frame__std__pad_or_truncate_5, 268, 268, 8, 34},
   {cont__std__pad_or_truncate_8, &frame__std__pad_or_truncate_5, 268, 268, 5, 34},
   {entry__std__pad_or_truncate_9, NULL, 269, 269, 8, 22},
   {cont__std__pad_or_truncate_10, &frame__std__pad_or_truncate_9, 269, 269, 5, 22},
-  {entry__std__pad_or_truncate_1, NULL, 264, 264, 3, 22},
-  {cont__std__pad_or_truncate_2, &frame__std__pad_or_truncate_1, 265, 265, 3, 22},
-  {cont__std__pad_or_truncate_3, &frame__std__pad_or_truncate_1, 267, 267, 5, 11},
-  {cont__std__pad_or_truncate_4, &frame__std__pad_or_truncate_1, 266, 269, 3, 22},
+  {entry__std__pad_or_truncate, NULL, 264, 264, 3, 22},
+  {cont__std__pad_or_truncate_2, &frame__std__pad_or_truncate, 265, 265, 3, 22},
+  {cont__std__pad_or_truncate_3, &frame__std__pad_or_truncate, 267, 267, 5, 11},
+  {cont__std__pad_or_truncate_4, &frame__std__pad_or_truncate, 266, 269, 3, 22},
   {entry__types__string__match_character_4, NULL, 279, 279, 28, 34},
   {cont__types__string__match_character_5, &frame__types__string__match_character_4, 279, 279, 28, 41},
   {cont__types__string__match_character_6, &frame__types__string__match_character_4, 279, 279, 28, 41},
   {entry__types__string__match_character_8, NULL, 280, 280, 5, 8},
   {entry__types__string__match_character_9, NULL, 281, 281, 5, 16},
-  {entry__types__string__match_character_1, NULL, 279, 279, 5, 19},
-  {cont__types__string__match_character_2, &frame__types__string__match_character_1, 279, 279, 5, 23},
-  {cont__types__string__match_character_3, &frame__types__string__match_character_1, 279, 279, 5, 41},
-  {cont__types__string__match_character_7, &frame__types__string__match_character_1, 278, 281, 3, 16},
+  {entry__types__string___match_character, NULL, 279, 279, 5, 19},
+  {cont__types__string___match_character_2, &frame__types__string___match_character, 279, 279, 5, 23},
+  {cont__types__string___match_character_3, &frame__types__string___match_character, 279, 279, 5, 41},
+  {cont__types__string___match_character_7, &frame__types__string___match_character, 278, 281, 3, 16},
   {entry__types__string__grammar__match_4, NULL, 292, 292, 43, 58},
   {entry__types__string__grammar__match_8, NULL, 293, 293, 35, 44},
-  {entry__types__string__grammar__match_1, NULL, 291, 291, 3, 22},
-  {cont__types__string__grammar__match_2, &frame__types__string__grammar__match_1, 292, 292, 10, 40},
-  {cont__types__string__grammar__match_3, &frame__types__string__grammar__match_1, 292, 292, 3, 58},
-  {cont__types__string__grammar__match_5, &frame__types__string__grammar__match_1, 293, 293, 6, 24},
-  {cont__types__string__grammar__match_6, &frame__types__string__grammar__match_1, 293, 293, 6, 32},
-  {cont__types__string__grammar__match_7, &frame__types__string__grammar__match_1, 293, 293, 3, 44},
-  {cont__types__string__grammar__match_9, &frame__types__string__grammar__match_1, 294, 294, 3, 14},
+  {entry__types__string___grammar__match, NULL, 291, 291, 3, 22},
+  {cont__types__string___grammar__match_2, &frame__types__string___grammar__match, 292, 292, 10, 40},
+  {cont__types__string___grammar__match_3, &frame__types__string___grammar__match, 292, 292, 3, 58},
+  {cont__types__string___grammar__match_5, &frame__types__string___grammar__match, 293, 293, 6, 24},
+  {cont__types__string___grammar__match_6, &frame__types__string___grammar__match, 293, 293, 6, 32},
+  {cont__types__string___grammar__match_7, &frame__types__string___grammar__match, 293, 293, 3, 44},
+  {cont__types__string___grammar__match_9, &frame__types__string___grammar__match, 294, 294, 3, 14},
   {entry__types__string__match_5, NULL, 306, 306, 39, 68},
-  {entry__types__string__match_1, NULL, 305, 305, 3, 32},
-  {cont__types__string__match_2, &frame__types__string__match_1, 306, 306, 6, 31},
-  {cont__types__string__match_3, &frame__types__string__match_1, 306, 306, 6, 36},
-  {cont__types__string__match_4, &frame__types__string__match_1, 306, 306, 3, 68},
-  {cont__types__string__match_6, &frame__types__string__match_1, 307, 307, 3, 6},
+  {entry__types__string___match, NULL, 305, 305, 3, 32},
+  {cont__types__string___match_2, &frame__types__string___match, 306, 306, 6, 31},
+  {cont__types__string___match_3, &frame__types__string___match, 306, 306, 6, 36},
+  {cont__types__string___match_4, &frame__types__string___match, 306, 306, 3, 68},
+  {cont__types__string___match_6, &frame__types__string___match, 307, 307, 3, 6},
   {entry__types__string__search_character_6, NULL, 321, 321, 12, 16},
   {cont__types__string__search_character_7, &frame__types__string__search_character_6, 321, 321, 9, 16},
   {entry__types__string__search_character_8, NULL, 322, 322, 43, 43},
@@ -2376,84 +2373,84 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__string__search_character_4, &frame__types__string__search_character_3, 320, 320, 9, 22},
   {cont__types__string__search_character_5, &frame__types__string__search_character_3, 319, 322, 7, 55},
   {entry__types__string__search_character_13, NULL, 323, 323, 5, 16},
-  {entry__types__string__search_character_1, NULL, 318, 318, 5, 31},
-  {cont__types__string__search_character_2, &frame__types__string__search_character_1, 317, 323, 3, 16},
-  {entry__types__string__search_1, NULL, 339, 339, 3, 39},
-  {cont__types__string__search_2, &frame__types__string__search_1, 340, 340, 3, 12},
+  {entry__types__string___search_character, NULL, 318, 318, 5, 31},
+  {cont__types__string___search_character_2, &frame__types__string___search_character, 317, 323, 3, 16},
+  {entry__types__string___search, NULL, 339, 339, 3, 39},
+  {cont__types__string___search_2, &frame__types__string___search, 340, 340, 3, 12},
   {entry__types__string__before_4, NULL, 378, 378, 26, 30},
   {cont__types__string__before_5, &frame__types__string__before_4, 378, 378, 14, 31},
   {cont__types__string__before_6, &frame__types__string__before_4, 378, 378, 7, 31},
   {entry__types__string__before_7, NULL, 380, 380, 7, 15},
-  {entry__types__string__before_1, NULL, 375, 375, 3, 41},
-  {cont__types__string__before_2, &frame__types__string__before_1, 377, 377, 5, 18},
-  {cont__types__string__before_3, &frame__types__string__before_1, 376, 380, 3, 16},
-  {cont__types__string__before_8, &frame__types__string__before_1, 380, 380, 16, 16},
+  {entry__types__string___before, NULL, 375, 375, 3, 41},
+  {cont__types__string___before_2, &frame__types__string___before, 377, 377, 5, 18},
+  {cont__types__string___before_3, &frame__types__string___before, 376, 380, 3, 16},
+  {cont__types__string___before_8, &frame__types__string___before, 380, 380, 16, 16},
   {entry__types__string__truncate_from_4, NULL, 409, 409, 26, 30},
   {cont__types__string__truncate_from_5, &frame__types__string__truncate_from_4, 409, 409, 14, 31},
   {cont__types__string__truncate_from_6, &frame__types__string__truncate_from_4, 409, 409, 7, 31},
   {entry__types__string__truncate_from_7, NULL, 411, 411, 7, 16},
-  {entry__types__string__truncate_from_1, NULL, 406, 406, 3, 41},
-  {cont__types__string__truncate_from_2, &frame__types__string__truncate_from_1, 408, 408, 5, 18},
-  {cont__types__string__truncate_from_3, &frame__types__string__truncate_from_1, 407, 411, 3, 17},
-  {cont__types__string__truncate_from_8, &frame__types__string__truncate_from_1, 411, 411, 17, 17},
+  {entry__types__string___truncate_from, NULL, 406, 406, 3, 41},
+  {cont__types__string___truncate_from_2, &frame__types__string___truncate_from, 408, 408, 5, 18},
+  {cont__types__string___truncate_from_3, &frame__types__string___truncate_from, 407, 411, 3, 17},
+  {cont__types__string___truncate_from_8, &frame__types__string___truncate_from, 411, 411, 17, 17},
   {entry__types__string__behind_4, NULL, 447, 447, 24, 30},
   {cont__types__string__behind_5, &frame__types__string__behind_4, 447, 447, 33, 33},
   {cont__types__string__behind_6, &frame__types__string__behind_4, 447, 447, 14, 34},
   {cont__types__string__behind_7, &frame__types__string__behind_4, 447, 447, 7, 34},
   {entry__types__string__behind_8, NULL, 449, 449, 7, 15},
-  {entry__types__string__behind_1, NULL, 444, 444, 3, 40},
-  {cont__types__string__behind_2, &frame__types__string__behind_1, 446, 446, 5, 18},
-  {cont__types__string__behind_3, &frame__types__string__behind_1, 445, 449, 3, 16},
-  {cont__types__string__behind_9, &frame__types__string__behind_1, 449, 449, 16, 16},
+  {entry__types__string___behind, NULL, 444, 444, 3, 40},
+  {cont__types__string___behind_2, &frame__types__string___behind, 446, 446, 5, 18},
+  {cont__types__string___behind_3, &frame__types__string___behind, 445, 449, 3, 16},
+  {cont__types__string___behind_9, &frame__types__string___behind, 449, 449, 16, 16},
   {entry__types__string__truncate_until_4, NULL, 478, 478, 24, 30},
   {cont__types__string__truncate_until_5, &frame__types__string__truncate_until_4, 478, 478, 33, 33},
   {cont__types__string__truncate_until_6, &frame__types__string__truncate_until_4, 478, 478, 14, 34},
   {cont__types__string__truncate_until_7, &frame__types__string__truncate_until_4, 478, 478, 7, 34},
   {entry__types__string__truncate_until_8, NULL, 480, 480, 7, 16},
-  {entry__types__string__truncate_until_1, NULL, 475, 475, 3, 40},
-  {cont__types__string__truncate_until_2, &frame__types__string__truncate_until_1, 477, 477, 5, 18},
-  {cont__types__string__truncate_until_3, &frame__types__string__truncate_until_1, 476, 480, 3, 17},
-  {cont__types__string__truncate_until_9, &frame__types__string__truncate_until_1, 480, 480, 17, 17},
+  {entry__types__string___truncate_until, NULL, 475, 475, 3, 40},
+  {cont__types__string___truncate_until_2, &frame__types__string___truncate_until, 477, 477, 5, 18},
+  {cont__types__string___truncate_until_3, &frame__types__string___truncate_until, 476, 480, 3, 17},
+  {cont__types__string___truncate_until_9, &frame__types__string___truncate_until, 480, 480, 17, 17},
   {entry__types__string__from_4, NULL, 512, 512, 29, 29},
   {cont__types__string__from_5, &frame__types__string__from_4, 512, 512, 14, 30},
   {cont__types__string__from_6, &frame__types__string__from_4, 512, 512, 7, 30},
   {entry__types__string__from_7, NULL, 514, 514, 7, 15},
-  {entry__types__string__from_1, NULL, 509, 509, 3, 41},
-  {cont__types__string__from_2, &frame__types__string__from_1, 511, 511, 5, 18},
-  {cont__types__string__from_3, &frame__types__string__from_1, 510, 514, 3, 16},
-  {cont__types__string__from_8, &frame__types__string__from_1, 514, 514, 16, 16},
+  {entry__types__string___from, NULL, 509, 509, 3, 41},
+  {cont__types__string___from_2, &frame__types__string___from, 511, 511, 5, 18},
+  {cont__types__string___from_3, &frame__types__string___from, 510, 514, 3, 16},
+  {cont__types__string___from_8, &frame__types__string___from, 514, 514, 16, 16},
   {entry__types__string__truncate_before_4, NULL, 534, 534, 29, 29},
   {cont__types__string__truncate_before_5, &frame__types__string__truncate_before_4, 534, 534, 14, 30},
   {cont__types__string__truncate_before_6, &frame__types__string__truncate_before_4, 534, 534, 7, 30},
   {entry__types__string__truncate_before_7, NULL, 536, 536, 7, 16},
-  {entry__types__string__truncate_before_1, NULL, 531, 531, 3, 41},
-  {cont__types__string__truncate_before_2, &frame__types__string__truncate_before_1, 533, 533, 5, 18},
-  {cont__types__string__truncate_before_3, &frame__types__string__truncate_before_1, 532, 536, 3, 17},
-  {cont__types__string__truncate_before_8, &frame__types__string__truncate_before_1, 536, 536, 17, 17},
+  {entry__types__string___truncate_before, NULL, 531, 531, 3, 41},
+  {cont__types__string___truncate_before_2, &frame__types__string___truncate_before, 533, 533, 5, 18},
+  {cont__types__string___truncate_before_3, &frame__types__string___truncate_before, 532, 536, 3, 17},
+  {cont__types__string___truncate_before_8, &frame__types__string___truncate_before, 536, 536, 17, 17},
   {entry__types__string__until_4, NULL, 565, 565, 26, 32},
   {cont__types__string__until_5, &frame__types__string__until_4, 565, 565, 26, 34},
   {cont__types__string__until_6, &frame__types__string__until_4, 565, 565, 14, 35},
   {cont__types__string__until_7, &frame__types__string__until_4, 565, 565, 7, 35},
   {entry__types__string__until_8, NULL, 567, 567, 7, 15},
-  {entry__types__string__until_1, NULL, 562, 562, 3, 40},
-  {cont__types__string__until_2, &frame__types__string__until_1, 564, 564, 5, 18},
-  {cont__types__string__until_3, &frame__types__string__until_1, 563, 567, 3, 16},
-  {cont__types__string__until_9, &frame__types__string__until_1, 567, 567, 16, 16},
+  {entry__types__string___until, NULL, 562, 562, 3, 40},
+  {cont__types__string___until_2, &frame__types__string___until, 564, 564, 5, 18},
+  {cont__types__string___until_3, &frame__types__string___until, 563, 567, 3, 16},
+  {cont__types__string___until_9, &frame__types__string___until, 567, 567, 16, 16},
   {entry__types__string__truncate_behind_4, NULL, 587, 587, 26, 32},
   {cont__types__string__truncate_behind_5, &frame__types__string__truncate_behind_4, 587, 587, 26, 34},
   {cont__types__string__truncate_behind_6, &frame__types__string__truncate_behind_4, 587, 587, 14, 35},
   {cont__types__string__truncate_behind_7, &frame__types__string__truncate_behind_4, 587, 587, 7, 35},
   {entry__types__string__truncate_behind_8, NULL, 589, 589, 7, 16},
-  {entry__types__string__truncate_behind_1, NULL, 584, 584, 3, 40},
-  {cont__types__string__truncate_behind_2, &frame__types__string__truncate_behind_1, 586, 586, 5, 18},
-  {cont__types__string__truncate_behind_3, &frame__types__string__truncate_behind_1, 585, 589, 3, 17},
-  {cont__types__string__truncate_behind_9, &frame__types__string__truncate_behind_1, 589, 589, 17, 17},
-  {entry__types__string__between_1, NULL, 608, 608, 6, 27},
-  {cont__types__string__between_2, &frame__types__string__between_1, 608, 608, 6, 43},
-  {cont__types__string__between_3, &frame__types__string__between_1, 608, 608, 3, 43},
-  {entry__types__string__has_prefix_1, NULL, 619, 619, 6, 23},
-  {cont__types__string__has_prefix_2, &frame__types__string__has_prefix_1, 619, 619, 6, 34},
-  {cont__types__string__has_prefix_3, &frame__types__string__has_prefix_1, 619, 619, 3, 34},
+  {entry__types__string___truncate_behind, NULL, 584, 584, 3, 40},
+  {cont__types__string___truncate_behind_2, &frame__types__string___truncate_behind, 586, 586, 5, 18},
+  {cont__types__string___truncate_behind_3, &frame__types__string___truncate_behind, 585, 589, 3, 17},
+  {cont__types__string___truncate_behind_9, &frame__types__string___truncate_behind, 589, 589, 17, 17},
+  {entry__types__string___between, NULL, 608, 608, 6, 27},
+  {cont__types__string___between_2, &frame__types__string___between, 608, 608, 6, 43},
+  {cont__types__string___between_3, &frame__types__string___between, 608, 608, 3, 43},
+  {entry__types__string___has_prefix, NULL, 619, 619, 6, 23},
+  {cont__types__string___has_prefix_2, &frame__types__string___has_prefix, 619, 619, 6, 34},
+  {cont__types__string___has_prefix_3, &frame__types__string___has_prefix, 619, 619, 3, 34},
   {entry__types__string__has_suffix_10, NULL, 633, 633, 51, 61},
   {entry__types__string__has_suffix_3, NULL, 633, 633, 28, 28},
   {cont__types__string__has_suffix_4, &frame__types__string__has_suffix_3, 633, 633, 14, 29},
@@ -2462,17 +2459,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__string__has_suffix_7, &frame__types__string__has_suffix_3, 633, 633, 42, 48},
   {cont__types__string__has_suffix_8, &frame__types__string__has_suffix_3, 633, 633, 8, 48},
   {cont__types__string__has_suffix_9, &frame__types__string__has_suffix_3, 633, 633, 5, 61},
-  {entry__types__string__has_suffix_1, NULL, 631, 631, 3, 22},
-  {cont__types__string__has_suffix_2, &frame__types__string__has_suffix_1, 632, 633, 3, 61},
-  {cont__types__string__has_suffix_11, &frame__types__string__has_suffix_1, 634, 634, 3, 10},
+  {entry__types__string___has_suffix, NULL, 631, 631, 3, 22},
+  {cont__types__string___has_suffix_2, &frame__types__string___has_suffix, 632, 633, 3, 61},
+  {cont__types__string___has_suffix_11, &frame__types__string___has_suffix, 634, 634, 3, 10},
   {entry__types__string__without_prefix_4, NULL, 647, 647, 38, 40},
   {cont__types__string__without_prefix_5, &frame__types__string__without_prefix_4, 647, 647, 43, 43},
   {cont__types__string__without_prefix_6, &frame__types__string__without_prefix_4, 647, 647, 27, 44},
   {cont__types__string__without_prefix_7, &frame__types__string__without_prefix_4, 647, 647, 20, 44},
-  {entry__types__string__without_prefix_1, NULL, 646, 646, 3, 23},
-  {cont__types__string__without_prefix_2, &frame__types__string__without_prefix_1, 647, 647, 6, 17},
-  {cont__types__string__without_prefix_3, &frame__types__string__without_prefix_1, 647, 647, 3, 44},
-  {cont__types__string__without_prefix_8, &frame__types__string__without_prefix_1, 648, 648, 3, 9},
+  {entry__types__string___without_prefix, NULL, 646, 646, 3, 23},
+  {cont__types__string___without_prefix_2, &frame__types__string___without_prefix, 647, 647, 6, 17},
+  {cont__types__string___without_prefix_3, &frame__types__string___without_prefix, 647, 647, 3, 44},
+  {cont__types__string___without_prefix_8, &frame__types__string___without_prefix, 648, 648, 3, 9},
   {entry__types__string__without_suffix_10, NULL, 662, 662, 71, 73},
   {cont__types__string__without_suffix_11, &frame__types__string__without_suffix_10, 662, 662, 58, 74},
   {cont__types__string__without_suffix_12, &frame__types__string__without_suffix_10, 662, 662, 51, 74},
@@ -2483,9 +2480,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__string__without_suffix_7, &frame__types__string__without_suffix_3, 662, 662, 42, 48},
   {cont__types__string__without_suffix_8, &frame__types__string__without_suffix_3, 662, 662, 8, 48},
   {cont__types__string__without_suffix_9, &frame__types__string__without_suffix_3, 662, 662, 5, 74},
-  {entry__types__string__without_suffix_1, NULL, 660, 660, 3, 22},
-  {cont__types__string__without_suffix_2, &frame__types__string__without_suffix_1, 661, 662, 3, 74},
-  {cont__types__string__without_suffix_13, &frame__types__string__without_suffix_1, 663, 663, 3, 9},
+  {entry__types__string___without_suffix, NULL, 660, 660, 3, 22},
+  {cont__types__string___without_suffix_2, &frame__types__string___without_suffix, 661, 662, 3, 74},
+  {cont__types__string___without_suffix_13, &frame__types__string___without_suffix, 663, 663, 3, 9},
   {entry__std__trim_6, NULL, 673, 673, 22, 27},
   {cont__std__trim_7, &frame__std__trim_6, 673, 673, 22, 34},
   {cont__std__trim_8, &frame__std__trim_6, 673, 673, 22, 34},
@@ -2506,17 +2503,17 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__trim_15, &frame__std__trim_14, 674, 674, 12, 17},
   {cont__std__trim_16, &frame__std__trim_14, 674, 674, 12, 34},
   {cont__std__trim_21, &frame__std__trim_14, 674, 674, 9, 46},
-  {entry__std__trim_1, NULL, 672, 672, 3, 20},
-  {cont__std__trim_2, &frame__std__trim_1, 673, 673, 3, 45},
-  {cont__std__trim_13, &frame__std__trim_1, 674, 674, 3, 46},
-  {cont__std__trim_24, &frame__std__trim_1, 675, 675, 3, 16},
-  {cont__std__trim_25, &frame__std__trim_1, 675, 675, 16, 16},
-  {entry__std__normalize_1, NULL, 683, 683, 3, 11},
-  {cont__std__normalize_2, &frame__std__normalize_1, 684, 684, 25, 53},
-  {cont__std__normalize_3, &frame__std__normalize_1, 684, 684, 20, 54},
-  {cont__std__normalize_4, &frame__std__normalize_1, 684, 684, 20, 60},
-  {cont__std__normalize_5, &frame__std__normalize_1, 684, 684, 3, 60},
-  {cont__std__normalize_6, &frame__std__normalize_1, 684, 684, 60, 60},
+  {entry__std__trim, NULL, 672, 672, 3, 20},
+  {cont__std__trim_2, &frame__std__trim, 673, 673, 3, 45},
+  {cont__std__trim_13, &frame__std__trim, 674, 674, 3, 46},
+  {cont__std__trim_24, &frame__std__trim, 675, 675, 3, 16},
+  {cont__std__trim_25, &frame__std__trim, 675, 675, 16, 16},
+  {entry__std__normalize, NULL, 683, 683, 3, 11},
+  {cont__std__normalize_2, &frame__std__normalize, 684, 684, 25, 53},
+  {cont__std__normalize_3, &frame__std__normalize, 684, 684, 20, 54},
+  {cont__std__normalize_4, &frame__std__normalize, 684, 684, 20, 60},
+  {cont__std__normalize_5, &frame__std__normalize, 684, 684, 3, 60},
+  {cont__std__normalize_6, &frame__std__normalize, 684, 684, 60, 60},
   {entry__std__split_7, NULL, 697, 697, 32, 36},
   {cont__std__split_8, &frame__std__split_7, 697, 697, 19, 37},
   {cont__std__split_9, &frame__std__split_7, 697, 697, 7, 37},
@@ -2531,19 +2528,19 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__split_15, &frame__std__split_4, 699, 699, 5, 21},
   {entry__std__split_19, NULL, 700, 700, 27, 42},
   {cont__std__split_20, &frame__std__split_19, 700, 700, 42, 42},
-  {entry__std__split_1, NULL, 691, 691, 5, 13},
-  {cont__std__split_3, &frame__std__split_1, },
-  {cont__std__split_2, &frame__std__split_1, 694, 699, 3, 21},
-  {cont__std__split_16, &frame__std__split_1, 700, 700, 6, 20},
-  {cont__std__split_17, &frame__std__split_1, 700, 700, 6, 24},
-  {cont__std__split_18, &frame__std__split_1, 700, 700, 3, 42},
-  {cont__std__split_21, &frame__std__split_1, 701, 701, 3, 10},
+  {entry__std__split, NULL, 691, 691, 5, 13},
+  {cont__std__split_3, &frame__std__split, },
+  {cont__std__split_2, &frame__std__split, 694, 699, 3, 21},
+  {cont__std__split_16, &frame__std__split, 700, 700, 6, 20},
+  {cont__std__split_17, &frame__std__split, 700, 700, 6, 24},
+  {cont__std__split_18, &frame__std__split, 700, 700, 3, 42},
+  {cont__std__split_21, &frame__std__split, 701, 701, 3, 10},
   {entry__std__join_2, NULL, 713, 713, 7, 23},
   {cont__std__join_3, &frame__std__join_2, 713, 713, 23, 23},
   {entry__std__join_4, NULL, 715, 715, 7, 28},
   {cont__std__join_5, &frame__std__join_4, 715, 715, 28, 28},
-  {entry__std__join_1, NULL, 711, 715, 3, 29},
-  {cont__std__join_6, &frame__std__join_1, 716, 716, 3, 9},
+  {entry__std__join, NULL, 711, 715, 3, 29},
+  {cont__std__join_6, &frame__std__join, 716, 716, 3, 9},
   {entry__std__count_occurrences_5, NULL, 729, 729, 19, 25},
   {cont__std__count_occurrences_6, &frame__std__count_occurrences_5, 729, 729, 28, 28},
   {cont__std__count_occurrences_7, &frame__std__count_occurrences_5, 729, 729, 7, 28},
@@ -2554,15 +2551,15 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__count_occurrences_4, &frame__std__count_occurrences_2, 728, 730, 5, 12},
   {cont__std__count_occurrences_10, &frame__std__count_occurrences_2, 731, 731, 8, 21},
   {cont__std__count_occurrences_11, &frame__std__count_occurrences_2, 731, 731, 5, 21},
-  {entry__std__count_occurrences_1, NULL, 726, 731, 3, 21},
-  {cont__std__count_occurrences_12, &frame__std__count_occurrences_1, 732, 732, 3, 6},
-  {entry__types__string__matches_1, NULL, 741, 741, 6, 30},
-  {cont__types__string__matches_2, &frame__types__string__matches_1, 741, 741, 35, 49},
-  {cont__types__string__matches_3, &frame__types__string__matches_1, 741, 741, 6, 49},
-  {cont__types__string__matches_4, &frame__types__string__matches_1, 741, 741, 3, 49},
-  {entry__types__string__contains_1, NULL, 750, 750, 3, 38},
-  {cont__types__string__contains_2, &frame__types__string__contains_1, 751, 751, 6, 19},
-  {cont__types__string__contains_3, &frame__types__string__contains_1, 751, 751, 3, 19},
+  {entry__std__count_occurrences, NULL, 726, 731, 3, 21},
+  {cont__std__count_occurrences_12, &frame__std__count_occurrences, 732, 732, 3, 6},
+  {entry__types__string___matches, NULL, 741, 741, 6, 30},
+  {cont__types__string___matches_2, &frame__types__string___matches, 741, 741, 35, 49},
+  {cont__types__string___matches_3, &frame__types__string___matches, 741, 741, 6, 49},
+  {cont__types__string___matches_4, &frame__types__string___matches, 741, 741, 3, 49},
+  {entry__types__string___contains, NULL, 750, 750, 3, 38},
+  {cont__types__string___contains_2, &frame__types__string___contains, 751, 751, 6, 19},
+  {cont__types__string___contains_3, &frame__types__string___contains, 751, 751, 3, 19},
   {entry__std__replace_umlauts_2, NULL, 1061, 1061, 20, 36},
   {cont__std__replace_umlauts_3, &frame__std__replace_umlauts_2, 1061, 1061, 5, 36},
   {cont__std__replace_umlauts_4, &frame__std__replace_umlauts_2, 1062, 1062, 5, 12},
@@ -2587,10 +2584,10 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__replace_umlauts_6, NULL, 1065, 1065, 8, 22},
   {cont__std__replace_umlauts_7, &frame__std__replace_umlauts_6, 1065, 1065, 8, 22},
   {cont__std__replace_umlauts_8, &frame__std__replace_umlauts_6, 1065, 1077, 5, 33},
-  {entry__std__replace_umlauts_1, NULL, 1064, 1077, 3, 34},
-  {cont__std__replace_umlauts_26, &frame__std__replace_umlauts_1, 1078, 1078, 8, 22},
-  {cont__std__replace_umlauts_27, &frame__std__replace_umlauts_1, 1078, 1078, 3, 22},
-  {cont__std__replace_umlauts_28, &frame__std__replace_umlauts_1, 1079, 1079, 3, 11},
+  {entry__std__replace_umlauts, NULL, 1064, 1077, 3, 34},
+  {cont__std__replace_umlauts_26, &frame__std__replace_umlauts, 1078, 1078, 8, 22},
+  {cont__std__replace_umlauts_27, &frame__std__replace_umlauts, 1078, 1078, 3, 22},
+  {cont__std__replace_umlauts_28, &frame__std__replace_umlauts, 1079, 1079, 3, 11},
   {entry__std__replace_all_14, NULL, 1119, 1119, 15, 42},
   {cont__std__replace_all_15, &frame__std__replace_all_14, 1119, 1119, 42, 42},
   {entry__std__replace_all_16, NULL, 1121, 1121, 44, 60},
@@ -2618,8 +2615,8 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__replace_all_2, NULL, 1110, 1110, 12, 26},
   {cont__std__replace_all_3, &frame__std__replace_all_2, 1110, 1110, 12, 30},
   {cont__std__replace_all_4, &frame__std__replace_all_2, 1110, 1125, 9, 23},
-  {entry__std__replace_all_1, NULL, 1110, 1125, 3, 23},
-  {cont__std__replace_all_29, &frame__std__replace_all_1, 1126, 1126, 3, 13},
+  {entry__std__replace_all, NULL, 1110, 1125, 3, 23},
+  {cont__std__replace_all_29, &frame__std__replace_all, 1126, 1126, 3, 13},
   {entry__std__delete_all_10, NULL, 1141, 1141, 23, 27},
   {cont__std__delete_all_11, &frame__std__delete_all_10, 1141, 1141, 30, 30},
   {cont__std__delete_all_12, &frame__std__delete_all_10, 1141, 1141, 11, 30},
@@ -2637,14 +2634,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__delete_all_2, NULL, 1136, 1136, 12, 26},
   {cont__std__delete_all_3, &frame__std__delete_all_2, 1136, 1136, 12, 30},
   {cont__std__delete_all_4, &frame__std__delete_all_2, 1136, 1144, 9, 23},
-  {entry__std__delete_all_1, NULL, 1136, 1144, 3, 23},
-  {cont__std__delete_all_19, &frame__std__delete_all_1, 1145, 1145, 3, 13},
+  {entry__std__delete_all, NULL, 1136, 1144, 3, 23},
+  {cont__std__delete_all_19, &frame__std__delete_all, 1145, 1145, 3, 13},
   {entry__std__spaces_3, NULL, 1160, 1160, 8, 17},
   {cont__std__spaces_4, &frame__std__spaces_3, 1160, 1160, 5, 17},
   {entry__std__spaces_5, NULL, 1161, 1161, 8, 31},
-  {cont__std__spaces_6, &frame__std__spaces_5, 1161, 1161, 5, 31},
-  {entry__std__spaces_1, NULL, 1159, 1159, 5, 10},
-  {cont__std__spaces_2, &frame__std__spaces_1, 1158, 1161, 3, 31},
+  {cont__std__spaces_7, &frame__std__spaces_5, 1161, 1161, 5, 31},
+  {entry__std__spaces, NULL, 1159, 1159, 5, 10},
+  {cont__std__spaces_2, &frame__std__spaces, 1158, 1161, 3, 31},
   {entry__std__indented_14, NULL, 1175, 1175, 36, 42},
   {cont__std__indented_15, &frame__std__indented_14, 1175, 1175, 36, 52},
   {cont__std__indented_16, &frame__std__indented_14, 1175, 1175, 36, 52},
@@ -2661,9 +2658,9 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__std__indented_12, &frame__std__indented_3, 1175, 1175, 12, 31},
   {cont__std__indented_13, &frame__std__indented_3, 1175, 1175, 12, 52},
   {cont__std__indented_17, &frame__std__indented_3, 1175, 1175, 5, 78},
-  {entry__std__indented_1, NULL, 1170, 1170, 6, 15},
-  {cont__std__indented_2, &frame__std__indented_1, 1170, 1175, 3, 78},
-  {cont__std__indented_20, &frame__std__indented_1, 1176, 1176, 3, 9},
+  {entry__std__indented, NULL, 1170, 1170, 6, 15},
+  {cont__std__indented_2, &frame__std__indented, 1170, 1175, 3, 78},
+  {cont__std__indented_20, &frame__std__indented, 1176, 1176, 3, 9},
   {entry__std__for_each_line_7, NULL, 1192, 1192, 32, 36},
   {cont__std__for_each_line_8, &frame__std__for_each_line_7, 1192, 1192, 19, 37},
   {cont__std__for_each_line_9, &frame__std__for_each_line_7, 1192, 1192, 11, 37},
@@ -2691,13 +2688,13 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__std__for_each_line_23, NULL, 1199, 1199, 10, 24},
   {cont__std__for_each_line_24, &frame__std__for_each_line_23, 1199, 1199, 10, 28},
   {cont__std__for_each_line_25, &frame__std__for_each_line_23, 1199, 1204, 7, 23},
-  {entry__std__for_each_line_1, NULL, 1187, 1187, 3, 31},
-  {cont__std__for_each_line_2, &frame__std__for_each_line_1, 1189, 1189, 5, 18},
-  {cont__std__for_each_line_3, &frame__std__for_each_line_1, 1188, 1204, 3, 25},
-  {entry__types__string__to_lower_case_1, NULL, 1212, 1212, 6, 28},
-  {cont__types__string__to_lower_case_2, &frame__types__string__to_lower_case_1, 1212, 1212, 3, 28},
-  {entry__types__string__to_upper_case_1, NULL, 1220, 1220, 6, 28},
-  {cont__types__string__to_upper_case_2, &frame__types__string__to_upper_case_1, 1220, 1220, 3, 28},
+  {entry__std__for_each_line, NULL, 1187, 1187, 3, 31},
+  {cont__std__for_each_line_2, &frame__std__for_each_line, 1189, 1189, 5, 18},
+  {cont__std__for_each_line_3, &frame__std__for_each_line, 1188, 1204, 3, 25},
+  {entry__types__string___to_lower_case, NULL, 1212, 1212, 6, 28},
+  {cont__types__string___to_lower_case_2, &frame__types__string___to_lower_case, 1212, 1212, 3, 28},
+  {entry__types__string___to_upper_case, NULL, 1220, 1220, 6, 28},
+  {cont__types__string___to_upper_case_2, &frame__types__string___to_upper_case, 1220, 1220, 3, 28},
   {entry__types__string__to_title_case_5, NULL, 1235, 1235, 23, 39},
   {cont__types__string__to_title_case_6, &frame__types__string__to_title_case_5, 1235, 1235, 13, 39},
   {cont__types__string__to_title_case_7, &frame__types__string__to_title_case_5, 1236, 1236, 27, 27},
@@ -2709,14 +2706,14 @@ static CONTINUATION_INFO continuation_info[] = {
   {cont__types__string__to_title_case_12, &frame__types__string__to_title_case_11, 1241, 1241, 22, 22},
   {entry__types__string__to_title_case_2, NULL, 1232, 1232, 7, 31},
   {cont__types__string__to_title_case_3, &frame__types__string__to_title_case_2, 1231, 1241, 5, 23},
-  {entry__types__string__to_title_case_1, NULL, 1230, 1241, 3, 24},
-  {cont__types__string__to_title_case_13, &frame__types__string__to_title_case_1, 1242, 1242, 3, 8},
-  {entry__types__octet_string__new_empty_collection_1, NULL, 1250, 1250, 3, 24},
-  {entry__types__quad_octet_string__new_empty_collection_1, NULL, 1258, 1258, 3, 24},
+  {entry__types__string___to_title_case, NULL, 1230, 1241, 3, 24},
+  {cont__types__string___to_title_case_13, &frame__types__string___to_title_case, 1242, 1242, 3, 8},
+  {entry__types__octet_string___new_empty_collection, NULL, 1250, 1250, 3, 24},
+  {entry__types__quad_octet_string___new_empty_collection, NULL, 1258, 1258, 3, 24},
   {entry__std__collect_output_2, NULL, 1267, 1267, 24, 43},
   {cont__std__collect_output_3, &frame__std__collect_output_2, 1267, 1267, 43, 43},
-  {entry__std__collect_output_1, NULL, 1269, 1269, 3, 6},
-  {cont__std__collect_output_4, &frame__std__collect_output_1, 1269, 1269, 6, 6}
+  {entry__std__collect_output, NULL, 1269, 1269, 3, 6},
+  {cont__std__collect_output_4, &frame__std__collect_output, 1269, 1269, 6, 6}
 };
 
 union NODE {
@@ -8112,7 +8109,7 @@ static void cont__93_390(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__to_integer_1(void) {
+static void entry__types__string___to_integer(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -8132,9 +8129,9 @@ static void entry__types__string__to_integer_1(void) {
   result_count = 2;
   myself = get__parse_integer();
   func = myself->type;
-  frame->cont = cont__types__string__to_integer_2;
+  frame->cont = cont__types__string___to_integer_2;
 }
-static void cont__types__string__to_integer_2(void) {
+static void cont__types__string___to_integer_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -8149,9 +8146,9 @@ static void cont__types__string__to_integer_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__string__to_integer_3;
+  frame->cont = cont__types__string___to_integer_3;
 }
-static void cont__types__string__to_integer_3(void) {
+static void cont__types__string___to_integer_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8164,9 +8161,9 @@ static void cont__types__string__to_integer_3(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__types__string__to_integer_4;
+  frame->cont = cont__types__string___to_integer_4;
 }
-static void cont__types__string__to_integer_4(void) {
+static void cont__types__string___to_integer_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8182,7 +8179,7 @@ static void cont__types__string__to_integer_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__to_integer_6;
+  frame->cont = cont__types__string___to_integer_6;
 }
 static void entry__types__string__to_integer_5(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -8202,7 +8199,7 @@ static void entry__types__string__to_integer_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__to_integer_6(void) {
+static void cont__types__string___to_integer_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8215,7 +8212,7 @@ static void cont__types__string__to_integer_6(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__to_real_1(void) {
+static void entry__types__string___to_real(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -8235,9 +8232,9 @@ static void entry__types__string__to_real_1(void) {
   result_count = 2;
   myself = get__parse_real();
   func = myself->type;
-  frame->cont = cont__types__string__to_real_2;
+  frame->cont = cont__types__string___to_real_2;
 }
-static void cont__types__string__to_real_2(void) {
+static void cont__types__string___to_real_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -8252,9 +8249,9 @@ static void cont__types__string__to_real_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__string__to_real_3;
+  frame->cont = cont__types__string___to_real_3;
 }
-static void cont__types__string__to_real_3(void) {
+static void cont__types__string___to_real_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8267,9 +8264,9 @@ static void cont__types__string__to_real_3(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__types__string__to_real_4;
+  frame->cont = cont__types__string___to_real_4;
 }
-static void cont__types__string__to_real_4(void) {
+static void cont__types__string___to_real_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8285,7 +8282,7 @@ static void cont__types__string__to_real_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__to_real_6;
+  frame->cont = cont__types__string___to_real_6;
 }
 static void entry__types__string__to_real_5(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -8305,7 +8302,7 @@ static void entry__types__string__to_real_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__to_real_6(void) {
+static void cont__types__string___to_real_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8354,7 +8351,7 @@ static void entry__types__string__parse_number_25(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__string__parse_number_1(void) {
+static void entry__types__string___parse_number(void) {
   allocate_initialized_frame_gc(1, 9);
   // slot allocations:
   // self: 0
@@ -8375,9 +8372,9 @@ static void entry__types__string__parse_number_1(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__types__string__parse_number_2;
+  frame->cont = cont__types__string___parse_number_2;
 }
-static void cont__types__string__parse_number_2(void) {
+static void cont__types__string___parse_number_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8390,9 +8387,9 @@ static void cont__types__string__parse_number_2(void) {
   result_count = 1;
   myself = frame->slots[0] /* self */;
   func = myself->type;
-  frame->cont = cont__types__string__parse_number_3;
+  frame->cont = cont__types__string___parse_number_3;
 }
-static void cont__types__string__parse_number_3(void) {
+static void cont__types__string___parse_number_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8406,9 +8403,9 @@ static void cont__types__string__parse_number_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__string__parse_number_4;
+  frame->cont = cont__types__string___parse_number_4;
 }
-static void cont__types__string__parse_number_4(void) {
+static void cont__types__string___parse_number_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8424,7 +8421,7 @@ static void cont__types__string__parse_number_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__parse_number_7;
+  frame->cont = cont__types__string___parse_number_7;
 }
 static void entry__types__string__parse_number_5(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -8456,7 +8453,7 @@ static void cont__types__string__parse_number_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__string__parse_number_7(void) {
+static void cont__types__string___parse_number_7(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8470,7 +8467,7 @@ static void cont__types__string__parse_number_7(void) {
   result_count = 0;
   myself = get__while();
   func = myself->type;
-  frame->cont = cont__types__string__parse_number_17;
+  frame->cont = cont__types__string___parse_number_17;
 }
 static void entry__types__string__parse_number_15(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -8624,7 +8621,7 @@ static void cont__types__string__parse_number_14(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__string__parse_number_17(void) {
+static void cont__types__string___parse_number_17(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8637,9 +8634,9 @@ static void cont__types__string__parse_number_17(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__types__string__parse_number_18;
+  frame->cont = cont__types__string___parse_number_18;
 }
-static void cont__types__string__parse_number_18(void) {
+static void cont__types__string___parse_number_18(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8652,9 +8649,9 @@ static void cont__types__string__parse_number_18(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__types__string__parse_number_19;
+  frame->cont = cont__types__string___parse_number_19;
 }
-static void cont__types__string__parse_number_19(void) {
+static void cont__types__string___parse_number_19(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8670,7 +8667,7 @@ static void cont__types__string__parse_number_19(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__types__string__parse_number_23;
+  frame->cont = cont__types__string___parse_number_23;
 }
 static void entry__types__string__parse_number_20(void) {
   allocate_initialized_frame_gc(2, 4);
@@ -8722,7 +8719,7 @@ static void cont__types__string__parse_number_22(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__string__parse_number_23(void) {
+static void cont__types__string___parse_number_23(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8749,7 +8746,7 @@ static void cont__types__string__parse_number_23(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__string__to_number_1(void) {
+static void entry__types__string___to_number(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -8769,9 +8766,9 @@ static void entry__types__string__to_number_1(void) {
   result_count = 2;
   myself = get__parse_number();
   func = myself->type;
-  frame->cont = cont__types__string__to_number_2;
+  frame->cont = cont__types__string___to_number_2;
 }
-static void cont__types__string__to_number_2(void) {
+static void cont__types__string___to_number_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -8786,9 +8783,9 @@ static void cont__types__string__to_number_2(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__string__to_number_3;
+  frame->cont = cont__types__string___to_number_3;
 }
-static void cont__types__string__to_number_3(void) {
+static void cont__types__string___to_number_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8801,9 +8798,9 @@ static void cont__types__string__to_number_3(void) {
   result_count = 1;
   myself = get__std__not();
   func = myself->type;
-  frame->cont = cont__types__string__to_number_4;
+  frame->cont = cont__types__string___to_number_4;
 }
-static void cont__types__string__to_number_4(void) {
+static void cont__types__string___to_number_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8819,7 +8816,7 @@ static void cont__types__string__to_number_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__to_number_6;
+  frame->cont = cont__types__string___to_number_6;
 }
 static void entry__types__string__to_number_5(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -8839,7 +8836,7 @@ static void entry__types__string__to_number_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__to_number_6(void) {
+static void cont__types__string___to_number_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -8852,7 +8849,7 @@ static void cont__types__string__to_number_6(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__put_1(void) {
+static void entry__types__string___put(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -8868,9 +8865,9 @@ static void entry__types__string__put_1(void) {
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__types__string__put_2;
+  frame->cont = cont__types__string___put_2;
 }
-static void cont__types__string__put_2(void) {
+static void cont__types__string___put_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8884,9 +8881,9 @@ static void cont__types__string__put_2(void) {
   result_count = 1;
   myself = get__append();
   func = myself->type;
-  frame->cont = cont__types__string__put_3;
+  frame->cont = cont__types__string___put_3;
 }
-static void cont__types__string__put_3(void) {
+static void cont__types__string___put_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -8900,7 +8897,7 @@ static void cont__types__string__put_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__write_to_1(void) {
+static void entry__types__string___write_to(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 3);
   // slot allocations:
@@ -8924,7 +8921,7 @@ static void entry__types__string__write_to_1(void) {
     frame->caller_result_count-1 : -1;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__types__string__write_to_5;
+  frame->cont = cont__types__string___write_to_5;
 }
 static void entry__types__string__write_to_2(void) {
   allocate_initialized_frame_gc(2, 3);
@@ -8973,7 +8970,7 @@ static void cont__types__string__write_to_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__string__write_to_5(void) {
+static void cont__types__string___write_to_5(void) {
   int i = argument_count;
   while (--i >= 0) {
     arguments->slots[i+1] = arguments->slots[i];
@@ -8984,7 +8981,7 @@ static void cont__types__string__write_to_5(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__numerically_less_1(void) {
+static void entry__types__string___numerically_less(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // left: 0
@@ -9006,9 +9003,9 @@ static void entry__types__string__numerically_less_1(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__types__string__numerically_less_2;
+  frame->cont = cont__types__string___numerically_less_2;
 }
-static void cont__types__string__numerically_less_2(void) {
+static void cont__types__string___numerically_less_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9021,9 +9018,9 @@ static void cont__types__string__numerically_less_2(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__types__string__numerically_less_3;
+  frame->cont = cont__types__string___numerically_less_3;
 }
-static void cont__types__string__numerically_less_3(void) {
+static void cont__types__string___numerically_less_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9037,9 +9034,9 @@ static void cont__types__string__numerically_less_3(void) {
   result_count = 1;
   myself = get__min();
   func = myself->type;
-  frame->cont = cont__types__string__numerically_less_4;
+  frame->cont = cont__types__string___numerically_less_4;
 }
-static void cont__types__string__numerically_less_4(void) {
+static void cont__types__string___numerically_less_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -9076,7 +9073,7 @@ static void cont__types__string__numerically_less_4(void) {
   result_count = frame->caller_result_count;
   myself = get__from_to();
   func = myself->type;
-  frame->cont = cont__types__string__numerically_less_58;
+  frame->cont = cont__types__string___numerically_less_58;
 }
 static void entry__types__string__numerically_less_10(void) {
   allocate_initialized_frame_gc(8, 14);
@@ -10149,12 +10146,12 @@ static void cont__types__string__numerically_less_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__numerically_less_58(void) {
+static void cont__types__string___numerically_less_58(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__to_list_1(void) {
+static void entry__types__string___to_list(void) {
   allocate_initialized_frame_gc(1, 3);
   // slot allocations:
   // self: 0
@@ -10176,7 +10173,7 @@ static void entry__types__string__to_list_1(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__types__string__to_list_4;
+  frame->cont = cont__types__string___to_list_4;
 }
 static void entry__types__string__to_list_2(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -10210,7 +10207,7 @@ static void cont__types__string__to_list_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__string__to_list_4(void) {
+static void cont__types__string___to_list_4(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -10223,7 +10220,7 @@ static void cont__types__string__to_list_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__string_1(void) {
+static void entry__std__string(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
@@ -10340,7 +10337,7 @@ static void cont__std__string_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__dup_1(void) {
+static void entry__types__string___dup(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -10389,7 +10386,7 @@ static void entry__types__string__dup_1(void) {
   result_count = frame->caller_result_count;
   myself = get__case();
   func = myself->type;
-  frame->cont = cont__types__string__dup_17;
+  frame->cont = cont__types__string___dup_17;
 }
 static void entry__types__string__dup_13(void) {
   allocate_initialized_frame_gc(2, 3);
@@ -10653,12 +10650,12 @@ static void cont__types__string__dup_12(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__dup_17(void) {
+static void cont__types__string___dup_17(void) {
   myself = frame->slots[2] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__pad_left_1(void) {
+static void entry__std__pad_left(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // expr: 0
@@ -10932,7 +10929,7 @@ static void cont__std__pad_left_16(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__pad_right_1(void) {
+static void entry__std__pad_right(void) {
   allocate_initialized_frame_gc(4, 8);
   // slot allocations:
   // expr: 0
@@ -11259,7 +11256,7 @@ static void cont__std__truncate_7(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__truncate_1(void) {
+static void entry__std__truncate(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // expr: 0
@@ -11441,7 +11438,7 @@ static void cont__std__pad_or_truncate_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__pad_or_truncate_1(void) {
+static void entry__std__pad_or_truncate(void) {
   allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // expr: 0
@@ -11548,7 +11545,7 @@ static void entry__types__string__match_character_9(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__match_character_1(void) {
+static void entry__types__string___match_character(void) {
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
   // self: 0
@@ -11564,9 +11561,9 @@ static void entry__types__string__match_character_1(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__types__string__match_character_2;
+  frame->cont = cont__types__string___match_character_2;
 }
-static void cont__types__string__match_character_2(void) {
+static void cont__types__string___match_character_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11580,9 +11577,9 @@ static void cont__types__string__match_character_2(void) {
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__types__string__match_character_3;
+  frame->cont = cont__types__string___match_character_3;
 }
-static void cont__types__string__match_character_3(void) {
+static void cont__types__string___match_character_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11598,7 +11595,7 @@ static void cont__types__string__match_character_3(void) {
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__types__string__match_character_7;
+  frame->cont = cont__types__string___match_character_7;
 }
 static void entry__types__string__match_character_4(void) {
   allocate_initialized_frame_gc(2, 4);
@@ -11650,7 +11647,7 @@ static void cont__types__string__match_character_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__types__string__match_character_7(void) {
+static void cont__types__string___match_character_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11670,7 +11667,7 @@ static void cont__types__string__match_character_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__string__grammar__match_1(void) {
+static void entry__types__string___grammar__match(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // expr: 0
@@ -11690,9 +11687,9 @@ static void entry__types__string__grammar__match_1(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__types__string__grammar__match_2;
+  frame->cont = cont__types__string___grammar__match_2;
 }
-static void cont__types__string__grammar__match_2(void) {
+static void cont__types__string___grammar__match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11706,9 +11703,9 @@ static void cont__types__string__grammar__match_2(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__types__string__grammar__match_3;
+  frame->cont = cont__types__string___grammar__match_3;
 }
-static void cont__types__string__grammar__match_3(void) {
+static void cont__types__string___grammar__match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11724,7 +11721,7 @@ static void cont__types__string__grammar__match_3(void) {
   result_count = 0;
   myself = get__unless();
   func = myself->type;
-  frame->cont = cont__types__string__grammar__match_5;
+  frame->cont = cont__types__string___grammar__match_5;
 }
 static void entry__types__string__grammar__match_4(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -11744,7 +11741,7 @@ static void entry__types__string__grammar__match_4(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__grammar__match_5(void) {
+static void cont__types__string___grammar__match_5(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -11758,9 +11755,9 @@ static void cont__types__string__grammar__match_5(void) {
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__types__string__grammar__match_6;
+  frame->cont = cont__types__string___grammar__match_6;
 }
-static void cont__types__string__grammar__match_6(void) {
+static void cont__types__string___grammar__match_6(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11774,9 +11771,9 @@ static void cont__types__string__grammar__match_6(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__string__grammar__match_7;
+  frame->cont = cont__types__string___grammar__match_7;
 }
-static void cont__types__string__grammar__match_7(void) {
+static void cont__types__string___grammar__match_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11792,7 +11789,7 @@ static void cont__types__string__grammar__match_7(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__grammar__match_9;
+  frame->cont = cont__types__string___grammar__match_9;
 }
 static void entry__types__string__grammar__match_8(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -11814,7 +11811,7 @@ static void entry__types__string__grammar__match_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__grammar__match_9(void) {
+static void cont__types__string___grammar__match_9(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -11827,7 +11824,7 @@ static void cont__types__string__grammar__match_9(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__match_1(void) {
+static void entry__types__string___match(void) {
   allocate_initialized_frame_gc(3, 7);
   // slot allocations:
   // stream: 0
@@ -11851,9 +11848,9 @@ static void entry__types__string__match_1(void) {
   result_count = 1;
   myself = get__grammar__match();
   func = myself->type;
-  frame->cont = cont__types__string__match_2;
+  frame->cont = cont__types__string___match_2;
 }
-static void cont__types__string__match_2(void) {
+static void cont__types__string___match_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11866,9 +11863,9 @@ static void cont__types__string__match_2(void) {
   result_count = 1;
   myself = get__parameter_count_of();
   func = myself->type;
-  frame->cont = cont__types__string__match_3;
+  frame->cont = cont__types__string___match_3;
 }
-static void cont__types__string__match_3(void) {
+static void cont__types__string___match_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11882,9 +11879,9 @@ static void cont__types__string__match_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__string__match_4;
+  frame->cont = cont__types__string___match_4;
 }
-static void cont__types__string__match_4(void) {
+static void cont__types__string___match_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -11900,7 +11897,7 @@ static void cont__types__string__match_4(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__match_6;
+  frame->cont = cont__types__string___match_6;
 }
 static void entry__types__string__match_5(void) {
   allocate_initialized_frame_gc(2, 2);
@@ -11923,7 +11920,7 @@ static void entry__types__string__match_5(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__match_6(void) {
+static void cont__types__string___match_6(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -12132,7 +12129,7 @@ static void entry__types__string__search_character_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__search_character_1(void) {
+static void entry__types__string___search_character(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -12161,9 +12158,9 @@ static void entry__types__string__search_character_1(void) {
   result_count = 1;
   myself = get__has_minimum_length();
   func = myself->type;
-  frame->cont = cont__types__string__search_character_2;
+  frame->cont = cont__types__string___search_character_2;
 }
-static void cont__types__string__search_character_2(void) {
+static void cont__types__string___search_character_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12192,7 +12189,7 @@ static void cont__types__string__search_character_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__string__search_1(void) {
+static void entry__types__string___search(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // stream: 0
@@ -12218,9 +12215,9 @@ static void entry__types__string__search_1(void) {
   result_count = 2;
   myself = get__grammar__search();
   func = myself->type;
-  frame->cont = cont__types__string__search_2;
+  frame->cont = cont__types__string___search_2;
 }
-static void cont__types__string__search_2(void) {
+static void cont__types__string___search_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -12236,7 +12233,7 @@ static void cont__types__string__search_2(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__before_1(void) {
+static void entry__types__string___before(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -12272,9 +12269,9 @@ static void entry__types__string__before_1(void) {
   result_count = 2;
   myself = get__grammar__search();
   func = myself->type;
-  frame->cont = cont__types__string__before_2;
+  frame->cont = cont__types__string___before_2;
 }
-static void cont__types__string__before_2(void) {
+static void cont__types__string___before_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -12288,9 +12285,9 @@ static void cont__types__string__before_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__string__before_3;
+  frame->cont = cont__types__string___before_3;
 }
-static void cont__types__string__before_3(void) {
+static void cont__types__string___before_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12315,7 +12312,7 @@ static void cont__types__string__before_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__before_8;
+  frame->cont = cont__types__string___before_8;
 }
 static void entry__types__string__before_4(void) {
   allocate_initialized_frame_gc(3, 5);
@@ -12390,12 +12387,12 @@ static void entry__types__string__before_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__before_8(void) {
+static void cont__types__string___before_8(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__truncate_from_1(void) {
+static void entry__types__string___truncate_from(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -12431,9 +12428,9 @@ static void entry__types__string__truncate_from_1(void) {
   result_count = 2;
   myself = get__grammar__search();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_from_2;
+  frame->cont = cont__types__string___truncate_from_2;
 }
-static void cont__types__string__truncate_from_2(void) {
+static void cont__types__string___truncate_from_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -12447,9 +12444,9 @@ static void cont__types__string__truncate_from_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_from_3;
+  frame->cont = cont__types__string___truncate_from_3;
 }
-static void cont__types__string__truncate_from_3(void) {
+static void cont__types__string___truncate_from_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12474,7 +12471,7 @@ static void cont__types__string__truncate_from_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_from_8;
+  frame->cont = cont__types__string___truncate_from_8;
 }
 static void entry__types__string__truncate_from_4(void) {
   allocate_initialized_frame_gc(3, 5);
@@ -12551,12 +12548,12 @@ static void entry__types__string__truncate_from_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__truncate_from_8(void) {
+static void cont__types__string___truncate_from_8(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__behind_1(void) {
+static void entry__types__string___behind(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -12592,9 +12589,9 @@ static void entry__types__string__behind_1(void) {
   result_count = 2;
   myself = get__grammar__search();
   func = myself->type;
-  frame->cont = cont__types__string__behind_2;
+  frame->cont = cont__types__string___behind_2;
 }
-static void cont__types__string__behind_2(void) {
+static void cont__types__string___behind_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -12608,9 +12605,9 @@ static void cont__types__string__behind_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__string__behind_3;
+  frame->cont = cont__types__string___behind_3;
 }
-static void cont__types__string__behind_3(void) {
+static void cont__types__string___behind_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12635,7 +12632,7 @@ static void cont__types__string__behind_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__behind_9;
+  frame->cont = cont__types__string___behind_9;
 }
 static void entry__types__string__behind_4(void) {
   allocate_initialized_frame_gc(4, 7);
@@ -12727,12 +12724,12 @@ static void entry__types__string__behind_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__behind_9(void) {
+static void cont__types__string___behind_9(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__truncate_until_1(void) {
+static void entry__types__string___truncate_until(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -12768,9 +12765,9 @@ static void entry__types__string__truncate_until_1(void) {
   result_count = 2;
   myself = get__grammar__search();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_until_2;
+  frame->cont = cont__types__string___truncate_until_2;
 }
-static void cont__types__string__truncate_until_2(void) {
+static void cont__types__string___truncate_until_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -12784,9 +12781,9 @@ static void cont__types__string__truncate_until_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_until_3;
+  frame->cont = cont__types__string___truncate_until_3;
 }
-static void cont__types__string__truncate_until_3(void) {
+static void cont__types__string___truncate_until_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12811,7 +12808,7 @@ static void cont__types__string__truncate_until_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_until_9;
+  frame->cont = cont__types__string___truncate_until_9;
 }
 static void entry__types__string__truncate_until_4(void) {
   allocate_initialized_frame_gc(4, 7);
@@ -12905,12 +12902,12 @@ static void entry__types__string__truncate_until_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__truncate_until_9(void) {
+static void cont__types__string___truncate_until_9(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__from_1(void) {
+static void entry__types__string___from(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -12946,9 +12943,9 @@ static void entry__types__string__from_1(void) {
   result_count = 2;
   myself = get__grammar__search();
   func = myself->type;
-  frame->cont = cont__types__string__from_2;
+  frame->cont = cont__types__string___from_2;
 }
-static void cont__types__string__from_2(void) {
+static void cont__types__string___from_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -12962,9 +12959,9 @@ static void cont__types__string__from_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__string__from_3;
+  frame->cont = cont__types__string___from_3;
 }
-static void cont__types__string__from_3(void) {
+static void cont__types__string___from_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -12989,7 +12986,7 @@ static void cont__types__string__from_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__from_8;
+  frame->cont = cont__types__string___from_8;
 }
 static void entry__types__string__from_4(void) {
   allocate_initialized_frame_gc(3, 5);
@@ -13063,12 +13060,12 @@ static void entry__types__string__from_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__from_8(void) {
+static void cont__types__string___from_8(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__truncate_before_1(void) {
+static void entry__types__string___truncate_before(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -13104,9 +13101,9 @@ static void entry__types__string__truncate_before_1(void) {
   result_count = 2;
   myself = get__grammar__search();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_before_2;
+  frame->cont = cont__types__string___truncate_before_2;
 }
-static void cont__types__string__truncate_before_2(void) {
+static void cont__types__string___truncate_before_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -13120,9 +13117,9 @@ static void cont__types__string__truncate_before_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_before_3;
+  frame->cont = cont__types__string___truncate_before_3;
 }
-static void cont__types__string__truncate_before_3(void) {
+static void cont__types__string___truncate_before_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13147,7 +13144,7 @@ static void cont__types__string__truncate_before_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_before_8;
+  frame->cont = cont__types__string___truncate_before_8;
 }
 static void entry__types__string__truncate_before_4(void) {
   allocate_initialized_frame_gc(3, 5);
@@ -13223,12 +13220,12 @@ static void entry__types__string__truncate_before_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__truncate_before_8(void) {
+static void cont__types__string___truncate_before_8(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__until_1(void) {
+static void entry__types__string___until(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -13264,9 +13261,9 @@ static void entry__types__string__until_1(void) {
   result_count = 2;
   myself = get__grammar__search();
   func = myself->type;
-  frame->cont = cont__types__string__until_2;
+  frame->cont = cont__types__string___until_2;
 }
-static void cont__types__string__until_2(void) {
+static void cont__types__string___until_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -13280,9 +13277,9 @@ static void cont__types__string__until_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__string__until_3;
+  frame->cont = cont__types__string___until_3;
 }
-static void cont__types__string__until_3(void) {
+static void cont__types__string___until_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13307,7 +13304,7 @@ static void cont__types__string__until_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__until_9;
+  frame->cont = cont__types__string___until_9;
 }
 static void entry__types__string__until_4(void) {
   allocate_initialized_frame_gc(4, 7);
@@ -13400,12 +13397,12 @@ static void entry__types__string__until_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__until_9(void) {
+static void cont__types__string___until_9(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__truncate_behind_1(void) {
+static void entry__types__string___truncate_behind(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // str: 0
@@ -13441,9 +13438,9 @@ static void entry__types__string__truncate_behind_1(void) {
   result_count = 2;
   myself = get__grammar__search();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_behind_2;
+  frame->cont = cont__types__string___truncate_behind_2;
 }
-static void cont__types__string__truncate_behind_2(void) {
+static void cont__types__string___truncate_behind_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -13457,9 +13454,9 @@ static void cont__types__string__truncate_behind_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_behind_3;
+  frame->cont = cont__types__string___truncate_behind_3;
 }
-static void cont__types__string__truncate_behind_3(void) {
+static void cont__types__string___truncate_behind_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13484,7 +13481,7 @@ static void cont__types__string__truncate_behind_3(void) {
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__truncate_behind_9;
+  frame->cont = cont__types__string___truncate_behind_9;
 }
 static void entry__types__string__truncate_behind_4(void) {
   allocate_initialized_frame_gc(4, 7);
@@ -13579,12 +13576,12 @@ static void entry__types__string__truncate_behind_8(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__truncate_behind_9(void) {
+static void cont__types__string___truncate_behind_9(void) {
   myself = frame->slots[3] /* return */;
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__between_1(void) {
+static void entry__types__string___between(void) {
   allocate_initialized_frame_gc(4, 6);
   // slot allocations:
   // str: 0
@@ -13615,9 +13612,9 @@ static void entry__types__string__between_1(void) {
   result_count = 1;
   myself = get__behind();
   func = myself->type;
-  frame->cont = cont__types__string__between_2;
+  frame->cont = cont__types__string___between_2;
 }
-static void cont__types__string__between_2(void) {
+static void cont__types__string___between_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13631,9 +13628,9 @@ static void cont__types__string__between_2(void) {
   result_count = 1;
   myself = get__before();
   func = myself->type;
-  frame->cont = cont__types__string__between_3;
+  frame->cont = cont__types__string___between_3;
 }
-static void cont__types__string__between_3(void) {
+static void cont__types__string___between_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13647,7 +13644,7 @@ static void cont__types__string__between_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__has_prefix_1(void) {
+static void entry__types__string___has_prefix(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // self: 0
@@ -13664,9 +13661,9 @@ static void entry__types__string__has_prefix_1(void) {
   result_count = 1;
   myself = get__match();
   func = myself->type;
-  frame->cont = cont__types__string__has_prefix_2;
+  frame->cont = cont__types__string___has_prefix_2;
 }
-static void cont__types__string__has_prefix_2(void) {
+static void cont__types__string___has_prefix_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13679,9 +13676,9 @@ static void cont__types__string__has_prefix_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__string__has_prefix_3;
+  frame->cont = cont__types__string___has_prefix_3;
 }
-static void cont__types__string__has_prefix_3(void) {
+static void cont__types__string___has_prefix_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13695,7 +13692,7 @@ static void cont__types__string__has_prefix_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__has_suffix_1(void) {
+static void entry__types__string___has_suffix(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -13715,9 +13712,9 @@ static void entry__types__string__has_suffix_1(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__types__string__has_suffix_2;
+  frame->cont = cont__types__string___has_suffix_2;
 }
-static void cont__types__string__has_suffix_2(void) {
+static void cont__types__string___has_suffix_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13736,7 +13733,7 @@ static void cont__types__string__has_suffix_2(void) {
   result_count = 0;
   myself = get__from_down_to();
   func = myself->type;
-  frame->cont = cont__types__string__has_suffix_11;
+  frame->cont = cont__types__string___has_suffix_11;
 }
 static void entry__types__string__has_suffix_10(void) {
   allocate_initialized_frame_gc(1, 1);
@@ -13880,7 +13877,7 @@ static void cont__types__string__has_suffix_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__has_suffix_11(void) {
+static void cont__types__string___has_suffix_11(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -13893,7 +13890,7 @@ static void cont__types__string__has_suffix_11(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__without_prefix_1(void) {
+static void entry__types__string___without_prefix(void) {
   allocate_initialized_frame_gc(3, 6);
   // slot allocations:
   // self: 0
@@ -13914,9 +13911,9 @@ static void entry__types__string__without_prefix_1(void) {
   result_count = 1;
   myself = get__match();
   func = myself->type;
-  frame->cont = cont__types__string__without_prefix_2;
+  frame->cont = cont__types__string___without_prefix_2;
 }
-static void cont__types__string__without_prefix_2(void) {
+static void cont__types__string___without_prefix_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13929,9 +13926,9 @@ static void cont__types__string__without_prefix_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__string__without_prefix_3;
+  frame->cont = cont__types__string___without_prefix_3;
 }
-static void cont__types__string__without_prefix_3(void) {
+static void cont__types__string___without_prefix_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -13947,7 +13944,7 @@ static void cont__types__string__without_prefix_3(void) {
   result_count = 0;
   myself = get__if();
   func = myself->type;
-  frame->cont = cont__types__string__without_prefix_8;
+  frame->cont = cont__types__string___without_prefix_8;
 }
 static void entry__types__string__without_prefix_4(void) {
   allocate_initialized_frame_gc(3, 6);
@@ -14019,7 +14016,7 @@ static void cont__types__string__without_prefix_7(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__without_prefix_8(void) {
+static void cont__types__string___without_prefix_8(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -14032,7 +14029,7 @@ static void cont__types__string__without_prefix_8(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__without_suffix_1(void) {
+static void entry__types__string___without_suffix(void) {
   allocate_initialized_frame_gc(3, 5);
   // slot allocations:
   // self: 0
@@ -14052,9 +14049,9 @@ static void entry__types__string__without_suffix_1(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__types__string__without_suffix_2;
+  frame->cont = cont__types__string___without_suffix_2;
 }
-static void cont__types__string__without_suffix_2(void) {
+static void cont__types__string___without_suffix_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -14073,7 +14070,7 @@ static void cont__types__string__without_suffix_2(void) {
   result_count = 0;
   myself = get__from_to();
   func = myself->type;
-  frame->cont = cont__types__string__without_suffix_13;
+  frame->cont = cont__types__string___without_suffix_13;
 }
 static void entry__types__string__without_suffix_10(void) {
   allocate_initialized_frame_gc(3, 5);
@@ -14254,7 +14251,7 @@ static void cont__types__string__without_suffix_9(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__without_suffix_13(void) {
+static void cont__types__string___without_suffix_13(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -14267,7 +14264,7 @@ static void cont__types__string__without_suffix_13(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void entry__std__trim_1(void) {
+static void entry__std__trim(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // str: 0
@@ -14691,7 +14688,7 @@ static void cont__std__trim_25(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__normalize_1(void) {
+static void entry__std__normalize(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // str: 0
@@ -14787,7 +14784,7 @@ static void cont__std__normalize_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__split_1(void) {
+static void entry__std__split(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 6);
   // slot allocations:
@@ -15161,7 +15158,7 @@ static void cont__std__split_21(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__join_1(void) {
+static void entry__std__join(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // words: 0
@@ -15284,7 +15281,7 @@ static void cont__std__join_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__count_occurrences_1(void) {
+static void entry__std__count_occurrences(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // text: 0
@@ -15509,7 +15506,7 @@ static void cont__std__count_occurrences_12(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__matches_1(void) {
+static void entry__types__string___matches(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // text: 0
@@ -15526,9 +15523,9 @@ static void entry__types__string__matches_1(void) {
   result_count = 1;
   myself = get__grammar__match();
   func = myself->type;
-  frame->cont = cont__types__string__matches_2;
+  frame->cont = cont__types__string___matches_2;
 }
-static void cont__types__string__matches_2(void) {
+static void cont__types__string___matches_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15541,9 +15538,9 @@ static void cont__types__string__matches_2(void) {
   result_count = 1;
   myself = get__length_of();
   func = myself->type;
-  frame->cont = cont__types__string__matches_3;
+  frame->cont = cont__types__string___matches_3;
 }
-static void cont__types__string__matches_3(void) {
+static void cont__types__string___matches_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15557,9 +15554,9 @@ static void cont__types__string__matches_3(void) {
   result_count = 1;
   myself = get__std__equal();
   func = myself->type;
-  frame->cont = cont__types__string__matches_4;
+  frame->cont = cont__types__string___matches_4;
 }
-static void cont__types__string__matches_4(void) {
+static void cont__types__string___matches_4(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15573,7 +15570,7 @@ static void cont__types__string__matches_4(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__contains_1(void) {
+static void entry__types__string___contains(void) {
   allocate_initialized_frame_gc(2, 5);
   // slot allocations:
   // text: 0
@@ -15594,9 +15591,9 @@ static void entry__types__string__contains_1(void) {
   result_count = 2;
   myself = get__grammar__search();
   func = myself->type;
-  frame->cont = cont__types__string__contains_2;
+  frame->cont = cont__types__string___contains_2;
 }
-static void cont__types__string__contains_2(void) {
+static void cont__types__string___contains_2(void) {
   if (argument_count != 2) {
     invalid_results_error();
     return;
@@ -15610,9 +15607,9 @@ static void cont__types__string__contains_2(void) {
   result_count = 1;
   myself = get__is_defined();
   func = myself->type;
-  frame->cont = cont__types__string__contains_3;
+  frame->cont = cont__types__string___contains_3;
 }
-static void cont__types__string__contains_3(void) {
+static void cont__types__string___contains_3(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -15626,7 +15623,7 @@ static void cont__types__string__contains_3(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__replace_umlauts_1(void) {
+static void entry__std__replace_umlauts(void) {
   allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // text: 0
@@ -16196,7 +16193,7 @@ static void cont__std__replace_umlauts_28(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__replace_all_1(void) {
+static void entry__std__replace_all(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -16819,7 +16816,7 @@ static void cont__std__replace_all_29(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__delete_all_1(void) {
+static void entry__std__delete_all(void) {
   allocate_arguments();
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
@@ -17268,15 +17265,15 @@ static void entry__std__spaces_5(void) {
   // 1161: ... range(eighty_spaces 1 n)
   argument_count = 3;
   arguments = node_p;
-  arguments->slots[0] = var._eighty_spaces;
+  arguments->slots[0] = string__49792677fe126f62;
   arguments->slots[1] = number__1;
   arguments->slots[2] = frame->slots[0] /* n */;
   result_count = 1;
   myself = get__range();
   func = myself->type;
-  frame->cont = cont__std__spaces_6;
+  frame->cont = cont__std__spaces_7;
 }
-static void cont__std__spaces_6(void) {
+static void cont__std__spaces_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -17290,7 +17287,7 @@ static void cont__std__spaces_6(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__spaces_1(void) {
+static void entry__std__spaces(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // n: 0
@@ -17332,7 +17329,7 @@ static void cont__std__spaces_2(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__indented_1(void) {
+static void entry__std__indented(void) {
   allocate_initialized_frame_gc(2, 4);
   // slot allocations:
   // indent: 0
@@ -18180,7 +18177,7 @@ static void cont__std__for_each_line_25(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__std__for_each_line_1(void) {
+static void entry__std__for_each_line(void) {
   allocate_initialized_frame_gc(4, 9);
   // slot allocations:
   // text: 0
@@ -18279,7 +18276,7 @@ static void cont__std__for_each_line_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void entry__types__string__to_lower_case_1(void) {
+static void entry__types__string___to_lower_case(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // text: 0
@@ -18295,9 +18292,9 @@ static void entry__types__string__to_lower_case_1(void) {
   result_count = 1;
   myself = get__map();
   func = myself->type;
-  frame->cont = cont__types__string__to_lower_case_2;
+  frame->cont = cont__types__string___to_lower_case_2;
 }
-static void cont__types__string__to_lower_case_2(void) {
+static void cont__types__string___to_lower_case_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -18311,7 +18308,7 @@ static void cont__types__string__to_lower_case_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__to_upper_case_1(void) {
+static void entry__types__string___to_upper_case(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // text: 0
@@ -18327,9 +18324,9 @@ static void entry__types__string__to_upper_case_1(void) {
   result_count = 1;
   myself = get__map();
   func = myself->type;
-  frame->cont = cont__types__string__to_upper_case_2;
+  frame->cont = cont__types__string___to_upper_case_2;
 }
-static void cont__types__string__to_upper_case_2(void) {
+static void cont__types__string___to_upper_case_2(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
@@ -18343,7 +18340,7 @@ static void cont__types__string__to_upper_case_2(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__string__to_title_case_1(void) {
+static void entry__types__string___to_title_case(void) {
   allocate_initialized_frame_gc(1, 4);
   // slot allocations:
   // text: 0
@@ -18389,7 +18386,7 @@ static void entry__types__string__to_title_case_1(void) {
   result_count = 0;
   myself = get__for_each();
   func = myself->type;
-  frame->cont = cont__types__string__to_title_case_13;
+  frame->cont = cont__types__string___to_title_case_13;
 }
 static void entry__types__string__to_title_case_5(void) {
   allocate_initialized_frame_gc(3, 4);
@@ -18624,7 +18621,7 @@ static void cont__types__string__to_title_case_3(void) {
   func = myself->type;
   frame = frame->caller_frame;
 }
-static void cont__types__string__to_title_case_13(void) {
+static void cont__types__string___to_title_case_13(void) {
   if (argument_count != 0) {
     invalid_results_error();
     return;
@@ -18637,7 +18634,7 @@ static void cont__types__string__to_title_case_13(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__octet_string__new_empty_collection_1(void) {
+static void entry__types__octet_string___new_empty_collection(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -18653,7 +18650,7 @@ static void entry__types__octet_string__new_empty_collection_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__types__quad_octet_string__new_empty_collection_1(void) {
+static void entry__types__quad_octet_string___new_empty_collection(void) {
   allocate_initialized_frame_gc(1, 1);
   // slot allocations:
   // self: 0
@@ -18669,13 +18666,13 @@ static void entry__types__quad_octet_string__new_empty_collection_1(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__std__collect_output_1(void) {
+static void entry__std__collect_output(void) {
   allocate_initialized_frame_gc(3, 4);
   // slot allocations:
   // self: 0
   // body: 1
   // return__1: 2
-  frame->slots[2] /* return__1 */ = create_continuation_with_exit(exit__std__collect_output_1);
+  frame->slots[2] /* return__1 */ = create_continuation_with_exit(exit__std__collect_output);
   define__std__write(create_future());
   if (argument_count < 1) {
     too_few_arguments_error();
@@ -18740,7 +18737,7 @@ static void cont__std__collect_output_4(void) {
   func = myself->type;
   frame->cont = invalid_continuation;
 }
-static void exit__std__collect_output_1(void) {
+static void exit__std__collect_output(void) {
   frame = ((CONTINUATION *)myself)->exit_frame;
   int i;
   int n = argument_count;
@@ -18769,7 +18766,6 @@ EXPORT void collect__basic__types__string(void) {
   var.std__replace_umlauts = collect_node(var.std__replace_umlauts);
   var.std__replace_all = collect_node(var.std__replace_all);
   var.std__delete_all = collect_node(var.std__delete_all);
-  var._eighty_spaces = collect_node(var._eighty_spaces);
   var.std__spaces = collect_node(var.std__spaces);
   var.std__indented = collect_node(var.std__indented);
   var.std__for_each_line = collect_node(var.std__for_each_line);
@@ -19100,65 +19096,65 @@ EXPORT void phase_2__basic__types__string(void) {
   character__207 = from_uchar32(207);
   character__183 = from_uchar32(183);
   character__161 = from_uchar32(161);
-  func__types__string__to_integer_1 = create_function(entry__types__string__to_integer_1, 1);
-  func__types__string__to_real_1 = create_function(entry__types__string__to_real_1, 1);
-  func__types__string__parse_number_1 = create_function(entry__types__string__parse_number_1, 1);
-  func__types__string__to_number_1 = create_function(entry__types__string__to_number_1, 1);
-  func__types__string__put_1 = create_function(entry__types__string__put_1, 2);
-  func__types__string__write_to_1 = create_function(entry__types__string__write_to_1, -1);
-  func__types__string__numerically_less_1 = create_function(entry__types__string__numerically_less_1, 2);
-  func__types__string__to_list_1 = create_function(entry__types__string__to_list_1, 1);
-  func__std__string_1 = create_function(entry__std__string_1, -1);
+  func__types__string___to_integer = create_function(entry__types__string___to_integer, 1);
+  func__types__string___to_real = create_function(entry__types__string___to_real, 1);
+  func__types__string___parse_number = create_function(entry__types__string___parse_number, 1);
+  func__types__string___to_number = create_function(entry__types__string___to_number, 1);
+  func__types__string___put = create_function(entry__types__string___put, 2);
+  func__types__string___write_to = create_function(entry__types__string___write_to, -1);
+  func__types__string___numerically_less = create_function(entry__types__string___numerically_less, 2);
+  func__types__string___to_list = create_function(entry__types__string___to_list, 1);
+  func__std__string = create_function(entry__std__string, -1);
   string__963fa2c6021831d1 = from_latin_1_string("Negative argument for dup!", 26);
   func__types__string__dup_6 = create_function(entry__types__string__dup_6, 0);
-  func__types__string__dup_1 = create_function(entry__types__string__dup_1, 2);
+  func__types__string___dup = create_function(entry__types__string___dup, 2);
   string__578a5af303e9cc1 = from_latin_1_string(" ", 1);
-  func__std__pad_left_1 = create_function(entry__std__pad_left_1, -1);
-  func__std__pad_right_1 = create_function(entry__std__pad_right_1, -1);
-  func__std__truncate_1 = create_function(entry__std__truncate_1, 2);
-  func__std__pad_or_truncate_1 = create_function(entry__std__pad_or_truncate_1, 2);
+  func__std__pad_left = create_function(entry__std__pad_left, -1);
+  func__std__pad_right = create_function(entry__std__pad_right, -1);
+  func__std__truncate = create_function(entry__std__truncate, 2);
+  func__std__pad_or_truncate = create_function(entry__std__pad_or_truncate, 2);
   func__types__string__match_character_8 = create_function(entry__types__string__match_character_8, 0);
   func__types__string__match_character_9 = create_function(entry__types__string__match_character_9, 0);
-  func__types__string__match_character_1 = create_function(entry__types__string__match_character_1, 2);
-  func__types__string__grammar__match_1 = create_function(entry__types__string__grammar__match_1, 2);
-  func__types__string__match_1 = create_function(entry__types__string__match_1, 2);
+  func__types__string___match_character = create_function(entry__types__string___match_character, 2);
+  func__types__string___grammar__match = create_function(entry__types__string___grammar__match, 2);
+  func__types__string___match = create_function(entry__types__string___match, 2);
   func__types__string__search_character_13 = create_function(entry__types__string__search_character_13, 0);
-  func__types__string__search_character_1 = create_function(entry__types__string__search_character_1, -1);
-  func__types__string__search_1 = create_function(entry__types__string__search_1, 2);
-  func__types__string__before_1 = create_function(entry__types__string__before_1, -1);
-  func__types__string__truncate_from_1 = create_function(entry__types__string__truncate_from_1, -1);
-  func__types__string__behind_1 = create_function(entry__types__string__behind_1, -1);
-  func__types__string__truncate_until_1 = create_function(entry__types__string__truncate_until_1, -1);
-  func__types__string__from_1 = create_function(entry__types__string__from_1, -1);
-  func__types__string__truncate_before_1 = create_function(entry__types__string__truncate_before_1, -1);
-  func__types__string__until_1 = create_function(entry__types__string__until_1, -1);
-  func__types__string__truncate_behind_1 = create_function(entry__types__string__truncate_behind_1, -1);
-  func__types__string__between_1 = create_function(entry__types__string__between_1, -1);
-  func__types__string__has_prefix_1 = create_function(entry__types__string__has_prefix_1, 2);
-  func__types__string__has_suffix_1 = create_function(entry__types__string__has_suffix_1, 2);
-  func__types__string__without_prefix_1 = create_function(entry__types__string__without_prefix_1, 2);
-  func__types__string__without_suffix_1 = create_function(entry__types__string__without_suffix_1, 2);
-  func__std__trim_1 = create_function(entry__std__trim_1, 1);
-  func__std__normalize_1 = create_function(entry__std__normalize_1, 1);
-  func__std__split_1 = create_function(entry__std__split_1, -1);
-  func__std__join_1 = create_function(entry__std__join_1, -1);
-  func__std__count_occurrences_1 = create_function(entry__std__count_occurrences_1, 2);
-  func__types__string__matches_1 = create_function(entry__types__string__matches_1, 2);
-  func__types__string__contains_1 = create_function(entry__types__string__contains_1, 2);
-  func__std__replace_umlauts_1 = create_function(entry__std__replace_umlauts_1, 1);
-  func__std__replace_all_1 = create_function(entry__std__replace_all_1, -1);
-  func__std__delete_all_1 = create_function(entry__std__delete_all_1, -1);
+  func__types__string___search_character = create_function(entry__types__string___search_character, -1);
+  func__types__string___search = create_function(entry__types__string___search, 2);
+  func__types__string___before = create_function(entry__types__string___before, -1);
+  func__types__string___truncate_from = create_function(entry__types__string___truncate_from, -1);
+  func__types__string___behind = create_function(entry__types__string___behind, -1);
+  func__types__string___truncate_until = create_function(entry__types__string___truncate_until, -1);
+  func__types__string___from = create_function(entry__types__string___from, -1);
+  func__types__string___truncate_before = create_function(entry__types__string___truncate_before, -1);
+  func__types__string___until = create_function(entry__types__string___until, -1);
+  func__types__string___truncate_behind = create_function(entry__types__string___truncate_behind, -1);
+  func__types__string___between = create_function(entry__types__string___between, -1);
+  func__types__string___has_prefix = create_function(entry__types__string___has_prefix, 2);
+  func__types__string___has_suffix = create_function(entry__types__string___has_suffix, 2);
+  func__types__string___without_prefix = create_function(entry__types__string___without_prefix, 2);
+  func__types__string___without_suffix = create_function(entry__types__string___without_suffix, 2);
+  func__std__trim = create_function(entry__std__trim, 1);
+  func__std__normalize = create_function(entry__std__normalize, 1);
+  func__std__split = create_function(entry__std__split, -1);
+  func__std__join = create_function(entry__std__join, -1);
+  func__std__count_occurrences = create_function(entry__std__count_occurrences, 2);
+  func__types__string___matches = create_function(entry__types__string___matches, 2);
+  func__types__string___contains = create_function(entry__types__string___contains, 2);
+  func__std__replace_umlauts = create_function(entry__std__replace_umlauts, 1);
+  func__std__replace_all = create_function(entry__std__replace_all, -1);
+  func__std__delete_all = create_function(entry__std__delete_all, -1);
   string__49792677fe126f62 = from_latin_1_string("                                                                                ", 80);
-  func__std__spaces_1 = create_function(entry__std__spaces_1, 1);
+  func__std__spaces = create_function(entry__std__spaces, 1);
   string__578a5af303e9ceb = from_latin_1_string("\012", 1);
-  func__std__indented_1 = create_function(entry__std__indented_1, 2);
-  func__std__for_each_line_1 = create_function(entry__std__for_each_line_1, -1);
-  func__types__string__to_lower_case_1 = create_function(entry__types__string__to_lower_case_1, 1);
-  func__types__string__to_upper_case_1 = create_function(entry__types__string__to_upper_case_1, 1);
-  func__types__string__to_title_case_1 = create_function(entry__types__string__to_title_case_1, 1);
-  func__types__octet_string__new_empty_collection_1 = create_function(entry__types__octet_string__new_empty_collection_1, 1);
-  func__types__quad_octet_string__new_empty_collection_1 = create_function(entry__types__quad_octet_string__new_empty_collection_1, 1);
-  func__std__collect_output_1 = create_function(entry__std__collect_output_1, -1);
+  func__std__indented = create_function(entry__std__indented, 2);
+  func__std__for_each_line = create_function(entry__std__for_each_line, -1);
+  func__types__string___to_lower_case = create_function(entry__types__string___to_lower_case, 1);
+  func__types__string___to_upper_case = create_function(entry__types__string___to_upper_case, 1);
+  func__types__string___to_title_case = create_function(entry__types__string___to_title_case, 1);
+  func__types__octet_string___new_empty_collection = create_function(entry__types__octet_string___new_empty_collection, 1);
+  func__types__quad_octet_string___new_empty_collection = create_function(entry__types__quad_octet_string___new_empty_collection, 1);
+  func__std__collect_output = create_function(entry__std__collect_output, -1);
   string__578a5af303e9cc0 = from_latin_1_string("!", 1);
   string__521f55e4811a62fe = from_latin_1_string("(cent)", 6);
   string__99240e5a959a30d3 = from_latin_1_string("(pound)", 7);
@@ -19403,40 +19399,40 @@ EXPORT void phase_4__basic__types__string(void) {
   use_polymorphic_function(NULL, "without_prefix", &get__without_prefix, &poly_idx__without_prefix);
   use_polymorphic_function(NULL, "without_suffix", &get__without_suffix, &poly_idx__without_suffix);
   use_polymorphic_function(NULL, "write_to", &get__write_to, &poly_idx__write_to);
-  define_method("types", "string", poly_idx__to_integer, func__types__string__to_integer_1);
-  define_method("types", "string", poly_idx__to_real, func__types__string__to_real_1);
-  define_method("types", "string", poly_idx__parse_number, func__types__string__parse_number_1);
-  define_method("types", "string", poly_idx__to_number, func__types__string__to_number_1);
-  define_method("types", "string", poly_idx__put, func__types__string__put_1);
-  define_method("types", "string", poly_idx__write_to, func__types__string__write_to_1);
-  define_method("types", "string", poly_idx__numerically_less, func__types__string__numerically_less_1);
-  define_method("types", "string", poly_idx__to_list, func__types__string__to_list_1);
-  define_method("types", "string", poly_idx__dup, func__types__string__dup_1);
-  define_method("types", "string", poly_idx__match_character, func__types__string__match_character_1);
-  define_method("types", "string", poly_idx__grammar__match, func__types__string__grammar__match_1);
-  define_method("types", "string", poly_idx__match, func__types__string__match_1);
-  define_method("types", "string", poly_idx__search_character, func__types__string__search_character_1);
-  define_method("types", "string", poly_idx__search, func__types__string__search_1);
-  define_method("types", "string", poly_idx__before, func__types__string__before_1);
-  define_method("types", "string", poly_idx__truncate_from, func__types__string__truncate_from_1);
-  define_method("types", "string", poly_idx__behind, func__types__string__behind_1);
-  define_method("types", "string", poly_idx__truncate_until, func__types__string__truncate_until_1);
-  define_method("types", "string", poly_idx__from, func__types__string__from_1);
-  define_method("types", "string", poly_idx__truncate_before, func__types__string__truncate_before_1);
-  define_method("types", "string", poly_idx__until, func__types__string__until_1);
-  define_method("types", "string", poly_idx__truncate_behind, func__types__string__truncate_behind_1);
-  define_method("types", "string", poly_idx__between, func__types__string__between_1);
-  define_method("types", "string", poly_idx__has_prefix, func__types__string__has_prefix_1);
-  define_method("types", "string", poly_idx__has_suffix, func__types__string__has_suffix_1);
-  define_method("types", "string", poly_idx__without_prefix, func__types__string__without_prefix_1);
-  define_method("types", "string", poly_idx__without_suffix, func__types__string__without_suffix_1);
-  define_method("types", "string", poly_idx__matches, func__types__string__matches_1);
-  define_method("types", "string", poly_idx__contains, func__types__string__contains_1);
-  define_method("types", "string", poly_idx__to_lower_case, func__types__string__to_lower_case_1);
-  define_method("types", "string", poly_idx__to_upper_case, func__types__string__to_upper_case_1);
-  define_method("types", "string", poly_idx__to_title_case, func__types__string__to_title_case_1);
-  define_method("types", "octet_string", poly_idx__new_empty_collection, func__types__octet_string__new_empty_collection_1);
-  define_method("types", "quad_octet_string", poly_idx__new_empty_collection, func__types__quad_octet_string__new_empty_collection_1);
+  define_method("types", "string", poly_idx__to_integer, func__types__string___to_integer);
+  define_method("types", "string", poly_idx__to_real, func__types__string___to_real);
+  define_method("types", "string", poly_idx__parse_number, func__types__string___parse_number);
+  define_method("types", "string", poly_idx__to_number, func__types__string___to_number);
+  define_method("types", "string", poly_idx__put, func__types__string___put);
+  define_method("types", "string", poly_idx__write_to, func__types__string___write_to);
+  define_method("types", "string", poly_idx__numerically_less, func__types__string___numerically_less);
+  define_method("types", "string", poly_idx__to_list, func__types__string___to_list);
+  define_method("types", "string", poly_idx__dup, func__types__string___dup);
+  define_method("types", "string", poly_idx__match_character, func__types__string___match_character);
+  define_method("types", "string", poly_idx__grammar__match, func__types__string___grammar__match);
+  define_method("types", "string", poly_idx__match, func__types__string___match);
+  define_method("types", "string", poly_idx__search_character, func__types__string___search_character);
+  define_method("types", "string", poly_idx__search, func__types__string___search);
+  define_method("types", "string", poly_idx__before, func__types__string___before);
+  define_method("types", "string", poly_idx__truncate_from, func__types__string___truncate_from);
+  define_method("types", "string", poly_idx__behind, func__types__string___behind);
+  define_method("types", "string", poly_idx__truncate_until, func__types__string___truncate_until);
+  define_method("types", "string", poly_idx__from, func__types__string___from);
+  define_method("types", "string", poly_idx__truncate_before, func__types__string___truncate_before);
+  define_method("types", "string", poly_idx__until, func__types__string___until);
+  define_method("types", "string", poly_idx__truncate_behind, func__types__string___truncate_behind);
+  define_method("types", "string", poly_idx__between, func__types__string___between);
+  define_method("types", "string", poly_idx__has_prefix, func__types__string___has_prefix);
+  define_method("types", "string", poly_idx__has_suffix, func__types__string___has_suffix);
+  define_method("types", "string", poly_idx__without_prefix, func__types__string___without_prefix);
+  define_method("types", "string", poly_idx__without_suffix, func__types__string___without_suffix);
+  define_method("types", "string", poly_idx__matches, func__types__string___matches);
+  define_method("types", "string", poly_idx__contains, func__types__string___contains);
+  define_method("types", "string", poly_idx__to_lower_case, func__types__string___to_lower_case);
+  define_method("types", "string", poly_idx__to_upper_case, func__types__string___to_upper_case);
+  define_method("types", "string", poly_idx__to_title_case, func__types__string___to_title_case);
+  define_method("types", "octet_string", poly_idx__new_empty_collection, func__types__octet_string___new_empty_collection);
+  define_method("types", "quad_octet_string", poly_idx__new_empty_collection, func__types__quad_octet_string___new_empty_collection);
 }
 
 static int already_run_phase_5 = false;
@@ -19444,24 +19440,23 @@ static int already_run_phase_5 = false;
 EXPORT void phase_5__basic__types__string(void) {
   if (already_run_phase_5) return;
   already_run_phase_5 = true;
-  initialize_future(var.std__string, func__std__string_1);
-  initialize_future(var.std__pad_left, func__std__pad_left_1);
-  initialize_future(var.std__pad_right, func__std__pad_right_1);
-  initialize_future(var.std__truncate, func__std__truncate_1);
-  initialize_future(var.std__pad_or_truncate, func__std__pad_or_truncate_1);
-  initialize_future(var.std__trim, func__std__trim_1);
-  initialize_future(var.std__normalize, func__std__normalize_1);
-  initialize_future(var.std__split, func__std__split_1);
-  initialize_future(var.std__join, func__std__join_1);
-  initialize_future(var.std__count_occurrences, func__std__count_occurrences_1);
-  initialize_future(var.std__replace_umlauts, func__std__replace_umlauts_1);
-  initialize_future(var.std__replace_all, func__std__replace_all_1);
-  initialize_future(var.std__delete_all, func__std__delete_all_1);
-  assign_value(&var._eighty_spaces, string__49792677fe126f62);
-  initialize_future(var.std__spaces, func__std__spaces_1);
-  initialize_future(var.std__indented, func__std__indented_1);
-  initialize_future(var.std__for_each_line, func__std__for_each_line_1);
-  initialize_future(var.std__collect_output, func__std__collect_output_1);
+  initialize_future(var.std__string, func__std__string);
+  initialize_future(var.std__pad_left, func__std__pad_left);
+  initialize_future(var.std__pad_right, func__std__pad_right);
+  initialize_future(var.std__truncate, func__std__truncate);
+  initialize_future(var.std__pad_or_truncate, func__std__pad_or_truncate);
+  initialize_future(var.std__trim, func__std__trim);
+  initialize_future(var.std__normalize, func__std__normalize);
+  initialize_future(var.std__split, func__std__split);
+  initialize_future(var.std__join, func__std__join);
+  initialize_future(var.std__count_occurrences, func__std__count_occurrences);
+  initialize_future(var.std__replace_umlauts, func__std__replace_umlauts);
+  initialize_future(var.std__replace_all, func__std__replace_all);
+  initialize_future(var.std__delete_all, func__std__delete_all);
+  initialize_future(var.std__spaces, func__std__spaces);
+  initialize_future(var.std__indented, func__std__indented);
+  initialize_future(var.std__for_each_line, func__std__for_each_line);
+  initialize_future(var.std__collect_output, func__std__collect_output);
 }
 
 static int already_run_phase_6 = false;
