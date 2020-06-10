@@ -146,6 +146,7 @@ $$do_rebuild false
 $$do_omit_meta false
 $$compiler::do_dump_trees false
 $$compiler::do_pretty_print false
+$$compiler::do_convert false
 $$compiler::do_print_simplified_source false
 $$compiler::do_show_debug_infos false
 $$compiler::do_show_compiler_debug_infos false
@@ -187,6 +188,9 @@ if
       !compiler::do_print_simplified_source
       -> "print-simplified-source" "
 	do not generate a C-file; just print the simplified source text
+      !compiler::do_convert
+      -> "convert" "
+	convert pretty-printed sources
       !do_print_c
       -> "print-c" "
 	print C source code for a single module

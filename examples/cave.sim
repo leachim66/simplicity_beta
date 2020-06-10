@@ -145,37 +145,25 @@ initialize_terminal # must be called before any other terminal function
 
 if width_of(current_screen) != 80 || height_of(current_screen) != 25:
   Error "Please change your terminal size to 80x25!"
-do:
-  get_terminal_attributes STDIN_FILENO $$attributes
-  use_canonical_mode &attributes false # we want no line-buffering ...
-  echo_characters &attributes false # ... and no echoing of typed in characters
-  unless set_terminal_attributes(STDIN_FILENO attributes):
-    Error "Failed to disable canonical input mode!"
-  cursor_off # ... and we want no blinking cursor!
+set_direct_terminal_input_mode
+  #
+    Disables key input buffering and input echoing and turns the cursor off.
+
+    The default terminal mode is automatically restored when the program exits.
 do:
   from_to 1 WIDTH: (x) draw_cave_column x # fill all columns of the screen
   draw_ship # draw the space ship
   update_terminal # make all updates visible
-
-$$input_buffer ""
-  #
-    We use a maximum of one key per frame.
-
-    If the user pressed more keys then we keep a backlog.
-
 do: (-> break)
   repeat 300:
-    wait_to $event READ_FROM = STDIN_FILENO TIMEOUT = 0.08
-      # we wait for a keystroke or until some time elapsed
-    case type_of(event) READ_FROM: append &input_buffer read_from(STDIN_FILENO)
-    unless input_buffer.is_empty:
-      case get(&input_buffer)
-	'w':
-	  dec &ship_y # move the space ship upwards
-	's':
-	  inc &ship_y # move the space ship downwards
-	'q':
-	  break # the user wants to quit the game
+    get_key $key 0.08 # we wait for a keystroke or until some time has elapsed
+    case key
+      'w':
+	dec &ship_y # move the space ship upwards
+      's':
+	inc &ship_y # move the space ship downwards
+      'q':
+	break # the user wants to quit the game
     do:
       scroll_left # scroll the whole cave left by 1 character column
       draw_cave_column 80 # draw a new right-most character column

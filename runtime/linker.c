@@ -27,7 +27,7 @@
 #define RUNTIME_MINOR_VERSION 0
 // denotes a runtime API extension
 
-#define RUNTIME_PATCH_VERSION 5
+#define RUNTIME_PATCH_VERSION 6
 // denotes an internal change in the runtime library
 
 #include <stdarg.h>

@@ -1,3 +1,30 @@
+2020-06-10
+
+  * Simplicity 2.3.0
+
+    added and fixed some terminal functions
+
+    added a new, simple example program
+
+    added some "comfort" terminal functions
+
+    added missing scroll directions
+
+    fixed a bug in <std::draw_line>
+
+  * runtime/compiler 2.0.6
+
+  * libsim-system-1.1.0
+
+    5 new symbols have been added to the system library:
+
+      std::get_key
+      std::scroll_down
+      std::scroll_right
+      std::scroll_up
+      std::set_direct_terminal_input_mode
+
+
 2020-06-09
 
   * Simplicity 2.2.3

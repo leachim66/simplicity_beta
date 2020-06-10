@@ -400,6 +400,8 @@ static NODE_GETTER get__div;
 static NODE_GETTER get_value_or_future__div;
 static NODE_GETTER get__do;
 static NODE_GETTER get_value_or_future__do;
+static NODE_GETTER get__do_convert;
+static NODE_GETTER get_value_or_future__do_convert;
 static NODE_GETTER get__do_while;
 static NODE_GETTER get_value_or_future__do_while;
 static NODE_GETTER get__dup;
@@ -2703,33 +2705,47 @@ static NODE *func__escaped_character_22;
 static void entry__escaped_character_22(void);
 static FRAME_INFO frame__escaped_character_22 = {2, {"chr", "numerical_encoding"}};
 static void cont__escaped_character_23(void);
-static void cont__escaped_character_24(void);
-static NODE *func__escaped_character_25;
-static void entry__escaped_character_25(void);
-static FRAME_INFO frame__escaped_character_25 = {1, {"chr"}};
+static NODE *func__escaped_character_24;
+static void entry__escaped_character_24(void);
+static FRAME_INFO frame__escaped_character_24 = {1, {"chr"}};
+static void cont__escaped_character_25(void);
 static void cont__escaped_character_26(void);
-static void cont__escaped_character_27(void);
-static NODE *func__escaped_character_28;
-static void entry__escaped_character_28(void);
-static FRAME_INFO frame__escaped_character_28 = {1, {"chr"}};
+static NODE *func__escaped_character_27;
+static void entry__escaped_character_27(void);
+static FRAME_INFO frame__escaped_character_27 = {1, {"chr"}};
+static void cont__escaped_character_28(void);
 static void cont__escaped_character_29(void);
-static void cont__escaped_character_30(void);
+static NODE *func__escaped_character_30;
+static void entry__escaped_character_30(void);
+static FRAME_INFO frame__escaped_character_30 = {1, {"chr"}};
 static void cont__escaped_character_31(void);
 static void cont__escaped_character_32(void);
 static NODE *func__escaped_character_33;
 static void entry__escaped_character_33(void);
-static FRAME_INFO frame__escaped_character_33 = {1, {"numerical_encoding"}};
+static FRAME_INFO frame__escaped_character_33 = {1, {"chr"}};
 static void cont__escaped_character_34(void);
-static NODE *func__escaped_character_35;
-static void entry__escaped_character_35(void);
-static FRAME_INFO frame__escaped_character_35 = {1, {"chr"}};
+static void cont__escaped_character_35(void);
 static void cont__escaped_character_36(void);
+static void cont__escaped_character_37(void);
+static NODE *func__escaped_character_38;
+static void entry__escaped_character_38(void);
+static FRAME_INFO frame__escaped_character_38 = {1, {"chr"}};
+static void cont__escaped_character_39(void);
+static NODE *func__escaped_character_40;
+static void entry__escaped_character_40(void);
+static FRAME_INFO frame__escaped_character_40 = {1, {"numerical_encoding"}};
+static void cont__escaped_character_41(void);
 static NODE *func__compiler__character_literal___to_string;
 static void entry__compiler__character_literal___to_string(void);
 static FRAME_INFO frame__compiler__character_literal___to_string = {1, {"self"}};
 static void cont__compiler__character_literal___to_string_2(void);
 static void cont__compiler__character_literal___to_string_3(void);
-static void cont__compiler__character_literal___to_string_4(void);
+static NODE *func__compiler__character_literal__to_string_4;
+static void entry__compiler__character_literal__to_string_4(void);
+static FRAME_INFO frame__compiler__character_literal__to_string_4 = {0, {}};
+static void cont__compiler__character_literal__to_string_5(void);
+static void cont__compiler__character_literal___to_string_6(void);
+static void cont__compiler__character_literal___to_string_7(void);
 static NODE *func__analyze_string_literal;
 static void entry__analyze_string_literal(void);
 static FRAME_INFO frame__analyze_string_literal = {7, {"text", "return", "lines", "is_inline", "use_single_line_form", "part", "s"}};
@@ -4620,446 +4636,454 @@ static CONTINUATION_INFO continuation_info[] = {
   {entry__escaped_character_18, NULL, 1095, 1095, 13, 21},
   {entry__escaped_character_21, NULL, 1097, 1097, 13, 18},
   {entry__escaped_character_14, NULL, 1093, 1098, 11, 36},
-  {entry__escaped_character_28, NULL, 1101, 1101, 52, 66},
-  {cont__escaped_character_29, &frame__escaped_character_28, 1101, 1101, 52, 66},
-  {cont__escaped_character_30, &frame__escaped_character_28, 1101, 1101, 52, 66},
-  {entry__escaped_character_25, NULL, 1101, 1101, 33, 47},
-  {cont__escaped_character_26, &frame__escaped_character_25, 1101, 1101, 33, 47},
-  {cont__escaped_character_27, &frame__escaped_character_25, 1101, 1101, 33, 66},
-  {cont__escaped_character_31, &frame__escaped_character_25, 1101, 1101, 33, 66},
-  {entry__escaped_character_33, NULL, 1102, 1102, 16, 35},
-  {cont__escaped_character_34, &frame__escaped_character_33, 1102, 1102, 13, 35},
-  {entry__escaped_character_35, NULL, 1103, 1103, 16, 28},
-  {cont__escaped_character_36, &frame__escaped_character_35, 1103, 1103, 13, 28},
-  {entry__escaped_character_22, NULL, 1101, 1101, 13, 28},
-  {cont__escaped_character_23, &frame__escaped_character_22, 1101, 1101, 13, 28},
-  {cont__escaped_character_24, &frame__escaped_character_22, 1101, 1101, 13, 66},
-  {cont__escaped_character_32, &frame__escaped_character_22, 1100, 1103, 11, 28},
+  {entry__escaped_character_27, NULL, 1103, 1103, 34, 48},
+  {cont__escaped_character_28, &frame__escaped_character_27, 1103, 1103, 34, 48},
+  {entry__escaped_character_33, NULL, 1104, 1104, 36, 51},
+  {cont__escaped_character_34, &frame__escaped_character_33, 1104, 1104, 36, 51},
+  {entry__escaped_character_30, NULL, 1104, 1104, 15, 31},
+  {cont__escaped_character_31, &frame__escaped_character_30, 1104, 1104, 15, 31},
+  {cont__escaped_character_32, &frame__escaped_character_30, 1104, 1104, 15, 51},
+  {cont__escaped_character_35, &frame__escaped_character_30, 1104, 1104, 15, 51},
+  {entry__escaped_character_24, NULL, 1103, 1103, 15, 29},
+  {cont__escaped_character_25, &frame__escaped_character_24, 1103, 1103, 15, 29},
+  {cont__escaped_character_26, &frame__escaped_character_24, 1103, 1103, 15, 48},
+  {cont__escaped_character_29, &frame__escaped_character_24, 1104, 1104, 15, 51},
+  {cont__escaped_character_36, &frame__escaped_character_24, },
+  {entry__escaped_character_38, NULL, 1105, 1105, 16, 28},
+  {cont__escaped_character_39, &frame__escaped_character_38, 1105, 1105, 13, 28},
+  {entry__escaped_character_40, NULL, 1106, 1106, 16, 35},
+  {cont__escaped_character_41, &frame__escaped_character_40, 1106, 1106, 13, 35},
+  {entry__escaped_character_22, NULL, 1102, 1102, 15, 28},
+  {cont__escaped_character_23, &frame__escaped_character_22, },
+  {cont__escaped_character_37, &frame__escaped_character_22, 1100, 1106, 11, 35},
   {entry__escaped_character_9, NULL, 1089, 1089, 14, 41},
   {cont__escaped_character_10, &frame__escaped_character_9, 1089, 1089, 7, 64},
   {cont__escaped_character_11, &frame__escaped_character_9, 1090, 1090, 7, 34},
   {cont__escaped_character_12, &frame__escaped_character_9, 1092, 1092, 9, 23},
-  {cont__escaped_character_13, &frame__escaped_character_9, 1091, 1103, 7, 30},
-  {entry__escaped_character, NULL, 1085, 1103, 3, 32},
-  {entry__compiler__character_literal___to_string, NULL, 1108, 1108, 23, 42},
-  {cont__compiler__character_literal___to_string_2, &frame__compiler__character_literal___to_string, 1108, 1108, 44, 70},
-  {cont__compiler__character_literal___to_string_3, &frame__compiler__character_literal___to_string, 1108, 1108, 5, 71},
-  {cont__compiler__character_literal___to_string_4, &frame__compiler__character_literal___to_string, 1106, 1109, 3, 12},
-  {entry__analyze_string_literal_3, NULL, 1123, 1123, 5, 19},
-  {cont__analyze_string_literal_4, &frame__analyze_string_literal_3, 1124, 1124, 5, 10},
-  {entry__analyze_string_literal_8, NULL, 1128, 1128, 29, 43},
-  {cont__analyze_string_literal_9, &frame__analyze_string_literal_8, 1128, 1128, 17, 44},
-  {cont__analyze_string_literal_11, &frame__analyze_string_literal_8, 1128, 1128, 5, 45},
-  {cont__analyze_string_literal_12, &frame__analyze_string_literal_8, 1129, 1129, 5, 10},
-  {entry__analyze_string_literal_15, NULL, 1131, 1131, 52, 66},
-  {cont__analyze_string_literal_16, &frame__analyze_string_literal_15, 1131, 1131, 52, 71},
-  {cont__analyze_string_literal_17, &frame__analyze_string_literal_15, 1131, 1131, 52, 71},
-  {cont__analyze_string_literal_18, &frame__analyze_string_literal_15, 1131, 1131, 52, 71},
-  {entry__analyze_string_literal_25, NULL, 1143, 1143, 13, 32},
-  {cont__analyze_string_literal_26, &frame__analyze_string_literal_25, 1143, 1143, 32, 32},
-  {entry__analyze_string_literal_27, NULL, 1145, 1145, 13, 28},
-  {cont__analyze_string_literal_28, &frame__analyze_string_literal_27, 1146, 1146, 20, 20},
-  {entry__analyze_string_literal_21, NULL, 1138, 1138, 35, 39},
-  {cont__analyze_string_literal_22, &frame__analyze_string_literal_21, 1138, 1138, 22, 40},
-  {cont__analyze_string_literal_23, &frame__analyze_string_literal_21, 1138, 1138, 9, 40},
-  {cont__analyze_string_literal_24, &frame__analyze_string_literal_21, 1139, 1146, 9, 21},
-  {cont__analyze_string_literal_29, &frame__analyze_string_literal_21, 1147, 1147, 9, 16},
-  {cont__analyze_string_literal_30, &frame__analyze_string_literal_21, 1147, 1147, 16, 16},
-  {entry__analyze_string_literal_32, NULL, 1151, 1151, 39, 43},
-  {cont__analyze_string_literal_33, &frame__analyze_string_literal_32, 1151, 1151, 26, 44},
-  {cont__analyze_string_literal_34, &frame__analyze_string_literal_32, 1151, 1151, 13, 44},
-  {cont__analyze_string_literal_35, &frame__analyze_string_literal_32, 1155, 1155, 13, 34},
-  {cont__analyze_string_literal_37, &frame__analyze_string_literal_32, 1156, 1156, 13, 20},
-  {cont__analyze_string_literal_38, &frame__analyze_string_literal_32, 1156, 1156, 20, 20},
-  {entry__analyze_string_literal_39, NULL, 1158, 1158, 28, 28},
-  {entry__analyze_string_literal_31, NULL, 1149, 1158, 9, 29},
-  {entry__analyze_string_literal_40, NULL, 1160, 1160, 35, 39},
-  {cont__analyze_string_literal_41, &frame__analyze_string_literal_40, 1160, 1160, 22, 40},
-  {cont__analyze_string_literal_42, &frame__analyze_string_literal_40, 1160, 1160, 9, 40},
-  {cont__analyze_string_literal_43, &frame__analyze_string_literal_40, 1161, 1161, 9, 27},
-  {cont__analyze_string_literal_44, &frame__analyze_string_literal_40, 1162, 1162, 9, 16},
-  {cont__analyze_string_literal_45, &frame__analyze_string_literal_40, 1162, 1162, 16, 16},
-  {entry__analyze_string_literal_50, NULL, 1167, 1167, 37, 41},
-  {cont__analyze_string_literal_51, &frame__analyze_string_literal_50, 1167, 1167, 24, 42},
-  {cont__analyze_string_literal_52, &frame__analyze_string_literal_50, 1167, 1167, 11, 42},
-  {cont__analyze_string_literal_53, &frame__analyze_string_literal_50, 1168, 1168, 11, 30},
-  {cont__analyze_string_literal_54, &frame__analyze_string_literal_50, 1169, 1169, 11, 18},
-  {cont__analyze_string_literal_55, &frame__analyze_string_literal_50, 1169, 1169, 18, 18},
-  {entry__analyze_string_literal_46, NULL, 1165, 1165, 9, 39},
-  {cont__analyze_string_literal_47, &frame__analyze_string_literal_46, 1166, 1166, 12, 29},
-  {cont__analyze_string_literal_48, &frame__analyze_string_literal_46, 1166, 1166, 12, 33},
-  {cont__analyze_string_literal_49, &frame__analyze_string_literal_46, 1166, 1169, 9, 18},
-  {entry__analyze_string_literal_20, NULL, 1135, 1169, 5, 20},
-  {entry__analyze_string_literal_61, NULL, 1175, 1175, 22, 22},
-  {entry__analyze_string_literal_67, NULL, 1184, 1184, 13, 16},
-  {entry__analyze_string_literal_68, NULL, 1185, 1185, 13, 16},
-  {entry__analyze_string_literal_72, NULL, 1187, 1187, 32, 46},
-  {cont__analyze_string_literal_73, &frame__analyze_string_literal_72, 1187, 1187, 32, 48},
-  {cont__analyze_string_literal_74, &frame__analyze_string_literal_72, 1187, 1187, 32, 61},
-  {cont__analyze_string_literal_75, &frame__analyze_string_literal_72, 1187, 1187, 32, 61},
-  {cont__analyze_string_literal_76, &frame__analyze_string_literal_72, 1187, 1187, 32, 61},
-  {entry__analyze_string_literal_78, NULL, 1187, 1187, 79, 79},
-  {entry__analyze_string_literal_80, NULL, 1190, 1190, 11, 26},
-  {cont__analyze_string_literal_81, &frame__analyze_string_literal_80, 1190, 1190, 26, 26},
-  {entry__analyze_string_literal_82, NULL, 1192, 1192, 23, 39},
-  {cont__analyze_string_literal_83, &frame__analyze_string_literal_82, 1192, 1192, 11, 39},
-  {cont__analyze_string_literal_84, &frame__analyze_string_literal_82, 1192, 1192, 39, 39},
-  {entry__analyze_string_literal_62, NULL, 1181, 1181, 15, 42},
-  {cont__analyze_string_literal_63, &frame__analyze_string_literal_62, 1181, 1181, 11, 46},
-  {cont__analyze_string_literal_64, &frame__analyze_string_literal_62, 1183, 1183, 13, 42},
-  {cont__analyze_string_literal_65, &frame__analyze_string_literal_62, 1183, 1183, 13, 42},
+  {cont__escaped_character_13, &frame__escaped_character_9, 1091, 1106, 7, 37},
+  {entry__escaped_character, NULL, 1085, 1106, 3, 39},
+  {entry__compiler__character_literal__to_string_4, NULL, 1113, 1113, 38, 52},
+  {cont__compiler__character_literal__to_string_5, &frame__compiler__character_literal__to_string_4, 1113, 1113, 38, 52},
+  {entry__compiler__character_literal___to_string, NULL, 1112, 1112, 7, 26},
+  {cont__compiler__character_literal___to_string_2, &frame__compiler__character_literal___to_string, 1113, 1113, 7, 33},
+  {cont__compiler__character_literal___to_string_3, &frame__compiler__character_literal___to_string, 1113, 1113, 7, 52},
+  {cont__compiler__character_literal___to_string_6, &frame__compiler__character_literal___to_string, },
+  {cont__compiler__character_literal___to_string_7, &frame__compiler__character_literal___to_string, 1109, 1114, 3, 12},
+  {entry__analyze_string_literal_3, NULL, 1128, 1128, 5, 19},
+  {cont__analyze_string_literal_4, &frame__analyze_string_literal_3, 1129, 1129, 5, 10},
+  {entry__analyze_string_literal_8, NULL, 1133, 1133, 29, 43},
+  {cont__analyze_string_literal_9, &frame__analyze_string_literal_8, 1133, 1133, 17, 44},
+  {cont__analyze_string_literal_11, &frame__analyze_string_literal_8, 1133, 1133, 5, 45},
+  {cont__analyze_string_literal_12, &frame__analyze_string_literal_8, 1134, 1134, 5, 10},
+  {entry__analyze_string_literal_15, NULL, 1136, 1136, 52, 66},
+  {cont__analyze_string_literal_16, &frame__analyze_string_literal_15, 1136, 1136, 52, 71},
+  {cont__analyze_string_literal_17, &frame__analyze_string_literal_15, 1136, 1136, 52, 71},
+  {cont__analyze_string_literal_18, &frame__analyze_string_literal_15, 1136, 1136, 52, 71},
+  {entry__analyze_string_literal_25, NULL, 1148, 1148, 13, 32},
+  {cont__analyze_string_literal_26, &frame__analyze_string_literal_25, 1148, 1148, 32, 32},
+  {entry__analyze_string_literal_27, NULL, 1150, 1150, 13, 28},
+  {cont__analyze_string_literal_28, &frame__analyze_string_literal_27, 1151, 1151, 20, 20},
+  {entry__analyze_string_literal_21, NULL, 1143, 1143, 35, 39},
+  {cont__analyze_string_literal_22, &frame__analyze_string_literal_21, 1143, 1143, 22, 40},
+  {cont__analyze_string_literal_23, &frame__analyze_string_literal_21, 1143, 1143, 9, 40},
+  {cont__analyze_string_literal_24, &frame__analyze_string_literal_21, 1144, 1151, 9, 21},
+  {cont__analyze_string_literal_29, &frame__analyze_string_literal_21, 1152, 1152, 9, 16},
+  {cont__analyze_string_literal_30, &frame__analyze_string_literal_21, 1152, 1152, 16, 16},
+  {entry__analyze_string_literal_32, NULL, 1156, 1156, 39, 43},
+  {cont__analyze_string_literal_33, &frame__analyze_string_literal_32, 1156, 1156, 26, 44},
+  {cont__analyze_string_literal_34, &frame__analyze_string_literal_32, 1156, 1156, 13, 44},
+  {cont__analyze_string_literal_35, &frame__analyze_string_literal_32, 1160, 1160, 13, 34},
+  {cont__analyze_string_literal_37, &frame__analyze_string_literal_32, 1161, 1161, 13, 20},
+  {cont__analyze_string_literal_38, &frame__analyze_string_literal_32, 1161, 1161, 20, 20},
+  {entry__analyze_string_literal_39, NULL, 1163, 1163, 28, 28},
+  {entry__analyze_string_literal_31, NULL, 1154, 1163, 9, 29},
+  {entry__analyze_string_literal_40, NULL, 1165, 1165, 35, 39},
+  {cont__analyze_string_literal_41, &frame__analyze_string_literal_40, 1165, 1165, 22, 40},
+  {cont__analyze_string_literal_42, &frame__analyze_string_literal_40, 1165, 1165, 9, 40},
+  {cont__analyze_string_literal_43, &frame__analyze_string_literal_40, 1166, 1166, 9, 27},
+  {cont__analyze_string_literal_44, &frame__analyze_string_literal_40, 1167, 1167, 9, 16},
+  {cont__analyze_string_literal_45, &frame__analyze_string_literal_40, 1167, 1167, 16, 16},
+  {entry__analyze_string_literal_50, NULL, 1172, 1172, 37, 41},
+  {cont__analyze_string_literal_51, &frame__analyze_string_literal_50, 1172, 1172, 24, 42},
+  {cont__analyze_string_literal_52, &frame__analyze_string_literal_50, 1172, 1172, 11, 42},
+  {cont__analyze_string_literal_53, &frame__analyze_string_literal_50, 1173, 1173, 11, 30},
+  {cont__analyze_string_literal_54, &frame__analyze_string_literal_50, 1174, 1174, 11, 18},
+  {cont__analyze_string_literal_55, &frame__analyze_string_literal_50, 1174, 1174, 18, 18},
+  {entry__analyze_string_literal_46, NULL, 1170, 1170, 9, 39},
+  {cont__analyze_string_literal_47, &frame__analyze_string_literal_46, 1171, 1171, 12, 29},
+  {cont__analyze_string_literal_48, &frame__analyze_string_literal_46, 1171, 1171, 12, 33},
+  {cont__analyze_string_literal_49, &frame__analyze_string_literal_46, 1171, 1174, 9, 18},
+  {entry__analyze_string_literal_20, NULL, 1140, 1174, 5, 20},
+  {entry__analyze_string_literal_61, NULL, 1180, 1180, 22, 22},
+  {entry__analyze_string_literal_67, NULL, 1189, 1189, 13, 16},
+  {entry__analyze_string_literal_68, NULL, 1190, 1190, 13, 16},
+  {entry__analyze_string_literal_72, NULL, 1192, 1192, 32, 46},
+  {cont__analyze_string_literal_73, &frame__analyze_string_literal_72, 1192, 1192, 32, 48},
+  {cont__analyze_string_literal_74, &frame__analyze_string_literal_72, 1192, 1192, 32, 61},
+  {cont__analyze_string_literal_75, &frame__analyze_string_literal_72, 1192, 1192, 32, 61},
+  {cont__analyze_string_literal_76, &frame__analyze_string_literal_72, 1192, 1192, 32, 61},
+  {entry__analyze_string_literal_78, NULL, 1192, 1192, 79, 79},
+  {entry__analyze_string_literal_80, NULL, 1195, 1195, 11, 26},
+  {cont__analyze_string_literal_81, &frame__analyze_string_literal_80, 1195, 1195, 26, 26},
+  {entry__analyze_string_literal_82, NULL, 1197, 1197, 23, 39},
+  {cont__analyze_string_literal_83, &frame__analyze_string_literal_82, 1197, 1197, 11, 39},
+  {cont__analyze_string_literal_84, &frame__analyze_string_literal_82, 1197, 1197, 39, 39},
+  {entry__analyze_string_literal_62, NULL, 1186, 1186, 15, 42},
+  {cont__analyze_string_literal_63, &frame__analyze_string_literal_62, 1186, 1186, 11, 46},
+  {cont__analyze_string_literal_64, &frame__analyze_string_literal_62, 1188, 1188, 13, 42},
+  {cont__analyze_string_literal_65, &frame__analyze_string_literal_62, 1188, 1188, 13, 42},
   {cont__analyze_string_literal_66, &frame__analyze_string_literal_62, },
-  {cont__analyze_string_literal_69, &frame__analyze_string_literal_62, 1179, 1185, 7, 18},
-  {cont__analyze_string_literal_70, &frame__analyze_string_literal_62, 1187, 1187, 14, 27},
-  {cont__analyze_string_literal_71, &frame__analyze_string_literal_62, 1187, 1187, 14, 61},
-  {cont__analyze_string_literal_77, &frame__analyze_string_literal_62, 1187, 1187, 7, 79},
-  {cont__analyze_string_literal_79, &frame__analyze_string_literal_62, 1188, 1192, 7, 40},
-  {entry__analyze_string_literal, NULL, 1122, 1122, 6, 15},
-  {cont__analyze_string_literal_2, &frame__analyze_string_literal, 1122, 1124, 3, 10},
-  {cont__analyze_string_literal_5, &frame__analyze_string_literal, 1125, 1125, 21, 32},
-  {cont__analyze_string_literal_6, &frame__analyze_string_literal, 1125, 1125, 6, 32},
-  {cont__analyze_string_literal_7, &frame__analyze_string_literal, 1125, 1129, 3, 10},
-  {cont__analyze_string_literal_13, &frame__analyze_string_literal, 1131, 1131, 25, 47},
-  {cont__analyze_string_literal_14, &frame__analyze_string_literal, 1131, 1131, 3, 71},
-  {cont__analyze_string_literal_19, &frame__analyze_string_literal, 1134, 1169, 3, 21},
-  {cont__analyze_string_literal_56, &frame__analyze_string_literal, 1170, 1170, 30, 30},
-  {cont__analyze_string_literal_57, &frame__analyze_string_literal, 1170, 1170, 16, 31},
-  {cont__analyze_string_literal_58, &frame__analyze_string_literal, 1170, 1170, 3, 31},
-  {cont__analyze_string_literal_59, &frame__analyze_string_literal, 1172, 1172, 5, 14},
-  {cont__analyze_string_literal_60, &frame__analyze_string_literal, 1171, 1192, 3, 42},
-  {cont__analyze_string_literal_85, &frame__analyze_string_literal, 1192, 1192, 42, 42},
-  {entry__print_string_literal_10, NULL, 1198, 1198, 15, 22},
-  {cont__print_string_literal_11, &frame__print_string_literal_10, 1198, 1198, 9, 27},
-  {cont__print_string_literal_12, &frame__print_string_literal_10, 1198, 1198, 14, 22},
-  {cont__print_string_literal_13, &frame__print_string_literal_10, 1199, 1199, 24, 24},
-  {entry__print_string_literal_4, NULL, 1197, 1197, 34, 61},
-  {cont__print_string_literal_5, &frame__print_string_literal_4, 1197, 1197, 20, 27},
-  {cont__print_string_literal_6, &frame__print_string_literal_4, 1197, 1197, 10, 28},
-  {cont__print_string_literal_7, &frame__print_string_literal_4, 1197, 1197, 10, 30},
-  {cont__print_string_literal_8, &frame__print_string_literal_4, 1197, 1197, 10, 61},
-  {cont__print_string_literal_9, &frame__print_string_literal_4, 1197, 1199, 7, 24},
-  {entry__print_string_literal_2, NULL, 1196, 1196, 12, 34},
-  {cont__print_string_literal_3, &frame__print_string_literal_2, 1196, 1199, 5, 25},
-  {entry__print_string_literal_15, NULL, 1202, 1202, 24, 31},
-  {cont__print_string_literal_16, &frame__print_string_literal_15, 1202, 1202, 8, 41},
-  {cont__print_string_literal_17, &frame__print_string_literal_15, 1202, 1202, 5, 41},
-  {entry__print_string_literal_23, NULL, 1209, 1209, 13, 16},
-  {entry__print_string_literal_24, NULL, 1210, 1210, 13, 16},
-  {entry__print_string_literal_34, NULL, 1219, 1219, 26, 32},
-  {cont__print_string_literal_35, &frame__print_string_literal_34, 1219, 1219, 26, 39},
-  {cont__print_string_literal_36, &frame__print_string_literal_34, 1219, 1219, 26, 39},
-  {cont__print_string_literal_37, &frame__print_string_literal_34, 1219, 1219, 26, 39},
-  {entry__print_string_literal_39, NULL, 1219, 1219, 66, 66},
-  {entry__print_string_literal_50, NULL, 1227, 1227, 17, 28},
-  {cont__print_string_literal_51, &frame__print_string_literal_50, 1228, 1228, 17, 24},
-  {cont__print_string_literal_52, &frame__print_string_literal_50, 1228, 1228, 24, 24},
-  {entry__print_string_literal_46, NULL, 1225, 1225, 15, 22},
-  {cont__print_string_literal_47, &frame__print_string_literal_46, 1226, 1226, 18, 26},
-  {cont__print_string_literal_48, &frame__print_string_literal_46, 1226, 1226, 18, 34},
-  {cont__print_string_literal_49, &frame__print_string_literal_46, 1226, 1228, 15, 24},
-  {cont__print_string_literal_53, &frame__print_string_literal_46, 1229, 1229, 18, 26},
-  {cont__print_string_literal_54, &frame__print_string_literal_46, 1229, 1229, 18, 38},
-  {cont__print_string_literal_55, &frame__print_string_literal_46, 1229, 1229, 18, 38},
-  {cont__print_string_literal_56, &frame__print_string_literal_46, 1229, 1229, 15, 38},
-  {entry__print_string_literal_45, NULL, 1224, 1229, 13, 38},
-  {entry__print_string_literal_62, NULL, 1235, 1235, 17, 31},
-  {cont__print_string_literal_63, &frame__print_string_literal_62, 1236, 1236, 17, 24},
-  {cont__print_string_literal_64, &frame__print_string_literal_62, 1236, 1236, 24, 24},
-  {entry__print_string_literal_68, NULL, 1238, 1238, 17, 39},
-  {cont__print_string_literal_69, &frame__print_string_literal_68, 1239, 1239, 17, 24},
-  {cont__print_string_literal_70, &frame__print_string_literal_68, 1239, 1239, 24, 24},
-  {entry__print_string_literal_58, NULL, 1233, 1233, 15, 22},
-  {cont__print_string_literal_59, &frame__print_string_literal_58, 1234, 1234, 18, 26},
-  {cont__print_string_literal_60, &frame__print_string_literal_58, 1234, 1234, 18, 33},
-  {cont__print_string_literal_61, &frame__print_string_literal_58, 1234, 1236, 15, 24},
-  {cont__print_string_literal_65, &frame__print_string_literal_58, 1237, 1237, 18, 26},
-  {cont__print_string_literal_66, &frame__print_string_literal_58, 1237, 1237, 18, 38},
-  {cont__print_string_literal_67, &frame__print_string_literal_58, 1237, 1239, 15, 24},
-  {cont__print_string_literal_71, &frame__print_string_literal_58, 1240, 1240, 18, 26},
-  {cont__print_string_literal_72, &frame__print_string_literal_58, 1240, 1240, 18, 33},
-  {cont__print_string_literal_73, &frame__print_string_literal_58, 1240, 1240, 18, 33},
-  {cont__print_string_literal_74, &frame__print_string_literal_58, 1240, 1240, 15, 33},
-  {entry__print_string_literal_57, NULL, 1232, 1240, 13, 33},
-  {entry__print_string_literal_87, NULL, 1249, 1249, 46, 53},
-  {cont__print_string_literal_88, &frame__print_string_literal_87, 1249, 1249, 53, 53},
-  {entry__print_string_literal_83, NULL, 1249, 1249, 28, 36},
-  {cont__print_string_literal_84, &frame__print_string_literal_83, 1249, 1249, 28, 43},
-  {cont__print_string_literal_85, &frame__print_string_literal_83, 1249, 1249, 28, 43},
-  {cont__print_string_literal_86, &frame__print_string_literal_83, 1249, 1249, 25, 53},
-  {entry__print_string_literal_82, NULL, 1249, 1249, 19, 53},
-  {entry__print_string_literal_79, NULL, 1246, 1246, 17, 25},
-  {cont__print_string_literal_80, &frame__print_string_literal_79, 1246, 1246, 17, 32},
-  {cont__print_string_literal_81, &frame__print_string_literal_79, 1245, 1249, 15, 54},
-  {entry__print_string_literal_75, NULL, 1243, 1243, 13, 20},
-  {cont__print_string_literal_76, &frame__print_string_literal_75, 1244, 1244, 20, 28},
-  {cont__print_string_literal_77, &frame__print_string_literal_75, 1244, 1244, 20, 36},
-  {cont__print_string_literal_78, &frame__print_string_literal_75, 1244, 1249, 13, 55},
-  {entry__print_string_literal_94, NULL, 1258, 1258, 35, 35},
-  {entry__print_string_literal_101, NULL, 1264, 1264, 45, 53},
-  {cont__print_string_literal_102, &frame__print_string_literal_101, 1264, 1264, 45, 60},
-  {cont__print_string_literal_103, &frame__print_string_literal_101, 1264, 1264, 45, 60},
-  {entry__print_string_literal_105, NULL, 1265, 1265, 43, 43},
-  {entry__print_string_literal_99, NULL, 1264, 1264, 26, 40},
-  {cont__print_string_literal_100, &frame__print_string_literal_99, 1264, 1264, 26, 60},
-  {cont__print_string_literal_104, &frame__print_string_literal_99, 1264, 1265, 23, 43},
-  {entry__print_string_literal_108, NULL, 1266, 1266, 73, 73},
-  {entry__print_string_literal_106, NULL, 1266, 1266, 26, 52},
-  {cont__print_string_literal_107, &frame__print_string_literal_106, 1266, 1266, 23, 73},
-  {entry__print_string_literal_97, NULL, 1262, 1262, 21, 32},
-  {cont__print_string_literal_98, &frame__print_string_literal_97, 1263, 1266, 21, 73},
-  {entry__print_string_literal_109, NULL, 1268, 1268, 39, 39},
-  {entry__print_string_literal_95, NULL, 1261, 1261, 19, 29},
-  {cont__print_string_literal_96, &frame__print_string_literal_95, 1260, 1268, 17, 40},
-  {entry__print_string_literal_91, NULL, 1255, 1255, 13, 26},
-  {cont__print_string_literal_92, &frame__print_string_literal_91, 1257, 1257, 15, 24},
-  {cont__print_string_literal_93, &frame__print_string_literal_91, 1256, 1268, 13, 42},
-  {cont__print_string_literal_110, &frame__print_string_literal_91, 1269, 1269, 13, 20},
-  {cont__print_string_literal_111, &frame__print_string_literal_91, 1269, 1269, 20, 20},
-  {entry__print_string_literal_89, NULL, 1254, 1254, 20, 34},
-  {cont__print_string_literal_90, &frame__print_string_literal_89, 1254, 1269, 17, 20},
-  {entry__print_string_literal_114, NULL, 1270, 1270, 72, 72},
-  {entry__print_string_literal_44, NULL, 1254, 1269, 11, 20},
-  {cont__print_string_literal_112, &frame__print_string_literal_44, 1270, 1270, 14, 40},
-  {cont__print_string_literal_113, &frame__print_string_literal_44, 1270, 1270, 11, 72},
-  {cont__print_string_literal_115, &frame__print_string_literal_44, 1271, 1271, 34, 61},
-  {cont__print_string_literal_116, &frame__print_string_literal_44, 1271, 1271, 29, 67},
-  {cont__print_string_literal_117, &frame__print_string_literal_44, 1271, 1271, 11, 67},
-  {cont__print_string_literal_118, &frame__print_string_literal_44, 1272, 1272, 23, 38},
-  {cont__print_string_literal_119, &frame__print_string_literal_44, 1272, 1272, 41, 41},
-  {cont__print_string_literal_120, &frame__print_string_literal_44, 1272, 1272, 11, 41},
-  {cont__print_string_literal_121, &frame__print_string_literal_44, 1272, 1272, 41, 41},
-  {entry__print_string_literal_41, NULL, 1220, 1220, 18, 32},
-  {cont__print_string_literal_42, &frame__print_string_literal_41, 1220, 1220, 18, 44},
-  {cont__print_string_literal_43, &frame__print_string_literal_41, 1220, 1272, 15, 41},
-  {entry__print_string_literal_31, NULL, 1219, 1219, 12, 21},
-  {cont__print_string_literal_32, &frame__print_string_literal_31, 1219, 1219, 12, 21},
-  {cont__print_string_literal_33, &frame__print_string_literal_31, 1219, 1219, 12, 39},
-  {cont__print_string_literal_38, &frame__print_string_literal_31, 1219, 1219, 9, 66},
-  {cont__print_string_literal_40, &frame__print_string_literal_31, 1220, 1272, 9, 41},
-  {cont__print_string_literal_122, &frame__print_string_literal_31, 1273, 1273, 9, 30},
-  {cont__print_string_literal_123, &frame__print_string_literal_31, 1273, 1273, 30, 30},
-  {entry__print_string_literal_125, NULL, 1280, 1280, 9, 23},
-  {cont__print_string_literal_127, &frame__print_string_literal_125, 1280, 1280, 23, 23},
-  {entry__print_string_literal_132, NULL, 1286, 1286, 17, 17},
-  {cont__print_string_literal_133, &frame__print_string_literal_132, 1286, 1286, 9, 18},
-  {cont__print_string_literal_135, &frame__print_string_literal_132, 1286, 1286, 24, 24},
-  {entry__print_string_literal_139, NULL, 1291, 1291, 23, 23},
-  {entry__print_string_literal_141, NULL, 1293, 1293, 30, 43},
-  {cont__print_string_literal_142, &frame__print_string_literal_141, 1293, 1293, 11, 53},
-  {cont__print_string_literal_143, &frame__print_string_literal_141, 1294, 1294, 11, 24},
-  {cont__print_string_literal_144, &frame__print_string_literal_141, 1294, 1294, 24, 24},
-  {entry__print_string_literal_150, NULL, 1299, 1299, 11, 33},
-  {cont__print_string_literal_151, &frame__print_string_literal_150, 1300, 1300, 11, 26},
-  {cont__print_string_literal_152, &frame__print_string_literal_150, 1300, 1300, 26, 26},
-  {entry__print_string_literal_147, NULL, 1297, 1297, 9, 24},
-  {cont__print_string_literal_148, &frame__print_string_literal_147, 1298, 1298, 16, 25},
-  {cont__print_string_literal_149, &frame__print_string_literal_147, 1298, 1300, 9, 26},
-  {entry__print_string_literal_18, NULL, 1206, 1206, 15, 42},
-  {cont__print_string_literal_19, &frame__print_string_literal_18, 1206, 1206, 11, 46},
-  {cont__print_string_literal_20, &frame__print_string_literal_18, 1208, 1208, 13, 42},
-  {cont__print_string_literal_21, &frame__print_string_literal_18, 1208, 1208, 13, 42},
+  {cont__analyze_string_literal_69, &frame__analyze_string_literal_62, 1184, 1190, 7, 18},
+  {cont__analyze_string_literal_70, &frame__analyze_string_literal_62, 1192, 1192, 14, 27},
+  {cont__analyze_string_literal_71, &frame__analyze_string_literal_62, 1192, 1192, 14, 61},
+  {cont__analyze_string_literal_77, &frame__analyze_string_literal_62, 1192, 1192, 7, 79},
+  {cont__analyze_string_literal_79, &frame__analyze_string_literal_62, 1193, 1197, 7, 40},
+  {entry__analyze_string_literal, NULL, 1127, 1127, 6, 15},
+  {cont__analyze_string_literal_2, &frame__analyze_string_literal, 1127, 1129, 3, 10},
+  {cont__analyze_string_literal_5, &frame__analyze_string_literal, 1130, 1130, 21, 32},
+  {cont__analyze_string_literal_6, &frame__analyze_string_literal, 1130, 1130, 6, 32},
+  {cont__analyze_string_literal_7, &frame__analyze_string_literal, 1130, 1134, 3, 10},
+  {cont__analyze_string_literal_13, &frame__analyze_string_literal, 1136, 1136, 25, 47},
+  {cont__analyze_string_literal_14, &frame__analyze_string_literal, 1136, 1136, 3, 71},
+  {cont__analyze_string_literal_19, &frame__analyze_string_literal, 1139, 1174, 3, 21},
+  {cont__analyze_string_literal_56, &frame__analyze_string_literal, 1175, 1175, 30, 30},
+  {cont__analyze_string_literal_57, &frame__analyze_string_literal, 1175, 1175, 16, 31},
+  {cont__analyze_string_literal_58, &frame__analyze_string_literal, 1175, 1175, 3, 31},
+  {cont__analyze_string_literal_59, &frame__analyze_string_literal, 1177, 1177, 5, 14},
+  {cont__analyze_string_literal_60, &frame__analyze_string_literal, 1176, 1197, 3, 42},
+  {cont__analyze_string_literal_85, &frame__analyze_string_literal, 1197, 1197, 42, 42},
+  {entry__print_string_literal_10, NULL, 1203, 1203, 15, 22},
+  {cont__print_string_literal_11, &frame__print_string_literal_10, 1203, 1203, 9, 27},
+  {cont__print_string_literal_12, &frame__print_string_literal_10, 1203, 1203, 14, 22},
+  {cont__print_string_literal_13, &frame__print_string_literal_10, 1204, 1204, 24, 24},
+  {entry__print_string_literal_4, NULL, 1202, 1202, 34, 61},
+  {cont__print_string_literal_5, &frame__print_string_literal_4, 1202, 1202, 20, 27},
+  {cont__print_string_literal_6, &frame__print_string_literal_4, 1202, 1202, 10, 28},
+  {cont__print_string_literal_7, &frame__print_string_literal_4, 1202, 1202, 10, 30},
+  {cont__print_string_literal_8, &frame__print_string_literal_4, 1202, 1202, 10, 61},
+  {cont__print_string_literal_9, &frame__print_string_literal_4, 1202, 1204, 7, 24},
+  {entry__print_string_literal_2, NULL, 1201, 1201, 12, 34},
+  {cont__print_string_literal_3, &frame__print_string_literal_2, 1201, 1204, 5, 25},
+  {entry__print_string_literal_15, NULL, 1207, 1207, 24, 31},
+  {cont__print_string_literal_16, &frame__print_string_literal_15, 1207, 1207, 8, 41},
+  {cont__print_string_literal_17, &frame__print_string_literal_15, 1207, 1207, 5, 41},
+  {entry__print_string_literal_23, NULL, 1214, 1214, 13, 16},
+  {entry__print_string_literal_24, NULL, 1215, 1215, 13, 16},
+  {entry__print_string_literal_34, NULL, 1224, 1224, 26, 32},
+  {cont__print_string_literal_35, &frame__print_string_literal_34, 1224, 1224, 26, 39},
+  {cont__print_string_literal_36, &frame__print_string_literal_34, 1224, 1224, 26, 39},
+  {cont__print_string_literal_37, &frame__print_string_literal_34, 1224, 1224, 26, 39},
+  {entry__print_string_literal_39, NULL, 1224, 1224, 66, 66},
+  {entry__print_string_literal_50, NULL, 1232, 1232, 17, 28},
+  {cont__print_string_literal_51, &frame__print_string_literal_50, 1233, 1233, 17, 24},
+  {cont__print_string_literal_52, &frame__print_string_literal_50, 1233, 1233, 24, 24},
+  {entry__print_string_literal_46, NULL, 1230, 1230, 15, 22},
+  {cont__print_string_literal_47, &frame__print_string_literal_46, 1231, 1231, 18, 26},
+  {cont__print_string_literal_48, &frame__print_string_literal_46, 1231, 1231, 18, 34},
+  {cont__print_string_literal_49, &frame__print_string_literal_46, 1231, 1233, 15, 24},
+  {cont__print_string_literal_53, &frame__print_string_literal_46, 1234, 1234, 18, 26},
+  {cont__print_string_literal_54, &frame__print_string_literal_46, 1234, 1234, 18, 38},
+  {cont__print_string_literal_55, &frame__print_string_literal_46, 1234, 1234, 18, 38},
+  {cont__print_string_literal_56, &frame__print_string_literal_46, 1234, 1234, 15, 38},
+  {entry__print_string_literal_45, NULL, 1229, 1234, 13, 38},
+  {entry__print_string_literal_62, NULL, 1240, 1240, 17, 31},
+  {cont__print_string_literal_63, &frame__print_string_literal_62, 1241, 1241, 17, 24},
+  {cont__print_string_literal_64, &frame__print_string_literal_62, 1241, 1241, 24, 24},
+  {entry__print_string_literal_68, NULL, 1243, 1243, 17, 39},
+  {cont__print_string_literal_69, &frame__print_string_literal_68, 1244, 1244, 17, 24},
+  {cont__print_string_literal_70, &frame__print_string_literal_68, 1244, 1244, 24, 24},
+  {entry__print_string_literal_58, NULL, 1238, 1238, 15, 22},
+  {cont__print_string_literal_59, &frame__print_string_literal_58, 1239, 1239, 18, 26},
+  {cont__print_string_literal_60, &frame__print_string_literal_58, 1239, 1239, 18, 33},
+  {cont__print_string_literal_61, &frame__print_string_literal_58, 1239, 1241, 15, 24},
+  {cont__print_string_literal_65, &frame__print_string_literal_58, 1242, 1242, 18, 26},
+  {cont__print_string_literal_66, &frame__print_string_literal_58, 1242, 1242, 18, 38},
+  {cont__print_string_literal_67, &frame__print_string_literal_58, 1242, 1244, 15, 24},
+  {cont__print_string_literal_71, &frame__print_string_literal_58, 1245, 1245, 18, 26},
+  {cont__print_string_literal_72, &frame__print_string_literal_58, 1245, 1245, 18, 33},
+  {cont__print_string_literal_73, &frame__print_string_literal_58, 1245, 1245, 18, 33},
+  {cont__print_string_literal_74, &frame__print_string_literal_58, 1245, 1245, 15, 33},
+  {entry__print_string_literal_57, NULL, 1237, 1245, 13, 33},
+  {entry__print_string_literal_87, NULL, 1254, 1254, 46, 53},
+  {cont__print_string_literal_88, &frame__print_string_literal_87, 1254, 1254, 53, 53},
+  {entry__print_string_literal_83, NULL, 1254, 1254, 28, 36},
+  {cont__print_string_literal_84, &frame__print_string_literal_83, 1254, 1254, 28, 43},
+  {cont__print_string_literal_85, &frame__print_string_literal_83, 1254, 1254, 28, 43},
+  {cont__print_string_literal_86, &frame__print_string_literal_83, 1254, 1254, 25, 53},
+  {entry__print_string_literal_82, NULL, 1254, 1254, 19, 53},
+  {entry__print_string_literal_79, NULL, 1251, 1251, 17, 25},
+  {cont__print_string_literal_80, &frame__print_string_literal_79, 1251, 1251, 17, 32},
+  {cont__print_string_literal_81, &frame__print_string_literal_79, 1250, 1254, 15, 54},
+  {entry__print_string_literal_75, NULL, 1248, 1248, 13, 20},
+  {cont__print_string_literal_76, &frame__print_string_literal_75, 1249, 1249, 20, 28},
+  {cont__print_string_literal_77, &frame__print_string_literal_75, 1249, 1249, 20, 36},
+  {cont__print_string_literal_78, &frame__print_string_literal_75, 1249, 1254, 13, 55},
+  {entry__print_string_literal_94, NULL, 1263, 1263, 35, 35},
+  {entry__print_string_literal_101, NULL, 1269, 1269, 45, 53},
+  {cont__print_string_literal_102, &frame__print_string_literal_101, 1269, 1269, 45, 60},
+  {cont__print_string_literal_103, &frame__print_string_literal_101, 1269, 1269, 45, 60},
+  {entry__print_string_literal_105, NULL, 1270, 1270, 43, 43},
+  {entry__print_string_literal_99, NULL, 1269, 1269, 26, 40},
+  {cont__print_string_literal_100, &frame__print_string_literal_99, 1269, 1269, 26, 60},
+  {cont__print_string_literal_104, &frame__print_string_literal_99, 1269, 1270, 23, 43},
+  {entry__print_string_literal_108, NULL, 1271, 1271, 73, 73},
+  {entry__print_string_literal_106, NULL, 1271, 1271, 26, 52},
+  {cont__print_string_literal_107, &frame__print_string_literal_106, 1271, 1271, 23, 73},
+  {entry__print_string_literal_97, NULL, 1267, 1267, 21, 32},
+  {cont__print_string_literal_98, &frame__print_string_literal_97, 1268, 1271, 21, 73},
+  {entry__print_string_literal_109, NULL, 1273, 1273, 39, 39},
+  {entry__print_string_literal_95, NULL, 1266, 1266, 19, 29},
+  {cont__print_string_literal_96, &frame__print_string_literal_95, 1265, 1273, 17, 40},
+  {entry__print_string_literal_91, NULL, 1260, 1260, 13, 26},
+  {cont__print_string_literal_92, &frame__print_string_literal_91, 1262, 1262, 15, 24},
+  {cont__print_string_literal_93, &frame__print_string_literal_91, 1261, 1273, 13, 42},
+  {cont__print_string_literal_110, &frame__print_string_literal_91, 1274, 1274, 13, 20},
+  {cont__print_string_literal_111, &frame__print_string_literal_91, 1274, 1274, 20, 20},
+  {entry__print_string_literal_89, NULL, 1259, 1259, 20, 34},
+  {cont__print_string_literal_90, &frame__print_string_literal_89, 1259, 1274, 17, 20},
+  {entry__print_string_literal_114, NULL, 1275, 1275, 72, 72},
+  {entry__print_string_literal_44, NULL, 1259, 1274, 11, 20},
+  {cont__print_string_literal_112, &frame__print_string_literal_44, 1275, 1275, 14, 40},
+  {cont__print_string_literal_113, &frame__print_string_literal_44, 1275, 1275, 11, 72},
+  {cont__print_string_literal_115, &frame__print_string_literal_44, 1276, 1276, 34, 61},
+  {cont__print_string_literal_116, &frame__print_string_literal_44, 1276, 1276, 29, 67},
+  {cont__print_string_literal_117, &frame__print_string_literal_44, 1276, 1276, 11, 67},
+  {cont__print_string_literal_118, &frame__print_string_literal_44, 1277, 1277, 23, 38},
+  {cont__print_string_literal_119, &frame__print_string_literal_44, 1277, 1277, 41, 41},
+  {cont__print_string_literal_120, &frame__print_string_literal_44, 1277, 1277, 11, 41},
+  {cont__print_string_literal_121, &frame__print_string_literal_44, 1277, 1277, 41, 41},
+  {entry__print_string_literal_41, NULL, 1225, 1225, 18, 32},
+  {cont__print_string_literal_42, &frame__print_string_literal_41, 1225, 1225, 18, 44},
+  {cont__print_string_literal_43, &frame__print_string_literal_41, 1225, 1277, 15, 41},
+  {entry__print_string_literal_31, NULL, 1224, 1224, 12, 21},
+  {cont__print_string_literal_32, &frame__print_string_literal_31, 1224, 1224, 12, 21},
+  {cont__print_string_literal_33, &frame__print_string_literal_31, 1224, 1224, 12, 39},
+  {cont__print_string_literal_38, &frame__print_string_literal_31, 1224, 1224, 9, 66},
+  {cont__print_string_literal_40, &frame__print_string_literal_31, 1225, 1277, 9, 41},
+  {cont__print_string_literal_122, &frame__print_string_literal_31, 1278, 1278, 9, 30},
+  {cont__print_string_literal_123, &frame__print_string_literal_31, 1278, 1278, 30, 30},
+  {entry__print_string_literal_125, NULL, 1285, 1285, 9, 23},
+  {cont__print_string_literal_127, &frame__print_string_literal_125, 1285, 1285, 23, 23},
+  {entry__print_string_literal_132, NULL, 1291, 1291, 17, 17},
+  {cont__print_string_literal_133, &frame__print_string_literal_132, 1291, 1291, 9, 18},
+  {cont__print_string_literal_135, &frame__print_string_literal_132, 1291, 1291, 24, 24},
+  {entry__print_string_literal_139, NULL, 1296, 1296, 23, 23},
+  {entry__print_string_literal_141, NULL, 1298, 1298, 30, 43},
+  {cont__print_string_literal_142, &frame__print_string_literal_141, 1298, 1298, 11, 53},
+  {cont__print_string_literal_143, &frame__print_string_literal_141, 1299, 1299, 11, 24},
+  {cont__print_string_literal_144, &frame__print_string_literal_141, 1299, 1299, 24, 24},
+  {entry__print_string_literal_150, NULL, 1304, 1304, 11, 33},
+  {cont__print_string_literal_151, &frame__print_string_literal_150, 1305, 1305, 11, 26},
+  {cont__print_string_literal_152, &frame__print_string_literal_150, 1305, 1305, 26, 26},
+  {entry__print_string_literal_147, NULL, 1302, 1302, 9, 24},
+  {cont__print_string_literal_148, &frame__print_string_literal_147, 1303, 1303, 16, 25},
+  {cont__print_string_literal_149, &frame__print_string_literal_147, 1303, 1305, 9, 26},
+  {entry__print_string_literal_18, NULL, 1211, 1211, 15, 42},
+  {cont__print_string_literal_19, &frame__print_string_literal_18, 1211, 1211, 11, 46},
+  {cont__print_string_literal_20, &frame__print_string_literal_18, 1213, 1213, 13, 42},
+  {cont__print_string_literal_21, &frame__print_string_literal_18, 1213, 1213, 13, 42},
   {cont__print_string_literal_22, &frame__print_string_literal_18, },
-  {cont__print_string_literal_25, &frame__print_string_literal_18, 1204, 1210, 7, 18},
-  {cont__print_string_literal_26, &frame__print_string_literal_18, 1212, 1212, 35, 35},
-  {cont__print_string_literal_27, &frame__print_string_literal_18, 1212, 1212, 28, 36},
-  {cont__print_string_literal_28, &frame__print_string_literal_18, 1212, 1212, 28, 42},
-  {cont__print_string_literal_29, &frame__print_string_literal_18, 1212, 1215, 7, 32},
-  {cont__print_string_literal_30, &frame__print_string_literal_18, 1218, 1273, 7, 30},
-  {cont__print_string_literal_124, &frame__print_string_literal_18, 1275, 1280, 7, 23},
-  {cont__print_string_literal_128, &frame__print_string_literal_18, 1281, 1281, 17, 17},
-  {cont__print_string_literal_129, &frame__print_string_literal_18, 1281, 1281, 10, 18},
-  {cont__print_string_literal_130, &frame__print_string_literal_18, 1281, 1281, 10, 24},
-  {cont__print_string_literal_131, &frame__print_string_literal_18, 1281, 1286, 7, 24},
-  {cont__print_string_literal_136, &frame__print_string_literal_18, 1290, 1290, 9, 38},
-  {cont__print_string_literal_137, &frame__print_string_literal_18, 1290, 1290, 9, 38},
-  {cont__print_string_literal_138, &frame__print_string_literal_18, 1289, 1294, 7, 25},
-  {cont__print_string_literal_145, &frame__print_string_literal_18, 1295, 1295, 7, 33},
-  {cont__print_string_literal_146, &frame__print_string_literal_18, 1296, 1300, 7, 27},
-  {cont__print_string_literal_153, &frame__print_string_literal_18, 1301, 1301, 7, 12},
-  {entry__print_string_literal, NULL, 1195, 1199, 3, 26},
-  {cont__print_string_literal_14, &frame__print_string_literal, 1200, 1301, 3, 13},
-  {entry__string_template_to_string_4, NULL, 1310, 1310, 9, 71},
-  {cont__string_template_to_string_5, &frame__string_template_to_string_4, 1310, 1310, 71, 71},
-  {entry__string_template_to_string_7, NULL, 1314, 1314, 21, 28},
-  {cont__string_template_to_string_8, &frame__string_template_to_string_7, 1314, 1314, 13, 63},
-  {cont__string_template_to_string_9, &frame__string_template_to_string_7, 1314, 1314, 20, 28},
-  {cont__string_template_to_string_10, &frame__string_template_to_string_7, 1314, 1314, 63, 63},
-  {entry__string_template_to_string_16, NULL, 1323, 1323, 48, 48},
-  {cont__string_template_to_string_17, &frame__string_template_to_string_16, 1323, 1323, 41, 49},
-  {cont__string_template_to_string_18, &frame__string_template_to_string_16, 1323, 1323, 54, 54},
-  {cont__string_template_to_string_19, &frame__string_template_to_string_16, 1323, 1323, 35, 55},
-  {cont__string_template_to_string_20, &frame__string_template_to_string_16, 1323, 1323, 17, 61},
-  {cont__string_template_to_string_21, &frame__string_template_to_string_16, 1323, 1323, 25, 25},
-  {cont__string_template_to_string_22, &frame__string_template_to_string_16, 1323, 1323, 17, 26},
-  {cont__string_template_to_string_23, &frame__string_template_to_string_16, 1323, 1323, 61, 61},
-  {entry__string_template_to_string_24, NULL, 1327, 1327, 17, 32},
-  {cont__string_template_to_string_25, &frame__string_template_to_string_24, 1327, 1327, 32, 32},
-  {entry__string_template_to_string_11, NULL, 1316, 1316, 13, 77},
-  {cont__string_template_to_string_12, &frame__string_template_to_string_11, 1318, 1318, 22, 22},
-  {cont__string_template_to_string_13, &frame__string_template_to_string_11, 1318, 1318, 15, 23},
-  {cont__string_template_to_string_14, &frame__string_template_to_string_11, 1318, 1318, 15, 41},
-  {cont__string_template_to_string_15, &frame__string_template_to_string_11, 1317, 1327, 13, 33},
-  {entry__string_template_to_string_6, NULL, 1312, 1327, 9, 35},
-  {entry__string_template_to_string_2, NULL, 1309, 1309, 7, 20},
-  {cont__string_template_to_string_3, &frame__string_template_to_string_2, 1308, 1327, 5, 37},
-  {entry__string_template_to_string_28, NULL, 1332, 1332, 25, 25},
-  {entry__string_template_to_string_30, NULL, 1338, 1338, 35, 42},
-  {cont__string_template_to_string_31, &frame__string_template_to_string_30, 1338, 1338, 44, 56},
-  {cont__string_template_to_string_32, &frame__string_template_to_string_30, 1338, 1338, 13, 57},
-  {cont__string_template_to_string_33, &frame__string_template_to_string_30, 1338, 1338, 13, 26},
-  {cont__string_template_to_string_34, &frame__string_template_to_string_30, 1339, 1339, 29, 29},
-  {entry__string_template_to_string_35, NULL, 1350, 1350, 44, 44},
-  {cont__string_template_to_string_36, &frame__string_template_to_string_35, 1350, 1350, 37, 45},
-  {cont__string_template_to_string_37, &frame__string_template_to_string_35, 1350, 1350, 50, 50},
-  {cont__string_template_to_string_38, &frame__string_template_to_string_35, 1350, 1350, 31, 51},
-  {cont__string_template_to_string_39, &frame__string_template_to_string_35, 1350, 1350, 53, 65},
-  {cont__string_template_to_string_40, &frame__string_template_to_string_35, 1350, 1350, 13, 66},
-  {cont__string_template_to_string_41, &frame__string_template_to_string_35, 1350, 1350, 21, 21},
-  {cont__string_template_to_string_42, &frame__string_template_to_string_35, 1350, 1350, 13, 22},
-  {cont__string_template_to_string_43, &frame__string_template_to_string_35, 1351, 1351, 47, 47},
-  {cont__string_template_to_string_44, &frame__string_template_to_string_35, 1351, 1351, 27, 48},
-  {cont__string_template_to_string_45, &frame__string_template_to_string_35, 1351, 1351, 13, 48},
-  {cont__string_template_to_string_46, &frame__string_template_to_string_35, 1351, 1351, 48, 48},
-  {entry__string_template_to_string_29, NULL, 1334, 1351, 9, 49},
-  {entry__string_template_to_string_26, NULL, 1331, 1331, 7, 20},
-  {cont__string_template_to_string_27, &frame__string_template_to_string_26, 1330, 1351, 5, 51},
-  {cont__string_template_to_string_47, &frame__string_template_to_string_26, 1352, 1352, 29, 29},
-  {entry__string_template_to_string_54, NULL, 1362, 1362, 22, 34},
-  {cont__string_template_to_string_55, &frame__string_template_to_string_54, 1362, 1362, 13, 34},
-  {entry__string_template_to_string_56, NULL, 1364, 1364, 13, 32},
-  {entry__string_template_to_string_51, NULL, 1359, 1359, 55, 77},
-  {cont__string_template_to_string_52, &frame__string_template_to_string_51, 1359, 1359, 9, 77},
-  {cont__string_template_to_string_53, &frame__string_template_to_string_51, 1360, 1364, 9, 33},
-  {entry__string_template_to_string_57, NULL, 1367, 1367, 31, 48},
-  {cont__string_template_to_string_58, &frame__string_template_to_string_57, 1367, 1367, 18, 53},
-  {cont__string_template_to_string_60, &frame__string_template_to_string_57, 1367, 1367, 9, 53},
-  {cont__string_template_to_string_61, &frame__string_template_to_string_57, 1367, 1367, 53, 53},
-  {entry__string_template_to_string_49, NULL, 1358, 1358, 7, 34},
-  {cont__string_template_to_string_50, &frame__string_template_to_string_49, 1357, 1367, 5, 54},
-  {entry__string_template_to_string_67, NULL, 1368, 1368, 54, 54},
-  {cont__string_template_to_string_68, &frame__string_template_to_string_67, 1368, 1368, 47, 55},
-  {cont__string_template_to_string_69, &frame__string_template_to_string_67, 1368, 1368, 60, 60},
-  {cont__string_template_to_string_70, &frame__string_template_to_string_67, 1368, 1368, 40, 78},
-  {cont__string_template_to_string_71, &frame__string_template_to_string_67, 1368, 1368, 54, 54},
-  {cont__string_template_to_string_72, &frame__string_template_to_string_67, 1368, 1368, 46, 55},
-  {cont__string_template_to_string_73, &frame__string_template_to_string_67, 1368, 1368, 78, 78},
-  {entry__string_template_to_string, NULL, 1356, 1356, 12, 29},
-  {cont__string_template_to_string_48, &frame__string_template_to_string, 1356, 1367, 3, 55},
-  {cont__string_template_to_string_62, &frame__string_template_to_string, 1368, 1368, 13, 13},
-  {cont__string_template_to_string_63, &frame__string_template_to_string, 1368, 1368, 6, 14},
-  {cont__string_template_to_string_64, &frame__string_template_to_string, 1368, 1368, 6, 37},
-  {cont__string_template_to_string_66, &frame__string_template_to_string, 1368, 1368, 3, 78},
-  {cont__string_template_to_string_74, &frame__string_template_to_string, 1369, 1369, 3, 47},
-  {entry__compiler__string_literal___to_string, NULL, 1372, 1372, 44, 62},
-  {cont__compiler__string_literal___to_string_2, &frame__compiler__string_literal___to_string, 1372, 1372, 3, 62},
-  {cont__compiler__string_literal___to_string_3, &frame__compiler__string_literal___to_string, 1373, 1373, 3, 38},
-  {entry__compiler__unique_item___to_string, NULL, 1378, 1378, 43, 48},
-  {entry__compiler__polymorphic_function__to_string_3, NULL, 1386, 1386, 5, 12},
-  {entry__compiler__polymorphic_function__to_string_5, NULL, 1387, 1387, 5, 11},
-  {entry__compiler__polymorphic_function___to_string, NULL, 1385, 1385, 5, 20},
-  {cont__compiler__polymorphic_function___to_string_2, &frame__compiler__polymorphic_function___to_string, 1384, 1387, 3, 11},
-  {entry__compiler__identifier__to_string_5, NULL, 1396, 1396, 17, 34},
-  {cont__compiler__identifier__to_string_6, &frame__compiler__identifier__to_string_5, 1396, 1396, 41, 53},
-  {cont__compiler__identifier__to_string_7, &frame__compiler__identifier__to_string_5, 1396, 1396, 10, 54},
-  {cont__compiler__identifier__to_string_9, &frame__compiler__identifier__to_string_5, 1396, 1396, 7, 54},
-  {entry__compiler__identifier__to_string_2, NULL, 1395, 1395, 7, 24},
-  {cont__compiler__identifier__to_string_3, &frame__compiler__identifier__to_string_2, 1395, 1395, 7, 35},
-  {cont__compiler__identifier__to_string_4, &frame__compiler__identifier__to_string_2, 1394, 1396, 5, 54},
-  {entry__compiler__identifier__to_string_12, NULL, 1397, 1397, 39, 51},
-  {cont__compiler__identifier__to_string_13, &frame__compiler__identifier__to_string_12, 1397, 1397, 28, 52},
-  {cont__compiler__identifier__to_string_14, &frame__compiler__identifier__to_string_12, 1397, 1397, 25, 52},
-  {entry__compiler__identifier__to_string_10, NULL, 1397, 1397, 8, 23},
-  {cont__compiler__identifier__to_string_11, &frame__compiler__identifier__to_string_10, 1397, 1397, 5, 52},
-  {entry__compiler__identifier__to_string_16, NULL, 1398, 1398, 16, 28},
-  {cont__compiler__identifier__to_string_17, &frame__compiler__identifier__to_string_16, 1398, 1398, 13, 28},
-  {entry__compiler__identifier__to_string_15, NULL, 1398, 1398, 5, 28},
-  {entry__compiler__identifier___to_string, NULL, 1393, 1398, 3, 28},
-  {entry__compiler__c_code__to_string_4, NULL, 1412, 1412, 28, 52},
-  {cont__compiler__c_code__to_string_5, &frame__compiler__c_code__to_string_4, 1412, 1412, 14, 61},
-  {cont__compiler__c_code__to_string_7, &frame__compiler__c_code__to_string_4, 1412, 1412, 11, 61},
-  {entry__compiler__c_code__to_string_8, NULL, 1413, 1413, 11, 20},
-  {entry__compiler__c_code__to_string_14, NULL, 1418, 1418, 46, 58},
-  {cont__compiler__c_code__to_string_15, &frame__compiler__c_code__to_string_14, 1418, 1418, 37, 61},
-  {cont__compiler__c_code__to_string_17, &frame__compiler__c_code__to_string_14, 1418, 1418, 9, 61},
-  {cont__compiler__c_code__to_string_18, &frame__compiler__c_code__to_string_14, 1418, 1418, 61, 61},
-  {entry__compiler__c_code__to_string_22, NULL, 1420, 1420, 46, 64},
-  {cont__compiler__c_code__to_string_23, &frame__compiler__c_code__to_string_22, 1420, 1420, 37, 67},
-  {cont__compiler__c_code__to_string_25, &frame__compiler__c_code__to_string_22, 1420, 1420, 9, 67},
-  {cont__compiler__c_code__to_string_26, &frame__compiler__c_code__to_string_22, 1420, 1420, 67, 67},
-  {entry__compiler__c_code__to_string_30, NULL, 1422, 1422, 46, 58},
-  {cont__compiler__c_code__to_string_31, &frame__compiler__c_code__to_string_30, 1422, 1422, 37, 61},
-  {cont__compiler__c_code__to_string_33, &frame__compiler__c_code__to_string_30, 1422, 1422, 9, 61},
-  {cont__compiler__c_code__to_string_34, &frame__compiler__c_code__to_string_30, 1422, 1422, 61, 61},
-  {entry__compiler__c_code__to_string_38, NULL, 1424, 1424, 46, 64},
-  {cont__compiler__c_code__to_string_39, &frame__compiler__c_code__to_string_38, 1424, 1424, 37, 67},
-  {cont__compiler__c_code__to_string_41, &frame__compiler__c_code__to_string_38, 1424, 1424, 9, 67},
-  {cont__compiler__c_code__to_string_42, &frame__compiler__c_code__to_string_38, 1424, 1424, 67, 67},
-  {entry__compiler__c_code__to_string_46, NULL, 1426, 1426, 46, 58},
-  {cont__compiler__c_code__to_string_47, &frame__compiler__c_code__to_string_46, 1426, 1426, 37, 61},
-  {cont__compiler__c_code__to_string_49, &frame__compiler__c_code__to_string_46, 1426, 1426, 9, 61},
-  {cont__compiler__c_code__to_string_50, &frame__compiler__c_code__to_string_46, 1426, 1426, 61, 61},
-  {entry__compiler__c_code__to_string_54, NULL, 1427, 1427, 39, 52},
-  {cont__compiler__c_code__to_string_55, &frame__compiler__c_code__to_string_54, 1427, 1427, 39, 63},
-  {cont__compiler__c_code__to_string_57, &frame__compiler__c_code__to_string_54, 1427, 1427, 39, 63},
-  {cont__compiler__c_code__to_string_58, &frame__compiler__c_code__to_string_54, 1427, 1427, 39, 63},
-  {entry__compiler__c_code__to_string_60, NULL, 1428, 1428, 47, 60},
-  {cont__compiler__c_code__to_string_61, &frame__compiler__c_code__to_string_60, 1428, 1428, 37, 63},
-  {cont__compiler__c_code__to_string_63, &frame__compiler__c_code__to_string_60, 1428, 1428, 9, 63},
-  {cont__compiler__c_code__to_string_64, &frame__compiler__c_code__to_string_60, 1428, 1428, 63, 63},
-  {entry__compiler__c_code__to_string_67, NULL, 1430, 1430, 37, 60},
-  {cont__compiler__c_code__to_string_69, &frame__compiler__c_code__to_string_67, 1430, 1430, 9, 60},
-  {cont__compiler__c_code__to_string_70, &frame__compiler__c_code__to_string_67, 1430, 1430, 60, 60},
-  {entry__compiler__c_code__to_string_77, NULL, 1434, 1434, 11, 54},
-  {cont__compiler__c_code__to_string_79, &frame__compiler__c_code__to_string_77, 1434, 1434, 54, 54},
-  {entry__compiler__c_code__to_string_74, NULL, 1432, 1432, 9, 24},
-  {cont__compiler__c_code__to_string_75, &frame__compiler__c_code__to_string_74, 1433, 1433, 18, 38},
-  {cont__compiler__c_code__to_string_76, &frame__compiler__c_code__to_string_74, 1433, 1434, 9, 54},
-  {entry__compiler__c_code__to_string_86, NULL, 1436, 1436, 32, 46},
-  {cont__compiler__c_code__to_string_87, &frame__compiler__c_code__to_string_86, 1436, 1436, 46, 46},
-  {entry__compiler__c_code__to_string_90, NULL, 1437, 1437, 47, 78},
-  {cont__compiler__c_code__to_string_91, &frame__compiler__c_code__to_string_90, 1437, 1437, 78, 78},
-  {entry__compiler__c_code__to_string_83, NULL, 1436, 1436, 12, 25},
-  {cont__compiler__c_code__to_string_84, &frame__compiler__c_code__to_string_83, 1436, 1436, 12, 29},
-  {cont__compiler__c_code__to_string_85, &frame__compiler__c_code__to_string_83, 1436, 1436, 9, 46},
-  {cont__compiler__c_code__to_string_88, &frame__compiler__c_code__to_string_83, 1437, 1437, 23, 37},
-  {cont__compiler__c_code__to_string_89, &frame__compiler__c_code__to_string_83, 1437, 1437, 9, 78},
-  {entry__compiler__c_code__to_string_2, NULL, 1411, 1411, 11, 31},
-  {cont__compiler__c_code__to_string_3, &frame__compiler__c_code__to_string_2, 1409, 1413, 7, 21},
-  {cont__compiler__c_code__to_string_9, &frame__compiler__c_code__to_string_2, 1415, 1415, 7, 33},
-  {cont__compiler__c_code__to_string_10, &frame__compiler__c_code__to_string_2, 1416, 1416, 7, 33},
-  {cont__compiler__c_code__to_string_11, &frame__compiler__c_code__to_string_2, 1417, 1417, 10, 22},
-  {cont__compiler__c_code__to_string_12, &frame__compiler__c_code__to_string_2, 1417, 1417, 10, 33},
-  {cont__compiler__c_code__to_string_13, &frame__compiler__c_code__to_string_2, 1417, 1418, 7, 61},
-  {cont__compiler__c_code__to_string_19, &frame__compiler__c_code__to_string_2, 1419, 1419, 10, 28},
-  {cont__compiler__c_code__to_string_20, &frame__compiler__c_code__to_string_2, 1419, 1419, 10, 39},
-  {cont__compiler__c_code__to_string_21, &frame__compiler__c_code__to_string_2, 1419, 1420, 7, 67},
-  {cont__compiler__c_code__to_string_27, &frame__compiler__c_code__to_string_2, 1421, 1421, 10, 22},
-  {cont__compiler__c_code__to_string_28, &frame__compiler__c_code__to_string_2, 1421, 1421, 10, 33},
-  {cont__compiler__c_code__to_string_29, &frame__compiler__c_code__to_string_2, 1421, 1422, 7, 61},
-  {cont__compiler__c_code__to_string_35, &frame__compiler__c_code__to_string_2, 1423, 1423, 10, 28},
-  {cont__compiler__c_code__to_string_36, &frame__compiler__c_code__to_string_2, 1423, 1423, 10, 39},
-  {cont__compiler__c_code__to_string_37, &frame__compiler__c_code__to_string_2, 1423, 1424, 7, 67},
-  {cont__compiler__c_code__to_string_43, &frame__compiler__c_code__to_string_2, 1425, 1425, 10, 22},
-  {cont__compiler__c_code__to_string_44, &frame__compiler__c_code__to_string_2, 1425, 1425, 10, 33},
-  {cont__compiler__c_code__to_string_45, &frame__compiler__c_code__to_string_2, 1425, 1426, 7, 61},
-  {cont__compiler__c_code__to_string_51, &frame__compiler__c_code__to_string_2, 1427, 1427, 10, 23},
-  {cont__compiler__c_code__to_string_52, &frame__compiler__c_code__to_string_2, 1427, 1427, 10, 34},
-  {cont__compiler__c_code__to_string_53, &frame__compiler__c_code__to_string_2, 1427, 1427, 10, 63},
-  {cont__compiler__c_code__to_string_59, &frame__compiler__c_code__to_string_2, 1427, 1428, 7, 63},
-  {cont__compiler__c_code__to_string_65, &frame__compiler__c_code__to_string_2, 1429, 1429, 16, 33},
-  {cont__compiler__c_code__to_string_66, &frame__compiler__c_code__to_string_2, 1429, 1430, 7, 60},
-  {cont__compiler__c_code__to_string_71, &frame__compiler__c_code__to_string_2, 1431, 1431, 14, 34},
-  {cont__compiler__c_code__to_string_72, &frame__compiler__c_code__to_string_2, 1431, 1431, 14, 43},
-  {cont__compiler__c_code__to_string_73, &frame__compiler__c_code__to_string_2, 1431, 1434, 7, 55},
-  {cont__compiler__c_code__to_string_80, &frame__compiler__c_code__to_string_2, 1435, 1435, 10, 24},
-  {cont__compiler__c_code__to_string_81, &frame__compiler__c_code__to_string_2, 1435, 1435, 10, 35},
-  {cont__compiler__c_code__to_string_82, &frame__compiler__c_code__to_string_2, 1435, 1437, 7, 78},
-  {cont__compiler__c_code__to_string_92, &frame__compiler__c_code__to_string_2, 1438, 1438, 26, 50},
-  {cont__compiler__c_code__to_string_93, &frame__compiler__c_code__to_string_2, 1438, 1438, 19, 55},
-  {cont__compiler__c_code__to_string_94, &frame__compiler__c_code__to_string_2, 1438, 1438, 7, 55},
-  {cont__compiler__c_code__to_string_95, &frame__compiler__c_code__to_string_2, 1439, 1439, 7, 12},
-  {entry__compiler__c_code__to_string_96, NULL, 1407, 1407, 5, 14},
-  {entry__compiler__c_code___to_string, NULL, 1405, 1439, 3, 13}
+  {cont__print_string_literal_25, &frame__print_string_literal_18, 1209, 1215, 7, 18},
+  {cont__print_string_literal_26, &frame__print_string_literal_18, 1217, 1217, 35, 35},
+  {cont__print_string_literal_27, &frame__print_string_literal_18, 1217, 1217, 28, 36},
+  {cont__print_string_literal_28, &frame__print_string_literal_18, 1217, 1217, 28, 42},
+  {cont__print_string_literal_29, &frame__print_string_literal_18, 1217, 1220, 7, 32},
+  {cont__print_string_literal_30, &frame__print_string_literal_18, 1223, 1278, 7, 30},
+  {cont__print_string_literal_124, &frame__print_string_literal_18, 1280, 1285, 7, 23},
+  {cont__print_string_literal_128, &frame__print_string_literal_18, 1286, 1286, 17, 17},
+  {cont__print_string_literal_129, &frame__print_string_literal_18, 1286, 1286, 10, 18},
+  {cont__print_string_literal_130, &frame__print_string_literal_18, 1286, 1286, 10, 24},
+  {cont__print_string_literal_131, &frame__print_string_literal_18, 1286, 1291, 7, 24},
+  {cont__print_string_literal_136, &frame__print_string_literal_18, 1295, 1295, 9, 38},
+  {cont__print_string_literal_137, &frame__print_string_literal_18, 1295, 1295, 9, 38},
+  {cont__print_string_literal_138, &frame__print_string_literal_18, 1294, 1299, 7, 25},
+  {cont__print_string_literal_145, &frame__print_string_literal_18, 1300, 1300, 7, 33},
+  {cont__print_string_literal_146, &frame__print_string_literal_18, 1301, 1305, 7, 27},
+  {cont__print_string_literal_153, &frame__print_string_literal_18, 1306, 1306, 7, 12},
+  {entry__print_string_literal, NULL, 1200, 1204, 3, 26},
+  {cont__print_string_literal_14, &frame__print_string_literal, 1205, 1306, 3, 13},
+  {entry__string_template_to_string_4, NULL, 1315, 1315, 9, 71},
+  {cont__string_template_to_string_5, &frame__string_template_to_string_4, 1315, 1315, 71, 71},
+  {entry__string_template_to_string_7, NULL, 1319, 1319, 21, 28},
+  {cont__string_template_to_string_8, &frame__string_template_to_string_7, 1319, 1319, 13, 63},
+  {cont__string_template_to_string_9, &frame__string_template_to_string_7, 1319, 1319, 20, 28},
+  {cont__string_template_to_string_10, &frame__string_template_to_string_7, 1319, 1319, 63, 63},
+  {entry__string_template_to_string_16, NULL, 1328, 1328, 48, 48},
+  {cont__string_template_to_string_17, &frame__string_template_to_string_16, 1328, 1328, 41, 49},
+  {cont__string_template_to_string_18, &frame__string_template_to_string_16, 1328, 1328, 54, 54},
+  {cont__string_template_to_string_19, &frame__string_template_to_string_16, 1328, 1328, 35, 55},
+  {cont__string_template_to_string_20, &frame__string_template_to_string_16, 1328, 1328, 17, 61},
+  {cont__string_template_to_string_21, &frame__string_template_to_string_16, 1328, 1328, 25, 25},
+  {cont__string_template_to_string_22, &frame__string_template_to_string_16, 1328, 1328, 17, 26},
+  {cont__string_template_to_string_23, &frame__string_template_to_string_16, 1328, 1328, 61, 61},
+  {entry__string_template_to_string_24, NULL, 1332, 1332, 17, 32},
+  {cont__string_template_to_string_25, &frame__string_template_to_string_24, 1332, 1332, 32, 32},
+  {entry__string_template_to_string_11, NULL, 1321, 1321, 13, 77},
+  {cont__string_template_to_string_12, &frame__string_template_to_string_11, 1323, 1323, 22, 22},
+  {cont__string_template_to_string_13, &frame__string_template_to_string_11, 1323, 1323, 15, 23},
+  {cont__string_template_to_string_14, &frame__string_template_to_string_11, 1323, 1323, 15, 41},
+  {cont__string_template_to_string_15, &frame__string_template_to_string_11, 1322, 1332, 13, 33},
+  {entry__string_template_to_string_6, NULL, 1317, 1332, 9, 35},
+  {entry__string_template_to_string_2, NULL, 1314, 1314, 7, 20},
+  {cont__string_template_to_string_3, &frame__string_template_to_string_2, 1313, 1332, 5, 37},
+  {entry__string_template_to_string_28, NULL, 1337, 1337, 25, 25},
+  {entry__string_template_to_string_30, NULL, 1343, 1343, 35, 42},
+  {cont__string_template_to_string_31, &frame__string_template_to_string_30, 1343, 1343, 44, 56},
+  {cont__string_template_to_string_32, &frame__string_template_to_string_30, 1343, 1343, 13, 57},
+  {cont__string_template_to_string_33, &frame__string_template_to_string_30, 1343, 1343, 13, 26},
+  {cont__string_template_to_string_34, &frame__string_template_to_string_30, 1344, 1344, 29, 29},
+  {entry__string_template_to_string_35, NULL, 1355, 1355, 44, 44},
+  {cont__string_template_to_string_36, &frame__string_template_to_string_35, 1355, 1355, 37, 45},
+  {cont__string_template_to_string_37, &frame__string_template_to_string_35, 1355, 1355, 50, 50},
+  {cont__string_template_to_string_38, &frame__string_template_to_string_35, 1355, 1355, 31, 51},
+  {cont__string_template_to_string_39, &frame__string_template_to_string_35, 1355, 1355, 53, 65},
+  {cont__string_template_to_string_40, &frame__string_template_to_string_35, 1355, 1355, 13, 66},
+  {cont__string_template_to_string_41, &frame__string_template_to_string_35, 1355, 1355, 21, 21},
+  {cont__string_template_to_string_42, &frame__string_template_to_string_35, 1355, 1355, 13, 22},
+  {cont__string_template_to_string_43, &frame__string_template_to_string_35, 1356, 1356, 47, 47},
+  {cont__string_template_to_string_44, &frame__string_template_to_string_35, 1356, 1356, 27, 48},
+  {cont__string_template_to_string_45, &frame__string_template_to_string_35, 1356, 1356, 13, 48},
+  {cont__string_template_to_string_46, &frame__string_template_to_string_35, 1356, 1356, 48, 48},
+  {entry__string_template_to_string_29, NULL, 1339, 1356, 9, 49},
+  {entry__string_template_to_string_26, NULL, 1336, 1336, 7, 20},
+  {cont__string_template_to_string_27, &frame__string_template_to_string_26, 1335, 1356, 5, 51},
+  {cont__string_template_to_string_47, &frame__string_template_to_string_26, 1357, 1357, 29, 29},
+  {entry__string_template_to_string_54, NULL, 1367, 1367, 22, 34},
+  {cont__string_template_to_string_55, &frame__string_template_to_string_54, 1367, 1367, 13, 34},
+  {entry__string_template_to_string_56, NULL, 1369, 1369, 13, 32},
+  {entry__string_template_to_string_51, NULL, 1364, 1364, 55, 77},
+  {cont__string_template_to_string_52, &frame__string_template_to_string_51, 1364, 1364, 9, 77},
+  {cont__string_template_to_string_53, &frame__string_template_to_string_51, 1365, 1369, 9, 33},
+  {entry__string_template_to_string_57, NULL, 1372, 1372, 31, 48},
+  {cont__string_template_to_string_58, &frame__string_template_to_string_57, 1372, 1372, 18, 53},
+  {cont__string_template_to_string_60, &frame__string_template_to_string_57, 1372, 1372, 9, 53},
+  {cont__string_template_to_string_61, &frame__string_template_to_string_57, 1372, 1372, 53, 53},
+  {entry__string_template_to_string_49, NULL, 1363, 1363, 7, 34},
+  {cont__string_template_to_string_50, &frame__string_template_to_string_49, 1362, 1372, 5, 54},
+  {entry__string_template_to_string_67, NULL, 1373, 1373, 54, 54},
+  {cont__string_template_to_string_68, &frame__string_template_to_string_67, 1373, 1373, 47, 55},
+  {cont__string_template_to_string_69, &frame__string_template_to_string_67, 1373, 1373, 60, 60},
+  {cont__string_template_to_string_70, &frame__string_template_to_string_67, 1373, 1373, 40, 78},
+  {cont__string_template_to_string_71, &frame__string_template_to_string_67, 1373, 1373, 54, 54},
+  {cont__string_template_to_string_72, &frame__string_template_to_string_67, 1373, 1373, 46, 55},
+  {cont__string_template_to_string_73, &frame__string_template_to_string_67, 1373, 1373, 78, 78},
+  {entry__string_template_to_string, NULL, 1361, 1361, 12, 29},
+  {cont__string_template_to_string_48, &frame__string_template_to_string, 1361, 1372, 3, 55},
+  {cont__string_template_to_string_62, &frame__string_template_to_string, 1373, 1373, 13, 13},
+  {cont__string_template_to_string_63, &frame__string_template_to_string, 1373, 1373, 6, 14},
+  {cont__string_template_to_string_64, &frame__string_template_to_string, 1373, 1373, 6, 37},
+  {cont__string_template_to_string_66, &frame__string_template_to_string, 1373, 1373, 3, 78},
+  {cont__string_template_to_string_74, &frame__string_template_to_string, 1374, 1374, 3, 47},
+  {entry__compiler__string_literal___to_string, NULL, 1377, 1377, 44, 62},
+  {cont__compiler__string_literal___to_string_2, &frame__compiler__string_literal___to_string, 1377, 1377, 3, 62},
+  {cont__compiler__string_literal___to_string_3, &frame__compiler__string_literal___to_string, 1378, 1378, 3, 38},
+  {entry__compiler__unique_item___to_string, NULL, 1383, 1383, 43, 48},
+  {entry__compiler__polymorphic_function__to_string_3, NULL, 1391, 1391, 5, 12},
+  {entry__compiler__polymorphic_function__to_string_5, NULL, 1392, 1392, 5, 11},
+  {entry__compiler__polymorphic_function___to_string, NULL, 1390, 1390, 5, 20},
+  {cont__compiler__polymorphic_function___to_string_2, &frame__compiler__polymorphic_function___to_string, 1389, 1392, 3, 11},
+  {entry__compiler__identifier__to_string_5, NULL, 1401, 1401, 17, 34},
+  {cont__compiler__identifier__to_string_6, &frame__compiler__identifier__to_string_5, 1401, 1401, 41, 53},
+  {cont__compiler__identifier__to_string_7, &frame__compiler__identifier__to_string_5, 1401, 1401, 10, 54},
+  {cont__compiler__identifier__to_string_9, &frame__compiler__identifier__to_string_5, 1401, 1401, 7, 54},
+  {entry__compiler__identifier__to_string_2, NULL, 1400, 1400, 7, 24},
+  {cont__compiler__identifier__to_string_3, &frame__compiler__identifier__to_string_2, 1400, 1400, 7, 35},
+  {cont__compiler__identifier__to_string_4, &frame__compiler__identifier__to_string_2, 1399, 1401, 5, 54},
+  {entry__compiler__identifier__to_string_12, NULL, 1402, 1402, 39, 51},
+  {cont__compiler__identifier__to_string_13, &frame__compiler__identifier__to_string_12, 1402, 1402, 28, 52},
+  {cont__compiler__identifier__to_string_14, &frame__compiler__identifier__to_string_12, 1402, 1402, 25, 52},
+  {entry__compiler__identifier__to_string_10, NULL, 1402, 1402, 8, 23},
+  {cont__compiler__identifier__to_string_11, &frame__compiler__identifier__to_string_10, 1402, 1402, 5, 52},
+  {entry__compiler__identifier__to_string_16, NULL, 1403, 1403, 16, 28},
+  {cont__compiler__identifier__to_string_17, &frame__compiler__identifier__to_string_16, 1403, 1403, 13, 28},
+  {entry__compiler__identifier__to_string_15, NULL, 1403, 1403, 5, 28},
+  {entry__compiler__identifier___to_string, NULL, 1398, 1403, 3, 28},
+  {entry__compiler__c_code__to_string_4, NULL, 1417, 1417, 28, 52},
+  {cont__compiler__c_code__to_string_5, &frame__compiler__c_code__to_string_4, 1417, 1417, 14, 61},
+  {cont__compiler__c_code__to_string_7, &frame__compiler__c_code__to_string_4, 1417, 1417, 11, 61},
+  {entry__compiler__c_code__to_string_8, NULL, 1418, 1418, 11, 20},
+  {entry__compiler__c_code__to_string_14, NULL, 1423, 1423, 46, 58},
+  {cont__compiler__c_code__to_string_15, &frame__compiler__c_code__to_string_14, 1423, 1423, 37, 61},
+  {cont__compiler__c_code__to_string_17, &frame__compiler__c_code__to_string_14, 1423, 1423, 9, 61},
+  {cont__compiler__c_code__to_string_18, &frame__compiler__c_code__to_string_14, 1423, 1423, 61, 61},
+  {entry__compiler__c_code__to_string_22, NULL, 1425, 1425, 46, 64},
+  {cont__compiler__c_code__to_string_23, &frame__compiler__c_code__to_string_22, 1425, 1425, 37, 67},
+  {cont__compiler__c_code__to_string_25, &frame__compiler__c_code__to_string_22, 1425, 1425, 9, 67},
+  {cont__compiler__c_code__to_string_26, &frame__compiler__c_code__to_string_22, 1425, 1425, 67, 67},
+  {entry__compiler__c_code__to_string_30, NULL, 1427, 1427, 46, 58},
+  {cont__compiler__c_code__to_string_31, &frame__compiler__c_code__to_string_30, 1427, 1427, 37, 61},
+  {cont__compiler__c_code__to_string_33, &frame__compiler__c_code__to_string_30, 1427, 1427, 9, 61},
+  {cont__compiler__c_code__to_string_34, &frame__compiler__c_code__to_string_30, 1427, 1427, 61, 61},
+  {entry__compiler__c_code__to_string_38, NULL, 1429, 1429, 46, 64},
+  {cont__compiler__c_code__to_string_39, &frame__compiler__c_code__to_string_38, 1429, 1429, 37, 67},
+  {cont__compiler__c_code__to_string_41, &frame__compiler__c_code__to_string_38, 1429, 1429, 9, 67},
+  {cont__compiler__c_code__to_string_42, &frame__compiler__c_code__to_string_38, 1429, 1429, 67, 67},
+  {entry__compiler__c_code__to_string_46, NULL, 1431, 1431, 46, 58},
+  {cont__compiler__c_code__to_string_47, &frame__compiler__c_code__to_string_46, 1431, 1431, 37, 61},
+  {cont__compiler__c_code__to_string_49, &frame__compiler__c_code__to_string_46, 1431, 1431, 9, 61},
+  {cont__compiler__c_code__to_string_50, &frame__compiler__c_code__to_string_46, 1431, 1431, 61, 61},
+  {entry__compiler__c_code__to_string_54, NULL, 1432, 1432, 39, 52},
+  {cont__compiler__c_code__to_string_55, &frame__compiler__c_code__to_string_54, 1432, 1432, 39, 63},
+  {cont__compiler__c_code__to_string_57, &frame__compiler__c_code__to_string_54, 1432, 1432, 39, 63},
+  {cont__compiler__c_code__to_string_58, &frame__compiler__c_code__to_string_54, 1432, 1432, 39, 63},
+  {entry__compiler__c_code__to_string_60, NULL, 1433, 1433, 47, 60},
+  {cont__compiler__c_code__to_string_61, &frame__compiler__c_code__to_string_60, 1433, 1433, 37, 63},
+  {cont__compiler__c_code__to_string_63, &frame__compiler__c_code__to_string_60, 1433, 1433, 9, 63},
+  {cont__compiler__c_code__to_string_64, &frame__compiler__c_code__to_string_60, 1433, 1433, 63, 63},
+  {entry__compiler__c_code__to_string_67, NULL, 1435, 1435, 37, 60},
+  {cont__compiler__c_code__to_string_69, &frame__compiler__c_code__to_string_67, 1435, 1435, 9, 60},
+  {cont__compiler__c_code__to_string_70, &frame__compiler__c_code__to_string_67, 1435, 1435, 60, 60},
+  {entry__compiler__c_code__to_string_77, NULL, 1439, 1439, 11, 54},
+  {cont__compiler__c_code__to_string_79, &frame__compiler__c_code__to_string_77, 1439, 1439, 54, 54},
+  {entry__compiler__c_code__to_string_74, NULL, 1437, 1437, 9, 24},
+  {cont__compiler__c_code__to_string_75, &frame__compiler__c_code__to_string_74, 1438, 1438, 18, 38},
+  {cont__compiler__c_code__to_string_76, &frame__compiler__c_code__to_string_74, 1438, 1439, 9, 54},
+  {entry__compiler__c_code__to_string_86, NULL, 1441, 1441, 32, 46},
+  {cont__compiler__c_code__to_string_87, &frame__compiler__c_code__to_string_86, 1441, 1441, 46, 46},
+  {entry__compiler__c_code__to_string_90, NULL, 1442, 1442, 47, 78},
+  {cont__compiler__c_code__to_string_91, &frame__compiler__c_code__to_string_90, 1442, 1442, 78, 78},
+  {entry__compiler__c_code__to_string_83, NULL, 1441, 1441, 12, 25},
+  {cont__compiler__c_code__to_string_84, &frame__compiler__c_code__to_string_83, 1441, 1441, 12, 29},
+  {cont__compiler__c_code__to_string_85, &frame__compiler__c_code__to_string_83, 1441, 1441, 9, 46},
+  {cont__compiler__c_code__to_string_88, &frame__compiler__c_code__to_string_83, 1442, 1442, 23, 37},
+  {cont__compiler__c_code__to_string_89, &frame__compiler__c_code__to_string_83, 1442, 1442, 9, 78},
+  {entry__compiler__c_code__to_string_2, NULL, 1416, 1416, 11, 31},
+  {cont__compiler__c_code__to_string_3, &frame__compiler__c_code__to_string_2, 1414, 1418, 7, 21},
+  {cont__compiler__c_code__to_string_9, &frame__compiler__c_code__to_string_2, 1420, 1420, 7, 33},
+  {cont__compiler__c_code__to_string_10, &frame__compiler__c_code__to_string_2, 1421, 1421, 7, 33},
+  {cont__compiler__c_code__to_string_11, &frame__compiler__c_code__to_string_2, 1422, 1422, 10, 22},
+  {cont__compiler__c_code__to_string_12, &frame__compiler__c_code__to_string_2, 1422, 1422, 10, 33},
+  {cont__compiler__c_code__to_string_13, &frame__compiler__c_code__to_string_2, 1422, 1423, 7, 61},
+  {cont__compiler__c_code__to_string_19, &frame__compiler__c_code__to_string_2, 1424, 1424, 10, 28},
+  {cont__compiler__c_code__to_string_20, &frame__compiler__c_code__to_string_2, 1424, 1424, 10, 39},
+  {cont__compiler__c_code__to_string_21, &frame__compiler__c_code__to_string_2, 1424, 1425, 7, 67},
+  {cont__compiler__c_code__to_string_27, &frame__compiler__c_code__to_string_2, 1426, 1426, 10, 22},
+  {cont__compiler__c_code__to_string_28, &frame__compiler__c_code__to_string_2, 1426, 1426, 10, 33},
+  {cont__compiler__c_code__to_string_29, &frame__compiler__c_code__to_string_2, 1426, 1427, 7, 61},
+  {cont__compiler__c_code__to_string_35, &frame__compiler__c_code__to_string_2, 1428, 1428, 10, 28},
+  {cont__compiler__c_code__to_string_36, &frame__compiler__c_code__to_string_2, 1428, 1428, 10, 39},
+  {cont__compiler__c_code__to_string_37, &frame__compiler__c_code__to_string_2, 1428, 1429, 7, 67},
+  {cont__compiler__c_code__to_string_43, &frame__compiler__c_code__to_string_2, 1430, 1430, 10, 22},
+  {cont__compiler__c_code__to_string_44, &frame__compiler__c_code__to_string_2, 1430, 1430, 10, 33},
+  {cont__compiler__c_code__to_string_45, &frame__compiler__c_code__to_string_2, 1430, 1431, 7, 61},
+  {cont__compiler__c_code__to_string_51, &frame__compiler__c_code__to_string_2, 1432, 1432, 10, 23},
+  {cont__compiler__c_code__to_string_52, &frame__compiler__c_code__to_string_2, 1432, 1432, 10, 34},
+  {cont__compiler__c_code__to_string_53, &frame__compiler__c_code__to_string_2, 1432, 1432, 10, 63},
+  {cont__compiler__c_code__to_string_59, &frame__compiler__c_code__to_string_2, 1432, 1433, 7, 63},
+  {cont__compiler__c_code__to_string_65, &frame__compiler__c_code__to_string_2, 1434, 1434, 16, 33},
+  {cont__compiler__c_code__to_string_66, &frame__compiler__c_code__to_string_2, 1434, 1435, 7, 60},
+  {cont__compiler__c_code__to_string_71, &frame__compiler__c_code__to_string_2, 1436, 1436, 14, 34},
+  {cont__compiler__c_code__to_string_72, &frame__compiler__c_code__to_string_2, 1436, 1436, 14, 43},
+  {cont__compiler__c_code__to_string_73, &frame__compiler__c_code__to_string_2, 1436, 1439, 7, 55},
+  {cont__compiler__c_code__to_string_80, &frame__compiler__c_code__to_string_2, 1440, 1440, 10, 24},
+  {cont__compiler__c_code__to_string_81, &frame__compiler__c_code__to_string_2, 1440, 1440, 10, 35},
+  {cont__compiler__c_code__to_string_82, &frame__compiler__c_code__to_string_2, 1440, 1442, 7, 78},
+  {cont__compiler__c_code__to_string_92, &frame__compiler__c_code__to_string_2, 1443, 1443, 26, 50},
+  {cont__compiler__c_code__to_string_93, &frame__compiler__c_code__to_string_2, 1443, 1443, 19, 55},
+  {cont__compiler__c_code__to_string_94, &frame__compiler__c_code__to_string_2, 1443, 1443, 7, 55},
+  {cont__compiler__c_code__to_string_95, &frame__compiler__c_code__to_string_2, 1444, 1444, 7, 12},
+  {entry__compiler__c_code__to_string_96, NULL, 1412, 1412, 5, 14},
+  {entry__compiler__c_code___to_string, NULL, 1410, 1444, 3, 13}
 };
 
 union NODE {
@@ -5105,6 +5129,7 @@ static NODE *character__94;
 static NODE *number__80;
 static NODE *character__160;
 static NODE *character__96;
+static NODE *character__9472;
 static NODE *character__99;
 static NODE *character__688;
 static NODE *character__63;
@@ -5134,6 +5159,7 @@ static NODE *character__115;
 static NODE *character__41;
 static NODE *character__59;
 static NODE *number__1;
+static NODE *character__9631;
 static NODE *number__0x9f;
 static NODE *character__46;
 static NODE *number__2;
@@ -27880,38 +27906,7 @@ static void cont__create_character_table_10(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void entry__escaped_character_33(void) {
-  allocate_initialized_frame_gc(1, 2);
-  // slot allocations:
-  // numerical_encoding: 0
-  frame->slots[0] = myself->closure.frame->slots[1]; /* numerical_encoding */
-  if (argument_count != 0) {
-    invalid_arguments_error();
-    return;
-  }
-  // 1102: ... numerical_encoding()
-  argument_count = 0;
-  arguments = node_p;
-  result_count = 1;
-  myself = frame->slots[0] /* numerical_encoding */;
-  func = myself->type;
-  frame->cont = cont__escaped_character_34;
-}
-static void cont__escaped_character_34(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1102: -> numerical_encoding()
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
-}
-static void entry__escaped_character_35(void) {
+static void entry__escaped_character_38(void) {
   allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // chr: 0
@@ -27920,22 +27915,53 @@ static void entry__escaped_character_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 1103: ... chr.to_string
+  // 1105: ... chr.to_string
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
   result_count = 1;
   myself = get__to_string();
   func = myself->type;
-  frame->cont = cont__escaped_character_36;
+  frame->cont = cont__escaped_character_39;
 }
-static void cont__escaped_character_36(void) {
+static void cont__escaped_character_39(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1103: -> chr.to_string
+  // 1105: -> chr.to_string
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void entry__escaped_character_40(void) {
+  allocate_initialized_frame_gc(1, 2);
+  // slot allocations:
+  // numerical_encoding: 0
+  frame->slots[0] = myself->closure.frame->slots[1]; /* numerical_encoding */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 1106: ... numerical_encoding()
+  argument_count = 0;
+  arguments = node_p;
+  result_count = 1;
+  myself = frame->slots[0] /* numerical_encoding */;
+  func = myself->type;
+  frame->cont = cont__escaped_character_41;
+}
+static void cont__escaped_character_41(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 1106: -> numerical_encoding()
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -28038,7 +28064,7 @@ static void entry__escaped_character_14(void) {
   frame = frame->caller_frame;
 }
 static void entry__escaped_character_22(void) {
-  allocate_initialized_frame_gc(2, 8);
+  allocate_initialized_frame_gc(2, 7);
   // slot allocations:
   // chr: 0
   // numerical_encoding: 1
@@ -28048,11 +28074,11 @@ static void entry__escaped_character_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 1101: chr >= '@0x2b0;'
+  // 1102: chr < '@0x80;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
-  arguments->slots[1] = character__688;
+  arguments->slots[1] = character__128;
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
@@ -28063,36 +28089,19 @@ static void cont__escaped_character_23(void) {
     invalid_results_error();
     return;
   }
-  frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 1101: chr >= '@0x2b0;'
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[4] /* temp__3 */;
-  result_count = 1;
-  myself = get__std__not();
-  func = myself->type;
-  frame->cont = cont__escaped_character_24;
-}
-static void cont__escaped_character_24(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1101: ... chr >= '@0x80;' && chr <= '@nbsp;'
-  frame->slots[5] /* temp__4 */ = create_closure(entry__escaped_character_25, 0);
-  // 1101: chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
+  frame->slots[4] /* temp__3 */ = create_closure(entry__escaped_character_24, 0);
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
-  arguments->slots[1] = frame->slots[5] /* temp__4 */;
+  arguments->slots[1] = frame->slots[4] /* temp__3 */;
   result_count = 1;
   myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__escaped_character_32;
+  frame->cont = cont__escaped_character_37;
 }
-static void entry__escaped_character_25(void) {
-  allocate_initialized_frame_gc(1, 5);
+static void entry__escaped_character_24(void) {
+  allocate_initialized_frame_gc(1, 7);
   // slot allocations:
   // chr: 0
   frame->slots[0] = myself->closure.frame->slots[0]; /* chr */
@@ -28100,13 +28109,28 @@ static void entry__escaped_character_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 1101: ... chr >= '@0x80;'
+  // 1103: chr >= '@0xa0;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
-  arguments->slots[1] = character__128;
+  arguments->slots[1] = character__160;
   result_count = 1;
   myself = get__std__less();
+  func = myself->type;
+  frame->cont = cont__escaped_character_25;
+}
+static void cont__escaped_character_25(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[4] /* temp__4 */ = arguments->slots[0];
+  // 1103: chr >= '@0xa0;'
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[4] /* temp__4 */;
+  result_count = 1;
+  myself = get__std__not();
   func = myself->type;
   frame->cont = cont__escaped_character_26;
 }
@@ -28116,35 +28140,20 @@ static void cont__escaped_character_26(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 1101: ... chr >= '@0x80;'
-  argument_count = 1;
-  arguments = node_p;
-  arguments->slots[0] = frame->slots[3] /* temp__3 */;
-  result_count = 1;
-  myself = get__std__not();
-  func = myself->type;
-  frame->cont = cont__escaped_character_27;
-}
-static void cont__escaped_character_27(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
-    return;
-  }
-  frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1101: ... chr <= '@nbsp;'
-  frame->slots[4] /* temp__4 */ = create_closure(entry__escaped_character_28, 0);
-  // 1101: ... chr >= '@0x80;' && chr <= '@nbsp;'
+  // 1103: ... chr < '@0x2b0;'
+  frame->slots[5] /* temp__5 */ = create_closure(entry__escaped_character_27, 0);
+  // 1103: chr >= '@0xa0;' && chr < '@0x2b0;'
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[2] /* temp__2 */;
-  arguments->slots[1] = frame->slots[4] /* temp__4 */;
+  arguments->slots[0] = frame->slots[3] /* temp__3 */;
+  arguments->slots[1] = frame->slots[5] /* temp__5 */;
   result_count = 1;
   myself = get__std__and();
   func = myself->type;
-  frame->cont = cont__escaped_character_31;
+  frame->cont = cont__escaped_character_29;
 }
-static void entry__escaped_character_28(void) {
-  allocate_initialized_frame_gc(1, 3);
+static void entry__escaped_character_27(void) {
+  allocate_initialized_frame_gc(1, 2);
   // slot allocations:
   // chr: 0
   frame->slots[0] = myself->closure.frame->slots[0]; /* chr */
@@ -28152,15 +28161,29 @@ static void entry__escaped_character_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 1101: ... chr <= '@nbsp;'
+  // 1103: ... chr < '@0x2b0;'
   argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = character__160;
-  arguments->slots[1] = frame->slots[0] /* chr */;
+  arguments->slots[0] = frame->slots[0] /* chr */;
+  arguments->slots[1] = character__688;
   result_count = 1;
   myself = get__std__less();
   func = myself->type;
-  frame->cont = cont__escaped_character_29;
+  frame->cont = cont__escaped_character_28;
+}
+static void cont__escaped_character_28(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 1103: ... chr < '@0x2b0;'
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
 }
 static void cont__escaped_character_29(void) {
   if (argument_count != 1) {
@@ -28168,36 +28191,95 @@ static void cont__escaped_character_29(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1101: ... chr <= '@nbsp;'
-  argument_count = 1;
+  // 1104: chr >= '@0x2500;' && chr < '@0x259f;'
+  frame->slots[6] /* temp__6 */ = create_closure(entry__escaped_character_30, 0);
+  argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
+  arguments->slots[1] = frame->slots[6] /* temp__6 */;
   result_count = 1;
-  myself = get__std__not();
+  myself = get__std__or();
   func = myself->type;
-  frame->cont = cont__escaped_character_30;
+  frame->cont = cont__escaped_character_36;
 }
-static void cont__escaped_character_30(void) {
-  if (argument_count != 1) {
-    invalid_results_error();
+static void entry__escaped_character_30(void) {
+  allocate_initialized_frame_gc(1, 5);
+  // slot allocations:
+  // chr: 0
+  frame->slots[0] = myself->closure.frame->slots[0]; /* chr */
+  if (argument_count != 0) {
+    invalid_arguments_error();
     return;
   }
-  frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1101: ... chr <= '@nbsp;'
-  argument_count = 1;
+  // 1104: chr >= '@0x2500;'
+  argument_count = 2;
   arguments = node_p;
-  arguments->slots[0] = frame->slots[1] /* temp__1 */;
-  frame = frame->caller_frame;
-  func = frame->cont;
-  frame->cont = invalid_continuation;
+  arguments->slots[0] = frame->slots[0] /* chr */;
+  arguments->slots[1] = character__9472;
+  result_count = 1;
+  myself = get__std__less();
+  func = myself->type;
+  frame->cont = cont__escaped_character_31;
 }
 static void cont__escaped_character_31(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
+  frame->slots[3] /* temp__3 */ = arguments->slots[0];
+  // 1104: chr >= '@0x2500;'
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[3] /* temp__3 */;
+  result_count = 1;
+  myself = get__std__not();
+  func = myself->type;
+  frame->cont = cont__escaped_character_32;
+}
+static void cont__escaped_character_32(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[2] /* temp__2 */ = arguments->slots[0];
+  // 1104: ... chr < '@0x259f;'
+  frame->slots[4] /* temp__4 */ = create_closure(entry__escaped_character_33, 0);
+  // 1104: chr >= '@0x2500;' && chr < '@0x259f;'
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[2] /* temp__2 */;
+  arguments->slots[1] = frame->slots[4] /* temp__4 */;
+  result_count = 1;
+  myself = get__std__and();
+  func = myself->type;
+  frame->cont = cont__escaped_character_35;
+}
+static void entry__escaped_character_33(void) {
+  allocate_initialized_frame_gc(1, 2);
+  // slot allocations:
+  // chr: 0
+  frame->slots[0] = myself->closure.frame->slots[0]; /* chr */
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 1104: ... chr < '@0x259f;'
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* chr */;
+  arguments->slots[1] = character__9631;
+  result_count = 1;
+  myself = get__std__less();
+  func = myself->type;
+  frame->cont = cont__escaped_character_34;
+}
+static void cont__escaped_character_34(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1101: ... chr >= '@0x80;' && chr <= '@nbsp;'
+  // 1104: ... chr < '@0x259f;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -28205,25 +28287,55 @@ static void cont__escaped_character_31(void) {
   func = frame->cont;
   frame->cont = invalid_continuation;
 }
-static void cont__escaped_character_32(void) {
+static void cont__escaped_character_35(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  // 1104: chr >= '@0x2500;' && chr < '@0x259f;'
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void cont__escaped_character_36(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[1] /* temp__1 */ = arguments->slots[0];
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[1] /* temp__1 */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void cont__escaped_character_37(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1102: -> numerical_encoding()
-  frame->slots[6] /* temp__5 */ = create_closure(entry__escaped_character_33, 0);
-  // 1103: -> chr.to_string
-  frame->slots[7] /* temp__6 */ = create_closure(entry__escaped_character_35, 0);
+  // 1105: -> chr.to_string
+  frame->slots[5] /* temp__4 */ = create_closure(entry__escaped_character_38, 0);
+  // 1106: -> numerical_encoding()
+  frame->slots[6] /* temp__5 */ = create_closure(entry__escaped_character_40, 0);
   // 1100: if
-  // 1101:   chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
-  // 1102:   -> numerical_encoding()
-  // 1103:   -> chr.to_string
+  // 1101:   ||
+  // 1102:     chr < '@0x80;'
+  // 1103:     chr >= '@0xa0;' && chr < '@0x2b0;'
+  // 1104:     chr >= '@0x2500;' && chr < '@0x259f;'
+  // 1105:   -> chr.to_string
+  // 1106:   -> numerical_encoding()
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
-  arguments->slots[1] = frame->slots[6] /* temp__5 */;
-  arguments->slots[2] = frame->slots[7] /* temp__6 */;
+  arguments->slots[1] = frame->slots[5] /* temp__4 */;
+  arguments->slots[2] = frame->slots[6] /* temp__5 */;
   result_count = frame->caller_result_count;
   myself = get__if();
   func = myself->type;
@@ -28407,9 +28519,12 @@ static void cont__escaped_character_13(void) {
   frame->slots[4] /* temp__2 */ = create_closure(entry__escaped_character_14, 0);
   // 1099: :
   // 1100:   if
-  // 1101:     chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
-  // 1102:     -> numerical_encoding()
-  // 1103:     -> chr.to_string
+  // 1101:     ||
+  // 1102:       chr < '@0x80;'
+  // 1103:       chr >= '@0xa0;' && chr < '@0x2b0;'
+  // 1104:       chr >= '@0x2500;' && chr < '@0x259f;'
+  // 1105:     -> chr.to_string
+  // 1106:     -> numerical_encoding()
   frame->slots[5] /* temp__3 */ = create_closure(entry__escaped_character_22, 0);
   // 1091: if
   // 1092:   name.is_defined:
@@ -28494,14 +28609,14 @@ static void entry__escaped_character(void) {
   frame = frame->caller_frame;
 }
 static void entry__compiler__character_literal___to_string(void) {
-  allocate_initialized_frame_gc(1, 4);
+  allocate_initialized_frame_gc(1, 5);
   // slot allocations:
   // self: 0
   if (argument_count != 1) {
     invalid_arguments_error();
     return;
   }
-  // 1108: ... node::value_of(self)
+  // 1112: node::value_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -28516,7 +28631,7 @@ static void cont__compiler__character_literal___to_string_2(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1108: ... self.is_in_numeric_notation
+  // 1113: self.is_in_numeric_notation
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -28530,8 +28645,53 @@ static void cont__compiler__character_literal___to_string_3(void) {
     invalid_results_error();
     return;
   }
+  frame->slots[4] /* temp__4 */ = arguments->slots[0];
+  // 1113: self.is_in_numeric_notation && not(do_convert)
+  argument_count = 2;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[4] /* temp__4 */;
+  arguments->slots[1] = func__compiler__character_literal__to_string_4;
+  result_count = 1;
+  myself = get__std__and();
+  func = myself->type;
+  frame->cont = cont__compiler__character_literal___to_string_6;
+}
+static void entry__compiler__character_literal__to_string_4(void) {
+  allocate_initialized_frame_gc(0, 1);
+  // slot allocations:
+  if (argument_count != 0) {
+    invalid_arguments_error();
+    return;
+  }
+  // 1113: ... not(do_convert)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = get__do_convert();
+  result_count = 1;
+  myself = get__not();
+  func = myself->type;
+  frame->cont = cont__compiler__character_literal__to_string_5;
+}
+static void cont__compiler__character_literal__to_string_5(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
+  frame->slots[0] /* temp__1 */ = arguments->slots[0];
+  // 1113: ... not(do_convert)
+  argument_count = 1;
+  arguments = node_p;
+  arguments->slots[0] = frame->slots[0] /* temp__1 */;
+  frame = frame->caller_frame;
+  func = frame->cont;
+  frame->cont = invalid_continuation;
+}
+static void cont__compiler__character_literal___to_string_6(void) {
+  if (argument_count != 1) {
+    invalid_results_error();
+    return;
+  }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 1108: escaped_character(node::value_of(self) self.is_in_numeric_notation)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -28539,18 +28699,20 @@ static void cont__compiler__character_literal___to_string_3(void) {
   result_count = 1;
   myself = func__escaped_character;
   func = myself->type;
-  frame->cont = cont__compiler__character_literal___to_string_4;
+  frame->cont = cont__compiler__character_literal___to_string_7;
 }
-static void cont__compiler__character_literal___to_string_4(void) {
+static void cont__compiler__character_literal___to_string_7(void) {
   if (argument_count != 1) {
     invalid_results_error();
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1106: string
-  // 1107:   '@apos;'
-  // 1108:   escaped_character(node::value_of(self) self.is_in_numeric_notation)
-  // 1109:   '@apos;'
+  // 1109: string
+  // 1110:   '@apos;'
+  // 1111:   escaped_character
+  // 1112:     node::value_of(self)
+  // 1113:     self.is_in_numeric_notation && not(do_convert)
+  // 1114:   '@apos;'
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = character__39;
@@ -28581,9 +28743,9 @@ static void entry__analyze_string_literal(void) {
   }
   frame->slots[2] /* lines */ = create_cell();
   frame->slots[3] /* is_inline */ = create_cell();
-  // 1121: !is_inline true
+  // 1126: !is_inline true
   ((CELL *)frame->slots[3])->contents /* is_inline */ = get__true();
-  // 1122: ... text == ""
+  // 1127: ... text == ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -28599,13 +28761,13 @@ static void cont__analyze_string_literal_2(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 1122: ... :
-  // 1123:   !lines list("")
-  // 1124:   return
+  // 1127: ... :
+  // 1128:   !lines list("")
+  // 1129:   return
   frame->slots[8] /* temp__2 */ = create_closure(entry__analyze_string_literal_3, 0);
-  // 1122: if text == "":
-  // 1123:   !lines list("")
-  // 1124:   return
+  // 1127: if text == "":
+  // 1128:   !lines list("")
+  // 1129:   return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -28626,7 +28788,7 @@ static void entry__analyze_string_literal_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 1123: !lines list("")
+  // 1128: !lines list("")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = empty_string;
@@ -28641,7 +28803,7 @@ static void cont__analyze_string_literal_4(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* lines */ = arguments->slots[0];
-  // 1124: return
+  // 1129: return
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -28654,7 +28816,7 @@ static void cont__analyze_string_literal_5(void) {
     invalid_results_error();
     return;
   }
-  // 1125: ... some('@nl;')
+  // 1130: ... some('@nl;')
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = character__10;
@@ -28669,7 +28831,7 @@ static void cont__analyze_string_literal_6(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 1125: ... text .matches. some('@nl;')
+  // 1130: ... text .matches. some('@nl;')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -28685,17 +28847,17 @@ static void cont__analyze_string_literal_7(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 1125: ... :
-  // 1126:   # strings containing *only* newlines are always printed in inline form
-  // 1127:   
-  // 1128:   !lines list(dup("@@nl;" length_of(text)))
-  // 1129:   return
+  // 1130: ... :
+  // 1131:   # strings containing *only* newlines are always printed in inline form
+  // 1132:   
+  // 1133:   !lines list(dup("@@nl;" length_of(text)))
+  // 1134:   return
   frame->slots[9] /* temp__3 */ = create_closure(entry__analyze_string_literal_8, 0);
-  // 1125: if text .matches. some('@nl;'):
-  // 1126:   # strings containing *only* newlines are always printed in inline form
-  // 1127:   
-  // 1128:   !lines list(dup("@@nl;" length_of(text)))
-  // 1129:   return
+  // 1130: if text .matches. some('@nl;'):
+  // 1131:   # strings containing *only* newlines are always printed in inline form
+  // 1132:   
+  // 1133:   !lines list(dup("@@nl;" length_of(text)))
+  // 1134:   return
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -28718,7 +28880,7 @@ static void entry__analyze_string_literal_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 1128: ... length_of(text)
+  // 1133: ... length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* text */;
@@ -28733,7 +28895,7 @@ static void cont__analyze_string_literal_9(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1128: ... dup("@@nl;" length_of(text))
+  // 1133: ... dup("@@nl;" length_of(text))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = string__420aeacb5d007d02;
@@ -28749,7 +28911,7 @@ static void cont__analyze_string_literal_11(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1128: !lines list(dup("@@nl;" length_of(text)))
+  // 1133: !lines list(dup("@@nl;" length_of(text)))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -28764,7 +28926,7 @@ static void cont__analyze_string_literal_12(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* lines */ = arguments->slots[0];
-  // 1129: return
+  // 1134: return
   argument_count = 0;
   arguments = node_p;
   result_count = frame->caller_result_count;
@@ -28777,9 +28939,9 @@ static void cont__analyze_string_literal_13(void) {
     invalid_results_error();
     return;
   }
-  // 1130: !lines empty_list
+  // 1135: !lines empty_list
   ((CELL *)frame->slots[2])->contents /* lines */ = get__empty_list();
-  // 1131: ... line_width == UNLIMITED
+  // 1136: ... line_width == UNLIMITED
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__line_width();
@@ -28795,9 +28957,9 @@ static void cont__analyze_string_literal_14(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 1131: ... length_of(text) <= 3
+  // 1136: ... length_of(text) <= 3
   frame->slots[8] /* temp__2 */ = create_closure(entry__analyze_string_literal_15, 0);
-  // 1131: $use_single_line_form line_width == UNLIMITED || length_of(text) <= 3
+  // 1136: $use_single_line_form line_width == UNLIMITED || length_of(text) <= 3
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -28816,7 +28978,7 @@ static void entry__analyze_string_literal_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 1131: ... length_of(text)
+  // 1136: ... length_of(text)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -28831,7 +28993,7 @@ static void cont__analyze_string_literal_16(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 1131: ... length_of(text) <= 3
+  // 1136: ... length_of(text) <= 3
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__3;
@@ -28847,7 +29009,7 @@ static void cont__analyze_string_literal_17(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1131: ... length_of(text) <= 3
+  // 1136: ... length_of(text) <= 3
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -28862,7 +29024,7 @@ static void cont__analyze_string_literal_18(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1131: ... length_of(text) <= 3
+  // 1136: ... length_of(text) <= 3
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -28876,32 +29038,32 @@ static void cont__analyze_string_literal_19(void) {
     return;
   }
   initialize_future(frame->slots[4] /* use_single_line_form */, arguments->slots[0]);
-  // 1132: $$part ""
+  // 1137: $$part ""
   ((CELL *)frame->slots[5])->contents /* part */ = empty_string;
-  // 1133: $$s 1
+  // 1138: $$s 1
   ((CELL *)frame->slots[6])->contents /* s */ = number__1;
-  // 1134: ... : (idx chr)
-  // 1135:   case
-  // 1136:     chr
-  // 1137:     '@nl;':
-  // 1138:       append &part range(text s idx-1)
-  // 1139:       if
-  // 1140:         use_single_line_form:
-  // 1141:           # force single line string literal
-  // 1142:           
-  // 1143:           append &part "@@nl;"
+  // 1139: ... : (idx chr)
+  // 1140:   case
+  // 1141:     chr
+  // 1142:     '@nl;':
+  // 1143:       append &part range(text s idx-1)
+  // 1144:       if
+  // 1145:         use_single_line_form:
+  // 1146:           # force single line string literal
+  // 1147:           
+  // 1148:           append &part "@@nl;"
   // ...
   frame->slots[7] /* temp__1 */ = create_closure(entry__analyze_string_literal_20, 2);
-  // 1134: for_each text: (idx chr)
-  // 1135:   case
-  // 1136:     chr
-  // 1137:     '@nl;':
-  // 1138:       append &part range(text s idx-1)
-  // 1139:       if
-  // 1140:         use_single_line_form:
-  // 1141:           # force single line string literal
-  // 1142:           
-  // 1143:           append &part "@@nl;"
+  // 1139: for_each text: (idx chr)
+  // 1140:   case
+  // 1141:     chr
+  // 1142:     '@nl;':
+  // 1143:       append &part range(text s idx-1)
+  // 1144:       if
+  // 1145:         use_single_line_form:
+  // 1146:           # force single line string literal
+  // 1147:           
+  // 1148:           append &part "@@nl;"
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -28929,7 +29091,7 @@ static void entry__analyze_string_literal_50(void) {
     invalid_arguments_error();
     return;
   }
-  // 1167: ... idx-1
+  // 1172: ... idx-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* idx */;
@@ -28945,7 +29107,7 @@ static void cont__analyze_string_literal_51(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 1167: ... range(text s idx-1)
+  // 1172: ... range(text s idx-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* text */;
@@ -28962,7 +29124,7 @@ static void cont__analyze_string_literal_52(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1167: append &part range(text s idx-1)
+  // 1172: append &part range(text s idx-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
@@ -28978,7 +29140,7 @@ static void cont__analyze_string_literal_53(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* part */ = arguments->slots[0];
-  // 1168: append &part escaped
+  // 1173: append &part escaped
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
@@ -28994,7 +29156,7 @@ static void cont__analyze_string_literal_54(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* part */ = arguments->slots[0];
-  // 1169: !s idx+1
+  // 1174: !s idx+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* idx */;
@@ -29031,7 +29193,7 @@ static void entry__analyze_string_literal_32(void) {
     invalid_arguments_error();
     return;
   }
-  // 1151: ... idx-1
+  // 1156: ... idx-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* idx */;
@@ -29047,7 +29209,7 @@ static void cont__analyze_string_literal_33(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1151: ... range(text s idx-1)
+  // 1156: ... range(text s idx-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* text */;
@@ -29064,7 +29226,7 @@ static void cont__analyze_string_literal_34(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1151: append &part range(text s idx-1)
+  // 1156: append &part range(text s idx-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
@@ -29080,7 +29242,7 @@ static void cont__analyze_string_literal_35(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* part */ = arguments->slots[0];
-  // 1155: append &part "@@quot;"
+  // 1160: append &part "@@quot;"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
@@ -29096,7 +29258,7 @@ static void cont__analyze_string_literal_37(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* part */ = arguments->slots[0];
-  // 1156: !s idx+1
+  // 1161: !s idx+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* idx */;
@@ -29127,7 +29289,7 @@ static void entry__analyze_string_literal_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 1158: !is_inline false
+  // 1163: !is_inline false
   ((CELL *)frame->slots[0])->contents /* is_inline */ = get__false();
   argument_count = 0;
   arguments = node_p;
@@ -29154,7 +29316,7 @@ static void entry__analyze_string_literal_21(void) {
     invalid_arguments_error();
     return;
   }
-  // 1138: ... idx-1
+  // 1143: ... idx-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* idx */;
@@ -29170,7 +29332,7 @@ static void cont__analyze_string_literal_22(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 1138: ... range(text s idx-1)
+  // 1143: ... range(text s idx-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* text */;
@@ -29187,7 +29349,7 @@ static void cont__analyze_string_literal_23(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1138: append &part range(text s idx-1)
+  // 1143: append &part range(text s idx-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
@@ -29203,23 +29365,23 @@ static void cont__analyze_string_literal_24(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* part */ = arguments->slots[0];
-  // 1140: ... :
-  // 1141:   # force single line string literal
-  // 1142:   
-  // 1143:   append &part "@@nl;"
+  // 1145: ... :
+  // 1146:   # force single line string literal
+  // 1147:   
+  // 1148:   append &part "@@nl;"
   frame->slots[6] /* temp__1 */ = create_closure(entry__analyze_string_literal_25, 0);
-  // 1144: :
-  // 1145:   push &lines part
-  // 1146:   !part ""
+  // 1149: :
+  // 1150:   push &lines part
+  // 1151:   !part ""
   frame->slots[7] /* temp__2 */ = create_closure(entry__analyze_string_literal_27, 0);
-  // 1139: if
-  // 1140:   use_single_line_form:
-  // 1141:     # force single line string literal
-  // 1142:     
-  // 1143:     append &part "@@nl;"
-  // 1144:   :
-  // 1145:     push &lines part
-  // 1146:     !part ""
+  // 1144: if
+  // 1145:   use_single_line_form:
+  // 1146:     # force single line string literal
+  // 1147:     
+  // 1148:     append &part "@@nl;"
+  // 1149:   :
+  // 1150:     push &lines part
+  // 1151:     !part ""
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* use_single_line_form */;
@@ -29239,7 +29401,7 @@ static void entry__analyze_string_literal_25(void) {
     invalid_arguments_error();
     return;
   }
-  // 1143: append &part "@@nl;"
+  // 1148: append &part "@@nl;"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
@@ -29272,7 +29434,7 @@ static void entry__analyze_string_literal_27(void) {
     invalid_arguments_error();
     return;
   }
-  // 1145: push &lines part
+  // 1150: push &lines part
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* lines */;
@@ -29288,7 +29450,7 @@ static void cont__analyze_string_literal_28(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* lines */ = arguments->slots[0];
-  // 1146: !part ""
+  // 1151: !part ""
   ((CELL *)frame->slots[1])->contents /* part */ = empty_string;
   argument_count = 0;
   arguments = node_p;
@@ -29301,7 +29463,7 @@ static void cont__analyze_string_literal_29(void) {
     invalid_results_error();
     return;
   }
-  // 1147: !s idx+1
+  // 1152: !s idx+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* idx */;
@@ -29342,27 +29504,27 @@ static void entry__analyze_string_literal_31(void) {
     invalid_arguments_error();
     return;
   }
-  // 1150: ... :
-  // 1151:   append &part range(text s idx-1)
-  // 1152:   
-  // 1153:   # force single line string literal
-  // 1154:   
-  // 1155:   append &part "@@quot;"
-  // 1156:   !s idx+1
+  // 1155: ... :
+  // 1156:   append &part range(text s idx-1)
+  // 1157:   
+  // 1158:   # force single line string literal
+  // 1159:   
+  // 1160:   append &part "@@quot;"
+  // 1161:   !s idx+1
   frame->slots[6] /* temp__1 */ = create_closure(entry__analyze_string_literal_32, 0);
-  // 1157: :
-  // 1158:   !is_inline false
+  // 1162: :
+  // 1163:   !is_inline false
   frame->slots[7] /* temp__2 */ = create_closure(entry__analyze_string_literal_39, 0);
-  // 1149: if
-  // 1150:   use_single_line_form:
-  // 1151:     append &part range(text s idx-1)
-  // 1152:     
-  // 1153:     # force single line string literal
-  // 1154:     
-  // 1155:     append &part "@@quot;"
-  // 1156:     !s idx+1
-  // 1157:   :
-  // 1158:     !is_inline false
+  // 1154: if
+  // 1155:   use_single_line_form:
+  // 1156:     append &part range(text s idx-1)
+  // 1157:     
+  // 1158:     # force single line string literal
+  // 1159:     
+  // 1160:     append &part "@@quot;"
+  // 1161:     !s idx+1
+  // 1162:   :
+  // 1163:     !is_inline false
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* use_single_line_form */;
@@ -29388,7 +29550,7 @@ static void entry__analyze_string_literal_40(void) {
     invalid_arguments_error();
     return;
   }
-  // 1160: ... idx-1
+  // 1165: ... idx-1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* idx */;
@@ -29404,7 +29566,7 @@ static void cont__analyze_string_literal_41(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1160: ... range(text s idx-1)
+  // 1165: ... range(text s idx-1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* text */;
@@ -29421,7 +29583,7 @@ static void cont__analyze_string_literal_42(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1160: append &part range(text s idx-1)
+  // 1165: append &part range(text s idx-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
@@ -29437,7 +29599,7 @@ static void cont__analyze_string_literal_43(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* part */ = arguments->slots[0];
-  // 1161: append &part "@@@@"
+  // 1166: append &part "@@@@"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
@@ -29453,7 +29615,7 @@ static void cont__analyze_string_literal_44(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* part */ = arguments->slots[0];
-  // 1162: !s idx+1
+  // 1167: !s idx+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* idx */;
@@ -29494,7 +29656,7 @@ static void entry__analyze_string_literal_46(void) {
     invalid_arguments_error();
     return;
   }
-  // 1165: $escaped escaped_character(chr)
+  // 1170: $escaped escaped_character(chr)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -29509,7 +29671,7 @@ static void cont__analyze_string_literal_47(void) {
     return;
   }
   initialize_future(frame->slots[5] /* escaped */, arguments->slots[0]);
-  // 1166: ... length_of(escaped)
+  // 1171: ... length_of(escaped)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* escaped */;
@@ -29524,7 +29686,7 @@ static void cont__analyze_string_literal_48(void) {
     return;
   }
   frame->slots[7] /* temp__2 */ = arguments->slots[0];
-  // 1166: ... length_of(escaped) > 1
+  // 1171: ... length_of(escaped) > 1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -29540,15 +29702,15 @@ static void cont__analyze_string_literal_49(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1166: ... :
-  // 1167:   append &part range(text s idx-1)
-  // 1168:   append &part escaped
-  // 1169:   !s idx+1
+  // 1171: ... :
+  // 1172:   append &part range(text s idx-1)
+  // 1173:   append &part escaped
+  // 1174:   !s idx+1
   frame->slots[8] /* temp__3 */ = create_closure(entry__analyze_string_literal_50, 0);
-  // 1166: if length_of(escaped) > 1:
-  // 1167:   append &part range(text s idx-1)
-  // 1168:   append &part escaped
-  // 1169:   !s idx+1
+  // 1171: if length_of(escaped) > 1:
+  // 1172:   append &part range(text s idx-1)
+  // 1173:   append &part escaped
+  // 1174:   !s idx+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -29579,52 +29741,52 @@ static void entry__analyze_string_literal_20(void) {
     invalid_arguments_error();
     return;
   }
-  // 1137: ... :
-  // 1138:   append &part range(text s idx-1)
-  // 1139:   if
-  // 1140:     use_single_line_form:
-  // 1141:       # force single line string literal
-  // 1142:       
-  // 1143:       append &part "@@nl;"
-  // 1144:     :
-  // 1145:       push &lines part
-  // 1146:       !part ""
+  // 1142: ... :
+  // 1143:   append &part range(text s idx-1)
+  // 1144:   if
+  // 1145:     use_single_line_form:
+  // 1146:       # force single line string literal
+  // 1147:       
+  // 1148:       append &part "@@nl;"
+  // 1149:     :
+  // 1150:       push &lines part
+  // 1151:       !part ""
   // ...
   frame->slots[8] /* temp__1 */ = create_closure(entry__analyze_string_literal_21, 0);
-  // 1148: ... :
-  // 1149:   if
-  // 1150:     use_single_line_form:
-  // 1151:       append &part range(text s idx-1)
-  // 1152:       
-  // 1153:       # force single line string literal
-  // 1154:       
-  // 1155:       append &part "@@quot;"
-  // 1156:       !s idx+1
-  // 1157:     :
+  // 1153: ... :
+  // 1154:   if
+  // 1155:     use_single_line_form:
+  // 1156:       append &part range(text s idx-1)
+  // 1157:       
+  // 1158:       # force single line string literal
+  // 1159:       
+  // 1160:       append &part "@@quot;"
+  // 1161:       !s idx+1
+  // 1162:     :
   // ...
   frame->slots[9] /* temp__2 */ = create_closure(entry__analyze_string_literal_31, 0);
-  // 1159: ... :
-  // 1160:   append &part range(text s idx-1)
-  // 1161:   append &part "@@@@"
-  // 1162:   !s idx+1
-  frame->slots[10] /* temp__3 */ = create_closure(entry__analyze_string_literal_40, 0);
   // 1164: ... :
-  // 1165:   $escaped escaped_character(chr)
-  // 1166:   if length_of(escaped) > 1:
-  // 1167:     append &part range(text s idx-1)
-  // 1168:     append &part escaped
-  // 1169:     !s idx+1
+  // 1165:   append &part range(text s idx-1)
+  // 1166:   append &part "@@@@"
+  // 1167:   !s idx+1
+  frame->slots[10] /* temp__3 */ = create_closure(entry__analyze_string_literal_40, 0);
+  // 1169: ... :
+  // 1170:   $escaped escaped_character(chr)
+  // 1171:   if length_of(escaped) > 1:
+  // 1172:     append &part range(text s idx-1)
+  // 1173:     append &part escaped
+  // 1174:     !s idx+1
   frame->slots[11] /* temp__4 */ = create_closure(entry__analyze_string_literal_46, 0);
-  // 1135: case
-  // 1136:   chr
-  // 1137:   '@nl;':
-  // 1138:     append &part range(text s idx-1)
-  // 1139:     if
-  // 1140:       use_single_line_form:
-  // 1141:         # force single line string literal
-  // 1142:         
-  // 1143:         append &part "@@nl;"
-  // 1144:       :
+  // 1140: case
+  // 1141:   chr
+  // 1142:   '@nl;':
+  // 1143:     append &part range(text s idx-1)
+  // 1144:     if
+  // 1145:       use_single_line_form:
+  // 1146:         # force single line string literal
+  // 1147:         
+  // 1148:         append &part "@@nl;"
+  // 1149:       :
   // ...
   argument_count = 10;
   arguments = node_p;
@@ -29648,7 +29810,7 @@ static void cont__analyze_string_literal_56(void) {
     invalid_results_error();
     return;
   }
-  // 1170: ... 1
+  // 1175: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -29663,7 +29825,7 @@ static void cont__analyze_string_literal_57(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 1170: ... range(text s -1)
+  // 1175: ... range(text s -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* text */;
@@ -29680,7 +29842,7 @@ static void cont__analyze_string_literal_58(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 1170: append &part range(text s -1)
+  // 1175: append &part range(text s -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* part */;
@@ -29696,7 +29858,7 @@ static void cont__analyze_string_literal_59(void) {
     return;
   }
   ((CELL *)frame->slots[5])->contents /* part */ = arguments->slots[0];
-  // 1172: part == ""
+  // 1177: part == ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* part */;
@@ -29712,33 +29874,33 @@ static void cont__analyze_string_literal_60(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 1172: ... :
-  // 1173:   # there must be a newline somewhere
-  // 1174:   
-  // 1175:   !is_inline false
+  // 1177: ... :
+  // 1178:   # there must be a newline somewhere
+  // 1179:   
+  // 1180:   !is_inline false
   frame->slots[8] /* temp__2 */ = create_closure(entry__analyze_string_literal_61, 0);
-  // 1176: :
-  // 1177:   # if the current part is not empty there was no trainling newline
-  // 1178:   
-  // 1179:   $max_width # the maximum width is computed for multi-line-strings
-  // 1180:     -
-  // 1181:       max(line_width-expression_indent 20)
-  // 1182:       if
-  // 1183:         line_end_expression_width >= 2
-  // 1184:         -> 0
-  // 1185:         -> 2
+  // 1181: :
+  // 1182:   # if the current part is not empty there was no trainling newline
+  // 1183:   
+  // 1184:   $max_width # the maximum width is computed for multi-line-strings
+  // 1185:     -
+  // 1186:       max(line_width-expression_indent 20)
+  // 1187:       if
+  // 1188:         line_end_expression_width >= 2
+  // 1189:         -> 0
+  // 1190:         -> 2
   // ...
   frame->slots[9] /* temp__3 */ = create_closure(entry__analyze_string_literal_62, 0);
-  // 1171: if
-  // 1172:   part == "":
-  // 1173:     # there must be a newline somewhere
-  // 1174:     
-  // 1175:     !is_inline false
-  // 1176:   :
-  // 1177:     # if the current part is not empty there was no trainling newline
-  // 1178:     
-  // 1179:     $max_width # the maximum width is computed for multi-line-strings
-  // 1180:       -
+  // 1176: if
+  // 1177:   part == "":
+  // 1178:     # there must be a newline somewhere
+  // 1179:     
+  // 1180:     !is_inline false
+  // 1181:   :
+  // 1182:     # if the current part is not empty there was no trainling newline
+  // 1183:     
+  // 1184:     $max_width # the maximum width is computed for multi-line-strings
+  // 1185:       -
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -29763,7 +29925,7 @@ static void entry__analyze_string_literal_80(void) {
     invalid_arguments_error();
     return;
   }
-  // 1190: push &lines part
+  // 1195: push &lines part
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* lines */;
@@ -29796,7 +29958,7 @@ static void entry__analyze_string_literal_82(void) {
     invalid_arguments_error();
     return;
   }
-  // 1192: ... string(part '@@')
+  // 1197: ... string(part '@@')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* part */;
@@ -29812,7 +29974,7 @@ static void cont__analyze_string_literal_83(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1192: push &lines string(part '@@')
+  // 1197: push &lines string(part '@@')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* lines */;
@@ -29843,7 +30005,7 @@ static void entry__analyze_string_literal_61(void) {
     invalid_arguments_error();
     return;
   }
-  // 1175: !is_inline false
+  // 1180: !is_inline false
   ((CELL *)frame->slots[0])->contents /* is_inline */ = get__false();
   argument_count = 0;
   arguments = node_p;
@@ -29866,7 +30028,7 @@ static void entry__analyze_string_literal_62(void) {
     invalid_arguments_error();
     return;
   }
-  // 1181: ... line_width-expression_indent
+  // 1186: ... line_width-expression_indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__line_width();
@@ -29882,7 +30044,7 @@ static void cont__analyze_string_literal_63(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1181: max(line_width-expression_indent 20)
+  // 1186: max(line_width-expression_indent 20)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -29898,7 +30060,7 @@ static void cont__analyze_string_literal_64(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1183: line_end_expression_width >= 2
+  // 1188: line_end_expression_width >= 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__line_end_expression_width();
@@ -29914,7 +30076,7 @@ static void cont__analyze_string_literal_65(void) {
     return;
   }
   frame->slots[8] /* temp__5 */ = arguments->slots[0];
-  // 1183: line_end_expression_width >= 2
+  // 1188: line_end_expression_width >= 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__5 */;
@@ -29946,7 +30108,7 @@ static void entry__analyze_string_literal_67(void) {
     invalid_arguments_error();
     return;
   }
-  // 1184: -> 0
+  // 1189: -> 0
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -29961,7 +30123,7 @@ static void entry__analyze_string_literal_68(void) {
     invalid_arguments_error();
     return;
   }
-  // 1185: -> 2
+  // 1190: -> 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -29975,13 +30137,13 @@ static void cont__analyze_string_literal_69(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 1179: $max_width # the maximum width is computed for multi-line-strings
-  // 1180:   -
-  // 1181:     max(line_width-expression_indent 20)
-  // 1182:     if
-  // 1183:       line_end_expression_width >= 2
-  // 1184:       -> 0
-  // 1185:       -> 2
+  // 1184: $max_width # the maximum width is computed for multi-line-strings
+  // 1185:   -
+  // 1186:     max(line_width-expression_indent 20)
+  // 1187:     if
+  // 1188:       line_end_expression_width >= 2
+  // 1189:       -> 0
+  // 1190:       -> 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -29997,7 +30159,7 @@ static void cont__analyze_string_literal_70(void) {
     return;
   }
   initialize_future(frame->slots[3] /* max_width */, arguments->slots[0]);
-  // 1187: ... lines.is_empty
+  // 1192: ... lines.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* lines */;
@@ -30012,9 +30174,9 @@ static void cont__analyze_string_literal_71(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1187: ... length_of(part)+2 <= max_width
+  // 1192: ... length_of(part)+2 <= max_width
   frame->slots[6] /* temp__3 */ = create_closure(entry__analyze_string_literal_72, 0);
-  // 1187: ... lines.is_empty && length_of(part)+2 <= max_width
+  // 1192: ... lines.is_empty && length_of(part)+2 <= max_width
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -30035,7 +30197,7 @@ static void entry__analyze_string_literal_72(void) {
     invalid_arguments_error();
     return;
   }
-  // 1187: ... length_of(part)
+  // 1192: ... length_of(part)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* part */;
@@ -30050,7 +30212,7 @@ static void cont__analyze_string_literal_73(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 1187: ... length_of(part)+2
+  // 1192: ... length_of(part)+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__4 */;
@@ -30066,7 +30228,7 @@ static void cont__analyze_string_literal_74(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 1187: ... length_of(part)+2 <= max_width
+  // 1192: ... length_of(part)+2 <= max_width
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* max_width */;
@@ -30082,7 +30244,7 @@ static void cont__analyze_string_literal_75(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1187: ... length_of(part)+2 <= max_width
+  // 1192: ... length_of(part)+2 <= max_width
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -30097,7 +30259,7 @@ static void cont__analyze_string_literal_76(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1187: ... length_of(part)+2 <= max_width
+  // 1192: ... length_of(part)+2 <= max_width
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -30111,9 +30273,9 @@ static void cont__analyze_string_literal_77(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1187: ... : !is_inline false
+  // 1192: ... : !is_inline false
   frame->slots[7] /* temp__4 */ = create_closure(entry__analyze_string_literal_78, 0);
-  // 1187: unless lines.is_empty && length_of(part)+2 <= max_width: !is_inline false
+  // 1192: unless lines.is_empty && length_of(part)+2 <= max_width: !is_inline false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -30132,7 +30294,7 @@ static void entry__analyze_string_literal_78(void) {
     invalid_arguments_error();
     return;
   }
-  // 1187: ... !is_inline false
+  // 1192: ... !is_inline false
   ((CELL *)frame->slots[0])->contents /* is_inline */ = get__false();
   argument_count = 0;
   arguments = node_p;
@@ -30145,17 +30307,17 @@ static void cont__analyze_string_literal_79(void) {
     invalid_results_error();
     return;
   }
-  // 1189: ... :
-  // 1190:   push &lines part
+  // 1194: ... :
+  // 1195:   push &lines part
   frame->slots[4] /* temp__1 */ = create_closure(entry__analyze_string_literal_80, 0);
-  // 1191: :
-  // 1192:   push &lines string(part '@@')
+  // 1196: :
+  // 1197:   push &lines string(part '@@')
   frame->slots[5] /* temp__2 */ = create_closure(entry__analyze_string_literal_82, 0);
-  // 1188: if
-  // 1189:   is_inline:
-  // 1190:     push &lines part
-  // 1191:   :
-  // 1192:     push &lines string(part '@@')
+  // 1193: if
+  // 1194:   is_inline:
+  // 1195:     push &lines part
+  // 1196:   :
+  // 1197:     push &lines string(part '@@')
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* is_inline */;
@@ -30191,7 +30353,7 @@ static void entry__print_string_literal_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 1202: ... lines(1)
+  // 1207: ... lines(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -30206,7 +30368,7 @@ static void cont__print_string_literal_16(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1202: ... string('@quot;' lines(1) '@quot;')
+  // 1207: ... string('@quot;' lines(1) '@quot;')
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = character__34;
@@ -30223,7 +30385,7 @@ static void cont__print_string_literal_17(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1202: -> string('@quot;' lines(1) '@quot;')
+  // 1207: -> string('@quot;' lines(1) '@quot;')
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -30252,7 +30414,7 @@ static void entry__print_string_literal_18(void) {
     invalid_arguments_error();
     return;
   }
-  // 1206: ... line_width-expression_indent
+  // 1211: ... line_width-expression_indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__line_width();
@@ -30268,7 +30430,7 @@ static void cont__print_string_literal_19(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 1206: max(line_width-expression_indent 20)
+  // 1211: max(line_width-expression_indent 20)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -30284,7 +30446,7 @@ static void cont__print_string_literal_20(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 1208: line_end_expression_width >= 2
+  // 1213: line_end_expression_width >= 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__line_end_expression_width();
@@ -30300,7 +30462,7 @@ static void cont__print_string_literal_21(void) {
     return;
   }
   frame->slots[11] /* temp__5 */ = arguments->slots[0];
-  // 1208: line_end_expression_width >= 2
+  // 1213: line_end_expression_width >= 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[11] /* temp__5 */;
@@ -30332,7 +30494,7 @@ static void entry__print_string_literal_23(void) {
     invalid_arguments_error();
     return;
   }
-  // 1209: -> 0
+  // 1214: -> 0
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -30347,7 +30509,7 @@ static void entry__print_string_literal_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 1210: -> 2
+  // 1215: -> 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -30361,13 +30523,13 @@ static void cont__print_string_literal_25(void) {
     return;
   }
   frame->slots[9] /* temp__3 */ = arguments->slots[0];
-  // 1204: $max_width # the maximum width is computed for multi-line-strings
-  // 1205:   -
-  // 1206:     max(line_width-expression_indent 20)
-  // 1207:     if
-  // 1208:       line_end_expression_width >= 2
-  // 1209:       -> 0
-  // 1210:       -> 2
+  // 1209: $max_width # the maximum width is computed for multi-line-strings
+  // 1210:   -
+  // 1211:     max(line_width-expression_indent 20)
+  // 1212:     if
+  // 1213:       line_end_expression_width >= 2
+  // 1214:       -> 0
+  // 1215:       -> 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -30383,7 +30545,7 @@ static void cont__print_string_literal_26(void) {
     return;
   }
   initialize_future(frame->slots[1] /* max_width */, arguments->slots[0]);
-  // 1212: ... 1
+  // 1217: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -30398,7 +30560,7 @@ static void cont__print_string_literal_27(void) {
     return;
   }
   frame->slots[9] /* temp__3 */ = arguments->slots[0];
-  // 1212: ... lines(-1)
+  // 1217: ... lines(-1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__3 */;
@@ -30413,7 +30575,7 @@ static void cont__print_string_literal_28(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 1212: ... lines(-1) != ""
+  // 1217: ... lines(-1) != ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -30429,10 +30591,10 @@ static void cont__print_string_literal_29(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 1212: $$has_leading_spaces lines(-1) != ""
-  // 1213:   #
-  // 1214:     if the last line is empty then it is replaced by "@;" and so there
-  // 1215:     are no leading spaces
+  // 1217: $$has_leading_spaces lines(-1) != ""
+  // 1218:   #
+  // 1219:     if the last line is empty then it is replaced by "@;" and so there
+  // 1220:     are no leading spaces
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -30447,30 +30609,30 @@ static void cont__print_string_literal_30(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* has_leading_spaces */ = arguments->slots[0];
-  // 1217: $$split_lines empty_list
+  // 1222: $$split_lines empty_list
   ((CELL *)frame->slots[3])->contents /* split_lines */ = get__empty_list();
-  // 1218: ... : ($line)
-  // 1219:   if line != "" && line(1) != ' ': !has_leading_spaces false
-  // 1220:   while -> length_of(line) > max_width:
-  // 1221:     # split long lines (if possible after a space)
-  // 1222:     
-  // 1223:     $skip_till_end_of_string:
-  // 1224:       do_while:
-  // 1225:         inc &pos
-  // 1226:         if line(pos) == '@@':
-  // 1227:           skip_special
+  // 1223: ... : ($line)
+  // 1224:   if line != "" && line(1) != ' ': !has_leading_spaces false
+  // 1225:   while -> length_of(line) > max_width:
+  // 1226:     # split long lines (if possible after a space)
+  // 1227:     
+  // 1228:     $skip_till_end_of_string:
+  // 1229:       do_while:
+  // 1230:         inc &pos
+  // 1231:         if line(pos) == '@@':
+  // 1232:           skip_special
   // ...
   frame->slots[7] /* temp__1 */ = create_closure(entry__print_string_literal_31, 1);
-  // 1218: for_each lines: ($line)
-  // 1219:   if line != "" && line(1) != ' ': !has_leading_spaces false
-  // 1220:   while -> length_of(line) > max_width:
-  // 1221:     # split long lines (if possible after a space)
-  // 1222:     
-  // 1223:     $skip_till_end_of_string:
-  // 1224:       do_while:
-  // 1225:         inc &pos
-  // 1226:         if line(pos) == '@@':
-  // 1227:           skip_special
+  // 1223: for_each lines: ($line)
+  // 1224:   if line != "" && line(1) != ' ': !has_leading_spaces false
+  // 1225:   while -> length_of(line) > max_width:
+  // 1226:     # split long lines (if possible after a space)
+  // 1227:     
+  // 1228:     $skip_till_end_of_string:
+  // 1229:       do_while:
+  // 1230:         inc &pos
+  // 1231:         if line(pos) == '@@':
+  // 1232:           skip_special
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -30496,7 +30658,7 @@ static void entry__print_string_literal_31(void) {
     return;
   }
   frame->slots[0] /* line */ = create_cell_with_contents(arguments->slots[0]);
-  // 1219: ... line != ""
+  // 1224: ... line != ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -30512,7 +30674,7 @@ static void cont__print_string_literal_32(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 1219: ... line != ""
+  // 1224: ... line != ""
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -30527,9 +30689,9 @@ static void cont__print_string_literal_33(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1219: ... line(1) != ' '
+  // 1224: ... line(1) != ' '
   frame->slots[7] /* temp__4 */ = create_closure(entry__print_string_literal_34, 0);
-  // 1219: ... line != "" && line(1) != ' '
+  // 1224: ... line != "" && line(1) != ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -30548,7 +30710,7 @@ static void entry__print_string_literal_34(void) {
     invalid_arguments_error();
     return;
   }
-  // 1219: ... line(1)
+  // 1224: ... line(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -30563,7 +30725,7 @@ static void cont__print_string_literal_35(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 1219: ... line(1) != ' '
+  // 1224: ... line(1) != ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -30579,7 +30741,7 @@ static void cont__print_string_literal_36(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1219: ... line(1) != ' '
+  // 1224: ... line(1) != ' '
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -30594,7 +30756,7 @@ static void cont__print_string_literal_37(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1219: ... line(1) != ' '
+  // 1224: ... line(1) != ' '
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -30608,9 +30770,9 @@ static void cont__print_string_literal_38(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1219: ... : !has_leading_spaces false
+  // 1224: ... : !has_leading_spaces false
   frame->slots[8] /* temp__5 */ = create_closure(entry__print_string_literal_39, 0);
-  // 1219: if line != "" && line(1) != ' ': !has_leading_spaces false
+  // 1224: if line != "" && line(1) != ' ': !has_leading_spaces false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -30629,7 +30791,7 @@ static void entry__print_string_literal_39(void) {
     invalid_arguments_error();
     return;
   }
-  // 1219: ... !has_leading_spaces false
+  // 1224: ... !has_leading_spaces false
   ((CELL *)frame->slots[0])->contents /* has_leading_spaces */ = get__false();
   argument_count = 0;
   arguments = node_p;
@@ -30642,28 +30804,28 @@ static void cont__print_string_literal_40(void) {
     invalid_results_error();
     return;
   }
-  // 1220: ... -> length_of(line) > max_width:
-  // 1221:   # split long lines (if possible after a space)
-  // 1222:   
-  // 1223:   $skip_till_end_of_string:
-  // 1224:     do_while:
-  // 1225:       inc &pos
-  // 1226:       if line(pos) == '@@':
-  // 1227:         skip_special
-  // 1228:         inc &pos
-  // 1229:       -> line(pos) != '@quot;'
+  // 1225: ... -> length_of(line) > max_width:
+  // 1226:   # split long lines (if possible after a space)
+  // 1227:   
+  // 1228:   $skip_till_end_of_string:
+  // 1229:     do_while:
+  // 1230:       inc &pos
+  // 1231:       if line(pos) == '@@':
+  // 1232:         skip_special
+  // 1233:         inc &pos
+  // 1234:       -> line(pos) != '@quot;'
   // ...
   frame->slots[4] /* temp__1 */ = create_closure(entry__print_string_literal_41, 0);
-  // 1220: while -> length_of(line) > max_width:
-  // 1221:   # split long lines (if possible after a space)
-  // 1222:   
-  // 1223:   $skip_till_end_of_string:
-  // 1224:     do_while:
-  // 1225:       inc &pos
-  // 1226:       if line(pos) == '@@':
-  // 1227:         skip_special
-  // 1228:         inc &pos
-  // 1229:       -> line(pos) != '@quot;'
+  // 1225: while -> length_of(line) > max_width:
+  // 1226:   # split long lines (if possible after a space)
+  // 1227:   
+  // 1228:   $skip_till_end_of_string:
+  // 1229:     do_while:
+  // 1230:       inc &pos
+  // 1231:       if line(pos) == '@@':
+  // 1232:         skip_special
+  // 1233:         inc &pos
+  // 1234:       -> line(pos) != '@quot;'
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -30698,90 +30860,90 @@ static void entry__print_string_literal_44(void) {
     invalid_arguments_error();
     return;
   }
-  // 1223: ... :
-  // 1224:   do_while:
-  // 1225:     inc &pos
-  // 1226:     if line(pos) == '@@':
-  // 1227:       skip_special
-  // 1228:       inc &pos
-  // 1229:     -> line(pos) != '@quot;'
+  // 1228: ... :
+  // 1229:   do_while:
+  // 1230:     inc &pos
+  // 1231:     if line(pos) == '@@':
+  // 1232:       skip_special
+  // 1233:       inc &pos
+  // 1234:     -> line(pos) != '@quot;'
   frame->slots[9] /* temp__1 */ = create_closure(entry__print_string_literal_45, 0);
-  // 1223: $skip_till_end_of_string:
-  // 1224:   do_while:
-  // 1225:     inc &pos
-  // 1226:     if line(pos) == '@@':
-  // 1227:       skip_special
-  // 1228:       inc &pos
-  // 1229:     -> line(pos) != '@quot;'
+  // 1228: $skip_till_end_of_string:
+  // 1229:   do_while:
+  // 1230:     inc &pos
+  // 1231:     if line(pos) == '@@':
+  // 1232:       skip_special
+  // 1233:       inc &pos
+  // 1234:     -> line(pos) != '@quot;'
   initialize_future(frame->slots[3] /* skip_till_end_of_string */, frame->slots[9] /* temp__1 */);
-  // 1231: ... :
-  // 1232:   do_while:
-  // 1233:     inc &pos
-  // 1234:     if line(pos) == '(':
-  // 1235:       skip_till_close
-  // 1236:       inc &pos
-  // 1237:     if line(pos) == '@quot;':
-  // 1238:       skip_till_end_of_string
-  // 1239:       inc &pos
-  // 1240:     -> line(pos) != ')'
+  // 1236: ... :
+  // 1237:   do_while:
+  // 1238:     inc &pos
+  // 1239:     if line(pos) == '(':
+  // 1240:       skip_till_close
+  // 1241:       inc &pos
+  // 1242:     if line(pos) == '@quot;':
+  // 1243:       skip_till_end_of_string
+  // 1244:       inc &pos
+  // 1245:     -> line(pos) != ')'
   frame->slots[9] /* temp__1 */ = create_closure(entry__print_string_literal_57, 0);
-  // 1231: $skip_till_close:
-  // 1232:   do_while:
-  // 1233:     inc &pos
-  // 1234:     if line(pos) == '(':
-  // 1235:       skip_till_close
-  // 1236:       inc &pos
-  // 1237:     if line(pos) == '@quot;':
-  // 1238:       skip_till_end_of_string
-  // 1239:       inc &pos
-  // 1240:     -> line(pos) != ')'
+  // 1236: $skip_till_close:
+  // 1237:   do_while:
+  // 1238:     inc &pos
+  // 1239:     if line(pos) == '(':
+  // 1240:       skip_till_close
+  // 1241:       inc &pos
+  // 1242:     if line(pos) == '@quot;':
+  // 1243:       skip_till_end_of_string
+  // 1244:       inc &pos
+  // 1245:     -> line(pos) != ')'
   initialize_future(frame->slots[4] /* skip_till_close */, frame->slots[9] /* temp__1 */);
-  // 1242: ... :
-  // 1243:   inc &pos
-  // 1244:   unless line(pos) == '@@':
-  // 1245:     if
-  // 1246:       line(pos) == '(':
-  // 1247:         skip_till_close
-  // 1248:       :
-  // 1249:         while -> line(pos) != ';': inc &pos
+  // 1247: ... :
+  // 1248:   inc &pos
+  // 1249:   unless line(pos) == '@@':
+  // 1250:     if
+  // 1251:       line(pos) == '(':
+  // 1252:         skip_till_close
+  // 1253:       :
+  // 1254:         while -> line(pos) != ';': inc &pos
   frame->slots[9] /* temp__1 */ = create_closure(entry__print_string_literal_75, 0);
-  // 1242: $skip_special:
-  // 1243:   inc &pos
-  // 1244:   unless line(pos) == '@@':
-  // 1245:     if
-  // 1246:       line(pos) == '(':
-  // 1247:         skip_till_close
-  // 1248:       :
-  // 1249:         while -> line(pos) != ';': inc &pos
+  // 1247: $skip_special:
+  // 1248:   inc &pos
+  // 1249:   unless line(pos) == '@@':
+  // 1250:     if
+  // 1251:       line(pos) == '(':
+  // 1252:         skip_till_close
+  // 1253:       :
+  // 1254:         while -> line(pos) != ';': inc &pos
   initialize_future(frame->slots[5] /* skip_special */, frame->slots[9] /* temp__1 */);
-  // 1251: $$best_split_pos undefined
+  // 1256: $$best_split_pos undefined
   ((CELL *)frame->slots[6])->contents /* best_split_pos */ = get__undefined();
-  // 1252: $$last_valid_pos undefined
+  // 1257: $$last_valid_pos undefined
   ((CELL *)frame->slots[7])->contents /* last_valid_pos */ = get__undefined();
-  // 1253: $$pos 1
+  // 1258: $$pos 1
   ((CELL *)frame->slots[8])->contents /* pos */ = number__1;
-  // 1254: ... -> pos < max_width:
-  // 1255:   $chr line(pos)
-  // 1256:   if
-  // 1257:     chr == ' ':
-  // 1258:       !best_split_pos pos
-  // 1259:     :
-  // 1260:       if
-  // 1261:         chr == '@@':
-  // 1262:           skip_special
-  // 1263:           cond
+  // 1259: ... -> pos < max_width:
+  // 1260:   $chr line(pos)
+  // 1261:   if
+  // 1262:     chr == ' ':
+  // 1263:       !best_split_pos pos
+  // 1264:     :
+  // 1265:       if
+  // 1266:         chr == '@@':
+  // 1267:           skip_special
+  // 1268:           cond
   // ...
   frame->slots[9] /* temp__1 */ = create_closure(entry__print_string_literal_89, 0);
-  // 1254: while -> pos < max_width:
-  // 1255:   $chr line(pos)
-  // 1256:   if
-  // 1257:     chr == ' ':
-  // 1258:       !best_split_pos pos
-  // 1259:     :
-  // 1260:       if
-  // 1261:         chr == '@@':
-  // 1262:           skip_special
-  // 1263:           cond
+  // 1259: while -> pos < max_width:
+  // 1260:   $chr line(pos)
+  // 1261:   if
+  // 1262:     chr == ' ':
+  // 1263:       !best_split_pos pos
+  // 1264:     :
+  // 1265:       if
+  // 1266:         chr == '@@':
+  // 1267:           skip_special
+  // 1268:           cond
   // ...
   argument_count = 1;
   arguments = node_p;
@@ -30812,7 +30974,7 @@ static void entry__print_string_literal_91(void) {
     invalid_arguments_error();
     return;
   }
-  // 1255: $chr line(pos)
+  // 1260: $chr line(pos)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -30827,7 +30989,7 @@ static void cont__print_string_literal_92(void) {
     return;
   }
   initialize_future(frame->slots[6] /* chr */, arguments->slots[0]);
-  // 1257: chr == ' '
+  // 1262: chr == ' '
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* chr */;
@@ -30843,30 +31005,30 @@ static void cont__print_string_literal_93(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 1257: ... :
-  // 1258:   !best_split_pos pos
+  // 1262: ... :
+  // 1263:   !best_split_pos pos
   frame->slots[8] /* temp__2 */ = create_closure(entry__print_string_literal_94, 0);
-  // 1259: :
-  // 1260:   if
-  // 1261:     chr == '@@':
-  // 1262:       skip_special
-  // 1263:       cond
-  // 1264:         -> pos < max_width && line(pos) == ')':
-  // 1265:           !best_split_pos pos
-  // 1266:         -> last_valid_pos.is_undefined: !last_valid_pos pos
-  // 1267:     :
-  // 1268:       !last_valid_pos pos
+  // 1264: :
+  // 1265:   if
+  // 1266:     chr == '@@':
+  // 1267:       skip_special
+  // 1268:       cond
+  // 1269:         -> pos < max_width && line(pos) == ')':
+  // 1270:           !best_split_pos pos
+  // 1271:         -> last_valid_pos.is_undefined: !last_valid_pos pos
+  // 1272:     :
+  // 1273:       !last_valid_pos pos
   frame->slots[9] /* temp__3 */ = create_closure(entry__print_string_literal_95, 0);
-  // 1256: if
-  // 1257:   chr == ' ':
-  // 1258:     !best_split_pos pos
-  // 1259:   :
-  // 1260:     if
-  // 1261:       chr == '@@':
-  // 1262:         skip_special
-  // 1263:         cond
-  // 1264:           -> pos < max_width && line(pos) == ')':
-  // 1265:             !best_split_pos pos
+  // 1261: if
+  // 1262:   chr == ' ':
+  // 1263:     !best_split_pos pos
+  // 1264:   :
+  // 1265:     if
+  // 1266:       chr == '@@':
+  // 1267:         skip_special
+  // 1268:         cond
+  // 1269:           -> pos < max_width && line(pos) == ')':
+  // 1270:             !best_split_pos pos
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -30889,7 +31051,7 @@ static void entry__print_string_literal_108(void) {
     invalid_arguments_error();
     return;
   }
-  // 1266: ... !last_valid_pos pos
+  // 1271: ... !last_valid_pos pos
   ((CELL *)frame->slots[0])->contents /* last_valid_pos */ = ((CELL *)frame->slots[1])->contents /* pos */;
   argument_count = 0;
   arguments = node_p;
@@ -30908,7 +31070,7 @@ static void entry__print_string_literal_105(void) {
     invalid_arguments_error();
     return;
   }
-  // 1265: !best_split_pos pos
+  // 1270: !best_split_pos pos
   ((CELL *)frame->slots[0])->contents /* best_split_pos */ = ((CELL *)frame->slots[1])->contents /* pos */;
   argument_count = 0;
   arguments = node_p;
@@ -30931,7 +31093,7 @@ static void entry__print_string_literal_99(void) {
     invalid_arguments_error();
     return;
   }
-  // 1264: ... pos < max_width
+  // 1269: ... pos < max_width
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -30947,9 +31109,9 @@ static void cont__print_string_literal_100(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1264: ... line(pos) == ')'
+  // 1269: ... line(pos) == ')'
   frame->slots[6] /* temp__3 */ = create_closure(entry__print_string_literal_101, 0);
-  // 1264: ... pos < max_width && line(pos) == ')'
+  // 1269: ... pos < max_width && line(pos) == ')'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -30970,7 +31132,7 @@ static void entry__print_string_literal_101(void) {
     invalid_arguments_error();
     return;
   }
-  // 1264: ... line(pos)
+  // 1269: ... line(pos)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -30985,7 +31147,7 @@ static void cont__print_string_literal_102(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1264: ... line(pos) == ')'
+  // 1269: ... line(pos) == ')'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -31001,7 +31163,7 @@ static void cont__print_string_literal_103(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1264: ... line(pos) == ')'
+  // 1269: ... line(pos) == ')'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -31015,11 +31177,11 @@ static void cont__print_string_literal_104(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1264: ... :
-  // 1265:   !best_split_pos pos
+  // 1269: ... :
+  // 1270:   !best_split_pos pos
   frame->slots[7] /* temp__4 */ = create_closure(entry__print_string_literal_105, 0);
-  // 1264: -> pos < max_width && line(pos) == ')':
-  // 1265:   !best_split_pos pos
+  // 1269: -> pos < max_width && line(pos) == ')':
+  // 1270:   !best_split_pos pos
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -31039,7 +31201,7 @@ static void entry__print_string_literal_106(void) {
     invalid_arguments_error();
     return;
   }
-  // 1266: ... last_valid_pos.is_undefined
+  // 1271: ... last_valid_pos.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* last_valid_pos */;
@@ -31054,9 +31216,9 @@ static void cont__print_string_literal_107(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1266: ... : !last_valid_pos pos
+  // 1271: ... : !last_valid_pos pos
   frame->slots[3] /* temp__2 */ = create_closure(entry__print_string_literal_108, 0);
-  // 1266: -> last_valid_pos.is_undefined: !last_valid_pos pos
+  // 1271: -> last_valid_pos.is_undefined: !last_valid_pos pos
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -31084,7 +31246,7 @@ static void entry__print_string_literal_97(void) {
     invalid_arguments_error();
     return;
   }
-  // 1262: skip_special
+  // 1267: skip_special
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -31097,15 +31259,15 @@ static void cont__print_string_literal_98(void) {
     invalid_results_error();
     return;
   }
-  // 1264: -> pos < max_width && line(pos) == ')':
-  // 1265:   !best_split_pos pos
+  // 1269: -> pos < max_width && line(pos) == ')':
+  // 1270:   !best_split_pos pos
   frame->slots[6] /* temp__1 */ = create_closure(entry__print_string_literal_99, 0);
-  // 1266: -> last_valid_pos.is_undefined: !last_valid_pos pos
+  // 1271: -> last_valid_pos.is_undefined: !last_valid_pos pos
   frame->slots[7] /* temp__2 */ = create_closure(entry__print_string_literal_106, 0);
-  // 1263: cond
-  // 1264:   -> pos < max_width && line(pos) == ')':
-  // 1265:     !best_split_pos pos
-  // 1266:   -> last_valid_pos.is_undefined: !last_valid_pos pos
+  // 1268: cond
+  // 1269:   -> pos < max_width && line(pos) == ')':
+  // 1270:     !best_split_pos pos
+  // 1271:   -> last_valid_pos.is_undefined: !last_valid_pos pos
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__1 */;
@@ -31126,7 +31288,7 @@ static void entry__print_string_literal_109(void) {
     invalid_arguments_error();
     return;
   }
-  // 1268: !last_valid_pos pos
+  // 1273: !last_valid_pos pos
   ((CELL *)frame->slots[0])->contents /* last_valid_pos */ = ((CELL *)frame->slots[1])->contents /* pos */;
   argument_count = 0;
   arguments = node_p;
@@ -31145,7 +31307,7 @@ static void entry__print_string_literal_94(void) {
     invalid_arguments_error();
     return;
   }
-  // 1258: !best_split_pos pos
+  // 1263: !best_split_pos pos
   ((CELL *)frame->slots[0])->contents /* best_split_pos */ = ((CELL *)frame->slots[1])->contents /* pos */;
   argument_count = 0;
   arguments = node_p;
@@ -31174,7 +31336,7 @@ static void entry__print_string_literal_95(void) {
     invalid_arguments_error();
     return;
   }
-  // 1261: chr == '@@'
+  // 1266: chr == '@@'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* chr */;
@@ -31190,25 +31352,25 @@ static void cont__print_string_literal_96(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 1261: ... :
-  // 1262:   skip_special
-  // 1263:   cond
-  // 1264:     -> pos < max_width && line(pos) == ')':
-  // 1265:       !best_split_pos pos
-  // 1266:     -> last_valid_pos.is_undefined: !last_valid_pos pos
+  // 1266: ... :
+  // 1267:   skip_special
+  // 1268:   cond
+  // 1269:     -> pos < max_width && line(pos) == ')':
+  // 1270:       !best_split_pos pos
+  // 1271:     -> last_valid_pos.is_undefined: !last_valid_pos pos
   frame->slots[8] /* temp__2 */ = create_closure(entry__print_string_literal_97, 0);
-  // 1267: :
-  // 1268:   !last_valid_pos pos
+  // 1272: :
+  // 1273:   !last_valid_pos pos
   frame->slots[9] /* temp__3 */ = create_closure(entry__print_string_literal_109, 0);
-  // 1260: if
-  // 1261:   chr == '@@':
-  // 1262:     skip_special
-  // 1263:     cond
-  // 1264:       -> pos < max_width && line(pos) == ')':
-  // 1265:         !best_split_pos pos
-  // 1266:       -> last_valid_pos.is_undefined: !last_valid_pos pos
-  // 1267:   :
-  // 1268:     !last_valid_pos pos
+  // 1265: if
+  // 1266:   chr == '@@':
+  // 1267:     skip_special
+  // 1268:     cond
+  // 1269:       -> pos < max_width && line(pos) == ')':
+  // 1270:         !best_split_pos pos
+  // 1271:       -> last_valid_pos.is_undefined: !last_valid_pos pos
+  // 1272:   :
+  // 1273:     !last_valid_pos pos
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -31224,7 +31386,7 @@ static void cont__print_string_literal_110(void) {
     invalid_results_error();
     return;
   }
-  // 1269: inc &pos
+  // 1274: inc &pos
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -31254,7 +31416,7 @@ static void entry__print_string_literal_87(void) {
     invalid_arguments_error();
     return;
   }
-  // 1249: ... inc &pos
+  // 1254: ... inc &pos
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -31286,7 +31448,7 @@ static void entry__print_string_literal_83(void) {
     invalid_arguments_error();
     return;
   }
-  // 1249: ... line(pos)
+  // 1254: ... line(pos)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -31301,7 +31463,7 @@ static void cont__print_string_literal_84(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 1249: ... line(pos) != ';'
+  // 1254: ... line(pos) != ';'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -31317,7 +31479,7 @@ static void cont__print_string_literal_85(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1249: ... line(pos) != ';'
+  // 1254: ... line(pos) != ';'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -31332,9 +31494,9 @@ static void cont__print_string_literal_86(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1249: ... : inc &pos
+  // 1254: ... : inc &pos
   frame->slots[5] /* temp__4 */ = create_closure(entry__print_string_literal_87, 0);
-  // 1249: ... -> line(pos) != ';': inc &pos
+  // 1254: ... -> line(pos) != ';': inc &pos
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -31354,9 +31516,9 @@ static void entry__print_string_literal_82(void) {
     invalid_arguments_error();
     return;
   }
-  // 1249: ... -> line(pos) != ';': inc &pos
+  // 1254: ... -> line(pos) != ';': inc &pos
   frame->slots[2] /* temp__1 */ = create_closure(entry__print_string_literal_83, 0);
-  // 1249: while -> line(pos) != ';': inc &pos
+  // 1254: while -> line(pos) != ';': inc &pos
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -31378,7 +31540,7 @@ static void entry__print_string_literal_79(void) {
     invalid_arguments_error();
     return;
   }
-  // 1246: line(pos)
+  // 1251: line(pos)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -31393,7 +31555,7 @@ static void cont__print_string_literal_80(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1246: line(pos) == '('
+  // 1251: line(pos) == '('
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -31409,14 +31571,14 @@ static void cont__print_string_literal_81(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1248: :
-  // 1249:   while -> line(pos) != ';': inc &pos
+  // 1253: :
+  // 1254:   while -> line(pos) != ';': inc &pos
   frame->slots[5] /* temp__3 */ = create_closure(entry__print_string_literal_82, 0);
-  // 1245: if
-  // 1246:   line(pos) == '(':
-  // 1247:     skip_till_close
-  // 1248:   :
-  // 1249:     while -> line(pos) != ';': inc &pos
+  // 1250: if
+  // 1251:   line(pos) == '(':
+  // 1252:     skip_till_close
+  // 1253:   :
+  // 1254:     while -> line(pos) != ';': inc &pos
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -31442,7 +31604,7 @@ static void entry__print_string_literal_58(void) {
     invalid_arguments_error();
     return;
   }
-  // 1233: inc &pos
+  // 1238: inc &pos
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -31457,7 +31619,7 @@ static void cont__print_string_literal_59(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* pos */ = arguments->slots[0];
-  // 1234: ... line(pos)
+  // 1239: ... line(pos)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -31472,7 +31634,7 @@ static void cont__print_string_literal_60(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1234: ... line(pos) == '('
+  // 1239: ... line(pos) == '('
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -31488,13 +31650,13 @@ static void cont__print_string_literal_61(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1234: ... :
-  // 1235:   skip_till_close
-  // 1236:   inc &pos
+  // 1239: ... :
+  // 1240:   skip_till_close
+  // 1241:   inc &pos
   frame->slots[6] /* temp__3 */ = create_closure(entry__print_string_literal_62, 0);
-  // 1234: if line(pos) == '(':
-  // 1235:   skip_till_close
-  // 1236:   inc &pos
+  // 1239: if line(pos) == '(':
+  // 1240:   skip_till_close
+  // 1241:   inc &pos
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -31515,7 +31677,7 @@ static void entry__print_string_literal_62(void) {
     invalid_arguments_error();
     return;
   }
-  // 1235: skip_till_close
+  // 1240: skip_till_close
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -31528,7 +31690,7 @@ static void cont__print_string_literal_63(void) {
     invalid_results_error();
     return;
   }
-  // 1236: inc &pos
+  // 1241: inc &pos
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -31554,7 +31716,7 @@ static void cont__print_string_literal_65(void) {
     invalid_results_error();
     return;
   }
-  // 1237: ... line(pos)
+  // 1242: ... line(pos)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -31569,7 +31731,7 @@ static void cont__print_string_literal_66(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1237: ... line(pos) == '@quot;'
+  // 1242: ... line(pos) == '@quot;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -31585,13 +31747,13 @@ static void cont__print_string_literal_67(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1237: ... :
-  // 1238:   skip_till_end_of_string
-  // 1239:   inc &pos
+  // 1242: ... :
+  // 1243:   skip_till_end_of_string
+  // 1244:   inc &pos
   frame->slots[6] /* temp__3 */ = create_closure(entry__print_string_literal_68, 0);
-  // 1237: if line(pos) == '@quot;':
-  // 1238:   skip_till_end_of_string
-  // 1239:   inc &pos
+  // 1242: if line(pos) == '@quot;':
+  // 1243:   skip_till_end_of_string
+  // 1244:   inc &pos
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -31612,7 +31774,7 @@ static void entry__print_string_literal_68(void) {
     invalid_arguments_error();
     return;
   }
-  // 1238: skip_till_end_of_string
+  // 1243: skip_till_end_of_string
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -31625,7 +31787,7 @@ static void cont__print_string_literal_69(void) {
     invalid_results_error();
     return;
   }
-  // 1239: inc &pos
+  // 1244: inc &pos
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -31651,7 +31813,7 @@ static void cont__print_string_literal_71(void) {
     invalid_results_error();
     return;
   }
-  // 1240: ... line(pos)
+  // 1245: ... line(pos)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -31666,7 +31828,7 @@ static void cont__print_string_literal_72(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 1240: ... line(pos) != ')'
+  // 1245: ... line(pos) != ')'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -31682,7 +31844,7 @@ static void cont__print_string_literal_73(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1240: ... line(pos) != ')'
+  // 1245: ... line(pos) != ')'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -31697,7 +31859,7 @@ static void cont__print_string_literal_74(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1240: -> line(pos) != ')'
+  // 1245: -> line(pos) != ')'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -31718,7 +31880,7 @@ static void entry__print_string_literal_46(void) {
     invalid_arguments_error();
     return;
   }
-  // 1225: inc &pos
+  // 1230: inc &pos
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -31733,7 +31895,7 @@ static void cont__print_string_literal_47(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* pos */ = arguments->slots[0];
-  // 1226: ... line(pos)
+  // 1231: ... line(pos)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -31748,7 +31910,7 @@ static void cont__print_string_literal_48(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1226: ... line(pos) == '@@'
+  // 1231: ... line(pos) == '@@'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -31764,13 +31926,13 @@ static void cont__print_string_literal_49(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1226: ... :
-  // 1227:   skip_special
-  // 1228:   inc &pos
+  // 1231: ... :
+  // 1232:   skip_special
+  // 1233:   inc &pos
   frame->slots[5] /* temp__3 */ = create_closure(entry__print_string_literal_50, 0);
-  // 1226: if line(pos) == '@@':
-  // 1227:   skip_special
-  // 1228:   inc &pos
+  // 1231: if line(pos) == '@@':
+  // 1232:   skip_special
+  // 1233:   inc &pos
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -31791,7 +31953,7 @@ static void entry__print_string_literal_50(void) {
     invalid_arguments_error();
     return;
   }
-  // 1227: skip_special
+  // 1232: skip_special
   argument_count = 0;
   arguments = node_p;
   result_count = 0;
@@ -31804,7 +31966,7 @@ static void cont__print_string_literal_51(void) {
     invalid_results_error();
     return;
   }
-  // 1228: inc &pos
+  // 1233: inc &pos
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* pos */;
@@ -31830,7 +31992,7 @@ static void cont__print_string_literal_53(void) {
     invalid_results_error();
     return;
   }
-  // 1229: ... line(pos)
+  // 1234: ... line(pos)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -31845,7 +32007,7 @@ static void cont__print_string_literal_54(void) {
     return;
   }
   frame->slots[5] /* temp__3 */ = arguments->slots[0];
-  // 1229: ... line(pos) != '@quot;'
+  // 1234: ... line(pos) != '@quot;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__3 */;
@@ -31861,7 +32023,7 @@ static void cont__print_string_literal_55(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1229: ... line(pos) != '@quot;'
+  // 1234: ... line(pos) != '@quot;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -31876,7 +32038,7 @@ static void cont__print_string_literal_56(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1229: -> line(pos) != '@quot;'
+  // 1234: -> line(pos) != '@quot;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -31897,19 +32059,19 @@ static void entry__print_string_literal_45(void) {
     invalid_arguments_error();
     return;
   }
-  // 1224: ... :
-  // 1225:   inc &pos
-  // 1226:   if line(pos) == '@@':
-  // 1227:     skip_special
-  // 1228:     inc &pos
-  // 1229:   -> line(pos) != '@quot;'
+  // 1229: ... :
+  // 1230:   inc &pos
+  // 1231:   if line(pos) == '@@':
+  // 1232:     skip_special
+  // 1233:     inc &pos
+  // 1234:   -> line(pos) != '@quot;'
   frame->slots[3] /* temp__1 */ = create_closure(entry__print_string_literal_46, 0);
-  // 1224: do_while:
-  // 1225:   inc &pos
-  // 1226:   if line(pos) == '@@':
-  // 1227:     skip_special
-  // 1228:     inc &pos
-  // 1229:   -> line(pos) != '@quot;'
+  // 1229: do_while:
+  // 1230:   inc &pos
+  // 1231:   if line(pos) == '@@':
+  // 1232:     skip_special
+  // 1233:     inc &pos
+  // 1234:   -> line(pos) != '@quot;'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -31933,25 +32095,25 @@ static void entry__print_string_literal_57(void) {
     invalid_arguments_error();
     return;
   }
-  // 1232: ... :
-  // 1233:   inc &pos
-  // 1234:   if line(pos) == '(':
-  // 1235:     skip_till_close
-  // 1236:     inc &pos
-  // 1237:   if line(pos) == '@quot;':
-  // 1238:     skip_till_end_of_string
-  // 1239:     inc &pos
-  // 1240:   -> line(pos) != ')'
+  // 1237: ... :
+  // 1238:   inc &pos
+  // 1239:   if line(pos) == '(':
+  // 1240:     skip_till_close
+  // 1241:     inc &pos
+  // 1242:   if line(pos) == '@quot;':
+  // 1243:     skip_till_end_of_string
+  // 1244:     inc &pos
+  // 1245:   -> line(pos) != ')'
   frame->slots[4] /* temp__1 */ = create_closure(entry__print_string_literal_58, 0);
-  // 1232: do_while:
-  // 1233:   inc &pos
-  // 1234:   if line(pos) == '(':
-  // 1235:     skip_till_close
-  // 1236:     inc &pos
-  // 1237:   if line(pos) == '@quot;':
-  // 1238:     skip_till_end_of_string
-  // 1239:     inc &pos
-  // 1240:   -> line(pos) != ')'
+  // 1237: do_while:
+  // 1238:   inc &pos
+  // 1239:   if line(pos) == '(':
+  // 1240:     skip_till_close
+  // 1241:     inc &pos
+  // 1242:   if line(pos) == '@quot;':
+  // 1243:     skip_till_end_of_string
+  // 1244:     inc &pos
+  // 1245:   -> line(pos) != ')'
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -31973,7 +32135,7 @@ static void entry__print_string_literal_75(void) {
     invalid_arguments_error();
     return;
   }
-  // 1243: inc &pos
+  // 1248: inc &pos
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -31988,7 +32150,7 @@ static void cont__print_string_literal_76(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* pos */ = arguments->slots[0];
-  // 1244: ... line(pos)
+  // 1249: ... line(pos)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -32003,7 +32165,7 @@ static void cont__print_string_literal_77(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1244: ... line(pos) == '@@'
+  // 1249: ... line(pos) == '@@'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__2 */;
@@ -32019,19 +32181,19 @@ static void cont__print_string_literal_78(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1244: ... :
-  // 1245:   if
-  // 1246:     line(pos) == '(':
-  // 1247:       skip_till_close
-  // 1248:     :
-  // 1249:       while -> line(pos) != ';': inc &pos
+  // 1249: ... :
+  // 1250:   if
+  // 1251:     line(pos) == '(':
+  // 1252:       skip_till_close
+  // 1253:     :
+  // 1254:       while -> line(pos) != ';': inc &pos
   frame->slots[5] /* temp__3 */ = create_closure(entry__print_string_literal_79, 0);
-  // 1244: unless line(pos) == '@@':
-  // 1245:   if
-  // 1246:     line(pos) == '(':
-  // 1247:       skip_till_close
-  // 1248:     :
-  // 1249:       while -> line(pos) != ';': inc &pos
+  // 1249: unless line(pos) == '@@':
+  // 1250:   if
+  // 1251:     line(pos) == '(':
+  // 1252:       skip_till_close
+  // 1253:     :
+  // 1254:       while -> line(pos) != ';': inc &pos
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -32060,7 +32222,7 @@ static void entry__print_string_literal_89(void) {
     invalid_arguments_error();
     return;
   }
-  // 1254: ... pos < max_width
+  // 1259: ... pos < max_width
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* pos */;
@@ -32076,28 +32238,28 @@ static void cont__print_string_literal_90(void) {
     return;
   }
   frame->slots[6] /* temp__1 */ = arguments->slots[0];
-  // 1254: ... :
-  // 1255:   $chr line(pos)
-  // 1256:   if
-  // 1257:     chr == ' ':
-  // 1258:       !best_split_pos pos
-  // 1259:     :
-  // 1260:       if
-  // 1261:         chr == '@@':
-  // 1262:           skip_special
-  // 1263:           cond
+  // 1259: ... :
+  // 1260:   $chr line(pos)
+  // 1261:   if
+  // 1262:     chr == ' ':
+  // 1263:       !best_split_pos pos
+  // 1264:     :
+  // 1265:       if
+  // 1266:         chr == '@@':
+  // 1267:           skip_special
+  // 1268:           cond
   // ...
   frame->slots[7] /* temp__2 */ = create_closure(entry__print_string_literal_91, 0);
-  // 1254: ... -> pos < max_width:
-  // 1255:   $chr line(pos)
-  // 1256:   if
-  // 1257:     chr == ' ':
-  // 1258:       !best_split_pos pos
-  // 1259:     :
-  // 1260:       if
-  // 1261:         chr == '@@':
-  // 1262:           skip_special
-  // 1263:           cond
+  // 1259: ... -> pos < max_width:
+  // 1260:   $chr line(pos)
+  // 1261:   if
+  // 1262:     chr == ' ':
+  // 1263:       !best_split_pos pos
+  // 1264:     :
+  // 1265:       if
+  // 1266:         chr == '@@':
+  // 1267:           skip_special
+  // 1268:           cond
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -32112,7 +32274,7 @@ static void cont__print_string_literal_112(void) {
     invalid_results_error();
     return;
   }
-  // 1270: ... best_split_pos.is_undefined
+  // 1275: ... best_split_pos.is_undefined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[6])->contents /* best_split_pos */;
@@ -32127,9 +32289,9 @@ static void cont__print_string_literal_113(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 1270: ... : !best_split_pos last_valid_pos
+  // 1275: ... : !best_split_pos last_valid_pos
   frame->slots[10] /* temp__2 */ = create_closure(entry__print_string_literal_114, 0);
-  // 1270: if best_split_pos.is_undefined: !best_split_pos last_valid_pos
+  // 1275: if best_split_pos.is_undefined: !best_split_pos last_valid_pos
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__1 */;
@@ -32150,7 +32312,7 @@ static void entry__print_string_literal_114(void) {
     invalid_arguments_error();
     return;
   }
-  // 1270: ... !best_split_pos last_valid_pos
+  // 1275: ... !best_split_pos last_valid_pos
   ((CELL *)frame->slots[0])->contents /* best_split_pos */ = ((CELL *)frame->slots[1])->contents /* last_valid_pos */;
   argument_count = 0;
   arguments = node_p;
@@ -32163,7 +32325,7 @@ static void cont__print_string_literal_115(void) {
     invalid_results_error();
     return;
   }
-  // 1271: ... range(line 1 best_split_pos)
+  // 1276: ... range(line 1 best_split_pos)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -32180,7 +32342,7 @@ static void cont__print_string_literal_116(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 1271: ... push(range(line 1 best_split_pos) '@@')
+  // 1276: ... push(range(line 1 best_split_pos) '@@')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[10] /* temp__2 */;
@@ -32196,7 +32358,7 @@ static void cont__print_string_literal_117(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 1271: push &split_lines push(range(line 1 best_split_pos) '@@')
+  // 1276: push &split_lines push(range(line 1 best_split_pos) '@@')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* split_lines */;
@@ -32212,7 +32374,7 @@ static void cont__print_string_literal_118(void) {
     return;
   }
   ((CELL *)frame->slots[2])->contents /* split_lines */ = arguments->slots[0];
-  // 1272: ... best_split_pos+1
+  // 1277: ... best_split_pos+1
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[6])->contents /* best_split_pos */;
@@ -32228,7 +32390,7 @@ static void cont__print_string_literal_119(void) {
     return;
   }
   frame->slots[9] /* temp__1 */ = arguments->slots[0];
-  // 1272: ... 1
+  // 1277: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -32243,7 +32405,7 @@ static void cont__print_string_literal_120(void) {
     return;
   }
   frame->slots[10] /* temp__2 */ = arguments->slots[0];
-  // 1272: range &line best_split_pos+1 -1
+  // 1277: range &line best_split_pos+1 -1
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* line */;
@@ -32279,7 +32441,7 @@ static void entry__print_string_literal_41(void) {
     invalid_arguments_error();
     return;
   }
-  // 1220: ... length_of(line)
+  // 1225: ... length_of(line)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* line */;
@@ -32294,7 +32456,7 @@ static void cont__print_string_literal_42(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1220: ... length_of(line) > max_width
+  // 1225: ... length_of(line) > max_width
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* max_width */;
@@ -32310,28 +32472,28 @@ static void cont__print_string_literal_43(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1220: ... :
-  // 1221:   # split long lines (if possible after a space)
-  // 1222:   
-  // 1223:   $skip_till_end_of_string:
-  // 1224:     do_while:
-  // 1225:       inc &pos
-  // 1226:       if line(pos) == '@@':
-  // 1227:         skip_special
-  // 1228:         inc &pos
-  // 1229:       -> line(pos) != '@quot;'
+  // 1225: ... :
+  // 1226:   # split long lines (if possible after a space)
+  // 1227:   
+  // 1228:   $skip_till_end_of_string:
+  // 1229:     do_while:
+  // 1230:       inc &pos
+  // 1231:       if line(pos) == '@@':
+  // 1232:         skip_special
+  // 1233:         inc &pos
+  // 1234:       -> line(pos) != '@quot;'
   // ...
   frame->slots[5] /* temp__3 */ = create_closure(entry__print_string_literal_44, 0);
-  // 1220: ... -> length_of(line) > max_width:
-  // 1221:   # split long lines (if possible after a space)
-  // 1222:   
-  // 1223:   $skip_till_end_of_string:
-  // 1224:     do_while:
-  // 1225:       inc &pos
-  // 1226:       if line(pos) == '@@':
-  // 1227:         skip_special
-  // 1228:         inc &pos
-  // 1229:       -> line(pos) != '@quot;'
+  // 1225: ... -> length_of(line) > max_width:
+  // 1226:   # split long lines (if possible after a space)
+  // 1227:   
+  // 1228:   $skip_till_end_of_string:
+  // 1229:     do_while:
+  // 1230:       inc &pos
+  // 1231:       if line(pos) == '@@':
+  // 1232:         skip_special
+  // 1233:         inc &pos
+  // 1234:       -> line(pos) != '@quot;'
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -32346,7 +32508,7 @@ static void cont__print_string_literal_122(void) {
     invalid_results_error();
     return;
   }
-  // 1273: push &split_lines line
+  // 1278: push &split_lines line
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[3])->contents /* split_lines */;
@@ -32373,21 +32535,21 @@ static void cont__print_string_literal_124(void) {
     invalid_results_error();
     return;
   }
-  // 1274: !lines split_lines
+  // 1279: !lines split_lines
   ((CELL *)frame->slots[0])->contents /* lines */ = ((CELL *)frame->slots[3])->contents /* split_lines */;
-  // 1275: ... :
-  // 1276:   #
-  // 1277:     no single line starts at the indent position;
-  // 1278:     so we have to add a line at the start that contains no characters
-  // 1279:   
-  // 1280:   put &lines "@@"
+  // 1280: ... :
+  // 1281:   #
+  // 1282:     no single line starts at the indent position;
+  // 1283:     so we have to add a line at the start that contains no characters
+  // 1284:   
+  // 1285:   put &lines "@@"
   frame->slots[7] /* temp__1 */ = create_closure(entry__print_string_literal_125, 0);
-  // 1275: if has_leading_spaces:
-  // 1276:   #
-  // 1277:     no single line starts at the indent position;
-  // 1278:     so we have to add a line at the start that contains no characters
-  // 1279:   
-  // 1280:   put &lines "@@"
+  // 1280: if has_leading_spaces:
+  // 1281:   #
+  // 1282:     no single line starts at the indent position;
+  // 1283:     so we have to add a line at the start that contains no characters
+  // 1284:   
+  // 1285:   put &lines "@@"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[2])->contents /* has_leading_spaces */;
@@ -32406,7 +32568,7 @@ static void entry__print_string_literal_125(void) {
     invalid_arguments_error();
     return;
   }
-  // 1280: put &lines "@@"
+  // 1285: put &lines "@@"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* lines */;
@@ -32433,7 +32595,7 @@ static void cont__print_string_literal_128(void) {
     invalid_results_error();
     return;
   }
-  // 1281: ... 1
+  // 1286: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -32448,7 +32610,7 @@ static void cont__print_string_literal_129(void) {
     return;
   }
   frame->slots[9] /* temp__3 */ = arguments->slots[0];
-  // 1281: ... lines(-1)
+  // 1286: ... lines(-1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[9] /* temp__3 */;
@@ -32463,7 +32625,7 @@ static void cont__print_string_literal_130(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 1281: ... lines(-1) == ""
+  // 1286: ... lines(-1) == ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -32479,19 +32641,19 @@ static void cont__print_string_literal_131(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 1281: ... :
-  // 1282:   #
-  // 1283:     the last line is empty;
-  // 1284:     so we replace it with an empty special sequence
-  // 1285:   
-  // 1286:   !lines(-1) "@@;"
+  // 1286: ... :
+  // 1287:   #
+  // 1288:     the last line is empty;
+  // 1289:     so we replace it with an empty special sequence
+  // 1290:   
+  // 1291:   !lines(-1) "@@;"
   frame->slots[10] /* temp__4 */ = create_closure(entry__print_string_literal_132, 0);
-  // 1281: if lines(-1) == "":
-  // 1282:   #
-  // 1283:     the last line is empty;
-  // 1284:     so we replace it with an empty special sequence
-  // 1285:   
-  // 1286:   !lines(-1) "@@;"
+  // 1286: if lines(-1) == "":
+  // 1287:   #
+  // 1288:     the last line is empty;
+  // 1289:     so we replace it with an empty special sequence
+  // 1290:   
+  // 1291:   !lines(-1) "@@;"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -32510,7 +32672,7 @@ static void entry__print_string_literal_132(void) {
     invalid_arguments_error();
     return;
   }
-  // 1286: ... 1
+  // 1291: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -32525,7 +32687,7 @@ static void cont__print_string_literal_133(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1286: !lines(-1)
+  // 1291: !lines(-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -32552,11 +32714,11 @@ static void cont__print_string_literal_136(void) {
     invalid_results_error();
     return;
   }
-  // 1287: $$buf undefined
+  // 1292: $$buf undefined
   ((CELL *)frame->slots[4])->contents /* buf */ = get__undefined();
-  // 1288: $$indent expression_indent
+  // 1293: $$indent expression_indent
   ((CELL *)frame->slots[5])->contents /* indent */ = get__expression_indent();
-  // 1290: line_end_expression_width >= 2
+  // 1295: line_end_expression_width >= 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__line_end_expression_width();
@@ -32572,7 +32734,7 @@ static void cont__print_string_literal_137(void) {
     return;
   }
   frame->slots[8] /* temp__2 */ = arguments->slots[0];
-  // 1290: line_end_expression_width >= 2
+  // 1295: line_end_expression_width >= 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__2 */;
@@ -32587,19 +32749,19 @@ static void cont__print_string_literal_138(void) {
     return;
   }
   frame->slots[7] /* temp__1 */ = arguments->slots[0];
-  // 1290: ... :
-  // 1291:   !buf "@quot;"
+  // 1295: ... :
+  // 1296:   !buf "@quot;"
   frame->slots[9] /* temp__3 */ = create_closure(entry__print_string_literal_139, 0);
-  // 1292: :
-  // 1293:   !buf string('@nl;' spaces(indent) '@quot;')
-  // 1294:   plus &indent 2
+  // 1297: :
+  // 1298:   !buf string('@nl;' spaces(indent) '@quot;')
+  // 1299:   plus &indent 2
   frame->slots[10] /* temp__4 */ = create_closure(entry__print_string_literal_141, 0);
-  // 1289: if
-  // 1290:   line_end_expression_width >= 2:
-  // 1291:     !buf "@quot;"
-  // 1292:   :
-  // 1293:     !buf string('@nl;' spaces(indent) '@quot;')
-  // 1294:     plus &indent 2
+  // 1294: if
+  // 1295:   line_end_expression_width >= 2:
+  // 1296:     !buf "@quot;"
+  // 1297:   :
+  // 1298:     !buf string('@nl;' spaces(indent) '@quot;')
+  // 1299:     plus &indent 2
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__1 */;
@@ -32619,7 +32781,7 @@ static void entry__print_string_literal_139(void) {
     invalid_arguments_error();
     return;
   }
-  // 1291: !buf "@quot;"
+  // 1296: !buf "@quot;"
   ((CELL *)frame->slots[0])->contents /* buf */ = string__578a5af303e9cc3;
   argument_count = 0;
   arguments = node_p;
@@ -32638,7 +32800,7 @@ static void entry__print_string_literal_141(void) {
     invalid_arguments_error();
     return;
   }
-  // 1293: ... spaces(indent)
+  // 1298: ... spaces(indent)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* indent */;
@@ -32653,7 +32815,7 @@ static void cont__print_string_literal_142(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1293: !buf string('@nl;' spaces(indent) '@quot;')
+  // 1298: !buf string('@nl;' spaces(indent) '@quot;')
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = character__10;
@@ -32670,7 +32832,7 @@ static void cont__print_string_literal_143(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* buf */ = arguments->slots[0];
-  // 1294: plus &indent 2
+  // 1299: plus &indent 2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* indent */;
@@ -32697,7 +32859,7 @@ static void cont__print_string_literal_145(void) {
     invalid_results_error();
     return;
   }
-  // 1295: $indentation spaces(indent)
+  // 1300: $indentation spaces(indent)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[5])->contents /* indent */;
@@ -32712,17 +32874,17 @@ static void cont__print_string_literal_146(void) {
     return;
   }
   initialize_future(frame->slots[6] /* indentation */, arguments->slots[0]);
-  // 1296: ... : (line)
-  // 1297:   push &buf '@nl;'
-  // 1298:   unless line == "":
-  // 1299:     append &buf indentation
-  // 1300:     append &buf line
+  // 1301: ... : (line)
+  // 1302:   push &buf '@nl;'
+  // 1303:   unless line == "":
+  // 1304:     append &buf indentation
+  // 1305:     append &buf line
   frame->slots[7] /* temp__1 */ = create_closure(entry__print_string_literal_147, 1);
-  // 1296: for_each lines: (line)
-  // 1297:   push &buf '@nl;'
-  // 1298:   unless line == "":
-  // 1299:     append &buf indentation
-  // 1300:     append &buf line
+  // 1301: for_each lines: (line)
+  // 1302:   push &buf '@nl;'
+  // 1303:   unless line == "":
+  // 1304:     append &buf indentation
+  // 1305:     append &buf line
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* lines */;
@@ -32745,7 +32907,7 @@ static void entry__print_string_literal_150(void) {
     invalid_arguments_error();
     return;
   }
-  // 1299: append &buf indentation
+  // 1304: append &buf indentation
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -32761,7 +32923,7 @@ static void cont__print_string_literal_151(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* buf */ = arguments->slots[0];
-  // 1300: append &buf line
+  // 1305: append &buf line
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -32795,7 +32957,7 @@ static void entry__print_string_literal_147(void) {
     invalid_arguments_error();
     return;
   }
-  // 1297: push &buf '@nl;'
+  // 1302: push &buf '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -32811,7 +32973,7 @@ static void cont__print_string_literal_148(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* buf */ = arguments->slots[0];
-  // 1298: ... line == ""
+  // 1303: ... line == ""
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* line */;
@@ -32827,13 +32989,13 @@ static void cont__print_string_literal_149(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1298: ... :
-  // 1299:   append &buf indentation
-  // 1300:   append &buf line
+  // 1303: ... :
+  // 1304:   append &buf indentation
+  // 1305:   append &buf line
   frame->slots[4] /* temp__2 */ = create_closure(entry__print_string_literal_150, 0);
-  // 1298: unless line == "":
-  // 1299:   append &buf indentation
-  // 1300:   append &buf line
+  // 1303: unless line == "":
+  // 1304:   append &buf indentation
+  // 1305:   append &buf line
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -32848,7 +33010,7 @@ static void cont__print_string_literal_153(void) {
     invalid_results_error();
     return;
   }
-  // 1301: -> buf
+  // 1306: -> buf
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[4])->contents /* buf */;
@@ -32867,17 +33029,17 @@ static void entry__print_string_literal(void) {
   }
   frame->slots[0] /* lines */ = create_cell_with_contents(arguments->slots[0]);
   frame->slots[1] /* is_inline */ = create_cell_with_contents(arguments->slots[1]);
-  // 1195: ... :
-  // 1196:   unless line_width == UNLIMITED:
-  // 1197:     if length_of(lines(1))+2 > line_width-expression_indent:
-  // 1198:       push &lines(1) '@@'
-  // 1199:       !is_inline false
+  // 1200: ... :
+  // 1201:   unless line_width == UNLIMITED:
+  // 1202:     if length_of(lines(1))+2 > line_width-expression_indent:
+  // 1203:       push &lines(1) '@@'
+  // 1204:       !is_inline false
   frame->slots[2] /* temp__1 */ = create_closure(entry__print_string_literal_2, 0);
-  // 1195: if is_inline:
-  // 1196:   unless line_width == UNLIMITED:
-  // 1197:     if length_of(lines(1))+2 > line_width-expression_indent:
-  // 1198:       push &lines(1) '@@'
-  // 1199:       !is_inline false
+  // 1200: if is_inline:
+  // 1201:   unless line_width == UNLIMITED:
+  // 1202:     if length_of(lines(1))+2 > line_width-expression_indent:
+  // 1203:       push &lines(1) '@@'
+  // 1204:       !is_inline false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* is_inline */;
@@ -32898,7 +33060,7 @@ static void entry__print_string_literal_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 1198: ... lines(1)
+  // 1203: ... lines(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -32913,7 +33075,7 @@ static void cont__print_string_literal_11(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1198: push &lines(1) '@@'
+  // 1203: push &lines(1) '@@'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -32929,7 +33091,7 @@ static void cont__print_string_literal_12(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1198: ... &lines(1)
+  // 1203: ... &lines(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -32945,7 +33107,7 @@ static void cont__print_string_literal_13(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* lines */ = arguments->slots[0];
-  // 1199: !is_inline false
+  // 1204: !is_inline false
   ((CELL *)frame->slots[1])->contents /* is_inline */ = get__false();
   argument_count = 0;
   arguments = node_p;
@@ -32964,7 +33126,7 @@ static void entry__print_string_literal_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 1197: ... line_width-expression_indent
+  // 1202: ... line_width-expression_indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__line_width();
@@ -32980,7 +33142,7 @@ static void cont__print_string_literal_5(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1197: ... lines(1)
+  // 1202: ... lines(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -32995,7 +33157,7 @@ static void cont__print_string_literal_6(void) {
     return;
   }
   frame->slots[6] /* temp__5 */ = arguments->slots[0];
-  // 1197: ... length_of(lines(1))
+  // 1202: ... length_of(lines(1))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__5 */;
@@ -33010,7 +33172,7 @@ static void cont__print_string_literal_7(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 1197: ... length_of(lines(1))+2
+  // 1202: ... length_of(lines(1))+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__4 */;
@@ -33026,7 +33188,7 @@ static void cont__print_string_literal_8(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 1197: ... length_of(lines(1))+2 > line_width-expression_indent
+  // 1202: ... length_of(lines(1))+2 > line_width-expression_indent
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -33042,13 +33204,13 @@ static void cont__print_string_literal_9(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1197: ... :
-  // 1198:   push &lines(1) '@@'
-  // 1199:   !is_inline false
+  // 1202: ... :
+  // 1203:   push &lines(1) '@@'
+  // 1204:   !is_inline false
   frame->slots[7] /* temp__6 */ = create_closure(entry__print_string_literal_10, 0);
-  // 1197: if length_of(lines(1))+2 > line_width-expression_indent:
-  // 1198:   push &lines(1) '@@'
-  // 1199:   !is_inline false
+  // 1202: if length_of(lines(1))+2 > line_width-expression_indent:
+  // 1203:   push &lines(1) '@@'
+  // 1204:   !is_inline false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -33069,7 +33231,7 @@ static void entry__print_string_literal_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 1196: ... line_width == UNLIMITED
+  // 1201: ... line_width == UNLIMITED
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__line_width();
@@ -33085,15 +33247,15 @@ static void cont__print_string_literal_3(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1196: ... :
-  // 1197:   if length_of(lines(1))+2 > line_width-expression_indent:
-  // 1198:     push &lines(1) '@@'
-  // 1199:     !is_inline false
+  // 1201: ... :
+  // 1202:   if length_of(lines(1))+2 > line_width-expression_indent:
+  // 1203:     push &lines(1) '@@'
+  // 1204:     !is_inline false
   frame->slots[3] /* temp__2 */ = create_closure(entry__print_string_literal_4, 0);
-  // 1196: unless line_width == UNLIMITED:
-  // 1197:   if length_of(lines(1))+2 > line_width-expression_indent:
-  // 1198:     push &lines(1) '@@'
-  // 1199:     !is_inline false
+  // 1201: unless line_width == UNLIMITED:
+  // 1202:   if length_of(lines(1))+2 > line_width-expression_indent:
+  // 1203:     push &lines(1) '@@'
+  // 1204:     !is_inline false
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -33108,30 +33270,30 @@ static void cont__print_string_literal_14(void) {
     invalid_results_error();
     return;
   }
-  // 1202: -> string('@quot;' lines(1) '@quot;')
+  // 1207: -> string('@quot;' lines(1) '@quot;')
   frame->slots[2] /* temp__1 */ = create_closure(entry__print_string_literal_15, 0);
-  // 1203: :
-  // 1204:   $max_width # the maximum width is computed for multi-line-strings
-  // 1205:     -
-  // 1206:       max(line_width-expression_indent 20)
-  // 1207:       if
-  // 1208:         line_end_expression_width >= 2
-  // 1209:         -> 0
-  // 1210:         -> 2
-  // 1211:   
-  // 1212:   $$has_leading_spaces lines(-1) != ""
+  // 1208: :
+  // 1209:   $max_width # the maximum width is computed for multi-line-strings
+  // 1210:     -
+  // 1211:       max(line_width-expression_indent 20)
+  // 1212:       if
+  // 1213:         line_end_expression_width >= 2
+  // 1214:         -> 0
+  // 1215:         -> 2
+  // 1216:   
+  // 1217:   $$has_leading_spaces lines(-1) != ""
   // ...
   frame->slots[3] /* temp__2 */ = create_closure(entry__print_string_literal_18, 0);
-  // 1200: if
-  // 1201:   is_inline
-  // 1202:   -> string('@quot;' lines(1) '@quot;')
-  // 1203:   :
-  // 1204:     $max_width # the maximum width is computed for multi-line-strings
-  // 1205:       -
-  // 1206:         max(line_width-expression_indent 20)
-  // 1207:         if
-  // 1208:           line_end_expression_width >= 2
-  // 1209:           -> 0
+  // 1205: if
+  // 1206:   is_inline
+  // 1207:   -> string('@quot;' lines(1) '@quot;')
+  // 1208:   :
+  // 1209:     $max_width # the maximum width is computed for multi-line-strings
+  // 1210:       -
+  // 1211:         max(line_width-expression_indent 20)
+  // 1212:         if
+  // 1213:           line_end_expression_width >= 2
+  // 1214:           -> 0
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -33159,59 +33321,59 @@ static void entry__string_template_to_string(void) {
     invalid_arguments_error();
     return;
   }
-  // 1307: ... : ($part)
-  // 1308:   if
-  // 1309:     lines.is_empty:
-  // 1310:       push &lines part # that's the first part of the string template
-  // 1311:     :
-  // 1312:       if
-  // 1313:         template_is_inline:
-  // 1314:           append &lines(1) part # there is only a single line
-  // 1315:         :
-  // 1316:           push &part '@@' # append the part with a line-continuation suffix
+  // 1312: ... : ($part)
+  // 1313:   if
+  // 1314:     lines.is_empty:
+  // 1315:       push &lines part # that's the first part of the string template
+  // 1316:     :
+  // 1317:       if
+  // 1318:         template_is_inline:
+  // 1319:           append &lines(1) part # there is only a single line
+  // 1320:         :
+  // 1321:           push &part '@@' # append the part with a line-continuation suffix
   // ...
   frame->slots[5] /* temp__1 */ = create_closure(entry__string_template_to_string_2, 1);
-  // 1307: $add_part: ($part)
-  // 1308:   if
-  // 1309:     lines.is_empty:
-  // 1310:       push &lines part # that's the first part of the string template
-  // 1311:     :
-  // 1312:       if
-  // 1313:         template_is_inline:
-  // 1314:           append &lines(1) part # there is only a single line
-  // 1315:         :
-  // 1316:           push &part '@@' # append the part with a line-continuation suffix
+  // 1312: $add_part: ($part)
+  // 1313:   if
+  // 1314:     lines.is_empty:
+  // 1315:       push &lines part # that's the first part of the string template
+  // 1316:     :
+  // 1317:       if
+  // 1318:         template_is_inline:
+  // 1319:           append &lines(1) part # there is only a single line
+  // 1320:         :
+  // 1321:           push &part '@@' # append the part with a line-continuation suffix
   // ...
   initialize_future(frame->slots[3] /* add_part */, frame->slots[5] /* temp__1 */);
-  // 1329: ... : ($more_lines)
-  // 1330:   if
-  // 1331:     lines.is_empty:
-  // 1332:       !lines more_lines
-  // 1333:     :
-  // 1334:       if
-  // 1335:         template_is_inline:
-  // 1336:           # append the new lines at the end of the existing text
-  // 1337:           
-  // 1338:           !more_lines(1) string(lines(1) more_lines(1))
+  // 1334: ... : ($more_lines)
+  // 1335:   if
+  // 1336:     lines.is_empty:
+  // 1337:       !lines more_lines
+  // 1338:     :
+  // 1339:       if
+  // 1340:         template_is_inline:
+  // 1341:           # append the new lines at the end of the existing text
+  // 1342:           
+  // 1343:           !more_lines(1) string(lines(1) more_lines(1))
   // ...
   frame->slots[5] /* temp__1 */ = create_closure(entry__string_template_to_string_26, 1);
-  // 1329: $add_lines: ($more_lines)
-  // 1330:   if
-  // 1331:     lines.is_empty:
-  // 1332:       !lines more_lines
-  // 1333:     :
-  // 1334:       if
-  // 1335:         template_is_inline:
-  // 1336:           # append the new lines at the end of the existing text
-  // 1337:           
-  // 1338:           !more_lines(1) string(lines(1) more_lines(1))
+  // 1334: $add_lines: ($more_lines)
+  // 1335:   if
+  // 1336:     lines.is_empty:
+  // 1337:       !lines more_lines
+  // 1338:     :
+  // 1339:       if
+  // 1340:         template_is_inline:
+  // 1341:           # append the new lines at the end of the existing text
+  // 1342:           
+  // 1343:           !more_lines(1) string(lines(1) more_lines(1))
   // ...
   initialize_future(frame->slots[4] /* add_lines */, frame->slots[5] /* temp__1 */);
-  // 1304: $$lines empty_list
+  // 1309: $$lines empty_list
   ((CELL *)frame->slots[1])->contents /* lines */ = get__empty_list();
-  // 1305: $$template_is_inline true
+  // 1310: $$template_is_inline true
   ((CELL *)frame->slots[2])->contents /* template_is_inline */ = get__true();
-  // 1356: ... arguments_of(self)
+  // 1361: ... arguments_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -33231,7 +33393,7 @@ static void entry__string_template_to_string_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 1323: ... 1
+  // 1328: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33246,7 +33408,7 @@ static void cont__string_template_to_string_17(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 1323: ... lines(-1)
+  // 1328: ... lines(-1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -33261,7 +33423,7 @@ static void cont__string_template_to_string_18(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1323: ... 2
+  // 1328: ... 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -33276,7 +33438,7 @@ static void cont__string_template_to_string_19(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 1323: ... range(lines(-1) 1 -2)
+  // 1328: ... range(lines(-1) 1 -2)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -33293,7 +33455,7 @@ static void cont__string_template_to_string_20(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1323: !lines(-1) string(range(lines(-1) 1 -2) part)
+  // 1328: !lines(-1) string(range(lines(-1) 1 -2) part)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -33309,7 +33471,7 @@ static void cont__string_template_to_string_21(void) {
     return;
   }
   frame->slots[6] /* temp__5 */ = arguments->slots[0];
-  // 1323: ... 1
+  // 1328: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33324,7 +33486,7 @@ static void cont__string_template_to_string_22(void) {
     return;
   }
   frame->slots[7] /* temp__6 */ = arguments->slots[0];
-  // 1323: !lines(-1)
+  // 1328: !lines(-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__6 */;
@@ -33357,7 +33519,7 @@ static void entry__string_template_to_string_24(void) {
     invalid_arguments_error();
     return;
   }
-  // 1327: push &lines part
+  // 1332: push &lines part
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* lines */;
@@ -33390,7 +33552,7 @@ static void entry__string_template_to_string_7(void) {
     invalid_arguments_error();
     return;
   }
-  // 1314: ... lines(1)
+  // 1319: ... lines(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33405,7 +33567,7 @@ static void cont__string_template_to_string_8(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1314: append &lines(1) part # there is only a single line
+  // 1319: append &lines(1) part # there is only a single line
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -33421,7 +33583,7 @@ static void cont__string_template_to_string_9(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1314: ... &lines(1)
+  // 1319: ... &lines(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33454,7 +33616,7 @@ static void entry__string_template_to_string_11(void) {
     invalid_arguments_error();
     return;
   }
-  // 1316: push &part '@@' # append the part with a line-continuation suffix
+  // 1321: push &part '@@' # append the part with a line-continuation suffix
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* part */;
@@ -33470,7 +33632,7 @@ static void cont__string_template_to_string_12(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* part */ = arguments->slots[0];
-  // 1318: ... 1
+  // 1323: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33485,7 +33647,7 @@ static void cont__string_template_to_string_13(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 1318: lines(-1)
+  // 1323: lines(-1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -33500,7 +33662,7 @@ static void cont__string_template_to_string_14(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1318: lines(-1) .has_suffix. '@@'
+  // 1323: lines(-1) .has_suffix. '@@'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -33516,28 +33678,28 @@ static void cont__string_template_to_string_15(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1318: ... :
-  // 1319:   #
-  // 1320:     replace the current line's continuation suffix with
-  // 1321:     the new part
-  // 1322:   
-  // 1323:   !lines(-1) string(range(lines(-1) 1 -2) part)
+  // 1323: ... :
+  // 1324:   #
+  // 1325:     replace the current line's continuation suffix with
+  // 1326:     the new part
+  // 1327:   
+  // 1328:   !lines(-1) string(range(lines(-1) 1 -2) part)
   frame->slots[5] /* temp__4 */ = create_closure(entry__string_template_to_string_16, 0);
-  // 1324: :
-  // 1325:   # append the new part as a new line
-  // 1326:   
-  // 1327:   push &lines part
+  // 1329: :
+  // 1330:   # append the new part as a new line
+  // 1331:   
+  // 1332:   push &lines part
   frame->slots[6] /* temp__5 */ = create_closure(entry__string_template_to_string_24, 0);
-  // 1317: if
-  // 1318:   lines(-1) .has_suffix. '@@':
-  // 1319:     #
-  // 1320:       replace the current line's continuation suffix with
-  // 1321:       the new part
-  // 1322:     
-  // 1323:     !lines(-1) string(range(lines(-1) 1 -2) part)
-  // 1324:   :
-  // 1325:     # append the new part as a new line
-  // 1326:     
+  // 1322: if
+  // 1323:   lines(-1) .has_suffix. '@@':
+  // 1324:     #
+  // 1325:       replace the current line's continuation suffix with
+  // 1326:       the new part
+  // 1327:     
+  // 1328:     !lines(-1) string(range(lines(-1) 1 -2) part)
+  // 1329:   :
+  // 1330:     # append the new part as a new line
+  // 1331:     
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -33560,7 +33722,7 @@ static void entry__string_template_to_string_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 1310: push &lines part # that's the first part of the string template
+  // 1315: push &lines part # that's the first part of the string template
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* lines */;
@@ -33595,31 +33757,31 @@ static void entry__string_template_to_string_6(void) {
     invalid_arguments_error();
     return;
   }
-  // 1313: ... :
-  // 1314:   append &lines(1) part # there is only a single line
+  // 1318: ... :
+  // 1319:   append &lines(1) part # there is only a single line
   frame->slots[3] /* temp__1 */ = create_closure(entry__string_template_to_string_7, 0);
-  // 1315: :
-  // 1316:   push &part '@@' # append the part with a line-continuation suffix
-  // 1317:   if
-  // 1318:     lines(-1) .has_suffix. '@@':
-  // 1319:       #
-  // 1320:         replace the current line's continuation suffix with
-  // 1321:         the new part
-  // 1322:       
-  // 1323:       !lines(-1) string(range(lines(-1) 1 -2) part)
-  // 1324:     :
+  // 1320: :
+  // 1321:   push &part '@@' # append the part with a line-continuation suffix
+  // 1322:   if
+  // 1323:     lines(-1) .has_suffix. '@@':
+  // 1324:       #
+  // 1325:         replace the current line's continuation suffix with
+  // 1326:         the new part
+  // 1327:       
+  // 1328:       !lines(-1) string(range(lines(-1) 1 -2) part)
+  // 1329:     :
   // ...
   frame->slots[4] /* temp__2 */ = create_closure(entry__string_template_to_string_11, 0);
-  // 1312: if
-  // 1313:   template_is_inline:
-  // 1314:     append &lines(1) part # there is only a single line
-  // 1315:   :
-  // 1316:     push &part '@@' # append the part with a line-continuation suffix
-  // 1317:     if
-  // 1318:       lines(-1) .has_suffix. '@@':
-  // 1319:         #
-  // 1320:           replace the current line's continuation suffix with
-  // 1321:           the new part
+  // 1317: if
+  // 1318:   template_is_inline:
+  // 1319:     append &lines(1) part # there is only a single line
+  // 1320:   :
+  // 1321:     push &part '@@' # append the part with a line-continuation suffix
+  // 1322:     if
+  // 1323:       lines(-1) .has_suffix. '@@':
+  // 1324:         #
+  // 1325:           replace the current line's continuation suffix with
+  // 1326:           the new part
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -33644,7 +33806,7 @@ static void entry__string_template_to_string_2(void) {
     return;
   }
   frame->slots[0] /* part */ = create_cell_with_contents(arguments->slots[0]);
-  // 1309: lines.is_empty
+  // 1314: lines.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* lines */;
@@ -33659,31 +33821,31 @@ static void cont__string_template_to_string_3(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1309: ... :
-  // 1310:   push &lines part # that's the first part of the string template
+  // 1314: ... :
+  // 1315:   push &lines part # that's the first part of the string template
   frame->slots[4] /* temp__2 */ = create_closure(entry__string_template_to_string_4, 0);
-  // 1311: :
-  // 1312:   if
-  // 1313:     template_is_inline:
-  // 1314:       append &lines(1) part # there is only a single line
-  // 1315:     :
-  // 1316:       push &part '@@' # append the part with a line-continuation suffix
-  // 1317:       if
-  // 1318:         lines(-1) .has_suffix. '@@':
-  // 1319:           #
-  // 1320:             replace the current line's continuation suffix with
+  // 1316: :
+  // 1317:   if
+  // 1318:     template_is_inline:
+  // 1319:       append &lines(1) part # there is only a single line
+  // 1320:     :
+  // 1321:       push &part '@@' # append the part with a line-continuation suffix
+  // 1322:       if
+  // 1323:         lines(-1) .has_suffix. '@@':
+  // 1324:           #
+  // 1325:             replace the current line's continuation suffix with
   // ...
   frame->slots[5] /* temp__3 */ = create_closure(entry__string_template_to_string_6, 0);
-  // 1308: if
-  // 1309:   lines.is_empty:
-  // 1310:     push &lines part # that's the first part of the string template
-  // 1311:   :
-  // 1312:     if
-  // 1313:       template_is_inline:
-  // 1314:         append &lines(1) part # there is only a single line
-  // 1315:       :
-  // 1316:         push &part '@@' # append the part with a line-continuation suffix
-  // 1317:         if
+  // 1313: if
+  // 1314:   lines.is_empty:
+  // 1315:     push &lines part # that's the first part of the string template
+  // 1316:   :
+  // 1317:     if
+  // 1318:       template_is_inline:
+  // 1319:         append &lines(1) part # there is only a single line
+  // 1320:       :
+  // 1321:         push &part '@@' # append the part with a line-continuation suffix
+  // 1322:         if
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -33708,7 +33870,7 @@ static void entry__string_template_to_string_26(void) {
     return;
   }
   frame->slots[0] /* more_lines */ = create_cell_with_contents(arguments->slots[0]);
-  // 1331: lines.is_empty
+  // 1336: lines.is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* lines */;
@@ -33723,31 +33885,31 @@ static void cont__string_template_to_string_27(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1331: ... :
-  // 1332:   !lines more_lines
+  // 1336: ... :
+  // 1337:   !lines more_lines
   frame->slots[4] /* temp__2 */ = create_closure(entry__string_template_to_string_28, 0);
-  // 1333: :
-  // 1334:   if
-  // 1335:     template_is_inline:
-  // 1336:       # append the new lines at the end of the existing text
-  // 1337:       
-  // 1338:       !more_lines(1) string(lines(1) more_lines(1))
-  // 1339:       !lines more_lines
-  // 1340:     :
-  // 1341:       #
-  // 1342:         the last modification of <lines> *must* have been done by a call
+  // 1338: :
+  // 1339:   if
+  // 1340:     template_is_inline:
+  // 1341:       # append the new lines at the end of the existing text
+  // 1342:       
+  // 1343:       !more_lines(1) string(lines(1) more_lines(1))
+  // 1344:       !lines more_lines
+  // 1345:     :
+  // 1346:       #
+  // 1347:         the last modification of <lines> *must* have been done by a call
   // ...
   frame->slots[5] /* temp__3 */ = create_closure(entry__string_template_to_string_29, 0);
-  // 1330: if
-  // 1331:   lines.is_empty:
-  // 1332:     !lines more_lines
-  // 1333:   :
-  // 1334:     if
-  // 1335:       template_is_inline:
-  // 1336:         # append the new lines at the end of the existing text
-  // 1337:         
-  // 1338:         !more_lines(1) string(lines(1) more_lines(1))
-  // 1339:         !lines more_lines
+  // 1335: if
+  // 1336:   lines.is_empty:
+  // 1337:     !lines more_lines
+  // 1338:   :
+  // 1339:     if
+  // 1340:       template_is_inline:
+  // 1341:         # append the new lines at the end of the existing text
+  // 1342:         
+  // 1343:         !more_lines(1) string(lines(1) more_lines(1))
+  // 1344:         !lines more_lines
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -33770,7 +33932,7 @@ static void entry__string_template_to_string_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 1338: ... lines(1)
+  // 1343: ... lines(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33785,7 +33947,7 @@ static void cont__string_template_to_string_31(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1338: ... more_lines(1)
+  // 1343: ... more_lines(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33800,7 +33962,7 @@ static void cont__string_template_to_string_32(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1338: !more_lines(1) string(lines(1) more_lines(1))
+  // 1343: !more_lines(1) string(lines(1) more_lines(1))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -33816,7 +33978,7 @@ static void cont__string_template_to_string_33(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 1338: !more_lines(1)
+  // 1343: !more_lines(1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33832,7 +33994,7 @@ static void cont__string_template_to_string_34(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* more_lines */ = arguments->slots[0];
-  // 1339: !lines more_lines
+  // 1344: !lines more_lines
   ((CELL *)frame->slots[1])->contents /* lines */ = ((CELL *)frame->slots[0])->contents /* more_lines */;
   argument_count = 0;
   arguments = node_p;
@@ -33851,7 +34013,7 @@ static void entry__string_template_to_string_35(void) {
     invalid_arguments_error();
     return;
   }
-  // 1350: ... 1
+  // 1355: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33866,7 +34028,7 @@ static void cont__string_template_to_string_36(void) {
     return;
   }
   frame->slots[4] /* temp__3 */ = arguments->slots[0];
-  // 1350: ... lines(-1)
+  // 1355: ... lines(-1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__3 */;
@@ -33881,7 +34043,7 @@ static void cont__string_template_to_string_37(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1350: ... 2
+  // 1355: ... 2
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__2;
@@ -33896,7 +34058,7 @@ static void cont__string_template_to_string_38(void) {
     return;
   }
   frame->slots[5] /* temp__4 */ = arguments->slots[0];
-  // 1350: ... range(lines(-1) 1 -2)
+  // 1355: ... range(lines(-1) 1 -2)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__2 */;
@@ -33913,7 +34075,7 @@ static void cont__string_template_to_string_39(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1350: ... more_lines(1)
+  // 1355: ... more_lines(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33928,7 +34090,7 @@ static void cont__string_template_to_string_40(void) {
     return;
   }
   frame->slots[6] /* temp__5 */ = arguments->slots[0];
-  // 1350: !lines(-1) string(range(lines(-1) 1 -2) more_lines(1))
+  // 1355: !lines(-1) string(range(lines(-1) 1 -2) more_lines(1))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -33944,7 +34106,7 @@ static void cont__string_template_to_string_41(void) {
     return;
   }
   frame->slots[7] /* temp__6 */ = arguments->slots[0];
-  // 1350: ... 1
+  // 1355: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33959,7 +34121,7 @@ static void cont__string_template_to_string_42(void) {
     return;
   }
   frame->slots[8] /* temp__7 */ = arguments->slots[0];
-  // 1350: !lines(-1)
+  // 1355: !lines(-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[8] /* temp__7 */;
@@ -33975,7 +34137,7 @@ static void cont__string_template_to_string_43(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* lines */ = arguments->slots[0];
-  // 1351: ... 1
+  // 1356: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -33990,7 +34152,7 @@ static void cont__string_template_to_string_44(void) {
     return;
   }
   frame->slots[3] /* temp__2 */ = arguments->slots[0];
-  // 1351: ... range(more_lines 2 -1)
+  // 1356: ... range(more_lines 2 -1)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* more_lines */;
@@ -34007,7 +34169,7 @@ static void cont__string_template_to_string_45(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1351: append &lines range(more_lines 2 -1)
+  // 1356: append &lines range(more_lines 2 -1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* lines */;
@@ -34040,7 +34202,7 @@ static void entry__string_template_to_string_28(void) {
     invalid_arguments_error();
     return;
   }
-  // 1332: !lines more_lines
+  // 1337: !lines more_lines
   ((CELL *)frame->slots[0])->contents /* lines */ = ((CELL *)frame->slots[1])->contents /* more_lines */;
   argument_count = 0;
   arguments = node_p;
@@ -34061,34 +34223,34 @@ static void entry__string_template_to_string_29(void) {
     invalid_arguments_error();
     return;
   }
-  // 1335: ... :
-  // 1336:   # append the new lines at the end of the existing text
-  // 1337:   
-  // 1338:   !more_lines(1) string(lines(1) more_lines(1))
-  // 1339:   !lines more_lines
+  // 1340: ... :
+  // 1341:   # append the new lines at the end of the existing text
+  // 1342:   
+  // 1343:   !more_lines(1) string(lines(1) more_lines(1))
+  // 1344:   !lines more_lines
   frame->slots[3] /* temp__1 */ = create_closure(entry__string_template_to_string_30, 0);
-  // 1340: :
-  // 1341:   #
-  // 1342:     the last modification of <lines> *must* have been done by a call
-  // 1343:     to <add_part> because there cannot be two adjacent string literals
-  // 1344:     in a string template so the last line *must* end with a
-  // 1345:     line-continuation suffix
-  // 1346:     
-  // 1347:     this suffix is replaced with the contents of the first of
-  // 1348:     the new lines
-  // 1349:   
+  // 1345: :
+  // 1346:   #
+  // 1347:     the last modification of <lines> *must* have been done by a call
+  // 1348:     to <add_part> because there cannot be two adjacent string literals
+  // 1349:     in a string template so the last line *must* end with a
+  // 1350:     line-continuation suffix
+  // 1351:     
+  // 1352:     this suffix is replaced with the contents of the first of
+  // 1353:     the new lines
+  // 1354:   
   // ...
   frame->slots[4] /* temp__2 */ = create_closure(entry__string_template_to_string_35, 0);
-  // 1334: if
-  // 1335:   template_is_inline:
-  // 1336:     # append the new lines at the end of the existing text
-  // 1337:     
-  // 1338:     !more_lines(1) string(lines(1) more_lines(1))
-  // 1339:     !lines more_lines
-  // 1340:   :
-  // 1341:     #
-  // 1342:       the last modification of <lines> *must* have been done by a call
-  // 1343:       to <add_part> because there cannot be two adjacent string literals
+  // 1339: if
+  // 1340:   template_is_inline:
+  // 1341:     # append the new lines at the end of the existing text
+  // 1342:     
+  // 1343:     !more_lines(1) string(lines(1) more_lines(1))
+  // 1344:     !lines more_lines
+  // 1345:   :
+  // 1346:     #
+  // 1347:       the last modification of <lines> *must* have been done by a call
+  // 1348:       to <add_part> because there cannot be two adjacent string literals
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -34105,7 +34267,7 @@ static void cont__string_template_to_string_47(void) {
     invalid_results_error();
     return;
   }
-  // 1352: !template_is_inline false
+  // 1357: !template_is_inline false
   ((CELL *)frame->slots[2])->contents /* template_is_inline */ = get__false();
   argument_count = 0;
   arguments = node_p;
@@ -34119,28 +34281,28 @@ static void cont__string_template_to_string_48(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1356: ... : (argument)
-  // 1357:   if
-  // 1358:     argument.is_a_string_literal:
-  // 1359:       analyze_string_literal $more_lines $is_inline node::text_of(argument)
-  // 1360:       if
-  // 1361:         is_inline:
-  // 1362:           add_part more_lines(1)
-  // 1363:         :
-  // 1364:           add_lines more_lines
-  // 1365:     :
+  // 1361: ... : (argument)
+  // 1362:   if
+  // 1363:     argument.is_a_string_literal:
+  // 1364:       analyze_string_literal $more_lines $is_inline node::text_of(argument)
+  // 1365:       if
+  // 1366:         is_inline:
+  // 1367:           add_part more_lines(1)
+  // 1368:         :
+  // 1369:           add_lines more_lines
+  // 1370:     :
   // ...
   frame->slots[6] /* temp__2 */ = create_closure(entry__string_template_to_string_49, 1);
-  // 1356: for_each arguments_of(self): (argument)
-  // 1357:   if
-  // 1358:     argument.is_a_string_literal:
-  // 1359:       analyze_string_literal $more_lines $is_inline node::text_of(argument)
-  // 1360:       if
-  // 1361:         is_inline:
-  // 1362:           add_part more_lines(1)
-  // 1363:         :
-  // 1364:           add_lines more_lines
-  // 1365:     :
+  // 1361: for_each arguments_of(self): (argument)
+  // 1362:   if
+  // 1363:     argument.is_a_string_literal:
+  // 1364:       analyze_string_literal $more_lines $is_inline node::text_of(argument)
+  // 1365:       if
+  // 1366:         is_inline:
+  // 1367:           add_part more_lines(1)
+  // 1368:         :
+  // 1369:           add_lines more_lines
+  // 1370:     :
   // ...
   argument_count = 2;
   arguments = node_p;
@@ -34162,7 +34324,7 @@ static void entry__string_template_to_string_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 1362: ... more_lines(1)
+  // 1367: ... more_lines(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -34177,7 +34339,7 @@ static void cont__string_template_to_string_55(void) {
     return;
   }
   frame->slots[2] /* temp__1 */ = arguments->slots[0];
-  // 1362: add_part more_lines(1)
+  // 1367: add_part more_lines(1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__1 */;
@@ -34197,7 +34359,7 @@ static void entry__string_template_to_string_56(void) {
     invalid_arguments_error();
     return;
   }
-  // 1364: add_lines more_lines
+  // 1369: add_lines more_lines
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* more_lines */;
@@ -34223,7 +34385,7 @@ static void entry__string_template_to_string_51(void) {
     invalid_arguments_error();
     return;
   }
-  // 1359: ... node::text_of(argument)
+  // 1364: ... node::text_of(argument)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
@@ -34238,7 +34400,7 @@ static void cont__string_template_to_string_52(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1359: analyze_string_literal $more_lines $is_inline node::text_of(argument)
+  // 1364: analyze_string_literal $more_lines $is_inline node::text_of(argument)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -34254,17 +34416,17 @@ static void cont__string_template_to_string_53(void) {
   }
   initialize_future(frame->slots[3] /* more_lines */, arguments->slots[0]);
   initialize_future(frame->slots[4] /* is_inline */, arguments->slots[1]);
-  // 1361: ... :
-  // 1362:   add_part more_lines(1)
+  // 1366: ... :
+  // 1367:   add_part more_lines(1)
   frame->slots[5] /* temp__1 */ = create_closure(entry__string_template_to_string_54, 0);
-  // 1363: :
-  // 1364:   add_lines more_lines
+  // 1368: :
+  // 1369:   add_lines more_lines
   frame->slots[6] /* temp__2 */ = create_closure(entry__string_template_to_string_56, 0);
-  // 1360: if
-  // 1361:   is_inline:
-  // 1362:     add_part more_lines(1)
-  // 1363:   :
-  // 1364:     add_lines more_lines
+  // 1365: if
+  // 1366:   is_inline:
+  // 1367:     add_part more_lines(1)
+  // 1368:   :
+  // 1369:     add_lines more_lines
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* is_inline */;
@@ -34290,7 +34452,7 @@ static void entry__string_template_to_string_57(void) {
     invalid_arguments_error();
     return;
   }
-  // 1367: ... argument.to_string
+  // 1372: ... argument.to_string
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* argument */;
@@ -34305,7 +34467,7 @@ static void cont__string_template_to_string_58(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1367: ... string("@@(" argument.to_string ')')
+  // 1372: ... string("@@(" argument.to_string ')')
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e5082bed;
@@ -34322,7 +34484,7 @@ static void cont__string_template_to_string_60(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1367: add_part string("@@(" argument.to_string ')')
+  // 1372: add_part string("@@(" argument.to_string ')')
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -34348,7 +34510,7 @@ static void entry__string_template_to_string_49(void) {
     invalid_arguments_error();
     return;
   }
-  // 1358: argument.is_a_string_literal
+  // 1363: argument.is_a_string_literal
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* argument */;
@@ -34363,28 +34525,28 @@ static void cont__string_template_to_string_50(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1358: ... :
-  // 1359:   analyze_string_literal $more_lines $is_inline node::text_of(argument)
-  // 1360:   if
-  // 1361:     is_inline:
-  // 1362:       add_part more_lines(1)
-  // 1363:     :
-  // 1364:       add_lines more_lines
+  // 1363: ... :
+  // 1364:   analyze_string_literal $more_lines $is_inline node::text_of(argument)
+  // 1365:   if
+  // 1366:     is_inline:
+  // 1367:       add_part more_lines(1)
+  // 1368:     :
+  // 1369:       add_lines more_lines
   frame->slots[4] /* temp__2 */ = create_closure(entry__string_template_to_string_51, 0);
-  // 1365: :
-  // 1366:   %line_width UNLIMITED # force inline output
-  // 1367:   add_part string("@@(" argument.to_string ')')
+  // 1370: :
+  // 1371:   %line_width UNLIMITED # force inline output
+  // 1372:   add_part string("@@(" argument.to_string ')')
   frame->slots[5] /* temp__3 */ = create_closure(entry__string_template_to_string_57, 0);
-  // 1357: if
-  // 1358:   argument.is_a_string_literal:
-  // 1359:     analyze_string_literal $more_lines $is_inline node::text_of(argument)
-  // 1360:     if
-  // 1361:       is_inline:
-  // 1362:         add_part more_lines(1)
-  // 1363:       :
-  // 1364:         add_lines more_lines
-  // 1365:   :
-  // 1366:     %line_width UNLIMITED # force inline output
+  // 1362: if
+  // 1363:   argument.is_a_string_literal:
+  // 1364:     analyze_string_literal $more_lines $is_inline node::text_of(argument)
+  // 1365:     if
+  // 1366:       is_inline:
+  // 1367:         add_part more_lines(1)
+  // 1368:       :
+  // 1369:         add_lines more_lines
+  // 1370:   :
+  // 1371:     %line_width UNLIMITED # force inline output
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -34401,7 +34563,7 @@ static void cont__string_template_to_string_62(void) {
     invalid_results_error();
     return;
   }
-  // 1368: ... 1
+  // 1373: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -34416,7 +34578,7 @@ static void cont__string_template_to_string_63(void) {
     return;
   }
   frame->slots[7] /* temp__3 */ = arguments->slots[0];
-  // 1368: ... lines(-1)
+  // 1373: ... lines(-1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[7] /* temp__3 */;
@@ -34431,7 +34593,7 @@ static void cont__string_template_to_string_64(void) {
     return;
   }
   frame->slots[6] /* temp__2 */ = arguments->slots[0];
-  // 1368: ... lines(-1) .has_suffix. "@@nl;@@"
+  // 1373: ... lines(-1) .has_suffix. "@@nl;@@"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__2 */;
@@ -34447,9 +34609,9 @@ static void cont__string_template_to_string_66(void) {
     return;
   }
   frame->slots[5] /* temp__1 */ = arguments->slots[0];
-  // 1368: ... : range &lines(-1) 1 -6 # remove nonsense
+  // 1373: ... : range &lines(-1) 1 -6 # remove nonsense
   frame->slots[8] /* temp__4 */ = create_closure(entry__string_template_to_string_67, 0);
-  // 1368: if lines(-1) .has_suffix. "@@nl;@@": range &lines(-1) 1 -6 # remove nonsense
+  // 1373: if lines(-1) .has_suffix. "@@nl;@@": range &lines(-1) 1 -6 # remove nonsense
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__1 */;
@@ -34468,7 +34630,7 @@ static void entry__string_template_to_string_67(void) {
     invalid_arguments_error();
     return;
   }
-  // 1368: ... 1
+  // 1373: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -34483,7 +34645,7 @@ static void cont__string_template_to_string_68(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1368: ... lines(-1)
+  // 1373: ... lines(-1)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -34498,7 +34660,7 @@ static void cont__string_template_to_string_69(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1368: ... 6
+  // 1373: ... 6
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__6;
@@ -34513,7 +34675,7 @@ static void cont__string_template_to_string_70(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 1368: ... range &lines(-1) 1 -6 # remove nonsense
+  // 1373: ... range &lines(-1) 1 -6 # remove nonsense
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -34530,7 +34692,7 @@ static void cont__string_template_to_string_71(void) {
     return;
   }
   frame->slots[4] /* temp__4 */ = arguments->slots[0];
-  // 1368: ... 1
+  // 1373: ... 1
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = number__1;
@@ -34545,7 +34707,7 @@ static void cont__string_template_to_string_72(void) {
     return;
   }
   frame->slots[5] /* temp__5 */ = arguments->slots[0];
-  // 1368: ... &lines(-1)
+  // 1373: ... &lines(-1)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__5 */;
@@ -34572,7 +34734,7 @@ static void cont__string_template_to_string_74(void) {
     invalid_results_error();
     return;
   }
-  // 1369: print_string_literal lines template_is_inline
+  // 1374: print_string_literal lines template_is_inline
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* lines */;
@@ -34594,7 +34756,7 @@ static void entry__compiler__string_literal___to_string(void) {
     invalid_arguments_error();
     return;
   }
-  // 1372: ... node::text_of(self)
+  // 1377: ... node::text_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -34609,7 +34771,7 @@ static void cont__compiler__string_literal___to_string_2(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1372: analyze_string_literal $lines $is_inline node::text_of(self)
+  // 1377: analyze_string_literal $lines $is_inline node::text_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -34625,7 +34787,7 @@ static void cont__compiler__string_literal___to_string_3(void) {
   }
   initialize_future(frame->slots[1] /* lines */, arguments->slots[0]);
   initialize_future(frame->slots[2] /* is_inline */, arguments->slots[1]);
-  // 1373: print_string_literal lines is_inline
+  // 1378: print_string_literal lines is_inline
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* lines */;
@@ -34643,7 +34805,7 @@ static void entry__compiler__unique_item___to_string(void) {
     invalid_arguments_error();
     return;
   }
-  // 1378: ... -> "."
+  // 1383: ... -> "."
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__578a5af303e9ccf;
@@ -34658,7 +34820,7 @@ static void entry__compiler__polymorphic_function__to_string_3(void) {
     invalid_arguments_error();
     return;
   }
-  // 1386: -> "(!)"
+  // 1391: -> "(!)"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__fa732415f216be5;
@@ -34673,7 +34835,7 @@ static void entry__compiler__polymorphic_function__to_string_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 1387: -> "()"
+  // 1392: -> "()"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e6482bec;
@@ -34689,7 +34851,7 @@ static void entry__compiler__polymorphic_function___to_string(void) {
     invalid_arguments_error();
     return;
   }
-  // 1385: self.is_a_setter
+  // 1390: self.is_a_setter
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -34704,10 +34866,10 @@ static void cont__compiler__polymorphic_function___to_string_2(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1384: if
-  // 1385:   self.is_a_setter
-  // 1386:   -> "(!)"
-  // 1387:   -> "()"
+  // 1389: if
+  // 1390:   self.is_a_setter
+  // 1391:   -> "(!)"
+  // 1392:   -> "()"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -34727,7 +34889,7 @@ static void entry__compiler__identifier__to_string_16(void) {
     invalid_arguments_error();
     return;
   }
-  // 1398: ... name_of(self)
+  // 1403: ... name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -34742,7 +34904,7 @@ static void cont__compiler__identifier__to_string_17(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1398: ... -> name_of(self)
+  // 1403: ... -> name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -34759,7 +34921,7 @@ static void entry__compiler__identifier__to_string_12(void) {
     invalid_arguments_error();
     return;
   }
-  // 1397: ... name_of(self)
+  // 1402: ... name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -34774,7 +34936,7 @@ static void cont__compiler__identifier__to_string_13(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1397: ... string('_' name_of(self))
+  // 1402: ... string('_' name_of(self))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = character__95;
@@ -34790,7 +34952,7 @@ static void cont__compiler__identifier__to_string_14(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1397: ... -> string('_' name_of(self))
+  // 1402: ... -> string('_' name_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -34807,7 +34969,7 @@ static void entry__compiler__identifier__to_string_5(void) {
     invalid_arguments_error();
     return;
   }
-  // 1396: ... namespace_of(self)
+  // 1401: ... namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -34822,7 +34984,7 @@ static void cont__compiler__identifier__to_string_6(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1396: ... name_of(self)
+  // 1401: ... name_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -34837,7 +34999,7 @@ static void cont__compiler__identifier__to_string_7(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 1396: ... string(namespace_of(self) "::" name_of(self))
+  // 1401: ... string(namespace_of(self) "::" name_of(self))
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -34854,7 +35016,7 @@ static void cont__compiler__identifier__to_string_9(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1396: -> string(namespace_of(self) "::" name_of(self))
+  // 1401: -> string(namespace_of(self) "::" name_of(self))
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -34871,7 +35033,7 @@ static void entry__compiler__identifier__to_string_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 1395: namespace_of(self)
+  // 1400: namespace_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -34886,7 +35048,7 @@ static void cont__compiler__identifier__to_string_3(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1395: namespace_of(self).is_defined
+  // 1400: namespace_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -34901,11 +35063,11 @@ static void cont__compiler__identifier__to_string_4(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1396: -> string(namespace_of(self) "::" name_of(self))
+  // 1401: -> string(namespace_of(self) "::" name_of(self))
   frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__identifier__to_string_5, 0);
-  // 1394: ->
-  // 1395:   namespace_of(self).is_defined
-  // 1396:   -> string(namespace_of(self) "::" name_of(self))
+  // 1399: ->
+  // 1400:   namespace_of(self).is_defined
+  // 1401:   -> string(namespace_of(self) "::" name_of(self))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -34923,7 +35085,7 @@ static void entry__compiler__identifier__to_string_10(void) {
     invalid_arguments_error();
     return;
   }
-  // 1397: ... self.is_not_used
+  // 1402: ... self.is_not_used
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -34938,9 +35100,9 @@ static void cont__compiler__identifier__to_string_11(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1397: ... -> string('_' name_of(self))
+  // 1402: ... -> string('_' name_of(self))
   frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__identifier__to_string_12, 0);
-  // 1397: -> self.is_not_used -> string('_' name_of(self))
+  // 1402: -> self.is_not_used -> string('_' name_of(self))
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -34958,9 +35120,9 @@ static void entry__compiler__identifier__to_string_15(void) {
     invalid_arguments_error();
     return;
   }
-  // 1398: ... -> name_of(self)
+  // 1403: ... -> name_of(self)
   frame->slots[1] /* temp__1 */ = create_closure(entry__compiler__identifier__to_string_16, 0);
-  // 1398: -> true -> name_of(self)
+  // 1403: -> true -> name_of(self)
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__true();
@@ -34977,20 +35139,20 @@ static void entry__compiler__identifier___to_string(void) {
     invalid_arguments_error();
     return;
   }
-  // 1394: ->
-  // 1395:   namespace_of(self).is_defined
-  // 1396:   -> string(namespace_of(self) "::" name_of(self))
+  // 1399: ->
+  // 1400:   namespace_of(self).is_defined
+  // 1401:   -> string(namespace_of(self) "::" name_of(self))
   frame->slots[1] /* temp__1 */ = create_closure(entry__compiler__identifier__to_string_2, 0);
-  // 1397: -> self.is_not_used -> string('_' name_of(self))
+  // 1402: -> self.is_not_used -> string('_' name_of(self))
   frame->slots[2] /* temp__2 */ = create_closure(entry__compiler__identifier__to_string_10, 0);
-  // 1398: -> true -> name_of(self)
+  // 1403: -> true -> name_of(self)
   frame->slots[3] /* temp__3 */ = create_closure(entry__compiler__identifier__to_string_15, 0);
-  // 1393: cond
-  // 1394:   ->
-  // 1395:     namespace_of(self).is_defined
-  // 1396:     -> string(namespace_of(self) "::" name_of(self))
-  // 1397:   -> self.is_not_used -> string('_' name_of(self))
-  // 1398:   -> true -> name_of(self)
+  // 1398: cond
+  // 1399:   ->
+  // 1400:     namespace_of(self).is_defined
+  // 1401:     -> string(namespace_of(self) "::" name_of(self))
+  // 1402:   -> self.is_not_used -> string('_' name_of(self))
+  // 1403:   -> true -> name_of(self)
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -35016,7 +35178,7 @@ static void entry__compiler__c_code__to_string_2(void) {
     invalid_arguments_error();
     return;
   }
-  // 1411: expression_indent > 0
+  // 1416: expression_indent > 0
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__0;
@@ -35032,11 +35194,11 @@ static void cont__compiler__c_code__to_string_3(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1409: $$buf
-  // 1410:   if
-  // 1411:     expression_indent > 0
-  // 1412:     -> string('@nl;' spaces(expression_indent) "{@nl;")
-  // 1413:     -> "{@nl;"
+  // 1414: $$buf
+  // 1415:   if
+  // 1416:     expression_indent > 0
+  // 1417:     -> string('@nl;' spaces(expression_indent) "{@nl;")
+  // 1418:     -> "{@nl;"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -35054,7 +35216,7 @@ static void entry__compiler__c_code__to_string_4(void) {
     invalid_arguments_error();
     return;
   }
-  // 1412: ... spaces(expression_indent)
+  // 1417: ... spaces(expression_indent)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__expression_indent();
@@ -35069,7 +35231,7 @@ static void cont__compiler__c_code__to_string_5(void) {
     return;
   }
   frame->slots[1] /* temp__2 */ = arguments->slots[0];
-  // 1412: ... string('@nl;' spaces(expression_indent) "{@nl;")
+  // 1417: ... string('@nl;' spaces(expression_indent) "{@nl;")
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = character__10;
@@ -35086,7 +35248,7 @@ static void cont__compiler__c_code__to_string_7(void) {
     return;
   }
   frame->slots[0] /* temp__1 */ = arguments->slots[0];
-  // 1412: -> string('@nl;' spaces(expression_indent) "{@nl;")
+  // 1417: -> string('@nl;' spaces(expression_indent) "{@nl;")
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* temp__1 */;
@@ -35101,7 +35263,7 @@ static void entry__compiler__c_code__to_string_8(void) {
     invalid_arguments_error();
     return;
   }
-  // 1413: -> "{@nl;"
+  // 1418: -> "{@nl;"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__2d7981f4e4d02bcf;
@@ -35115,7 +35277,7 @@ static void cont__compiler__c_code__to_string_9(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* buf */ = arguments->slots[0];
-  // 1415: $indent expression_indent+2
+  // 1420: $indent expression_indent+2
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = get__expression_indent();
@@ -35131,7 +35293,7 @@ static void cont__compiler__c_code__to_string_10(void) {
     return;
   }
   initialize_future(frame->slots[2] /* indent */, arguments->slots[0]);
-  // 1416: $indentation spaces(indent)
+  // 1421: $indentation spaces(indent)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* indent */;
@@ -35146,7 +35308,7 @@ static void cont__compiler__c_code__to_string_11(void) {
     return;
   }
   initialize_future(frame->slots[3] /* indentation */, arguments->slots[0]);
-  // 1417: ... kind_of(self)
+  // 1422: ... kind_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -35161,7 +35323,7 @@ static void cont__compiler__c_code__to_string_12(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1417: ... kind_of(self).is_defined
+  // 1422: ... kind_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -35176,11 +35338,11 @@ static void cont__compiler__c_code__to_string_13(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1417: ... :
-  // 1418:   writeln_to &buf indentation "<kind @(kind_of(self))>"
+  // 1422: ... :
+  // 1423:   writeln_to &buf indentation "<kind @(kind_of(self))>"
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_14, 0);
-  // 1417: if kind_of(self).is_defined:
-  // 1418:   writeln_to &buf indentation "<kind @(kind_of(self))>"
+  // 1422: if kind_of(self).is_defined:
+  // 1423:   writeln_to &buf indentation "<kind @(kind_of(self))>"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -35203,7 +35365,7 @@ static void entry__compiler__c_code__to_string_14(void) {
     invalid_arguments_error();
     return;
   }
-  // 1418: ... kind_of(self)
+  // 1423: ... kind_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* self */;
@@ -35218,7 +35380,7 @@ static void cont__compiler__c_code__to_string_15(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1418: ... "<kind @(kind_of(self))>"
+  // 1423: ... "<kind @(kind_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__4a1f55ee819ae2f7;
@@ -35235,7 +35397,7 @@ static void cont__compiler__c_code__to_string_17(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1418: writeln_to &buf indentation "<kind @(kind_of(self))>"
+  // 1423: writeln_to &buf indentation "<kind @(kind_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -35263,7 +35425,7 @@ static void cont__compiler__c_code__to_string_19(void) {
     invalid_results_error();
     return;
   }
-  // 1419: ... identifier_of(self)
+  // 1424: ... identifier_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -35278,7 +35440,7 @@ static void cont__compiler__c_code__to_string_20(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1419: ... identifier_of(self).is_defined
+  // 1424: ... identifier_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -35293,11 +35455,11 @@ static void cont__compiler__c_code__to_string_21(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1419: ... :
-  // 1420:   writeln_to &buf indentation "<name @(identifier_of(self))>"
+  // 1424: ... :
+  // 1425:   writeln_to &buf indentation "<name @(identifier_of(self))>"
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_22, 0);
-  // 1419: if identifier_of(self).is_defined:
-  // 1420:   writeln_to &buf indentation "<name @(identifier_of(self))>"
+  // 1424: if identifier_of(self).is_defined:
+  // 1425:   writeln_to &buf indentation "<name @(identifier_of(self))>"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -35320,7 +35482,7 @@ static void entry__compiler__c_code__to_string_22(void) {
     invalid_arguments_error();
     return;
   }
-  // 1420: ... identifier_of(self)
+  // 1425: ... identifier_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* self */;
@@ -35335,7 +35497,7 @@ static void cont__compiler__c_code__to_string_23(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1420: ... "<name @(identifier_of(self))>"
+  // 1425: ... "<name @(identifier_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__5a1f552e8192b2f7;
@@ -35352,7 +35514,7 @@ static void cont__compiler__c_code__to_string_25(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1420: writeln_to &buf indentation "<name @(identifier_of(self))>"
+  // 1425: writeln_to &buf indentation "<name @(identifier_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -35380,7 +35542,7 @@ static void cont__compiler__c_code__to_string_27(void) {
     invalid_results_error();
     return;
   }
-  // 1421: ... node_of(self)
+  // 1426: ... node_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -35395,7 +35557,7 @@ static void cont__compiler__c_code__to_string_28(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1421: ... node_of(self).is_defined
+  // 1426: ... node_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -35410,11 +35572,11 @@ static void cont__compiler__c_code__to_string_29(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1421: ... :
-  // 1422:   writeln_to &buf indentation "<node @(node_of(self))>"
+  // 1426: ... :
+  // 1427:   writeln_to &buf indentation "<node @(node_of(self))>"
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_30, 0);
-  // 1421: if node_of(self).is_defined:
-  // 1422:   writeln_to &buf indentation "<node @(node_of(self))>"
+  // 1426: if node_of(self).is_defined:
+  // 1427:   writeln_to &buf indentation "<node @(node_of(self))>"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -35437,7 +35599,7 @@ static void entry__compiler__c_code__to_string_30(void) {
     invalid_arguments_error();
     return;
   }
-  // 1422: ... node_of(self)
+  // 1427: ... node_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* self */;
@@ -35452,7 +35614,7 @@ static void cont__compiler__c_code__to_string_31(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1422: ... "<node @(node_of(self))>"
+  // 1427: ... "<node @(node_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__461f576e8192b2f7;
@@ -35469,7 +35631,7 @@ static void cont__compiler__c_code__to_string_33(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1422: writeln_to &buf indentation "<node @(node_of(self))>"
+  // 1427: writeln_to &buf indentation "<node @(node_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -35497,7 +35659,7 @@ static void cont__compiler__c_code__to_string_35(void) {
     invalid_results_error();
     return;
   }
-  // 1423: ... node::type_of(self)
+  // 1428: ... node::type_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -35512,7 +35674,7 @@ static void cont__compiler__c_code__to_string_36(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1423: ... node::type_of(self).is_defined
+  // 1428: ... node::type_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -35527,11 +35689,11 @@ static void cont__compiler__c_code__to_string_37(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1423: ... :
-  // 1424:   writeln_to &buf indentation "<type @(node::type_of(self))>"
+  // 1428: ... :
+  // 1429:   writeln_to &buf indentation "<type @(node::type_of(self))>"
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_38, 0);
-  // 1423: if node::type_of(self).is_defined:
-  // 1424:   writeln_to &buf indentation "<type @(node::type_of(self))>"
+  // 1428: if node::type_of(self).is_defined:
+  // 1429:   writeln_to &buf indentation "<type @(node::type_of(self))>"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -35554,7 +35716,7 @@ static void entry__compiler__c_code__to_string_38(void) {
     invalid_arguments_error();
     return;
   }
-  // 1424: ... node::type_of(self)
+  // 1429: ... node::type_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* self */;
@@ -35569,7 +35731,7 @@ static void cont__compiler__c_code__to_string_39(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1424: ... "<type @(node::type_of(self))>"
+  // 1429: ... "<type @(node::type_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__6a1f526e819312f7;
@@ -35586,7 +35748,7 @@ static void cont__compiler__c_code__to_string_41(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1424: writeln_to &buf indentation "<type @(node::type_of(self))>"
+  // 1429: writeln_to &buf indentation "<type @(node::type_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -35614,7 +35776,7 @@ static void cont__compiler__c_code__to_string_43(void) {
     invalid_results_error();
     return;
   }
-  // 1425: ... base_of(self)
+  // 1430: ... base_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -35629,7 +35791,7 @@ static void cont__compiler__c_code__to_string_44(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1425: ... base_of(self).is_defined
+  // 1430: ... base_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -35644,11 +35806,11 @@ static void cont__compiler__c_code__to_string_45(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1425: ... :
-  // 1426:   writeln_to &buf indentation "<base @(base_of(self))>"
+  // 1430: ... :
+  // 1431:   writeln_to &buf indentation "<base @(base_of(self))>"
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_46, 0);
-  // 1425: if base_of(self).is_defined:
-  // 1426:   writeln_to &buf indentation "<base @(base_of(self))>"
+  // 1430: if base_of(self).is_defined:
+  // 1431:   writeln_to &buf indentation "<base @(base_of(self))>"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -35671,7 +35833,7 @@ static void entry__compiler__c_code__to_string_46(void) {
     invalid_arguments_error();
     return;
   }
-  // 1426: ... base_of(self)
+  // 1431: ... base_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* self */;
@@ -35686,7 +35848,7 @@ static void cont__compiler__c_code__to_string_47(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1426: ... "<base @(base_of(self))>"
+  // 1431: ... "<base @(base_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__5a1f52ae819272f7;
@@ -35703,7 +35865,7 @@ static void cont__compiler__c_code__to_string_49(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1426: writeln_to &buf indentation "<base @(base_of(self))>"
+  // 1431: writeln_to &buf indentation "<base @(base_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -35731,7 +35893,7 @@ static void cont__compiler__c_code__to_string_51(void) {
     invalid_results_error();
     return;
   }
-  // 1427: ... scope_of(self)
+  // 1432: ... scope_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -35746,7 +35908,7 @@ static void cont__compiler__c_code__to_string_52(void) {
     return;
   }
   frame->slots[6] /* temp__3 */ = arguments->slots[0];
-  // 1427: ... scope_of(self).is_defined
+  // 1432: ... scope_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[6] /* temp__3 */;
@@ -35761,9 +35923,9 @@ static void cont__compiler__c_code__to_string_53(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1427: ... scope_of(self) != "local"
+  // 1432: ... scope_of(self) != "local"
   frame->slots[7] /* temp__4 */ = create_closure(entry__compiler__c_code__to_string_54, 0);
-  // 1427: ... scope_of(self).is_defined && scope_of(self) != "local"
+  // 1432: ... scope_of(self).is_defined && scope_of(self) != "local"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -35782,7 +35944,7 @@ static void entry__compiler__c_code__to_string_54(void) {
     invalid_arguments_error();
     return;
   }
-  // 1427: ... scope_of(self)
+  // 1432: ... scope_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -35797,7 +35959,7 @@ static void cont__compiler__c_code__to_string_55(void) {
     return;
   }
   frame->slots[3] /* temp__3 */ = arguments->slots[0];
-  // 1427: ... scope_of(self) != "local"
+  // 1432: ... scope_of(self) != "local"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__3 */;
@@ -35813,7 +35975,7 @@ static void cont__compiler__c_code__to_string_57(void) {
     return;
   }
   frame->slots[2] /* temp__2 */ = arguments->slots[0];
-  // 1427: ... scope_of(self) != "local"
+  // 1432: ... scope_of(self) != "local"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* temp__2 */;
@@ -35828,7 +35990,7 @@ static void cont__compiler__c_code__to_string_58(void) {
     return;
   }
   frame->slots[1] /* temp__1 */ = arguments->slots[0];
-  // 1427: ... scope_of(self) != "local"
+  // 1432: ... scope_of(self) != "local"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* temp__1 */;
@@ -35842,11 +36004,11 @@ static void cont__compiler__c_code__to_string_59(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1427: ... :
-  // 1428:   writeln_to &buf indentation "<scope @(scope_of(self))>"
+  // 1432: ... :
+  // 1433:   writeln_to &buf indentation "<scope @(scope_of(self))>"
   frame->slots[8] /* temp__5 */ = create_closure(entry__compiler__c_code__to_string_60, 0);
-  // 1427: if scope_of(self).is_defined && scope_of(self) != "local":
-  // 1428:   writeln_to &buf indentation "<scope @(scope_of(self))>"
+  // 1432: if scope_of(self).is_defined && scope_of(self) != "local":
+  // 1433:   writeln_to &buf indentation "<scope @(scope_of(self))>"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -35869,7 +36031,7 @@ static void entry__compiler__c_code__to_string_60(void) {
     invalid_arguments_error();
     return;
   }
-  // 1428: ... scope_of(self)
+  // 1433: ... scope_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[2] /* self */;
@@ -35884,7 +36046,7 @@ static void cont__compiler__c_code__to_string_61(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1428: ... "<scope @(scope_of(self))>"
+  // 1433: ... "<scope @(scope_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__ad7409db1592f0da;
@@ -35901,7 +36063,7 @@ static void cont__compiler__c_code__to_string_63(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1428: writeln_to &buf indentation "<scope @(scope_of(self))>"
+  // 1433: writeln_to &buf indentation "<scope @(scope_of(self))>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -35929,7 +36091,7 @@ static void cont__compiler__c_code__to_string_65(void) {
     invalid_results_error();
     return;
   }
-  // 1429: ... arguments_of(self)
+  // 1434: ... arguments_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -35944,11 +36106,11 @@ static void cont__compiler__c_code__to_string_66(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1429: ... : (argument)
-  // 1430:   writeln_to &buf indentation "<argument @(argument)>"
+  // 1434: ... : (argument)
+  // 1435:   writeln_to &buf indentation "<argument @(argument)>"
   frame->slots[5] /* temp__2 */ = create_closure(entry__compiler__c_code__to_string_67, 1);
-  // 1429: for_each arguments_of(self): (argument)
-  // 1430:   writeln_to &buf indentation "<argument @(argument)>"
+  // 1434: for_each arguments_of(self): (argument)
+  // 1435:   writeln_to &buf indentation "<argument @(argument)>"
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -35970,7 +36132,7 @@ static void entry__compiler__c_code__to_string_67(void) {
     invalid_arguments_error();
     return;
   }
-  // 1430: ... "<argument @(argument)>"
+  // 1435: ... "<argument @(argument)>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = string__3f7af391278ba7e1;
@@ -35987,7 +36149,7 @@ static void cont__compiler__c_code__to_string_69(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1430: writeln_to &buf indentation "<argument @(argument)>"
+  // 1435: writeln_to &buf indentation "<argument @(argument)>"
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -36015,7 +36177,7 @@ static void cont__compiler__c_code__to_string_71(void) {
     invalid_results_error();
     return;
   }
-  // 1431: ... remark_lines_of(self)
+  // 1436: ... remark_lines_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -36030,7 +36192,7 @@ static void cont__compiler__c_code__to_string_72(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1431: ... remark_lines_of(self).is_empty
+  // 1436: ... remark_lines_of(self).is_empty
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -36045,15 +36207,15 @@ static void cont__compiler__c_code__to_string_73(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1431: ... :
-  // 1432:   push &buf '@nl;'
-  // 1433:   for_each remark_lines_of(self): (remark_line)
-  // 1434:     writeln_to &buf indentation "//" remark_line
+  // 1436: ... :
+  // 1437:   push &buf '@nl;'
+  // 1438:   for_each remark_lines_of(self): (remark_line)
+  // 1439:     writeln_to &buf indentation "//" remark_line
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_74, 0);
-  // 1431: unless remark_lines_of(self).is_empty:
-  // 1432:   push &buf '@nl;'
-  // 1433:   for_each remark_lines_of(self): (remark_line)
-  // 1434:     writeln_to &buf indentation "//" remark_line
+  // 1436: unless remark_lines_of(self).is_empty:
+  // 1437:   push &buf '@nl;'
+  // 1438:   for_each remark_lines_of(self): (remark_line)
+  // 1439:     writeln_to &buf indentation "//" remark_line
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -36075,7 +36237,7 @@ static void entry__compiler__c_code__to_string_77(void) {
     invalid_arguments_error();
     return;
   }
-  // 1434: writeln_to &buf indentation "//" remark_line
+  // 1439: writeln_to &buf indentation "//" remark_line
   argument_count = 4;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -36112,7 +36274,7 @@ static void entry__compiler__c_code__to_string_74(void) {
     invalid_arguments_error();
     return;
   }
-  // 1432: push &buf '@nl;'
+  // 1437: push &buf '@nl;'
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -36128,7 +36290,7 @@ static void cont__compiler__c_code__to_string_75(void) {
     return;
   }
   ((CELL *)frame->slots[0])->contents /* buf */ = arguments->slots[0];
-  // 1433: ... remark_lines_of(self)
+  // 1438: ... remark_lines_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* self */;
@@ -36143,11 +36305,11 @@ static void cont__compiler__c_code__to_string_76(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1433: ... : (remark_line)
-  // 1434:   writeln_to &buf indentation "//" remark_line
+  // 1438: ... : (remark_line)
+  // 1439:   writeln_to &buf indentation "//" remark_line
   frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__c_code__to_string_77, 1);
-  // 1433: for_each remark_lines_of(self): (remark_line)
-  // 1434:   writeln_to &buf indentation "//" remark_line
+  // 1438: for_each remark_lines_of(self): (remark_line)
+  // 1439:   writeln_to &buf indentation "//" remark_line
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -36162,7 +36324,7 @@ static void cont__compiler__c_code__to_string_80(void) {
     invalid_results_error();
     return;
   }
-  // 1435: ... source_of(self)
+  // 1440: ... source_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[0] /* self */;
@@ -36177,7 +36339,7 @@ static void cont__compiler__c_code__to_string_81(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1435: ... source_of(self).is_defined
+  // 1440: ... source_of(self).is_defined
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -36192,13 +36354,13 @@ static void cont__compiler__c_code__to_string_82(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1435: ... :
-  // 1436:   if length_of(buf) > 4: writeln_to &buf
-  // 1437:   for_each_line source_of(self): (line) writeln_to &buf indentation line
+  // 1440: ... :
+  // 1441:   if length_of(buf) > 4: writeln_to &buf
+  // 1442:   for_each_line source_of(self): (line) writeln_to &buf indentation line
   frame->slots[6] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_83, 0);
-  // 1435: if source_of(self).is_defined:
-  // 1436:   if length_of(buf) > 4: writeln_to &buf
-  // 1437:   for_each_line source_of(self): (line) writeln_to &buf indentation line
+  // 1440: if source_of(self).is_defined:
+  // 1441:   if length_of(buf) > 4: writeln_to &buf
+  // 1442:   for_each_line source_of(self): (line) writeln_to &buf indentation line
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[4] /* temp__1 */;
@@ -36220,7 +36382,7 @@ static void entry__compiler__c_code__to_string_90(void) {
     invalid_arguments_error();
     return;
   }
-  // 1437: ... writeln_to &buf indentation line
+  // 1442: ... writeln_to &buf indentation line
   argument_count = 3;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -36256,7 +36418,7 @@ static void entry__compiler__c_code__to_string_83(void) {
     invalid_arguments_error();
     return;
   }
-  // 1436: ... length_of(buf)
+  // 1441: ... length_of(buf)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -36271,7 +36433,7 @@ static void cont__compiler__c_code__to_string_84(void) {
     return;
   }
   frame->slots[4] /* temp__2 */ = arguments->slots[0];
-  // 1436: ... length_of(buf) > 4
+  // 1441: ... length_of(buf) > 4
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = number__4;
@@ -36287,9 +36449,9 @@ static void cont__compiler__c_code__to_string_85(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1436: ... : writeln_to &buf
+  // 1441: ... : writeln_to &buf
   frame->slots[5] /* temp__3 */ = create_closure(entry__compiler__c_code__to_string_86, 0);
-  // 1436: if length_of(buf) > 4: writeln_to &buf
+  // 1441: if length_of(buf) > 4: writeln_to &buf
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -36308,7 +36470,7 @@ static void entry__compiler__c_code__to_string_86(void) {
     invalid_arguments_error();
     return;
   }
-  // 1436: ... writeln_to &buf
+  // 1441: ... writeln_to &buf
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[0])->contents /* buf */;
@@ -36334,7 +36496,7 @@ static void cont__compiler__c_code__to_string_88(void) {
     invalid_results_error();
     return;
   }
-  // 1437: ... source_of(self)
+  // 1442: ... source_of(self)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = frame->slots[1] /* self */;
@@ -36349,9 +36511,9 @@ static void cont__compiler__c_code__to_string_89(void) {
     return;
   }
   frame->slots[3] /* temp__1 */ = arguments->slots[0];
-  // 1437: ... : (line) writeln_to &buf indentation line
+  // 1442: ... : (line) writeln_to &buf indentation line
   frame->slots[4] /* temp__2 */ = create_closure(entry__compiler__c_code__to_string_90, 1);
-  // 1437: for_each_line source_of(self): (line) writeln_to &buf indentation line
+  // 1442: for_each_line source_of(self): (line) writeln_to &buf indentation line
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[3] /* temp__1 */;
@@ -36366,7 +36528,7 @@ static void cont__compiler__c_code__to_string_92(void) {
     invalid_results_error();
     return;
   }
-  // 1438: ... spaces(expression_indent)
+  // 1443: ... spaces(expression_indent)
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = get__expression_indent();
@@ -36381,7 +36543,7 @@ static void cont__compiler__c_code__to_string_93(void) {
     return;
   }
   frame->slots[5] /* temp__2 */ = arguments->slots[0];
-  // 1438: ... string(spaces(expression_indent) '}')
+  // 1443: ... string(spaces(expression_indent) '}')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = frame->slots[5] /* temp__2 */;
@@ -36397,7 +36559,7 @@ static void cont__compiler__c_code__to_string_94(void) {
     return;
   }
   frame->slots[4] /* temp__1 */ = arguments->slots[0];
-  // 1438: append &buf string(spaces(expression_indent) '}')
+  // 1443: append &buf string(spaces(expression_indent) '}')
   argument_count = 2;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -36413,7 +36575,7 @@ static void cont__compiler__c_code__to_string_95(void) {
     return;
   }
   ((CELL *)frame->slots[1])->contents /* buf */ = arguments->slots[0];
-  // 1439: -> buf
+  // 1444: -> buf
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = ((CELL *)frame->slots[1])->contents /* buf */;
@@ -36428,7 +36590,7 @@ static void entry__compiler__c_code__to_string_96(void) {
     invalid_arguments_error();
     return;
   }
-  // 1407: -> "{...}"
+  // 1412: -> "{...}"
   argument_count = 1;
   arguments = node_p;
   arguments->slots[0] = string__d65af883e8b9a02a;
@@ -36444,30 +36606,30 @@ static void entry__compiler__c_code___to_string(void) {
     invalid_arguments_error();
     return;
   }
-  // 1404: !statement_tag ALWAYS
+  // 1409: !statement_tag ALWAYS
   set__statement_tag(unique__ALWAYS);
-  // 1408: :
-  // 1409:   $$buf
-  // 1410:     if
-  // 1411:       expression_indent > 0
-  // 1412:       -> string('@nl;' spaces(expression_indent) "{@nl;")
-  // 1413:       -> "{@nl;"
-  // 1414:   
-  // 1415:   $indent expression_indent+2
-  // 1416:   $indentation spaces(indent)
-  // 1417:   if kind_of(self).is_defined:
+  // 1413: :
+  // 1414:   $$buf
+  // 1415:     if
+  // 1416:       expression_indent > 0
+  // 1417:       -> string('@nl;' spaces(expression_indent) "{@nl;")
+  // 1418:       -> "{@nl;"
+  // 1419:   
+  // 1420:   $indent expression_indent+2
+  // 1421:   $indentation spaces(indent)
+  // 1422:   if kind_of(self).is_defined:
   // ...
   frame->slots[1] /* temp__1 */ = create_closure(entry__compiler__c_code__to_string_2, 0);
-  // 1405: if
-  // 1406:   hide_body_statements
-  // 1407:   -> "{...}"
-  // 1408:   :
-  // 1409:     $$buf
-  // 1410:       if
-  // 1411:         expression_indent > 0
-  // 1412:         -> string('@nl;' spaces(expression_indent) "{@nl;")
-  // 1413:         -> "{@nl;"
-  // 1414:     
+  // 1410: if
+  // 1411:   hide_body_statements
+  // 1412:   -> "{...}"
+  // 1413:   :
+  // 1414:     $$buf
+  // 1415:       if
+  // 1416:         expression_indent > 0
+  // 1417:         -> string('@nl;' spaces(expression_indent) "{@nl;")
+  // 1418:         -> "{@nl;"
+  // 1419:     
   // ...
   argument_count = 3;
   arguments = node_p;
@@ -36511,6 +36673,7 @@ EXPORT void phase_2__pretty_printer(void) {
   number__80 = from_uint32(80U);
   character__160 = from_uchar32(160);
   character__96 = from_uchar32(96);
+  character__9472 = from_uchar32(9472);
   character__99 = from_uchar32(99);
   character__688 = from_uchar32(688);
   character__63 = from_uchar32(63);
@@ -36540,6 +36703,7 @@ EXPORT void phase_2__pretty_printer(void) {
   character__41 = from_uchar32(41);
   character__59 = from_uchar32(59);
   number__1 = from_uint32(1U);
+  character__9631 = from_uchar32(9631);
   number__0x9f = from_uint32(159U);
   character__46 = from_uchar32(46);
   number__2 = from_uint32(2U);
@@ -36684,6 +36848,7 @@ EXPORT void phase_2__pretty_printer(void) {
   string__fa720015d416bbc = from_latin_1_string("amp", 3);
   func__escaped_character_21 = create_function(entry__escaped_character_21, 0);
   func__escaped_character = create_function(entry__escaped_character, -1);
+  func__compiler__character_literal__to_string_4 = create_function(entry__compiler__character_literal__to_string_4, 0);
   func__compiler__character_literal___to_string = create_function(entry__compiler__character_literal___to_string, 1);
   string__420aeacb5d007d02 = from_latin_1_string("@nl;", 4);
   string__721f5590811b42ec = from_latin_1_string("@quot;", 6);
@@ -36808,6 +36973,7 @@ EXPORT void phase_4__pretty_printer(void) {
   use_read_only(NULL, "default_value_of", &get__default_value_of, &get_value_or_future__default_value_of);
   use_read_only(NULL, "div", &get__div, &get_value_or_future__div);
   use_read_only(NULL, "do", &get__do, &get_value_or_future__do);
+  use_read_only(NULL, "do_convert", &get__do_convert, &get_value_or_future__do_convert);
   use_read_only(NULL, "do_while", &get__do_while, &get_value_or_future__do_while);
   use_read_only(NULL, "dup", &get__dup, &get_value_or_future__dup);
   use_read_only(NULL, "empty_list", &get__empty_list, &get_value_or_future__empty_list);

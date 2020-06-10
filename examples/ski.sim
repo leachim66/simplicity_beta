@@ -1,0 +1,149 @@
+#!/usr/bin/env simrun
+
+  Copyright (C) 2020 by
+  Dipl.-Ing. Michael Niederle
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, or
+  (at your option) version 3.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  For details of the GNU General Public License see the accompanying
+  files GPLv2.txt and GLPv3.txt or
+  http://www.gnu.org/licenses/gpl-2.0.html
+  http://www.gnu.org/licenses/gpl-3.0.html
+  or write to the
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+#
+  This is a very basic implementation of a skiing video game to be played
+  on a character console.
+
+  This is by purpose only a skeleton of the game - waiting for *you* to develop
+  it into a full fledged action game!
+
+# let's define some colours
+
+$RED rgb_character(255 0 0)
+$BLUE rgb_character(0 0 255)
+$LIGHT_GREY rgb_character(240 240 240)
+
+# we need a pseudo random number generator
+
+$$rng mersenne_twister(4711)
+
+# let's initialize and configure the terminal
+
+initialize_terminal
+set_direct_terminal_input_mode # no input buffering, etc.
+
+# retrieve the terminal's size
+
+$width width_of(current_screen)
+$height height_of(current_screen)
+$mid_x width .div. 2
+$mid_y height .div. 2
+
+$LEFT .
+$RIGHT .
+
+$$gate_mode LEFT
+$$skier_x mid_x
+$$direction 0
+
+# the game's main loop
+
+do: (-> break)
+  from_to 1 150: (t)
+    if mod(t 15) == 1:
+      # compute the gate's position and colour
+
+      $r next(&rng 7 .. 13)
+      $$gate_x undefined
+      $$gate_colour undefined
+      if
+	gate_mode == LEFT:
+	  !gate_x mid_x-r
+	  !gate_colour RED
+	  !gate_mode RIGHT
+	:
+	  !gate_x mid_x+r
+	  !gate_colour BLUE
+	  !gate_mode LEFT
+
+      # draw a barrier to the left of the gate
+
+      from_to 1 gate_x-7: (x)
+	set_text_colour_at x height LIGHT_GREY
+	set_character_at x height 'X'
+
+      # draw the gate
+
+      set_text_colour_at gate_x-6 height gate_colour
+      set_character_at gate_x-6 height 'H'
+      set_text_colour_at gate_x+6 height gate_colour
+      set_character_at gate_x+6 height 'H'
+
+      # draw a barrier to the right of the gate
+
+      from_to gate_x+7 width: (x)
+	set_text_colour_at x height LIGHT_GREY
+	set_character_at x height 'X'
+
+    # check for hitting a gate or some obstacle
+
+    if character_at(skier_x 1) != ' ': exit_with_message "CRASH!"
+
+    # draw a "symbol" for the skier depending on the current direction
+
+    case direction
+      -1:
+	set_character_at skier_x 1 '/'
+      0:
+	set_character_at skier_x 1 '|'
+      1:
+	set_character_at skier_x 1 '\'
+
+    # make all update visible
+
+    update_terminal
+
+    # scroll the whole screen up by one row
+
+    scroll_up
+
+    # wait for a keystroke or until some time has elapsed
+
+    get_key $key 0.08
+
+    # change the skier's direction or quit the game
+
+    case key
+      'a':
+	!direction -1
+      's':
+	!direction 0
+      'd':
+	!direction 1
+      'q':
+	terminate
+
+    # move the skier
+
+    plus &skier_x direction
+
+# we did it!
+
+exit_with_message "SURVIVED!"
+
+$exit_with_message: (msg)
+  at mid_x-(length_of(msg) .div. 2) mid_y
+  draw_text msg
+  update_terminal
+  sleep 3
+  terminate

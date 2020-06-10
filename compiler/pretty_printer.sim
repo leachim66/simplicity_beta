@@ -1098,14 +1098,19 @@ $escaped_character:
 	    -> string('@@' name ';')
 	:
 	  if
-	    chr >= '@0x2b0;' || chr >= '@0x80;' && chr <= '@nbsp;'
-	    -> numerical_encoding()
+	    ||
+	      chr < '@0x80;'
+	      chr >= '@0xa0;' && chr < '@0x2b0;'
+	      chr >= '@0x2500;' && chr < '@0x259f;'
 	    -> chr.to_string
+	    -> numerical_encoding()
 
 $compiler::character_literal/to_string: (self)
   string
     '@apos;'
-    escaped_character(node::value_of(self) self.is_in_numeric_notation)
+    escaped_character
+      node::value_of(self)
+      self.is_in_numeric_notation && not(do_convert)
     '@apos;'
 
 ###

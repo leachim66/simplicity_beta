@@ -172,6 +172,80 @@ $std::background_colour_at:
   )
   -> background_colours_of(current_screen)(y)(x)
 
+$std::scroll_up:
+  #
+    scrolls the contents of the <current_screen> upwards
+
+    Topic: Terminal
+  (
+    delta = 1 # the amount of rows to scroll
+  )
+  $width width_of(current_screen)
+
+  # empty line contents
+
+  $empty_text_lines dup(list(spaces(width)) delta)
+
+  $empty_text_colour_lines
+    dup(list(dup(current_text_colour_of(current_screen).to_string width)) delta)
+
+  $empty_background_colour_lines
+    dup
+      list(dup(current_background_colour_of(current_screen).to_string width))
+      delta
+
+  # move characters
+
+  range &current_screen.characters_of delta+1 -1
+  append &current_screen.characters_of empty_text_lines
+
+  # move text colours
+
+  range &current_screen.text_colours_of delta+1 -1
+  append &current_screen.text_colours_of empty_text_colour_lines
+
+  # move background colours
+
+  range &current_screen.background_colours_of delta+1 -1
+  append &current_screen.background_colours_of empty_background_colour_lines
+
+$std::scroll_down:
+  #
+    scrolls the contents of the <current_screen> downwards
+
+    Topic: Terminal
+  (
+    delta = 1 # the amount of rows to scroll
+  )
+  $width width_of(current_screen)
+
+  # empty line contents
+
+  $empty_text_lines dup(list(spaces(width)) delta)
+
+  $empty_text_colour_lines
+    dup(list(dup(current_text_colour_of(current_screen).to_string width)) delta)
+
+  $empty_background_colour_lines
+    dup
+      list(dup(current_background_colour_of(current_screen).to_string width))
+      delta
+
+  # move characters
+
+  range &current_screen.characters_of 1 -(delta+1)
+  append empty_text_lines &current_screen.characters_of
+
+  # move text colours
+
+  range &current_screen.text_colours_of 1 -(delta+1)
+  append empty_text_colour_lines &current_screen.text_colours_of
+
+  # move background colours
+
+  range &current_screen.background_colours_of 1 -(delta+1)
+  append empty_background_colour_lines &current_screen.background_colours_of
+
 $std::scroll_left:
   #
     scrolls the contents of the <current_screen> leftwards
@@ -194,6 +268,27 @@ $std::scroll_left:
     append range(line 1+delta -1) right_text_colours
   update_each &current_screen.background_colours_of: (line)
     append range(line 1+delta -1) right_background_colours
+
+$std::scroll_right:
+  #
+    scrolls the contents of the <current_screen> rightwards
+
+    Topic: Terminal
+  (
+    delta = 1 # the amount of columns to scroll
+  )
+  $left_text spaces(delta)
+  $left_text_colours dup(current_text_colour_of(current_screen).to_string delta)
+
+  $left_background_colours
+    dup(current_background_colour_of(current_screen).to_string delta)
+
+  update_each &current_screen.characters_of: (line)
+    append left_text range(line 1 -(delta+1))
+  update_each &current_screen.text_colours_of: (line)
+    append left_text_colours range(line 1 -(delta+1))
+  update_each &current_screen.background_colours_of: (line)
+    append left_background_colours range(line 1 -(delta+1))
 
 $std::update_terminal
   #
@@ -508,6 +603,11 @@ $std::draw_text:
   !current_screen.current_row_of row
   !current_screen.current_column_of column
 
+$has_left_connection set('┘' '─' '┴' '┐' '┤' '┬' '┼')
+$has_right_connection set('└' '─' '┴' '┌' '├' '┬' '┼')
+$has_top_connection set('┘' '│' '┤' '└' '┴' '├' '┼')
+$has_bottom_connection set('┐' '│' '┤' '┌' '┬' '├' '┼')
+
 $std::draw_line:
   #
     draws a horizontal or vertical line
@@ -553,81 +653,81 @@ $std::draw_line:
 	    -> ' '
 
 	$prev_chr current_screen.characters_of(y)(x)
-	$$chr '@0x2502;'
+	$$chr '│'
 	case prev_chr
-	  '@0x2500;':
+	  '─':
 	    $left character_left()
 	    $right character_right()
 	    cond
-	      -> left == '@0x2500;' && right != '@0x2500;':
+	      -> has_right_connection(left) && not(has_left_connection(right)):
 		case crossing
-		  '@0x253c;':
-		    !chr '@0x2524;'
-		  '@0x252c;':
-		    !chr '@0x2510;'
-		  '@0x2534;':
-		    !chr '@0x2518;'
-	      -> right == '@0x2500;' && left != '@0x2500;':
+		  '┼':
+		    !chr '┤'
+		  '┬':
+		    !chr '┐'
+		  '┴':
+		    !chr '┘'
+	      -> has_left_connection(right) && not(has_right_connection(left)):
 		case crossing
-		  '@0x253c;':
-		    !chr '@0x251c;'
-		  '@0x252c;':
-		    !chr '@0x250c;'
-		  '@0x2534;':
-		    !chr '@0x2514;'
+		  '┼':
+		    !chr '├'
+		  '┬':
+		    !chr '┌'
+		  '┴':
+		    !chr '└'
 	      -> true: !chr crossing
-	  '@0x250c;':
+	  '┌':
 	    if
-	      crossing == '@0x252c;':
-		!chr '@0x250c;'
+	      crossing == '┬':
+		!chr '┌'
 	      :
-		!chr '@0x251c;'
-	  '@0x251c;':
-	    !chr '@0x251c;'
-	  '@0x2514;':
+		!chr '├'
+	  '├':
+	    !chr '├'
+	  '└':
 	    if
-	      crossing == '@0x2534;':
-		!chr '@0x2514;'
+	      crossing == '┴':
+		!chr '└'
 	      :
-		!chr '@0x251c;'
-	  '@0x2510;':
+		!chr '├'
+	  '┐':
 	    if
-	      crossing == '@0x252c;':
-		!chr '@0x2510;'
+	      crossing == '┬':
+		!chr '┐'
 	      :
-		!chr '@0x2524;'
-	  '@0x2524;':
-	    !chr '@0x2524;'
-	  '@0x2518;':
+		!chr '┤'
+	  '┤':
+	    !chr '┤'
+	  '┘':
 	    if
-	      crossing == '@0x2534;':
-		!chr '@0x2518;'
+	      crossing == '┴':
+		!chr '┘'
 	      :
-		!chr '@0x2524;'
-	  '@0x252c;':
+		!chr '┤'
+	  '┬':
 	    if
-	      crossing == '@0x252c;':
-		!chr '@0x252c;'
+	      crossing == '┬':
+		!chr '┬'
 	      :
-		!chr '@0x253c;'
-	  '@0x2534;':
+		!chr '┼'
+	  '┴':
 	    if
-	      crossing == '@0x2534;':
-		!chr '@0x2534;'
+	      crossing == '┴':
+		!chr '┴'
 	      :
-		!chr '@0x2524;'
-	    !chr '@0x253c;'
-	  '@0x253c;':
-	    !chr '@0x253c;'
+		!chr '┤'
+	    !chr '┼'
+	  '┼':
+	    !chr '┼'
 	!current_screen.characters_of(y)(x) chr
 	if current_text_colour.is_defined:
 	  !current_screen.text_colours_of(y)(x) current_text_colour
 	if current_background_colour.is_defined:
 	  !current_screen.background_colours_of(y)(x) current_background_colour
 
-      draw_vertical_line min_x min_y '@0x252c;'
-      from_to min_y+1 max_y-1: (y) draw_vertical_line min_x y '@0x253c;'
-      draw_vertical_line min_x max_y '@0x2534;'
+      draw_vertical_line min_x min_y '┬'
+      from_to min_y+1 max_y-1: (y) draw_vertical_line min_x y '┼'
+      draw_vertical_line min_x max_y '┴'
     -> min_y == max_y:
       $draw_horizontal_line: (x y crossing)
 	$character_above:
@@ -643,80 +743,80 @@ $std::draw_line:
 	    -> ' '
 
 	$prev_chr current_screen.characters_of(y)(x)
-	$$chr '@0x2500;'
+	$$chr '─'
 	case prev_chr
-	  '@0x2502;':
+	  '│':
 	    $above character_above()
 	    $below character_below()
 	    cond
-	      -> above == '@0x2502;' && below != '@0x2502;':
+	      -> has_bottom_connection(above) && not(has_top_connection(below)):
 		case crossing
-		  '@0x253c;':
-		    !chr '@0x2534;'
-		  '@0x251c;':
-		    !chr '@0x2514;'
-		  '@0x2524;':
-		    !chr '@0x2518;'
-	      -> below == '@0x2502;' && above != '@0x2502;':
+		  '┼':
+		    !chr '┴'
+		  '├':
+		    !chr '└'
+		  '┤':
+		    !chr '┘'
+	      -> has_top_connection(below) && not(has_bottom_connection(above)):
 		case crossing
-		  '@0x253c;':
-		    !chr '@0x252c;'
-		  '@0x251c;':
-		    !chr '@0x250c;'
-		  '@0x2524;':
-		    !chr '@0x2510;'
+		  '┼':
+		    !chr '┬'
+		  '├':
+		    !chr '┌'
+		  '┤':
+		    !chr '┐'
 	      -> true: !chr crossing
-	  '@0x250c;':
+	  '┌':
 	    if
-	      crossing == '@0x251c;':
-		!chr '@0x250c;'
+	      crossing == '├':
+		!chr '┌'
 	      :
-		!chr '@0x252c;'
-	  '@0x252c;':
-	    !chr '@0x252c;'
-	  '@0x2510;':
+		!chr '┬'
+	  '┬':
+	    !chr '┬'
+	  '┐':
 	    if
-	      crossing == '@0x2524;':
-		!chr '@0x2510;'
+	      crossing == '┤':
+		!chr '┐'
 	      :
-		!chr '@0x252c;'
-	  '@0x2514;':
+		!chr '┬'
+	  '└':
 	    if
-	      crossing == '@0x251c;':
-		!chr '@0x2514;'
+	      crossing == '├':
+		!chr '└'
 	      :
-		!chr '@0x2534;'
-	  '@0x2534;':
-	    !chr '@0x2534;'
-	  '@0x2518;':
+		!chr '┴'
+	  '┴':
+	    !chr '┴'
+	  '┘':
 	    if
-	      crossing == '@0x2524;':
-		!chr '@0x2518;'
+	      crossing == '┤':
+		!chr '┘'
 	      :
-		!chr '@0x2534;'
-	  '@0x251c;':
+		!chr '┴'
+	  '├':
 	    if
-	      crossing == '@0x251c;':
-		!chr '@0x251c;'
+	      crossing == '├':
+		!chr '├'
 	      :
-		!chr '@0x253c;'
-	  '@0x2524;':
+		!chr '┼'
+	  '┤':
 	    if
-	      crossing == '@0x2524;':
-		!chr '@0x2524;'
+	      crossing == '┤':
+		!chr '┤'
 	      :
-		!chr '@0x253c;'
-	  '@0x253c;':
-	    !chr '@0x253c;'
+		!chr '┼'
+	  '┼':
+	    !chr '┼'
 	!current_screen.characters_of(y)(x) chr
 	if current_text_colour.is_defined:
 	  !current_screen.text_colours_of(y)(x) current_text_colour
 	if current_background_colour.is_defined:
 	  !current_screen.background_colours_of(y)(x) current_background_colour
 
-      draw_horizontal_line min_x min_y '@0x251c;'
-      from_to min_x+1 max_x-1: (x) draw_horizontal_line x min_y '@0x253c;'
-      draw_horizontal_line max_x min_y '@0x2524;'
+      draw_horizontal_line min_x min_y '├'
+      from_to min_x+1 max_x-1: (x) draw_horizontal_line x min_y '┼'
+      draw_horizontal_line max_x min_y '┤'
     -> true: raise "invalid arguments"
 
 $$terminal undefined
@@ -948,3 +1048,53 @@ $std::rows_and_columns:
     extend_to &longest length
     inc &rows
   -> rows longest
+
+$std::get_key:
+  #
+    wait for a keyboard input event or until the timeout expires
+
+    See also: wait_to, read_from
+  (
+    timeout? # in seconds - a decimal number
+  )
+  $$options empty_list
+  if timeout.is_defined: push &options TIMEOUT = timeout
+  wait_to $event READ_FROM = STDIN_FILENO options*
+  $$input_buffer ""
+  if
+    std::type_of(event) == READ_FROM
+
+    # we got a keystroke
+
+    -> read_from(STDIN_FILENO)(1)
+    -> undefined
+
+$std::set_direct_terminal_input_mode
+  #
+    do-it-all terminal initialization
+
+    Disables key input buffering and input echoing and turns the cursor off.
+
+    The default terminal mode is automatically restored when the program exits.
+
+    See also: get_terminal_attributes, set_terminal_attributes,
+              use_canonical_mode, echo_characters, restore_colours,
+              cursor_on, cursor_off, clear_screen
+  :
+    do:
+      get_terminal_attributes STDIN_FILENO $$attributes
+      use_canonical_mode &attributes false
+      echo_characters &attributes false
+      unless set_terminal_attributes(STDIN_FILENO attributes):
+	Error "Failed to disable canonical input mode!"
+      cursor_off
+    at_exit:
+      restore_colours
+      clear_screen
+      cursor_on
+      get_key $dummy 0
+      get_terminal_attributes STDIN_FILENO $$attributes
+      use_canonical_mode &attributes false
+      echo_characters &attributes true
+      unless set_terminal_attributes(STDIN_FILENO attributes):
+	Error "Failed to reset input mode!"
